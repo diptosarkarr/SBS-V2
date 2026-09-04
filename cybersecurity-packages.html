@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protect Your Website & Email With Our Cybersecurity Services — Sites by Sara</title>
+  <meta name="description"
+    content="Ongoing cybersecurity protection for your brand, email, and online reputation. Dark web leak checks, continuous email security, and free Cyber Score Card by Sites by Sara.">
+
+  <!-- Google Fonts: Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+     DESIGN SYSTEM & TOKENS (SBS Brand Identity & Guidelines)
+     ============================================================ */
+    :root {
+      /* SBS Brand Palette */
+      --brand-blue: #3A539B;
+      --brand-blue-hover: #2F437D;
+      --brand-blue-tint: #EEF2FA;
+      --brand-blue-subtle: #F6F8FD;
+
+      --brand-coral: #ea4e5f;
+      --brand-coral-hover: #d43d4e;
+      --brand-coral-tint: #FDEEEE;
+
+      --brand-peach: #FCEFE5;
+      --brand-peach-hover: #F8E3D4;
+      --brand-peach-tint: #FFF9F5;
+
+      --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+      --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+      /* Neutrals & Text Hierarchy */
+      --navy: #1E2140;
+      --navy-dark: #13152C;
+      --slate: #5F6368;
+      --slate-light: #80868B;
+      --slate-subtle: #9AA0A6;
+
+      /* Borders & Surfaces */
+      --border: #DCE2EE;
+      --border-light: #ECEFF5;
+      --border-card: #DFE4EE;
+
+      --bg-white: #FFFFFF;
+      --bg-light: #F9FAFD;
+      --bg-banner: #FCEFE5;
+      --bg-callout: #FFFBF7;
+
+      /* Utility & Status Accents */
+      --green: #1E8E3E;
+      --green-tint: #E6F4EA;
+      --yellow: #FBBC04;
+      --yellow-tint: #FEF7E0;
+      --coral: #ea4e5f;
+      --coral-tint: #FDEEEE;
+
+      /* Typography */
+      --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+      /* Radii */
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --radius-pill: 9999px;
+
+      /* Shadows */
+      --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+      --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+      --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+      --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+      --shadow-featured: 0 16px 40px -8px rgba(58, 83, 155, 0.22), 0 4px 14px rgba(30, 33, 64, 0.06);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--navy);
+      background-color: var(--bg-white);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    strong,
+    b {
+      font-weight: 600;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================================
+     TYPOGRAPHY STYLES (800 for main titles, 600 for secondary)
+     ============================================================ */
+    .section-header {
+      text-align: center;
+      max-width: 740px;
+      margin: 0 auto clamp(36px, 5vw, 56px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 16px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--coral);
+      display: inline-block;
+    }
+
+    .eyebrow-dot-blue {
+      background-color: var(--brand-blue);
+    }
+
+    .h1-title {
+      font-size: clamp(2.3rem, 1.9rem + 1.8vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.14;
+      letter-spacing: -0.035em;
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+
+    .h2-title {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .h3-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .lead-text {
+      font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
+      color: var(--slate);
+      line-height: 1.65;
+      font-weight: 400;
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font);
+      font-size: 0.98rem;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1.5px solid transparent;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--brand-gradient);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-gradient-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+      color: #FFFFFF;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--brand-blue);
+      border-color: var(--brand-blue);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--brand-peach);
+      border-color: var(--brand-blue);
+      color: var(--brand-blue);
+    }
+
+    /* ============================================================
+     PAGE TITLE BANNER (POLISHED GRADIENT BANNER)
+     ============================================================ */
+    .page-title-banner {
+      position: relative;
+      overflow: hidden;
+      background: var(--brand-gradient);
+      padding: clamp(52px, 6vw, 76px) 24px;
+      text-align: center;
+      color: #FFFFFF;
+      box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+    }
+
+    .page-title-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+      pointer-events: none;
+    }
+
+    .page-title-banner-mesh {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .page-title-banner-mesh::before,
+    .page-title-banner-mesh::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: 0.22;
+      pointer-events: none;
+    }
+
+    .page-title-banner-mesh::before {
+      width: 320px;
+      height: 320px;
+      background: #FFFFFF;
+      top: -120px;
+      left: 8%;
+    }
+
+    .page-title-banner-mesh::after {
+      width: 280px;
+      height: 280px;
+      background: var(--brand-coral);
+      bottom: -80px;
+      right: 10%;
+    }
+
+    .page-title-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 920px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-banner-h1 {
+      font-size: clamp(2.2rem, 4.4vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.16;
+      color: #FFFFFF;
+      letter-spacing: -0.025em;
+      margin: 0 0 12px;
+      text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+    }
+
+    .page-banner-sub {
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.94);
+      letter-spacing: 0.01em;
+      margin: 0;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+    }
+
+    /* ============================================================
+     HERO SECTION
+     ============================================================ */
+    .hero-section {
+      padding: clamp(48px, 6vw, 76px) 0 clamp(40px, 6vw, 70px);
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: center;
+    }
+
+    .hero-left {
+      max-width: 590px;
+    }
+
+    /* Capability Highlights in Hero */
+    .hero-badges-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 22px 0 26px;
+    }
+
+    .hero-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      background: var(--brand-blue-tint);
+      border: 1px solid var(--border);
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--navy);
+      transition: all 0.2s ease;
+    }
+
+    .hero-badge-pill:hover {
+      background: #FFFFFF;
+      border-color: var(--brand-blue);
+      box-shadow: var(--shadow-subtle);
+      transform: translateY(-1px);
+    }
+
+    .hero-badge-pill svg {
+      color: var(--brand-blue);
+      flex-shrink: 0;
+    }
+
+    .hero-tagline-text {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--brand-coral);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero-footnote {
+      font-size: 0.88rem;
+      color: var(--slate-light);
+      margin-top: 24px;
+      line-height: 1.5;
+    }
+
+    .hero-footnote strong {
+      color: var(--slate);
+      font-weight: 600;
+    }
+
+    .hero-visual-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-floating);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      transition: transform 0.3s ease;
+      background: #FFFFFF;
+    }
+
+    .hero-image-card:hover {
+      transform: translateY(-4px);
+    }
+
+    /* ============================================================
+     PARTNERSHIP RIBBON (Advantage IT Alliance)
+     ============================================================ */
+    .partner-ribbon-section {
+      padding: 44px 0 50px;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      background: #FAFAFC;
+    }
+
+    .partner-ribbon-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: clamp(28px, 4vw, 36px) clamp(24px, 4vw, 44px);
+      box-shadow: var(--shadow-subtle);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .partner-content-left {
+      max-width: 760px;
+    }
+
+    .partner-title {
+      font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.85rem);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .partner-desc {
+      font-size: 1.02rem;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+
+    .partner-link {
+      color: var(--brand-blue);
+      font-weight: 600;
+      border-bottom: 1.5px solid rgba(58, 83, 155, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .partner-link:hover {
+      color: var(--brand-blue-hover);
+      border-bottom-color: var(--brand-blue-hover);
+    }
+
+    .partner-badges-right {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      min-width: 240px;
+    }
+
+    .partner-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--brand-blue-tint);
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--brand-blue);
+    }
+
+    /* ============================================================
+     STORY FEATURE: WHAT YOU'LL SEE IN CYBER SCORE CARD
+     ============================================================ */
+    .story-features-section {
+      padding: clamp(60px, 8vw, 110px) 0;
+      background: var(--bg-white);
+    }
+
+    .story-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 7vw, 90px);
+      align-items: center;
+    }
+
+    .story-visual-col {
+      display: flex;
+      justify-content: center;
+    }
+
+    .story-image-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      transition: all 0.3s ease;
+      background: #FFFFFF;
+    }
+
+    .story-image-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .story-text-col {
+      max-width: 540px;
+    }
+
+    .story-title {
+      font-size: clamp(2rem, 1.6rem + 1.2vw, 2.7rem);
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+
+    .story-desc {
+      font-size: 1.05rem;
+      color: var(--slate);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    /* Feature Cards Inside Story */
+    .scorecard-breakdown-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 26px;
+    }
+
+    .scorecard-item-card {
+      display: flex;
+      gap: 16px;
+      padding: 18px 20px;
+      background: var(--bg-light);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      transition: all 0.2s ease;
+    }
+
+    .scorecard-item-card:hover {
+      background: #FFFFFF;
+      border-color: var(--brand-blue);
+      box-shadow: var(--shadow-subtle);
+      transform: translateY(-2px);
+    }
+
+    .scorecard-item-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      box-shadow: var(--shadow-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--brand-blue);
+    }
+
+    .scorecard-item-content h3 {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .scorecard-item-content p {
+      font-size: 0.9rem;
+      color: var(--slate);
+      line-height: 1.5;
+    }
+
+    .story-callout-quote {
+      background: var(--bg-callout);
+      border-left: 3px solid var(--brand-coral);
+      padding: 14px 18px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.92rem;
+      color: #4A3324;
+      line-height: 1.55;
+      margin-bottom: 24px;
+    }
+
+    .story-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--brand-coral);
+      transition: gap 0.2s ease, color 0.2s ease;
+      cursor: pointer;
+    }
+
+    .story-link:hover {
+      gap: 10px;
+      color: var(--brand-coral-hover);
+    }
+
+    /* ============================================================
+     PRICING SECTION (Clean Multi-Plan Grid)
+     ============================================================ */
+    .pricing-section {
+      padding: clamp(70px, 8vw, 110px) 0;
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .pricing-grid-2 {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      max-width: 980px;
+      margin: 0 auto 36px;
+      align-items: stretch;
+    }
+
+    .pricing-card-col {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: clamp(28px, 4vw, 36px) clamp(22px, 3vw, 32px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+
+    .pricing-card-col:hover {
+      border-color: #BDC1C6;
+      box-shadow: var(--shadow-card);
+    }
+
+    .pricing-card-col.is-featured {
+      border: 2px solid var(--brand-blue);
+      box-shadow: var(--shadow-featured);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -13px;
+      left: 28px;
+      background: var(--brand-gradient);
+      color: #FFFFFF;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 5px 16px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 2px 10px rgba(2, 80, 197, 0.28);
+    }
+
+    .plan-name {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .plan-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    .plan-price {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .plan-period {
+      font-size: 0.92rem;
+      color: var(--slate);
+      font-weight: 600;
+    }
+
+    .plan-subtext {
+      font-size: 0.88rem;
+      color: var(--brand-blue);
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+
+    .btn-plan {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-size: 0.98rem;
+      font-weight: 600;
+      padding: 13px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 24px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-plan-primary {
+      background: var(--brand-gradient);
+      color: #FFFFFF;
+      border: none;
+      box-shadow: 0 4px 14px rgba(2, 80, 197, 0.25);
+    }
+
+    .btn-plan-primary:hover {
+      background: var(--brand-gradient-hover);
+      box-shadow: 0 6px 20px rgba(212, 63, 141, 0.35);
+      color: #FFFFFF;
+    }
+
+    .btn-plan-outline {
+      background: transparent;
+      color: var(--brand-blue);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-plan-outline:hover {
+      background: var(--brand-peach);
+      border-color: var(--brand-blue);
+      color: var(--brand-blue);
+    }
+
+    .plan-features-label {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    .plan-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--slate);
+      line-height: 1.5;
+    }
+
+    .plan-features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .plan-features-list li svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .plan-footer-box {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-light);
+      font-size: 0.82rem;
+      color: var(--slate-light);
+      line-height: 1.45;
+      text-align: center;
+    }
+
+    /* Terms Callout Row */
+    .pricing-terms-row {
+      max-width: 980px;
+      margin: 0 auto;
+      background: var(--brand-peach);
+      border: 1.5px solid var(--brand-peach-hover);
+      border-radius: var(--radius-md);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      font-size: 0.92rem;
+      color: #4D3222;
+      text-align: center;
+    }
+
+    /* ============================================================
+     WHY INVEST IN CYBERSECURITY SECTION (3-Col Value Grid)
+     ============================================================ */
+    .why-invest-section {
+      padding: clamp(70px, 8vw, 110px) 0;
+      background: var(--bg-light);
+      border-top: 1px solid var(--border-light);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .pillar-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 32px 26px;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .pillar-card:hover {
+      border-color: var(--brand-blue);
+      box-shadow: var(--shadow-subtle);
+      transform: translateY(-3px);
+    }
+
+    .pillar-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-md);
+      background: var(--brand-blue-tint);
+      color: var(--brand-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .pillar-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .pillar-desc {
+      font-size: 0.92rem;
+      color: var(--slate);
+      line-height: 1.6;
+    }
+
+    /* ============================================================
+     FULL-WIDTH IMPACT QUOTE BANNER
+     ============================================================ */
+    .quote-banner-section {
+      background: var(--brand-gradient);
+      padding: clamp(60px, 7vw, 90px) 24px;
+      text-align: center;
+      color: #FFFFFF;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quote-banner-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .quote-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .quote-text {
+      font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+      text-shadow: 0 3px 18px rgba(2, 40, 100, 0.35);
+      margin-bottom: 16px;
+    }
+
+    .quote-subtext {
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    /* ============================================================
+     FREE SCORE CARD FORM SECTION (Lead Capture Box)
+     ============================================================ */
+    .scorecard-form-section {
+      padding: clamp(70px, 8vw, 110px) 0;
+      background: #FFFFFF;
+    }
+
+    .scorecard-form-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-card);
+      padding: clamp(36px, 5vw, 60px);
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .form-card-left h2 {
+      font-size: clamp(2rem, 1.6rem + 1.2vw, 2.6rem);
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 16px;
+      letter-spacing: -0.025em;
+    }
+
+    .form-card-left p {
+      font-size: 1.05rem;
+      color: var(--slate);
+      line-height: 1.65;
+      margin-bottom: 22px;
+    }
+
+    .form-guarantee-box {
+      background: var(--brand-peach-tint);
+      border: 1px solid var(--brand-peach-hover);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: #553C2D;
+    }
+
+    .form-card-right {
+      background: var(--bg-light);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: clamp(24px, 4vw, 36px);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .form-group label span {
+      color: var(--brand-coral);
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font);
+      font-size: 0.95rem;
+      color: var(--navy);
+      background: #FFFFFF;
+      transition: all 0.2s ease;
+      outline: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--brand-blue);
+      box-shadow: 0 0 0 3px rgba(58, 83, 155, 0.15);
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .form-submit-btn {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .form-privacy-note {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--slate-light);
+      margin-top: 12px;
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ */
+    .cta-banner-section {
+      padding: clamp(60px, 8vw, 100px) 0 clamp(80px, 9vw, 120px);
+      background: var(--bg-white);
+    }
+
+    .cta-banner-box {
+      background: var(--bg-banner);
+      border: 1.5px solid var(--brand-peach-hover);
+      border-radius: var(--radius-xl);
+      padding: clamp(36px, 5vw, 60px);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .cta-banner-left h3 {
+      font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem);
+      font-weight: 600;
+      color: var(--brand-blue);
+      line-height: 1.25;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-banner-left p {
+      font-size: 1.05rem;
+      color: var(--slate);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .prep-card-right {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .prep-card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    .prep-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.88rem;
+      color: var(--slate);
+    }
+
+    .prep-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .prep-list-num {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--brand-blue-tint);
+      color: var(--brand-blue);
+      font-size: 0.78rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+    @media (max-width: 1024px) {
+      .pillars-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .pricing-grid-2 {
+        grid-template-columns: 1fr;
+        max-width: 580px;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .story-row,
+      .scorecard-form-card,
+      .cta-banner-box {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .partner-ribbon-card {
+        grid-template-columns: 1fr;
+      }
+
+      .partner-badges-right {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-title-banner {
+        padding: 48px 18px;
+      }
+
+      .form-row-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .btn-group {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       PAGE TITLE BANNER (POLISHED GRADIENT BANNER)
+       ============================================================ -->
+  <section class="page-title-banner" aria-label="Page Title">
+    <div class="page-title-banner-mesh" aria-hidden="true"></div>
+    <div class="container page-title-inner">
+      <h1 class="page-banner-h1">Protect Your Website &amp; Email With Our Cybersecurity Services</h1>
+      <p class="page-banner-sub">(Ongoing protection for your brand, email, and online reputation)</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Hero Copy -->
+        <div class="hero-left">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Proactive Business Defense
+          </div>
+
+          <h2 class="h1-title">Essential Cybersecurity Service for Your Business</h2>
+
+          <p class="lead-text">
+            We’re rolling out a brand new cybersecurity service to better serve our clients. This offering helps you stay
+            ahead of threats like phishing, impersonation, and data leaks — without adding more to your workload.
+          </p>
+
+          <p class="lead-text" style="margin-top: 14px; font-size: 1rem;">
+            This service layers proactive cybersecurity on top of your existing website and marketing services for a
+            stronger, more secure online presence.
+          </p>
+
+          <!-- Capability Badges -->
+          <div class="hero-badges-row">
+            <div class="hero-badge-pill">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M9 12l2 2 4-4" />
+              </svg>
+              <span>Continuous Email Security</span>
+            </div>
+            <div class="hero-badge-pill">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+              <span>Dark Web Checks for Leaked Passwords</span>
+            </div>
+          </div>
+
+          <div class="hero-tagline-text">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12" />
+            </svg>
+            Simple steps to reduce your risk fast
+          </div>
+
+          <div class="btn-group">
+            <a href="#scorecard-form" class="btn btn-primary sgpb-show-popup sgpb-popup-id-14928"
+              data-sgpbpopupid="14928" data-popup-event="click">
+              Get My Free Cyber Scorecard
+            </a>
+            <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
+          </div>
+
+          <div class="hero-footnote">
+            <strong>Zero obligation.</strong> We scan key areas of your digital footprint to uncover small security
+            exposures before they become critical breaches.
+          </div>
+        </div>
+
+        <!-- Hero Visual Mockup -->
+        <div class="hero-visual-wrap">
+          <div class="hero-image-card">
+            <img src="images/cyber-security-hero.jpg"
+              alt="CyberShield Enterprise Cybersecurity Portal and Real-Time Threat Monitoring" width="600"
+              height="450" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     PARTNERSHIP RIBBON (Advantage IT)
+     ============================================================ -->
+  <section class="partner-ribbon-section">
+    <div class="container">
+      <div class="partner-ribbon-card">
+        <div class="partner-content-left">
+          <div class="eyebrow">
+            <span class="eyebrow-dot eyebrow-dot-blue"></span>
+            Strategic Security Alliance
+          </div>
+          <h2 class="partner-title">Powered by Our Partnership With Advantage IT</h2>
+          <p class="partner-desc">
+            We’ve partnered with <a href="https://advantageitconsulting.com/" target="_blank" rel="noopener"
+              class="partner-link">Advantage IT</a> to help business owners better understand their cybersecurity
+            exposure. Through this partnership, we offer a <strong>Cyber Score Card</strong> — a concise diagnostic report
+            that provides direct insight into how secure your business is online.
+          </p>
+        </div>
+        <div class="partner-badges-right">
+          <div class="partner-badge-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+              <polyline points="22 4 12 14.01 9 11.01" />
+            </svg>
+            <span>Certified IT Assessment</span>
+          </div>
+          <div class="partner-badge-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            <span>Proactive Risk Prevention</span>
+          </div>
+          <div class="partner-badge-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <line x1="12" y1="8" x2="12" y2="12" />
+              <line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+            <span>Zero Workload Overhead</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     STORY FEATURE: WHAT YOU'LL SEE IN YOUR CYBER SCORE CARD
+     ============================================================ -->
+  <section class="story-features-section" id="scorecard">
+    <div class="container">
+      <div class="story-row">
+
+        <!-- Visual Column -->
+        <div class="story-visual-col">
+          <div class="story-image-card">
+            <img src="images/cyber-score-card.jpg"
+              alt="Cyber Score Card Digital Footprint and Risk Assessment Report Mockup" width="520" height="390" />
+          </div>
+        </div>
+
+        <!-- Text Column -->
+        <div class="story-text-col">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Comprehensive Diagnostic
+          </div>
+          <h2 class="story-title">What You’ll See in Your Cyber Score Card</h2>
+          <p class="story-desc">
+            Your Cyber Score Card scans key areas of your digital footprint and highlights where you’re strong — and where
+            you’re exposed. It comprehensively checks:
+          </p>
+
+          <!-- 3 Checkpoints -->
+          <div class="scorecard-breakdown-list">
+
+            <div class="scorecard-item-card">
+              <div class="scorecard-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </div>
+              <div class="scorecard-item-content">
+                <h3>Dark Web Exposure</h3>
+                <p>Find out whether your email accounts or passwords have been leaked or exposed across dark web data
+                  dumps.</p>
+              </div>
+            </div>
+
+            <div class="scorecard-item-card">
+              <div class="scorecard-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </div>
+              <div class="scorecard-item-content">
+                <h3>Email &amp; Domain Security</h3>
+                <p>See if your website and emails have the right cryptographic records (SPF, DKIM, DMARC) to block
+                  impersonation and phishing attempts.</p>
+              </div>
+            </div>
+
+            <div class="scorecard-item-card">
+              <div class="scorecard-item-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="9 11 12 14 22 4" />
+                  <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                </svg>
+              </div>
+              <div class="scorecard-item-content">
+                <h3>Immediate Risk‑Reduction Steps</h3>
+                <p>Get clear, simple, and practical actions you can take right away to significantly lower your risk
+                  without overwhelming your team.</p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="story-callout-quote">
+            <strong>Key Insight:</strong> Most business owners are surprised by what these reports uncover. We often
+            identify small issues that, once fixed, make a huge difference in protecting your data and reputation.
+          </div>
+
+          <a href="#scorecard-form" class="story-link sgpb-show-popup sgpb-popup-id-14928" data-sgpbpopupid="14928"
+            data-popup-event="click">
+            Request your free Cyber Score Card &rarr;
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     PRICING SECTION (Clean Transparent Packages)
+     ============================================================ -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Simple, Transparent Pricing
+        </div>
+        <h2 class="h2-title">Cybersecurity Service Pricing</h2>
+        <p class="lead-text">
+          Enterprise-grade email, website, and credential protection designed specifically for businesses. No long-term
+          commitments.
+        </p>
+      </div>
+
+      <!-- 2 Pricing Columns -->
+      <div class="pricing-grid-2">
+
+        <!-- Col 1: Team Package (Featured) -->
+        <div class="pricing-card-col is-featured">
+          <div class="featured-badge">Most Popular Package</div>
+
+          <div>
+            <h3 class="plan-name">Team Protection Package</h3>
+            <div class="plan-price-row">
+              <span class="plan-price">$147</span>
+              <span class="plan-period">/ month</span>
+            </div>
+            <div class="plan-subtext">Covers up to 3 users (mailboxes) included</div>
+
+            <a href="#scorecard-form" class="btn-plan btn-plan-primary sgpb-show-popup sgpb-popup-id-14928"
+              data-sgpbpopupid="14928" data-popup-event="click">
+              Get Started with Team Defense
+            </a>
+
+            <div class="plan-features-label">Includes full proactive protection:</div>
+            <ul class="plan-features-list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12l2 2 4-4" stroke="#3A539B" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+                <span><strong>Includes up to 3 users (mailboxes)</strong></span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12l2 2 4-4" stroke="#3A539B" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+                <span>Continuous email security &amp; phishing interception</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12l2 2 4-4" stroke="#3A539B" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+                <span>Dark web checks for leaked company passwords</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12l2 2 4-4" stroke="#3A539B" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+                <span>Domain SPF, DKIM, and DMARC verification hardening</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12l2 2 4-4" stroke="#3A539B" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+                <span><strong>+$47/month</strong> for each additional user mailbox</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="plan-footer-box">
+            <strong>No contract.</strong> Month to month. Cancel anytime with 30 days notice.
+          </div>
+        </div>
+
+        <!-- Col 2: Individual Account -->
+        <div class="pricing-card-col">
+          <div>
+            <h3 class="plan-name">Individual Account</h3>
+            <div class="plan-price-row">
+              <span class="plan-price">$57</span>
+              <span class="plan-period">/ month</span>
+            </div>
+            <div class="plan-subtext">Dedicated single user account</div>
+
+            <a href="#scorecard-form" class="btn-plan btn-plan-outline sgpb-show-popup sgpb-popup-id-14928"
+              data-sgpbpopupid="14928" data-popup-event="click">
+              Select Individual Plan
+            </a>
+
+            <div class="plan-features-label">Essential solo protection:</div>
+            <ul class="plan-features-list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12l2 2 4-4" stroke="#1E8E3E" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+                <span>1 dedicated business user mailbox</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12l2 2 4-4" stroke="#1E8E3E" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+                <span>Continuous email security monitoring</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12l2 2 4-4" stroke="#1E8E3E" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+                <span>Personal password &amp; credential breach alerts</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <path d="M9 12l2 2 4-4" stroke="#1E8E3E" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+                <span>Proactive risk remediation walkthrough</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="plan-footer-box">
+            <strong>No contract.</strong> Month to month. Cancel anytime with 30 days notice.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pricing Terms Row -->
+      <div class="pricing-terms-row">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10" />
+          <line x1="12" y1="16" x2="12" y2="12" />
+          <line x1="12" y1="8" x2="12.01" y2="8" />
+        </svg>
+        <span>
+          <strong>Flexible Terms:</strong> No contracts. All services are billed month-to-month. You may cancel anytime
+          with 30 days written notice.
+        </span>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+     WHY INVEST IN CYBERSECURITY SECTION (3 Value Pillars)
+     ============================================================ -->
+  <section class="why-invest-section">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Proactive Defense
+        </div>
+        <h2 class="h2-title">Why Invest in Cybersecurity for Your Online Presence?</h2>
+        <p class="lead-text">
+          Cyber threats are no longer just a “big company” problem. Small and mid‑sized businesses are targeted every day
+          because attackers know that teams rely heavily on email but often lack proper security settings.
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+
+        <!-- Pillar 1 -->
+        <div class="pillar-card">
+          <div class="pillar-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <h3 class="pillar-title">Continuously Monitor &amp; Harden</h3>
+          <p class="pillar-desc">
+            Continuously monitor and harden your website and email security against impersonation, spoofing, and malicious
+            inbound phishing attempts before they enter employee inboxes.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="pillar-card">
+          <div class="pillar-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+          </div>
+          <h3 class="pillar-title">Early Warning Threat Alerts</h3>
+          <p class="pillar-desc">
+            Alert you to potential security issues and leaked dark web passwords before they escalate into costly
+            reputational or operational emergencies.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="pillar-card">
+          <div class="pillar-icon-box">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10" />
+              <line x1="12" y1="20" x2="12" y2="4" />
+              <line x1="6" y1="20" x2="6" y2="14" />
+            </svg>
+          </div>
+          <h3 class="pillar-title">Clear, Ongoing Risk Visibility</h3>
+          <p class="pillar-desc">
+            Provide a crystal-clear, ongoing diagnostic view of your real-time risk level without technical jargon, giving
+            you complete confidence in your digital defenses.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+     IMPACT QUOTE BANNER
+     ============================================================ -->
+  <section class="quote-banner-section">
+    <div class="container quote-inner">
+      <h2 class="quote-text">
+        You wouldn’t leave your office unlocked overnight. Your email deserves the same level of protection.
+      </h2>
+      <p class="quote-subtext">
+        Proactive, layered security shielding your brand, email accounts, and customer trust.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     LEAD CAPTURE FORM (Curious How Your Business Stacks Up?)
+     ============================================================ -->
+  <section class="scorecard-form-section" id="scorecard-form">
+    <div class="container">
+      <div class="scorecard-form-card">
+
+        <!-- Left Copy -->
+        <div class="form-card-left">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Complimentary Security Scan
+          </div>
+          <h2>Curious how your business stacks up?</h2>
+          <p>
+            Just fill out this short form, and we’ll send you a personalized report with our findings. It’s a quick,
+            eye‑opening way to make sure your digital doors are truly locked.
+          </p>
+
+          <div class="form-guarantee-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ea4e5f" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            <span>
+              <strong>Privacy Guarantee:</strong> Once you submit, we’ll send your FREE personalized report right away.
+              Your privacy matters to us! We will never sell your information.
+            </span>
+          </div>
+        </div>
+
+        <!-- Right Form -->
+        <div class="form-card-right">
+          <form action="/contact/" method="POST" id="cyberScorecardForm">
+            <div class="form-group">
+              <label for="sc-name">Full Name <span>*</span></label>
+              <input type="text" id="sc-name" name="name" class="form-control" placeholder="Alex Morgan" required>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="sc-company">Company Name</label>
+                <input type="text" id="sc-company" name="company" class="form-control" placeholder="Acme Studio">
+              </div>
+              <div class="form-group">
+                <label for="sc-website">Company Website</label>
+                <input type="url" id="sc-website" name="website" class="form-control" placeholder="https://acme.com">
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group">
+                <label for="sc-email">Work Email <span>*</span></label>
+                <input type="email" id="sc-email" name="email" class="form-control" placeholder="alex@acme.com" required>
+              </div>
+              <div class="form-group">
+                <label for="sc-phone">Phone Number</label>
+                <input type="tel" id="sc-phone" name="phone" class="form-control" placeholder="(555) 000-1234">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit-btn sgpb-show-popup sgpb-popup-id-14928"
+              data-sgpbpopupid="14928" data-popup-event="click">
+              Get My Free Cyber Scorecard
+            </button>
+
+            <p class="form-privacy-note">
+              Instant diagnostic scan &middot; 100% Confidential &middot; No Credit Card Required
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     FINAL CTA / CONSULTATION BANNER
+     ============================================================ -->
+  <section class="cta-banner-section">
+    <div class="container">
+      <div class="cta-banner-box">
+
+        <div class="cta-banner-left">
+          <h3>Lock Your Digital Doors Before There’s a Problem</h3>
+          <p>
+            With our cybersecurity service and your free Cyber Score Card, you’ll finally have total confidence in your
+            digital security perimeter.
+          </p>
+
+          <a href="#scorecard-form" class="btn btn-primary sgpb-show-popup sgpb-popup-id-14928"
+            data-sgpbpopupid="14928" data-popup-event="click">
+            Get My Free Cyber Scorecard
+          </a>
+        </div>
+
+        <div class="prep-card-right">
+          <div class="prep-card-title">With Your Cyber Score Card, You’ll Get:</div>
+          <ul class="prep-list">
+            <li>
+              <div class="prep-list-num">1</div>
+              <div>
+                <strong>Clarity on Exposure:</strong> Complete view of your current cybersecurity and dark web exposure.
+              </div>
+            </li>
+            <li>
+              <div class="prep-list-num">2</div>
+              <div>
+                <strong>Actionable Guidance:</strong> Expert, prioritized guidance on exactly what to fix first.
+              </div>
+            </li>
+            <li>
+              <div class="prep-list-num">3</div>
+              <div>
+                <strong>Ongoing Scalable Defense:</strong> Continuous protection that expands seamlessly with your
+                business.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>
