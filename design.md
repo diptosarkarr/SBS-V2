@@ -75,17 +75,23 @@ The SBS visual language combines trusted enterprise stability with vibrant, mode
 
 ### 2.2 Type Hierarchy & Scale
 
+> **Important Font Weight Rule:**  
+> Main titles (`h1`, `h2`, `.page-banner-h1`, `.story-title`) strictly use **`font-weight: 800`**.  
+> **All other bold text** (`h3`, `h4`, buttons, prices, eyebrows, badges, status chips, card titles, and `strong`/`b`) must use **`font-weight: 600`** (avoid 700/800 on secondary elements).
+
 | Style | Font Size | Weight | Line Height | Letter Spacing | Color |
 |---|---|---|---|---|---|
 | **Page Banner H1** | `clamp(2.2rem, 4.4vw, 3.2rem)` | `800` | `1.16` | `-0.025em` | `#FFFFFF` |
 | **Page Banner Sub** | `clamp(1.15rem, 2.2vw, 1.45rem)` | `500` | `1.3` | `0.01em` | `rgba(255, 255, 255, 0.94)` |
 | **H1 (Hero Heading)** | `clamp(2.4rem, 2rem + 2vw, 3.8rem)` | `800` | `1.12` | `-0.035em` | `var(--navy)` |
 | **H2 (Section Titles)** | `clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem)` | `800` | `1.2` | `-0.025em` | `var(--navy)` |
-| **H3 (Card Titles)** | `1.2rem - 1.35rem` | `800` | `1.35` | `-0.015em` | `var(--navy)` |
-| **Eyebrow / Kicker** | `0.82rem` (13px) | `800` | `1.4` | `0.08em` (Uppercase) | `var(--slate)` |
+| **H3 (Card Titles / Callouts)** | `1.15rem - 1.35rem` | `600` | `1.35` | `-0.015em` | `var(--navy)` |
+| **Eyebrow / Kicker** | `0.82rem` (13px) | `600` | `1.4` | `0.08em` (Uppercase) | `var(--slate)` |
+| **Buttons & Interactive** | `0.95rem - 0.98rem` | `600` | `1.4` | `normal` | `#FFFFFF` / `var(--navy)` |
+| **Plan Prices & Tags** | `2.1rem / 0.88rem` | `600` | `1` | `normal` | `var(--navy)` / `var(--brand-coral)` |
 | **Lead Paragraph** | `clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem)` | `400` | `1.65` | `normal` | `var(--slate)` |
-| **Body Copy** | `0.98rem` (15.5px) | `400 / 500` | `1.55` | `normal` | `var(--navy)` |
-| **Footnote / Caption**| `0.88rem` (14px) | `400 / 600` | `1.5` | `normal` | `var(--slate-light)` |
+| **Body Copy & Details** | `0.98rem` (15.5px) | `400 / 500` | `1.55` | `normal` | `var(--navy)` |
+| **Footnote & Bold Emphasis** | `0.88rem` (14px) / `<strong>` | `600` | `1.5` | `normal` | `var(--slate)` |
 
 ---
 
