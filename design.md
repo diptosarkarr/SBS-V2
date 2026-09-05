@@ -75,16 +75,18 @@ The SBS visual language combines trusted enterprise stability with vibrant, mode
 
 ### 2.2 Type Hierarchy & Scale
 
-> **Important Font Weight Rule:**  
-> Main titles (`h1`, `h2`, `.page-banner-h1`, `.story-title`) strictly use **`font-weight: 800`**.  
-> **All other bold text** (`h3`, `h4`, buttons, prices, eyebrows, badges, status chips, card titles, and `strong`/`b`) must use **`font-weight: 600`** (avoid 700/800 on secondary elements).
+> **Standardized Title Rule (Font Weight & Size Consistency):**  
+> All main titles (`h1`, `h2`, `.page-banner-h1`, `.h1-title`, `.h2-title`, `.story-title`, `.scorecard-callout-title`, `.quote-text`) strictly use **`font-weight: 700`** and the standardized title size **`clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem)`**.  
+> Colors may vary depending on context (e.g. `#FFFFFF` on the gradient banner, `var(--navy)` on light sections), but font size, weight, and line-height must be **identical across all main titles on all pages**.  
+> **Secondary Bold Elements:** All other bold text (`h3`, `h4`, buttons, prices, eyebrows, badges, status chips, card titles, and `strong`/`b`) must use **`font-weight: 600`**.  
+> **Strict No-Emoji Rule:** Never use emojis anywhere on the site. Always use crisp, scalable inline SVG icons styled with SBS palette tokens.
 
 | Style | Font Size | Weight | Line Height | Letter Spacing | Color |
 |---|---|---|---|---|---|
-| **Page Banner H1** | `clamp(2.2rem, 4.4vw, 3.2rem)` | `800` | `1.16` | `-0.025em` | `#FFFFFF` |
+| **Page Banner H1** | `clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem)` | `700` | `1.2` | `-0.025em` | `#FFFFFF` |
 | **Page Banner Sub** | `clamp(1.15rem, 2.2vw, 1.45rem)` | `500` | `1.3` | `0.01em` | `rgba(255, 255, 255, 0.94)` |
-| **H1 (Hero Heading)** | `clamp(2.4rem, 2rem + 2vw, 3.8rem)` | `800` | `1.12` | `-0.035em` | `var(--navy)` |
-| **H2 (Section Titles)** | `clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem)` | `800` | `1.2` | `-0.025em` | `var(--navy)` |
+| **H1 (Hero Heading)** | `clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem)` | `700` | `1.2` | `-0.025em` | `var(--navy)` |
+| **H2 (Section Titles)** | `clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem)` | `700` | `1.2` | `-0.025em` | `var(--navy)` |
 | **H3 (Card Titles / Callouts)** | `1.15rem - 1.35rem` | `600` | `1.35` | `-0.015em` | `var(--navy)` |
 | **Eyebrow / Kicker** | `0.82rem` (13px) | `600` | `1.4` | `0.08em` (Uppercase) | `var(--slate)` |
 | **Buttons & Interactive** | `0.95rem - 0.98rem` | `600` | `1.4` | `normal` | `#FFFFFF` / `var(--navy)` |
@@ -210,9 +212,9 @@ Placed immediately inside `<body>` before any content section.
   align-items: center;
 }
 .page-banner-h1 {
-  font-size: clamp(2.2rem, 4.4vw, 3.2rem);
-  font-weight: 800;
-  line-height: 1.16;
+  font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.2;
   color: #FFFFFF;
   letter-spacing: -0.025em;
   margin: 0 0 10px;
@@ -332,7 +334,7 @@ Appears above section titles to categorize context:
 </div>
 ```
 - Dot is `7px × 7px` circle with `background-color: var(--coral);` (or `var(--brand-blue)`).
-- Text is `0.82rem`, uppercase, `font-weight: 800`, letter-spacing `0.08em`.
+- Text is `0.82rem`, uppercase, `font-weight: 600`, letter-spacing `0.08em`.
 
 ---
 
@@ -364,7 +366,7 @@ Used for deep feature breakdowns:
 <div class="story-row is-reversed"> ... </div>
 ```
 - **Spacing:** `gap: clamp(40px, 6vw, 80px); margin-bottom: clamp(60px, 8vw, 100px);`
-- **Links (`.story-link`):** `color: var(--brand-coral); font-weight: 700;` transitions to `var(--brand-coral-hover)` with rightward nudge `transform: translateX(4px)`.
+- **Links (`.story-link`):** `color: var(--brand-coral); font-weight: 600;` transitions to `var(--brand-coral-hover)` with rightward nudge `transform: translateX(4px)`.
 
 ---
 
@@ -391,7 +393,7 @@ Used for deep feature breakdowns:
     border-radius: 50%;
     background-color: var(--brand-blue-tint);
     color: var(--brand-blue);
-    font-weight: 800;
+    font-weight: 600;
     display: flex;
     align-items: center;
     justify-content: center;
