@@ -126,11 +126,15 @@ The SBS visual language combines trusted enterprise stability with vibrant, mode
 - **Narrow Content (Headers, FAQs, Centered Copy):** `max-width: 720px; margin: 0 auto;`
 - **Banner / Title Inner:** `max-width: 860px; margin: 0 auto;`
 
+> **Anti-Pattern — Shorthand Padding Overriding Side Padding:** Never add vertical-only spacing to an element that also carries `.container` by writing `padding: <top> 0 <bottom>` (3-value) or `padding: <vertical> 0` (2-value). Both forms explicitly set left/right to `0`, which wins over `.container`'s `padding: 0 24px` (same specificity, later in source order) — the 24px side padding silently disappears. It's masked on wide viewports (the `max-width: 1200px` auto-margin still creates visual breathing room) but breaks completely once the container goes full-width on mobile/tablet, leaving content flush against the screen edge. Always set `padding-top` / `padding-bottom` individually instead, and never touch `padding-left`/`padding-right` on a `.container` element.
+
 ### 4.2 Section Vertical Rhythm
 - **Default Section Padding:** `padding: clamp(70px, 8vw, 110px) 0;`
 - **Tight Section Padding:** `padding: clamp(40px, 5vw, 65px) 0;`
 - **Hero Section:** `padding: clamp(48px, 6vw, 76px) 0 clamp(40px, 6vw, 70px);`
 - **Page Title Banner:** `padding: clamp(52px, 6vw, 76px) 24px;`
+
+> **Anti-Pattern — Stacked Whitespace:** Two consecutive sections that are both plain white with no border/background change will double up their `.section-space` padding (bottom of one + top of the next), producing up to ~220px of dead space. This is especially visible when the first section ends in something visually light (a disclaimer line, a small note). When that happens, override `padding-bottom` on the first section to a smaller explicit value (e.g. `clamp(30px, 4vw, 50px)`) instead of leaving the default `section-space` value on both sides.
 
 ---
 
@@ -371,13 +375,22 @@ Used for deep feature breakdowns:
 ---
 
 ### 5.6 Pricing Grid & Cards (4-Col or 3-Col)
-- Outer container has subtle border and card radius (`--radius-lg: 24px`).
+- Outer container has subtle border and card radius (`--radius-lg: 24px`), typically wrapped in a `.pricing-outer-container` (white surface, `--border-card`, `--shadow-card`, generous internal padding) that also holds the shared top bar, included-inclusions note, dividers, and any secondary offer box for the same pricing section.
 - **Featured Card (`.is-featured`):**
   - Relative elevation with gradient top badge (`Most Popular` / `Recommended`).
   - Outline with `var(--brand-blue)` and subtle floating box-shadow.
   - Primary button (`btn-plan-primary`).
   - Feature checkmarks tinted in brand blue (`#3A539B`).
 - **Standard Cards:** Clean white surface, gray border, green checkmarks (`#1E8E3E`), outline button.
+- **Every card must contain its own `plan-features-label` + `plan-features-list`.** Do not hoist shared inclusions (e.g. "Mobile-responsive", "Training included") into one shared row below the grid — put them inside each card, even when the same 3–4 bullets repeat across every tier. A shared row below the grid reads as incomplete/unfinished on review.
+- **Badge honesty rule:** Only give a card a `featured-badge` when you have a literal, factual descriptor for it — either the source data names it that way (e.g. `Services-info.html` literally says `"Standard (Most Popular)"`), or the descriptor is objectively true and derivable from the data itself (e.g. `"Fewest Pages"`, `"Single-Page Store"`). Never invent a popularity/value claim (`"Most Popular"`, `"Best Value"`, `"Most Common Starting Point"`) that isn't stated in the source.
+- Standard class names to reuse verbatim across pages: `pricing-grid-4`, `pricing-card-col`, `featured-badge`, `plan-name`, `plan-price-row`, `plan-price`, `plan-period`, `plan-subtext`, `plan-features-label`, `plan-features-list`, `btn-plan` / `btn-plan-primary` / `btn-plan-outline`. Don't rename these per page — consistency across pages matters more than a locally "nicer" name.
+
+#### 5.6.1 Collapsible Full Tier Breakdown (Many-Tier Services)
+Some services (e.g. a page-count-scaled WordPress build) have far more pricing tiers than fit cleanly in a 4-card grid — rendering all of them as flat rows reads as a wall of text and was flagged as looking "weird" on review. For any service with **more than ~4 tiers**:
+1. Group the tiers into 3–4 representative cards using the standard pricing-card pattern above. Use the source's own named tiers where given (e.g. `"Starter"`, `"Standard"`), and a literal quantity/page range as the card title where the source has no name (e.g. `"21–100 Pages"`) — never invent a category name like "Growth" or "Enterprise" that isn't in the source.
+2. For a grouped/ranged card, show **"Starting at $X"** using the true lowest price inside that bracket. Never average, round, or invent a number.
+3. Preserve every exact tier by putting the full breakdown inside a `<details class="pricing-breakdown-details">` / `<summary class="pricing-breakdown-summary">` disclosure below the grid, reusing the FAQ accordion's visual language (rotating `+` → `×` icon via `details[open] .pricing-breakdown-icon`, `::-webkit-details-marker` hidden). Nothing is lost — it's deferred, not deleted.
 
 ### 5.7 Addon Services Grid
 - 2x2 or 4-column clean card grid with `--bg-light` or pure white.
@@ -426,6 +439,49 @@ Used for deep feature breakdowns:
 
 ---
 
+### 5.11 Services Directory Grid (All-Services Page)
+Used on the top-level `all-services.html` index that lists every landing page as a card. Card content order is fixed: **icon → title → short description → price range → "See More" button.**
+
+```html
+<div class="service-directory-card">
+  <div class="service-directory-icon">
+    <svg><!-- niche-relevant icon, 24-26px --></svg>
+  </div>
+  <h3 class="service-directory-title">Service Name</h3>
+  <p class="service-directory-desc">One or two sentences, pulled from that page's own hero/meta description — never new copy invented for the directory.</p>
+  <div class="service-directory-price-row">
+    <span class="service-directory-price-label">Price Range</span>
+    <span class="service-directory-price-value">$X – $Y</span>
+  </div>
+  <a href="service-page.html" class="service-directory-btn">See More</a>
+</div>
+```
+
+- Grid is `repeat(3, 1fr)` on desktop — **3 cards per row, not 2 or 4** — collapsing to `repeat(2, 1fr)` at `≤1024px` and `1fr` at `≤600px`.
+- When the card count isn't a multiple of 3, center the remainder row instead of leaving it left-aligned: e.g. for 4 cards, target the last card with `grid-column: 2;` at desktop so it centers under the middle column on its own row. Reset to `grid-column: auto;` inside the ≤1024px breakpoint where the grid drops to 2 columns.
+- The description and price range must be pulled from the linked page's own content (hero copy, meta description, pricing section) — the directory is a summary, not a new source of claims.
+- Every time a new service landing page is added, add its card here in the same pass — the directory must stay in sync with the set of pages that exist.
+
+---
+
+### 5.12 Site Footer
+Standalone reusable component, built in its own `footer.html` file (same pattern as `title-banner.html`) — not spliced into the individual landing pages by default.
+
+**Design Standard — light, 4-column grid with vertical link lists. Not a dark mega-footer, not a single flattened row either — both were tried and corrected on client review.**
+- Light surface (`--bg-light: #F9FAFD`) with a `1px solid var(--border-light)` top border as the only separation from page content above.
+- **4-column grid on desktop** (`1.3fr 1fr 1fr 1.1fr`):
+  1. **Brand** — real image logo (`<img>`, not styled text), one-sentence description, all 7 of the live site's social links (Facebook, Instagram, Twitter, Pinterest, LinkedIn, YouTube, TikTok) as small circular icons in a `flex-wrap` row — match the live site's actual social link set exactly rather than curating it down; use the link's real destination even if the live site's own CSS class name for it is mislabeled (e.g. its "TikTok" link is classed `social medium` on the live site — go by the href, not the class).
+  2. **Services** — vertical link list to every landing page, ending in a bold coral "View All Services →".
+  3. **Company** — vertical link list (About Us, Portfolio, Awards, Blog, Contact).
+  4. **Get in Touch** — in this exact order: the site's actual `book-free-consultation.jpg` promo image (sized large enough to keep its own baked-in "Book a Free Consultation" text legible — 140px, not a small icon-sized crop), then phone, then email, each on its own line below the image.
+- A too-sparse 4-link single row and an over-cropped 56px version of the same image were both tried first and corrected — the working balance is the full column layout above with the promo image large enough to read.
+- Below a second hairline divider: a compact bottom bar with the copyright/DBA disclosure line on the left and Terms of Service / Privacy Policy on the right.
+- Collapses to 2 columns at `≤992px`, 1 column at `≤600px`.
+- Every link must be a real, confirmed URL — verified against the live site's actual nav/footer hrefs, never guessed. Internal links to our own pages use relative filenames (`all-services.html`); everything else points at the confirmed live `sitesbysara.com` path.
+- **Logo:** use the real brand logo image, not styled text — pulled from the live site's actual asset URL. If the source PNG has a baked-in light background (not transparent), placing it on an equally light footer background needs no extra framing; only wrap it in a white card if the footer surface is dark enough to clash.
+
+---
+
 ## 6. Image Standards & Asset Guidelines
 
 To ensure every page looks cohesive, executive, and custom-built:
@@ -443,10 +499,97 @@ To ensure every page looks cohesive, executive, and custom-built:
    - Clean, bright UI aesthetic with white surfaces and soft studio lighting.
    - Accents in screenshots/mockups should echo SBS colors (`#3A539B` blue, `#ea4e5f` coral).
    - Enclosed inside `.hero-image-card` or `.story-image-card` with `border: 1px solid var(--border-light); border-radius: 20px; box-shadow: var(--shadow-card);`.
+5. **No Third-Party Brand Names:** Generated images must never show any other brand, company, or product name/logo — no placeholder store names, no third-party payment-provider logos, no fake competitor branding. If a mockup needs a visible site/brand name at all, it must read **"Sites By Sara"** and nothing else.
+6. **We never generate images ourselves** — every image referenced on a page is a **prompt handed to the user** to generate and place. When building a page:
+   - Write an explicit prompt per image covering: subject/mockup content, aspect ratio (4:3 per the rules above), the SBS accent colors to echo, lighting/style, and the no-other-brand-names clause from point 5.
+   - Point `<img src>` at the placeholder WordPress upload path already used across pages — `https://sitesbysara.com/wp-content/uploads/2026/09/{filename}.webp` — so the markup is upload-ready even before the asset exists.
+   - Tell the user the exact filename to save a local mirror as under `images/{filename}.jpg`, matching the convention of existing local assets (`custom-web-dev-hero.jpg`, `cyber-security-hero.jpg`, `cyber-score-card.jpg`).
+   - Never fabricate a placeholder (no stock photo URLs, no unrelated existing image reused for a different service). A missing/broken image icon in preview is expected and correct until the real asset is generated.
 
 ---
 
-## 7. Responsive Breakpoints & Mobile Rules
+## 7. SEO Best Practices
+
+Every page must be built SEO-ready from the first draft — not patched in afterward. This applies to every page listed in `build-guide.md` §1.4, including the directory page.
+
+### 7.1 Title Tags
+- One `<title>` per page, unique across the site, format: `{Service/Page Name} — {Optional Differentiator} — Sites by Sara`.
+- Keep to **≤60 characters** where possible so it doesn't truncate in search results.
+- Lead with the service name (the keyword a customer would search), not the brand — the brand suffix comes last.
+
+### 7.2 Meta Descriptions
+- One unique `<meta name="description">` per page, **150–160 characters**.
+- Summarize the concrete offer (what it is, key scope/price signal) rather than generic marketing fluff — it should read like a compressed version of the hero's lead paragraph, grounded in the same facts.
+
+### 7.3 Heading Hierarchy
+- **Exactly one `<h1>` per page** — the `.page-banner-h1` inside the title banner. Never add a second `<h1>` anywhere else on the page (hero headings, story titles, etc. are all `<h2>`).
+- Don't skip levels (no `<h3>` directly under an `<h2>`-less section). Card/callout titles inside a section use `<h3>`; nothing goes deeper than `<h4>`.
+- Heading text should contain the actual service/topic keywords naturally (as all existing hero/section titles already do) rather than generic labels like "Our Services" with no topic word.
+
+### 7.4 Image Alt Text
+- Every `<img>` gets a specific, descriptive `alt` — describe what the mockup actually depicts (e.g. `"Shopify Product Catalog Admin Screen Mockup"`), not the filename, not "image", not empty.
+- Decorative-only elements (mesh/blob pseudo-elements, icon-only SVGs already labeled by adjacent text) don't need alt text — they're CSS backgrounds or inline SVGs, not `<img>` tags, so this rarely comes up; if it does, use `aria-hidden="true"` instead of a redundant alt.
+- Never reuse one generic alt string across multiple different images on the same page.
+
+### 7.5 Structured Data (JSON-LD)
+Add machine-readable structured data in `<head>` for every service landing page:
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Exact Service Name",
+  "provider": { "@type": "Organization", "name": "Sites by Sara" },
+  "description": "One-sentence grounded description, same facts as the meta description.",
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "USD",
+    "lowPrice": "<true lowest number shown anywhere on the page>",
+    "highPrice": "<true highest number shown anywhere on the page>"
+  }
+}
+</script>
+```
+
+If the page has a FAQ section, also add `FAQPage` structured data whose `Question`/`acceptedAnswer` text **mirrors the visible FAQ content verbatim or near-verbatim** — schema must never diverge from what a visitor actually sees on the page:
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Exact visible question text",
+      "acceptedAnswer": { "@type": "Answer", "text": "Exact visible answer text" }
+    }
+  ]
+}
+</script>
+```
+
+- `lowPrice`/`highPrice` must be real numbers already printed on the page — never invented or estimated.
+- Don't add `url`, `@id`, `image`, or Open Graph (`og:url`, `og:image`) properties that would require a production domain path or a generated asset that doesn't exist yet. Add those only once the page is actually published and its final URL/image are known — a placeholder or guessed URL here is a fabricated fact, not a real one. `og:title`/`og:description` are safe to add early since they just mirror the title tag and meta description.
+
+### 7.6 Internal Linking
+- Every service page must link to `all-services.html` (a small "← Browse All Services" link near the footer/end of the page is sufficient).
+- Cross-link **peer/alternative services** where a visitor would naturally want the option — e.g. the WooCommerce and Shopify pages link to each other ("Prefer a WordPress-based store instead? See our WooCommerce Stores page.") since they're two platform choices for the same underlying need.
+- Use descriptive anchor text (the actual service/page name), never "click here" or "learn more" with no context.
+
+### 7.7 Performance Signals That Affect SEO
+- Every `<img>` has explicit `width`/`height` attributes (already required by §6) — this prevents layout shift (CLS), a ranking factor.
+- Hero image loads eagerly (`loading="eager"` or no `loading` attribute); below-the-fold images (portfolio grids, story rows further down the page) use `loading="lazy"`.
+- Font loading already uses `preconnect` + a single Google Fonts request (§2.1) — don't add additional font families or extra font-weight requests without reason.
+
+### 7.8 URLs & Filenames
+- Filenames are kebab-case and describe the service (`shopify-ecommerce-store.html`, not `page3.html` or `new-landing.html`).
+- If/when a page is published to WordPress, its slug should mirror the filename's naming pattern so the URL itself carries the keyword.
+
+---
+
+## 8. Responsive Breakpoints & Mobile Rules
 
 ```css
 /* Tablet Landscape & Below */
@@ -500,14 +643,23 @@ To ensure every page looks cohesive, executive, and custom-built:
 
 ---
 
-## 8. Page Construction Checklist for New Pages
+## 9. Page Construction Checklist for New Pages
 
 When creating any new page for SBS:
 - [ ] Has Manrope typography linked and set on `body`.
 - [ ] Uses exact CSS variables from `:root`.
 - [ ] Starts with `.page-title-banner` using `--brand-gradient` (clean H1 + subtitle, without badge).
 - [ ] Uses `.btn-primary` with gradient fill and `.btn-outline` with blue border.
+- [ ] Hero's secondary button links to `#pricing` and reads "View Pricing & Plans" — pricing must always be reachable from the hero.
 - [ ] Alternating feature rows use `.is-reversed` on even rows.
-- [ ] All images are unique, niche-specific, `4:3` ratio, and saved in `images/` or dev server URLs.
+- [ ] Every price, feature bullet, and requirement note traces back to an exact line in `Services-info.html` — nothing invented. See `build-guide.md` §2 for the full zero-assumption rule.
+- [ ] Pricing cards each carry their own `plan-features-list` (§5.6) — no shared "included everywhere" row below the grid.
+- [ ] Any service with more than ~4 pricing tiers uses the grouped-cards + collapsible-breakdown pattern (§5.6.1), not a flat list of rows.
+- [ ] No fabricated "Most Popular"/"Best Value" badges — only labels the source data states or that are objectively derivable.
+- [ ] All images are unique, niche-specific, `4:3` ratio, contain no third-party brand names, and are handed off as generation prompts (§6) — not fabricated.
 - [ ] No standalone `<header>` or `<footer>` if creating Elementor body templates.
-- [ ] Includes SEO title tag, meta description, and unique IDs on interactive sections.
+- [ ] **SEO (§7):** unique `<title>` (≤60 chars) and `<meta description>` (150–160 chars); exactly one `<h1>`; every `<img>` has a specific descriptive `alt` plus `width`/`height`; `Service` (and `FAQPage`, if the page has a FAQ) JSON-LD added with real on-page numbers only; links to `all-services.html` and any natural peer/alternative service page.
+- [ ] Page previewed in-browser at desktop width — every section scrolled through, any accordion/`<details>` clicked at least once.
+- [ ] `all-services.html` gets a new card for this page in the same pass (§5.11) — title, grounded short description, grounded price range, "See More" button.
+
+> For the full research/process checklist (what to read before starting, how to combine multiple services into one page, the image handoff workflow), see **`build-guide.md`** — that file governs *how a page gets built*; this file governs *how it looks*.

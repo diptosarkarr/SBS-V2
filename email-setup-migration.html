@@ -12,6 +12,83 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- SEO: Service structured data (see design.md §7) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Google Workspace and Microsoft 365 Setup & Migration",
+    "provider": {
+      "@type": "Organization",
+      "name": "Sites by Sara"
+    },
+    "description": "One-stop Google Workspace and Microsoft 365 setup, DNS configuration, and zero-loss mailbox data migration.",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "29",
+      "highPrice": "500"
+    }
+  }
+  </script>
+  <!-- SEO: FAQPage structured data — mirrors the visible FAQ section verbatim -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do we have to migrate every single email account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. For cost efficiency, we usually recommend migrating only the accounts that need full historical archives (inbox, sent, folders). Less critical or inactive addresses can be set up fresh or configured as free email aliases."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does domain verification & DNS propagation take?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Domain verification and record propagation take anywhere from a few minutes up to 24-48 hours depending on your domain registrar. Because we pre-configure your records, there is zero downtime for incoming email."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if we are a new business setting up email for the first time?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you are starting fresh and do not require data migration from an existing provider, our Domain & Account Setup runs at a discounted flat rate of $350, covering your first 3 accounts and complete DNS/SPF/DKIM/DMARC configuration."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between an email account and an alias?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "An account is a full mailbox with its own login and monthly software license. An alias is a forwarding address (like sales@yourcompany.com) that forwards messages into an existing account at no extra monthly license fee."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does \"Send Mail and Reply As Another Alias\" work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If one user wants to send and reply as billing@yourcompany.com or support@yourcompany.com directly from her inbox, we configure \"Send Mail As\" and \"Check Mail From\" permissions for $129 each, so she only pays for 1 software license instead of 3."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you support Microsoft 365 as well as Google Workspace?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The exact same professional domain verification, DNS hardening (SPF, DKIM, DMARC), user configuration, and data migration applies to both Google Workspace and Microsoft 365."
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     /* ============================================================
      DESIGN SYSTEM & TOKENS (Google Workspace Clean Aesthetic)
@@ -724,6 +801,44 @@
       margin-top: 24px;
     }
 
+    .pricing-inline-link {
+      text-align: center;
+      font-size: 0.92rem;
+      color: var(--slate);
+      margin-top: 16px;
+    }
+
+    .pricing-inline-link a {
+      color: var(--brand-blue);
+      font-weight: 600;
+      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .pricing-inline-link a:hover {
+      color: var(--brand-blue-hover);
+      border-color: var(--brand-blue-hover);
+    }
+
+    .browse-all-services-link {
+      text-align: center;
+      padding: 0 0 clamp(50px, 6vw, 70px);
+      font-size: 0.95rem;
+      color: var(--slate);
+    }
+
+    .browse-all-services-link a {
+      color: var(--brand-blue);
+      font-weight: 600;
+      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .browse-all-services-link a:hover {
+      color: var(--brand-blue-hover);
+      border-color: var(--brand-blue-hover);
+    }
+
     /* ============================================================
      DETAILED BREAKDOWN: WHAT WE DO (8-Step Scope)
      ============================================================ */
@@ -1136,7 +1251,7 @@
         <!-- Hero Visual Mockup -->
         <div class="hero-visual-wrap">
           <div class="hero-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/hero-workspace.webp"
+            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/hero-workspace-1.webp"
               alt="Google Workspace and Microsoft 365 Cloud Migration Status Dashboard" width="600" height="450" />
           </div>
         </div>
@@ -1522,6 +1637,11 @@
         software licenses are billed directly by Google or Microsoft.
       </p>
 
+      <p class="pricing-inline-link">
+        Already have email set up? Protect it with our <a href="cybersecurity-packages.html">Cybersecurity
+          Services</a>.
+      </p>
+
     </div>
   </section>
 
@@ -1628,7 +1748,7 @@
         </div>
         <div class="story-visual-col">
           <div class="story-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/custom-email.webp"
+            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/custom-email-1.webp"
               alt="Custom business email interface with domain aliases" width="520" height="390" />
           </div>
         </div>
@@ -1650,7 +1770,7 @@
         </div>
         <div class="story-visual-col">
           <div class="story-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/laptop-meeting.webp"
+            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/laptop-meeting-1.webp"
               alt="Zero data loss cloud email and file migration visual" width="520" height="390" />
           </div>
         </div>
@@ -1672,7 +1792,7 @@
         </div>
         <div class="story-visual-col">
           <div class="story-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/scale-team.webp"
+            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/scale-team-1.webp"
               alt="Team mailbox management and catch-all routing console" width="520" height="390" />
           </div>
         </div>
@@ -1824,6 +1944,10 @@
       </div>
     </div>
   </section>
+
+  <div class="browse-all-services-link">
+    <a href="all-services.html">← Browse All Services</a>
+  </div>
 
 </body>
 

@@ -13,6 +13,83 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- SEO: Service structured data (see design.md §7) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Custom WordPress Website Development",
+    "provider": {
+      "@type": "Organization",
+      "name": "Sites by Sara"
+    },
+    "description": "Custom WordPress website design and development, scoped by page count, plus ongoing hosting and maintenance plans.",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "3500",
+      "highPrice": "45000"
+    }
+  }
+  </script>
+  <!-- SEO: FAQPage structured data — mirrors the visible FAQ section verbatim -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Why should I choose custom WordPress website design over a pre-made template or DIY builder?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Custom WordPress websites offer a level of personalization, architectural flexibility, and brand distinctiveness that pre-made templates or DIY website builders simply cannot match. A custom WordPress site is engineered specifically to align with your brand, deliver superior user experiences, rank higher in Google searches, and scale effortlessly as your business grows."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to develop a custom WordPress website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The development timeline varies based on project complexity, page count, and custom features. Typically, a standard custom WordPress website takes between 4 to 8 weeks from initial discovery to final launch. More extensive websites may take 8 to 12 weeks."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I update content on my custom WordPress website myself?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Our custom WordPress websites use a clean Content Management System (CMS) implementation with the native WordPress Block Editor (Gutenberg), so you can update text, swap images, and publish new content without coding knowledge. We also provide full training and recorded video walkthroughs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will my custom WordPress website be mobile-friendly?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Every custom website we design is 100% mobile-responsive, built from a mobile-first perspective and tested on phones, tablets, and desktop displays."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is SEO handled for my custom WordPress website?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We build clean semantic HTML5 markup, implement OpenGraph and schema metadata, optimize Core Web Vitals, generate XML sitemaps, and integrate industry-standard SEO plugins such as Yoast SEO or Rank Math."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is my custom WordPress website secure from cyber threats?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We implement enterprise security protocols, including hardened wp-config rules, brute-force login protection, SSL/HTTPS enforcement, and automated database backups. Our Peace of Mind ongoing maintenance plan also offers security monitoring and patch management."
+        }
+      }
+    ]
+  }
+  </script>
+
   <style>
     /* ============================================================
      DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
@@ -240,6 +317,44 @@
 
     .btn-outline:hover {
       background-color: var(--brand-peach);
+      border-color: var(--brand-blue);
+      color: var(--brand-blue);
+    }
+
+    .btn-plan {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-family: var(--font);
+      font-size: 0.92rem;
+      font-weight: 700;
+      padding: 11px;
+      border-radius: var(--radius-pill);
+      transition: all 0.2s ease;
+      text-decoration: none;
+    }
+
+    .btn-plan-primary {
+      background: var(--brand-gradient);
+      color: #FFFFFF;
+      border: none;
+      box-shadow: 0 3px 12px rgba(2, 80, 197, 0.22);
+    }
+
+    .btn-plan-primary:hover {
+      background: var(--brand-gradient-hover);
+      box-shadow: 0 5px 16px rgba(212, 63, 141, 0.32);
+      color: #FFFFFF;
+    }
+
+    .btn-plan-outline {
+      background: transparent;
+      color: var(--brand-blue);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-plan-outline:hover {
+      background: var(--brand-peach);
       border-color: var(--brand-blue);
       color: var(--brand-blue);
     }
@@ -688,6 +803,14 @@
       line-height: 1.35;
     }
 
+    .service-price-tag {
+      display: inline-flex;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--brand-coral);
+      margin-bottom: 12px;
+    }
+
     .service-desc {
       font-size: 0.95rem;
       color: var(--slate);
@@ -736,6 +859,361 @@
 
     .service-bottom-banner p strong {
       color: var(--brand-blue);
+    }
+
+    /* ============================================================
+     PRICING SECTION (WordPress Website Page Tiers + WHAM Plans)
+     ============================================================ */
+    .pricing-section {
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-light);
+      padding-bottom: clamp(30px, 4vw, 50px);
+    }
+
+    .pricing-outer-container {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-card);
+      padding: clamp(24px, 4vw, 44px);
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .pricing-group-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--slate-light);
+      margin-bottom: 20px;
+    }
+
+    /* 4-Column Pricing Card Grid */
+    .pricing-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .pricing-card-col {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 26px 20px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+
+    .pricing-card-col:hover {
+      border-color: #BDC1C6;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .pricing-card-col.is-featured {
+      border: 2px solid var(--brand-blue);
+      box-shadow: 0 10px 28px rgba(58, 83, 155, 0.14);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -12px;
+      left: 18px;
+      background: var(--brand-gradient);
+      color: #FFFFFF;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 2px 8px rgba(2, 80, 197, 0.25);
+    }
+
+    .plan-name {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .plan-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+
+    .plan-price {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .plan-period {
+      font-size: 0.78rem;
+      color: var(--slate);
+      font-weight: 600;
+    }
+
+    .plan-subtext {
+      font-size: 0.82rem;
+      color: var(--brand-blue);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .plan-features-label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--slate-light);
+      margin-bottom: 10px;
+    }
+
+    .plan-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      font-size: 0.84rem;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    .plan-features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+    }
+
+    .plan-features-list li svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pricing-card-col.is-featured .plan-features-list li svg {
+      color: var(--brand-blue);
+    }
+
+    .pricing-card-col:not(.is-featured) .plan-features-list li svg {
+      color: var(--green);
+    }
+
+    /* Collapsible Full Page-Count Breakdown */
+    .pricing-breakdown-details {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .pricing-breakdown-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--brand-blue);
+      list-style: none;
+      user-select: none;
+    }
+
+    .pricing-breakdown-summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .pricing-breakdown-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--brand-blue-tint);
+      color: var(--brand-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.95rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+
+    details[open] .pricing-breakdown-icon {
+      transform: rotate(45deg);
+      background: var(--coral-tint);
+      color: var(--coral);
+    }
+
+    .pricing-breakdown-content {
+      margin-top: 18px;
+    }
+
+    .wp-pricing-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 4px;
+      border-bottom: 1px solid var(--border-light);
+      font-size: 0.9rem;
+    }
+
+    .wp-pricing-row:last-child {
+      border-bottom: none;
+    }
+
+    .wp-pricing-pages {
+      color: var(--slate);
+    }
+
+    .wp-pricing-price {
+      font-weight: 600;
+      color: var(--navy);
+      white-space: nowrap;
+    }
+
+    .pricing-additional-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 16px;
+      background: var(--bg-callout);
+      border: 1px solid var(--brand-peach-hover);
+      border-radius: var(--radius-md);
+      padding: 14px 18px;
+      font-size: 0.9rem;
+      color: #553C2D;
+      line-height: 1.5;
+    }
+
+    .pricing-additional-note svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--brand-coral);
+    }
+
+    .pricing-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 48px 0 28px;
+      color: var(--slate-light);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pricing-divider::before,
+    .pricing-divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--border-light);
+    }
+
+    .maint-plans-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .maint-plan-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+
+    .maint-plan-card:hover {
+      border-color: #BDC1C6;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .maint-plan-card.is-featured {
+      border: 2px solid var(--brand-blue);
+      box-shadow: 0 10px 28px rgba(58, 83, 155, 0.14);
+    }
+
+    .maint-plan-badge {
+      position: absolute;
+      top: -12px;
+      left: 18px;
+      background: var(--brand-gradient);
+      color: #FFFFFF;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 2px 8px rgba(2, 80, 197, 0.25);
+    }
+
+    .maint-plan-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .maint-plan-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+    }
+
+    .maint-plan-price {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .maint-plan-period {
+      font-size: 0.8rem;
+      color: var(--slate);
+      font-weight: 600;
+    }
+
+    .maint-plan-note {
+      font-size: 0.8rem;
+      color: var(--brand-blue);
+      font-weight: 600;
+      margin: 6px 0 16px;
+    }
+
+    .maint-plan-card.is-featured .plan-features-list li svg {
+      color: var(--brand-blue);
+    }
+
+    .maint-plan-card:not(.is-featured) .plan-features-list li svg {
+      color: var(--green);
+    }
+
+    .pricing-disclaimer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--slate-light);
+      margin-top: 28px;
+      line-height: 1.6;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     /* ============================================================
@@ -1287,6 +1765,11 @@
       .trust-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .pricing-grid-4,
+      .maint-plans-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 820px) {
@@ -1313,6 +1796,16 @@
         flex-direction: column;
         text-align: center;
       }
+
+      .wp-pricing-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+
+      .wp-pricing-row.is-featured {
+        align-items: flex-start;
+      }
     }
 
     @media (max-width: 600px) {
@@ -1324,7 +1817,9 @@
       .services-grid-5,
       .portfolio-grid,
       .process-grid-5,
-      .trust-grid {
+      .trust-grid,
+      .pricing-grid-4,
+      .maint-plans-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1348,6 +1843,25 @@
       .slider-controls-wrap {
         margin-top: 24px;
       }
+    }
+
+    .browse-all-services-link {
+      text-align: center;
+      padding: 40px 0 clamp(50px, 6vw, 70px);
+      font-size: 0.95rem;
+      color: var(--slate);
+    }
+
+    .browse-all-services-link a {
+      color: var(--brand-blue);
+      font-weight: 600;
+      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .browse-all-services-link a:hover {
+      color: var(--brand-blue-hover);
+      border-color: var(--brand-blue-hover);
     }
   </style>
 </head>
@@ -1429,14 +1943,14 @@
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
-            <a href="#portfolio" class="btn btn-outline">Explore Our Work</a>
+            <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
           </div>
         </div>
 
         <!-- Hero Visual Mockup -->
         <div class="hero-visual-wrap">
           <div class="hero-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/custom-web-dev-hero.webp"
+            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/custom-web-dev-hero-1.webp"
               alt="Custom WordPress Web Development Studio Workstation Mockup" width="600" height="450" loading="eager">
             <div class="hero-floating-stat">
               <div class="stat-circle-green">95+</div>
@@ -1701,6 +2215,7 @@
             </svg>
           </div>
           <h3 class="service-title">Custom WordPress Website Design</h3>
+          <span class="service-price-tag">Starting at $3,500</span>
           <p class="service-desc">
             We create custom WordPress website designs that are tailored to your specific needs and goals. We work
             closely with you
@@ -1708,8 +2223,8 @@
             architecture
             that reflects your core values and maximizes user engagement.
           </p>
-          <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="service-link">
-            Book A Free Consultation
+          <a href="#pricing" class="service-link">
+            View Pricing By Page Count
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
@@ -1764,8 +2279,8 @@
             inventory
             syncing, and frictionless checkout flows.
           </p>
-          <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="service-link">
-            Book A Free Consultation
+          <a href="woocommerce-stores.html" class="service-link">
+            View WooCommerce Store Pricing
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
@@ -1835,6 +2350,421 @@
           Discuss Your Project
         </a>
       </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PRICING SECTION (WordPress Website Page Tiers + WHAM Plans)
+       ============================================================ -->
+  <section class="section-space pricing-section" id="pricing">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Simple, Transparent Pricing
+        </div>
+        <h2 class="h2-title">Custom WordPress Website Pricing</h2>
+        <p class="lead-text">
+          Pricing is scoped by page count, so you only pay for the size of site your business actually needs.
+          Investment ranges from $3,500 to $45,000 one-time.
+        </p>
+      </div>
+
+      <div class="pricing-outer-container">
+
+        <div class="pricing-group-label">New WordPress Website — By Page Count</div>
+
+        <div class="pricing-grid-4">
+
+          <!-- Col 1: Starter -->
+          <div class="pricing-card-col is-featured">
+            <span class="featured-badge">Fewest Pages</span>
+            <div>
+              <h3 class="plan-name">Starter</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$3,500</span>
+                <span class="plan-period">one-time</span>
+              </div>
+              <div class="plan-subtext">2–10 pages</div>
+
+              <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn-plan btn-plan-primary">Book
+                Consultation</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Deeper brand storytelling</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Stronger SEO/AEO built in</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Mobile-responsive + training included</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Col 2: Standard -->
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">Standard</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$5,000</span>
+                <span class="plan-period">one-time</span>
+              </div>
+              <div class="plan-subtext">11–20 pages</div>
+
+              <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn-plan btn-plan-outline">Book
+                Consultation</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Deeper brand storytelling</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Stronger SEO/AEO built in</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Mobile-responsive + training included</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Col 3: 21-100 Pages -->
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">21–100 Pages</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$6,000</span>
+                <span class="plan-period">starting at</span>
+              </div>
+              <div class="plan-subtext">Scales up to $10,000</div>
+
+              <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn-plan btn-plan-outline">Book
+                Consultation</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Deeper brand storytelling</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Stronger SEO/AEO built in</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Mobile-responsive + training included</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Col 4: 101-600+ Pages -->
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">101–600+ Pages</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$13,500</span>
+                <span class="plan-period">starting at</span>
+              </div>
+              <div class="plan-subtext">Scales up to $45,000</div>
+
+              <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn-plan btn-plan-outline">Book
+                Consultation</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Deeper brand storytelling</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Stronger SEO/AEO built in</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Mobile-responsive + training included</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <details class="pricing-breakdown-details">
+          <summary class="pricing-breakdown-summary">
+            <span>See the full breakdown by exact page count</span>
+            <span class="pricing-breakdown-icon">+</span>
+          </summary>
+          <div class="pricing-breakdown-content">
+
+            <div class="wp-pricing-row">
+              <span class="wp-pricing-pages">Starter — 2–10 pages</span>
+              <span class="wp-pricing-price">$3,500</span>
+            </div>
+            <div class="wp-pricing-row">
+              <span class="wp-pricing-pages">Standard — 11–20 pages</span>
+              <span class="wp-pricing-price">$5,000</span>
+            </div>
+            <div class="wp-pricing-row">
+              <span class="wp-pricing-pages">21–30 pages</span>
+              <span class="wp-pricing-price">$6,000</span>
+            </div>
+            <div class="wp-pricing-row">
+              <span class="wp-pricing-pages">31–50 pages</span>
+              <span class="wp-pricing-price">$8,750</span>
+            </div>
+            <div class="wp-pricing-row">
+              <span class="wp-pricing-pages">51–100 pages</span>
+              <span class="wp-pricing-price">$10,000</span>
+            </div>
+            <div class="wp-pricing-row">
+              <span class="wp-pricing-pages">101–150 pages</span>
+              <span class="wp-pricing-price">$13,500</span>
+            </div>
+            <div class="wp-pricing-row">
+              <span class="wp-pricing-pages">151–200 pages</span>
+              <span class="wp-pricing-price">$15,000</span>
+            </div>
+            <div class="wp-pricing-row">
+              <span class="wp-pricing-pages">201–300 pages</span>
+              <span class="wp-pricing-price">$22,500</span>
+            </div>
+            <div class="wp-pricing-row">
+              <span class="wp-pricing-pages">301–400 pages</span>
+              <span class="wp-pricing-price">$30,000</span>
+            </div>
+            <div class="wp-pricing-row">
+              <span class="wp-pricing-pages">401–500 pages</span>
+              <span class="wp-pricing-price">$37,500</span>
+            </div>
+            <div class="wp-pricing-row">
+              <span class="wp-pricing-pages">501–600 pages</span>
+              <span class="wp-pricing-price">$45,000</span>
+            </div>
+
+            <div class="pricing-additional-note">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+              <span><strong>Need more than 600 pages?</strong> Additional pages beyond the 501–600 tier are billed
+                at $750 one-time per additional block of 10 pages.</span>
+            </div>
+
+          </div>
+        </details>
+
+        <div class="pricing-divider">Ongoing Hosting &amp; Maintenance</div>
+
+        <div class="maint-plans-grid">
+
+          <div class="maint-plan-card">
+            <div class="maint-plan-name">Squeeze Page</div>
+            <div class="maint-plan-price-row">
+              <span class="maint-plan-price">$75</span>
+              <span class="maint-plan-period">/ month</span>
+            </div>
+            <div class="maint-plan-note">or $855/yr (5% off)</div>
+            <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn-plan btn-plan-outline">Book
+              Consultation</a>
+
+            <div class="plan-features-label">What's included:</div>
+            <ul class="plan-features-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 12l2 2 4-4"></path>
+                </svg>
+                <span>Core &amp; plugin security updates</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 12l2 2 4-4"></path>
+                </svg>
+                <span>Off-site daily backups</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 12l2 2 4-4"></path>
+                </svg>
+                <span>Reliable hosting &amp; priority support</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="maint-plan-card is-featured">
+            <span class="maint-plan-badge">Most Popular</span>
+            <div class="maint-plan-name">Standard</div>
+            <div class="maint-plan-price-row">
+              <span class="maint-plan-price">$150</span>
+              <span class="maint-plan-period">/ month</span>
+            </div>
+            <div class="maint-plan-note">or $1,710/yr (5% off)</div>
+            <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn-plan btn-plan-primary">Book
+              Consultation</a>
+
+            <div class="plan-features-label">What's included:</div>
+            <ul class="plan-features-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 12l2 2 4-4"></path>
+                </svg>
+                <span>Core &amp; plugin security updates</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 12l2 2 4-4"></path>
+                </svg>
+                <span>Off-site daily backups</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 12l2 2 4-4"></path>
+                </svg>
+                <span>Reliable hosting &amp; priority support</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="maint-plan-card">
+            <div class="maint-plan-name">Premium</div>
+            <div class="maint-plan-price-row">
+              <span class="maint-plan-price">$3,600</span>
+              <span class="maint-plan-period">/ year</span>
+            </div>
+            <div class="maint-plan-note">&nbsp;</div>
+            <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn-plan btn-plan-outline">Book
+              Consultation</a>
+
+            <div class="plan-features-label">What's included:</div>
+            <ul class="plan-features-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 12l2 2 4-4"></path>
+                </svg>
+                <span>Core &amp; plugin security updates</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 12l2 2 4-4"></path>
+                </svg>
+                <span>Off-site daily backups</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 12l2 2 4-4"></path>
+                </svg>
+                <span>Reliable hosting &amp; priority support</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="maint-plan-card">
+            <div class="maint-plan-name">Deluxe</div>
+            <div class="maint-plan-price-row">
+              <span class="maint-plan-price">$3,750</span>
+              <span class="maint-plan-period">/ year</span>
+            </div>
+            <div class="maint-plan-note">&nbsp;</div>
+            <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn-plan btn-plan-outline">Book
+              Consultation</a>
+
+            <div class="plan-features-label">What's included:</div>
+            <ul class="plan-features-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 12l2 2 4-4"></path>
+                </svg>
+                <span>Core &amp; plugin security updates</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 12l2 2 4-4"></path>
+                </svg>
+                <span>Off-site daily backups</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 12l2 2 4-4"></path>
+                </svg>
+                <span>Reliable hosting &amp; priority support</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+
+      <p class="pricing-disclaimer">
+        Pricing above reflects Sites by Sara design, development, hosting &amp; maintenance fees. Need ongoing
+        development hours beyond your maintenance plan? WHAM Plus Hour Blocks add 3, 6, or 9 hours per month,
+        starting at $150/mo.
+      </p>
 
     </div>
   </section>
@@ -2805,6 +3735,10 @@
       startAutoPlay();
     })();
   </script>
+
+  <div class="browse-all-services-link">
+    <a href="all-services.html">← Browse All Services</a>
+  </div>
 
 </body>
 

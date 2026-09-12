@@ -13,6 +13,26 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- SEO: Service structured data (see design.md §7) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Website and Email Cybersecurity Protection",
+    "provider": {
+      "@type": "Organization",
+      "name": "Sites by Sara"
+    },
+    "description": "Ongoing cybersecurity protection for your brand, email, and online reputation, including dark web leak checks and continuous email security monitoring.",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "57",
+      "highPrice": "147"
+    }
+  }
+  </script>
+
   <style>
     /* ============================================================
      DESIGN SYSTEM & TOKENS (SBS Brand Identity & Guidelines)
@@ -886,6 +906,44 @@
       text-align: center;
     }
 
+    .pricing-inline-link {
+      text-align: center;
+      font-size: 0.92rem;
+      color: var(--slate);
+      margin-top: 20px;
+    }
+
+    .pricing-inline-link a {
+      color: var(--brand-blue);
+      font-weight: 600;
+      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .pricing-inline-link a:hover {
+      color: var(--brand-blue-hover);
+      border-color: var(--brand-blue-hover);
+    }
+
+    .browse-all-services-link {
+      text-align: center;
+      padding: 0 0 clamp(50px, 6vw, 70px);
+      font-size: 0.95rem;
+      color: var(--slate);
+    }
+
+    .browse-all-services-link a {
+      color: var(--brand-blue);
+      font-weight: 600;
+      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .browse-all-services-link a:hover {
+      color: var(--brand-blue-hover);
+      border-color: var(--brand-blue-hover);
+    }
+
     /* ============================================================
      WHY INVEST IN CYBERSECURITY SECTION (3-Col Value Grid)
      ============================================================ */
@@ -1230,8 +1288,8 @@
         <!-- Hero Visual Mockup + Docked Capability Badges -->
         <div class="hero-visual-wrap">
           <div class="hero-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/cyber-security-hero.webp"
-              alt="CyberShield Enterprise Cybersecurity Portal and Real-Time Threat Monitoring" width="600"
+            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/cyber-security-hero-1.webp"
+              alt="Cybersecurity Monitoring Dashboard with Email Security and Threat Detection" width="600"
               height="450" />
           </div>
 
@@ -1319,7 +1377,7 @@
         <!-- Visual Column (Mockup + Key Insight Callout Docked Below) -->
         <div class="story-visual-col">
           <div class="story-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/cyber-score-card.webp"
+            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/cyber-score-card-1.webp"
               alt="Cyber Score Card Digital Footprint and Risk Assessment Report Mockup" width="520" height="390" />
           </div>
 
@@ -1557,6 +1615,11 @@
         </span>
       </div>
 
+      <p class="pricing-inline-link">
+        Still need business email set up? See our <a href="email-setup-migration.html">Email Setup &amp;
+          Migration</a> page.
+      </p>
+
     </div>
   </section>
 
@@ -1728,6 +1791,10 @@
       </div>
     </div>
   </section>
+
+  <div class="browse-all-services-link">
+    <a href="all-services.html">← Browse All Services</a>
+  </div>
 
 </body>
 
