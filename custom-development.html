@@ -51,7 +51,7 @@
         "name": "How long does it take to develop a custom WordPress website?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The development timeline varies based on project complexity, page count, and custom features. Typically, a standard custom WordPress website takes between 4 to 8 weeks from initial discovery to final launch. More extensive websites may take 8 to 12 weeks."
+          "text": "That depends on the size and complexity of the job. Most projects are completed within 4 weeks from the time we have received 100% of the client-promised content. A 2-10 page Starter build and a 501-600 page build are very different projects, so we establish a clear, milestone-driven timeline during the discovery phase."
         }
       },
       {
@@ -75,7 +75,7 @@
         "name": "How is SEO handled for my custom WordPress website?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We build clean semantic HTML5 markup, implement OpenGraph and schema metadata, optimize Core Web Vitals, generate XML sitemaps, and integrate industry-standard SEO plugins such as Yoast SEO or Rank Math."
+          "text": "Every build includes stronger SEO/AEO as standard - clean semantic markup, structured metadata, and an SEO-ready page structure."
         }
       },
       {
@@ -84,6 +84,14 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "We implement enterprise security protocols, including hardened wp-config rules, brute-force login protection, SSL/HTTPS enforcement, and automated database backups. Our Peace of Mind ongoing maintenance plan also offers security monitoring and patch management."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I add more pages or blog posts to my existing WordPress site without a full rebuild?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. For sites beyond the 501-600 page tier, additional pages are billed at $750 one-time per additional set of 10 pages. If you just need new blog content, our Blog Post Add-On is $437 per additional blog post, roughly 1,000-1,500 words, SEO optimized, with an image sourced and uploaded for you."
         }
       }
     ]
@@ -332,6 +340,14 @@
       border-radius: var(--radius-pill);
       transition: all 0.2s ease;
       text-decoration: none;
+      margin: 22px 0;
+    }
+
+    /* Addon boxes have no features-list after the button — replace the
+       bottom margin with breathing room above it instead */
+    .addon-item-box .btn-plan {
+      margin-top: 14px;
+      margin-bottom: 0;
     }
 
     .btn-plan-primary {
@@ -965,7 +981,6 @@
       font-size: 0.82rem;
       color: var(--brand-blue);
       font-weight: 600;
-      margin-bottom: 18px;
     }
 
     .plan-features-label {
@@ -1214,6 +1229,50 @@
       max-width: 760px;
       margin-left: auto;
       margin-right: auto;
+    }
+
+    /* Add Pages / Add Posts Addon Grid */
+    .pricing-addons-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .addon-item-box {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 24px 22px;
+      transition: all 0.2s ease;
+    }
+
+    .addon-item-box:hover {
+      background: #FFFFFF;
+      border-color: var(--border-card);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .addon-price-tag {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--brand-coral);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .addon-item-title {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .addon-item-desc {
+      font-size: 0.88rem;
+      color: var(--slate);
+      line-height: 1.5;
     }
 
     /* ============================================================
@@ -1819,7 +1878,8 @@
       .process-grid-5,
       .trust-grid,
       .pricing-grid-4,
-      .maint-plans-grid {
+      .maint-plans-grid,
+      .pricing-addons-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1843,25 +1903,6 @@
       .slider-controls-wrap {
         margin-top: 24px;
       }
-    }
-
-    .browse-all-services-link {
-      text-align: center;
-      padding: 40px 0 clamp(50px, 6vw, 70px);
-      font-size: 0.95rem;
-      color: var(--slate);
-    }
-
-    .browse-all-services-link a {
-      color: var(--brand-blue);
-      font-weight: 600;
-      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .browse-all-services-link a:hover {
-      color: var(--brand-blue-hover);
-      border-color: var(--brand-blue-hover);
     }
   </style>
 </head>
@@ -1953,10 +1994,10 @@
             <img src="https://sitesbysara.com/wp-content/uploads/2026/09/custom-web-dev-hero-1.webp"
               alt="Custom WordPress Web Development Studio Workstation Mockup" width="600" height="450" loading="eager">
             <div class="hero-floating-stat">
-              <div class="stat-circle-green">95+</div>
+              <div class="stat-circle-green">11</div>
               <div>
-                <div class="stat-text-label">Google Lighthouse</div>
-                <div class="stat-text-val">Speed & SEO Score</div>
+                <div class="stat-text-label">Page-Count Tiers</div>
+                <div class="stat-text-val">$3,500 – $45,000</div>
               </div>
             </div>
           </div>
@@ -1982,12 +2023,12 @@
           <div class="trust-stat-label">Tailored Code & Brand Identity</div>
         </div>
         <div class="trust-stat-item">
-          <div class="trust-stat-number">5.0 ★</div>
-          <div class="trust-stat-label">Client Satisfaction Across All Projects</div>
+          <div class="trust-stat-number">11</div>
+          <div class="trust-stat-label">Page-Count Tiers to Choose From</div>
         </div>
         <div class="trust-stat-item">
-          <div class="trust-stat-number">100s</div>
-          <div class="trust-stat-label">High-Performing Websites Launched</div>
+          <div class="trust-stat-number">Up to 600</div>
+          <div class="trust-stat-label">Pages Per WordPress Build</div>
         </div>
       </div>
     </div>
@@ -2387,30 +2428,29 @@
                 <span class="plan-price">$3,500</span>
                 <span class="plan-period">one-time</span>
               </div>
-              <div class="plan-subtext">2–10 pages</div>
+              <div class="plan-subtext">2&ndash;10 pages</div>
 
-              <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn-plan btn-plan-primary">Book
-                Consultation</a>
+              <a href="https://order.sitesbysara.com/configure?id=2" class="btn-plan btn-plan-primary">Order Now</a>
 
               <div class="plan-features-label">What's included:</div>
               <ul class="plan-features-list">
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 12l2 2 4-4"></path>
                   </svg>
                   <span>Deeper brand storytelling</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 12l2 2 4-4"></path>
                   </svg>
                   <span>Stronger SEO/AEO built in</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 12l2 2 4-4"></path>
                   </svg>
                   <span>Mobile-responsive + training included</span>
@@ -2427,30 +2467,29 @@
                 <span class="plan-price">$5,000</span>
                 <span class="plan-period">one-time</span>
               </div>
-              <div class="plan-subtext">11–20 pages</div>
+              <div class="plan-subtext">11&ndash;20 pages</div>
 
-              <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn-plan btn-plan-outline">Book
-                Consultation</a>
+              <a href="https://order.sitesbysara.com/configure?id=3" class="btn-plan btn-plan-outline">Order Now</a>
 
               <div class="plan-features-label">What's included:</div>
               <ul class="plan-features-list">
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 12l2 2 4-4"></path>
                   </svg>
                   <span>Deeper brand storytelling</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 12l2 2 4-4"></path>
                   </svg>
                   <span>Stronger SEO/AEO built in</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 12l2 2 4-4"></path>
                   </svg>
                   <span>Mobile-responsive + training included</span>
@@ -2459,38 +2498,36 @@
             </div>
           </div>
 
-          <!-- Col 3: 21-100 Pages -->
+          <!-- Col 3: 21-30 Pages -->
           <div class="pricing-card-col">
             <div>
-              <h3 class="plan-name">21–100 Pages</h3>
+              <h3 class="plan-name">21&ndash;30 Pages</h3>
               <div class="plan-price-row">
                 <span class="plan-price">$6,000</span>
-                <span class="plan-period">starting at</span>
+                <span class="plan-period">one-time</span>
               </div>
-              <div class="plan-subtext">Scales up to $10,000</div>
 
-              <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn-plan btn-plan-outline">Book
-                Consultation</a>
+              <a href="https://order.sitesbysara.com/configure?id=122-1" class="btn-plan btn-plan-outline">Order Now</a>
 
               <div class="plan-features-label">What's included:</div>
               <ul class="plan-features-list">
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 12l2 2 4-4"></path>
                   </svg>
                   <span>Deeper brand storytelling</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 12l2 2 4-4"></path>
                   </svg>
                   <span>Stronger SEO/AEO built in</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 12l2 2 4-4"></path>
                   </svg>
                   <span>Mobile-responsive + training included</span>
@@ -2499,38 +2536,302 @@
             </div>
           </div>
 
-          <!-- Col 4: 101-600+ Pages -->
+          <!-- Col 4: 31-50 Pages -->
           <div class="pricing-card-col">
             <div>
-              <h3 class="plan-name">101–600+ Pages</h3>
+              <h3 class="plan-name">31&ndash;50 Pages</h3>
               <div class="plan-price-row">
-                <span class="plan-price">$13,500</span>
-                <span class="plan-period">starting at</span>
+                <span class="plan-price">$8,750</span>
+                <span class="plan-period">one-time</span>
               </div>
-              <div class="plan-subtext">Scales up to $45,000</div>
 
-              <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn-plan btn-plan-outline">Book
-                Consultation</a>
+              <a href="https://order.sitesbysara.com/configure?id=122-2" class="btn-plan btn-plan-outline">Order Now</a>
 
               <div class="plan-features-label">What's included:</div>
               <ul class="plan-features-list">
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 12l2 2 4-4"></path>
                   </svg>
                   <span>Deeper brand storytelling</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 12l2 2 4-4"></path>
                   </svg>
                   <span>Stronger SEO/AEO built in</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Mobile-responsive + training included</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Col 5: 51-100 Pages -->
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">51&ndash;100 Pages</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$10,000</span>
+                <span class="plan-period">one-time</span>
+              </div>
+
+              <a href="https://order.sitesbysara.com/configure?id=122-3" class="btn-plan btn-plan-outline">Order Now</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Deeper brand storytelling</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Stronger SEO/AEO built in</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Mobile-responsive + training included</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Col 6: 101-150 Pages -->
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">101&ndash;150 Pages</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$13,500</span>
+                <span class="plan-period">one-time</span>
+              </div>
+
+              <a href="https://order.sitesbysara.com/configure?id=122-4" class="btn-plan btn-plan-outline">Order Now</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Deeper brand storytelling</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Stronger SEO/AEO built in</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Mobile-responsive + training included</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Col 7: 151-200 Pages -->
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">151&ndash;200 Pages</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$15,000</span>
+                <span class="plan-period">one-time</span>
+              </div>
+
+              <a href="https://order.sitesbysara.com/configure?id=122-5" class="btn-plan btn-plan-outline">Order Now</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Deeper brand storytelling</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Stronger SEO/AEO built in</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Mobile-responsive + training included</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Col 8: 201-300 Pages -->
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">201&ndash;300 Pages</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$22,500</span>
+                <span class="plan-period">one-time</span>
+              </div>
+
+              <a href="https://order.sitesbysara.com/configure?id=122-6" class="btn-plan btn-plan-outline">Order Now</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Deeper brand storytelling</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Stronger SEO/AEO built in</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Mobile-responsive + training included</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Col 9: 301-400 Pages -->
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">301&ndash;400 Pages</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$30,000</span>
+                <span class="plan-period">one-time</span>
+              </div>
+
+              <a href="https://order.sitesbysara.com/configure?id=122-7" class="btn-plan btn-plan-outline">Order Now</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Deeper brand storytelling</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Stronger SEO/AEO built in</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Mobile-responsive + training included</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Col 10: 401-500 Pages -->
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">401&ndash;500 Pages</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$37,500</span>
+                <span class="plan-period">one-time</span>
+              </div>
+
+              <a href="https://order.sitesbysara.com/configure?id=122-8" class="btn-plan btn-plan-outline">Order Now</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Deeper brand storytelling</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Stronger SEO/AEO built in</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Mobile-responsive + training included</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Col 11: 501-600 Pages -->
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">501&ndash;600 Pages</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$45,000</span>
+                <span class="plan-period">one-time</span>
+              </div>
+
+              <a href="https://order.sitesbysara.com/configure?id=122-9" class="btn-plan btn-plan-outline">Order Now</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Deeper brand storytelling</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"></path>
+                  </svg>
+                  <span>Stronger SEO/AEO built in</span>
+                </li>
+                <li>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                    stroke-linecap="round" stroke-linejoin="round">
                     <path d="M9 12l2 2 4-4"></path>
                   </svg>
                   <span>Mobile-responsive + training included</span>
@@ -2541,71 +2842,16 @@
 
         </div>
 
-        <details class="pricing-breakdown-details">
-          <summary class="pricing-breakdown-summary">
-            <span>See the full breakdown by exact page count</span>
-            <span class="pricing-breakdown-icon">+</span>
-          </summary>
-          <div class="pricing-breakdown-content">
-
-            <div class="wp-pricing-row">
-              <span class="wp-pricing-pages">Starter — 2–10 pages</span>
-              <span class="wp-pricing-price">$3,500</span>
-            </div>
-            <div class="wp-pricing-row">
-              <span class="wp-pricing-pages">Standard — 11–20 pages</span>
-              <span class="wp-pricing-price">$5,000</span>
-            </div>
-            <div class="wp-pricing-row">
-              <span class="wp-pricing-pages">21–30 pages</span>
-              <span class="wp-pricing-price">$6,000</span>
-            </div>
-            <div class="wp-pricing-row">
-              <span class="wp-pricing-pages">31–50 pages</span>
-              <span class="wp-pricing-price">$8,750</span>
-            </div>
-            <div class="wp-pricing-row">
-              <span class="wp-pricing-pages">51–100 pages</span>
-              <span class="wp-pricing-price">$10,000</span>
-            </div>
-            <div class="wp-pricing-row">
-              <span class="wp-pricing-pages">101–150 pages</span>
-              <span class="wp-pricing-price">$13,500</span>
-            </div>
-            <div class="wp-pricing-row">
-              <span class="wp-pricing-pages">151–200 pages</span>
-              <span class="wp-pricing-price">$15,000</span>
-            </div>
-            <div class="wp-pricing-row">
-              <span class="wp-pricing-pages">201–300 pages</span>
-              <span class="wp-pricing-price">$22,500</span>
-            </div>
-            <div class="wp-pricing-row">
-              <span class="wp-pricing-pages">301–400 pages</span>
-              <span class="wp-pricing-price">$30,000</span>
-            </div>
-            <div class="wp-pricing-row">
-              <span class="wp-pricing-pages">401–500 pages</span>
-              <span class="wp-pricing-price">$37,500</span>
-            </div>
-            <div class="wp-pricing-row">
-              <span class="wp-pricing-pages">501–600 pages</span>
-              <span class="wp-pricing-price">$45,000</span>
-            </div>
-
-            <div class="pricing-additional-note">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-              </svg>
-              <span><strong>Need more than 600 pages?</strong> Additional pages beyond the 501–600 tier are billed
-                at $750 one-time per additional block of 10 pages.</span>
-            </div>
-
-          </div>
-        </details>
+        <div class="pricing-additional-note">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <span><strong>Need more than 600 pages?</strong> Additional pages beyond the 501&ndash;600 tier are billed
+            at $750 one-time per additional block of 10 pages.</span>
+        </div>
 
         <div class="pricing-divider">Ongoing Hosting &amp; Maintenance</div>
 
@@ -2618,8 +2864,8 @@
               <span class="maint-plan-period">/ month</span>
             </div>
             <div class="maint-plan-note">or $855/yr (5% off)</div>
-            <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn-plan btn-plan-outline">Book
-              Consultation</a>
+            <a href="https://order.sitesbysara.com/configure?id=132-1" class="btn-plan btn-plan-outline">Order
+              Now</a>
 
             <div class="plan-features-label">What's included:</div>
             <ul class="plan-features-list">
@@ -2655,8 +2901,8 @@
               <span class="maint-plan-period">/ month</span>
             </div>
             <div class="maint-plan-note">or $1,710/yr (5% off)</div>
-            <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn-plan btn-plan-primary">Book
-              Consultation</a>
+            <a href="https://order.sitesbysara.com/configure?id=19" class="btn-plan btn-plan-primary">Order
+              Now</a>
 
             <div class="plan-features-label">What's included:</div>
             <ul class="plan-features-list">
@@ -2690,9 +2936,9 @@
               <span class="maint-plan-price">$3,600</span>
               <span class="maint-plan-period">/ year</span>
             </div>
-            <div class="maint-plan-note">&nbsp;</div>
-            <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn-plan btn-plan-outline">Book
-              Consultation</a>
+            <!-- <div class="maint-plan-note">&nbsp;</div> -->
+            <a href="https://order.sitesbysara.com/configure?id=20" class="btn-plan btn-plan-outline">Order
+              Now</a>
 
             <div class="plan-features-label">What's included:</div>
             <ul class="plan-features-list">
@@ -2726,9 +2972,9 @@
               <span class="maint-plan-price">$3,750</span>
               <span class="maint-plan-period">/ year</span>
             </div>
-            <div class="maint-plan-note">&nbsp;</div>
-            <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn-plan btn-plan-outline">Book
-              Consultation</a>
+            <!-- <div class="maint-plan-note">&nbsp;</div> -->
+            <a href="https://order.sitesbysara.com/configure?id=22" class="btn-plan btn-plan-outline">Order
+              Now</a>
 
             <div class="plan-features-label">What's included:</div>
             <ul class="plan-features-list">
@@ -2754,6 +3000,30 @@
                 <span>Reliable hosting &amp; priority support</span>
               </li>
             </ul>
+          </div>
+
+        </div>
+
+        <!-- Divider -->
+        <div class="pricing-divider">Growing An Existing WordPress Site?</div>
+
+        <!-- Add Pages / Add Posts -->
+        <div class="pricing-addons-grid">
+
+          <div class="addon-item-box">
+            <span class="addon-price-tag">$750 one-time</span>
+            <h4 class="addon-item-title">Add Pages</h4>
+            <p class="addon-item-desc">Per additional set of 10 pages, for sites beyond the 501&ndash;600 page tier.
+            </p>
+            <a href="https://order.sitesbysara.com/configure?id=4" class="btn-plan btn-plan-outline">Order Now</a>
+          </div>
+
+          <div class="addon-item-box">
+            <span class="addon-price-tag">$437 one-time</span>
+            <h4 class="addon-item-title">Add Posts</h4>
+            <p class="addon-item-desc">One additional blog post added to your existing site — roughly 1,000–1,500
+              words, SEO-optimized, with an image sourced and uploaded for you.</p>
+            <a href="https://order.sitesbysara.com/configure?id=72" class="btn-plan btn-plan-outline">Order Now</a>
           </div>
 
         </div>
@@ -3446,16 +3716,12 @@
           </summary>
           <div class="faq-answer">
             <p>
-              The development timeline varies based on project complexity, page count, and custom features. Typically, a
-              standard
-              custom WordPress website takes between <strong>4 to 8 weeks</strong> from initial discovery to final
-              launch.
+              That depends on the size and complexity of the job. <strong>Most projects are completed within 4
+                weeks</strong> from the time we have received 100% of the client-promised content.
             </p>
             <p>
-              More extensive websites featuring advanced e-commerce functionality, custom API integrations, or
-              multi-portal
-              systems may take 8 to 12 weeks. We establish a clear, milestone-driven timeline during our discovery
-              phase.
+              A 2&ndash;10 page Starter build and a 501&ndash;600 page build are very different projects, so we
+              establish a clear, milestone-driven timeline during the discovery phase.
             </p>
           </div>
         </details>
@@ -3508,10 +3774,8 @@
             <p>
               WordPress is internationally recognized for its SEO-friendly architecture, and our bespoke development
               maximizes this
-              advantage. We build clean semantic HTML5 markup, implement OpenGraph and schema metadata, optimize Core
-              Web Vitals
-              (LCP, FID, CLS), generate XML sitemaps, and integrate industry-standard SEO plugins (such as Yoast SEO or
-              Rank Math).
+              advantage. Every build includes stronger SEO/AEO as standard — clean semantic markup, structured
+              metadata, and an SEO-ready page structure.
             </p>
             <p>
               This gives your business an immediate structural edge in search engine results pages (SERPs).
@@ -3537,6 +3801,22 @@
               enforcement, and automated database backups. Furthermore, our <strong>Peace of Mind</strong> ongoing
               maintenance plan
               offers 24/7 security monitoring and patch management.
+            </p>
+          </div>
+        </details>
+
+        <!-- FAQ 7 -->
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Can I add more pages or blog posts to my existing WordPress site without a full rebuild?</span>
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </summary>
+          <div class="faq-answer">
+            <p>
+              Yes. For sites beyond the 501&ndash;600 page tier, additional pages are billed at $750 one-time per
+              additional set of 10 pages. If you just need new blog content, our Blog Post Add-On is $437 per
+              additional blog post — roughly 1,000&ndash;1,500 words, SEO optimized, with an image sourced and
+              uploaded for you.
             </p>
           </div>
         </details>
@@ -3735,10 +4015,6 @@
       startAutoPlay();
     })();
   </script>
-
-  <div class="browse-all-services-link">
-    <a href="all-services.html">← Browse All Services</a>
-  </div>
 
 </body>
 

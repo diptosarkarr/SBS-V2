@@ -15,6 +15,7 @@
 2. **`Services-info.html`** — the single source of truth for service names, pricing, tiers, included features, and requirement notes. This is a live pricing/services configurator export. Every price, feature bullet, and note in it is ground truth for the page being built.
 3. **The live site (`sitesbysara.com`)** — browse it for brand voice and agency facts (Salt Lake City / Utah, 10+ years of WordPress experience, serving businesses since 2007, award-winning), and to check whether a page already exists live for the service being built (it may not — some of these are brand-new offerings, e.g. the cybersecurity service).
 4. **The existing built pages in this repo** — treat them as precedent, not just reference. Reuse their exact class names and structure rather than inventing new ones. As of this writing: `custom-development.html`, `cybersecurity-packages.html`, `email-setup-migration.html`, `woocommerce-stores.html`, `shopify-ecommerce-store.html`, and the directory page `all-services.html`.
+5. **`header.html` and `footer.html`** are a different category from the pages above: they're pasted directly into a live WordPress site (via Elementor HTML widgets in the site's Header/Footer templates), not opened as standalone documents. Every class in these two files is prefixed `custom-` for exactly that reason — see `design.md` §5.12.1 before touching either file, and follow the same convention for any new standalone component meant to be pasted into the live site outside of our own landing pages.
 
 ---
 
@@ -66,7 +67,7 @@ Every page must follow `design.md` §7 (SEO Best Practices) from the first draft
 - Exactly one `<h1>` — the page banner heading. Everything else is `<h2>`/`<h3>`.
 - Descriptive, specific `alt` text on every image — never a filename, never empty, never reused generically across different images.
 - `Service` JSON-LD in `<head>`, plus `FAQPage` JSON-LD if the page has a FAQ section — using only real numbers/text already printed on the page. Never add `url`/`og:url`/`og:image` pointing at a production path or generated asset that doesn't exist yet.
-- A link to `all-services.html`, plus a cross-link to any natural peer/alternative service page (e.g. WooCommerce ↔ Shopify).
+- A cross-link to any natural peer/alternative service page (e.g. WooCommerce ↔ Shopify). **Do not add a "← Browse All Services" / `all-services.html` link on individual service pages — this was tried and explicitly rejected; never add it, on this page or any future page.**
 - Explicit `width`/`height` on every image (also required by the image rules below) to avoid layout shift.
 
 ## 6. Image Workflow

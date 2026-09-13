@@ -1,0 +1,818 @@
+<!-- Preload the header logo so it paints immediately instead of waiting on
+     the browser to discover the <img> tag during HTML parsing — fixes the
+     slight delay noticeable on each page load. -->
+<link rel="preload" as="image"
+  href="https://www.sitesbysara.com/wp-content/uploads/2025/08/Avenir-Next-SBS-logo-blue_v36.png" fetchpriority="high">
+
+<!-- Google Fonts: Manrope -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+   DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+   ============================================================ */
+  :root {
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
+
+    --brand-coral: #ea4e5f;
+
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+    --brand-peach: #FCEFE5;
+
+    --navy: #1E2140;
+    --slate: #5F6368;
+    --slate-light: #80868B;
+
+    --border: #DCE2EE;
+    --border-light: #ECEFF5;
+
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-pill: 9999px;
+
+    --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+  }
+
+  /* Reset scoped to this component only — a bare `*`/`a`/`ul`/`button` reset
+     would otherwise strip margins, list bullets, link styling, and button
+     styling site-wide once pasted into an existing WordPress theme. */
+  .custom-site-header,
+  .custom-site-header *,
+  .custom-site-header *::before,
+  .custom-site-header *::after,
+  .custom-offcanvas-overlay,
+  .custom-offcanvas-panel,
+  .custom-offcanvas-panel *,
+  .custom-offcanvas-panel *::before,
+  .custom-offcanvas-panel *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .custom-site-header a:not(.custom-btn),
+  .custom-offcanvas-panel a:not(.custom-btn) {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .custom-site-header ul,
+  .custom-offcanvas-panel ul {
+    list-style: none;
+  }
+
+  .custom-site-header button,
+  .custom-offcanvas-panel button {
+    font-family: var(--font);
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  .custom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .custom-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: unset;
+    gap: 6px;
+    font-family: var(--font);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .custom-btn-primary {
+    background: var(--brand-gradient);
+    color: #FFFFFF;
+    box-shadow: 0 4px 14px rgba(2, 80, 197, 0.25);
+  }
+
+  .custom-btn-primary:hover {
+    background: var(--brand-gradient-hover);
+    transform: translateY(-1px);
+  }
+
+  .custom-btn-outline {
+    background-color: transparent;
+    color: var(--brand-blue);
+    border-color: var(--border);
+  }
+
+  .custom-btn-outline:hover {
+    background-color: var(--brand-peach);
+    border-color: var(--brand-blue);
+    color: var(--brand-blue);
+  }
+
+  /* ============================================================
+   SITE HEADER (Sticky)
+   ============================================================ */
+  .custom-site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #FFFFFF;
+    border-bottom: 1px solid transparent;
+    transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    font-family: var(--font);
+  }
+
+  .custom-site-header.custom-is-scrolled {
+    box-shadow: 0 4px 18px rgba(30, 33, 64, 0.08);
+    border-bottom-color: var(--border-light);
+  }
+
+  /* Row 1: logo + actions */
+  .custom-header-top-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
+
+  .custom-header-top {
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .custom-header-logo-img {
+    display: block;
+    width: 220px;
+    height: auto;
+  }
+
+  /* Row 2: full-width nav */
+  .custom-header-bottom-inner {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* ---------------- Desktop Nav ---------------- */
+  .custom-header-nav {
+    display: flex;
+  }
+
+  .custom-header-menu {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 4px;
+  }
+
+  .custom-header-menu>li {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .custom-header-menu>li>a {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 12px 14px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--navy) !important;
+    white-space: nowrap;
+    border-radius: var(--radius-sm);
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .custom-header-menu>li>a:hover {
+    color: var(--brand-blue);
+    background: var(--brand-blue-tint);
+  }
+
+  .custom-nav-chevron {
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  .custom-header-menu>li:hover .custom-nav-chevron {
+    transform: rotate(180deg);
+  }
+
+  .custom-dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 240px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-floating);
+    padding: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+  }
+
+  .custom-dropdown.custom-dropdown-wide {
+    min-width: 460px;
+    column-count: 2;
+    column-gap: 6px;
+  }
+
+  .custom-header-menu>li:hover>.custom-dropdown,
+  .custom-header-menu>li:focus-within>.custom-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .custom-dropdown li a {
+    display: block;
+    padding: 9px 12px;
+    font-size: 0.86rem;
+    font-weight: 500;
+    color: var(--slate);
+    border-radius: var(--radius-sm);
+    break-inside: avoid;
+    transition: color 0.2s ease, background-color 0.2s ease;
+  }
+
+  .custom-dropdown li a:hover {
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+  }
+
+  /* ---------------- Header Actions ---------------- */
+  .custom-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+
+  .custom-header-hamburger {
+    display: none;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    color: var(--navy);
+    flex-shrink: 0;
+  }
+
+  .custom-header-hamburger:hover {
+    background: var(--brand-blue-tint);
+  }
+
+  /* ---------------- Off-Canvas Mobile Menu ---------------- */
+  .custom-offcanvas-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(19, 21, 44, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    z-index: 1200;
+  }
+
+  .custom-offcanvas-overlay.custom-is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .custom-offcanvas-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(86vw, 360px);
+    background: #FFFFFF;
+    z-index: 1300;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    box-shadow: -10px 0 34px rgba(19, 21, 44, 0.18);
+    font-family: var(--font);
+  }
+
+  .custom-offcanvas-panel.custom-is-open {
+    transform: translateX(0);
+  }
+
+  .custom-offcanvas-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 20px;
+    border-bottom: 1px solid var(--border-light);
+    flex-shrink: 0;
+  }
+
+  .custom-offcanvas-close {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--navy);
+    border-radius: var(--radius-sm);
+  }
+
+  .custom-offcanvas-close:hover {
+    background: var(--brand-blue-tint);
+  }
+
+  .custom-offcanvas-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 12px 12px 24px;
+  }
+
+  .custom-offcanvas-menu>li {
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .custom-offcanvas-menu>li:last-child {
+    border-bottom: none;
+  }
+
+  .custom-offcanvas-menu>li>a {
+    display: block;
+    padding: 14px 10px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .custom-offcanvas-menu details {
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .custom-offcanvas-menu details:last-child {
+    border-bottom: none;
+  }
+
+  .custom-offcanvas-menu summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 10px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .custom-offcanvas-menu summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .custom-offcanvas-menu summary .custom-nav-chevron {
+    color: var(--slate-light);
+  }
+
+  .custom-offcanvas-menu details[open] summary .custom-nav-chevron {
+    transform: rotate(180deg);
+  }
+
+  .custom-offcanvas-submenu {
+    padding: 0 10px 12px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .custom-offcanvas-submenu a {
+    display: block;
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    color: var(--slate);
+    border-radius: var(--radius-sm);
+  }
+
+  .custom-offcanvas-submenu a:hover {
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+  }
+
+  .custom-offcanvas-actions {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 18px 20px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .custom-offcanvas-actions .custom-btn {
+    width: 100%;
+  }
+
+  /* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+  @media (max-width: 992px) {
+    .custom-header-logo-img {
+      width: 200px;
+    }
+
+    .custom-header-bottom {
+      display: none;
+    }
+
+    .custom-header-actions .custom-btn {
+      display: none;
+    }
+
+    .custom-header-hamburger {
+      display: flex;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .custom-header-top-inner {
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .custom-header-logo-img {
+      width: 180px;
+    }
+  }
+</style>
+
+<!-- ============================================================
+     SITE HEADER (Reusable Component)
+     ============================================================ -->
+<div class="custom-site-header" id="siteHeader">
+
+  <!-- Row 1: Logo + Actions -->
+  <div class="custom-header-top">
+    <div class="custom-container custom-header-top-inner">
+
+      <a href="https://sitesbysara.com" aria-label="Sites by Sara — Home">
+        <img src="https://www.sitesbysara.com/wp-content/uploads/2025/08/Avenir-Next-SBS-logo-blue_v36.png"
+          alt="Sites by Sara — Your Online Success Partner" class="custom-header-logo-img" width="160" height="34"
+          loading="eager" fetchpriority="high" decoding="sync">
+      </a>
+
+      <!-- Actions: 2 buttons + hamburger -->
+      <div class="custom-header-actions">
+        <a href="tel:+13853555351" class="custom-btn custom-btn-outline">Call Us Today! (385) 355-5351</a>
+        <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="custom-btn custom-btn-primary">Book a Free
+          Consultation</a>
+        <button class="custom-header-hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Row 2: Full Nav -->
+  <div class="custom-header-bottom">
+    <div class="custom-container custom-header-bottom-inner">
+      <nav class="custom-header-nav" aria-label="Primary">
+        <ul class="custom-header-menu">
+
+          <li>
+            <a href="#">
+              Company
+              <svg class="custom-nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <ul class="custom-dropdown">
+              <li><a href="https://sitesbysara.com/about">About Us</a></li>
+              <li><a href="https://sitesbysara.com/about/web-awards/">Awards</a></li>
+              <li><a href="https://sitesbysara.com/sites-by-sara-cares">Giving Back</a></li>
+              <li><a href="https://sitesbysara.com/newsletters/">Newsletters</a></li>
+              <li><a href="https://sitesbysara.com/testimonials/">Testimonials</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="https://sitesbysara.com/services/web-design-development/">
+              Web Development
+              <svg class="custom-nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <ul class="custom-dropdown">
+              <li><a href="https://sitesbysara.com/web-development-faq/">Web Development FAQ</a></li>
+              <li><a href="https://sitesbysara.com/services/web-design-development/custom-development/">Custom
+                  WordPress Development</a></li>
+              <li><a href="https://sitesbysara.com/services/domain-registration-web-hosting/">Web Hosting</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="https://sitesbysara.com/services/marketing/">
+              Marketing
+              <svg class="custom-nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <ul class="custom-dropdown custom-dropdown-wide">
+              <li><a href="https://sitesbysara.com/salt-lake-city-seo-company/">Search Engine Optimization</a></li>
+              <li><a href="https://sitesbysara.com/google-local-3-pack/">Google Local Maps 3-Pack Optimization</a>
+              </li>
+              <li><a href="https://sitesbysara.com/services/google-my-business-optimization/">Google My Business
+                  Optimization</a></li>
+              <li><a href="https://sitesbysara.com/services/marketing/pay-per-click/">Pay Per Click</a></li>
+              <li><a href="https://sitesbysara.com/services/amazon-store-setup-and-management-services/">Amazon
+                  Advertising</a></li>
+              <li><a href="https://sitesbysara.com/marketing/content-marketing">Content Marketing</a></li>
+              <li><a href="https://sitesbysara.com/services/web-social-media-marketing/options/">Social Media</a>
+              </li>
+              <li><a href="https://sitesbysara.com/services/marketing/analytics/">Analytics</a></li>
+              <li><a
+                  href="https://sitesbysara.com/services/web-social-media-marketing/reputation-management/">Reputation
+                  Management</a></li>
+              <li><a href="https://sitesbysara.com/email-setup-migration-services-gws-ms365/">Email Setup &amp;
+                  Migration</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="https://sitesbysara.com/portfolio">
+              Portfolio
+              <svg class="custom-nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <ul class="custom-dropdown">
+              <li><a href="https://sitesbysara.com/marketing/branding-and-graphic-design">Graphic Design</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="#">
+              Maintenance
+              <svg class="custom-nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <ul class="custom-dropdown">
+              <li><a href="https://sitesbysara.com/services/wordpress-hosting-and-maintenance-services/">WordPress
+                  Maintenance</a></li>
+              <li><a href="https://sitesbysara.com/cybersecurity-packages/">Free Cyber Score Card</a></li>
+              <li><a href="https://sitesbysara.com/services/joomla-hosting-and-maintenance-jham-services/">Joomla
+                  Maintenance</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a href="https://sitesbysara.com/contact-us/">
+              Contact
+              <svg class="custom-nav-chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </a>
+            <ul class="custom-dropdown">
+              <li><a href="https://sitesbysara.com/newsletters/">Subscribe to Our Newsletter</a></li>
+            </ul>
+          </li>
+
+          <li><a href="https://sitesbysara.com/blogs/">Blog</a></li>
+
+        </ul>
+      </nav>
+    </div>
+  </div>
+
+</div>
+
+<!-- ============================================================
+     OFF-CANVAS MOBILE MENU
+     ============================================================ -->
+<div class="custom-offcanvas-overlay" id="offcanvasOverlay"></div>
+<aside class="custom-offcanvas-panel" id="offcanvasPanel" aria-label="Mobile menu">
+  <div class="custom-offcanvas-head">
+    <img src="https://www.sitesbysara.com/wp-content/uploads/2025/08/Avenir-Next-SBS-logo-blue_v36.png"
+      alt="Sites by Sara" width="128" height="27" style="width:128px;height:auto;">
+    <button class="custom-offcanvas-close" id="offcanvasCloseBtn" aria-label="Close menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <div class="custom-offcanvas-body">
+    <ul class="custom-offcanvas-menu">
+
+      <details>
+        <summary>
+          Company
+          <svg class="custom-nav-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="custom-offcanvas-submenu">
+          <a href="https://sitesbysara.com/about">About Us</a>
+          <a href="https://sitesbysara.com/about/web-awards/">Awards</a>
+          <a href="https://sitesbysara.com/sites-by-sara-cares">Giving Back</a>
+          <a href="https://sitesbysara.com/newsletters/">Newsletters</a>
+          <a href="https://sitesbysara.com/testimonials/">Testimonials</a>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Web Development
+          <svg class="custom-nav-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="custom-offcanvas-submenu">
+          <a href="https://sitesbysara.com/services/web-design-development/">Web Development Overview</a>
+          <a href="https://sitesbysara.com/web-development-faq/">Web Development FAQ</a>
+          <a href="https://sitesbysara.com/services/web-design-development/custom-development/">Custom WordPress
+            Development</a>
+          <a href="https://sitesbysara.com/services/domain-registration-web-hosting/">Web Hosting</a>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Marketing
+          <svg class="custom-nav-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="custom-offcanvas-submenu">
+          <a href="https://sitesbysara.com/services/marketing/">Marketing Overview</a>
+          <a href="https://sitesbysara.com/salt-lake-city-seo-company/">Search Engine Optimization</a>
+          <a href="https://sitesbysara.com/google-local-3-pack/">Google Local Maps 3-Pack Optimization</a>
+          <a href="https://sitesbysara.com/services/google-my-business-optimization/">Google My Business
+            Optimization</a>
+          <a href="https://sitesbysara.com/services/marketing/pay-per-click/">Pay Per Click</a>
+          <a href="https://sitesbysara.com/services/amazon-store-setup-and-management-services/">Amazon
+            Advertising</a>
+          <a href="https://sitesbysara.com/marketing/content-marketing">Content Marketing</a>
+          <a href="https://sitesbysara.com/services/web-social-media-marketing/options/">Social Media</a>
+          <a href="https://sitesbysara.com/services/marketing/analytics/">Analytics</a>
+          <a href="https://sitesbysara.com/services/web-social-media-marketing/reputation-management/">Reputation
+            Management</a>
+          <a href="https://sitesbysara.com/email-setup-migration-services-gws-ms365/">Email Setup &amp;
+            Migration</a>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Portfolio
+          <svg class="custom-nav-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="custom-offcanvas-submenu">
+          <a href="https://sitesbysara.com/portfolio">Portfolio Overview</a>
+          <a href="https://sitesbysara.com/marketing/branding-and-graphic-design">Graphic Design</a>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Maintenance
+          <svg class="custom-nav-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="custom-offcanvas-submenu">
+          <a href="https://sitesbysara.com/services/wordpress-hosting-and-maintenance-services/">WordPress
+            Maintenance</a>
+          <a href="https://sitesbysara.com/cybersecurity-packages/">Free Cyber Score Card</a>
+          <a href="https://sitesbysara.com/services/joomla-hosting-and-maintenance-jham-services/">Joomla
+            Maintenance</a>
+        </div>
+      </details>
+
+      <details>
+        <summary>
+          Contact
+          <svg class="custom-nav-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </summary>
+        <div class="custom-offcanvas-submenu">
+          <a href="https://sitesbysara.com/contact-us/">Contact Us</a>
+          <a href="https://sitesbysara.com/newsletters/">Subscribe to Our Newsletter</a>
+        </div>
+      </details>
+
+      <li><a href="https://sitesbysara.com/blogs/">Blog</a></li>
+
+    </ul>
+  </div>
+
+  <div class="custom-offcanvas-actions">
+    <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="custom-btn custom-btn-primary">Book a Free
+      Consultation</a>
+    <a href="tel:+13853555351" class="custom-btn custom-btn-outline">Call Us Today! (385) 355-5351</a>
+  </div>
+</aside>
+
+<script>
+  (function () {
+    const header = document.getElementById('siteHeader');
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const closeBtn = document.getElementById('offcanvasCloseBtn');
+    const overlay = document.getElementById('offcanvasOverlay');
+    const panel = document.getElementById('offcanvasPanel');
+
+    // `position: sticky` breaks completely if ANY ancestor between this
+    // header and the page has overflow other than "visible" — Elementor
+    // commonly sets overflow:hidden on a section/container/column/
+    // .elementor-widget-wrap (e.g. automatically whenever a Shape Divider
+    // is used anywhere on that section, or via Advanced > Overflow).
+    // Walk up and force those back to visible. We deliberately stop before
+    // <body>/<html> — themes often rely on overflow-x:hidden there to
+    // prevent an unrelated horizontal scrollbar, and we don't want to
+    // fight that (or the body-scroll-lock this file sets while the
+    // off-canvas menu is open).
+    function fixStickyAncestors() {
+      let node = header && header.parentElement;
+      while (node && node !== document.body) {
+        const style = window.getComputedStyle(node);
+        if (style.overflow !== 'visible' || style.overflowX !== 'visible' || style.overflowY !== 'visible') {
+          node.style.overflow = 'visible';
+        }
+        node = node.parentElement;
+      }
+    }
+
+    if (header) {
+      fixStickyAncestors();
+      // Elementor can re-render/re-apply inline styles after initial parse
+      // (lazy-loaded widgets, popups, etc.) — re-check once everything has
+      // finished loading, and once more after a short delay to catch
+      // anything applied asynchronously just after that.
+      window.addEventListener('load', fixStickyAncestors);
+      setTimeout(fixStickyAncestors, 1000);
+    }
+
+    function openMenu() {
+      overlay.classList.add('custom-is-open');
+      panel.classList.add('custom-is-open');
+      hamburgerBtn.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      overlay.classList.remove('custom-is-open');
+      panel.classList.remove('custom-is-open');
+      hamburgerBtn.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    hamburgerBtn.addEventListener('click', openMenu);
+    closeBtn.addEventListener('click', closeMenu);
+    overlay.addEventListener('click', closeMenu);
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 992) closeMenu();
+    });
+
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('custom-is-scrolled', window.scrollY > 4);
+    });
+  })();
+</script>

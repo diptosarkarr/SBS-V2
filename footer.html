@@ -50,7 +50,7 @@
       text-decoration: none;
     }
 
-    .container {
+    .custom-container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px;
@@ -59,13 +59,13 @@
     /* ============================================================
      SITE FOOTER
      ============================================================ */
-    .site-footer {
+    .custom-site-footer {
       background: var(--bg-light);
       border-top: 1px solid var(--border-light);
       color: var(--slate);
     }
 
-    .footer-top {
+    .custom-footer-top {
       display: grid;
       grid-template-columns: 1.2fr 1fr 0.8fr 1fr;
       gap: clamp(24px, 3.5vw, 40px);
@@ -74,14 +74,14 @@
     }
 
     /* Brand column */
-    .footer-logo-img {
+    .custom-footer-logo-img {
       display: block;
       width: 220px;
       height: auto;
       margin-bottom: 16px;
     }
 
-    .footer-desc {
+    .custom-footer-desc {
       font-size: 0.9rem;
       line-height: 1.6;
       color: var(--slate);
@@ -89,14 +89,14 @@
       margin-bottom: 20px;
     }
 
-    .footer-social-row {
+    .custom-footer-social-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       max-width: 280px;
     }
 
-    .footer-social-link {
+    .custom-footer-social-link {
       width: 32px;
       height: 32px;
       border-radius: 50%;
@@ -109,14 +109,14 @@
       transition: all 0.2s ease;
     }
 
-    .footer-social-link:hover {
+    .custom-footer-social-link:hover {
       background: var(--brand-blue);
       border-color: var(--brand-blue);
       color: #FFFFFF;
     }
 
     /* Link columns */
-    .footer-col-title {
+    .custom-footer-col-title {
       font-size: 0.8rem;
       font-weight: 600;
       text-transform: uppercase;
@@ -125,34 +125,34 @@
       margin-bottom: 18px;
     }
 
-    .footer-link-list {
+    .custom-footer-link-list {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
 
-    .footer-link-list a {
+    .custom-footer-link-list a {
       font-size: 0.92rem;
       color: var(--slate);
       transition: color 0.2s ease;
     }
 
-    .footer-link-list a:hover {
+    .custom-footer-link-list a:hover {
       color: var(--brand-blue);
     }
 
-    .footer-link-strong {
+    .custom-footer-link-strong {
       font-weight: 600;
       color: var(--brand-coral) !important;
     }
 
-    .footer-link-strong:hover {
+    .custom-footer-link-strong:hover {
       color: var(--brand-blue-hover) !important;
     }
 
     /* Contact column (image, phone, email) */
-    .footer-consult-link {
+    .custom-footer-consult-link {
       display: block;
       width: 100%;
       max-width: 250px;
@@ -163,41 +163,41 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .footer-consult-link:hover {
+    .custom-footer-consult-link:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(30, 33, 64, 0.15);
     }
 
-    .footer-consult-img {
+    .custom-footer-consult-img {
       display: block;
       width: 100%;
       height: auto;
     }
 
-    .footer-contact-list {
+    .custom-footer-contact-list {
       list-style: none;
       display: flex;
       flex-direction: column;
       gap: 10px;
     }
 
-    .footer-contact-list a {
+    .custom-footer-contact-list a {
       font-size: 0.95rem;
       font-weight: 600;
       color: var(--navy);
       transition: color 0.2s ease;
     }
 
-    .footer-contact-list a:hover {
+    .custom-footer-contact-list a:hover {
       color: var(--brand-blue);
     }
 
     /* Bottom bar */
-    .footer-bottom {
+    .custom-footer-bottom {
       border-top: 1px solid var(--border-light);
     }
 
-    .footer-bottom-inner {
+    .custom-footer-bottom-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -207,31 +207,31 @@
       padding-bottom: 18px;
     }
 
-    .footer-copyright {
+    .custom-footer-copyright {
       font-size: 0.78rem;
       color: var(--slate-light);
       line-height: 1.5;
       max-width: 640px;
     }
 
-    .footer-copyright a {
+    .custom-footer-copyright a {
       color: var(--slate-light);
       text-decoration: underline;
     }
 
-    .footer-legal-links {
+    .custom-footer-legal-links {
       display: flex;
       gap: 18px;
       flex-shrink: 0;
     }
 
-    .footer-legal-links a {
+    .custom-footer-legal-links a {
       font-size: 0.78rem;
       color: var(--slate-light);
       transition: color 0.2s ease;
     }
 
-    .footer-legal-links a:hover {
+    .custom-footer-legal-links a:hover {
       color: var(--brand-blue);
     }
 
@@ -239,18 +239,18 @@
      RESPONSIVE BREAKPOINTS
      ============================================================ */
     @media (max-width: 992px) {
-      .footer-top {
+      .custom-footer-top {
         grid-template-columns: 1fr 1fr;
         row-gap: 40px;
       }
     }
 
     @media (max-width: 600px) {
-      .footer-top {
+      .custom-footer-top {
         grid-template-columns: 1fr;
       }
 
-      .footer-bottom-inner {
+      .custom-footer-bottom-inner {
         flex-direction: column;
         align-items: flex-start;
         text-align: left;
@@ -264,28 +264,28 @@
   <!-- ============================================================
        SITE FOOTER (Reusable Component)
        ============================================================ -->
-  <footer class="site-footer">
-    <div class="container footer-top">
+  <footer class="custom-site-footer">
+    <div class="custom-container custom-footer-top">
 
       <!-- Brand -->
-      <div class="footer-brand">
+      <div class="custom-footer-brand">
         <a href="https://sitesbysara.com" target="_blank" rel="noopener noreferrer">
           <img src="https://www.sitesbysara.com/wp-content/uploads/2025/08/Avenir-Next-SBS-logo-blue_v36.png"
-            alt="Sites by Sara — Your Online Success Partner" class="footer-logo-img" width="150" height="32">
+            alt="Sites by Sara — Your Online Success Partner" class="custom-footer-logo-img" width="150" height="32">
         </a>
-        <p class="footer-desc">
+        <p class="custom-footer-desc">
           Award-winning WordPress web design, development, and digital growth services based in Salt Lake City,
           Utah.
         </p>
-        <div class="footer-social-row">
-          <a href="https://www.facebook.com/sitesbysara" class="footer-social-link" aria-label="Facebook"
+        <div class="custom-footer-social-row">
+          <a href="https://www.facebook.com/sitesbysara" class="custom-footer-social-link" aria-label="Facebook"
             target="_blank" rel="noopener noreferrer">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
             </svg>
           </a>
-          <a href="https://www.instagram.com/sitesbysara/" class="footer-social-link" aria-label="Instagram"
+          <a href="https://www.instagram.com/sitesbysara/" class="custom-footer-social-link" aria-label="Instagram"
             target="_blank" rel="noopener noreferrer">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
@@ -294,7 +294,7 @@
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
             </svg>
           </a>
-          <a href="https://twitter.com/sitesbysaraweb" class="footer-social-link" aria-label="Twitter" target="_blank"
+          <a href="https://twitter.com/sitesbysaraweb" class="custom-footer-social-link" aria-label="Twitter" target="_blank"
             rel="noopener noreferrer">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
@@ -303,7 +303,7 @@
               </path>
             </svg>
           </a>
-          <a href="https://www.pinterest.com/sitesbysara" class="footer-social-link" aria-label="Pinterest"
+          <a href="https://www.pinterest.com/sitesbysara" class="custom-footer-social-link" aria-label="Pinterest"
             target="_blank" rel="noopener noreferrer">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none">
               <path
@@ -311,7 +311,7 @@
               </path>
             </svg>
           </a>
-          <a href="https://www.linkedin.com/company/sites-by-sara/" class="footer-social-link" aria-label="LinkedIn"
+          <a href="https://www.linkedin.com/company/sites-by-sara/" class="custom-footer-social-link" aria-label="LinkedIn"
             target="_blank" rel="noopener noreferrer">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
@@ -320,7 +320,7 @@
               <circle cx="4" cy="4" r="2"></circle>
             </svg>
           </a>
-          <a href="https://www.youtube.com/@sitesbysaraweb" class="footer-social-link" aria-label="YouTube"
+          <a href="https://www.youtube.com/@sitesbysaraweb" class="custom-footer-social-link" aria-label="YouTube"
             target="_blank" rel="noopener noreferrer">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
@@ -330,7 +330,7 @@
               <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
             </svg>
           </a>
-          <a href="https://www.tiktok.com/@sitesbysara" class="footer-social-link" aria-label="TikTok" target="_blank"
+          <a href="https://www.tiktok.com/@sitesbysara" class="custom-footer-social-link" aria-label="TikTok" target="_blank"
             rel="noopener noreferrer">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none">
               <path
@@ -342,9 +342,9 @@
       </div>
 
       <!-- Services -->
-      <div class="footer-services">
-        <h4 class="footer-col-title">Services</h4>
-        <ul class="footer-link-list">
+      <div class="custom-footer-services">
+        <h4 class="custom-footer-col-title">Services</h4>
+        <ul class="custom-footer-link-list">
           <li><a href="https://sitesbysara.com/services/web-design-development/custom-web-development/" target="_blank"
               rel="noopener noreferrer">Custom Web Development</a></li>
           <li><a href="https://sitesbysara.com/woocommerce-stores/" target="_blank"
@@ -356,14 +356,14 @@
               rel="noopener noreferrer">Cybersecurity Services</a></li>
           <li><a href="https://sitesbysara.com/email-setup-migration-services-gws-ms365/" target="_blank"
               rel="noopener noreferrer">Email Setup &amp; Migration</a></li>
-          <li><a href="https://sitesbysara.com/all-services/" class="footer-link-strong">View All Services →</a></li>
+          <li><a href="https://sitesbysara.com/all-services/" class="custom-footer-link-strong">View All Services →</a></li>
         </ul>
       </div>
 
       <!-- Company -->
-      <div class="footer-company">
-        <h4 class="footer-col-title">Company</h4>
-        <ul class="footer-link-list">
+      <div class="custom-footer-company">
+        <h4 class="custom-footer-col-title">Company</h4>
+        <ul class="custom-footer-link-list">
           <li><a href="https://sitesbysara.com/about" target="_blank" rel="noopener noreferrer">About Us</a></li>
           <li><a href="https://sitesbysara.com/portfolio" target="_blank" rel="noopener noreferrer">Portfolio</a>
           </li>
@@ -376,14 +376,14 @@
       </div>
 
       <!-- Get in Touch: image, then phone, then email -->
-      <div class="footer-contact">
-        <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="footer-consult-link" target="_blank"
+      <div class="custom-footer-contact">
+        <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="custom-footer-consult-link" target="_blank"
           rel="noopener noreferrer">
           <img
             src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/10/book-free-consultation.jpg?resize=300%2C300&ssl=1"
-            alt="Book a Free Consultation with Sites by Sara" class="footer-consult-img">
+            alt="Book a Free Consultation with Sites by Sara" class="custom-footer-consult-img">
         </a>
-        <ul class="footer-contact-list">
+        <ul class="custom-footer-contact-list">
           <li><a href="tel:+13853555351">(385) 355-5351</a></li>
           <li><a href="mailto:hello@sitesbysara.com">hello@sitesbysara.com</a></li>
         </ul>
@@ -391,14 +391,14 @@
 
     </div>
 
-    <div class="footer-bottom">
-      <div class="container footer-bottom-inner">
-        <p class="footer-copyright">
+    <div class="custom-footer-bottom">
+      <div class="custom-container custom-footer-bottom-inner">
+        <p class="custom-footer-copyright">
           &copy; 2026 Accelerate Media Group, Inc. All Rights Reserved. Sites by Sara&reg; is a registered trademark
           and a DBA of <a href="https://acceleratemediagroup.com/" target="_blank" rel="noopener noreferrer">Accelerate
             Media Group, Inc.</a>
         </p>
-        <div class="footer-legal-links">
+        <div class="custom-footer-legal-links">
           <a href="https://www.sitesbysara.com/terms-of-service/" target="_blank" rel="noopener noreferrer">Terms of
             Service</a>
           <a href="https://www.sitesbysara.com/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy

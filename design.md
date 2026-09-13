@@ -246,10 +246,12 @@ All SBS buttons use full pill rounding (`border-radius: 9999px`), bold weight (`
 <!-- Secondary / Outline Button -->
 <a href="#pricing" class="btn btn-outline">View Pricing & Plans</a>
 
-<!-- Card Action Buttons -->
-<a href="/contact/" class="btn-plan btn-plan-primary">Book Consultation</a>
-<a href="/contact/" class="btn-plan btn-plan-outline">Select Service</a>
+<!-- Card Action Buttons — every priced card/addon box gets one -->
+<a href="https://order.sitesbysara.com/configure?id=<ID>" class="btn-plan btn-plan-primary">Order Now</a>
+<a href="https://order.sitesbysara.com/configure?id=<ID>" class="btn-plan btn-plan-outline">Order Now</a>
 ```
+
+> **Card button rule:** Every pricing card and every priced addon box uses the label **"Order Now"**, linking to `https://order.sitesbysara.com/configure?id=<ID>` — a deep link into the live `/configure` wizard that pre-selects that exact service/tier. The `<ID>` must be looked up per exact tier (not guessed or reused across tiers) from the "Configure Wizard Links" reference tool; a compound ID like `122-1` or `130-1` is a single token, used exactly as given. If a card's displayed price/copy doesn't correspond to any real entry in that tool (this happens — some live-site copy doesn't match a configurator line item 1:1), leave that button's existing label and destination alone rather than mislabeling it "Order Now" with nowhere real for it to go. This replaced the older "Book Consultation" / "Select Service" / "Select Plan" card-button labels sitewide (2026-09-13) — never reintroduce those on a new page.
 
 ```css
 .btn {
@@ -386,11 +388,10 @@ Used for deep feature breakdowns:
 - **Badge honesty rule:** Only give a card a `featured-badge` when you have a literal, factual descriptor for it — either the source data names it that way (e.g. `Services-info.html` literally says `"Standard (Most Popular)"`), or the descriptor is objectively true and derivable from the data itself (e.g. `"Fewest Pages"`, `"Single-Page Store"`). Never invent a popularity/value claim (`"Most Popular"`, `"Best Value"`, `"Most Common Starting Point"`) that isn't stated in the source.
 - Standard class names to reuse verbatim across pages: `pricing-grid-4`, `pricing-card-col`, `featured-badge`, `plan-name`, `plan-price-row`, `plan-price`, `plan-period`, `plan-subtext`, `plan-features-label`, `plan-features-list`, `btn-plan` / `btn-plan-primary` / `btn-plan-outline`. Don't rename these per page — consistency across pages matters more than a locally "nicer" name.
 
-#### 5.6.1 Collapsible Full Tier Breakdown (Many-Tier Services)
-Some services (e.g. a page-count-scaled WordPress build) have far more pricing tiers than fit cleanly in a 4-card grid — rendering all of them as flat rows reads as a wall of text and was flagged as looking "weird" on review. For any service with **more than ~4 tiers**:
-1. Group the tiers into 3–4 representative cards using the standard pricing-card pattern above. Use the source's own named tiers where given (e.g. `"Starter"`, `"Standard"`), and a literal quantity/page range as the card title where the source has no name (e.g. `"21–100 Pages"`) — never invent a category name like "Growth" or "Enterprise" that isn't in the source.
-2. For a grouped/ranged card, show **"Starting at $X"** using the true lowest price inside that bracket. Never average, round, or invent a number.
-3. Preserve every exact tier by putting the full breakdown inside a `<details class="pricing-breakdown-details">` / `<summary class="pricing-breakdown-summary">` disclosure below the grid, reusing the FAQ accordion's visual language (rotating `+` → `×` icon via `details[open] .pricing-breakdown-icon`, `::-webkit-details-marker` hidden). Nothing is lost — it's deferred, not deleted.
+#### 5.6.1 Many-Tier Services — One Card Per Real Tier (Superseded 2026-09-13)
+**Deprecated approach — do not use:** this section previously said to group many tiers (e.g. a page-count-scaled WordPress build) into 3–4 representative "starting at $X" cards with the full list hidden behind a `<details class="pricing-breakdown-details">` disclosure. **This was explicitly rejected by the client**: every real tier is individually orderable (each has its own ID in the `order.sitesbysara.com` configure wizard — see §5.2's Order Now rule), and a grouped "starting at" card can only link to one of several real Order Now destinations, which is misleading. `custom-development.html`'s WordPress Website section was rebuilt from this pattern into 11 separate cards as the reference example.
+
+**Current rule:** give **every** real tier its own full `pricing-card-col`, each with its own exact price and its own `Order Now` link — never a range, never "starting at." Keep the class name `pricing-grid-4` regardless of tier count; the grid simply wraps into additional rows (11 tiers in a 4-column grid wraps to 4+4+3). Only the smallest tier may carry an objectively-derivable badge (e.g. `"Fewest Pages"`); do not invent a name for tiers the source only labels by quantity/range (e.g. keep `"21–30 Pages"` as the card title verbatim, not "Growth" or "Enterprise").
 
 ### 5.7 Addon Services Grid
 - 2x2 or 4-column clean card grid with `--bg-light` or pure white.
@@ -464,7 +465,30 @@ Used on the top-level `all-services.html` index that lists every landing page as
 
 ---
 
-### 5.12 Site Footer
+### 5.12 Site Header
+Standalone reusable component, built in its own `header.html` file (same pattern as `title-banner.html` and `footer.html`).
+
+**Design Standard — white, two-row, sticky. A single-row layout was tried first and rejected: with 7 top-level nav items (one — Marketing — carrying a 10-item mega-menu) plus a logo and two full-text buttons, everything fighting for one row inside the fixed `max-width:1200px` container overflowed and wrapped, regardless of viewport width (the container never exceeds 1200px, so a wider monitor doesn't create more room). Splitting into two rows — matching the live site's actual structure — fixes this because each row only competes with its own content.**
+- **Row 1 (`.custom-header-top`, border-bottom hairline):** logo (`<img>`, real asset, not styled text) on the left, both action buttons + the mobile hamburger on the right. Comfortable padding — this row is never tight since logo + two buttons is a small fraction of 1152px of available content width.
+- **Row 2 (`.custom-header-bottom`):** the full nav, left-aligned under the logo, `flex-wrap: nowrap` with `flex-shrink: 0` on each item and `white-space: nowrap` on the link text — nav items must never wrap or shrink; if they don't fit, the fix is layout (this two-row split), not smaller text.
+- **Desktop dropdowns:** CSS-only `:hover` / `:focus-within` reveal, no JS. A chevron (`.custom-nav-chevron`) rotates 180° on hover. Standard dropdown is a single column `min-width:240px`; the one exception is Marketing's 10-item list, which gets `.custom-dropdown-wide` (`min-width:460px; column-count:2`) so it doesn't render as one long column.
+- **Mobile (`≤992px`):** row 2 (`.custom-header-bottom`) and both buttons hide entirely; only the logo + hamburger remain in row 1. The hamburger opens a right-side off-canvas panel (`position:fixed`, `translateX(100%)` → `translateX(0)`, dark overlay behind it) containing the same menu rebuilt as native `<details>`/`<summary>` accordions (reusing the FAQ accordion's semantics — no custom JS state machine needed for expand/collapse, only for the panel open/close and the sticky-shadow scroll listener). Both action buttons repeat at the bottom of the panel, full-width.
+- **Link parity rule:** every top-level item that has a real href (not `#`) and also carries a dropdown gets that same href repeated as the first entry inside its mobile accordion submenu (e.g. "Web Development Overview" inside the Web Development accordion). This isn't inventing a new link — it's the *same* href — but it exists because a `<summary>` click toggles the accordion instead of navigating, so without the duplicate the parent page would become unreachable on mobile. Items whose top-level href is genuinely `#` (no real destination) don't get this treatment.
+- **Never change, drop, or rewrite a link when building this component from a client-supplied menu export.** Copy hrefs exactly as given, including ones that are functionally dead (`#`) — that's a decision for the client's own site, not something to silently "fix" while porting the menu.
+- Sticky via `position: sticky; top: 0` (not `fixed` — avoids needing to manually offset page content). A `scroll` listener toggles `.custom-is-scrolled` past `4px` of scroll, adding a soft shadow + hairline border so the header reads as flush/seamless at the very top of the page and gains definition once content scrolls beneath it.
+- **`position: sticky` breaks silently inside Elementor** if any ancestor between the header and the page (a section/container/column, or `.elementor-widget-wrap`) has `overflow` set to anything but `visible` — Elementor sets this automatically in several cases (any section using a Shape Divider, or manually via Advanced → Overflow). First check Elementor's own Overflow setting on the header section and its parents. As a defensive backstop, the header's script also walks up from itself on load (and once more ~1s later, to catch anything Elementor applies asynchronously) and forces any non-`visible` ancestor back to `visible` — stopping before `<body>`/`<html>` so it doesn't fight the theme's own horizontal-scroll fix or the off-canvas menu's body-scroll-lock.
+- **Logo load priority:** the header logo is the page's LCP element and must never wait behind normal image discovery. It carries `loading="eager"`, `fetchpriority="high"`, `decoding="sync"`, and the file opens with a `<link rel="preload" as="image" fetchpriority="high">` pointing at the same URL — without these, a noticeable load delay shows up on every page even though the image is small, because the browser (or an overly-aggressive theme/plugin lazy-load script) doesn't otherwise know it's above-the-fold and urgent.
+
+#### 5.12.1 WordPress-Safe Class Naming (applies to every pasteable component)
+`header.html` and `footer.html` are pasted directly into a live WordPress site (via an Elementor HTML widget) alongside a theme and other plugins whose CSS we don't control. Generic class names collide:
+- **Every class in `header.html` and `footer.html` is prefixed `custom-`** (e.g. `.container` → `.custom-container`, `.btn-primary` → `.custom-btn-primary`, `.header-menu` → `.custom-header-menu`). This was retrofitted after the unprefixed version's `.container`/`.btn`/`.btn-primary` (and the reset's bare `a`/`ul`/`button` selectors) leaked into and altered unrelated elements elsewhere on the live page — a real incident, not a hypothetical.
+- IDs (`id="siteHeader"`, `id="hamburgerBtn"`, etc.) were left unprefixed — they're already page-unique by definition and specific enough (camelCase, multi-word) to not collide.
+- **When doing a bulk rename like this, watch for two traps:** (1) substring collisions — `.header-top` naively string-replaced will also corrupt `.header-top-inner`; match whole tokens only (not preceded/followed by a word character or hyphen). (2) prose comments that happen to contain the same word for an unrelated reason — e.g. a comment explaining Elementor's own DOM structure said "...a section/container/column..." where "container" refers to Elementor's concept, not our `.container` class; blindly renaming inside comments would have corrupted that sentence into nonsense. Scope the rename to actual CSS selectors and `class="..."` attribute values, not the entire file text.
+- This prefixing rule applies to **any future standalone component file** meant to be pasted into the live site outside of our own landing pages (which stay unprefixed, since each landing page is a fully self-contained document with no competing CSS on the same page).
+
+---
+
+### 5.13 Site Footer
 Standalone reusable component, built in its own `footer.html` file (same pattern as `title-banner.html`) — not spliced into the individual landing pages by default.
 
 **Design Standard — light, 4-column grid with vertical link lists. Not a dark mega-footer, not a single flattened row either — both were tried and corrected on client review.**
@@ -574,7 +598,7 @@ If the page has a FAQ section, also add `FAQPage` structured data whose `Questio
 - Don't add `url`, `@id`, `image`, or Open Graph (`og:url`, `og:image`) properties that would require a production domain path or a generated asset that doesn't exist yet. Add those only once the page is actually published and its final URL/image are known — a placeholder or guessed URL here is a fabricated fact, not a real one. `og:title`/`og:description` are safe to add early since they just mirror the title tag and meta description.
 
 ### 7.6 Internal Linking
-- Every service page must link to `all-services.html` (a small "← Browse All Services" link near the footer/end of the page is sufficient).
+- **Never add a "← Browse All Services" / `all-services.html` link on individual service pages.** This was tried across every existing page and explicitly rejected by the client — do not re-add it, on any current or future page.
 - Cross-link **peer/alternative services** where a visitor would naturally want the option — e.g. the WooCommerce and Shopify pages link to each other ("Prefer a WordPress-based store instead? See our WooCommerce Stores page.") since they're two platform choices for the same underlying need.
 - Use descriptive anchor text (the actual service/page name), never "click here" or "learn more" with no context.
 
@@ -654,11 +678,12 @@ When creating any new page for SBS:
 - [ ] Alternating feature rows use `.is-reversed` on even rows.
 - [ ] Every price, feature bullet, and requirement note traces back to an exact line in `Services-info.html` — nothing invented. See `build-guide.md` §2 for the full zero-assumption rule.
 - [ ] Pricing cards each carry their own `plan-features-list` (§5.6) — no shared "included everywhere" row below the grid.
-- [ ] Any service with more than ~4 pricing tiers uses the grouped-cards + collapsible-breakdown pattern (§5.6.1), not a flat list of rows.
+- [ ] Every real tier gets its own full pricing card with its own exact price and its own Order Now link (§5.6.1) — never grouped into a "starting at $X" range card, regardless of tier count.
+- [ ] Every pricing card and priced addon box has an "Order Now" button linking to `https://order.sitesbysara.com/configure?id=<ID>` with the correct per-tier ID looked up from the Configure Wizard Links tool (§5.2) — never left as "Book Consultation"/"Select Service", and never linked when no real matching ID exists.
 - [ ] No fabricated "Most Popular"/"Best Value" badges — only labels the source data states or that are objectively derivable.
 - [ ] All images are unique, niche-specific, `4:3` ratio, contain no third-party brand names, and are handed off as generation prompts (§6) — not fabricated.
 - [ ] No standalone `<header>` or `<footer>` if creating Elementor body templates.
-- [ ] **SEO (§7):** unique `<title>` (≤60 chars) and `<meta description>` (150–160 chars); exactly one `<h1>`; every `<img>` has a specific descriptive `alt` plus `width`/`height`; `Service` (and `FAQPage`, if the page has a FAQ) JSON-LD added with real on-page numbers only; links to `all-services.html` and any natural peer/alternative service page.
+- [ ] **SEO (§7):** unique `<title>` (≤60 chars) and `<meta description>` (150–160 chars); exactly one `<h1>`; every `<img>` has a specific descriptive `alt` plus `width`/`height`; `Service` (and `FAQPage`, if the page has a FAQ) JSON-LD added with real on-page numbers only; cross-link to any natural peer/alternative service page. **No `all-services.html` / "← Browse All Services" link on the page itself.**
 - [ ] Page previewed in-browser at desktop width — every section scrolled through, any accordion/`<details>` clicked at least once.
 - [ ] `all-services.html` gets a new card for this page in the same pass (§5.11) — title, grounded short description, grounded price range, "See More" button.
 

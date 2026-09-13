@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Support Portal — Sites by Sara</title>
+  <meta name="description"
+    content="Sites by Sara Client Support Portal. Submit technical tickets, request website maintenance, and receive prompt expert assistance from our Salt Lake City team.">
+  <meta property="og:title" content="Client Support Portal — Sites by Sara">
+  <meta property="og:description"
+    content="Sites by Sara Client Support Portal. Submit technical tickets, request website maintenance, and receive prompt expert assistance from our Salt Lake City team.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts: Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- SEO: ContactPage structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Sites by Sara Client Support Portal",
+    "description": "Submit a technical support ticket, website maintenance request, or update to the Sites by Sara Client Support Portal.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Sites by Sara",
+      "telephone": "+1-385-355-5351",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "5769 S Sagewood Dr",
+        "addressLocality": "Salt Lake City",
+        "addressRegion": "UT",
+        "postalCode": "84107",
+        "addressCountry": "US"
+      }
+    }
+  }
+  </script>
+
+  <!-- SEO: FAQPage structured data — mirrors visible FAQ verbatim -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How quickly will my support portal ticket be addressed?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Support requests are reviewed promptly during our active operating hours: Monday through Friday from 8:00 AM to 8:00 PM MT, and Saturday through Sunday from 12:00 PM to 4:00 PM MT. Clients on active WHAM maintenance plans receive priority ticket queuing."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What information should I include in my support ticket?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To help us diagnose and fix issues quickly, please provide your website URL, a clear description of the issue or update required, exact error messages or screenshots, and mention any recent plugins, themes, or credentials updated."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is technical support included in my maintenance plan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. If your site is covered under one of our WordPress Hosting and Maintenance (WHAM) packages, routine updates, core security patches, backups, and routine maintenance assistance are included. Larger custom coding or site overhauls can be handled via our Hourly Dev Blocks or project retainers."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if my website is completely offline or hacked?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If your site is experiencing critical downtime or a severe security compromise, please submit this form and immediately call or text us at (385) 355-5351 for emergency triage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I request new features or design changes through this portal?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You can use this portal form to submit requests for new pages, layout adjustments, ecommerce updates, or plugin integrations. We will evaluate the scope and provide a quick estimate or confirm execution."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+    :root {
+      /* Brand Identity Palette */
+      --brand-blue: #3A539B;
+      --brand-blue-hover: #2F437D;
+      --brand-blue-tint: #EEF2FA;
+      --brand-blue-subtle: #F6F8FD;
+
+      --brand-coral: #ea4e5f;
+      --brand-coral-hover: #d43d4e;
+      --brand-coral-tint: #FDEEEE;
+
+      --brand-peach: #FCEFE5;
+      --brand-peach-hover: #F8E3D4;
+      --brand-peach-tint: #FFF9F5;
+
+      --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+      --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+      /* Neutrals & Text Hierarchy */
+      --navy: #1E2140;
+      --navy-dark: #13152C;
+      --slate: #5F6368;
+      --slate-light: #80868B;
+      --slate-subtle: #9AA0A6;
+
+      /* Surfaces & Borders */
+      --border: #DCE2EE;
+      --border-light: #ECEFF5;
+      --border-card: #DFE4EE;
+
+      --bg-white: #FFFFFF;
+      --bg-light: #F9FAFD;
+      --bg-banner: #FCEFE5;
+      --bg-callout: #FFFBF7;
+
+      /* Status Accents */
+      --green: #1E8E3E;
+      --green-tint: #E6F4EA;
+      --yellow: #FBBC04;
+      --yellow-tint: #FEF7E0;
+
+      /* Typography */
+      --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+      /* Radii */
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --radius-pill: 9999px;
+
+      /* Shadows */
+      --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+      --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+      --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+      --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+      --shadow-featured: 0 16px 40px -8px rgba(58, 83, 155, 0.22), 0 4px 14px rgba(30, 33, 64, 0.06);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--navy);
+      background-color: var(--bg-white);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================================
+     PAGE TITLE BANNER (Full-Width Brand Gradient)
+     ============================================================ */
+    .page-title-banner {
+      position: relative;
+      overflow: hidden;
+      background: var(--brand-gradient);
+      padding: clamp(52px, 6vw, 76px) 24px;
+      text-align: center;
+      color: #FFFFFF;
+      box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+    }
+
+    .page-title-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+      pointer-events: none;
+    }
+
+    .page-title-banner-mesh {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .page-title-banner-mesh::before,
+    .page-title-banner-mesh::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: 0.22;
+    }
+
+    .page-title-banner-mesh::before {
+      width: 320px;
+      height: 320px;
+      background: #FFFFFF;
+      top: -120px;
+      left: 8%;
+    }
+
+    .page-title-banner-mesh::after {
+      width: 280px;
+      height: 280px;
+      background: var(--brand-coral);
+      bottom: -80px;
+      right: 10%;
+    }
+
+    .page-title-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-banner-h1 {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #FFFFFF;
+      letter-spacing: -0.025em;
+      margin: 0 0 10px;
+      text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+    }
+
+    .page-banner-sub {
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.94);
+      letter-spacing: 0.01em;
+      margin: 0;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+    }
+
+    /* ============================================================
+     EYEBROW / KICKER
+     ============================================================ */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--slate);
+      margin-bottom: 14px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--brand-coral);
+      flex-shrink: 0;
+    }
+
+    .eyebrow-dot-blue {
+      background-color: var(--brand-blue);
+    }
+
+    /* Standardized H2 Title */
+    .h2-title {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .lead-text {
+      font-size: clamp(1.02rem, 0.95rem + 0.25vw, 1.15rem);
+      font-weight: 400;
+      line-height: 1.65;
+      color: var(--slate);
+      margin-bottom: 28px;
+    }
+
+    /* ============================================================
+     BUTTONS SYSTEM
+     ============================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-family: var(--font);
+      font-size: 0.98rem;
+      font-weight: 700;
+      padding: 13px 28px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1.5px solid transparent;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--brand-gradient);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+    }
+
+    .btn-primary:hover {
+      background: var(--brand-gradient-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+      color: #FFFFFF;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--brand-blue);
+      border-color: var(--brand-blue);
+    }
+
+    .btn-outline:hover {
+      background-color: var(--brand-peach);
+      border-color: var(--brand-blue);
+      color: var(--brand-blue);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 24px;
+    }
+
+    /* ============================================================
+     SUPPORT HERO & 2-COLUMN SECTION
+     ============================================================ */
+    .support-section {
+      padding-top: clamp(48px, 6vw, 76px);
+      padding-bottom: clamp(50px, 6vw, 80px);
+      background: #FFFFFF;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1.38fr);
+      gap: clamp(32px, 4.5vw, 56px);
+      align-items: start;
+    }
+
+    /* Left Column: Info & Context */
+    .support-info-col {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Why Submit Block */
+    .portal-why-block {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      margin-bottom: 16px;
+    }
+
+    .portal-why-block-title {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .portal-why-block-title svg {
+      width: 16px;
+      height: 16px;
+      color: var(--brand-coral);
+      flex-shrink: 0;
+    }
+
+    .portal-reasons-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+    }
+
+    .portal-reasons-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      color: var(--slate);
+      line-height: 1.5;
+    }
+
+    .portal-reasons-list li svg {
+      width: 16px;
+      height: 16px;
+      color: var(--brand-blue);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .portal-reasons-list li strong {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    /* Support Hours Block */
+    .portal-hours-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 18px 22px;
+      background: var(--brand-blue-subtle);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      margin-bottom: 16px;
+    }
+
+    .portal-hours-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--brand-blue-tint);
+      color: var(--brand-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .portal-hours-icon svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    .portal-hours-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: var(--slate-light);
+      margin-bottom: 4px;
+    }
+
+    .portal-hours-val {
+      font-size: 0.93rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.45;
+    }
+
+    .portal-hours-sub {
+      font-size: 0.82rem;
+      color: var(--slate);
+      margin-top: 4px;
+    }
+
+    /* Emergency Alert Callout */
+    .emergency-callout {
+      display: flex;
+      gap: 14px;
+      padding: 16px 20px;
+      background: var(--brand-coral-tint);
+      border: 1px solid rgba(234, 78, 95, 0.25);
+      border-radius: var(--radius-md);
+      margin-bottom: 0;
+    }
+
+    .emergency-icon {
+      width: 24px;
+      height: 24px;
+      color: var(--brand-coral);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .emergency-content h3 {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--brand-coral-hover);
+      margin-bottom: 6px;
+    }
+
+    .emergency-content p {
+      font-size: 0.88rem;
+      color: var(--navy);
+      line-height: 1.5;
+    }
+
+    .emergency-content a {
+      color: var(--brand-coral);
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    .emergency-content a:hover {
+      color: var(--brand-coral-hover);
+    }
+
+    /* Right Column: Form Container Card */
+    .support-form-card {
+      background: var(--bg-white);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card);
+      padding: clamp(20px, 3vw, 32px);
+      position: relative;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .support-form-card:hover {
+      box-shadow: var(--shadow-floating);
+    }
+
+    .form-card-header {
+      padding-bottom: 18px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .form-card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-card-title svg {
+      width: 20px;
+      height: 20px;
+      color: var(--brand-coral);
+    }
+
+    .form-card-desc {
+      font-size: 0.88rem;
+      color: var(--slate);
+      line-height: 1.5;
+    }
+
+    .form-embed-wrapper {
+      position: relative;
+      width: 100%;
+      min-height: 720px;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: #FFFFFF;
+    }
+
+    /* ============================================================
+     TRUST & CAPABILITIES RIBBON
+     ============================================================ */
+    .trust-ribbon-section {
+      background: var(--brand-blue-subtle);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      padding-top: clamp(40px, 5vw, 60px);
+      padding-bottom: clamp(40px, 5vw, 60px);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .trust-pill {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      background: #FFFFFF;
+      padding: 18px 20px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-card);
+      box-shadow: var(--shadow-subtle);
+      transition: all 0.2s ease;
+    }
+
+    .trust-pill:hover {
+      transform: translateY(-2px);
+      border-color: var(--brand-blue);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    .trust-icon-box {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--brand-blue-tint);
+      color: var(--brand-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .trust-icon-box svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .trust-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 3px;
+    }
+
+    .trust-sub {
+      font-size: 0.82rem;
+      color: var(--slate);
+      line-height: 1.45;
+    }
+
+    /* ============================================================
+     SUPPORT WORKFLOW / PROCESS STEPS
+     ============================================================ */
+    .process-section {
+      padding-top: clamp(65px, 8vw, 95px);
+      padding-bottom: clamp(65px, 8vw, 95px);
+      background: #FFFFFF;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto clamp(40px, 5vw, 56px);
+    }
+
+    .section-header .lead-text {
+      margin-bottom: 0;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      position: relative;
+    }
+
+    .process-step-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 28px 22px;
+      position: relative;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .process-step-card:hover {
+      background: #FFFFFF;
+      border-color: var(--border-card);
+      box-shadow: var(--shadow-card);
+      transform: translateY(-3px);
+    }
+
+    .step-number-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--brand-gradient);
+      color: #FFFFFF;
+      font-size: 0.88rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      box-shadow: 0 3px 10px rgba(2, 80, 197, 0.25);
+    }
+
+    .step-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .step-desc {
+      font-size: 0.88rem;
+      color: var(--slate);
+      line-height: 1.55;
+    }
+
+    /* ============================================================
+     FAQ SECTION (Clean Modern Accordion)
+     ============================================================ */
+    .faq-section {
+      background: #FAFAFC;
+      padding-top: clamp(65px, 8vw, 95px);
+      padding-bottom: clamp(65px, 8vw, 95px);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .faq-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      margin-bottom: 14px;
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .faq-item:hover {
+      border-color: #CBD5E1;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--brand-blue-tint);
+      color: var(--brand-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      font-weight: 700;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-left: 14px;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .faq-item[open] .faq-icon {
+      transform: rotate(45deg);
+      background: var(--brand-coral-tint);
+      color: var(--brand-coral);
+    }
+
+    .faq-answer {
+      padding: 0 24px 22px;
+      font-size: 0.96rem;
+      color: var(--slate);
+      line-height: 1.65;
+      border-top: 1px solid transparent;
+    }
+
+    .faq-item[open] .faq-answer {
+      border-top-color: var(--border-light);
+      padding-top: 16px;
+    }
+
+    /* ============================================================
+     CONSULTATION / NEXT STEPS CTA BANNER
+     ============================================================ */
+    .cta-banner-section {
+      padding-top: clamp(65px, 8vw, 95px);
+      padding-bottom: clamp(65px, 8vw, 95px);
+      background: #FFFFFF;
+    }
+
+    .cta-banner-box {
+      background: var(--bg-banner);
+      border-radius: var(--radius-lg);
+      padding: clamp(36px, 5vw, 56px) clamp(28px, 4vw, 50px);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(32px, 4vw, 56px);
+      align-items: center;
+      border: 1px solid var(--border-card);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner-box::before {
+      content: "";
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(234, 78, 95, 0.12) 0%, transparent 70%);
+      top: -100px;
+      right: -80px;
+      pointer-events: none;
+    }
+
+    .cta-banner-left h2 {
+      font-size: clamp(1.6rem, 1.3rem + 1vw, 2.2rem);
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .cta-banner-left p {
+      font-size: 1.02rem;
+      color: var(--slate);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    .prep-card-right {
+      background: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 26px 24px;
+      box-shadow: var(--shadow-subtle);
+      border: 1px solid var(--border-light);
+    }
+
+    .prep-card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .prep-card-title svg {
+      width: 18px;
+      height: 18px;
+      color: var(--brand-coral);
+    }
+
+    .prep-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .prep-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--slate);
+      line-height: 1.45;
+    }
+
+    .prep-list-num {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--brand-blue-tint);
+      color: var(--brand-blue);
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+    @media (max-width: 1024px) {
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 980px) {
+      .support-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .cta-banner-box {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-title-banner {
+        padding: 44px 18px;
+      }
+
+      .trust-grid,
+      .process-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn-group {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       PAGE TITLE BANNER (POLISHED FULL-WIDTH BRAND GRADIENT)
+       ============================================================ -->
+  <section class="page-title-banner" aria-label="Page Title">
+    <div class="page-title-banner-mesh" aria-hidden="true"></div>
+    <div class="container page-title-inner">
+      <h1 class="page-banner-h1">Client Support Portal</h1>
+      <p class="page-banner-sub">(Direct Technical Assistance, Maintenance &amp; Website Updates)</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SUPPORT OVERVIEW & 2-COLUMN FORM SECTION
+       ============================================================ -->
+  <section class="support-section" id="support-portal" aria-label="Client Support Portal Section">
+    <div class="container">
+      <div class="support-grid">
+
+        <!-- Left Column: Info & Context (3 clean blocks) -->
+        <div class="support-info-col">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Client Support Portal
+          </div>
+
+          <h2 class="h2-title">Submit a ticket for fast, tracked assistance.</h2>
+
+          <p class="lead-text">
+            All support inquiries must go through this portal so every request is logged with a timestamp, routed to the right specialist, and fully tracked from submission to resolution.
+          </p>
+
+          <!-- Block 1: Why use this form -->
+          <div class="portal-why-block">
+            <div class="portal-why-block-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+              Why Submit Through This Form
+            </div>
+            <ul class="portal-reasons-list">
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Instant queue logging</strong> — your ticket enters our development queue immediately with a timestamp, so nothing slips through email or voicemail.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Accurate diagnostics upfront</strong> — the form captures URLs, error details, and device info so engineers can act without back-and-forth delays.</span>
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span><strong>Full documented history</strong> — every fix and communication is tied to your site's record for complete transparency.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Block 2: Response Hours -->
+          <div class="portal-hours-block">
+            <div class="portal-hours-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 6 12 12 16 14"></polyline>
+              </svg>
+            </div>
+            <div>
+              <div class="portal-hours-label">Response Window (Mountain Time)</div>
+              <div class="portal-hours-val">Mon – Fri: 8:00 AM – 8:00 PM<br>Sat – Sun: 12:00 PM – 4:00 PM</div>
+              <div class="portal-hours-sub">WHAM maintenance clients receive priority queue placement.</div>
+            </div>
+          </div>
+
+          <!-- Block 3: Emergency Callout -->
+          <div class="emergency-callout">
+            <div class="emergency-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                <line x1="12" y1="9" x2="12" y2="13"></line>
+                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+              </svg>
+            </div>
+            <div class="emergency-content">
+              <h3>Site Down or Hacked?</h3>
+              <p>
+                Submit this form immediately and select <strong>Urgent</strong> in the priority field. High-priority tickets trigger instant alerts to our on-duty engineers.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Elevated Form Container Card -->
+        <div class="support-form-card">
+          <div class="form-card-header">
+            <div class="form-card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+              <span>Submit a Portal Ticket</span>
+            </div>
+            <p class="form-card-desc">
+              Please complete the support form below. A Sites by Sara representative will review your ticket and reach
+              out promptly.
+            </p>
+          </div>
+
+          <!-- Form Embed Container -->
+          <div class="form-embed-wrapper">
+            <iframe src="https://profile.sitesbysara.com/widget/form/73ZsDgphWeJixe8Pikvf"
+              style="width:100%;height:100%;border:none;border-radius:8px" id="inline-73ZsDgphWeJixe8Pikvf"
+              data-layout="{'id':'INLINE'}" data-trigger-type="alwaysShow" data-trigger-value=""
+              data-activation-type="alwaysActivated" data-activation-value="" data-deactivation-type="neverDeactivate"
+              data-deactivation-value="" data-form-name="Support Request Form SBS Website" data-height="undefined"
+              data-layout-iframe-id="inline-73ZsDgphWeJixe8Pikvf" data-form-id="73ZsDgphWeJixe8Pikvf"
+              data-cookie-consent="true" data-cookie-consent-provider="auto" title="Support Request Form SBS Website">
+            </iframe>
+            <script src="https://profile.sitesbysara.com/js/form_embed.js"></script>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TRUST & CAPABILITIES RIBBON
+       ============================================================ -->
+  <section class="trust-ribbon-section" aria-label="Portal Capabilities">
+    <div class="container">
+      <div class="trust-grid">
+
+        <div class="trust-pill">
+          <div class="trust-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
+          <div>
+            <div class="trust-title">Rapid Portal Triage</div>
+            <div class="trust-sub">Active ticket screening 7 days a week during operational windows.</div>
+          </div>
+        </div>
+
+        <div class="trust-pill">
+          <div class="trust-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="trust-title">18+ Years Experience</div>
+            <div class="trust-sub">Award-winning Utah web agency serving businesses since 2007.</div>
+          </div>
+        </div>
+
+        <div class="trust-pill">
+          <div class="trust-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 14 14"></polyline>
+            </svg>
+          </div>
+          <div>
+            <div class="trust-title">WHAM Plan Priority</div>
+            <div class="trust-sub">Clients on active retainer maintenance receive front-of-line queuing.</div>
+          </div>
+        </div>
+
+        <div class="trust-pill">
+          <div class="trust-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <div>
+            <div class="trust-title">Documented Ticket Trail</div>
+            <div class="trust-sub">Every request logged and routed straight to the right developer.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       SUPPORT PROCESS (HOW IT WORKS)
+       ============================================================ -->
+  <section class="process-section" id="how-it-works" aria-label="Portal Workflow">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Portal Workflow
+        </div>
+        <h2 class="h2-title">How Portal Requests Are Handled</h2>
+        <p class="lead-text">
+          Our organized ticketing workflow ensures every client request is tracked, triaged, and resolved efficiently.
+        </p>
+      </div>
+
+      <div class="process-grid">
+
+        <div class="process-step-card">
+          <span class="step-number-badge">1</span>
+          <h3 class="step-title">Submit Ticket</h3>
+          <p class="step-desc">
+            Provide details about the issue or requested update via the form above, including URLs and any error
+            notices.
+          </p>
+        </div>
+
+        <div class="process-step-card">
+          <span class="step-number-badge">2</span>
+          <h3 class="step-title">Triage &amp; Assessment</h3>
+          <p class="step-desc">
+            Our technical team reviews your request, verifies site access, evaluates urgency, and plans the fix.
+          </p>
+        </div>
+
+        <div class="process-step-card">
+          <span class="step-number-badge">3</span>
+          <h3 class="step-title">Fix &amp; QA Testing</h3>
+          <p class="step-desc">
+            We implement the fix or update safely, testing responsiveness and performance to prevent regressions.
+          </p>
+        </div>
+
+        <div class="process-step-card">
+          <span class="step-number-badge">4</span>
+          <h3 class="step-title">Verification &amp; Close</h3>
+          <p class="step-desc">
+            We notify you with a clear recap of what was resolved and confirm that everything is functioning perfectly.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ SECTION (CLEAN MODERN ACCORDION)
+       ============================================================ -->
+  <section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Client FAQs
+        </div>
+        <h2 class="h2-title">Client Support Portal FAQs</h2>
+        <p class="lead-text">Answers to common questions about using our client portal, ticket turnaround times, and
+          maintenance coverage.</p>
+      </div>
+
+      <div class="faq-wrap">
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>How quickly will my support portal ticket be addressed?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Support requests are reviewed promptly during our active operating hours: <strong>Monday through Friday from
+              8:00 AM to 8:00 PM MT</strong>, and <strong>Saturday through Sunday from 12:00 PM to 4:00 PM MT</strong>.
+            Clients on active WHAM maintenance plans receive priority ticket queuing.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>What information should I include in my support ticket?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            To help us diagnose and fix issues quickly, please provide your <strong>website URL</strong>, a clear
+            description of the issue or update required, exact <strong>error messages or screenshots</strong>, and
+            mention any recent plugins, themes, or credentials updated.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Is technical support included in my maintenance plan?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Yes. If your site is covered under one of our WordPress Hosting and Maintenance (WHAM) packages, routine
+            updates, core security patches, backups, and routine maintenance assistance are included. Larger custom
+            coding or site overhauls can be handled via our Hourly Dev Blocks or project retainers.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>What if my website is completely offline or hacked?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            If your site is experiencing critical downtime or a severe security compromise, please submit this form immediately and select <strong>Urgent</strong> in the urgency field. High-priority tickets automatically alert on-duty engineers for immediate triage.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Can I request new features or design changes through this portal?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Yes. You can use this portal form to submit requests for new pages, layout adjustments, ecommerce updates,
+            or plugin integrations. We will evaluate the scope and provide a quick estimate or confirm execution.
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONSULTATION / NEXT STEPS CTA BANNER
+       ============================================================ -->
+  <section class="cta-banner-section" id="consultation" aria-label="Consultation Banner">
+    <div class="container">
+      <div class="cta-banner-box">
+
+        <div class="cta-banner-left">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Ongoing Partnership
+          </div>
+          <h2>Looking for ongoing maintenance or custom development?</h2>
+          <p>
+            Avoid unexpected emergencies with our proactive WordPress Hosting and Maintenance (WHAM) plans or flexible
+            Hourly Dev Blocks. Book a consultation to explore options tailored to your website.
+          </p>
+          <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn btn-primary" target="_blank"
+            rel="noopener">
+            Book a Free Consultation
+          </a>
+        </div>
+
+        <div class="prep-card-right">
+          <h4 class="prep-card-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span>What helps when submitting a portal ticket:</span>
+          </h4>
+          <ul class="prep-list">
+            <li>
+              <span class="prep-list-num">1</span>
+              <span>Exact URLs where the issue or update occurs</span>
+            </li>
+            <li>
+              <span class="prep-list-num">2</span>
+              <span>Screenshots or verbatim copy of any error notices</span>
+            </li>
+            <li>
+              <span class="prep-list-num">3</span>
+              <span>Device and browser type where the issue was observed</span>
+            </li>
+            <li>
+              <span class="prep-list-num">4</span>
+              <span>Any recent login, hosting, or plugin changes</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>
