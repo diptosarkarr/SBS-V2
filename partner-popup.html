@@ -81,11 +81,14 @@
     padding: 0;
   }
 
-  .partner-popup-close:hover {
-    background: #FFFFFF;
-    color: var(--sbs-coral);
-    transform: rotate(90deg) scale(1.08);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  .partner-popup-close:hover,
+  .partner-popup-close:focus,
+  .partner-popup-close:focus-visible,
+  .partner-popup-close:active {
+  background: #FFFFFF;
+  color: var(--sbs-coral) !important;
+  transform: rotate(90deg) scale(1.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
   }
 
   .partner-popup-title {
@@ -126,11 +129,14 @@
     box-sizing: border-box;
   }
 
-  .partner-popup-btn:hover {
-    background: var(--sbs-coral-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 22px rgba(234, 78, 95, 0.42);
-    color: #FFFFFF !important;
+  .partner-popup-btn:hover,
+  .partner-popup-btn:focus,
+  .partner-popup-btn:focus-visible,
+  .partner-popup-btn:active {
+  background: var(--sbs-coral-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(234, 78, 95, 0.42);
+  color: #FFFFFF !important;
   }
 
   @media (max-width: 768px) {
@@ -174,7 +180,7 @@
         This page is for clients only. For partnerships, sales, or pitching services, please use our become a partner
         page instead.
       </p>
-      <a href="https://sitesbysara.com/become-a-partner/" class="partner-popup-btn">Go to Become a Partner</a>
+      <a href="/become-a-partner/" class="partner-popup-btn">Go to Become a Partner</a>
     </div>
   </div>
 </div>

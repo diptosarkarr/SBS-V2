@@ -7,13 +7,13 @@
   <title>Shopify E-Commerce Stores — New Builds, Design Refresh &amp; Add-Ons — Sites by Sara</title>
   <meta name="description"
     content="Custom Shopify store builds from 3 to 100 products, design refreshes for existing Shopify stores, and page/product additions. Mobile-responsive and SEO-ready — by Sites by Sara.">
-  <link rel="canonical" href="https://sitesbysara.com/shopify-ecommerce-store/">
+  <link rel="canonical" href="/shopify-ecommerce-store/">
   <meta property="og:title"
     content="Shopify E-Commerce Stores — New Builds, Design Refresh &amp; Add-Ons — Sites by Sara">
   <meta property="og:description"
     content="Custom Shopify store builds from 3 to 100 products, design refreshes for existing Shopify stores, and page/product additions. Mobile-responsive and SEO-ready — by Sites by Sara.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://sitesbysara.com/shopify-ecommerce-store/">
+  <meta property="og:url" content="/shopify-ecommerce-store/">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,7 +25,7 @@
     "@context": "https://schema.org",
     "@type": "Service",
     "serviceType": "Shopify E-Commerce Store Development",
-    "url": "https://sitesbysara.com/shopify-ecommerce-store/",
+    "url": "/shopify-ecommerce-store/",
     "provider": {
       "@type": "Organization",
       "name": "Sites by Sara"
@@ -283,10 +283,14 @@
       box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
     }
 
-    .btn-primary:hover {
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:focus-visible,
+    .btn-primary:active {
       background: var(--brand-gradient-hover);
       transform: translateY(-1px);
       box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+      color: #FFFFFF !important;
     }
 
     .btn-outline {
@@ -295,10 +299,13 @@
       border-color: var(--brand-blue);
     }
 
-    .btn-outline:hover {
+    .btn-outline:hover,
+    .btn-outline:focus,
+    .btn-outline:focus-visible,
+    .btn-outline:active {
       background-color: var(--brand-peach);
       border-color: var(--brand-blue);
-      color: var(--brand-blue);
+      color: var(--brand-blue) !important;
     }
 
     /* ============================================================
@@ -686,9 +693,13 @@
       box-shadow: 0 3px 12px rgba(2, 80, 197, 0.22);
     }
 
-    .btn-plan-primary:hover {
+    .btn-plan-primary:hover,
+    .btn-plan-primary:focus,
+    .btn-plan-primary:focus-visible,
+    .btn-plan-primary:active {
       background: var(--brand-gradient-hover);
       box-shadow: 0 5px 16px rgba(212, 63, 141, 0.32);
+      color: #FFFFFF !important;
     }
 
     .btn-plan-outline {
@@ -697,10 +708,13 @@
       border: 1.5px solid var(--border);
     }
 
-    .btn-plan-outline:hover {
+    .btn-plan-outline:hover,
+    .btn-plan-outline:focus,
+    .btn-plan-outline:focus-visible,
+    .btn-plan-outline:active {
       background: var(--brand-peach);
       border-color: var(--brand-blue);
-      color: var(--brand-blue);
+      color: var(--brand-blue) !important;
     }
 
     .plan-features-label {
@@ -894,8 +908,11 @@
       transition: color 0.2s ease, border-color 0.2s ease;
     }
 
-    .pricing-inline-link a:hover {
-      color: var(--brand-blue-hover);
+    .pricing-inline-link a:hover,
+    .pricing-inline-link a:focus,
+    .pricing-inline-link a:focus-visible,
+    .pricing-inline-link a:active {
+      color: var(--brand-blue-hover) !important;
       border-color: var(--brand-blue-hover);
     }
 
@@ -1015,9 +1032,18 @@
       transition: gap 0.2s ease, color 0.2s ease;
     }
 
-    .story-link:hover {
+    .story-link:hover,
+    .story-link:focus,
+    .story-link:focus-visible,
+    .story-link:active {
       gap: 10px;
-      color: var(--brand-coral-hover);
+      color: var(--brand-coral-hover) !important;
+    }
+
+    .story-link svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
     }
 
     .story-visual-col {
@@ -1321,7 +1347,7 @@
           </div>
 
           <div class="btn-group" style="margin-top: 28px;">
-            <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn btn-primary">Book a Free
+            <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
               Consultation</a>
             <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
           </div>
@@ -1335,7 +1361,7 @@
         <!-- Hero Visual Mockup -->
         <div class="hero-visual-wrap">
           <div class="hero-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/shopify-store-hero.webp"
+            <img src="/wp-content/uploads/2026/09/shopify-store-hero.webp"
               alt="Shopify Online Store Shop Page and Product Catalog Mockup" width="600" height="450" />
           </div>
         </div>
@@ -1474,36 +1500,37 @@
               </div>
               <div class="plan-subtext">Single landing page · 3 products</div>
 
-              <a href="https://order.sitesbysara.com/configure?id=11" target="_blank" rel="noopener noreferrer" class="btn-plan btn-plan-primary">Order
+              <a href="https://order.sitesbysara.com/configure?id=11" target="_blank" rel="noopener noreferrer"
+                class="btn-plan btn-plan-primary">Order
                 Now</a>
 
               <div class="plan-features-label">What's included:</div>
               <ul class="plan-features-list">
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span>Single-page landing site design</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span>3 products added &amp; configured</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span>Full SEO metadata included</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span>Mobile-responsive + hands-on training</span>
                 </li>
@@ -1521,36 +1548,37 @@
               </div>
               <div class="plan-subtext">Full store · 15 products</div>
 
-              <a href="https://order.sitesbysara.com/configure?id=12" target="_blank" rel="noopener noreferrer" class="btn-plan btn-plan-outline">Order
+              <a href="https://order.sitesbysara.com/configure?id=12" target="_blank" rel="noopener noreferrer"
+                class="btn-plan btn-plan-outline">Order
                 Now</a>
 
               <div class="plan-features-label">What's included:</div>
               <ul class="plan-features-list">
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span>Full multi-page Shopify store</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span>15 products added &amp; configured</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span>Full SEO metadata included</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span>Mobile-responsive + hands-on training</span>
                 </li>
@@ -1568,36 +1596,37 @@
               </div>
               <div class="plan-subtext">Full store · 50 products</div>
 
-              <a href="https://order.sitesbysara.com/configure?id=13" target="_blank" rel="noopener noreferrer" class="btn-plan btn-plan-outline">Order
+              <a href="https://order.sitesbysara.com/configure?id=13" target="_blank" rel="noopener noreferrer"
+                class="btn-plan btn-plan-outline">Order
                 Now</a>
 
               <div class="plan-features-label">What's included:</div>
               <ul class="plan-features-list">
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span>Full multi-page Shopify store</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span>50 products added &amp; configured</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span>Full SEO metadata included</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span>Mobile-responsive + hands-on training</span>
                 </li>
@@ -1615,36 +1644,37 @@
               </div>
               <div class="plan-subtext">Full store · 100 products</div>
 
-              <a href="https://order.sitesbysara.com/configure?id=14" target="_blank" rel="noopener noreferrer" class="btn-plan btn-plan-outline">Order
+              <a href="https://order.sitesbysara.com/configure?id=14" target="_blank" rel="noopener noreferrer"
+                class="btn-plan btn-plan-outline">Order
                 Now</a>
 
               <div class="plan-features-label">What's included:</div>
               <ul class="plan-features-list">
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span>Full multi-page Shopify store</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span>100 products added &amp; configured</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span>Full SEO metadata included</span>
                 </li>
                 <li>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M9 12l2 2 4-4"></path>
+                    <path d="M20 6 9 17l-5-5"></path>
                   </svg>
                   <span>Mobile-responsive + hands-on training</span>
                 </li>
@@ -1684,7 +1714,8 @@
                 <span class="plan-period">one-time</span>
               </div>
               <div class="plan-subtext">Shop, Products, Cart &amp; Checkout</div>
-              <a href="https://order.sitesbysara.com/configure?id=17" target="_blank" rel="noopener noreferrer" class="btn-plan btn-plan-primary">Order Now</a>
+              <a href="https://order.sitesbysara.com/configure?id=17" target="_blank" rel="noopener noreferrer"
+                class="btn-plan btn-plan-primary">Order Now</a>
             </div>
           </div>
         </div>
@@ -1700,7 +1731,8 @@
             <h4 class="addon-item-title">Add Pages</h4>
             <p class="addon-item-desc">Add or improve the layout and presentation for existing Shopify pages — sold
               in blocks of 5 pages.</p>
-            <a href="https://order.sitesbysara.com/configure?id=15" target="_blank" rel="noopener noreferrer" class="btn-plan btn-plan-outline">Order Now</a>
+            <a href="https://order.sitesbysara.com/configure?id=15" target="_blank" rel="noopener noreferrer"
+              class="btn-plan btn-plan-outline">Order Now</a>
           </div>
 
           <div class="addon-item-box">
@@ -1708,7 +1740,8 @@
             <h4 class="addon-item-title">Add Products</h4>
             <p class="addon-item-desc">Add or improve the layout and presentation for existing Shopify products —
               sold in blocks of 10 products.</p>
-            <a href="https://order.sitesbysara.com/configure?id=16" target="_blank" rel="noopener noreferrer" class="btn-plan btn-plan-outline">Order Now</a>
+            <a href="https://order.sitesbysara.com/configure?id=16" target="_blank" rel="noopener noreferrer"
+              class="btn-plan btn-plan-outline">Order Now</a>
           </div>
 
         </div>
@@ -1826,11 +1859,14 @@
             storefront to a full 100-product catalog. Each product is set up with photos, pricing, and categories
             so customers can find exactly what they're looking for.
           </p>
-          <a href="#pricing" class="story-link">View store packages →</a>
+          <a href="#pricing" class="story-link">View store packages<svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg></a>
         </div>
         <div class="story-visual-col">
           <div class="story-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/shopify-product-catalog.webp"
+            <img src="/wp-content/uploads/2026/09/shopify-product-catalog.webp"
               alt="Shopify Product Catalog Admin Screen Mockup" width="520" height="390" />
           </div>
         </div>
@@ -1848,11 +1884,14 @@
             Your Shop, Product, Cart, and Checkout pages are set up and styled together as one cohesive
             experience, so customers can move from browsing to checking out without friction or confusion.
           </p>
-          <a href="#pricing" class="story-link">See what's included →</a>
+          <a href="#pricing" class="story-link">See what's included<svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg></a>
         </div>
         <div class="story-visual-col">
           <div class="story-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/shopify-cart-checkout.webp"
+            <img src="/wp-content/uploads/2026/09/shopify-cart-checkout.webp"
               alt="Shopify Shopping Cart and Checkout Page Mockup" width="520" height="390" />
           </div>
         </div>
@@ -1871,11 +1910,14 @@
             and overall presentation across your Shop, Product, Cart, and Checkout pages — without touching your
             existing products or orders.
           </p>
-          <a href="#design-refresh" class="story-link">See refresh pricing →</a>
+          <a href="#design-refresh" class="story-link">See refresh pricing<svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg></a>
         </div>
         <div class="story-visual-col">
           <div class="story-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/shopify-design-refresh.webp"
+            <img src="/wp-content/uploads/2026/09/shopify-design-refresh.webp"
               alt="Shopify Store Design Refresh Before and After Mockup" width="520" height="390" />
           </div>
         </div>
@@ -1992,7 +2034,7 @@
             Book a free consultation to walk through your product catalog, choose the right package, and get a
             clear scope for your new Shopify store, design refresh, or page/product additions.
           </p>
-          <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn btn-primary">Book a Free
+          <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
             Consultation</a>
         </div>
 

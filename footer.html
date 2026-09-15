@@ -69,8 +69,8 @@
       display: grid;
       grid-template-columns: 1.2fr 1fr 0.8fr 1fr;
       gap: clamp(24px, 3.5vw, 40px);
-      padding-top: clamp(48px, 6vw, 72px);
-      padding-bottom: clamp(36px, 5vw, 48px);
+      padding-top: clamp(48px, 6vw, 72px) !important;
+      padding-bottom: clamp(36px, 5vw, 48px) !important;
     }
 
     /* Brand column */
@@ -109,10 +109,13 @@
       transition: all 0.2s ease;
     }
 
-    .custom-footer-social-link:hover {
+    .custom-footer-social-link:hover,
+    .custom-footer-social-link:focus,
+    .custom-footer-social-link:focus-visible,
+    .custom-footer-social-link:active {
       background: var(--brand-blue);
       border-color: var(--brand-blue);
-      color: #FFFFFF;
+      color: #FFFFFF !important;
     }
 
     /* Link columns */
@@ -138,17 +141,33 @@
       transition: color 0.2s ease;
     }
 
-    .custom-footer-link-list a:hover {
-      color: var(--brand-blue);
+    .custom-footer-link-list a:hover,
+    .custom-footer-link-list a:focus,
+    .custom-footer-link-list a:focus-visible,
+    .custom-footer-link-list a:active {
+      color: var(--brand-blue) !important;
     }
 
     .custom-footer-link-strong {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
       font-weight: 600;
       color: var(--brand-coral) !important;
     }
 
-    .custom-footer-link-strong:hover {
+    .custom-footer-link-strong:hover,
+    .custom-footer-link-strong:focus,
+    .custom-footer-link-strong:focus-visible,
+    .custom-footer-link-strong:active {
       color: var(--brand-blue-hover) !important;
+    }
+
+    .custom-footer-link-strong svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+      vertical-align: -1px;
     }
 
     /* Contact column (image, phone, email) */
@@ -179,6 +198,7 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
+      margin-top: 8px;
     }
 
     .custom-footer-contact-list a {
@@ -188,8 +208,11 @@
       transition: color 0.2s ease;
     }
 
-    .custom-footer-contact-list a:hover {
-      color: var(--brand-blue);
+    .custom-footer-contact-list a:hover,
+    .custom-footer-contact-list a:focus,
+    .custom-footer-contact-list a:focus-visible,
+    .custom-footer-contact-list a:active {
+      color: var(--brand-blue) !important;
     }
 
     /* Bottom bar */
@@ -231,8 +254,11 @@
       transition: color 0.2s ease;
     }
 
-    .custom-footer-legal-links a:hover {
-      color: var(--brand-blue);
+    .custom-footer-legal-links a:hover,
+    .custom-footer-legal-links a:focus,
+    .custom-footer-legal-links a:focus-visible,
+    .custom-footer-legal-links a:active {
+      color: var(--brand-blue) !important;
     }
 
     /* ============================================================
@@ -269,8 +295,8 @@
 
       <!-- Brand -->
       <div class="custom-footer-brand">
-        <a href="https://sitesbysara.com">
-          <img src="https://www.sitesbysara.com/wp-content/uploads/2025/08/Avenir-Next-SBS-logo-blue_v36.png"
+        <a href="/">
+          <img src="/wp-content/uploads/2025/08/Avenir-Next-SBS-logo-blue_v36.png"
             alt="Sites by Sara — Your Online Success Partner" class="custom-footer-logo-img" width="150" height="32">
         </a>
         <p class="custom-footer-desc">
@@ -294,8 +320,8 @@
               <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
             </svg>
           </a>
-          <a href="https://twitter.com/sitesbysaraweb" class="custom-footer-social-link" aria-label="Twitter" target="_blank"
-            rel="noopener noreferrer">
+          <a href="https://twitter.com/sitesbysaraweb" class="custom-footer-social-link" aria-label="Twitter"
+            target="_blank" rel="noopener noreferrer">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
               <path
@@ -311,8 +337,8 @@
               </path>
             </svg>
           </a>
-          <a href="https://www.linkedin.com/company/sites-by-sara/" class="custom-footer-social-link" aria-label="LinkedIn"
-            target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/company/sites-by-sara/" class="custom-footer-social-link"
+            aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
               stroke-linecap="round" stroke-linejoin="round">
               <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
@@ -330,8 +356,8 @@
               <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
             </svg>
           </a>
-          <a href="https://www.tiktok.com/@sitesbysara" class="custom-footer-social-link" aria-label="TikTok" target="_blank"
-            rel="noopener noreferrer">
+          <a href="https://www.tiktok.com/@sitesbysara" class="custom-footer-social-link" aria-label="TikTok"
+            target="_blank" rel="noopener noreferrer">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none">
               <path
                 d="M16.6 5.82c-.9-.6-1.53-1.54-1.72-2.62V3h-3.09v12.4a2.59 2.59 0 1 1-1.83-2.48v-3.17a5.86 5.86 0 0 0-.77-.05A5.94 5.94 0 0 0 3.25 15.6a5.94 5.94 0 0 0 5.94 5.94 5.94 5.94 0 0 0 5.94-5.94V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.85 4.85 0 0 1-2.83-1.48z">
@@ -345,13 +371,19 @@
       <div class="custom-footer-services">
         <h4 class="custom-footer-col-title">Services</h4>
         <ul class="custom-footer-link-list">
-          <li><a href="https://sitesbysara.com/services/web-design-development/custom-web-development/">Custom Web Development</a></li>
-          <li><a href="https://sitesbysara.com/woocommerce-stores/">WooCommerce
+          <li><a href="/services/web-design-development/custom-web-development/">Custom Web
+              Development</a></li>
+          <li><a href="/woocommerce-stores/">WooCommerce
               Stores</a></li>
-          <li><a href="https://sitesbysara.com/shopify-ecommerce-store/">Shopify E-Commerce</a></li>
-          <li><a href="https://sitesbysara.com/cybersecurity-packages/">Cybersecurity Services</a></li>
-          <li><a href="https://sitesbysara.com/email-setup-migration-services-gws-ms365/">Email Setup &amp; Migration</a></li>
-          <li><a href="https://sitesbysara.com/all-services/" class="custom-footer-link-strong">View All Services →</a></li>
+          <li><a href="/shopify-ecommerce-store/">Shopify E-Commerce</a></li>
+          <li><a href="/cybersecurity-packages/">Cybersecurity Services</a></li>
+          <li><a href="/email-setup-migration-services-gws-ms365/">Email Setup &amp;
+              Migration</a></li>
+          <li><a href="/all-services/" class="custom-footer-link-strong">View All
+              Services<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg></a></li>
         </ul>
       </div>
 
@@ -359,28 +391,28 @@
       <div class="custom-footer-company">
         <h4 class="custom-footer-col-title">Company</h4>
         <ul class="custom-footer-link-list">
-          <li><a href="https://sitesbysara.com/about">About Us</a></li>
-          <li><a href="https://sitesbysara.com/portfolio">Portfolio</a>
+          <li><a href="/who-we-are/">About Us</a></li>
           </li>
-          <li><a href="https://sitesbysara.com/about/web-awards/">Awards</a>
+          <li><a href="/awards-recognition/">Awards</a>
           </li>
-          <li><a href="https://sitesbysara.com/blogs/">Blog</a></li>
-          <li><a href="https://sitesbysara.com/contact-us/">Contact</a>
+          <li><a href="/blogs/">Blog</a></li>
+          <li><a href="/contact-us-2/">Contact</a>
           </li>
+        </ul>
+
+        <ul class="custom-footer-contact-list">
+          <li><a href="tel:+13853555351">(385) 355-5351</a></li>
+          <li><a href="mailto:hello@sitesbysara.com">hello@sitesbysara.com</a></li>
         </ul>
       </div>
 
       <!-- Get in Touch: image, then phone, then email -->
       <div class="custom-footer-contact">
-        <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="custom-footer-consult-link">
+        <a href="/book-a-free-consultation/" class="custom-footer-consult-link">
           <img
             src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/10/book-free-consultation.jpg?resize=300%2C300&ssl=1"
             alt="Book a Free Consultation with Sites by Sara" class="custom-footer-consult-img">
         </a>
-        <ul class="custom-footer-contact-list">
-          <li><a href="tel:+13853555351">(385) 355-5351</a></li>
-          <li><a href="mailto:hello@sitesbysara.com">hello@sitesbysara.com</a></li>
-        </ul>
       </div>
 
     </div>
@@ -393,9 +425,9 @@
             Media Group, Inc.</a>
         </p>
         <div class="custom-footer-legal-links">
-          <a href="https://www.sitesbysara.com/terms-of-service/">Terms of
+          <a href="/terms-of-service/">Terms of
             Service</a>
-          <a href="https://www.sitesbysara.com/privacy-policy/">Privacy
+          <a href="/privacy-policy/">Privacy
             Policy</a>
         </div>
       </div>

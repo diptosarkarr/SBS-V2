@@ -286,10 +286,14 @@
       box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
     }
 
-    .btn-primary:hover {
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:focus-visible,
+    .btn-primary:active {
       background: var(--brand-gradient-hover);
       transform: translateY(-1px);
       box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+      color: #FFFFFF !important;
     }
 
     .btn-outline {
@@ -298,10 +302,13 @@
       border-color: var(--brand-blue);
     }
 
-    .btn-outline:hover {
+    .btn-outline:hover,
+    .btn-outline:focus,
+    .btn-outline:focus-visible,
+    .btn-outline:active {
       background-color: var(--brand-peach);
       border-color: var(--brand-blue);
-      color: var(--brand-blue);
+      color: var(--brand-blue) !important;
     }
 
     /* ============================================================
@@ -634,9 +641,13 @@
       box-shadow: 0 3px 12px rgba(2, 80, 197, 0.22);
     }
 
-    .btn-plan-primary:hover {
+    .btn-plan-primary:hover,
+    .btn-plan-primary:focus,
+    .btn-plan-primary:focus-visible,
+    .btn-plan-primary:active {
       background: var(--brand-gradient-hover);
       box-shadow: 0 5px 16px rgba(212, 63, 141, 0.32);
+      color: #FFFFFF !important;
     }
 
     .btn-plan-outline {
@@ -645,10 +656,13 @@
       border: 1.5px solid var(--border);
     }
 
-    .btn-plan-outline:hover {
+    .btn-plan-outline:hover,
+    .btn-plan-outline:focus,
+    .btn-plan-outline:focus-visible,
+    .btn-plan-outline:active {
       background: var(--brand-peach);
       border-color: var(--brand-blue);
-      color: var(--brand-blue);
+      color: var(--brand-blue) !important;
     }
 
     .plan-features-label {
@@ -844,8 +858,11 @@
       transition: color 0.2s ease, border-color 0.2s ease;
     }
 
-    .pricing-inline-link a:hover {
-      color: var(--brand-blue-hover);
+    .pricing-inline-link a:hover,
+    .pricing-inline-link a:focus,
+    .pricing-inline-link a:focus-visible,
+    .pricing-inline-link a:active {
+      color: var(--brand-blue-hover) !important;
       border-color: var(--brand-blue-hover);
     }
 
@@ -964,9 +981,18 @@
       transition: gap 0.2s ease, color 0.2s ease;
     }
 
-    .story-link:hover {
+    .story-link:hover,
+    .story-link:focus,
+    .story-link:focus-visible,
+    .story-link:active {
       gap: 10px;
-      color: var(--brand-coral-hover);
+      color: var(--brand-coral-hover) !important;
+    }
+
+    .story-link svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
     }
 
     .story-visual-col {
@@ -1240,7 +1266,7 @@
           </p>
 
           <div class="btn-group">
-            <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn btn-primary">Book a Free
+            <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
               Consultation</a>
             <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
           </div>
@@ -1254,7 +1280,7 @@
         <!-- Hero Visual Mockup -->
         <div class="hero-visual-wrap">
           <div class="hero-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/simple-squeeze-page-hero.webp"
+            <img src="/wp-content/uploads/2026/09/simple-squeeze-page-hero.webp"
               alt="Single-page squeeze landing site mockup with a headline and call-to-action button" width="600"
               height="450" />
           </div>
@@ -1331,25 +1357,29 @@
               </div>
               <div class="plan-subtext">1 page, built to convert</div>
 
-              <a href="https://order.sitesbysara.com/configure?id=30" target="_blank" rel="noopener noreferrer" class="btn-plan btn-plan-primary">Order Now</a>
+              <a href="https://order.sitesbysara.com/configure?id=30" target="_blank" rel="noopener noreferrer"
+                class="btn-plan btn-plan-primary">Order Now</a>
 
               <div class="plan-features-label">What's included:</div>
               <ul class="plan-features-list">
                 <li>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 12l2 2 4-4" stroke="#3A539B" stroke-width="2.5" stroke-linecap="round" />
+                    <path d="M20 6 9 17l-5-5" stroke="#3A539B" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
                   </svg>
                   <span>Basic static site (no CMS)</span>
                 </li>
                 <li>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 12l2 2 4-4" stroke="#3A539B" stroke-width="2.5" stroke-linecap="round" />
+                    <path d="M20 6 9 17l-5-5" stroke="#3A539B" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
                   </svg>
                   <span>1 page, includes 3–5 sections</span>
                 </li>
                 <li>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 12l2 2 4-4" stroke="#3A539B" stroke-width="2.5" stroke-linecap="round" />
+                    <path d="M20 6 9 17l-5-5" stroke="#3A539B" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
                   </svg>
                   <span>Limited to 1,500 words</span>
                 </li>
@@ -1367,19 +1397,22 @@
               </div>
               <div class="plan-subtext">Up to 5 pages</div>
 
-              <a href="https://order.sitesbysara.com/configure?id=31" target="_blank" rel="noopener noreferrer" class="btn-plan btn-plan-outline">Order Now</a>
+              <a href="https://order.sitesbysara.com/configure?id=31" target="_blank" rel="noopener noreferrer"
+                class="btn-plan btn-plan-outline">Order Now</a>
 
               <div class="plan-features-label">What's included:</div>
               <ul class="plan-features-list">
                 <li>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 12l2 2 4-4" stroke="#1E8E3E" stroke-width="2.5" stroke-linecap="round" />
+                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
                   </svg>
                   <span>Basic static site (no CMS)</span>
                 </li>
                 <li>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 12l2 2 4-4" stroke="#1E8E3E" stroke-width="2.5" stroke-linecap="round" />
+                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
                   </svg>
                   <span>Up to 5 pages</span>
                 </li>
@@ -1404,18 +1437,21 @@
             <ul class="plan-features-list">
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M9 12l2 2 4-4" stroke="#1E8E3E" stroke-width="2.5" stroke-linecap="round" />
+                  <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
                 </svg>
                 <span>Domain reservation</span>
               </li>
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M9 12l2 2 4-4" stroke="#1E8E3E" stroke-width="2.5" stroke-linecap="round" />
+                  <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
                 </svg>
                 <span>Website hosting for non-WordPress websites (Simple HTML Sites)</span>
               </li>
             </ul>
-            <a href="https://order.sitesbysara.com/configure?id=27" target="_blank" rel="noopener noreferrer" class="btn-plan btn-plan-outline">Order Now</a>
+            <a href="https://order.sitesbysara.com/configure?id=27" target="_blank" rel="noopener noreferrer"
+              class="btn-plan btn-plan-outline">Order Now</a>
           </div>
 
           <div class="maint-plan-card">
@@ -1428,18 +1464,21 @@
             <ul class="plan-features-list">
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M9 12l2 2 4-4" stroke="#1E8E3E" stroke-width="2.5" stroke-linecap="round" />
+                  <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
                 </svg>
                 <span>Hosting &amp; maintenance for a 1-page squeeze site</span>
               </li>
               <li>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M9 12l2 2 4-4" stroke="#1E8E3E" stroke-width="2.5" stroke-linecap="round" />
+                  <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
                 </svg>
                 <span>Reduced single-page rate</span>
               </li>
             </ul>
-            <a href="https://order.sitesbysara.com/configure?id=132-1" target="_blank" rel="noopener noreferrer" class="btn-plan btn-plan-outline">Order
+            <a href="https://order.sitesbysara.com/configure?id=132-1" target="_blank" rel="noopener noreferrer"
+              class="btn-plan btn-plan-outline">Order
               Now</a>
           </div>
 
@@ -1454,7 +1493,8 @@
             <h4 class="addon-item-title">Additional Pages</h4>
             <p class="addon-item-desc">Basic pages, sold in blocks of 5 pages, beyond the first 5 pages on your
               Simple Site.</p>
-            <a href="https://order.sitesbysara.com/configure?id=32" target="_blank" rel="noopener noreferrer" class="btn-plan btn-plan-outline">Order Now</a>
+            <a href="https://order.sitesbysara.com/configure?id=32" target="_blank" rel="noopener noreferrer"
+              class="btn-plan btn-plan-outline">Order Now</a>
           </div>
         </div>
 
@@ -1568,11 +1608,14 @@
             built around one offer, one announcement, or one clear call to action. No CMS, no clutter, nothing to
             log into.
           </p>
-          <a href="#pricing" class="story-link">View Squeeze Page pricing →</a>
+          <a href="#pricing" class="story-link">View Squeeze Page pricing<svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg></a>
         </div>
         <div class="story-visual-col">
           <div class="story-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/squeeze-page-detail.webp"
+            <img src="/wp-content/uploads/2026/09/squeeze-page-detail.webp"
               alt="Close-up of a squeeze page hero section with headline and call-to-action button" width="520"
               height="390" />
           </div>
@@ -1591,11 +1634,14 @@
             If one page isn't enough room for your message, the 5-Page Simple Site keeps things basic and static —
             still no CMS — but splits your content across up to 5 separate pages instead of one.
           </p>
-          <a href="#pricing" class="story-link">View 5-Page Simple Site pricing →</a>
+          <a href="#pricing" class="story-link">View 5-Page Simple Site pricing<svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg></a>
         </div>
         <div class="story-visual-col">
           <div class="story-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/simple-site-five-pages.webp"
+            <img src="/wp-content/uploads/2026/09/simple-site-five-pages.webp"
               alt="Simple static website navigation bar with five page menu labels" width="520" height="390" />
           </div>
         </div>
@@ -1614,11 +1660,14 @@
             <strong>Custom WordPress Development</strong> build when you need a CMS you can edit yourself, blog
             publishing, or e-commerce down the road.
           </p>
-          <a href="custom-development.html" class="story-link">See Custom WordPress Development →</a>
+          <a href="custom-development.html" class="story-link">See Custom WordPress Development<svg viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg></a>
         </div>
         <div class="story-visual-col">
           <div class="story-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/static-site-scaling.webp"
+            <img src="/wp-content/uploads/2026/09/static-site-scaling.webp"
               alt="Stack of simple webpage cards with a plus icon representing added pages" width="520" height="390" />
           </div>
         </div>
@@ -1754,7 +1803,7 @@
             Book a free consultation and tell us your one goal — we'll recommend the right page count and get you
             live fast.
           </p>
-          <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn btn-primary">Book a Free
+          <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
             Consultation</a>
         </div>
 

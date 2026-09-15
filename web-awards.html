@@ -1,0 +1,1444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awards &amp; Recognition | Sites by Sara</title>
+  <meta name="description"
+    content="Discover the awards and recognition earned by Sites by Sara for excellence in SEO, web design, and digital marketing. See our achievements &amp; awards!">
+  <meta property="og:title" content="Awards &amp; Recognition | Sites by Sara">
+  <meta property="og:description"
+    content="Discover the awards and recognition earned by Sites by Sara for excellence in SEO, web design, and digital marketing. See our achievements &amp; awards!">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+    :root {
+      --brand-blue: #3A539B;
+      --brand-blue-hover: #2F437D;
+      --brand-blue-tint: #EEF2FA;
+
+      --brand-coral: #ea4e5f;
+      --brand-coral-hover: #d43d4e;
+      --brand-coral-tint: #FDEEEE;
+
+      --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+      --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+      --brand-peach: #FCEFE5;
+
+      --navy: #1E2140;
+      --slate: #5F6368;
+      --slate-light: #80868B;
+
+      --border: #DCE2EE;
+      --border-light: #ECEFF5;
+      --border-card: #DFE4EE;
+
+      --bg-white: #FFFFFF;
+      --bg-light: #F9FAFD;
+
+      --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --radius-pill: 9999px;
+
+      --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+      --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+      --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--navy);
+      background-color: var(--bg-white);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    strong,
+    b {
+      font-weight: 600;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-space {
+      padding: clamp(70px, 8vw, 110px) 0;
+    }
+
+    .section-space-tight {
+      padding: clamp(40px, 5vw, 65px) 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto clamp(36px, 5vw, 52px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 16px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--brand-coral);
+      display: inline-block;
+    }
+
+    .h2-title {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .lead-text {
+      font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
+      color: var(--slate);
+      line-height: 1.65;
+      font-weight: 400;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font);
+      font-size: 0.98rem;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1.5px solid transparent;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--brand-gradient);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:focus-visible,
+    .btn-primary:active {
+  background: var(--brand-gradient-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+  color: #FFFFFF !important;
+    }
+
+    /* ============================================================
+     PAGE TITLE BANNER
+     ============================================================ */
+    .page-title-banner {
+      position: relative;
+      overflow: hidden;
+      background: var(--brand-gradient);
+      padding: clamp(52px, 6vw, 76px) 24px;
+      text-align: center;
+      color: #FFFFFF;
+      box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+    }
+
+    .page-title-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+      pointer-events: none;
+    }
+
+    .page-title-banner-mesh {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .page-title-banner-mesh::before,
+    .page-title-banner-mesh::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: 0.22;
+      pointer-events: none;
+    }
+
+    .page-title-banner-mesh::before {
+      width: 320px;
+      height: 320px;
+      background: #FFFFFF;
+      top: -120px;
+      left: 8%;
+    }
+
+    .page-title-banner-mesh::after {
+      width: 280px;
+      height: 280px;
+      background: var(--brand-coral);
+      bottom: -80px;
+      right: 10%;
+    }
+
+    .page-title-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-banner-h1 {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #FFFFFF;
+      letter-spacing: -0.025em;
+      margin: 0 0 10px;
+      text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+    }
+
+    .page-banner-sub {
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.94);
+      letter-spacing: 0.01em;
+      margin: 0;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+    }
+
+    /* ============================================================
+     INTRO / HERO
+     ============================================================ */
+    .awards-hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: center;
+    }
+
+    .awards-hero-text .eyebrow {
+      justify-content: flex-start;
+    }
+
+    .awards-intro-lead {
+      margin-top: 0;
+    }
+
+    .awards-intro-lead+.awards-intro-lead {
+      margin-top: 16px;
+    }
+
+    .awards-hero-visual-wrap {
+      position: relative;
+    }
+
+    .awards-hero-image-card {
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      aspect-ratio: 4 / 3;
+    }
+
+    .awards-hero-image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 820px) {
+      .awards-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .awards-hero-text {
+        text-align: center;
+      }
+
+      .awards-hero-text .eyebrow {
+        justify-content: center;
+      }
+    }
+
+    /* ============================================================
+     STAT RIBBON
+     ============================================================ */
+    .awards-stat-section {
+      padding: 36px 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      background: var(--bg-light);
+    }
+
+    .awards-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+
+    .awards-stat-number {
+      font-size: clamp(1.9rem, 1.5rem + 1vw, 2.4rem);
+      font-weight: 700;
+      color: var(--brand-blue);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .awards-stat-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--slate);
+      line-height: 1.35;
+    }
+
+    /* ============================================================
+     YEAR TABS
+     ============================================================ */
+    .awards-tablist {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 4px 4px 10px;
+      margin: 0 -4px clamp(32px, 5vw, 48px);
+      scrollbar-width: none;
+    }
+
+    @media (max-width: 820px) {
+      .awards-tablist {
+        justify-content: flex-start;
+      }
+    }
+
+    .awards-tablist::-webkit-scrollbar {
+      display: none;
+    }
+
+    .awards-tab {
+      flex-shrink: 0;
+      padding: 10px 22px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--border);
+      background: #FFFFFF;
+      color: var(--slate);
+      font-family: var(--font);
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .awards-tab:hover,
+    .awards-tab:focus,
+    .awards-tab:focus-visible,
+    .awards-tab:active {
+  border-color: var(--brand-blue);
+  color: var(--brand-blue) !important;
+  background: #FFFFFF;
+    }
+
+    .awards-tab.is-active {
+      background: var(--brand-blue);
+      border-color: var(--brand-blue);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(58, 83, 155, 0.3);
+    }
+
+    .awards-tab-count {
+      font-size: 0.78rem;
+      opacity: 0.8;
+      margin-left: 3px;
+    }
+
+    /* ============================================================
+     AWARD CARDS
+     ============================================================ */
+    .awards-tabpanel {
+      display: none;
+    }
+
+    .awards-tabpanel.is-active {
+      display: block;
+    }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .award-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .award-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-card-hover);
+      border-color: var(--border-card);
+    }
+
+    .award-card-badge {
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      background: var(--bg-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .award-card-badge img {
+      max-height: 100%;
+      max-width: 100%;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .award-card-badge.is-text-only {
+      background: var(--brand-blue-tint);
+    }
+
+    .award-card-badge svg {
+      width: 38px;
+      height: 38px;
+      color: var(--brand-blue);
+    }
+
+    .award-card-body {
+      padding: 16px 18px 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .award-card-title {
+      font-size: 0.96rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .award-card-desc {
+      font-size: 0.85rem;
+      color: var(--slate);
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .award-card-meta {
+      font-size: 0.78rem;
+      color: var(--slate-light);
+      margin-bottom: 4px;
+    }
+
+    .award-card-link {
+      margin-top: auto;
+      padding-top: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--brand-coral);
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .award-card-link:hover,
+    .award-card-link:focus,
+    .award-card-link:focus-visible,
+    .award-card-link:active {
+  color: var(--brand-coral-hover) !important;
+  transform: translateX(3px);
+    }
+
+    .award-card-link svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+    }
+
+    /* ============================================================
+     GET INVOLVED / CLOSING
+     ============================================================ */
+    .awards-closing-section {
+      background: var(--brand-blue-tint);
+    }
+
+    .awards-closing-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .awards-closing-inner .lead-text {
+      margin-bottom: 24px;
+    }
+
+    /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+    @media (max-width: 1020px) {
+      .awards-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 820px) {
+      .awards-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .awards-stat-grid {
+        gap: 16px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-title-banner {
+        padding: 48px 18px;
+      }
+
+      .awards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       PAGE TITLE BANNER
+       ============================================================ -->
+  <section class="page-title-banner" aria-label="Page Title">
+    <div class="page-title-banner-mesh" aria-hidden="true"></div>
+    <div class="container page-title-inner">
+      <h1 class="page-banner-h1">Awards &amp; Recognition</h1>
+      <p class="page-banner-sub">We thrive for excellence and are grateful that our hard work is being recognized by
+        these agencies within the tech industry.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       INTRO / HERO
+       ============================================================ -->
+  <section class="section-space-tight" aria-label="Introduction">
+    <div class="container">
+      <div class="awards-hero-grid">
+        <div class="awards-hero-text">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Recognition
+          </div>
+          <h2 class="h2-title">Excellence, Recognized Year After Year</h2>
+          <p class="lead-text awards-intro-lead">
+            At Sites by Sara, our commitment to excellence in the tech industry has not gone unnoticed. We are
+            honored and grateful to have received recognition from prestigious agencies that celebrate innovation
+            and achievement. These awards validate our dedication to pushing boundaries and delivering outstanding
+            results.
+          </p>
+          <p class="lead-text awards-intro-lead">
+            These awards inspire us to continue striving for excellence, and we are excited to share our journey of
+            innovation and success with you. Join us as we push the limits of technology and design to create
+            unparalleled digital experiences.
+          </p>
+        </div>
+        <div class="awards-hero-visual-wrap">
+          <div class="awards-hero-image-card">
+            <img src="/wp-content/uploads/2026/09/awards-hero.webp"
+              alt="Trophies and award certificates displayed on a clean modern shelf" width="600" height="450"
+              loading="eager" fetchpriority="high">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STAT RIBBON
+       ============================================================ -->
+  <section class="awards-stat-section" aria-label="Recognition At A Glance">
+    <div class="container">
+      <div class="awards-stat-grid">
+        <div>
+          <div class="awards-stat-number">54</div>
+          <div class="awards-stat-label">Awards &amp; Recognitions</div>
+        </div>
+        <div>
+          <div class="awards-stat-number">7</div>
+          <div class="awards-stat-label">Consecutive Years Recognized</div>
+        </div>
+        <div>
+          <div class="awards-stat-number">2007</div>
+          <div class="awards-stat-label">Serving Businesses Since</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       AWARDS SHOWCASE (YEAR TABS)
+       ============================================================ -->
+  <section class="section-space" aria-label="Awards By Year">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Browse By Year
+        </div>
+        <h2 class="h2-title">Our Accolades, Year By Year</h2>
+        <p class="lead-text">Explore our accolades below, a testament to our passion for creating exceptional
+          digital experiences.</p>
+      </div>
+
+      <div class="awards-tablist" role="tablist" aria-label="Award Year">
+        <button type="button" class="awards-tab is-active" role="tab" aria-selected="true" id="tabBtn-2026"
+          aria-controls="tab-2026" data-tab="tab-2026">2026 <span class="awards-tab-count">(4)</span></button>
+        <button type="button" class="awards-tab" role="tab" aria-selected="false" id="tabBtn-2025"
+          aria-controls="tab-2025" data-tab="tab-2025">2025 <span class="awards-tab-count">(11)</span></button>
+        <button type="button" class="awards-tab" role="tab" aria-selected="false" id="tabBtn-2024"
+          aria-controls="tab-2024" data-tab="tab-2024">2024 <span class="awards-tab-count">(7)</span></button>
+        <button type="button" class="awards-tab" role="tab" aria-selected="false" id="tabBtn-2023"
+          aria-controls="tab-2023" data-tab="tab-2023">2023 <span class="awards-tab-count">(7)</span></button>
+        <button type="button" class="awards-tab" role="tab" aria-selected="false" id="tabBtn-2022"
+          aria-controls="tab-2022" data-tab="tab-2022">2022 <span class="awards-tab-count">(14)</span></button>
+        <button type="button" class="awards-tab" role="tab" aria-selected="false" id="tabBtn-2021"
+          aria-controls="tab-2021" data-tab="tab-2021">2021 <span class="awards-tab-count">(6)</span></button>
+        <button type="button" class="awards-tab" role="tab" aria-selected="false" id="tabBtn-2020"
+          aria-controls="tab-2020" data-tab="tab-2020">2020 <span class="awards-tab-count">(5)</span></button>
+      </div>
+
+      <!-- 2026 -->
+      <div class="awards-tabpanel is-active" id="tab-2026" role="tabpanel" aria-labelledby="tabBtn-2026">
+        <div class="awards-grid">
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2026/02/logo2_wea_nobg.png"
+                alt="Web Excellence Awards 2026 winner badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">The Web Excellence Awards 2026</div>
+              <a href="https://we-awards.com/winner/sky-connect/" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2026/05/qba-highres.png"
+                alt="Quality Business Awards 2026 badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">The Best Advertising Agencies in Salt Lake City, Utah</div>
+              <a href="https://qualitybusinessawards.com/2026/the-best-Advertising-Agencies-in-Salt-Lake-City-Utah/Sites-by-Sara"
+                class="award-card-link" target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2026/06/Best-SLC-Winner.png"
+                alt="Best of SLC 2026 Bronze Winner badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top 3 Web Developers in Salt Lake City in 2026 by Best of SLC</div>
+              <a href="https://bestofslc.com/winners/" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2026/06/web_designers-salt_lake_city-2026-drk-removebg-preview.png"
+                alt="ThreeBestRated 2026 Best Web Designers Salt Lake City seal" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">ThreeBestRated - Best Web Designers in Salt Lake City</div>
+              <a href="https://threebestrated.com/web-designers-in-salt-lake-city-ut" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 2025 -->
+      <div class="awards-tabpanel" id="tab-2025" role="tabpanel" aria-labelledby="tabBtn-2025">
+        <div class="awards-grid">
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/07/top_clutch.co_digital_marketing_company_non-profit_utah.png"
+                alt="Clutch.co top digital marketing company badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top Clutch.co Digital Marketing Company</div>
+              <a href="https://clutch.co/profile/sites-sara#portfolio-and-awards" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/12/threebestrated2025badge.png"
+                alt="ThreeBestRated 2025 Best Web Designers badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Best Web Designers in Salt Lake City</div>
+              <a href="https://threebestrated.com/web-designers-in-salt-lake-city-ut" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/05/2025-SLCBadges_2025_Top3.png"
+                alt="Best of SLC 2025 Top 3 badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top 3 of SLC</div>
+              <a href="https://bestofslc.com/" class="award-card-link" target="_blank" rel="noopener noreferrer">View
+                Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/07/top_clutch.co_seo_company_non-profit_utah.png"
+                alt="Clutch.co top SEO company badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top Clutch.co SEO Company</div>
+              <a href="https://clutch.co/profile/sites-sara#portfolio-and-awards" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/01/website-development-companies-award-warranty-badge.png"
+                alt="FindBestFirms top web development company badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Find Best Firms – Web Development Award</div>
+              <a href="https://findbestfirms.com/agencies/top-web-development-companies/" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/07/image-45.png"
+                alt="3 Best Web Designers in Salt Lake City badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">3 Best Web Designers in Salt Lake City, UT</div>
+              <a href="https://threebestrated.com/web-designers-in-salt-lake-city-ut" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/09/CS-Master-Menu-1.png"
+                alt="Top SEO Agencies 2025 badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top SEO Agencies (2025)</div>
+              <a href="https://ecommercefastlane.com/top-seo-agencies" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/07/top_clutch.co_ppc_company_non-profit_utah.png"
+                alt="Clutch.co top PPC company badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top Clutch.co PPC Company</div>
+              <a href="https://clutch.co/profile/sites-sara#portfolio-and-awards" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/01/wea-logo.png"
+                alt="Web Excellence Awards logo" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Web Excellence Awards – Leavity Bread &amp; Coffee</div>
+              <a href="https://we-awards.com/winner/leavity-bread-coffee/" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/01/wea-logo.png"
+                alt="Web Excellence Awards logo" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Web Excellence Awards – Girlyish Skincare</div>
+              <a href="https://we-awards.com/winner/girlyish-skincare/" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/01/wea-logo.png"
+                alt="Web Excellence Awards logo" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Web Excellence Awards – Signet North America</div>
+              <a href="https://we-awards.com/winner/signet-north-america/" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 2024 -->
+      <div class="awards-tabpanel" id="tab-2024" role="tabpanel" aria-labelledby="tabBtn-2024">
+        <div class="awards-grid">
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/06/slc-award.png"
+                alt="Best of Salt Lake City 2024 Top 3 badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">2024 Best of Salt Lake City Top 3</div>
+              <a href="https://bestofslc.com/" class="award-card-link" target="_blank" rel="noopener noreferrer">View
+                Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/05/rankwatch-award-sbs.png"
+                alt="RankWatch top SEO agency badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top Search Engine Optimization Agency</div>
+              <a href="https://www.rankwatch.com/agency/company/sites-by-sara/" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/04/pandia-award.png"
+                alt="Pandia best website design firms badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Best Website Design Firms</div>
+              <a href="https://www.pandia.com/us/saltlakecity-ut/web-design#list2" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/01/wea-logo.png"
+                alt="Web Excellence Award logo" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Web Excellence Award</div>
+              <a href="https://we-awards.com/company/sites-by-sara/" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/03/threebestrated-2024.png"
+                alt="ThreeBestRated 2024 Best Web Designers badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Best Web Designers in Salt Lake City</div>
+              <a href="https://threebestrated.com/web-designers-in-salt-lake-city-ut" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/03/threebest-certificate-2024.png"
+                alt="ThreeBestRated 2024 certificate of excellence" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top 3 Web Designers Excellence</div>
+              <a href="https://threebestrated.com/web-designers/sites-by-sara-salt-lake-city-508206692"
+                class="award-card-link" target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/09/The-Netty-Awards.jpg"
+                alt="Netty Awards badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Netty Award – Best SEO Optimization in Digital Marketing</div>
+              <a href="https://nettyawards.com/sites-by-saras-cutting-edge-seo-strategies-shine-at-netty-awards/"
+                class="award-card-link" target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 2023 -->
+      <div class="awards-tabpanel" id="tab-2023" role="tabpanel" aria-labelledby="tabBtn-2023">
+        <div class="awards-grid">
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2023/12/threebestrated-certificate.png"
+                alt="ThreeBestRated 2023 certificate of excellence" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Three Best Rated – 2023 Certificate of Excellence</div>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2023/09/appfutura-top-web-design-company.png"
+                alt="AppFutura top web design company badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top Web Design Company</div>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2023/09/appfutura-top-seo-company.png"
+                alt="AppFutura top SEO company badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top SEO Company</div>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2023/11/best-rated-seo-agencies-slc-socialappshq.png"
+                alt="SocialAppsHQ best rated SEO agencies Salt Lake City badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">2023 Best Rated SEO Agencies</div>
+              <a href="https://www.socialappshq.com/seo/best-agencies/usa/salt-lake-city/#Sites_by_Sara"
+                class="award-card-link" target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2023/06/loc8.png"
+                alt="LOC8NEARME recommended badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Recommended by LOC8NEARME</div>
+              <a href="https://www.loc8nearme.com/utah/salt-lake-city/sites-by-sara/7454566/" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2023/11/best-rated-seo-agencies-socialappshq.png"
+                alt="SocialAppsHQ best rated SEO agencies Utah badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">2023 Best Rated SEO Agencies</div>
+              <a href="https://www.socialappshq.com/seo/best-agencies/usa/utah/#Sites_by_Sara" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2023/09/appfutura-top-web-development-company.png"
+                alt="AppFutura top web development company badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top Web Development Company</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 2022 -->
+      <div class="awards-tabpanel" id="tab-2022" role="tabpanel" aria-labelledby="tabBtn-2022">
+        <div class="awards-grid">
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/09/ut_salt-lake-city_web-design_2022_transparent.png"
+                alt="Expertise.com best web designers Salt Lake City 2022 badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Best Web Designers in Salt Lake City</div>
+              <a href="https://www.expertise.com/ut/salt-lake-city/web-design/" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/09/best-pay-per-click-ppc-agencies-in-salt-lake-city.png"
+                alt="Expertise.com best PPC agencies Salt Lake City badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Best Pay-Per-Click (PPC) Agencies in Salt Lake City</div>
+              <a href="https://www.expertise.com/ut/salt-lake-city/ppc-agencies" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/web-design.png"
+                alt="Top web design company badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top Web Design Company</div>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/seo-upcity.png"
+                alt="UpCity top SEO company badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">UpCity – One of the Top SEO Companies in Salt Lake City</div>
+              <a href="https://upcity.com/seo?spotlight=local-marketing-agencies%2Fprofiles%2Fsites-by-sara%2Flocations%2Fsites-by-sara"
+                class="award-card-link" target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/marketing-agencies.png"
+                alt="Top digital marketing agencies Salt Lake City badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top Digital Marketing Agencies in Salt Lake City</div>
+              <a href="https://www.seolium.com/blog/best-11-web-design-agencies-in-salt-lake-city/"
+                class="award-card-link" target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/09/ut_salt-lake-city_social-media-marketing_2022_transparent.png"
+                alt="Expertise.com best social media marketing agencies badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Best Social Media Marketing Agencies in Salt Lake City</div>
+              <a href="https://www.expertise.com/ut/salt-lake-city/social-media-marketing/" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/09/best-seo-agencies-in-salt-lake-city.png"
+                alt="Expertise.com best SEO agencies Salt Lake City badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Best SEO Agencies in Salt Lake City</div>
+              <a href="https://www.expertise.com/ut/salt-lake-city/seo-agencies" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/seo-company.png"
+                alt="Top SEO company badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top SEO Company</div>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/marketing-agencies.png"
+                alt="DesignRush best social media marketing agencies badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Best Social Media Marketing Agencies in Salt Lake City</div>
+              <a href="https://www.designrush.com/" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/05/top_clutch.co_company_utah_2022_award-scaled.png"
+                alt="Clutch 2022 top company Utah award badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">2022 Clutch Award – Top Company (Utah)</div>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/09/ut_salt-lake-city_digital-marketing-agencies_2022_transparent.png"
+                alt="Expertise.com best digital marketing agencies badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Best Digital Marketing Agencies in Salt Lake City</div>
+              <a href="https://www.expertise.com/ut/salt-lake-city/digital-marketing-agencies/" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/09/ut_salt-lake-city_web-developers_2022_transparent.png"
+                alt="Expertise.com best web developers Salt Lake City badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Best Web Developers in Salt Lake City</div>
+              <a href="https://www.expertise.com/ut/salt-lake-city/web-developers/" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/web-development.png"
+                alt="Top web development company badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top Web Development Company</div>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/manifest.png"
+                alt="The Manifest top 20 web development companies badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">The Manifest – Top 20 Web Development Companies in SLC</div>
+              <a href="https://themanifest.com/web-development/companies/salt-lake-city#sitesbysara"
+                class="award-card-link" target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 2021 -->
+      <div class="awards-tabpanel" id="tab-2021" role="tabpanel" aria-labelledby="tabBtn-2021">
+        <div class="awards-grid">
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/app-developers.png"
+                alt="TechReviewer top app developers Utah badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top App Developers in Utah</div>
+              <a href="https://techreviewer.co/companies/sites-by-sara" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/wordpress-developers.png"
+                alt="UpCity best WordPress developer providers badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Best WordPress Developer Providers</div>
+              <a href="https://upcity.com/website-development/wordpress/salt-lake-city" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/woocommerce-developer.png"
+                alt="TechReviewer top WooCommerce developers badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top WooCommerce Developers in 2021</div>
+              <a href="https://techreviewer.co/companies/sites-by-sara" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/seo-providers.png"
+                alt="DesignRush best SEO providers badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Best SEO Providers</div>
+              <a href="https://www.designrush.com/" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/software-developers.png"
+                alt="TechReviewer top software companies Utah badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top Software Companies in Utah</div>
+              <a href="https://techreviewer.co/companies/sites-by-sara" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img
+                src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/05/top_clutch.co_company_utah_2021_award-scaled.png"
+                alt="Clutch 2021 top company Utah award badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">2021 Clutch Award – Top Company (Utah)</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 2020 -->
+      <div class="awards-tabpanel" id="tab-2020" role="tabpanel" aria-labelledby="tabBtn-2020">
+        <div class="awards-grid">
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/12/lg2.png"
+                alt="Corporate Vision News award badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Best Full-Service Web Design &amp; Marketing Agency – Utah &amp; Client
+                Service Excellence Award – Utah</div>
+              <a href="https://www.corporatevision-news.com/winners/sites-by-sara/" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge is-text-only">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M8 21h8" />
+                <path d="M12 17v4" />
+                <path d="M7 4h10v4a5 5 0 0 1-10 0V4z" />
+                <path d="M7 5H4a1 1 0 0 0-1 1 5 5 0 0 0 4 4.9" />
+                <path d="M17 5h3a1 1 0 0 1 1 1 5 5 0 0 1-4 4.9" />
+              </svg>
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">VIP Woman of the Year</div>
+              <p class="award-card-desc">Given for excellence, leadership, and commitment to her profession while
+                encouraging the achievement of professional women.</p>
+              <div class="award-card-meta">National Association of Professional Women · May 2016</div>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/12/lg4.png"
+                alt="Best 11 web design agencies Salt Lake City badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Top 11 Agencies &amp; Web Designers</div>
+              <a href="https://www.seolium.com/blog/best-11-web-design-agencies-in-salt-lake-city/"
+                class="award-card-link" target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge is-text-only">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M8 21h8" />
+                <path d="M12 17v4" />
+                <path d="M7 4h10v4a5 5 0 0 1-10 0V4z" />
+                <path d="M7 5H4a1 1 0 0 0-1 1 5 5 0 0 0 4 4.9" />
+                <path d="M17 5h3a1 1 0 0 1 1 1 5 5 0 0 1-4 4.9" />
+              </svg>
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Pinnacle Professional</div>
+              <p class="award-card-desc">Recognized by Continental Who's Who as a Pinnacle Professional in the field
+                of New Media Marketing.</p>
+              <div class="award-card-meta">Continental Who's Who · June 2016</div>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/12/lg1.png"
+                alt="Expertise.com best social media marketing agencies badge" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Best Social Media Marketing Agencies in Salt Lake City</div>
+              <a href="https://www.expertise.com/ut/salt-lake-city/social-media-marketing" class="award-card-link"
+                target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CLOSING
+       ============================================================ -->
+  <section class="section-space-tight awards-closing-section" aria-label="Get In Touch">
+    <div class="container">
+      <div class="awards-closing-inner">
+        <div class="eyebrow" style="justify-content: center; display: flex;">
+          <span class="eyebrow-dot"></span>
+          Work With Us
+        </div>
+        <h2 class="h2-title">Become Our Next Success Story</h2>
+        <p class="lead-text">Ready to work with an award-winning team? Let's talk about your project.</p>
+        <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+          Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll('.awards-tab');
+      var panels = document.querySelectorAll('.awards-tabpanel');
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var targetId = tab.getAttribute('data-tab');
+
+          tabs.forEach(function (t) {
+            t.classList.remove('is-active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          panels.forEach(function (p) {
+            p.classList.remove('is-active');
+          });
+
+          tab.classList.add('is-active');
+          tab.setAttribute('aria-selected', 'true');
+          document.getElementById(targetId).classList.add('is-active');
+        });
+      });
+    })();
+  </script>
+
+</body>
+
+</html>

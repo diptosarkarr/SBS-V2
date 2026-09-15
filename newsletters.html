@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subscribe to Our Newsletter | Sites by Sara</title>
+  <meta name="description"
+    content="Subscribe to the Sites by Sara newsletter for monthly web design, SEO, and marketing updates, exclusive discounts, and industry news.">
+  <meta property="og:title" content="Subscribe to Our Newsletter | Sites by Sara">
+  <meta property="og:description"
+    content="Subscribe to the Sites by Sara newsletter for monthly web design, SEO, and marketing updates, exclusive discounts, and industry news.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Brevo form structural CSS (kept as provided — required for input layout, the loader spinner, and error/success panel behavior). -->
+  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+
+  <style>
+    /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+    :root {
+      --brand-blue: #3A539B;
+      --brand-blue-hover: #2F437D;
+      --brand-blue-tint: #EEF2FA;
+
+      --brand-coral: #ea4e5f;
+      --brand-coral-hover: #d43d4e;
+      --brand-coral-tint: #FDEEEE;
+
+      --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+      --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+      --brand-peach: #FCEFE5;
+
+      --navy: #1E2140;
+      --slate: #5F6368;
+      --slate-light: #80868B;
+
+      --border: #DCE2EE;
+      --border-light: #ECEFF5;
+      --border-card: #DFE4EE;
+
+      --bg-white: #FFFFFF;
+      --bg-light: #F9FAFD;
+
+      --green: #1E8E3E;
+      --green-tint: #E6F4EA;
+
+      --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --radius-pill: 9999px;
+
+      --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+      --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+      --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--navy);
+      background-color: var(--bg-white);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    strong,
+    b {
+      font-weight: 600;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-space {
+      padding: clamp(70px, 8vw, 110px) 0;
+    }
+
+    .section-space-tight {
+      padding: clamp(40px, 5vw, 65px) 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto clamp(36px, 5vw, 52px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 16px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--brand-coral);
+      display: inline-block;
+    }
+
+    .h2-title {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .lead-text {
+      font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
+      color: var(--slate);
+      line-height: 1.65;
+      font-weight: 400;
+    }
+
+    /* ============================================================
+     PAGE TITLE BANNER (with real background photo + gradient overlay)
+     ============================================================ */
+    .page-title-banner {
+      position: relative;
+      overflow: hidden;
+      background-image:
+        linear-gradient(135deg, rgba(2, 80, 197, 0.86) 0%, rgba(212, 63, 141, 0.86) 100%),
+        url('https://i0.wp.com/sitesbysara.com/wp-content/uploads/2023/01/newsletterbg.jpg?fit=1920%2C1253');
+      background-size: cover;
+      background-position: center;
+      padding: clamp(52px, 6vw, 76px) 24px;
+      text-align: center;
+      color: #FFFFFF;
+      box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+    }
+
+    .page-title-banner-mesh {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .page-title-banner-mesh::before,
+    .page-title-banner-mesh::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: 0.22;
+      pointer-events: none;
+    }
+
+    .page-title-banner-mesh::before {
+      width: 320px;
+      height: 320px;
+      background: #FFFFFF;
+      top: -120px;
+      left: 8%;
+    }
+
+    .page-title-banner-mesh::after {
+      width: 280px;
+      height: 280px;
+      background: var(--brand-coral);
+      bottom: -80px;
+      right: 10%;
+    }
+
+    .page-title-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-banner-h1 {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #FFFFFF;
+      letter-spacing: -0.025em;
+      margin: 0;
+      text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+    }
+
+    /* ============================================================
+     HERO (intro | signup form)
+     ============================================================ */
+    .newsletter-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 6vw, 72px);
+      align-items: center;
+    }
+
+    .newsletter-hero-text .eyebrow {
+      justify-content: flex-start;
+    }
+
+    .newsletter-hero-footnote {
+      font-size: 0.8rem;
+      color: var(--slate-light);
+      line-height: 1.5;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .newsletter-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .newsletter-hero-text {
+        text-align: center;
+      }
+
+      .newsletter-hero-text .eyebrow {
+        justify-content: center;
+      }
+    }
+
+    /* ============================================================
+     BREVO FORM — restyled to match SBS design tokens
+     ============================================================ */
+    #sib-form .entry__field {
+      margin-bottom: 4px;
+    }
+
+    .sib-form .entry__field {
+      border: none;
+    }
+
+    #sib-form .input {
+      font-family: var(--font) !important;
+      font-size: 0.95rem !important;
+      color: var(--navy) !important;
+      border: 1px solid var(--border) !important;
+      border-radius: var(--radius-pill) !important;
+      padding: 5px 16px !important;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    #sib-form .input:focus {
+      border-color: var(--brand-blue) !important;
+      box-shadow: 0 0 0 3px var(--brand-blue-tint);
+      outline: none;
+    }
+
+    #sib-container input::placeholder,
+    #sib-container textarea::placeholder {
+      font-family: var(--font) !important;
+      color: var(--slate-light) !important;
+    }
+
+    #sib-form .sib-form-block__button {
+      font-family: var(--font) !important;
+      width: 100% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 8px !important;
+      text-align: center !important;
+      border-radius: var(--radius-pill) !important;
+      padding: 14px 20px !important;
+      font-size: 0.95rem !important;
+      letter-spacing: 0.02em;
+      transition: all 0.2s ease !important;
+      box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+    }
+
+    #sib-form .sib-form-block__button:hover {
+      background: var(--brand-gradient-hover) !important;
+      transform: translateY(-1px);
+    }
+
+    #sib-form .sib-form-block {
+      text-align: center !important;
+    }
+
+    /* ============================================================
+     FEATURED / EXCLUSIVE NEWSLETTER CALLOUT
+     ============================================================ */
+    .newsletter-featured-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: var(--brand-peach);
+      border: 1.5px solid #F8E3D4;
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+    }
+
+    .newsletter-featured-icon {
+      width: 46px;
+      height: 46px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-coral);
+    }
+
+    .newsletter-featured-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .newsletter-featured-body {
+      flex: 1;
+    }
+
+    .newsletter-featured-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--brand-coral);
+      margin-bottom: 4px;
+    }
+
+    .newsletter-featured-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .newsletter-featured-link {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--brand-blue);
+      white-space: nowrap;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .newsletter-featured-link:hover,
+    .newsletter-featured-link:focus,
+    .newsletter-featured-link:focus-visible,
+    .newsletter-featured-link:active {
+      color: var(--brand-blue-hover) !important;
+      transform: translateX(3px);
+    }
+
+    .newsletter-featured-link svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 700px) {
+      .newsletter-featured-card {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    /* ============================================================
+     NEWSLETTER YEAR TABS + ARCHIVE LIST
+     ============================================================ */
+    .newsletter-tablist {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: clamp(28px, 4vw, 40px);
+    }
+
+    .newsletter-tab {
+      padding: 10px 26px;
+      border-radius: var(--radius-pill);
+      border: 1.5px solid var(--border);
+      background: #FFFFFF;
+      color: var(--slate);
+      font-family: var(--font);
+      font-size: 0.92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .newsletter-tab:hover,
+    .newsletter-tab:focus,
+    .newsletter-tab:focus-visible,
+    .newsletter-tab:active {
+      border-color: var(--brand-blue);
+      color: var(--brand-blue) !important;
+      background: #FFFFFF;
+    }
+
+    .newsletter-tab.is-active {
+      background: var(--brand-blue);
+      border-color: var(--brand-blue);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(58, 83, 155, 0.3);
+    }
+
+    .newsletter-tabpanel {
+      display: none;
+    }
+
+    .newsletter-tabpanel.is-active {
+      display: block;
+    }
+
+    .newsletter-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .newsletter-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 18px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: #FFFFFF;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .newsletter-row:hover {
+      border-color: var(--brand-blue);
+      box-shadow: var(--shadow-card);
+      transform: translateY(-2px);
+    }
+
+    .newsletter-month {
+      flex-shrink: 0;
+      width: 72px;
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--brand-blue);
+      background: var(--brand-blue-tint);
+      border-radius: var(--radius-sm);
+      padding: 7px 4px;
+    }
+
+    .newsletter-title {
+      flex: 1;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.4;
+    }
+
+    .newsletter-arrow {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      color: var(--slate-light);
+      transition: color 0.2s ease;
+    }
+
+    .newsletter-row:hover .newsletter-arrow {
+      color: var(--brand-blue);
+    }
+
+    @media (max-width: 700px) {
+      .newsletter-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================================
+     CLOSING
+     ============================================================ */
+    .newsletters-closing-section {
+      background: var(--brand-blue-tint);
+    }
+
+    .newsletters-closing-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .newsletters-closing-inner .lead-text {
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font);
+      font-size: 0.98rem;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1.5px solid transparent;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--brand-gradient);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:focus-visible,
+    .btn-primary:active {
+      background: var(--brand-gradient-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+      color: #FFFFFF !important;
+    }
+
+    /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+    @media (max-width: 600px) {
+      .page-title-banner {
+        padding: 48px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       PAGE TITLE BANNER
+       ============================================================ -->
+  <section class="page-title-banner" aria-label="Page Title">
+    <div class="page-title-banner-mesh" aria-hidden="true"></div>
+    <div class="container page-title-inner">
+      <h1 class="page-banner-h1">Subscribe to Our Newsletter</h1>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HERO: INTRO + SIGNUP FORM
+       ============================================================ -->
+  <section class="section-space" aria-label="Newsletter Signup">
+    <div class="container">
+      <div class="newsletter-hero-grid">
+
+        <div class="newsletter-hero-text">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Stay Updated
+          </div>
+          <h2 class="h2-title">Never Miss an Update</h2>
+          <p class="lead-text">Receive our monthly newsletter and stay up to date with all the current news
+            happening in our industry as well as with Sites by Sara. Enjoy access to exclusive monthly discounts
+            and be a part of the Sites by Sara family.</p>
+          <p class="newsletter-hero-footnote">By submitting your email, you agree to receive recurring newsletters
+            from Sites by Sara. Your email will not be shared with third parties.</p>
+        </div>
+
+        <div class="newsletter-hero-form">
+          <!-- Begin Brevo Form -->
+          <div class="sib-form" style="text-align: center; background-color: transparent;">
+            <div id="sib-form-container" class="sib-form-container">
+              <div id="error-message" class="sib-form-message-panel"
+                style="font-size:16px; text-align:left; font-family:var(--font); color:#661d1d; background-color:var(--brand-coral-tint); border-radius:var(--radius-sm); border-color:var(--brand-coral); max-width:540px;">
+                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                  <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                    <path
+                      d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
+                  </svg>
+                  <span class="sib-form-message-panel__inner-text">
+                    Your subscription could not be saved. Please try again.
+                  </span>
+                </div>
+              </div>
+              <div></div>
+              <div id="success-message" class="sib-form-message-panel"
+                style="font-size:16px; text-align:left; font-family:var(--font); color:#085229; background-color:var(--green-tint); border-radius:var(--radius-sm); border-color:var(--green); max-width:540px;">
+                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                  <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                    <path
+                      d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
+                  </svg>
+                  <span class="sib-form-message-panel__inner-text">
+                    Your subscription has been successful.
+                  </span>
+                </div>
+              </div>
+              <div></div>
+              <div id="sib-container" class="sib-container--large sib-container--vertical"
+                style="padding: 28px; text-align:center; background-color:#FFFFFF; max-width:100%; border-radius:var(--radius-md); border-width:1px; border-color:var(--border); border-style:solid; box-shadow:var(--shadow-card-hover); direction:ltr">
+                <form id="sib-form" method="POST"
+                  action="https://f8a61904.sibforms.com/serve/MUIFAPSjRKtIzo8u1Iew8vnTqFf5qEq_73i7MlOc1W_QjSIP_zOvcLgFTvbumuXFicYQk27XtUTuLpn4sB3i6JwXiBM9yVxH0hLZQgii7VFlDpnAS3Sc-AC49Jf5uytUbkvwOhH0Zoa30VzedT9Q6LUkun2odA1UqfQfpHculs5DfeBWxd_I9VfIUYuHDdDD-ssVALrJ3F_RjROH"
+                  data-type="subscription">
+
+                  <div style="padding: 8px 0;">
+                    <div class="sib-input sib-form-block">
+                      <div class="form__entry entry_block">
+                        <div class="form__label-row ">
+                          <div class="entry__field">
+                            <input class="input" maxlength="200" type="text" id="FIRSTNAME" name="FIRSTNAME"
+                              autocomplete="off" placeholder="First Name" />
+                          </div>
+                        </div>
+                        <label class="entry__error entry__error--primary"
+                          style="font-size:16px; text-align:left; font-family:var(--font); color:#661d1d; background-color:var(--brand-coral-tint); border-radius:var(--radius-sm); border-color:var(--brand-coral);">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="padding: 8px 0;">
+                    <div class="sib-input sib-form-block">
+                      <div class="form__entry entry_block">
+                        <div class="form__label-row ">
+                          <div class="entry__field">
+                            <input class="input" maxlength="200" type="text" id="LASTNAME" name="LASTNAME"
+                              autocomplete="off" placeholder="Last Name" />
+                          </div>
+                        </div>
+                        <label class="entry__error entry__error--primary"
+                          style="font-size:16px; text-align:left; font-family:var(--font); color:#661d1d; background-color:var(--brand-coral-tint); border-radius:var(--radius-sm); border-color:var(--brand-coral);">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="padding: 8px 0;">
+                    <div class="sib-input sib-form-block">
+                      <div class="form__entry entry_block">
+                        <div class="form__label-row ">
+                          <div class="entry__field">
+                            <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off"
+                              placeholder="Email" data-required="true" required />
+                          </div>
+                        </div>
+                        <label class="entry__error entry__error--primary"
+                          style="font-size:16px; text-align:left; font-family:var(--font); color:#661d1d; background-color:var(--brand-coral-tint); border-radius:var(--radius-sm); border-color:var(--brand-coral);">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div style="padding: 8px 0;">
+                    <div class="g-recaptcha" data-sitekey="6Lfr3NsiAAAAAMO6g2Zd-MFETxkHbXLGu2RVAnxB"
+                      data-callback="invisibleCaptchaCallback" data-size="invisible" onclick="executeCaptcha"></div>
+                  </div>
+
+                  <div style="padding: 8px 0;">
+                    <div class="sib-form-block" style="text-align: center">
+                      <button class="sib-form-block__button sib-form-block__button-with-loader"
+                        style="font-weight:700; font-family:var(--font); color:#FFFFFF; background:var(--brand-gradient); border-width:0px;"
+                        form="sib-form" type="submit">
+                        <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon"
+                          viewBox="0 0 512 512">
+                          <path
+                            d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+                        </svg>
+                        SUBSCRIBE
+                      </button>
+                    </div>
+                  </div>
+
+                  <input type="text" name="email_address_check" value="" class="input--hidden">
+                  <input type="hidden" name="locale" value="en">
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- End Brevo Form -->
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FEATURED / EXCLUSIVE NEWSLETTER
+       ============================================================ -->
+  <section class="section-space-tight" aria-label="Exclusive Update" style="padding-top: 0;">
+    <div class="container">
+      <div class="newsletter-featured-card">
+        <div class="newsletter-featured-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
+          </svg>
+        </div>
+        <div class="newsletter-featured-body">
+          <div class="newsletter-featured-label">Exclusive Update</div>
+          <div class="newsletter-featured-title">Don't Let Hidden Issues Hurt Your Rankings</div>
+        </div>
+        <a href="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/va3QUPdYHOpV"
+          class="newsletter-featured-link" target="_blank" rel="noopener noreferrer">
+          Read Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NEWSLETTER ARCHIVE (year tabs)
+       ============================================================ -->
+  <section class="section-space" aria-label="Newsletter Archive" style="padding-top: 0;">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Archive
+        </div>
+        <h2 class="h2-title">Explore Our Newsletters</h2>
+      </div>
+
+      <div class="newsletter-tablist" role="tablist" aria-label="Newsletter Year">
+        <button type="button" class="newsletter-tab is-active" role="tab" aria-selected="true" id="nlTabBtn-2026"
+          aria-controls="nlTab-2026" data-tab="nlTab-2026">2026</button>
+        <button type="button" class="newsletter-tab" role="tab" aria-selected="false" id="nlTabBtn-2025"
+          aria-controls="nlTab-2025" data-tab="nlTab-2025">2025</button>
+      </div>
+
+      <div class="newsletter-tabpanel is-active" id="nlTab-2026" role="tabpanel" aria-labelledby="nlTabBtn-2026">
+        <div class="newsletter-list">
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/MgENarJzWwSb" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">Sep</span>
+            <span class="newsletter-title">A Busy Summer at Sites By Sara</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/OltO6Vy9zKB_" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">Aug</span>
+            <span class="newsletter-title">In-House Financing Is Here!</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/fOSPmmF09qzi" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">Jul</span>
+            <span class="newsletter-title">Settling Into Summer — July Updates!</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/PK9MwJWr72-x" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">Jun</span>
+            <span class="newsletter-title">Recent Awards &amp; Summer Savings</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/6gEKfWTWu4sk" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">May</span>
+            <span class="newsletter-title">Spring Has Sprung! Let's Grow Together</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHVbOJOruAmr9n14GS/0uanL11HOlSI" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">Apr</span>
+            <span class="newsletter-title">April Updates: Our New Commercial and Spring Savings!</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/o2BP5oYytjuV" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">Mar</span>
+            <span class="newsletter-title">Special Event — Best of SLC Voting &amp; Spring Savings!</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/C_FMJj88A7ZM" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">Feb</span>
+            <span class="newsletter-title">Feeling Energized: Innovation, Excellence, &amp; More!</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHWPajXtW9P7QfM3Hg/V1aI6KFpbIwU" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">Jan</span>
+            <span class="newsletter-title">Let's Level Up Your Web Presence in 2026</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+        </div>
+      </div>
+
+      <div class="newsletter-tabpanel" id="nlTab-2025" role="tabpanel" aria-labelledby="nlTabBtn-2025">
+        <div class="newsletter-list">
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHWoLvAsUuTK0Oceyy/DLENF6QUkWYo" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">Dec</span>
+            <span class="newsletter-title">2025 Wrap-Up: Let's Make 2026 Your Breakthrough Year</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/X0-73VFO5zKp" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">Nov</span>
+            <span class="newsletter-title">November News: Bright Celebrations &amp; A Special Offer</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/LUUNIOet8B66" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">Oct</span>
+            <span class="newsletter-title">No Tricks, Just Treats! Happy Autumn, Everyone</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHWPOiVfXjxSk1aFsq/9O-wWCcVtiu4" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">Sep</span>
+            <span class="newsletter-title">Industry Insights &amp; Company News</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHTzxYGscDvrzwhEZQ/3tQqCUaVcDZO" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">Aug</span>
+            <span class="newsletter-title">Bright Ideas &amp; Fresh Updates This August!</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.bh.d.sendibt3.com/mk/mr/sh/SMJz0ACyFvfrbiF1LlEY1qy5sDci/K81ourQbXX8_" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">Jul</span>
+            <span class="newsletter-title">Exciting Summer Upgrades &amp; Local Music Vibes</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.bh.d.sendibt3.com/mk/mr/sh/6rqJ8H0EanKJHZ1qTx7cRdfyjGG/icK_8dWYfDu6" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">Jun</span>
+            <span class="newsletter-title">Fresh Designs &amp; Summer Deals — June Updates</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.bh.d.sendibt3.com/mk/mr/sh/SMJz0ACyFvfrbiF1LlEY1qy5sDci/jwmsmTNtZU3G" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">May</span>
+            <span class="newsletter-title">May Updates – Fresh Tips, New Projects &amp; More!</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+          <a class="newsletter-row"
+            href="https://7pv50.r.bh.d.sendibt3.com/mk/mr/sh/SMJz0ACyFvfrbiF1LlEY1qy5sDci/Hs02tZERijfQ" target="_blank"
+            rel="noopener noreferrer">
+            <span class="newsletter-month">Apr</span>
+            <span class="newsletter-title">Fresh Strategies for Spring! Elevate Your Website &amp; Marketing</span>
+            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg>
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CLOSING
+       ============================================================ -->
+  <section class="section-space-tight newsletters-closing-section" aria-label="Get In Touch">
+    <div class="container">
+      <div class="newsletters-closing-inner">
+        <div class="eyebrow" style="justify-content: center; display: flex;">
+          <span class="eyebrow-dot"></span>
+          Work With Us
+        </div>
+        <h2 class="h2-title">Ready to Work With Us?</h2>
+        <p class="lead-text">Join the Sites by Sara family and let's grow your business online together.</p>
+        <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+          Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      var tabs = document.querySelectorAll('.newsletter-tab');
+      var panels = document.querySelectorAll('.newsletter-tabpanel');
+
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var targetId = tab.getAttribute('data-tab');
+
+          tabs.forEach(function (t) {
+            t.classList.remove('is-active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          panels.forEach(function (p) {
+            p.classList.remove('is-active');
+          });
+
+          tab.classList.add('is-active');
+          tab.setAttribute('aria-selected', 'true');
+          document.getElementById(targetId).classList.add('is-active');
+        });
+      });
+    })();
+  </script>
+
+  <!-- Begin Brevo Form scripts -->
+  <script>
+    window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+    window.LOCALE = 'en';
+    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+    window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+    window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+    window.translation = {
+      common: {
+        selectedList: '{quantity} list selected',
+        selectedLists: '{quantity} lists selected'
+      }
+    };
+    var AUTOHIDE = Boolean(0);
+  </script>
+  <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+  <!-- End Brevo Form scripts -->
+
+</body>
+
+</html>

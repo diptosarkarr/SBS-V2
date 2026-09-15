@@ -278,10 +278,14 @@
       box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
     }
 
-    .btn-primary:hover {
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:focus-visible,
+    .btn-primary:active {
       background: var(--brand-gradient-hover);
       transform: translateY(-1px);
       box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+      color: #FFFFFF !important;
     }
 
     .btn-outline {
@@ -290,10 +294,13 @@
       border-color: var(--brand-blue);
     }
 
-    .btn-outline:hover {
+    .btn-outline:hover,
+    .btn-outline:focus,
+    .btn-outline:focus-visible,
+    .btn-outline:active {
       background-color: var(--brand-peach);
       border-color: var(--brand-blue);
-      color: var(--brand-blue);
+      color: var(--brand-blue) !important;
     }
 
     /* ============================================================
@@ -630,9 +637,13 @@
       box-shadow: 0 3px 12px rgba(2, 80, 197, 0.22);
     }
 
-    .btn-plan-primary:hover {
+    .btn-plan-primary:hover,
+    .btn-plan-primary:focus,
+    .btn-plan-primary:focus-visible,
+    .btn-plan-primary:active {
       background: var(--brand-gradient-hover);
       box-shadow: 0 5px 16px rgba(212, 63, 141, 0.32);
+      color: #FFFFFF !important;
     }
 
     .plan-features-label {
@@ -764,8 +775,11 @@
       transition: color 0.2s ease, border-color 0.2s ease;
     }
 
-    .pricing-inline-link a:hover {
-      color: var(--brand-blue-hover);
+    .pricing-inline-link a:hover,
+    .pricing-inline-link a:focus,
+    .pricing-inline-link a:focus-visible,
+    .pricing-inline-link a:active {
+      color: var(--brand-blue-hover) !important;
       border-color: var(--brand-blue-hover);
     }
 
@@ -884,9 +898,18 @@
       transition: gap 0.2s ease, color 0.2s ease;
     }
 
-    .story-link:hover {
+    .story-link:hover,
+    .story-link:focus,
+    .story-link:focus-visible,
+    .story-link:active {
       gap: 10px;
-      color: var(--brand-coral-hover);
+      color: var(--brand-coral-hover) !important;
+    }
+
+    .story-link svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
     }
 
     .story-visual-col {
@@ -1163,7 +1186,7 @@
           </p>
 
           <div class="btn-group">
-            <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn btn-primary">Book a Free
+            <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
               Consultation</a>
             <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
           </div>
@@ -1177,7 +1200,7 @@
         <!-- Hero Visual Mockup -->
         <div class="hero-visual-wrap">
           <div class="hero-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/custom-web-mobile-apps-hero.webp"
+            <img src="/wp-content/uploads/2026/09/custom-web-mobile-apps-hero.webp"
               alt="Custom web app dashboard and mobile app screen shown side by side" width="600" height="450" />
           </div>
         </div>
@@ -1248,19 +1271,22 @@
               </div>
               <div class="plan-subtext">Final price depends on project scope</div>
 
-              <a href="https://order.sitesbysara.com/configure?id=73" target="_blank" rel="noopener noreferrer" class="btn-plan btn-plan-primary">Order Now</a>
+              <a href="https://order.sitesbysara.com/configure?id=73" target="_blank" rel="noopener noreferrer"
+                class="btn-plan btn-plan-primary">Order Now</a>
 
               <div class="plan-features-label">What's included:</div>
               <ul class="plan-features-list">
                 <li>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 12l2 2 4-4" stroke="#3A539B" stroke-width="2.5" stroke-linecap="round" />
+                    <path d="M20 6 9 17l-5-5" stroke="#3A539B" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
                   </svg>
                   <span>Custom web app design &amp; development</span>
                 </li>
                 <li>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M9 12l2 2 4-4" stroke="#3A539B" stroke-width="2.5" stroke-linecap="round" />
+                    <path d="M20 6 9 17l-5-5" stroke="#3A539B" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
                   </svg>
                   <span>Custom mobile app design &amp; development</span>
                 </li>
@@ -1399,11 +1425,14 @@
             No install required — a web app runs directly in the browser, on desktop or mobile, built around the
             specific process or tool your business needs, rather than a general-purpose website template.
           </p>
-          <a href="#pricing" class="story-link">See web app pricing →</a>
+          <a href="#pricing" class="story-link">See web app pricing<svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg></a>
         </div>
         <div class="story-visual-col">
           <div class="story-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/custom-web-app-detail.webp"
+            <img src="/wp-content/uploads/2026/09/custom-web-app-detail.webp"
               alt="Custom web application dashboard mockup viewed in a browser window" width="520" height="390" />
           </div>
         </div>
@@ -1421,11 +1450,14 @@
             A mobile app is installed directly on a phone or tablet, built to your specification for the way your
             customers or team actually work — not a template.
           </p>
-          <a href="#pricing" class="story-link">See mobile app pricing →</a>
+          <a href="#pricing" class="story-link">See mobile app pricing<svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg></a>
         </div>
         <div class="story-visual-col">
           <div class="story-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/custom-mobile-app-detail.webp"
+            <img src="/wp-content/uploads/2026/09/custom-mobile-app-detail.webp"
               alt="Custom mobile application screen mockup on a smartphone" width="520" height="390" />
           </div>
         </div>
@@ -1444,11 +1476,14 @@
             usually simpler and more affordable. A custom app makes sense when you need interactive tools, user
             accounts, or functionality a standard website can't provide.
           </p>
-          <a href="custom-development.html" class="story-link">See Custom WordPress Development →</a>
+          <a href="custom-development.html" class="story-link">See Custom WordPress Development<svg viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg></a>
         </div>
         <div class="story-visual-col">
           <div class="story-image-card">
-            <img src="https://sitesbysara.com/wp-content/uploads/2026/09/app-vs-website-comparison.webp"
+            <img src="/wp-content/uploads/2026/09/app-vs-website-comparison.webp"
               alt="Simple webpage icon and mobile app icon side by side with a decision point between them" width="520"
               height="390" />
           </div>
@@ -1571,7 +1606,7 @@
             Book a free consultation and tell us what you're trying to build — we'll help you figure out the right
             platform and get you an accurate quote.
           </p>
-          <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn btn-primary">Book a Free
+          <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
             Consultation</a>
         </div>
 

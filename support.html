@@ -341,11 +341,14 @@
       box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
     }
 
-    .btn-primary:hover {
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:focus-visible,
+    .btn-primary:active {
       background: var(--brand-gradient-hover);
       transform: translateY(-1px);
       box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
-      color: #FFFFFF;
+      color: #FFFFFF !important;
     }
 
     .btn-outline {
@@ -354,10 +357,13 @@
       border-color: var(--brand-blue);
     }
 
-    .btn-outline:hover {
+    .btn-outline:hover,
+    .btn-outline:focus,
+    .btn-outline:focus-visible,
+    .btn-outline:active {
       background-color: var(--brand-peach);
       border-color: var(--brand-blue);
-      color: var(--brand-blue);
+      color: var(--brand-blue) !important;
     }
 
     .btn-group {
@@ -537,8 +543,11 @@
       text-decoration: underline;
     }
 
-    .emergency-content a:hover {
-      color: var(--brand-coral-hover);
+    .emergency-content a:hover,
+    .emergency-content a:focus,
+    .emergency-content a:focus-visible,
+    .emergency-content a:active {
+      color: var(--brand-coral-hover) !important;
     }
 
     /* Right Column: Form Container Card */
@@ -1337,7 +1346,7 @@
             Avoid unexpected emergencies with our proactive WordPress Hosting and Maintenance (WHAM) plans or flexible
             Hourly Dev Blocks. Book a consultation to explore options tailored to your website.
           </p>
-          <a href="https://www.sitesbysara.com/book-a-free-consultation/" class="btn btn-primary">
+          <a href="/book-a-free-consultation/" class="btn btn-primary">
             Book a Free Consultation
           </a>
         </div>

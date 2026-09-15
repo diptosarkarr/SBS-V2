@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sites by Sara — Mega Menu Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --brand-blue: #3A539B;
+      --brand-blue-hover: #2F437D;
+      --brand-blue-tint: #EEF2FA;
+      --brand-blue-subtle: #F6F8FD;
+      --brand-coral: #ea4e5f;
+      --brand-coral-hover: #d43d4e;
+      --brand-coral-tint: #FDEEEE;
+      --brand-peach: #FCEFE5;
+      --brand-peach-hover: #F8E3D4;
+      --brand-peach-tint: #FFF9F5;
+      --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+      --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+      --navy: #1E2140;
+      --navy-dark: #13152C;
+      --slate: #5F6368;
+      --slate-light: #80868B;
+      --slate-subtle: #9AA0A6;
+      --bg-white: #FFFFFF;
+      --bg-light: #F9FAFD;
+      --border: #DCE2EE;
+      --border-light: #ECEFF5;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-pill: 9999px;
+      --shadow-subtle: 0 1px 3px rgba(30, 33, 64, .06), 0 4px 10px rgba(30, 33, 64, .04);
+      --shadow-card: 0 1px 3px rgba(30, 33, 64, .08), 0 4px 14px rgba(30, 33, 64, .05);
+      --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, .12), 0 2px 8px rgba(30, 33, 64, .04);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: var(--font);
+      color: var(--navy);
+      background: var(--bg-white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      font-family: var(--font);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ---------- top preview note ---------- */
+    .preview-note {
+      background: var(--navy-dark);
+      color: #fff;
+      font-size: .82rem;
+      text-align: center;
+      padding: 9px 16px;
+      font-weight: 500;
+    }
+
+    .preview-note .legend-dot {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--brand-coral);
+      margin: 0 6px 0 14px;
+    }
+
+    /* ---------- header ---------- */
+    .sbs-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: #fff;
+      border-bottom: 1px solid var(--border-light);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      gap: 24px;
+    }
+
+    .sbs-logo {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      flex-shrink: 0;
+    }
+
+    .logo-mark {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      background: var(--brand-gradient);
+      flex-shrink: 0;
+    }
+
+    .logo-text {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -.01em;
+    }
+
+    .logo-text .logo-accent {
+      color: var(--brand-coral);
+    }
+
+    .sbs-nav {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-list {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      font-size: .92rem;
+      font-weight: 600;
+      color: var(--navy);
+      border-radius: var(--radius-sm);
+      transition: color .15s ease, background .15s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--brand-blue);
+      background: var(--brand-blue-subtle);
+    }
+
+    .nav-item.is-open .nav-link {
+      color: var(--brand-blue);
+      background: var(--brand-blue-tint);
+    }
+
+    .nav-chevron {
+      width: 9px;
+      height: 9px;
+      transition: transform .18s ease;
+      flex-shrink: 0;
+    }
+
+    .nav-item.is-open .nav-chevron {
+      transform: rotate(180deg);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-shrink: 0;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: .9rem;
+      padding: 11px 22px;
+      border-radius: var(--radius-pill);
+      background: var(--brand-gradient);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(2, 80, 197, .28);
+      white-space: nowrap;
+      border: none;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:focus-visible,
+    .btn-primary:active {
+  background: var(--brand-gradient-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+  color: #FFFFFF !important;
+    }
+
+    .mobile-toggle {
+      display: none;
+      background: none;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-sm);
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .mobile-toggle span {
+      display: block;
+      width: 18px;
+      height: 2px;
+      background: var(--navy);
+      position: relative;
+      transition: all .2s ease;
+    }
+
+    .mobile-toggle span::before,
+    .mobile-toggle span::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 18px;
+      height: 2px;
+      background: var(--navy);
+      transition: all .2s ease;
+    }
+
+    .mobile-toggle span::before {
+      top: -6px;
+    }
+
+    .mobile-toggle span::after {
+      top: 6px;
+    }
+
+    .mobile-toggle.is-active span {
+      background: transparent;
+    }
+
+    .mobile-toggle.is-active span::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    .mobile-toggle.is-active span::after {
+      top: 0;
+      transform: rotate(-45deg);
+    }
+
+    /* ---------- overlay ---------- */
+    .sbs-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(19, 21, 44, .32);
+      z-index: 40;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .2s ease;
+    }
+
+    .sbs-overlay.is-visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ---------- simple dropdown ---------- */
+    .dropdown-simple {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      min-width: 250px;
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-floating);
+      padding: 10px;
+      z-index: 45;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-6px);
+      transition: all .18s ease;
+    }
+
+    .nav-item.is-open .dropdown-simple {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-simple a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--navy);
+      transition: all .15s ease;
+    }
+
+    .dropdown-simple a:hover {
+      background: var(--brand-blue-subtle);
+      color: var(--brand-blue);
+    }
+
+    /* ---------- mega dropdown ---------- */
+    .dropdown-mega {
+      position: fixed;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-8px);
+      width: min(1200px, calc(100% - 32px));
+      background: #fff;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 20px 60px -8px rgba(30, 33, 64, .16), 0 4px 16px rgba(30, 33, 64, .06);
+      z-index: 45;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity .2s ease, transform .2s ease;
+      overflow: hidden;
+    }
+
+    .nav-item.is-open .dropdown-mega {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* gradient accent bar at top of mega */
+    .mega-accent-bar {
+      height: 3px;
+      background: var(--brand-gradient);
+      flex-shrink: 0;
+    }
+
+    .mega-inner {
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+      scrollbar-width: none;
+      /* Firefox */
+      -ms-overflow-style: none;
+      /* IE and Edge */
+    }
+
+    .mega-inner::-webkit-scrollbar {
+      display: none;
+      /* Chrome, Safari, Opera */
+    }
+
+    .mega-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      padding: 24px 0;
+    }
+
+    /* ---------- mega column ---------- */
+    .mega-col {
+      padding: 0 24px;
+      border-right: 1px solid var(--border-light);
+    }
+
+    .mega-col:first-child {
+      padding-left: 28px;
+    }
+
+    .mega-col:last-child {
+      border-right: none;
+      padding-right: 28px;
+    }
+
+    /* ---------- column header ---------- */
+    .mega-col-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 0 14px;
+      margin-bottom: 4px;
+      border-bottom: 2px solid var(--border-light);
+    }
+
+    .mega-col-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .mega-col-icon svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .mega-col-icon.icon-blue {
+      background: var(--brand-blue-tint);
+      color: var(--brand-blue);
+    }
+
+    .mega-col-icon.icon-coral {
+      background: var(--brand-coral-tint);
+      color: var(--brand-coral);
+    }
+
+    .mega-col-icon.icon-peach {
+      background: var(--brand-peach);
+      color: #c77b3f;
+    }
+
+    .mega-col-icon.icon-green {
+      background: #E6F4EA;
+      color: #1E8E3E;
+    }
+
+    .mega-col-title {
+      font-size: .82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--navy);
+    }
+
+    /* ---------- subcategory group ---------- */
+    .mega-subgroup {
+      padding: 12px 0 4px;
+    }
+
+    .mega-subgroup+.mega-subgroup {
+      border-top: 1px solid var(--border-light);
+    }
+
+    .mega-sub-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--brand-blue);
+      margin-bottom: 6px;
+      padding-left: 2px;
+    }
+
+    .mega-sub-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: none;
+    }
+
+    .mega-sub-dot.dot-coral {
+      background: var(--brand-coral);
+    }
+
+    .mega-sub-dot.dot-blue {
+      background: var(--brand-blue);
+    }
+
+    /* ---------- service links ---------- */
+    .mega-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 8px;
+      margin: 0 -8px;
+      border-radius: 6px;
+      font-size: .86rem;
+      font-weight: 500;
+      color: var(--navy);
+      transition: all .15s ease;
+      line-height: 1.3;
+    }
+
+    .mega-link:hover {
+      background: var(--brand-blue-subtle);
+      color: var(--brand-blue);
+    }
+
+    .mega-link:hover .mega-link-arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .mega-link-arrow {
+      width: 10px;
+      height: 10px;
+      flex-shrink: 0;
+      opacity: 0;
+      transform: translateX(-4px);
+      transition: all .15s ease;
+      margin-left: auto;
+      color: var(--brand-blue);
+    }
+
+    /* cross-link and notes */
+    .mega-link.mega-crosslink {
+      color: var(--brand-coral);
+      font-weight: 600;
+    }
+
+    .mega-link.mega-crosslink:hover {
+      background: var(--brand-coral-tint);
+      color: var(--brand-coral-hover);
+    }
+
+    .mega-crosslink-tag {
+      font-size: .65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      background: var(--brand-coral-tint);
+      color: var(--brand-coral);
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-left: auto;
+      transition: all .15s ease;
+      white-space: nowrap;
+    }
+
+    .mega-link.mega-crosslink:hover .mega-crosslink-tag {
+      background: var(--brand-coral);
+      color: #fff;
+    }
+
+    .mega-subgroup-note {
+      font-size: .72rem;
+      color: var(--slate);
+      font-style: italic;
+      padding: 4px 8px 3px;
+      line-height: 1.35;
+    }
+
+    @keyframes pulse-highlight {
+      0% {
+        background-color: rgba(234, 78, 95, 0.22);
+      }
+
+      50% {
+        background-color: rgba(234, 78, 95, 0.08);
+      }
+
+      100% {
+        background-color: transparent;
+      }
+    }
+
+    .highlight-target {
+      animation: pulse-highlight 2s ease;
+      border-radius: 8px;
+    }
+
+    /* ---------- mobile drawer ---------- */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(380px, 90vw);
+      background: #fff;
+      z-index: 60;
+      box-shadow: -14px 0 36px rgba(30, 33, 64, .16);
+      transform: translateX(100%);
+      transition: transform .25s ease;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .mobile-drawer.is-open {
+      transform: translateX(0);
+    }
+
+    .mobile-drawer-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border-light);
+      flex-shrink: 0;
+    }
+
+    .mobile-drawer-close {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid var(--border);
+      background: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      color: var(--slate);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-accordion {
+      padding: 8px 12px 28px;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .m-acc-item {
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .m-acc-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+      border: none;
+      padding: 16px 8px;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--navy);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .m-acc-trigger .nav-chevron {
+      transition: transform .2s ease;
+    }
+
+    .m-acc-item.is-open .m-acc-trigger .nav-chevron {
+      transform: rotate(180deg);
+    }
+
+    .m-acc-panel {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+    }
+
+    .m-acc-item.is-open .m-acc-panel {
+      max-height: 5000px;
+    }
+
+    .m-acc-panel-inner {
+      padding: 0 8px 18px;
+    }
+
+    .m-group-title {
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: var(--brand-blue);
+      margin: 16px 0 6px;
+      padding: 6px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .m-group-title:first-child {
+      margin-top: 0;
+    }
+
+    .m-link {
+      display: block;
+      padding: 7px 0 7px 2px;
+      font-size: .88rem;
+      font-weight: 500;
+      color: var(--navy);
+      transition: color .15s ease;
+    }
+
+    .m-link:hover {
+      color: var(--brand-blue);
+    }
+
+    .m-link.m-crosslink {
+      color: var(--brand-coral);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .m-subgroup-note {
+      font-size: .74rem;
+      color: var(--slate);
+      font-style: italic;
+      padding: 2px 2px 8px;
+      line-height: 1.35;
+    }
+
+    .mobile-drawer-cta {
+      padding: 18px 20px;
+      border-top: 1px solid var(--border-light);
+      flex-shrink: 0;
+    }
+
+    .mobile-drawer-cta .btn-primary {
+      width: 100%;
+    }
+
+    /* ---------- demo page content ---------- */
+    .demo-banner {
+      position: relative;
+      overflow: hidden;
+      background: var(--brand-gradient);
+      padding: clamp(52px, 6vw, 76px) 24px;
+      text-align: center;
+      color: #fff;
+    }
+
+    .demo-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 14% 20%, rgba(255, 255, 255, .2) 0%, transparent 40%),
+        radial-gradient(circle at 86% 80%, rgba(212, 63, 141, .32) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .demo-banner-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .demo-banner h1 {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 700;
+      margin: 0 0 10px;
+      letter-spacing: -.025em;
+    }
+
+    .demo-banner p {
+      font-size: clamp(1.05rem, 2vw, 1.3rem);
+      font-weight: 500;
+      color: rgba(255, 255, 255, .94);
+      margin: 0;
+    }
+
+    .demo-body {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 70px 24px;
+      text-align: center;
+    }
+
+    .demo-body p {
+      color: var(--slate);
+      line-height: 1.65;
+      font-size: 1.02rem;
+    }
+
+    /* ---------- responsive ---------- */
+    @media (max-width:992px) {
+      .sbs-nav {
+        display: none;
+      }
+
+      .header-phone {
+        display: none;
+      }
+
+      .mobile-toggle {
+        display: flex;
+      }
+
+      .header-actions .btn-primary {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="preview-note">Working preview — Revised SBS Services Mega Menu (4-column ordering structure, every item
+    orderable)</div>
+
+  <header class="sbs-header">
+    <div class="container header-inner">
+      <a href="#" class="sbs-logo">
+        <span class="logo-mark"></span>
+        <span class="logo-text">S<span class="logo-accent">B</span>S</span>
+      </a>
+
+      <nav class="sbs-nav" aria-label="Primary">
+        <ul class="nav-list" id="navList">
+
+          <!-- COMPANY -->
+          <li class="nav-item" data-menu="company">
+            <button class="nav-link" aria-expanded="false">Company
+              <svg class="nav-chevron" viewBox="0 0 10 6" fill="none">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="dropdown dropdown-simple">
+              <a href="/about">About Us</a>
+              <a href="/about/web-awards/">Awards</a>
+              <a href="/sites-by-sara-cares">Giving Back</a>
+              <a href="/testimonials/">Testimonials</a>
+              <a href="/newsletters/">Newsletter Archive</a>
+            </div>
+          </li>
+
+          <!-- ★ SERVICES MEGA MENU ★ -->
+          <li class="nav-item" data-menu="services">
+            <button class="nav-link" aria-expanded="false">Services
+              <svg class="nav-chevron" viewBox="0 0 10 6" fill="none">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="dropdown dropdown-mega">
+              <div class="mega-accent-bar"></div>
+              <div class="mega-inner">
+                <div class="mega-grid">
+
+                  <!-- ═══ COLUMN 1: BUILD ═══ -->
+                  <div class="mega-col">
+                    <div class="mega-col-header">
+                      <div class="mega-col-icon icon-blue">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                          stroke-linecap="round" stroke-linejoin="round">
+                          <rect x="3" y="3" width="7" height="7" />
+                          <rect x="14" y="3" width="7" height="7" />
+                          <rect x="3" y="14" width="7" height="7" />
+                          <rect x="14" y="14" width="7" height="7" />
+                        </svg>
+                      </div>
+                      <span class="mega-col-title">Build</span>
+                    </div>
+
+                    <div class="mega-subgroup">
+                      <div class="mega-sub-label"><span class="mega-sub-dot dot-coral"></span>WordPress</div>
+                      <a class="mega-link" href="/services/web-design-development/custom-development/">Custom WordPress
+                        Websites<svg class="mega-link-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                          stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">WooCommerce Stores<svg class="mega-link-arrow" viewBox="0 0 16 16"
+                          fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">WooCommerce Design Refresh<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Add Pages / Posts<svg class="mega-link-arrow" viewBox="0 0 16 16"
+                          fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                    </div>
+
+                    <div class="mega-subgroup">
+                      <div class="mega-sub-label"><span class="mega-sub-dot dot-blue"></span>Shopify</div>
+                      <a class="mega-link" href="#">Shopify E-Commerce Stores<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Shopify Design Refresh<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Add Pages / Products<svg class="mega-link-arrow" viewBox="0 0 16 16"
+                          fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                    </div>
+
+                    <div class="mega-subgroup">
+                      <div class="mega-sub-label"><span class="mega-sub-dot dot-coral"></span>Other Services</div>
+                      <a class="mega-link" href="#">Simple Squeeze Page Sites<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Static HTML Sites<svg class="mega-link-arrow" viewBox="0 0 16 16"
+                          fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Custom Web &amp; Mobile Apps<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="/services/amazon-store-setup-and-management-services/">Amazon Listing
+                        &amp; Store Setup<svg class="mega-link-arrow" viewBox="0 0 16 16" fill="none"
+                          stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Walmart Listing &amp; Store Setup<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Merchant Processing Add-On<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Site Audit &amp; Priority Fixes<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Hourly Dev Blocks<svg class="mega-link-arrow" viewBox="0 0 16 16"
+                          fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                    </div>
+                  </div>
+
+                  <!-- ═══ COLUMN 2: MAINTAIN & PROTECT ═══ -->
+                  <div class="mega-col">
+                    <div class="mega-col-header">
+                      <div class="mega-col-icon icon-green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                          stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                        </svg>
+                      </div>
+                      <span class="mega-col-title">Maintain &amp; Protect</span>
+                    </div>
+
+                    <div class="mega-subgroup">
+                      <div class="mega-sub-label"><span class="mega-sub-dot dot-blue"></span>Hosting &amp; Maintenance
+                      </div>
+                      <a class="mega-link" href="/services/wordpress-hosting-and-maintenance-services/">WordPress
+                        Maintenance Bundle<svg class="mega-link-arrow" viewBox="0 0 16 16" fill="none"
+                          stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="/services/joomla-hosting-and-maintenance-jham-services/">Joomla
+                        Maintenance Bundle<svg class="mega-link-arrow" viewBox="0 0 16 16" fill="none"
+                          stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Simple Site Hosting Bundle<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                    </div>
+
+                    <div class="mega-subgroup">
+                      <div class="mega-sub-label"><span class="mega-sub-dot dot-coral"></span>Website Care</div>
+                      <a class="mega-link" href="#">Emergency Site Repair<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Website Backup<svg class="mega-link-arrow" viewBox="0 0 16 16"
+                          fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Website Migration<svg class="mega-link-arrow" viewBox="0 0 16 16"
+                          fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Rush Website Updates<svg class="mega-link-arrow" viewBox="0 0 16 16"
+                          fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                    </div>
+
+                    <div class="mega-subgroup">
+                      <div class="mega-sub-label"><span class="mega-sub-dot dot-blue"></span>Security &amp; Tools</div>
+                      <a class="mega-link" href="/cybersecurity-packages/">Cybersecurity &amp; Email Backup<svg
+                          class="mega-link-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                          stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="/email-setup-migration-services-gws-ms365/">Email Setup &amp; Migration
+                        (Google Workspace / Microsoft 365)<svg class="mega-link-arrow" viewBox="0 0 16 16" fill="none"
+                          stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="/services/domain-registration-web-hosting/">Web Hosting &amp;
+                        Domains<svg class="mega-link-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                          stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Domain Registration &amp; Renewal<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                    </div>
+                  </div>
+
+                  <!-- ═══ COLUMN 3: GROW ═══ -->
+                  <div class="mega-col">
+                    <div class="mega-col-header">
+                      <div class="mega-col-icon icon-coral">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                          stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                          <polyline points="17 6 23 6 23 12" />
+                        </svg>
+                      </div>
+                      <span class="mega-col-title">Grow</span>
+                    </div>
+
+                    <div class="mega-subgroup">
+                      <div class="mega-sub-label"><span class="mega-sub-dot dot-coral"></span>SEO</div>
+                      <a class="mega-link" href="/salt-lake-city-seo-company/">SEO Plans<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">SEO Audit &amp; Priority Fixes<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                    </div>
+
+                    <div class="mega-subgroup">
+                      <div class="mega-sub-label"><span class="mega-sub-dot dot-blue"></span>Local SEO</div>
+                      <a class="mega-link" href="#">Local Domination Package<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="/services/google-my-business-optimization/">Google Business Profile
+                        Setup<svg class="mega-link-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                          stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="/google-local-3-pack/">Google 3-Pack Optimization<svg
+                          class="mega-link-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                          stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Additional Location Add-On<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="/services/web-social-media-marketing/reputation-management/">Reputation
+                        Management<svg class="mega-link-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                          stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                    </div>
+
+                    <div class="mega-subgroup">
+                      <div class="mega-sub-label"><span class="mega-sub-dot dot-coral"></span>Analytics &amp; Tracking
+                      </div>
+                      <a class="mega-link" href="#">Google Analytics &amp; Tag Manager Setup<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Google Search Console Setup<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <div class="mega-subgroup-note">(Included with any SEO plan — à la carte otherwise)</div>
+                    </div>
+
+                    <div class="mega-subgroup" id="paidAdvertisingGroup">
+                      <div class="mega-sub-label"><span class="mega-sub-dot dot-blue"></span>Paid Advertising</div>
+                      <a class="mega-link" href="/services/marketing/pay-per-click/">Google Ads Management<svg
+                          class="mega-link-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                          stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Meta Ads Management<svg class="mega-link-arrow" viewBox="0 0 16 16"
+                          fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Meta Boosted Posts Management<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Amazon Ads Management<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Walmart Ads Management<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                    </div>
+
+                    <div class="mega-subgroup">
+                      <div class="mega-sub-label"><span class="mega-sub-dot dot-coral"></span>CRM</div>
+                      <a class="mega-link" href="#">CRM Build &amp; Setup<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">CRM Management<svg class="mega-link-arrow" viewBox="0 0 16 16"
+                          fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                    </div>
+                  </div>
+
+                  <!-- ═══ COLUMN 4: MARKET & BRAND ═══ -->
+                  <div class="mega-col">
+                    <div class="mega-col-header">
+                      <div class="mega-col-icon icon-peach">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                          stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M3 11l18-5v12L3 14v-3z" />
+                          <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+                        </svg>
+                      </div>
+                      <span class="mega-col-title">Market &amp; Brand</span>
+                    </div>
+
+                    <div class="mega-subgroup">
+                      <div class="mega-sub-label"><span class="mega-sub-dot dot-coral"></span>Marketing Packages</div>
+                      <a class="mega-link" href="#">Marketing Visibility Packages<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                    </div>
+
+                    <div class="mega-subgroup">
+                      <div class="mega-sub-label"><span class="mega-sub-dot dot-blue"></span>Social Media</div>
+                      <a class="mega-link" href="/services/web-social-media-marketing/options/">Social Media
+                        Management<svg class="mega-link-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                          stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Social Account Setup<svg class="mega-link-arrow" viewBox="0 0 16 16"
+                          fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Meta Ads &amp; Boosted Posts<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                    </div>
+
+                    <div class="mega-subgroup">
+                      <div class="mega-sub-label"><span class="mega-sub-dot dot-coral"></span>Email Newsletter</div>
+                      <a class="mega-link" href="#">Newsletter Management<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Newsletter Template Design<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Newsletter Deliverability Setup<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                    </div>
+
+                    <div class="mega-subgroup">
+                      <div class="mega-sub-label"><span class="mega-sub-dot dot-blue"></span>Design</div>
+                      <a class="mega-link" href="/marketing/branding-and-graphic-design">Logo Design Package<svg
+                          class="mega-link-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                          stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Branding Package<svg class="mega-link-arrow" viewBox="0 0 16 16"
+                          fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Print &amp; Marketing Collateral<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                    </div>
+
+                    <div class="mega-subgroup">
+                      <div class="mega-sub-label"><span class="mega-sub-dot dot-coral"></span>Copywriting</div>
+                      <a class="mega-link" href="/marketing/content-marketing">Content &amp; Copywriting<svg
+                          class="mega-link-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor"
+                          stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Blog Post Add-Ons<svg class="mega-link-arrow" viewBox="0 0 16 16"
+                          fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                      <a class="mega-link" href="#">Press Release Writing / Distribution<svg class="mega-link-arrow"
+                          viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+                          <path d="M6 4l4 4-4 4" />
+                        </svg></a>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- PORTFOLIO -->
+          <li class="nav-item" data-menu="portfolio">
+            <button class="nav-link" aria-expanded="false">Portfolio
+              <svg class="nav-chevron" viewBox="0 0 10 6" fill="none">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="dropdown dropdown-simple">
+              <a href="/portfolio">View Portfolio</a>
+              <a href="/marketing/branding-and-graphic-design">Graphic Design Examples</a>
+            </div>
+          </li>
+
+          <!-- CONTACT -->
+          <li class="nav-item" data-menu="contact">
+            <button class="nav-link" aria-expanded="false">Contact
+              <svg class="nav-chevron" viewBox="0 0 10 6" fill="none">
+                <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </button>
+            <div class="dropdown dropdown-simple">
+              <a href="/contact-us/">Contact Us</a>
+              <a href="/book-a-free-consultation/">Book a Free Consultation</a>
+              <a href="/newsletters/">Subscribe to Newsletter</a>
+            </div>
+          </li>
+
+          <!-- BLOG -->
+          <li class="nav-item">
+            <a class="nav-link" href="/blogs/">Blog</a>
+          </li>
+
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="/book-a-free-consultation/" class="btn-primary">Book a Consultation</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Open menu"><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="sbs-overlay" id="sbsOverlay"></div>
+
+  <!-- MOBILE DRAWER -->
+  <aside class="mobile-drawer" id="mobileDrawer">
+    <div class="mobile-drawer-head">
+      <span class="logo-text">Menu</span>
+      <button class="mobile-drawer-close" id="mobileClose">✕</button>
+    </div>
+    <div class="mobile-accordion" id="mobileAccordion">
+
+      <div class="m-acc-item">
+        <button class="m-acc-trigger">Company
+          <svg class="nav-chevron" viewBox="0 0 10 6" fill="none">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="m-acc-panel">
+          <div class="m-acc-panel-inner">
+            <a class="m-link" href="/about">About Us</a>
+            <a class="m-link" href="/about/web-awards/">Awards</a>
+            <a class="m-link" href="/sites-by-sara-cares">Giving Back</a>
+            <a class="m-link" href="/testimonials/">Testimonials</a>
+            <a class="m-link" href="/newsletters/">Newsletter Archive</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-acc-item">
+        <button class="m-acc-trigger">Services
+          <svg class="nav-chevron" viewBox="0 0 10 6" fill="none">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="m-acc-panel">
+          <div class="m-acc-panel-inner">
+
+            <div class="m-group-title">WordPress</div>
+            <a class="m-link" href="/services/web-design-development/custom-development/">Custom WordPress Websites</a>
+            <a class="m-link" href="#">WooCommerce Stores</a>
+            <a class="m-link" href="#">WooCommerce Design Refresh</a>
+            <a class="m-link" href="#">Add Pages / Posts</a>
+
+            <div class="m-group-title">Shopify</div>
+            <a class="m-link" href="#">Shopify E-Commerce Stores</a>
+            <a class="m-link" href="#">Shopify Design Refresh</a>
+            <a class="m-link" href="#">Add Pages / Products</a>
+
+            <div class="m-group-title">Other Services</div>
+            <a class="m-link" href="#">Simple Squeeze Page Sites</a>
+            <a class="m-link" href="#">Static HTML Sites</a>
+            <a class="m-link" href="#">Custom Web &amp; Mobile Apps</a>
+            <a class="m-link" href="/services/amazon-store-setup-and-management-services/">Amazon Listing &amp; Store
+              Setup</a>
+            <a class="m-link" href="#">Walmart Listing &amp; Store Setup</a>
+            <a class="m-link" href="#">Merchant Processing Add-On</a>
+            <a class="m-link" href="#">Site Audit &amp; Priority Fixes</a>
+            <a class="m-link" href="#">Hourly Dev Blocks</a>
+
+            <div class="m-group-title">Hosting &amp; Maintenance</div>
+            <a class="m-link" href="/services/wordpress-hosting-and-maintenance-services/">WordPress Maintenance
+              Bundle</a>
+            <a class="m-link" href="/services/joomla-hosting-and-maintenance-jham-services/">Joomla Maintenance
+              Bundle</a>
+            <a class="m-link" href="#">Simple Site Hosting Bundle</a>
+
+            <div class="m-group-title">Website Care</div>
+            <a class="m-link" href="#">Emergency Site Repair</a>
+            <a class="m-link" href="#">Website Backup</a>
+            <a class="m-link" href="#">Website Migration</a>
+            <a class="m-link" href="#">Rush Website Updates</a>
+
+            <div class="m-group-title">Security &amp; Tools</div>
+            <a class="m-link" href="/cybersecurity-packages/">Cybersecurity &amp; Email Backup</a>
+            <a class="m-link" href="/email-setup-migration-services-gws-ms365/">Email Setup &amp; Migration (Google
+              Workspace / Microsoft 365)</a>
+            <a class="m-link" href="/services/domain-registration-web-hosting/">Web Hosting &amp; Domains</a>
+            <a class="m-link" href="#">Domain Registration &amp; Renewal</a>
+
+            <div class="m-group-title">SEO</div>
+            <a class="m-link" href="/salt-lake-city-seo-company/">SEO Plans</a>
+            <a class="m-link" href="#">SEO Audit &amp; Priority Fixes</a>
+
+            <div class="m-group-title">Local SEO</div>
+            <a class="m-link" href="#">Local Domination Package</a>
+            <a class="m-link" href="/services/google-my-business-optimization/">Google Business Profile Setup</a>
+            <a class="m-link" href="/google-local-3-pack/">Google 3-Pack Optimization</a>
+            <a class="m-link" href="#">Additional Location Add-On</a>
+            <a class="m-link" href="/services/web-social-media-marketing/reputation-management/">Reputation
+              Management</a>
+
+            <div class="m-group-title">Analytics &amp; Tracking</div>
+            <a class="m-link" href="#">Google Analytics &amp; Tag Manager Setup</a>
+            <a class="m-link" href="#">Google Search Console Setup</a>
+            <div class="m-subgroup-note">(Included with any SEO plan — à la carte otherwise)</div>
+
+            <div class="m-group-title" id="mPaidAdvertisingGroup">Paid Advertising</div>
+            <a class="m-link" href="/services/marketing/pay-per-click/">Google Ads Management</a>
+            <a class="m-link" href="#">Meta Ads Management</a>
+            <a class="m-link" href="#">Meta Boosted Posts Management</a>
+            <a class="m-link" href="#">Amazon Ads Management</a>
+            <a class="m-link" href="#">Walmart Ads Management</a>
+
+            <div class="m-group-title">CRM</div>
+            <a class="m-link" href="#">CRM Build &amp; Setup</a>
+            <a class="m-link" href="#">CRM Management</a>
+
+            <div class="m-group-title">Marketing Packages</div>
+            <a class="m-link" href="#">Marketing Visibility Packages</a>
+
+            <div class="m-group-title">Social Media</div>
+            <a class="m-link" href="/services/web-social-media-marketing/options/">Social Media Management</a>
+            <a class="m-link" href="#">Social Account Setup</a>
+            <a class="m-link" href="#">Meta Ads &amp; Boosted Posts</a>
+
+            <div class="m-group-title">Email Newsletter</div>
+            <a class="m-link" href="#">Newsletter Management</a>
+            <a class="m-link" href="#">Newsletter Template Design</a>
+            <a class="m-link" href="#">Newsletter Deliverability Setup</a>
+
+            <div class="m-group-title">Design</div>
+            <a class="m-link" href="/marketing/branding-and-graphic-design">Logo Design Package</a>
+            <a class="m-link" href="#">Branding Package</a>
+            <a class="m-link" href="#">Print &amp; Marketing Collateral</a>
+
+            <div class="m-group-title">Copywriting</div>
+            <a class="m-link" href="/marketing/content-marketing">Content &amp; Copywriting</a>
+            <a class="m-link" href="#">Blog Post Add-Ons</a>
+            <a class="m-link" href="#">Press Release Writing / Distribution</a>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="m-acc-item">
+        <button class="m-acc-trigger">Portfolio
+          <svg class="nav-chevron" viewBox="0 0 10 6" fill="none">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="m-acc-panel">
+          <div class="m-acc-panel-inner">
+            <a class="m-link" href="/portfolio">View Portfolio</a>
+            <a class="m-link" href="/marketing/branding-and-graphic-design">Graphic Design Examples</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-acc-item">
+        <button class="m-acc-trigger">Contact
+          <svg class="nav-chevron" viewBox="0 0 10 6" fill="none">
+            <path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="m-acc-panel">
+          <div class="m-acc-panel-inner">
+            <a class="m-link" href="/contact-us/">Contact Us</a>
+            <a class="m-link" href="/book-a-free-consultation/">Book a Free Consultation</a>
+            <a class="m-link" href="/newsletters/">Subscribe to Newsletter</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="m-acc-item">
+        <a class="m-link" href="/blogs/" style="padding:16px 8px;font-size:.95rem;font-weight:700;">Blog</a>
+      </div>
+
+    </div>
+    <div class="mobile-drawer-cta">
+      <a href="/book-a-free-consultation/" class="btn-primary">Book a Free Consultation</a>
+    </div>
+  </aside>
+
+  <!-- demo content -->
+  <section class="demo-banner">
+    <div class="demo-banner-inner">
+      <h1>This Is Where Page Content Begins</h1>
+      <p>The mega menu sits on top of any page using the same gradient, radius and shadow tokens as the rest of the
+        site.</p>
+    </div>
+  </section>
+  <div class="demo-body">
+    <p>Scroll, resize the window, or shrink below 992 px to see the mobile drawer take over. Every link maps back to a
+      line item from the proposal configurator — nothing was left out.</p>
+  </div>
+
+  <script>
+    (function () {
+      var navItems = document.querySelectorAll('.nav-item');
+      var overlay = document.getElementById('sbsOverlay');
+      var closeTimer = null;
+
+      function closeAll() {
+        navItems.forEach(function (it) {
+          it.classList.remove('is-open');
+          var btn = it.querySelector('.nav-link');
+          if (btn) btn.setAttribute('aria-expanded', 'false');
+        });
+        overlay.classList.remove('is-visible');
+      }
+
+      function openItem(item) {
+        navItems.forEach(function (it) {
+          if (it !== item) {
+            it.classList.remove('is-open');
+            var b = it.querySelector('.nav-link'); if (b) b.setAttribute('aria-expanded', 'false');
+          }
+        });
+        item.classList.add('is-open');
+        var btn = item.querySelector('.nav-link');
+        if (btn) btn.setAttribute('aria-expanded', 'true');
+        if (item.querySelector('.dropdown-mega')) overlay.classList.add('is-visible');
+        else overlay.classList.remove('is-visible');
+      }
+
+      navItems.forEach(function (item) {
+        var trigger = item.querySelector('.nav-link');
+        var dropdown = item.querySelector('.dropdown');
+        if (!dropdown || !trigger) return;
+
+        trigger.addEventListener('click', function (e) {
+          e.preventDefault();
+          var isOpen = item.classList.contains('is-open');
+          closeAll();
+          if (!isOpen) openItem(item);
+        });
+
+        item.addEventListener('mouseenter', function () {
+          if (window.innerWidth <= 992) return;
+          clearTimeout(closeTimer);
+          openItem(item);
+        });
+        item.addEventListener('mouseleave', function () {
+          if (window.innerWidth <= 992) return;
+          closeTimer = setTimeout(closeAll, 160);
+        });
+      });
+
+      overlay.addEventListener('click', closeAll);
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+      document.addEventListener('click', function (e) {
+        if (!e.target.closest('.nav-item')) closeAll();
+      });
+
+      /* mobile drawer */
+      var toggle = document.getElementById('mobileToggle');
+      var drawer = document.getElementById('mobileDrawer');
+      var closeBtn = document.getElementById('mobileClose');
+
+      function openDrawer() { drawer.classList.add('is-open'); overlay.classList.add('is-visible'); toggle.classList.add('is-active'); }
+      function closeDrawer() { drawer.classList.remove('is-open'); overlay.classList.remove('is-visible'); toggle.classList.remove('is-active'); }
+
+      toggle.addEventListener('click', function () {
+        drawer.classList.contains('is-open') ? closeDrawer() : openDrawer();
+      });
+      closeBtn.addEventListener('click', closeDrawer);
+      overlay.addEventListener('click', closeDrawer);
+
+      document.querySelectorAll('.m-acc-trigger').forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          var parent = trigger.closest('.m-acc-item');
+          var wasOpen = parent.classList.contains('is-open');
+          document.querySelectorAll('.m-acc-item').forEach(function (it) { it.classList.remove('is-open'); });
+          if (!wasOpen) parent.classList.add('is-open');
+        });
+      });
+
+      /* cross-link jumping & pulse effect */
+      var crosslink = document.querySelector('.mega-crosslink');
+      if (crosslink) {
+        crosslink.addEventListener('click', function (e) {
+          e.preventDefault();
+          var target = document.getElementById('paidAdvertisingGroup');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            target.classList.remove('highlight-target');
+            void target.offsetWidth;
+            target.classList.add('highlight-target');
+          }
+        });
+      }
+
+      var mCrosslink = document.querySelector('.m-crosslink');
+      if (mCrosslink) {
+        mCrosslink.addEventListener('click', function (e) {
+          var mTarget = document.getElementById('mPaidAdvertisingGroup');
+          if (mTarget) {
+            mTarget.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            mTarget.classList.remove('highlight-target');
+            void mTarget.offsetWidth;
+            mTarget.classList.add('highlight-target');
+          }
+        });
+      }
+
+      window.addEventListener('resize', function () {
+        if (window.innerWidth > 992) { closeDrawer(); }
+        else { closeAll(); }
+      });
+    })();
+  </script>
+
+</body>
+
+</html>

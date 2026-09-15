@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Testimonials | Sites by Sara</title>
+  <meta name="description"
+    content="See why businesses trust Sites by Sara for SEO, web design, and marketing. Read real client testimonials and discover how we deliver results - join us today!">
+  <meta property="og:title" content="Client Testimonials | Sites by Sara">
+  <meta property="og:description"
+    content="See why businesses trust Sites by Sara for SEO, web design, and marketing. Read real client testimonials and discover how we deliver results - join us today!">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+    :root {
+      --brand-blue: #3A539B;
+      --brand-blue-hover: #2F437D;
+      --brand-blue-tint: #EEF2FA;
+
+      --brand-coral: #ea4e5f;
+      --brand-coral-hover: #d43d4e;
+      --brand-coral-tint: #FDEEEE;
+
+      --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+      --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+      --brand-peach: #FCEFE5;
+
+      --navy: #1E2140;
+      --slate: #5F6368;
+      --slate-light: #80868B;
+
+      --border: #DCE2EE;
+      --border-light: #ECEFF5;
+      --border-card: #DFE4EE;
+
+      --bg-white: #FFFFFF;
+      --bg-light: #F9FAFD;
+
+      --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --radius-pill: 9999px;
+
+      --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+      --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+      --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--navy);
+      background-color: var(--bg-white);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    strong,
+    b {
+      font-weight: 600;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-space {
+      padding: clamp(70px, 8vw, 110px) 0;
+    }
+
+    .section-space-tight {
+      padding: clamp(40px, 5vw, 65px) 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto clamp(36px, 5vw, 52px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 16px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--brand-coral);
+      display: inline-block;
+    }
+
+    .h2-title {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .lead-text {
+      font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
+      color: var(--slate);
+      line-height: 1.65;
+      font-weight: 400;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font);
+      font-size: 0.98rem;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1.5px solid transparent;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--brand-gradient);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:focus-visible,
+    .btn-primary:active {
+  background: var(--brand-gradient-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+  color: #FFFFFF !important;
+    }
+
+    /* ============================================================
+     PAGE TITLE BANNER
+     ============================================================ */
+    .page-title-banner {
+      position: relative;
+      overflow: hidden;
+      background: var(--brand-gradient);
+      padding: clamp(52px, 6vw, 76px) 24px;
+      text-align: center;
+      color: #FFFFFF;
+      box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+    }
+
+    .page-title-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+      pointer-events: none;
+    }
+
+    .page-title-banner-mesh {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .page-title-banner-mesh::before,
+    .page-title-banner-mesh::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: 0.22;
+      pointer-events: none;
+    }
+
+    .page-title-banner-mesh::before {
+      width: 320px;
+      height: 320px;
+      background: #FFFFFF;
+      top: -120px;
+      left: 8%;
+    }
+
+    .page-title-banner-mesh::after {
+      width: 280px;
+      height: 280px;
+      background: var(--brand-coral);
+      bottom: -80px;
+      right: 10%;
+    }
+
+    .page-title-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-banner-h1 {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #FFFFFF;
+      letter-spacing: -0.025em;
+      margin: 0 0 10px;
+      text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+    }
+
+    .page-banner-sub {
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.94);
+      letter-spacing: 0.01em;
+      margin: 0;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+    }
+
+    /* ============================================================
+     VIDEO (full width embed)
+     ============================================================ */
+    .testimonials-video-section {
+      background: var(--bg-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .testimonials-video-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-floating);
+      background: #000;
+    }
+
+    .testimonials-video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ============================================================
+     STAT ROW
+     ============================================================ */
+    .testimonials-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .testimonials-stat-number {
+      font-size: clamp(1.9rem, 1.5rem + 1vw, 2.4rem);
+      font-weight: 700;
+      color: var(--brand-blue);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .testimonials-stat-label {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--slate);
+      line-height: 1.35;
+    }
+
+    /* ============================================================
+     TESTIMONIAL GRID
+     ============================================================ */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .testimonial-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 22px 22px 20px;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .testimonial-card:hover {
+      box-shadow: var(--shadow-card-hover);
+      border-color: var(--border-card);
+      transform: translateY(-2px);
+    }
+
+    .testimonial-card-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid var(--border-light);
+    }
+
+    .testimonial-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.3;
+    }
+
+    .testimonial-role {
+      font-size: 0.78rem;
+      color: var(--slate-light);
+      line-height: 1.3;
+    }
+
+    .testimonial-quote-icon {
+      width: 22px;
+      height: 22px;
+      color: var(--brand-coral-tint);
+      margin-bottom: 6px;
+    }
+
+    .testimonial-quote {
+      font-size: 0.9rem;
+      color: var(--slate);
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .testimonial-quote.is-expanded {
+      display: block;
+      -webkit-line-clamp: unset;
+      overflow: visible;
+    }
+
+    .testimonial-toggle {
+      margin-top: 10px;
+      align-self: flex-start;
+      font-family: var(--font);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--brand-coral);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .testimonial-toggle:hover,
+    .testimonial-toggle:focus,
+    .testimonial-toggle:focus-visible,
+    .testimonial-toggle:active {
+  color: var(--brand-coral-hover) !important;
+    }
+
+    /* ============================================================
+     CLOSING
+     ============================================================ */
+    .testimonials-closing-section {
+      background: var(--brand-blue-tint);
+    }
+
+    .testimonials-closing-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .testimonials-closing-inner .lead-text {
+      margin-bottom: 24px;
+    }
+
+    /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+    @media (max-width: 1020px) {
+      .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-title-banner {
+        padding: 48px 18px;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-stat-grid {
+        max-width: 320px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       PAGE TITLE BANNER
+       ============================================================ -->
+  <section class="page-title-banner" aria-label="Page Title">
+    <div class="page-title-banner-mesh" aria-hidden="true"></div>
+    <div class="container page-title-inner">
+      <h1 class="page-banner-h1">What Our Clients Say</h1>
+      <p class="page-banner-sub">We take pride in helping businesses expand their presence across the digital
+        market. Take a look at what some of our clients have had to say about working with us.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       VIDEO (full width embed)
+       ============================================================ -->
+  <section class="section-space-tight testimonials-video-section" aria-label="Client Testimonial Video">
+    <div class="container">
+      <div class="testimonials-video-wrap">
+        <iframe src="https://www.youtube.com/embed/Xv3MHIwb9fk" title="Sites by Sara Web Design Client Testimonial"
+          loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STAT ROW
+       ============================================================ -->
+  <section class="section-space-tight" aria-label="Testimonials At A Glance">
+    <div class="container">
+      <div class="testimonials-stat-grid">
+        <div>
+          <div class="testimonials-stat-number">31</div>
+          <div class="testimonials-stat-label">Real Client Testimonials</div>
+        </div>
+        <div>
+          <div class="testimonials-stat-number">2007</div>
+          <div class="testimonials-stat-label">Serving Businesses Since</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TESTIMONIALS GRID
+       ============================================================ -->
+  <section class="section-space" aria-label="Client Testimonials" style="padding-top: 0;">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Client Stories
+        </div>
+        <h2 class="h2-title">Real Feedback From Real Clients</h2>
+      </div>
+
+      <div class="testimonials-grid">
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2023/12/drew-img.png?fit=125%2C125"
+              alt="Drew Wydra" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Drew Wydra</div>
+              <div class="testimonial-role">208 Moving Company</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">I have used 3 different SEO companies for my small business so far and I have
+            never had anyone as knowledgeable, responsive, and just overall awesome to work with as Sara. We hired
+            Sites by Sara for our SEO work for our website, but she really is a jack of all trades. Sara understands
+            not just the SEO side of things, but has strong grasp of marketing and has helped us implement
+            strategies for our business. On top of all that, she genuinely cares about her clients to a degree you
+            won't see at any other company. Its also a huge plus that she is local here in Salt Lake City, Utah. Its
+            awesome when you want to make changes to your website and she can come to your office and go over things
+            in person. I would highly recommend Sara and her company Sites by Sara! I can't imagine ever going with
+            anyone else. Thanks Sara!</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/07/devin.png?fit=125%2C125"
+              alt="Devin Richards" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Devin Richards</div>
+              <div class="testimonial-role">CCEEB.org</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Sara Lambrinos and Sites by Sara are among the most professional and pleasant
+            communications and marketing services out there. Sara went out of her way to check-in, advise, and
+            recommend improvements and services to the website I oversaw. She held herself accountable, opened lines
+            of communication, and clearly identified needs and results that would be achieved. I was throughly
+            impressed, and as such, fully recommend getting in touch with Sara and Sites by Sara for any of your
+            website, communications, and marketing needs.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/francie.png?fit=125%2C125"
+              alt="Francine Platt" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Francine Platt</div>
+              <div class="testimonial-role">Eden Graphics, Inc</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">I've enjoyed working with Sara throughout the years and continue to recommend
+            her to my clients who need help with their websites. She's responsive and great at website development
+            -- knowing the latest trends and coding updates. She's friendly and easy to work with!</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/wanis.png?fit=125%2C125"
+              alt="Wanis Salem" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Wanis Salem</div>
+              <div class="testimonial-role">Cutting Edge Stone and Granite</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Sara has done an amazing job in bring our company up to date with all on line
+            needs. she improved on lines sales on put us on top of google search. I highly recommend Sites by Sara
+            for anyone that is looking to improve their web technology and their online presence.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/karen.png?fit=125%2C125"
+              alt="Karen Van Hoesen" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Karen Van Hoesen</div>
+              <div class="testimonial-role">Gilmer Arts</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Our non-profit has been exceptionally pleased with Sites by Sara's Peace of
+            Mind plan for our website. Whenever we've had outages or issues, they've been right there immediately
+            and have fixed us up for far less than it would have cost us if we had to hire her per incident. We love
+            the Peace of Mind plan.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/harry.png?fit=125%2C125"
+              alt="Harry Keshet" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Harry Keshet</div>
+              <div class="testimonial-role">Human Interaction Solutions</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Sara has a great sense of how to develop a website and marketing strategy to
+            attracts and grows business. She is smart, has the right knowledge and expertise, great people skills
+            and delivers on her promises. She is a pleasure to work with.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/todd.png?fit=125%2C125"
+              alt="Todd Nelson Naturopath" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Todd Nelson Naturopath</div>
+              <div class="testimonial-role">Tree Of Life Wellness Center</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Sara has done fantastic work for me producing slides for lectures and graphics
+            for different uses. She communicates well, get's things done on time, and produces exceptional,
+            professional and creative looks that inspire and educate. I highly recommend her!!</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/monique.png?fit=125%2C125"
+              alt="Monique Lanier" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Monique Lanier</div>
+              <div class="testimonial-role">Pale Boutique</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Talented, artistic, timely and experienced.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/cindy.png?fit=125%2C125"
+              alt="Cindy Uriona" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Cindy Uriona</div>
+              <div class="testimonial-role">Silicon Slopes Real Estate Berkshire Hathaway Utah Properties</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Sara is a pro for all things online, not only websites, and a pleasure to work
+            with, fun, friendly and a true expert in her field. Sara has worked with me on my website and so
+            through.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/chuck.png?fit=125%2C125"
+              alt="Chuck Hamrick" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Chuck Hamrick</div>
+              <div class="testimonial-role">Hamrick.biz</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Known Sara through local marketing meetups for many years and she's a good
+            person to work with.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/david.png?fit=125%2C125"
+              alt="David Bruce" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">David Bruce (Teresa B)</div>
+              <div class="testimonial-role">Bruce and Associates</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">There are so many facets to a good web team and Sara has all of them covered.
+            My focus is sales related - not web technology. Sara takes care of everything so I can focus on what I
+            do best and earn revenue. If you're not sure what you need or want, no problem. Sara can create at any
+            level you need. Sara also has a bright, winning personality that makes interactions a pleasure. If you're
+            needing excellent web team assistance, look no further!</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/trinity.png?fit=125%2C125"
+              alt="Trinity Machan" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Trinity Machan</div>
+              <div class="testimonial-role">Black Diamond Limousine LLC</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">One of the best services I have ever used for my company's website. They
+            where very responsive and such a wonderful company to work with they are so smart when it comes to SEO
+            and webpage development. I can't say enough to justify the increase in business I have received from her
+            redoing my page. bdlslc.com look for your self.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/alosa.png?fit=125%2C125" alt="Alisa H."
+              loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Alisa H.</div>
+              <div class="testimonial-role">Better Content Matters</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Sara has done an amazing job with our company website. She's crafted it in
+            such a way that SEO is organic -- as long as we maintain the basics. When we've asked for changes, she's
+            done them efficiently and created exactly what we were looking for. So grateful to her!</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/staci.png?fit=125%2C125"
+              alt="Staci Sprout" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Staci Sprout</div>
+              <div class="testimonial-role">Seattle Recovery Center</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">We hired Sites by Sara to help us create a website and logo for our new
+            company, and we love what they came up with! Skilled, clear, and talented - Sara did a great job
+            listening to us and getting us the right questions so we could end up exactly where we'd hoped. I
+            couldn't recommend Sites By Sara more highly, especially for small business owners who want to take it
+            to the next level!</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/richard.png?fit=125%2C125"
+              alt="Richard Kletting" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Richard Kletting</div>
+              <div class="testimonial-role">Trolley Square Barbers</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">I did a lot of research before choosing Sara to handle our internet marketing
+            presence. She came to our business and spent several hours working up a plan that we could all agree on.
+            She is bright and very professional. Our numbers have made great improvement since she has been helping
+            us. I can recommend her to any business who needs to improve your branding and presence online. She is
+            doing a great job for us!</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/suz.png?fit=125%2C125"
+              alt="Suzanne Pratt" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Suzanne Pratt</div>
+              <div class="testimonial-role">Marriage Therapist, LCSW</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">I have been working with Sara Lambrinos on my website for several months.
+            Besides creating a website that is highly functional and truly representative of what I do, she is
+            forever coming up with ways to optimize my professional visibility on line. She is a patient teacher and
+            anytime I have a question, she has been lightning fast to respond. In the past I've paid far more for a
+            website I was far less happy with. In addition, she is professional and friendly, as smart as she can
+            be, and I recommend her to anyone who not only wants a website, but who wants help creating cutting edge
+            visibility online.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/bob.png?fit=125%2C125"
+              alt="Dr. Bob Seiler" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Dr. Bob Seiler</div>
+              <div class="testimonial-role">Holistic Chiropractic Physician</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">I have found Sara to be an extremely reliable, dependable, acknowledgeable
+            resource in helping me with my web-site SEO. I think you would find her delightful to work with and she
+            would immensely help you! Dr. Bob Seiler</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/eric.png?fit=125%2C125"
+              alt="Eric K. Johnson" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Eric K. Johnson</div>
+              <div class="testimonial-role">Principal at Utah Family Law, LC</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Sara provided web master and SEO campaign management for a website of mine
+            for 5 years. In that time, the website consistently ranked very well for highly competitive keywords
+            (first page in Google), and Sara did it without tricks or shortcuts. It was such a relief to have Sara to
+            help me succeed with a crucial area of my business that I didn't understand.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/marla-dee.png?fit=125%2C125"
+              alt="Marla Dee" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Marla Dee</div>
+              <div class="testimonial-role">Owner, Clear &amp; SIMPLE, LLC</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Sara has saved my life - she is my website consultant and has consistently
+            gone beyond my expectations. She knows my needs before I do. She is incredibly innovative and a JOY to
+            work with. Thanks Sara for all you do for me and for Clear &amp; SIMPLE.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/roundy.png?fit=125%2C125"
+              alt="Courtney Roundy" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Courtney Roundy</div>
+              <div class="testimonial-role">Owner, C ROUNDY</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Sara is professional, prompt and a joy to work with. I highly recommend her
+            talent and service.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/karen.png?fit=125%2C125"
+              alt="Gilmer Arts" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Gilmer Arts</div>
+              <div class="testimonial-role">Bringing the Arts to the North GA Mountains</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Our non-profit has been exceptionally pleased with Sara's Peace of Mind plan
+            for our website. Whenever we've had outages or issues, Sara has been right there immediately and has
+            fixed us up for far less than it would have cost us if we had to hire her per incident. We love the
+            Peace of Mind plan.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/andalin.png?fit=125%2C125"
+              alt="Andalin Bachman" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Andalin Bachman</div>
+              <div class="testimonial-role">Interfaith Roundtable</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">I am pleased to offer the highest recommendation for using the services of
+            Sites by Sara. They assisted my nonprofit in all aspects of our website redesign and development, as
+            well as offered hands on training to our members. Sites by Sara assisted us in obtaining our domain, and
+            has been a life-saver during crunch times when special assistance has been needed. The "Peace of Mind"
+            plan has been invaluable in terms of keeping our website current and secure. We are very glad to have
+            found Sites by Sara and highly recommend them to anyone looking for trustworthy and competent Web
+            services.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Barbara-Engen-1-140x140.jpeg"
+              alt="Barbara Engen" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Barbara Engen</div>
+              <div class="testimonial-role">Assistance League of Salt Lake City</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">I'd like to thank Sara Lambrinos (Sites by Sara) for the wonderful job she's
+            done during the bidding process for a website redesign project that I'm chairing. Sara has been so
+            positive, has promptly responded to my questions and has been a delight to work with. Thank you, Sara!
+          </p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Frankie-Hallet-140x140.jpeg"
+              alt="Frankie Hallet" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Frankie Hallet</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Loved working with Sara and her crew! My job wasn't the biggest job in the
+            world but she treated me as if I were her #1 customer. Thanks Sara!</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Krishna-Gaurav-140x140.jpeg"
+              alt="Krishna Gaurav" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Krishna Gaurav</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">A 360 degree solutions web solutions provider who listens to clients and
+            provides innovative, profitable and efficient services. I will definitely recommend their services to
+            anyone who is looking to bring more business online.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/John-McNally-140x140.jpeg"
+              alt="John McNally" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">John McNally</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">What a great experience! It's refreshing to find a local company who really
+            cares about our website presence. We were able to get our site redesigned quickly and efficiently. Sara
+            was easy to work with, quick to respond to our requests and always willing to answer any questions we
+            had. I highly recommend Sites by Sara for any of your website needs.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Austin-Hummell-140x140.jpeg"
+              alt="Austin Hummell" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Austin Hummell</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Sara's work is amazing. She cared about every detail of the website as if it
+            were her own.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Hannah-Anderson-140x140.jpeg"
+              alt="Hannah Anderson" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Hannah Anderson</div>
+              <div class="testimonial-role">Red Leaf Design and Construction</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Sarah is great! Our company used her to re-design our entire website and we
+            are loving it. She made is easy and hassle-free.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Knut-Lindsley-140x140.jpeg"
+              alt="Knut Lindsley" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Knut Lindsley</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">SBS has years of experience and excels in listening to clients needs and
+            providing solutions for them.</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/marci.png?fit=125%2C125"
+              alt="Marci Baak" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Marci Baak</div>
+              <div class="testimonial-role">APRN, CNM, FNP-C — Sweet Leaf Family Practice, Owner</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Sara gets the job done quickly and efficiently. She communicates clearly and
+            knows exactly what she is doing. I love my website and would recommend Sites by Sara to everyone. Thank
+            you, Sara!</p>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-card-head">
+            <img class="testimonial-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/vida.png?fit=125%2C125"
+              alt="Vida Groman" loading="lazy" width="48" height="48">
+            <div>
+              <div class="testimonial-name">Vida Groman</div>
+              <div class="testimonial-role">Transform Outloud</div>
+            </div>
+          </div>
+          <p class="testimonial-quote">Sara listened to my needs. She then translated that into a really beautiful
+            website that still works for me. Thank you, Sara.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CLOSING
+       ============================================================ -->
+  <section class="section-space-tight testimonials-closing-section" aria-label="Get In Touch">
+    <div class="container">
+      <div class="testimonials-closing-inner">
+        <div class="eyebrow" style="justify-content: center; display: flex;">
+          <span class="eyebrow-dot"></span>
+          Work With Us
+        </div>
+        <h2 class="h2-title">Become Our Next Success Story</h2>
+        <p class="lead-text">Ready to work with a team our clients trust? Let's talk about your project.</p>
+        <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+          Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      document.querySelectorAll('.testimonial-quote').forEach(function (quote) {
+        if (quote.scrollHeight > quote.clientHeight + 2) {
+          var btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'testimonial-toggle';
+          btn.textContent = 'Read more';
+          btn.addEventListener('click', function () {
+            var expanded = quote.classList.toggle('is-expanded');
+            btn.textContent = expanded ? 'Read less' : 'Read more';
+          });
+          quote.insertAdjacentElement('afterend', btn);
+        }
+      });
+    })();
+  </script>
+
+</body>
+
+</html>
