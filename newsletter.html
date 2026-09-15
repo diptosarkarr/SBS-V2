@@ -163,9 +163,7 @@
     .page-title-banner {
       position: relative;
       overflow: hidden;
-      background-image:
-        linear-gradient(135deg, rgba(2, 80, 197, 0.86) 0%, rgba(212, 63, 141, 0.86) 100%),
-        url('https://i0.wp.com/sitesbysara.com/wp-content/uploads/2023/01/newsletterbg.jpg?fit=1920%2C1253');
+      background-image: var(--brand-gradient);
       background-size: cover;
       background-position: center;
       padding: clamp(52px, 6vw, 76px) 24px;
@@ -417,7 +415,7 @@
       padding: 10px 26px;
       border-radius: var(--radius-pill);
       border: 1.5px solid var(--border);
-      background: #FFFFFF;
+      background: transparent;
       color: var(--slate);
       font-family: var(--font);
       font-size: 0.92rem;
@@ -426,15 +424,15 @@
       transition: all 0.2s ease;
     }
 
-    .newsletter-tab:hover,
-    .newsletter-tab:focus,
-    .newsletter-tab:focus-visible,
-    .newsletter-tab:active {
+    .newsletter-tab:hover {
       border-color: var(--brand-blue);
       color: var(--brand-blue) !important;
-      background: #FFFFFF;
+      background: transparent;
     }
 
+    .newsletter-tab:focus,
+    .newsletter-tab:focus-visible,
+    .newsletter-tab:active,
     .newsletter-tab.is-active {
       background: var(--brand-blue);
       border-color: var(--brand-blue);
