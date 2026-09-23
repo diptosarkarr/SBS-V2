@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms and Conditions — Sites by Sara</title>
+  <meta name="description"
+    content="Terms and Conditions for sitesbysara.com — Sites by Sara's website and service terms, last updated April 10, 2026.">
+  <meta property="og:title" content="Terms and Conditions — Sites by Sara">
+  <meta property="og:description"
+    content="Terms and Conditions for sitesbysara.com — Sites by Sara's website and service terms, last updated April 10, 2026.">
+
+  <!-- Google Fonts: Manrope -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+    :root {
+      --brand-blue: #3A539B;
+      --brand-blue-hover: #2F437D;
+      --brand-blue-tint: #EEF2FA;
+      --brand-blue-subtle: #F6F8FD;
+
+      --brand-coral: #ea4e5f;
+      --brand-coral-hover: #d43d4e;
+      --brand-coral-tint: #FDEEEE;
+
+      --brand-peach: #FCEFE5;
+      --brand-peach-hover: #F8E3D4;
+      --brand-peach-tint: #FFF9F5;
+
+      --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+      --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+      --navy: #1E2140;
+      --navy-dark: #13152C;
+      --slate: #5F6368;
+      --slate-light: #80868B;
+      --slate-subtle: #9AA0A6;
+
+      --border: #DCE2EE;
+      --border-light: #ECEFF5;
+      --border-card: #DFE4EE;
+
+      --bg-white: #FFFFFF;
+      --bg-light: #F9FAFD;
+      --bg-banner: #FCEFE5;
+      --bg-callout: #FFFBF7;
+
+      --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --radius-pill: 9999px;
+
+      --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+      --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--navy);
+      background-color: var(--bg-white);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: var(--brand-blue);
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus-visible {
+      color: var(--brand-blue-hover);
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================================
+     PAGE TITLE BANNER
+     ============================================================ */
+    .page-title-banner {
+      position: relative;
+      overflow: hidden;
+      background: var(--brand-gradient);
+      padding: clamp(52px, 6vw, 76px) 24px;
+      text-align: center;
+      color: #FFFFFF;
+      box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+    }
+
+    .page-title-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+      pointer-events: none;
+    }
+
+    .page-title-banner-mesh {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .page-title-banner-mesh::before,
+    .page-title-banner-mesh::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: 0.22;
+    }
+
+    .page-title-banner-mesh::before {
+      width: 320px;
+      height: 320px;
+      background: #FFFFFF;
+      top: -120px;
+      left: 8%;
+    }
+
+    .page-title-banner-mesh::after {
+      width: 280px;
+      height: 280px;
+      background: var(--brand-coral);
+      bottom: -80px;
+      right: 10%;
+    }
+
+    .page-title-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-banner-h1 {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #FFFFFF;
+      letter-spacing: -0.025em;
+      margin: 0;
+      text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+    }
+
+    /* ============================================================
+     LEGAL META BAR
+     ============================================================ */
+    .legal-meta-section {
+      border-bottom: 1px solid var(--border-light);
+      background: var(--bg-light);
+    }
+
+    .legal-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 28px;
+      padding: 20px 0;
+      font-size: 0.88rem;
+      color: var(--slate);
+    }
+
+    .legal-meta-bar strong {
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .legal-meta-updated {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      background: var(--brand-blue-tint);
+      color: var(--brand-blue);
+      font-weight: 600;
+      font-size: 0.82rem;
+    }
+
+    /* ============================================================
+     LEGAL DOCUMENT LAYOUT (TOC + Content)
+     ============================================================ */
+    .legal-section {
+      padding: clamp(48px, 6vw, 76px) 0 clamp(80px, 8vw, 120px);
+    }
+
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: clamp(32px, 5vw, 64px);
+      align-items: start;
+    }
+
+    .legal-toc {
+      position: sticky;
+      top: 24px;
+      padding: 20px;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      background: var(--bg-light);
+    }
+
+    .legal-toc-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--slate-light);
+      margin-bottom: 14px;
+    }
+
+    .legal-toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      max-height: 70vh;
+      overflow-y: auto;
+    }
+
+    .legal-toc-list a {
+      color: var(--slate);
+      font-size: 0.86rem;
+      font-weight: 500;
+      line-height: 1.4;
+      display: block;
+    }
+
+    .legal-toc-list a:hover,
+    .legal-toc-list a:focus-visible {
+      color: var(--brand-blue);
+      text-decoration: none;
+    }
+
+    .legal-content {
+      max-width: 760px;
+    }
+
+    .legal-content section {
+      margin-bottom: 40px;
+      scroll-margin-top: 24px;
+    }
+
+    .legal-content section:last-child {
+      margin-bottom: 0;
+    }
+
+    .legal-h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .legal-content p {
+      font-size: 0.98rem;
+      color: var(--slate);
+      line-height: 1.75;
+      margin-bottom: 14px;
+    }
+
+    .legal-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .legal-content strong {
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .legal-content ul,
+    .legal-content ol {
+      margin: 0 0 14px 22px;
+      color: var(--slate);
+      font-size: 0.98rem;
+      line-height: 1.75;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .legal-content .legal-caps p {
+      font-size: 0.92rem;
+    }
+
+    .legal-content a {
+      word-break: break-word;
+    }
+
+    /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+    @media (max-width: 900px) {
+      .legal-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .legal-toc {
+        position: static;
+        top: auto;
+      }
+
+      .legal-toc-list {
+        max-height: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page-title-banner {
+        padding: 44px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       PAGE TITLE BANNER
+       ============================================================ -->
+  <section class="page-title-banner" aria-label="Page Title">
+    <div class="page-title-banner-mesh" aria-hidden="true"></div>
+    <div class="container page-title-inner">
+      <h1 class="page-banner-h1">Terms and Conditions</h1>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LEGAL META BAR
+       ============================================================ -->
+  <section class="legal-meta-section">
+    <div class="container">
+      <div class="legal-meta-bar">
+        <span>For: <strong>Sites by Sara</strong></span>
+        <span>Website: <a href="https://sitesbysara.com" target="_blank" rel="noopener noreferrer">sitesbysara.com</a></span>
+        <span class="legal-meta-updated">Last updated: April 10, 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       LEGAL DOCUMENT (TOC + Content)
+       ============================================================ -->
+  <section class="legal-section">
+    <div class="container">
+      <div class="legal-layout">
+
+        <!-- Table of Contents -->
+        <nav class="legal-toc" aria-label="Table of contents">
+          <div class="legal-toc-label">On This Page</div>
+          <ul class="legal-toc-list">
+            <li><a href="#section-1">1. Acceptance of Terms of Service and amendments</a></li>
+            <li><a href="#section-2">2. The site editor's service</a></li>
+            <li><a href="#section-3">3. Your responsibilities and registration obligations</a></li>
+            <li><a href="#section-4">4. Privacy Policy</a></li>
+            <li><a href="#section-5">5. Registration and password</a></li>
+            <li><a href="#section-6">6. Your conduct</a></li>
+            <li><a href="#section-7">7. Changes to this Privacy Policy</a></li>
+            <li><a href="#section-8">8. Submission of content on this website</a></li>
+            <li><a href="#section-9">9. Third-party services</a></li>
+            <li><a href="#section-10">10. Indemnification</a></li>
+            <li><a href="#section-11">11. Disclaimer of Warranties</a></li>
+            <li><a href="#section-12">12. Limitation of Liability</a></li>
+            <li><a href="#section-13">13. Reservation of rights</a></li>
+            <li><a href="#section-14">14. Notification of copyright infringement</a></li>
+            <li><a href="#section-15">15. Applicable law</a></li>
+            <li><a href="#section-16">16. SMS / Text Messaging</a></li>
+          </ul>
+        </nav>
+
+        <!-- Content -->
+        <article class="legal-content">
+
+          <section id="section-1">
+            <h2 class="legal-h2">1. Acceptance of Terms of Service and amendments</h2>
+            <p>Each time you use or cause access to this website, you agree to be bound by these Terms of Service, as amended from time to time with or without notice to you. In addition, if you are using a particular service on this website or accessed via this website, you will be subject to any rules or guidelines applicable to those services, and they will be incorporated by reference within these Terms of Service. Please read the site's Privacy Policy, which is incorporated within these Terms of Service by reference.</p>
+          </section>
+
+          <section id="section-2">
+            <h2 class="legal-h2">2. The site editor's service</h2>
+            <p>This website and the services provided to you on and via this website are provided on an "AS IS" basis. You agree that the site editor reserves the right to modify or discontinue provision of this website and its services, and to remove the data you provide, either temporarily or permanently, at any time, without notice and without any liability towards you, The site editor will not be held responsible or liable for timeliness, removal of information, failure to store information, inaccuracy of information, or improper delivery of information.</p>
+          </section>
+
+          <section id="section-3">
+            <h2 class="legal-h2">3. Your responsibilities and registration obligations</h2>
+            <p>In order to use this website or certain parts of it, you may be required to register for a user account on this website; in this case, you agree to provide truthful information when requested, and — if a minimum age is required for eligibility for a user account — you undertake that you are at least the required age. By registering for a user account, you explicitly agree to this site's Terms of Service, including any amendments made by the site editor that are published herein.</p>
+          </section>
+
+          <section id="section-4">
+            <h2 class="legal-h2">4. Privacy Policy</h2>
+            <p>Registration data and other personally identifiable information that the site may collect is subject to the terms of the site editor's Privacy Policy.</p>
+          </section>
+
+          <section id="section-5">
+            <h2 class="legal-h2">5. Registration and password</h2>
+            <p>You are responsible for maintaining the confidentiality of your password, and you will be responsible for all usage of your user account and/or user name, whether authorized or not authorized by you. You agree to immediately notify the site editor of any unauthorized use of your user account, user name or password.</p>
+          </section>
+
+          <section id="section-6">
+            <h2 class="legal-h2">6. Your conduct</h2>
+            <p>You agree that all information or data of any kind, whether text, software, code, music or sound, photographs or graphics, video or other materials ("content"), made available publicly or privately, will be under the sole responsibility of the person providing the said content, or of the person whose user account is used. You agree that this website may expose you to content that may be objectionable or offensive. The site editor will not be responsible to you in any way for content displayed on this website, nor for any error or omission.</p>
+          </section>
+
+          <section id="section-7">
+            <h2 class="legal-h2">7. Changes to this Privacy Policy</h2>
+            <p>(a) You will not provide any content or conduct yourself in any way that may be construed as: unlawful; illegal; threatening; harmful; abusive; harassing; stalking; tortious; defamatory; libelous; vulgar; obscene; offensive; objectionable; pornographic; designed to interfere with or disrupt the operation of this website or any service provided; infected with a virus or other destructive or deleterious programming routine; giving rise to civil or criminal liability; or in violation of an applicable local, national or international law.</p>
+            <p>(b) You will not impersonate or misrepresent your association with any person or entity; you will not forge or otherwise seek to conceal or misrepresent the origin of any content provided by you.</p>
+            <p>(c) You will not collect or harvest any information about other users.</p>
+            <p>(d) you will not provide, and you will not use this website to provide, any content or service in any commercial manner, or in any manner that would involve junk mail, spam, chain letters, pyramid schemes, or any other form of unauthorized advertising or commerce; you will not use this website to promote or operate any service or content without the site editor's prior written consent.</p>
+            <p>(e) You will not provide any content that may give rise to the site editor being held civilly or criminally liable, or that may be considered a violation of any local, national or international law, including — but not limited to — laws relating to copyrights, trademarks, patents, or trade secrets.</p>
+          </section>
+
+          <section id="section-8">
+            <h2 class="legal-h2">8. Submission of content on this website</h2>
+            <p>By providing any content to this website:</p>
+            <p>(a) You agree to grant the site editor a worldwide, royalty-free, perpetual, non-exclusive right and license (including any moral rights or other necessary rights.) to use, display, reproduce, modify, adapt, publish, distribute, perform, promote, archive, translate, and to create derivative works and compilations, in whole or in part. Such license will apply with respect to any form, media, technology already known at the time of provision or developed subsequently.</p>
+            <p>(b) You warrant and represent that you have all legal, moral, and other rights that may be necessary to grant the site editor the license specified in this section 7.</p>
+            <p>(c) You acknowledge and agree that the site editor will have the right (but not obligation), at the site editor's entire discretion, to refuse to publish, or to remove, or to block access to any content you provide, at any time and for any reason, with or without notice.</p>
+            <p>(d) Opt-In Consent. By agreeing to receive messages from Sites by Sara, you understand that message frequency varies, and message/data rates may apply. Reply STOP to opt out.</p>
+            <p>(e) By providing your phone number and opting in, you agree to receive conversational messages from Sites by Sara. Message frequency may vary. On average, you may receive 1-2 messages per month. Message and data rates may apply. For more information on how your data is handled, please review our privacy policy at <a href="https://www.sitesbysara.com/privacy-policy/" target="_blank" rel="noopener noreferrer">https://www.sitesbysara.com/privacy-policy/</a></p>
+          </section>
+
+          <section id="section-9">
+            <h2 class="legal-h2">9. Third-party services</h2>
+            <p>Goods and services of third parties may be advertised and/or may be made available on or through this website. Representations made regarding products and services provided by third parties will be governed by the policies and representations made by these third parties. The site editor will not in any manner be liable for or responsible for any of your dealings or interaction with third parties.</p>
+          </section>
+
+          <section id="section-10">
+            <h2 class="legal-h2">10. Indemnification</h2>
+            <p>You agree to indemnify and hold harmless the site editor and the site editor's representatives, subsidiaries, affiliates, related parties, officers, directors, employees, agents, independent contractors, advertisers, partners, and co-branders, from any claim or demand, including reasonable legal fees, that may be filed by any third party, arising out of your conduct or connection with this website or service, your provision of content, your violation of these Terms of Service, or any other violation by you of the rights of another person or party.</p>
+          </section>
+
+          <section id="section-11" class="legal-caps">
+            <h2 class="legal-h2">11. Disclaimer of Warranties</h2>
+            <p>YOU UNDERSTAND AND AGREE THAT YOUR USE OF THIS WEBSITE AND OF ANY SERVICES OR CONTENT PROVIDED (THE "SERVICE") IS AT YOUR OWN RISK. SERVICES AND CONTENT ARE PROVIDED TO YOU "AS IS", AND THE SITE EDITOR EXPRESSLY DISCLAIMS ALL WARRANTIES OF ANY KIND, EITHER IMPLIED OR EXPRESS, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+            <p>THE SITE EDITOR MAKES NO WARRANTY, EITHER IMPLIED OR EXPRESS, THAT ANY PART OF THE SERVICE WILL BE UNINTERRUPTED, ERROR-FREE, VIRUS-FREE, TIMELY, SECURE, ACCURATE, RELIABLE, OR OF ANY QUALITY, NOR IS IT WARRANTED EITHER IMPLICITLY OR EXPRESSLY THAT ANY CONTENT IS SAFE IN ANY MANNER FOR DOWNLOAD. YOU UNDERSTAND AND AGREE THAT NEITHER THE SITE EDITOR NOR ANY PARTICIPANT IN THE SERVICE PROVIDES PROFESSIONAL ADVICE OF ANY KIND AND THAT ANY ADVICE OR ANY OTHER INFORMATION OBTAINED VIA THIS WEBSITE MAY BE USED SOLELY AT YOUR OWN RISK, AND THAT THE SITE EDITOR WILL NOT BE HELD LIABLE IN ANY WAY.</p>
+            <p>Some jurisdictions may not allow disclaimers of implied warranties, and certain statements in the above disclaimer may not apply to you as regards implied warranties; the other terms and conditions remain enforceable notwithstanding.</p>
+          </section>
+
+          <section id="section-12" class="legal-caps">
+            <h2 class="legal-h2">12. Limitation of Liability</h2>
+            <p>YOU EXPRESSLY UNDERSTAND AND AGREE THAT THE SITE EDTIOR WILL NOT BE LIABLE FOR ANY DIRECT, INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL OR EXEMPLARY DAMAGES; THIS INCLUDES, BUT IS NOT LIMITED TO, DAMAGES FOR LOSS OF PROFITS, GOODWILL, USE, DATA OR OTHER INTANGIBLE LOSSES (EVEN IF THE SITE EDITOR HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES), RESULTING FROM</p>
+            <p>(I) THE USE OF SERVICES OR THE INABILITY TO USE SERVICES.</p>
+            <p>(II) THE COST OF OBTAINING SUBSTITUTE GOODS AND/OR SERVICES RESULTING FROM ANY TRANSACTION ENTERED INTO ON THROUGH SERVICES.</p>
+            <p>(III) UNAUTHORIZED ACCESS TO OR ALTERATION OF YOUR DATA TRANSMISSIONS.</p>
+            <p>(IV) STATEMENTS BY ANY THIRD PARTY OR CONDUCT OF ANY THIRD PARTY USING SERVICES, OR</p>
+            <p>(V) ANY OTHER MATTER RELATING TO SERVICES.</p>
+            <p>In some jurisdictions, it is not permitted to limit liability and, therefore, such limitations may not apply to you.</p>
+          </section>
+
+          <section id="section-13">
+            <h2 class="legal-h2">13. Reservation of rights</h2>
+            <p>The site editor reserves all of the site editor's rights, including but not limited to any and all copyrights, trademarks, patents, trade secrets, and any other proprietary right that the site editor may have in respect of this website, its content, and goods and services that may be provided. The use of the site editor's rights. and property requires the site editor's prior written consent. By making services available to you, the site editor is not providing you with any implied or express licenses or rights, and you will have no rights to make any commercial use of this website or provided services without the site editor's prior written consent.</p>
+          </section>
+
+          <section id="section-14">
+            <h2 class="legal-h2">14. Notification of copyright infringement</h2>
+            <p>If you believe that your property has been used in any way that could be considered a copyright infringement or a violation of your intellectual property rights, the site editor's copyright agent may be contacted.</p>
+          </section>
+
+          <section id="section-15">
+            <h2 class="legal-h2">15. Applicable law</h2>
+            <p>You agree that these Terms of Service and any dispute arising out of your use of this website or products or services provided will be governed by and construed in accordance with local laws applicable at the site editor's domicile, notwithstanding any differences between the said applicable legislation and legislation in force at your location. By registering for a user account on this website, or by using this website and the services it provides, you accept that jurisdiction is granted to the courts having jurisdiction over the site editor's domicile, and that any disputes will be heard by the said courts.</p>
+            <p>(I) In the event that any provision of these Terms of Service is deemed to conflict with legislation by a court with jurisdiction over the parties, the said provision will be interpreted to reflect the original intentions of the parties in accordance with applicable law, and the remainder of these Terms of Service will remain valid and applicable.</p>
+            <p>(II) The failure of either party to assert any right under these Terms of Service will not be considered to be a waiver of that party's right, and the said right will remain in full force and effect.</p>
+            <p>(III) You agree that any claim or cause in respect of this website or its services must be filed within one (1) year after such claim or cause arose, or the said claim or cause will be forever barred, without regard to any contrary legislation.</p>
+            <p>(IV) The site editor may assign the site editor's rights and obligations under these Terms of Service; in this event, the site editor will be relieved of any further obligation.</p>
+          </section>
+
+          <section id="section-16">
+            <h2 class="legal-h2">16. SMS / Text Messaging</h2>
+            <p><strong>a. Program Description</strong><br>
+              Sites by Sara sends conversational SMS messages to customers and prospects who have expressly opted in to receive such communications. Opt-in occurs when you submit your phone number via our website contact form, indicating your agreement to receive SMS messages from us.</p>
+            <p><strong>b. Message Frequency</strong><br>
+              You can expect to receive 1–2 messages per month on average. Message frequency may vary based on ongoing conversations or specific service needs.</p>
+            <p><strong>c. Cost</strong><br>
+              Message and data rates may apply. Standard phone message and data charges from your mobile carrier may apply to any SMS messages you send or receive. Please check with your mobile provider for details about your specific plan.</p>
+            <p><strong>d. Opt-Out (Unsubscribe)</strong><br>
+              You may opt out of receiving SMS messages from Sites by Sara at any time. To unsubscribe, simply reply STOP to any message you receive. Once we process your request, you will receive a final confirmation message, and no further SMS communications will be sent to your number.</p>
+            <p><strong>e. Help &amp; Support</strong><br>
+              For assistance with our SMS program, reply HELP to any message you receive. You may also contact us directly:</p>
+            <p>Email: <a href="mailto:team@sitesbysara.com">team@sitesbysara.com</a></p>
+            <p>We will respond to your request as quickly as possible.</p>
+            <p><strong>f. Carrier Disclaimer</strong><br>
+              Carriers are not liable for delayed or undelivered messages. While we strive to deliver all messages promptly, factors outside our control (such as network congestion or carrier issues) may affect delivery timing or availability.</p>
+          </section>
+
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>
