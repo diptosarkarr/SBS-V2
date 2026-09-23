@@ -169,6 +169,7 @@
 
     .btn-primary {
       background: var(--brand-gradient);
+      background-clip: padding-box;
       color: #FFFFFF;
       box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
     }
@@ -177,10 +178,11 @@
     .btn-primary:focus,
     .btn-primary:focus-visible,
     .btn-primary:active {
-  background: var(--brand-gradient-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
-  color: #FFFFFF !important;
+      background: var(--brand-gradient-hover);
+      background-clip: padding-box;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+      color: #FFFFFF !important;
     }
 
     /* ============================================================
@@ -395,12 +397,6 @@
       overflow: hidden;
     }
 
-    .testimonial-quote.is-expanded {
-      display: block;
-      -webkit-line-clamp: unset;
-      overflow: visible;
-    }
-
     .testimonial-toggle {
       margin-top: 10px;
       align-self: flex-start;
@@ -418,7 +414,124 @@
     .testimonial-toggle:focus,
     .testimonial-toggle:focus-visible,
     .testimonial-toggle:active {
-  color: var(--brand-coral-hover) !important;
+      color: var(--brand-coral-hover) !important;
+    }
+
+    /* ---- Read-more lightbox ---- */
+    .testimonials-lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .testimonials-lightbox.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .testimonials-lightbox-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(19, 21, 44, 0.6);
+    }
+
+    .testimonials-lightbox-panel {
+      position: relative;
+      z-index: 1;
+      background: #FFFFFF;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-card-hover);
+      max-width: 560px;
+      width: 100%;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 32px 32px 28px;
+      transform: translateY(12px) scale(0.98);
+      transition: transform 0.25s ease;
+    }
+
+    .testimonials-lightbox.is-open .testimonials-lightbox-panel {
+      transform: translateY(0) scale(1);
+    }
+
+    .testimonials-lightbox-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--slate);
+      background: var(--bg-light);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .testimonials-lightbox-close svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .testimonials-lightbox-close:hover,
+    .testimonials-lightbox-close:focus,
+    .testimonials-lightbox-close:focus-visible,
+    .testimonials-lightbox-close:active {
+      background: var(--border-light);
+      color: var(--navy) !important;
+    }
+
+    .testimonials-lightbox-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      padding-right: 30px;
+    }
+
+    .testimonials-lightbox-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+      border: 1px solid var(--border-light);
+    }
+
+    .testimonials-lightbox-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .testimonials-lightbox-role {
+      font-size: 0.85rem;
+      color: var(--slate-light);
+      margin-top: 2px;
+    }
+
+    .testimonials-lightbox-quote-icon {
+      width: 26px;
+      height: 26px;
+      color: var(--brand-blue-tint);
+      margin-bottom: 10px;
+    }
+
+    .testimonials-lightbox-quote {
+      font-size: 0.98rem;
+      color: var(--slate);
+      line-height: 1.7;
     }
 
     /* ============================================================
@@ -458,6 +571,10 @@
 
       .testimonials-stat-grid {
         max-width: 320px;
+      }
+
+      .testimonials-lightbox-panel {
+        padding: 26px 22px 22px;
       }
     }
   </style>
@@ -1026,20 +1143,92 @@
     </div>
   </section>
 
+  <!-- ============================================================
+       TESTIMONIAL READ-MORE LIGHTBOX
+       ============================================================ -->
+  <div class="testimonials-lightbox" id="testimonialsLightbox" role="dialog" aria-modal="true"
+    aria-label="Full testimonial">
+    <div class="testimonials-lightbox-backdrop" id="testimonialsLightboxBackdrop"></div>
+    <div class="testimonials-lightbox-panel">
+      <button type="button" class="testimonials-lightbox-close" id="testimonialsLightboxClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+      <div class="testimonials-lightbox-head">
+        <img class="testimonials-lightbox-avatar" id="testimonialsLightboxAvatar" src="" alt="">
+        <div>
+          <div class="testimonials-lightbox-name" id="testimonialsLightboxName"></div>
+          <div class="testimonials-lightbox-role" id="testimonialsLightboxRole"></div>
+        </div>
+      </div>
+      <svg class="testimonials-lightbox-quote-icon" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+        <path
+          d="M9.5 8C6.5 8 4 10.5 4 13.5S6.5 19 9.5 19c.4 0 .7-.3.7-.7 0-.4-.3-.7-.7-.7-2.2 0-4-1.8-4-4 0-1.9 1.3-3.5 3.1-3.9.4-.1.6-.5.5-.9-.1-.4-.5-.6-.9-.5zm10 0c-3 0-5.5 2.5-5.5 5.5S16.5 19 19.5 19c.4 0 .7-.3.7-.7 0-.4-.3-.7-.7-.7-2.2 0-4-1.8-4-4 0-1.9 1.3-3.5 3.1-3.9.4-.1.6-.5.5-.9-.1-.4-.5-.6-.9-.5z" />
+      </svg>
+      <p class="testimonials-lightbox-quote" id="testimonialsLightboxQuote"></p>
+    </div>
+  </div>
+
   <script>
     (function () {
+      var lightbox = document.getElementById('testimonialsLightbox');
+      var lightboxAvatar = document.getElementById('testimonialsLightboxAvatar');
+      var lightboxName = document.getElementById('testimonialsLightboxName');
+      var lightboxRole = document.getElementById('testimonialsLightboxRole');
+      var lightboxQuote = document.getElementById('testimonialsLightboxQuote');
+      var closeBtn = document.getElementById('testimonialsLightboxClose');
+      var backdrop = document.getElementById('testimonialsLightboxBackdrop');
+
+      function openLightbox(card) {
+        var avatar = card.querySelector('.testimonial-avatar');
+        var name = card.querySelector('.testimonial-name');
+        var role = card.querySelector('.testimonial-role');
+        var quote = card.querySelector('.testimonial-quote');
+
+        lightboxAvatar.src = avatar ? avatar.src : '';
+        lightboxAvatar.alt = avatar ? avatar.alt : '';
+        lightboxName.textContent = name ? name.textContent.trim() : '';
+
+        if (role) {
+          lightboxRole.textContent = role.textContent.trim();
+          lightboxRole.style.display = '';
+        } else {
+          lightboxRole.textContent = '';
+          lightboxRole.style.display = 'none';
+        }
+
+        lightboxQuote.textContent = quote ? quote.textContent.trim() : '';
+
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+
       document.querySelectorAll('.testimonial-quote').forEach(function (quote) {
         if (quote.scrollHeight > quote.clientHeight + 2) {
+          var card = quote.closest('.testimonial-card');
           var btn = document.createElement('button');
           btn.type = 'button';
           btn.className = 'testimonial-toggle';
           btn.textContent = 'Read more';
           btn.addEventListener('click', function () {
-            var expanded = quote.classList.toggle('is-expanded');
-            btn.textContent = expanded ? 'Read less' : 'Read more';
+            openLightbox(card);
           });
           quote.insertAdjacentElement('afterend', btn);
         }
+      });
+
+      closeBtn.addEventListener('click', closeLightbox);
+      backdrop.addEventListener('click', closeLightbox);
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && lightbox.classList.contains('is-open')) closeLightbox();
       });
     })();
   </script>

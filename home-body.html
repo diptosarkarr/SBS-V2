@@ -37,6 +37,9 @@
 
     --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
     --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+
+    --yellow: #FBBC04;
+    --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.16), 0 2px 8px rgba(30, 33, 64, 0.06);
   }
 
   /* Reset scoped to this component only — a bare `*`/`a`/`button` reset
@@ -171,6 +174,727 @@
   }
 
   /* ============================================================
+   SCROLL-REVEAL MOTION SYSTEM
+   Shared by every body section below (services, why-choose-us,
+   process, portfolio, press, final CTA) so each one gets a fade
+   + rise entrance the first time it scrolls into view. One
+   IntersectionObserver drives all of it — see the bottom script.
+   ============================================================ */
+  .home-reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .home-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .home-reveal-delay-1 {
+    transition-delay: 0.08s;
+  }
+
+  .home-reveal-delay-2 {
+    transition-delay: 0.16s;
+  }
+
+  .home-reveal-delay-3 {
+    transition-delay: 0.24s;
+  }
+
+  .home-reveal-delay-4 {
+    transition-delay: 0.32s;
+  }
+
+  .home-reveal-delay-5 {
+    transition-delay: 0.4s;
+  }
+
+  .home-reveal-delay-6 {
+    transition-delay: 0.48s;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* ============================================================
+   HOME HERO
+   ============================================================ */
+  .home-hero-root {
+    font-family: var(--font);
+  }
+
+  .home-hero-root a {
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+
+  .home-hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    width: 100%;
+  }
+
+  .home-hero-root {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-gradient);
+    min-height: 90vh;
+    min-height: 90dvh;
+    display: flex;
+    align-items: center;
+    padding: clamp(48px, 6vw, 72px) 0;
+  }
+
+  /* ---- Reactive dot grid (canvas) — replaces the old static CSS dot
+     texture so individual dots can brighten near the cursor. Sits just
+     above the base navy, below the mesh blobs' color. ---- */
+  .home-hero-dots {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .home-hero-mesh {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .home-hero-mesh::before,
+  .home-hero-mesh::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+    will-change: transform;
+  }
+
+  .home-hero-mesh::before {
+    width: 420px;
+    height: 420px;
+    background: var(--navy);
+    top: -140px;
+    left: 2%;
+    animation: home-hero-drift-a 22s ease-in-out infinite alternate;
+  }
+
+  .home-hero-mesh::after {
+    width: 380px;
+    height: 380px;
+    background: var(--brand-coral);
+    bottom: -140px;
+    right: 4%;
+    animation: home-hero-drift-b 26s ease-in-out infinite alternate;
+  }
+
+  @keyframes home-hero-drift-a {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+      transform: translate(60px, 40px) scale(1.15);
+    }
+
+    100% {
+      transform: translate(20px, 90px) scale(0.92);
+    }
+  }
+
+  @keyframes home-hero-drift-b {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+      transform: translate(-50px, -60px) scale(0.9);
+    }
+
+    100% {
+      transform: translate(-90px, -10px) scale(1.18);
+    }
+  }
+
+  /* ---- Thin-outline geometric shapes — literal mathematical forms.
+     Each is a wrap (JS-driven cursor parallax, position: translate3d)
+     containing an svg that keeps its own independent rotate/pulse
+     animation — two different elements own `transform`, so the constant
+     rotation and the reactive parallax never fight over one property. ---- */
+  .home-hero-shapes {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .home-hero-shape-wrap {
+    position: absolute;
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform;
+  }
+
+  .home-hero-shape-wrap--circle {
+    width: 190px;
+    height: 190px;
+    top: 6%;
+    right: 9%;
+  }
+
+  .home-hero-shape-wrap--triangle {
+    width: 120px;
+    height: 120px;
+    bottom: 12%;
+    left: 5%;
+  }
+
+  .home-hero-shape-wrap--plus {
+    width: 46px;
+    height: 46px;
+    top: 62%;
+    left: 45%;
+  }
+
+  .home-hero-shape-wrap--hex {
+    width: 140px;
+    height: 140px;
+    top: 32%;
+    right: 26%;
+  }
+
+  .home-hero-shape {
+    position: absolute;
+    inset: 0;
+    fill: none;
+    stroke: #FFFFFF;
+  }
+
+  .home-hero-shape--circle {
+    opacity: 0.14;
+    animation: home-hero-rotate 46s linear infinite;
+  }
+
+  .home-hero-shape--triangle {
+    opacity: 0.11;
+    animation: home-hero-rotate-rev 58s linear infinite;
+  }
+
+  .home-hero-shape--plus {
+    opacity: 0.18;
+    animation: home-hero-pulse 7s ease-in-out infinite;
+  }
+
+  .home-hero-shape--hex {
+    opacity: 0.1;
+    animation: home-hero-rotate 64s linear infinite reverse;
+  }
+
+  @keyframes home-hero-rotate {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes home-hero-rotate-rev {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+
+  @keyframes home-hero-pulse {
+
+    0%,
+    100% {
+      opacity: 0.18;
+      transform: scale(1);
+    }
+
+    50% {
+      opacity: 0.3;
+      transform: scale(1.18);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .home-hero-mesh::before,
+    .home-hero-mesh::after {
+      animation: none;
+    }
+
+    .home-hero-shape--circle,
+    .home-hero-shape--triangle,
+    .home-hero-shape--plus,
+    .home-hero-shape--hex {
+      animation: none;
+    }
+
+    .home-hero-stat-card--one,
+    .home-hero-stat-card--two {
+      animation: none;
+    }
+
+    .home-hero-image-tile {
+      transition: box-shadow 0.3s ease;
+    }
+  }
+
+  .home-hero-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 6vw, 64px);
+    align-items: center;
+    width: 100%;
+  }
+
+  /* ---- Left column: copy ----
+     min-width: 0 overrides the grid item default of min-width: auto —
+     without it, a grid track's minimum size is its content's min-content
+     size, and long unbreakable content (button text, headline words) can
+     force the track wider than its 1fr share, unbalancing the 50/50 split. */
+  .home-hero-left {
+    min-width: 0;
+  }
+
+  .home-hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 18px;
+  }
+
+  .home-hero-eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--yellow);
+    display: inline-block;
+  }
+
+  .home-hero-h1 {
+    font-size: clamp(2.1rem, 1.5rem + 2.4vw, 3.3rem);
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 20px rgba(2, 40, 100, 0.3);
+  }
+
+  .home-hero-sub {
+    font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.2rem);
+    font-weight: 500;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 520px;
+    margin-bottom: 30px;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .home-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .home-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 14px 30px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    white-space: nowrap;
+  }
+
+  .home-btn-primary {
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    box-shadow: 0 4px 18px rgba(2, 20, 60, 0.35);
+  }
+
+  .home-btn-primary:hover,
+  .home-btn-primary:focus,
+  .home-btn-primary:focus-visible,
+  .home-btn-primary:active {
+    background: var(--brand-gradient-hover);
+    background-clip: padding-box;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(2, 20, 60, 0.42);
+    color: #FFFFFF !important;
+  }
+
+  .home-btn-outline-light {
+    background: transparent;
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.7);
+  }
+
+  .home-btn-outline-light:hover,
+  .home-btn-outline-light:focus,
+  .home-btn-outline-light:focus-visible,
+  .home-btn-outline-light:active {
+    background: #FFFFFF;
+    color: var(--brand-blue) !important;
+    border-color: #FFFFFF;
+  }
+
+  .home-hero-trust {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .home-hero-trust-stars {
+    display: inline-flex;
+    gap: 2px;
+    flex-shrink: 0;
+  }
+
+  .home-hero-trust-stars svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--yellow);
+  }
+
+  .home-hero-trust-text {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  /* ---- Right column: masonry website showcase + floating stat accents ----
+     min-width: 0 for the same reason as .home-hero-left — the image tiles'
+     width/height attributes (400x600, 400x800, etc.) otherwise contribute a
+     large min-content size to this track, which can blow it out past its
+     1fr share and squeeze the copy column down to near its own min-content. */
+  .home-hero-visual {
+    position: relative;
+    padding: 30px 26px;
+    min-width: 0;
+  }
+
+  /* Two independent flex columns stacked side by side — true masonry:
+     each column's items sit tight against each other regardless of the
+     other column's item heights, so the seam between the top/bottom tile
+     in column 1 lands at a different height than in column 2. */
+  .home-hero-image-grid {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 14px;
+    perspective: 900px;
+  }
+
+  .home-hero-image-col {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .home-hero-image-tile {
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 10px 26px -6px rgba(2, 20, 60, 0.28);
+    background: rgba(255, 255, 255, 0.08);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s ease;
+    transform-style: preserve-3d;
+    will-change: transform;
+  }
+
+  .home-hero-image-tile.is-tilting {
+    transition: transform 0.1s linear, box-shadow 0.4s ease;
+    box-shadow: 0 18px 34px -6px rgba(2, 20, 60, 0.4);
+  }
+
+  /* Portrait ratios so each tile reads like a real scrolled screenshot,
+     not a cropped square — and the mismatched pair per column is what
+     produces the masonry stagger. */
+  .home-hero-image-tile--1 {
+    aspect-ratio: 2 / 3;
+  }
+
+  .home-hero-image-tile--2 {
+    aspect-ratio: 2 / 4;
+  }
+
+  .home-hero-image-tile--3 {
+    aspect-ratio: 2 / 4;
+  }
+
+  .home-hero-image-tile--4 {
+    aspect-ratio: 2 / 3;
+  }
+
+  .home-hero-image-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+  }
+
+  .home-hero-stat-card {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFFFFF;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-floating);
+    padding: 9px 13px;
+    width: 170px;
+    transition: box-shadow 0.3s ease;
+    will-change: transform;
+  }
+
+  .home-hero-stat-card:hover {
+    box-shadow: 0 18px 40px -6px rgba(30, 33, 64, 0.26), 0 4px 12px rgba(30, 33, 64, 0.08);
+  }
+
+  @keyframes home-hero-float-a {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes home-hero-float-b {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(8px);
+    }
+  }
+
+  .home-hero-stat-icon {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home-hero-stat-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .home-hero-stat-number {
+    font-size: 0.86rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+
+  .home-hero-stat-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    line-height: 1rem;
+    color: var(--navy);
+  }
+
+  .home-hero-stat-card--one {
+    top: -10px;
+    left: -30px;
+    animation: home-hero-float-a 5s ease-in-out infinite;
+  }
+
+  .home-hero-stat-card--one .home-hero-stat-icon {
+    background: #EEF2FA;
+  }
+
+  .home-hero-stat-card--one .home-hero-stat-icon svg {
+    stroke: var(--brand-blue);
+    fill: none;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .home-hero-stat-card--two {
+    bottom: 6px;
+    right: -14px;
+    animation: home-hero-float-b 6s ease-in-out infinite;
+    animation-delay: -2.4s;
+  }
+
+  .home-hero-stat-card--two .home-hero-stat-icon {
+    background: #FDEEEE;
+  }
+
+  .home-hero-stat-card--two .home-hero-stat-icon svg {
+    stroke: var(--brand-coral);
+    fill: none;
+    stroke-width: 2.2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ============================================================
+   HOME HERO — RESPONSIVE BREAKPOINTS
+   ============================================================ */
+  /* ---- Desktop-only height cap: the masonry portrait tiles' aspect-ratio
+     is width-driven, so on a wide 60%-width image column their natural
+     height (2 stacked portrait tiles) can run well past the viewport,
+     pushing .home-hero-root taller than the 100vh it's supposed to hold to.
+     Above 900px (side-by-side layout, where the full-height hero is the
+     intent) the grid gets a fixed vh-capped height instead, and each tile
+     switches from aspect-ratio to a flex-grow split of that fixed height
+     (weighted 3/4, tile 1/4 reading close to square, tile 2/3 modestly
+     taller), so the images shrink to fit rather than growing the section.
+     Tablet/mobile keep the original aspect-ratio sizing below, since those
+     layouts already stack and scroll normally. ---- */
+  @media (min-width: 901px) {
+    .home-hero-image-grid {
+      height: min(70vh, 560px);
+    }
+
+    .home-hero-image-col {
+      height: 100%;
+    }
+
+    .home-hero-image-tile--1,
+    .home-hero-image-tile--4 {
+      aspect-ratio: auto;
+      flex: 3 1 0%;
+      min-height: 0;
+    }
+
+    .home-hero-image-tile--2,
+    .home-hero-image-tile--3 {
+      aspect-ratio: auto;
+      flex: 4 1 0%;
+      min-height: 0;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .home-hero-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .home-hero-visual {
+      margin: 24px auto 0;
+    }
+
+    .home-hero-stat-card--one {
+      top: -10px;
+      left: -10px;
+    }
+
+    .home-hero-stat-card--two {
+      bottom: 28px;
+      right: -10px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .home-hero-visual {
+      padding: 0;
+      max-width: 100%;
+    }
+
+    .home-hero-image-grid {
+      flex-direction: column;
+    }
+
+    .home-hero-image-col {
+      display: contents;
+    }
+
+    /* display:contents preserves source order (col 1's two children, then
+       col 2's two children) rather than interleaving them — force the
+       intended 1,2,3,4 reading order explicitly. */
+    .home-hero-image-tile--1 {
+      order: 1;
+    }
+
+    .home-hero-image-tile--2 {
+      order: 2;
+    }
+
+    .home-hero-image-tile--3 {
+      order: 3;
+    }
+
+    .home-hero-image-tile--4 {
+      order: 4;
+    }
+
+    .home-hero-stat-card {
+      position: static;
+      width: 100%;
+      margin-top: 16px;
+      transform: none !important;
+      animation: none !important;
+    }
+
+    .home-btn-group {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .home-btn {
+      width: 100%;
+    }
+  }
+
+  /* ============================================================
    TRUST / STATS RIBBON
    ============================================================ */
   .home-trust-ribbon-section {
@@ -181,7 +905,7 @@
 
   .home-trust-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     text-align: center;
   }
@@ -241,6 +965,13 @@
     align-items: center;
     justify-content: center;
     margin-bottom: 18px;
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease;
+  }
+
+  .home-service-card:hover .home-service-icon {
+    transform: scale(1.08) rotate(-4deg);
+    background: var(--brand-blue);
+    color: #FFFFFF;
   }
 
   .home-service-icon svg {
@@ -407,7 +1138,7 @@
     width: 100%;
     height: auto;
     transform: translateY(0);
-    transition: transform 6s ease;
+    transition: transform 30s ease;
   }
 
   .home-portfolio-card:hover .home-portfolio-frame img {
@@ -503,11 +1234,28 @@
   .home-final-cta-section::before {
     content: "";
     position: absolute;
-    inset: 0;
+    inset: -10%;
     background-image:
       radial-gradient(circle at 12% 30%, rgba(255, 255, 255, 0.18) 0%, transparent 42%),
       radial-gradient(circle at 88% 75%, rgba(212, 63, 141, 0.3) 0%, transparent 50%);
     pointer-events: none;
+    animation: home-cta-drift 16s ease-in-out infinite alternate;
+  }
+
+  @keyframes home-cta-drift {
+    0% {
+      transform: translate(0, 0) scale(1);
+    }
+
+    100% {
+      transform: translate(-3%, 3%) scale(1.08);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-final-cta-section::before {
+      animation: none;
+    }
   }
 
   .home-final-cta-inner {
@@ -556,7 +1304,7 @@
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
   }
 
-  .home-testi-track-wrap + .home-testi-track-wrap {
+  .home-testi-track-wrap+.home-testi-track-wrap {
     margin-top: 20px;
   }
 
@@ -846,12 +1594,44 @@
     margin-top: 24px;
   }
 
+  /* Numbered variant (Our Process) — an animated connecting line draws
+     down behind the step circles the first time the list scrolls into
+     view, echoing a literal "step by step" progression. */
+  .home-story-list--numbered {
+    position: relative;
+  }
+
+  .home-story-list--numbered::before {
+    content: "";
+    position: absolute;
+    left: 19px;
+    top: 20px;
+    width: 2px;
+    height: 0;
+    background: var(--border-card);
+    transition: height 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+    z-index: 0;
+  }
+
+  .home-story-list--numbered.is-visible::before {
+    height: calc(100% - 40px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-story-list--numbered::before {
+      transition: none;
+      height: calc(100% - 40px);
+    }
+  }
+
   .home-story-item {
     display: flex;
     gap: 14px;
   }
 
   .home-story-item-icon {
+    position: relative;
+    z-index: 1;
     flex-shrink: 0;
     width: 40px;
     height: 40px;
@@ -902,7 +1682,7 @@
 
   @media (max-width: 820px) {
     .home-trust-grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: 1fr;
       gap: 28px;
     }
 
@@ -941,32 +1721,158 @@
 </style>
 
 <!-- ============================================================
-     HOME BODY (Reusable Component — paste directly after the
-     Trustindex testimonial widget shortcode, which sits between
-     home-hero.html and this file)
+     HOME (Hero + Body — single combined Reusable Component,
+     paste directly into the homepage. No longer split across
+     home-hero.html / home-body.html.)
      ============================================================ -->
 <div class="home-body-root">
+
+  <section class="home-hero-root" aria-label="Introduction">
+    <canvas class="home-hero-dots" id="homeHeroDots" aria-hidden="true"></canvas>
+    <div class="home-hero-mesh" aria-hidden="true"></div>
+    <div class="home-hero-shapes" aria-hidden="true">
+      <div class="home-hero-shape-wrap home-hero-shape-wrap--circle">
+        <svg class="home-hero-shape home-hero-shape--circle" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="46" stroke-width="1.2"></circle>
+        </svg>
+      </div>
+      <div class="home-hero-shape-wrap home-hero-shape-wrap--triangle">
+        <svg class="home-hero-shape home-hero-shape--triangle" viewBox="0 0 100 100">
+          <polygon points="50,6 94,90 6,90" stroke-width="1.2"></polygon>
+        </svg>
+      </div>
+      <div class="home-hero-shape-wrap home-hero-shape-wrap--plus">
+        <svg class="home-hero-shape home-hero-shape--plus" viewBox="0 0 100 100">
+          <path d="M50 6 V94 M6 50 H94" stroke-width="4"></path>
+        </svg>
+      </div>
+      <div class="home-hero-shape-wrap home-hero-shape-wrap--hex">
+        <svg class="home-hero-shape home-hero-shape--hex" viewBox="0 0 100 100">
+          <polygon points="50,4 93,27 93,73 50,96 7,73 7,27" stroke-width="1.2"></polygon>
+        </svg>
+      </div>
+    </div>
+    <div class="home-hero-container">
+      <div class="home-hero-grid">
+
+        <!-- Copy -->
+        <div class="home-hero-left">
+          <div class="home-hero-eyebrow">
+            <span class="home-hero-eyebrow-dot"></span>
+            Utah Web Design &amp; Marketing Agency
+          </div>
+
+          <h1 class="home-hero-h1">Get Found. Stand Out. Grow.</h1>
+
+          <p class="home-hero-sub">
+            <strong>Web Design &amp; Digital Marketing That Delivers Results.</strong><br> Sites by Sara helps
+            businesses build a powerful online presence with professional web design, SEO, Local SEO, and digital
+            marketing strategies that drive traffic and turn visitors into customers.
+          </p>
+
+          <div class="home-btn-group">
+            <a href="/book-a-free-consultation/" class="home-btn home-btn-primary">Book a Free Consultation</a>
+            <a href="/all-services/" class="home-btn home-btn-outline-light">View Our
+              Services</a>
+          </div>
+
+          <div class="home-hero-trust">
+            <span class="home-hero-trust-stars" aria-hidden="true">
+              <svg viewBox="0 0 20 20">
+                <path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z" />
+              </svg>
+              <svg viewBox="0 0 20 20">
+                <path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z" />
+              </svg>
+              <svg viewBox="0 0 20 20">
+                <path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z" />
+              </svg>
+              <svg viewBox="0 0 20 20">
+                <path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z" />
+              </svg>
+              <svg viewBox="0 0 20 20">
+                <path d="M10 1l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L10 15l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z" />
+              </svg>
+            </span>
+            <span class="home-hero-trust-text">Excellent Google Reviews</span>
+          </div>
+        </div>
+
+        <!-- Masonry website showcase grid + floating trust/stat accents -->
+        <div class="home-hero-visual">
+          <div class="home-hero-image-grid">
+            <div class="home-hero-image-col">
+              <div class="home-hero-image-tile home-hero-image-tile--1">
+                <img src="/wp-content/uploads/2026/07/Coal-and-Smoke-Catering-scaled.png"
+                  alt="Custom WordPress website design example" width="400" height="600" loading="eager">
+              </div>
+              <div class="home-hero-image-tile home-hero-image-tile--3">
+                <img src="/wp-content/uploads/2026/07/Connect-with-Sky-scaled.png"
+                  alt="WooCommerce online store design example" width="400" height="800" loading="eager">
+              </div>
+            </div>
+            <div class="home-hero-image-col">
+              <div class="home-hero-image-tile home-hero-image-tile--2">
+                <img src="/wp-content/uploads/2026/07/This-is-the-Place-Gift-Shop-scaled.png"
+                  alt="Shopify e-commerce store design example" width="400" height="800" loading="eager">
+              </div>
+              <div class="home-hero-image-tile home-hero-image-tile--4">
+                <img src="/wp-content/uploads/2026/07/Townsend-Divorce-Coaching-scaled.png"
+                  alt="Static HTML brochure website design example" width="400" height="600" loading="eager">
+              </div>
+            </div>
+          </div>
+
+          <div class="home-hero-stat-card home-hero-stat-card--one" aria-hidden="true">
+            <span class="home-hero-stat-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="3" y="4" width="18" height="17" rx="2"></rect>
+                <line x1="3" y1="9" x2="21" y2="9"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+              </svg>
+            </span>
+            <span>
+              <p class="home-hero-stat-label">Helping Utah businesses grow online since 2007</p>
+            </span>
+          </div>
+
+          <div class="home-hero-stat-card home-hero-stat-card--two" aria-hidden="true">
+            <span class="home-hero-stat-icon">
+              <svg viewBox="0 0 24 24">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </span>
+            <span>
+              <p class="home-hero-stat-label">200+ Customer success stories</p>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
 
   <!-- ============================================================
        TRUST / STATS RIBBON
        ============================================================ -->
   <section class="home-trust-ribbon-section" aria-label="Key Agency Facts">
     <div class="home-container">
-      <div class="home-trust-grid">
+      <div class="home-trust-grid home-reveal">
         <div>
-          <div class="home-trust-stat-number">2007</div>
+          <div class="home-trust-stat-number" data-count-to="2007">2007</div>
           <div class="home-trust-stat-label">Serving Utah Businesses Since</div>
         </div>
         <div>
-          <div class="home-trust-stat-number">200+</div>
+          <div class="home-trust-stat-number" data-count-to="200" data-count-suffix="+">200+</div>
           <div class="home-trust-stat-label">Customer Success Stories</div>
         </div>
         <div>
-          <div class="home-trust-stat-number">56</div>
-          <div class="home-trust-stat-label">Excellent Google Reviews</div>
-        </div>
-        <div>
-          <div class="home-trust-stat-number">11</div>
+          <div class="home-trust-stat-number" data-count-to="54">54</div>
           <div class="home-trust-stat-label">Industry Recognitions &amp; Awards</div>
         </div>
       </div>
@@ -979,13 +1885,13 @@
        ============================================================ -->
   <section class="home-testimonials-section home-section-space" aria-label="Client Testimonials">
     <div class="home-container">
-      <div class="home-section-header">
+      <div class="home-section-header home-reveal">
         <div class="home-eyebrow">
           <span class="home-eyebrow-dot"></span>
           Client Stories
         </div>
         <h2 class="home-h2-title">Real Feedback From Real Clients</h2>
-        <p class="home-lead-text">31 real reviews from business owners we've helped grow online since 2007.</p>
+        <p class="home-lead-text">Kind words from the business owners we've been lucky to work with since 2007.</p>
       </div>
     </div>
 
@@ -993,84 +1899,123 @@
       <div class="home-testi-track home-testi-track--ltr">
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2023/12/drew-img.png?fit=125%2C125" alt="Drew Wydra" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2023/12/drew-img.png?fit=125%2C125"
+              alt="Drew Wydra" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Drew Wydra</div>
               <div class="home-testi-role">208 Moving Company</div>
             </div>
           </div>
-          <p class="home-testi-quote">I have used 3 different SEO companies for my small business so far and I have never had anyone as knowledgeable, responsive, and just overall awesome to work with as Sara. We hired Sites by Sara for our SEO work for our website, but she really is a jack of all trades. Sara understands not just the SEO side of things, but has strong grasp of marketing and has helped us implement strategies for our business. On top of all that, she genuinely cares about her clients to a degree you won't see at any other company. Its also a huge plus that she is local here in Salt Lake City, Utah. Its awesome when you want to make changes to your website and she can come to your office and go over things in person. I would highly recommend Sara and her company Sites by Sara! I can't imagine ever going with anyone else. Thanks Sara!</p>
+          <p class="home-testi-quote">I have used 3 different SEO companies for my small business so far and I have
+            never had anyone as knowledgeable, responsive, and just overall awesome to work with as Sara. We hired Sites
+            by Sara for our SEO work for our website, but she really is a jack of all trades. Sara understands not just
+            the SEO side of things, but has strong grasp of marketing and has helped us implement strategies for our
+            business. On top of all that, she genuinely cares about her clients to a degree you won't see at any other
+            company. Its also a huge plus that she is local here in Salt Lake City, Utah. Its awesome when you want to
+            make changes to your website and she can come to your office and go over things in person. I would highly
+            recommend Sara and her company Sites by Sara! I can't imagine ever going with anyone else. Thanks Sara!</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/07/devin.png?fit=125%2C125" alt="Devin Richards" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/07/devin.png?fit=125%2C125"
+              alt="Devin Richards" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Devin Richards</div>
               <div class="home-testi-role">CCEEB.org</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara Lambrinos and Sites by Sara are among the most professional and pleasant communications and marketing services out there. Sara went out of her way to check-in, advise, and recommend improvements and services to the website I oversaw. She held herself accountable, opened lines of communication, and clearly identified needs and results that would be achieved. I was throughly impressed, and as such, fully recommend getting in touch with Sara and Sites by Sara for any of your website, communications, and marketing needs.</p>
+          <p class="home-testi-quote">Sara Lambrinos and Sites by Sara are among the most professional and pleasant
+            communications and marketing services out there. Sara went out of her way to check-in, advise, and recommend
+            improvements and services to the website I oversaw. She held herself accountable, opened lines of
+            communication, and clearly identified needs and results that would be achieved. I was throughly impressed,
+            and as such, fully recommend getting in touch with Sara and Sites by Sara for any of your website,
+            communications, and marketing needs.</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/francie.png?fit=125%2C125" alt="Francine Platt" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/francie.png?fit=125%2C125"
+              alt="Francine Platt" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Francine Platt</div>
               <div class="home-testi-role">Eden Graphics, Inc</div>
             </div>
           </div>
-          <p class="home-testi-quote">I've enjoyed working with Sara throughout the years and continue to recommend her to my clients who need help with their websites. She's responsive and great at website development -- knowing the latest trends and coding updates. She's friendly and easy to work with!</p>
+          <p class="home-testi-quote">I've enjoyed working with Sara throughout the years and continue to recommend her
+            to my clients who need help with their websites. She's responsive and great at website development --
+            knowing the latest trends and coding updates. She's friendly and easy to work with!</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/wanis.png?fit=125%2C125" alt="Wanis Salem" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/wanis.png?fit=125%2C125"
+              alt="Wanis Salem" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Wanis Salem</div>
               <div class="home-testi-role">Cutting Edge Stone and Granite</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara has done an amazing job in bring our company up to date with all on line needs. she improved on lines sales on put us on top of google search. I highly recommend Sites by Sara for anyone that is looking to improve their web technology and their online presence.</p>
+          <p class="home-testi-quote">Sara has done an amazing job in bring our company up to date with all on line
+            needs. she improved on lines sales on put us on top of google search. I highly recommend Sites by Sara for
+            anyone that is looking to improve their web technology and their online presence.</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/karen.png?fit=125%2C125" alt="Karen Van Hoesen" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/karen.png?fit=125%2C125"
+              alt="Karen Van Hoesen" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Karen Van Hoesen</div>
               <div class="home-testi-role">Gilmer Arts</div>
             </div>
           </div>
-          <p class="home-testi-quote">Our non-profit has been exceptionally pleased with Sites by Sara's Peace of Mind plan for our website. Whenever we've had outages or issues, they've been right there immediately and have fixed us up for far less than it would have cost us if we had to hire her per incident. We love the Peace of Mind plan.</p>
+          <p class="home-testi-quote">Our non-profit has been exceptionally pleased with Sites by Sara's Peace of Mind
+            plan for our website. Whenever we've had outages or issues, they've been right there immediately and have
+            fixed us up for far less than it would have cost us if we had to hire her per incident. We love the Peace of
+            Mind plan.</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/harry.png?fit=125%2C125" alt="Harry Keshet" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/harry.png?fit=125%2C125"
+              alt="Harry Keshet" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Harry Keshet</div>
               <div class="home-testi-role">Human Interaction Solutions</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara has a great sense of how to develop a website and marketing strategy to attracts and grows business. She is smart, has the right knowledge and expertise, great people skills and delivers on her promises. She is a pleasure to work with.</p>
+          <p class="home-testi-quote">Sara has a great sense of how to develop a website and marketing strategy to
+            attracts and grows business. She is smart, has the right knowledge and expertise, great people skills and
+            delivers on her promises. She is a pleasure to work with.</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/todd.png?fit=125%2C125" alt="Todd Nelson Naturopath" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/todd.png?fit=125%2C125"
+              alt="Todd Nelson Naturopath" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Todd Nelson Naturopath</div>
               <div class="home-testi-role">Tree Of Life Wellness Center</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara has done fantastic work for me producing slides for lectures and graphics for different uses. She communicates well, get's things done on time, and produces exceptional, professional and creative looks that inspire and educate. I highly recommend her!!</p>
+          <p class="home-testi-quote">Sara has done fantastic work for me producing slides for lectures and graphics for
+            different uses. She communicates well, get's things done on time, and produces exceptional, professional and
+            creative looks that inspire and educate. I highly recommend her!!</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/monique.png?fit=125%2C125" alt="Monique Lanier" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/monique.png?fit=125%2C125"
+              alt="Monique Lanier" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Monique Lanier</div>
               <div class="home-testi-role">Pale Boutique</div>
@@ -1081,172 +2026,251 @@
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/cindy.png?fit=125%2C125" alt="Cindy Uriona" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/cindy.png?fit=125%2C125"
+              alt="Cindy Uriona" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Cindy Uriona</div>
               <div class="home-testi-role">Silicon Slopes Real Estate Berkshire Hathaway Utah Properties</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara is a pro for all things online, not only websites, and a pleasure to work with, fun, friendly and a true expert in her field. Sara has worked with me on my website and so through.</p>
+          <p class="home-testi-quote">Sara is a pro for all things online, not only websites, and a pleasure to work
+            with, fun, friendly and a true expert in her field. Sara has worked with me on my website and so through.
+          </p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/chuck.png?fit=125%2C125" alt="Chuck Hamrick" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/chuck.png?fit=125%2C125"
+              alt="Chuck Hamrick" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Chuck Hamrick</div>
               <div class="home-testi-role">Hamrick.biz</div>
             </div>
           </div>
-          <p class="home-testi-quote">Known Sara through local marketing meetups for many years and she's a good person to work with.</p>
+          <p class="home-testi-quote">Known Sara through local marketing meetups for many years and she's a good person
+            to work with.</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/david.png?fit=125%2C125" alt="David Bruce (Teresa B)" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/david.png?fit=125%2C125"
+              alt="David Bruce (Teresa B)" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">David Bruce (Teresa B)</div>
               <div class="home-testi-role">Bruce and Associates</div>
             </div>
           </div>
-          <p class="home-testi-quote">There are so many facets to a good web team and Sara has all of them covered. My focus is sales related - not web technology. Sara takes care of everything so I can focus on what I do best and earn revenue. If you're not sure what you need or want, no problem. Sara can create at any level you need. Sara also has a bright, winning personality that makes interactions a pleasure. If you're needing excellent web team assistance, look no further!</p>
+          <p class="home-testi-quote">There are so many facets to a good web team and Sara has all of them covered. My
+            focus is sales related - not web technology. Sara takes care of everything so I can focus on what I do best
+            and earn revenue. If you're not sure what you need or want, no problem. Sara can create at any level you
+            need. Sara also has a bright, winning personality that makes interactions a pleasure. If you're needing
+            excellent web team assistance, look no further!</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/trinity.png?fit=125%2C125" alt="Trinity Machan" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/trinity.png?fit=125%2C125"
+              alt="Trinity Machan" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Trinity Machan</div>
               <div class="home-testi-role">Black Diamond Limousine LLC</div>
             </div>
           </div>
-          <p class="home-testi-quote">One of the best services I have ever used for my company's website. They where very responsive and such a wonderful company to work with they are so smart when it comes to SEO and webpage development. I can't say enough to justify the increase in business I have received from her redoing my page. bdlslc.com look for your self.</p>
+          <p class="home-testi-quote">One of the best services I have ever used for my company's website. They where
+            very responsive and such a wonderful company to work with they are so smart when it comes to SEO and webpage
+            development. I can't say enough to justify the increase in business I have received from her redoing my
+            page. bdlslc.com look for your self.</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/alosa.png?fit=125%2C125" alt="Alisa H." loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/alosa.png?fit=125%2C125" alt="Alisa H."
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Alisa H.</div>
               <div class="home-testi-role">Better Content Matters</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara has done an amazing job with our company website. She's crafted it in such a way that SEO is organic -- as long as we maintain the basics. When we've asked for changes, she's done them efficiently and created exactly what we were looking for. So grateful to her!</p>
+          <p class="home-testi-quote">Sara has done an amazing job with our company website. She's crafted it in such a
+            way that SEO is organic -- as long as we maintain the basics. When we've asked for changes, she's done them
+            efficiently and created exactly what we were looking for. So grateful to her!</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/staci.png?fit=125%2C125" alt="Staci Sprout" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/staci.png?fit=125%2C125"
+              alt="Staci Sprout" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Staci Sprout</div>
               <div class="home-testi-role">Seattle Recovery Center</div>
             </div>
           </div>
-          <p class="home-testi-quote">We hired Sites by Sara to help us create a website and logo for our new company, and we love what they came up with! Skilled, clear, and talented - Sara did a great job listening to us and getting us the right questions so we could end up exactly where we'd hoped. I couldn't recommend Sites By Sara more highly, especially for small business owners who want to take it to the next level!</p>
+          <p class="home-testi-quote">We hired Sites by Sara to help us create a website and logo for our new company,
+            and we love what they came up with! Skilled, clear, and talented - Sara did a great job listening to us and
+            getting us the right questions so we could end up exactly where we'd hoped. I couldn't recommend Sites By
+            Sara more highly, especially for small business owners who want to take it to the next level!</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/richard.png?fit=125%2C125" alt="Richard Kletting" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/richard.png?fit=125%2C125"
+              alt="Richard Kletting" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Richard Kletting</div>
               <div class="home-testi-role">Trolley Square Barbers</div>
             </div>
           </div>
-          <p class="home-testi-quote">I did a lot of research before choosing Sara to handle our internet marketing presence. She came to our business and spent several hours working up a plan that we could all agree on. She is bright and very professional. Our numbers have made great improvement since she has been helping us. I can recommend her to any business who needs to improve your branding and presence online. She is doing a great job for us!</p>
+          <p class="home-testi-quote">I did a lot of research before choosing Sara to handle our internet marketing
+            presence. She came to our business and spent several hours working up a plan that we could all agree on. She
+            is bright and very professional. Our numbers have made great improvement since she has been helping us. I
+            can recommend her to any business who needs to improve your branding and presence online. She is doing a
+            great job for us!</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/suz.png?fit=125%2C125" alt="Suzanne Pratt" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/suz.png?fit=125%2C125"
+              alt="Suzanne Pratt" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Suzanne Pratt</div>
               <div class="home-testi-role">Marriage Therapist, LCSW</div>
             </div>
           </div>
-          <p class="home-testi-quote">I have been working with Sara Lambrinos on my website for several months. Besides creating a website that is highly functional and truly representative of what I do, she is forever coming up with ways to optimize my professional visibility on line. She is a patient teacher and anytime I have a question, she has been lightning fast to respond. In the past I've paid far more for a website I was far less happy with. In addition, she is professional and friendly, as smart as she can be, and I recommend her to anyone who not only wants a website, but who wants help creating cutting edge visibility online.</p>
+          <p class="home-testi-quote">I have been working with Sara Lambrinos on my website for several months. Besides
+            creating a website that is highly functional and truly representative of what I do, she is forever coming up
+            with ways to optimize my professional visibility on line. She is a patient teacher and anytime I have a
+            question, she has been lightning fast to respond. In the past I've paid far more for a website I was far
+            less happy with. In addition, she is professional and friendly, as smart as she can be, and I recommend her
+            to anyone who not only wants a website, but who wants help creating cutting edge visibility online.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2023/12/drew-img.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2023/12/drew-img.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Drew Wydra</div>
               <div class="home-testi-role">208 Moving Company</div>
             </div>
           </div>
-          <p class="home-testi-quote">I have used 3 different SEO companies for my small business so far and I have never had anyone as knowledgeable, responsive, and just overall awesome to work with as Sara. We hired Sites by Sara for our SEO work for our website, but she really is a jack of all trades. Sara understands not just the SEO side of things, but has strong grasp of marketing and has helped us implement strategies for our business. On top of all that, she genuinely cares about her clients to a degree you won't see at any other company. Its also a huge plus that she is local here in Salt Lake City, Utah. Its awesome when you want to make changes to your website and she can come to your office and go over things in person. I would highly recommend Sara and her company Sites by Sara! I can't imagine ever going with anyone else. Thanks Sara!</p>
+          <p class="home-testi-quote">I have used 3 different SEO companies for my small business so far and I have
+            never had anyone as knowledgeable, responsive, and just overall awesome to work with as Sara. We hired Sites
+            by Sara for our SEO work for our website, but she really is a jack of all trades. Sara understands not just
+            the SEO side of things, but has strong grasp of marketing and has helped us implement strategies for our
+            business. On top of all that, she genuinely cares about her clients to a degree you won't see at any other
+            company. Its also a huge plus that she is local here in Salt Lake City, Utah. Its awesome when you want to
+            make changes to your website and she can come to your office and go over things in person. I would highly
+            recommend Sara and her company Sites by Sara! I can't imagine ever going with anyone else. Thanks Sara!</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/07/devin.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/07/devin.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Devin Richards</div>
               <div class="home-testi-role">CCEEB.org</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara Lambrinos and Sites by Sara are among the most professional and pleasant communications and marketing services out there. Sara went out of her way to check-in, advise, and recommend improvements and services to the website I oversaw. She held herself accountable, opened lines of communication, and clearly identified needs and results that would be achieved. I was throughly impressed, and as such, fully recommend getting in touch with Sara and Sites by Sara for any of your website, communications, and marketing needs.</p>
+          <p class="home-testi-quote">Sara Lambrinos and Sites by Sara are among the most professional and pleasant
+            communications and marketing services out there. Sara went out of her way to check-in, advise, and recommend
+            improvements and services to the website I oversaw. She held herself accountable, opened lines of
+            communication, and clearly identified needs and results that would be achieved. I was throughly impressed,
+            and as such, fully recommend getting in touch with Sara and Sites by Sara for any of your website,
+            communications, and marketing needs.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/francie.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/francie.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Francine Platt</div>
               <div class="home-testi-role">Eden Graphics, Inc</div>
             </div>
           </div>
-          <p class="home-testi-quote">I've enjoyed working with Sara throughout the years and continue to recommend her to my clients who need help with their websites. She's responsive and great at website development -- knowing the latest trends and coding updates. She's friendly and easy to work with!</p>
+          <p class="home-testi-quote">I've enjoyed working with Sara throughout the years and continue to recommend her
+            to my clients who need help with their websites. She's responsive and great at website development --
+            knowing the latest trends and coding updates. She's friendly and easy to work with!</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/wanis.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/wanis.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Wanis Salem</div>
               <div class="home-testi-role">Cutting Edge Stone and Granite</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara has done an amazing job in bring our company up to date with all on line needs. she improved on lines sales on put us on top of google search. I highly recommend Sites by Sara for anyone that is looking to improve their web technology and their online presence.</p>
+          <p class="home-testi-quote">Sara has done an amazing job in bring our company up to date with all on line
+            needs. she improved on lines sales on put us on top of google search. I highly recommend Sites by Sara for
+            anyone that is looking to improve their web technology and their online presence.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/karen.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/karen.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Karen Van Hoesen</div>
               <div class="home-testi-role">Gilmer Arts</div>
             </div>
           </div>
-          <p class="home-testi-quote">Our non-profit has been exceptionally pleased with Sites by Sara's Peace of Mind plan for our website. Whenever we've had outages or issues, they've been right there immediately and have fixed us up for far less than it would have cost us if we had to hire her per incident. We love the Peace of Mind plan.</p>
+          <p class="home-testi-quote">Our non-profit has been exceptionally pleased with Sites by Sara's Peace of Mind
+            plan for our website. Whenever we've had outages or issues, they've been right there immediately and have
+            fixed us up for far less than it would have cost us if we had to hire her per incident. We love the Peace of
+            Mind plan.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/harry.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/harry.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Harry Keshet</div>
               <div class="home-testi-role">Human Interaction Solutions</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara has a great sense of how to develop a website and marketing strategy to attracts and grows business. She is smart, has the right knowledge and expertise, great people skills and delivers on her promises. She is a pleasure to work with.</p>
+          <p class="home-testi-quote">Sara has a great sense of how to develop a website and marketing strategy to
+            attracts and grows business. She is smart, has the right knowledge and expertise, great people skills and
+            delivers on her promises. She is a pleasure to work with.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/todd.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/todd.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Todd Nelson Naturopath</div>
               <div class="home-testi-role">Tree Of Life Wellness Center</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara has done fantastic work for me producing slides for lectures and graphics for different uses. She communicates well, get's things done on time, and produces exceptional, professional and creative looks that inspire and educate. I highly recommend her!!</p>
+          <p class="home-testi-quote">Sara has done fantastic work for me producing slides for lectures and graphics for
+            different uses. She communicates well, get's things done on time, and produces exceptional, professional and
+            creative looks that inspire and educate. I highly recommend her!!</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/monique.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/monique.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Monique Lanier</div>
               <div class="home-testi-role">Pale Boutique</div>
@@ -1257,90 +2281,130 @@
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/cindy.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/cindy.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Cindy Uriona</div>
               <div class="home-testi-role">Silicon Slopes Real Estate Berkshire Hathaway Utah Properties</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara is a pro for all things online, not only websites, and a pleasure to work with, fun, friendly and a true expert in her field. Sara has worked with me on my website and so through.</p>
+          <p class="home-testi-quote">Sara is a pro for all things online, not only websites, and a pleasure to work
+            with, fun, friendly and a true expert in her field. Sara has worked with me on my website and so through.
+          </p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/chuck.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/chuck.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Chuck Hamrick</div>
               <div class="home-testi-role">Hamrick.biz</div>
             </div>
           </div>
-          <p class="home-testi-quote">Known Sara through local marketing meetups for many years and she's a good person to work with.</p>
+          <p class="home-testi-quote">Known Sara through local marketing meetups for many years and she's a good person
+            to work with.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/david.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/david.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">David Bruce (Teresa B)</div>
               <div class="home-testi-role">Bruce and Associates</div>
             </div>
           </div>
-          <p class="home-testi-quote">There are so many facets to a good web team and Sara has all of them covered. My focus is sales related - not web technology. Sara takes care of everything so I can focus on what I do best and earn revenue. If you're not sure what you need or want, no problem. Sara can create at any level you need. Sara also has a bright, winning personality that makes interactions a pleasure. If you're needing excellent web team assistance, look no further!</p>
+          <p class="home-testi-quote">There are so many facets to a good web team and Sara has all of them covered. My
+            focus is sales related - not web technology. Sara takes care of everything so I can focus on what I do best
+            and earn revenue. If you're not sure what you need or want, no problem. Sara can create at any level you
+            need. Sara also has a bright, winning personality that makes interactions a pleasure. If you're needing
+            excellent web team assistance, look no further!</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/trinity.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/trinity.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Trinity Machan</div>
               <div class="home-testi-role">Black Diamond Limousine LLC</div>
             </div>
           </div>
-          <p class="home-testi-quote">One of the best services I have ever used for my company's website. They where very responsive and such a wonderful company to work with they are so smart when it comes to SEO and webpage development. I can't say enough to justify the increase in business I have received from her redoing my page. bdlslc.com look for your self.</p>
+          <p class="home-testi-quote">One of the best services I have ever used for my company's website. They where
+            very responsive and such a wonderful company to work with they are so smart when it comes to SEO and webpage
+            development. I can't say enough to justify the increase in business I have received from her redoing my
+            page. bdlslc.com look for your self.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/alosa.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/alosa.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Alisa H.</div>
               <div class="home-testi-role">Better Content Matters</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara has done an amazing job with our company website. She's crafted it in such a way that SEO is organic -- as long as we maintain the basics. When we've asked for changes, she's done them efficiently and created exactly what we were looking for. So grateful to her!</p>
+          <p class="home-testi-quote">Sara has done an amazing job with our company website. She's crafted it in such a
+            way that SEO is organic -- as long as we maintain the basics. When we've asked for changes, she's done them
+            efficiently and created exactly what we were looking for. So grateful to her!</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/staci.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/staci.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Staci Sprout</div>
               <div class="home-testi-role">Seattle Recovery Center</div>
             </div>
           </div>
-          <p class="home-testi-quote">We hired Sites by Sara to help us create a website and logo for our new company, and we love what they came up with! Skilled, clear, and talented - Sara did a great job listening to us and getting us the right questions so we could end up exactly where we'd hoped. I couldn't recommend Sites By Sara more highly, especially for small business owners who want to take it to the next level!</p>
+          <p class="home-testi-quote">We hired Sites by Sara to help us create a website and logo for our new company,
+            and we love what they came up with! Skilled, clear, and talented - Sara did a great job listening to us and
+            getting us the right questions so we could end up exactly where we'd hoped. I couldn't recommend Sites By
+            Sara more highly, especially for small business owners who want to take it to the next level!</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/richard.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/richard.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Richard Kletting</div>
               <div class="home-testi-role">Trolley Square Barbers</div>
             </div>
           </div>
-          <p class="home-testi-quote">I did a lot of research before choosing Sara to handle our internet marketing presence. She came to our business and spent several hours working up a plan that we could all agree on. She is bright and very professional. Our numbers have made great improvement since she has been helping us. I can recommend her to any business who needs to improve your branding and presence online. She is doing a great job for us!</p>
+          <p class="home-testi-quote">I did a lot of research before choosing Sara to handle our internet marketing
+            presence. She came to our business and spent several hours working up a plan that we could all agree on. She
+            is bright and very professional. Our numbers have made great improvement since she has been helping us. I
+            can recommend her to any business who needs to improve your branding and presence online. She is doing a
+            great job for us!</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/suz.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/suz.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Suzanne Pratt</div>
               <div class="home-testi-role">Marriage Therapist, LCSW</div>
             </div>
           </div>
-          <p class="home-testi-quote">I have been working with Sara Lambrinos on my website for several months. Besides creating a website that is highly functional and truly representative of what I do, she is forever coming up with ways to optimize my professional visibility on line. She is a patient teacher and anytime I have a question, she has been lightning fast to respond. In the past I've paid far more for a website I was far less happy with. In addition, she is professional and friendly, as smart as she can be, and I recommend her to anyone who not only wants a website, but who wants help creating cutting edge visibility online.</p>
+          <p class="home-testi-quote">I have been working with Sara Lambrinos on my website for several months. Besides
+            creating a website that is highly functional and truly representative of what I do, she is forever coming up
+            with ways to optimize my professional visibility on line. She is a patient teacher and anytime I have a
+            question, she has been lightning fast to respond. In the past I've paid far more for a website I was far
+            less happy with. In addition, she is professional and friendly, as smart as she can be, and I recommend her
+            to anyone who not only wants a website, but who wants help creating cutting edge visibility online.</p>
         </div>
       </div>
     </div>
@@ -1349,322 +2413,442 @@
       <div class="home-testi-track home-testi-track--rtl">
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/bob.png?fit=125%2C125" alt="Dr. Bob Seiler" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/bob.png?fit=125%2C125"
+              alt="Dr. Bob Seiler" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Dr. Bob Seiler</div>
               <div class="home-testi-role">Holistic Chiropractic Physician</div>
             </div>
           </div>
-          <p class="home-testi-quote">I have found Sara to be an extremely reliable, dependable, acknowledgeable resource in helping me with my web-site SEO. I think you would find her delightful to work with and she would immensely help you! Dr. Bob Seiler</p>
+          <p class="home-testi-quote">I have found Sara to be an extremely reliable, dependable, acknowledgeable
+            resource in helping me with my web-site SEO. I think you would find her delightful to work with and she
+            would immensely help you! Dr. Bob Seiler</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/eric.png?fit=125%2C125" alt="Eric K. Johnson" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/eric.png?fit=125%2C125"
+              alt="Eric K. Johnson" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Eric K. Johnson</div>
               <div class="home-testi-role">Principal at Utah Family Law, LC</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara provided web master and SEO campaign management for a website of mine for 5 years. In that time, the website consistently ranked very well for highly competitive keywords (first page in Google), and Sara did it without tricks or shortcuts. It was such a relief to have Sara to help me succeed with a crucial area of my business that I didn't understand.</p>
+          <p class="home-testi-quote">Sara provided web master and SEO campaign management for a website of mine for 5
+            years. In that time, the website consistently ranked very well for highly competitive keywords (first page
+            in Google), and Sara did it without tricks or shortcuts. It was such a relief to have Sara to help me
+            succeed with a crucial area of my business that I didn't understand.</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/marla-dee.png?fit=125%2C125" alt="Marla Dee" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/marla-dee.png?fit=125%2C125"
+              alt="Marla Dee" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Marla Dee</div>
               <div class="home-testi-role">Owner, Clear &amp; SIMPLE, LLC</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara has saved my life - she is my website consultant and has consistently gone beyond my expectations. She knows my needs before I do. She is incredibly innovative and a JOY to work with. Thanks Sara for all you do for me and for Clear &amp; SIMPLE.</p>
+          <p class="home-testi-quote">Sara has saved my life - she is my website consultant and has consistently gone
+            beyond my expectations. She knows my needs before I do. She is incredibly innovative and a JOY to work with.
+            Thanks Sara for all you do for me and for Clear &amp; SIMPLE.</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/roundy.png?fit=125%2C125" alt="Courtney Roundy" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/roundy.png?fit=125%2C125"
+              alt="Courtney Roundy" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Courtney Roundy</div>
               <div class="home-testi-role">Owner, C ROUNDY</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara is professional, prompt and a joy to work with. I highly recommend her talent and service.</p>
+          <p class="home-testi-quote">Sara is professional, prompt and a joy to work with. I highly recommend her talent
+            and service.</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/karen.png?fit=125%2C125" alt="Gilmer Arts" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/karen.png?fit=125%2C125"
+              alt="Gilmer Arts" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Gilmer Arts</div>
               <div class="home-testi-role">Bringing the Arts to the North GA Mountains</div>
             </div>
           </div>
-          <p class="home-testi-quote">Our non-profit has been exceptionally pleased with Sara's Peace of Mind plan for our website. Whenever we've had outages or issues, Sara has been right there immediately and has fixed us up for far less than it would have cost us if we had to hire her per incident. We love the Peace of Mind plan.</p>
+          <p class="home-testi-quote">Our non-profit has been exceptionally pleased with Sara's Peace of Mind plan for
+            our website. Whenever we've had outages or issues, Sara has been right there immediately and has fixed us up
+            for far less than it would have cost us if we had to hire her per incident. We love the Peace of Mind plan.
+          </p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/andalin.png?fit=125%2C125" alt="Andalin Bachman" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/andalin.png?fit=125%2C125"
+              alt="Andalin Bachman" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Andalin Bachman</div>
               <div class="home-testi-role">Interfaith Roundtable</div>
             </div>
           </div>
-          <p class="home-testi-quote">I am pleased to offer the highest recommendation for using the services of Sites by Sara. They assisted my nonprofit in all aspects of our website redesign and development, as well as offered hands on training to our members. Sites by Sara assisted us in obtaining our domain, and has been a life-saver during crunch times when special assistance has been needed. The &quot;Peace of Mind&quot; plan has been invaluable in terms of keeping our website current and secure. We are very glad to have found Sites by Sara and highly recommend them to anyone looking for trustworthy and competent Web services.</p>
+          <p class="home-testi-quote">I am pleased to offer the highest recommendation for using the services of Sites
+            by Sara. They assisted my nonprofit in all aspects of our website redesign and development, as well as
+            offered hands on training to our members. Sites by Sara assisted us in obtaining our domain, and has been a
+            life-saver during crunch times when special assistance has been needed. The &quot;Peace of Mind&quot; plan
+            has been invaluable in terms of keeping our website current and secure. We are very glad to have found Sites
+            by Sara and highly recommend them to anyone looking for trustworthy and competent Web services.</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Barbara-Engen-1-140x140.jpeg" alt="Barbara Engen" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Barbara-Engen-1-140x140.jpeg"
+              alt="Barbara Engen" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Barbara Engen</div>
               <div class="home-testi-role">Assistance League of Salt Lake City</div>
             </div>
           </div>
-          <p class="home-testi-quote">I'd like to thank Sara Lambrinos (Sites by Sara) for the wonderful job she's done during the bidding process for a website redesign project that I'm chairing. Sara has been so positive, has promptly responded to my questions and has been a delight to work with. Thank you, Sara!</p>
+          <p class="home-testi-quote">I'd like to thank Sara Lambrinos (Sites by Sara) for the wonderful job she's done
+            during the bidding process for a website redesign project that I'm chairing. Sara has been so positive, has
+            promptly responded to my questions and has been a delight to work with. Thank you, Sara!</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Frankie-Hallet-140x140.jpeg" alt="Frankie Hallet" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Frankie-Hallet-140x140.jpeg"
+              alt="Frankie Hallet" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Frankie Hallet</div>
             </div>
           </div>
-          <p class="home-testi-quote">Loved working with Sara and her crew! My job wasn't the biggest job in the world but she treated me as if I were her #1 customer. Thanks Sara!</p>
+          <p class="home-testi-quote">Loved working with Sara and her crew! My job wasn't the biggest job in the world
+            but she treated me as if I were her #1 customer. Thanks Sara!</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Krishna-Gaurav-140x140.jpeg" alt="Krishna Gaurav" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Krishna-Gaurav-140x140.jpeg"
+              alt="Krishna Gaurav" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Krishna Gaurav</div>
             </div>
           </div>
-          <p class="home-testi-quote">A 360 degree solutions web solutions provider who listens to clients and provides innovative, profitable and efficient services. I will definitely recommend their services to anyone who is looking to bring more business online.</p>
+          <p class="home-testi-quote">A 360 degree solutions web solutions provider who listens to clients and provides
+            innovative, profitable and efficient services. I will definitely recommend their services to anyone who is
+            looking to bring more business online.</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/John-McNally-140x140.jpeg" alt="John McNally" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/John-McNally-140x140.jpeg"
+              alt="John McNally" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">John McNally</div>
             </div>
           </div>
-          <p class="home-testi-quote">What a great experience! It's refreshing to find a local company who really cares about our website presence. We were able to get our site redesigned quickly and efficiently. Sara was easy to work with, quick to respond to our requests and always willing to answer any questions we had. I highly recommend Sites by Sara for any of your website needs.</p>
+          <p class="home-testi-quote">What a great experience! It's refreshing to find a local company who really cares
+            about our website presence. We were able to get our site redesigned quickly and efficiently. Sara was easy
+            to work with, quick to respond to our requests and always willing to answer any questions we had. I highly
+            recommend Sites by Sara for any of your website needs.</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Austin-Hummell-140x140.jpeg" alt="Austin Hummell" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Austin-Hummell-140x140.jpeg"
+              alt="Austin Hummell" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Austin Hummell</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara's work is amazing. She cared about every detail of the website as if it were her own.</p>
+          <p class="home-testi-quote">Sara's work is amazing. She cared about every detail of the website as if it were
+            her own.</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Hannah-Anderson-140x140.jpeg" alt="Hannah Anderson" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Hannah-Anderson-140x140.jpeg"
+              alt="Hannah Anderson" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Hannah Anderson</div>
               <div class="home-testi-role">Red Leaf Design and Construction</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sarah is great! Our company used her to re-design our entire website and we are loving it. She made is easy and hassle-free.</p>
+          <p class="home-testi-quote">Sarah is great! Our company used her to re-design our entire website and we are
+            loving it. She made is easy and hassle-free.</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Knut-Lindsley-140x140.jpeg" alt="Knut Lindsley" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Knut-Lindsley-140x140.jpeg"
+              alt="Knut Lindsley" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Knut Lindsley</div>
             </div>
           </div>
-          <p class="home-testi-quote">SBS has years of experience and excels in listening to clients needs and providing solutions for them.</p>
+          <p class="home-testi-quote">SBS has years of experience and excels in listening to clients needs and providing
+            solutions for them.</p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/marci.png?fit=125%2C125" alt="Marci Baak" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/marci.png?fit=125%2C125"
+              alt="Marci Baak" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Marci Baak</div>
               <div class="home-testi-role">APRN, CNM, FNP-C &mdash; Sweet Leaf Family Practice, Owner</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara gets the job done quickly and efficiently. She communicates clearly and knows exactly what she is doing. I love my website and would recommend Sites by Sara to everyone. Thank you, Sara!</p>
+          <p class="home-testi-quote">Sara gets the job done quickly and efficiently. She communicates clearly and knows
+            exactly what she is doing. I love my website and would recommend Sites by Sara to everyone. Thank you, Sara!
+          </p>
         </div>
 
         <div class="home-testi-card">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/vida.png?fit=125%2C125" alt="Vida Groman" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/vida.png?fit=125%2C125"
+              alt="Vida Groman" loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Vida Groman</div>
               <div class="home-testi-role">Transform Outloud</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara listened to my needs. She then translated that into a really beautiful website that still works for me. Thank you, Sara.</p>
+          <p class="home-testi-quote">Sara listened to my needs. She then translated that into a really beautiful
+            website that still works for me. Thank you, Sara.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/bob.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/bob.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Dr. Bob Seiler</div>
               <div class="home-testi-role">Holistic Chiropractic Physician</div>
             </div>
           </div>
-          <p class="home-testi-quote">I have found Sara to be an extremely reliable, dependable, acknowledgeable resource in helping me with my web-site SEO. I think you would find her delightful to work with and she would immensely help you! Dr. Bob Seiler</p>
+          <p class="home-testi-quote">I have found Sara to be an extremely reliable, dependable, acknowledgeable
+            resource in helping me with my web-site SEO. I think you would find her delightful to work with and she
+            would immensely help you! Dr. Bob Seiler</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/eric.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/eric.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Eric K. Johnson</div>
               <div class="home-testi-role">Principal at Utah Family Law, LC</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara provided web master and SEO campaign management for a website of mine for 5 years. In that time, the website consistently ranked very well for highly competitive keywords (first page in Google), and Sara did it without tricks or shortcuts. It was such a relief to have Sara to help me succeed with a crucial area of my business that I didn't understand.</p>
+          <p class="home-testi-quote">Sara provided web master and SEO campaign management for a website of mine for 5
+            years. In that time, the website consistently ranked very well for highly competitive keywords (first page
+            in Google), and Sara did it without tricks or shortcuts. It was such a relief to have Sara to help me
+            succeed with a crucial area of my business that I didn't understand.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/marla-dee.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/marla-dee.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Marla Dee</div>
               <div class="home-testi-role">Owner, Clear &amp; SIMPLE, LLC</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara has saved my life - she is my website consultant and has consistently gone beyond my expectations. She knows my needs before I do. She is incredibly innovative and a JOY to work with. Thanks Sara for all you do for me and for Clear &amp; SIMPLE.</p>
+          <p class="home-testi-quote">Sara has saved my life - she is my website consultant and has consistently gone
+            beyond my expectations. She knows my needs before I do. She is incredibly innovative and a JOY to work with.
+            Thanks Sara for all you do for me and for Clear &amp; SIMPLE.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/roundy.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2015/09/roundy.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Courtney Roundy</div>
               <div class="home-testi-role">Owner, C ROUNDY</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara is professional, prompt and a joy to work with. I highly recommend her talent and service.</p>
+          <p class="home-testi-quote">Sara is professional, prompt and a joy to work with. I highly recommend her talent
+            and service.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/karen.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/karen.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Gilmer Arts</div>
               <div class="home-testi-role">Bringing the Arts to the North GA Mountains</div>
             </div>
           </div>
-          <p class="home-testi-quote">Our non-profit has been exceptionally pleased with Sara's Peace of Mind plan for our website. Whenever we've had outages or issues, Sara has been right there immediately and has fixed us up for far less than it would have cost us if we had to hire her per incident. We love the Peace of Mind plan.</p>
+          <p class="home-testi-quote">Our non-profit has been exceptionally pleased with Sara's Peace of Mind plan for
+            our website. Whenever we've had outages or issues, Sara has been right there immediately and has fixed us up
+            for far less than it would have cost us if we had to hire her per incident. We love the Peace of Mind plan.
+          </p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/andalin.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/andalin.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Andalin Bachman</div>
               <div class="home-testi-role">Interfaith Roundtable</div>
             </div>
           </div>
-          <p class="home-testi-quote">I am pleased to offer the highest recommendation for using the services of Sites by Sara. They assisted my nonprofit in all aspects of our website redesign and development, as well as offered hands on training to our members. Sites by Sara assisted us in obtaining our domain, and has been a life-saver during crunch times when special assistance has been needed. The &quot;Peace of Mind&quot; plan has been invaluable in terms of keeping our website current and secure. We are very glad to have found Sites by Sara and highly recommend them to anyone looking for trustworthy and competent Web services.</p>
+          <p class="home-testi-quote">I am pleased to offer the highest recommendation for using the services of Sites
+            by Sara. They assisted my nonprofit in all aspects of our website redesign and development, as well as
+            offered hands on training to our members. Sites by Sara assisted us in obtaining our domain, and has been a
+            life-saver during crunch times when special assistance has been needed. The &quot;Peace of Mind&quot; plan
+            has been invaluable in terms of keeping our website current and secure. We are very glad to have found Sites
+            by Sara and highly recommend them to anyone looking for trustworthy and competent Web services.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Barbara-Engen-1-140x140.jpeg" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Barbara-Engen-1-140x140.jpeg" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Barbara Engen</div>
               <div class="home-testi-role">Assistance League of Salt Lake City</div>
             </div>
           </div>
-          <p class="home-testi-quote">I'd like to thank Sara Lambrinos (Sites by Sara) for the wonderful job she's done during the bidding process for a website redesign project that I'm chairing. Sara has been so positive, has promptly responded to my questions and has been a delight to work with. Thank you, Sara!</p>
+          <p class="home-testi-quote">I'd like to thank Sara Lambrinos (Sites by Sara) for the wonderful job she's done
+            during the bidding process for a website redesign project that I'm chairing. Sara has been so positive, has
+            promptly responded to my questions and has been a delight to work with. Thank you, Sara!</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Frankie-Hallet-140x140.jpeg" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Frankie-Hallet-140x140.jpeg" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Frankie Hallet</div>
             </div>
           </div>
-          <p class="home-testi-quote">Loved working with Sara and her crew! My job wasn't the biggest job in the world but she treated me as if I were her #1 customer. Thanks Sara!</p>
+          <p class="home-testi-quote">Loved working with Sara and her crew! My job wasn't the biggest job in the world
+            but she treated me as if I were her #1 customer. Thanks Sara!</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Krishna-Gaurav-140x140.jpeg" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Krishna-Gaurav-140x140.jpeg" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Krishna Gaurav</div>
             </div>
           </div>
-          <p class="home-testi-quote">A 360 degree solutions web solutions provider who listens to clients and provides innovative, profitable and efficient services. I will definitely recommend their services to anyone who is looking to bring more business online.</p>
+          <p class="home-testi-quote">A 360 degree solutions web solutions provider who listens to clients and provides
+            innovative, profitable and efficient services. I will definitely recommend their services to anyone who is
+            looking to bring more business online.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/John-McNally-140x140.jpeg" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/John-McNally-140x140.jpeg" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">John McNally</div>
             </div>
           </div>
-          <p class="home-testi-quote">What a great experience! It's refreshing to find a local company who really cares about our website presence. We were able to get our site redesigned quickly and efficiently. Sara was easy to work with, quick to respond to our requests and always willing to answer any questions we had. I highly recommend Sites by Sara for any of your website needs.</p>
+          <p class="home-testi-quote">What a great experience! It's refreshing to find a local company who really cares
+            about our website presence. We were able to get our site redesigned quickly and efficiently. Sara was easy
+            to work with, quick to respond to our requests and always willing to answer any questions we had. I highly
+            recommend Sites by Sara for any of your website needs.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Austin-Hummell-140x140.jpeg" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Austin-Hummell-140x140.jpeg" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Austin Hummell</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara's work is amazing. She cared about every detail of the website as if it were her own.</p>
+          <p class="home-testi-quote">Sara's work is amazing. She cared about every detail of the website as if it were
+            her own.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Hannah-Anderson-140x140.jpeg" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Hannah-Anderson-140x140.jpeg" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Hannah Anderson</div>
               <div class="home-testi-role">Red Leaf Design and Construction</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sarah is great! Our company used her to re-design our entire website and we are loving it. She made is easy and hassle-free.</p>
+          <p class="home-testi-quote">Sarah is great! Our company used her to re-design our entire website and we are
+            loving it. She made is easy and hassle-free.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Knut-Lindsley-140x140.jpeg" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/03/Knut-Lindsley-140x140.jpeg" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Knut Lindsley</div>
             </div>
           </div>
-          <p class="home-testi-quote">SBS has years of experience and excels in listening to clients needs and providing solutions for them.</p>
+          <p class="home-testi-quote">SBS has years of experience and excels in listening to clients needs and providing
+            solutions for them.</p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/marci.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/marci.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Marci Baak</div>
               <div class="home-testi-role">APRN, CNM, FNP-C &mdash; Sweet Leaf Family Practice, Owner</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara gets the job done quickly and efficiently. She communicates clearly and knows exactly what she is doing. I love my website and would recommend Sites by Sara to everyone. Thank you, Sara!</p>
+          <p class="home-testi-quote">Sara gets the job done quickly and efficiently. She communicates clearly and knows
+            exactly what she is doing. I love my website and would recommend Sites by Sara to everyone. Thank you, Sara!
+          </p>
         </div>
 
         <div class="home-testi-card" aria-hidden="true">
           <div class="home-testi-head">
-            <img class="home-testi-avatar" src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/vida.png?fit=125%2C125" alt="" loading="lazy" width="42" height="42">
+            <img class="home-testi-avatar"
+              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/06/vida.png?fit=125%2C125" alt=""
+              loading="lazy" width="42" height="42">
             <div>
               <div class="home-testi-name">Vida Groman</div>
               <div class="home-testi-role">Transform Outloud</div>
             </div>
           </div>
-          <p class="home-testi-quote">Sara listened to my needs. She then translated that into a really beautiful website that still works for me. Thank you, Sara.</p>
+          <p class="home-testi-quote">Sara listened to my needs. She then translated that into a really beautiful
+            website that still works for me. Thank you, Sara.</p>
         </div>
       </div>
     </div>
@@ -1685,19 +2869,19 @@
        ============================================================ -->
   <section class="home-services-section home-section-space" aria-label="What We Do">
     <div class="home-container">
-      <div class="home-section-header">
+      <div class="home-section-header home-reveal">
         <div class="home-eyebrow">
           <span class="home-eyebrow-dot"></span>
           What We Do
         </div>
         <h2 class="home-h2-title">Full-Service Web Design, Development &amp; Marketing</h2>
-        <p class="home-lead-text">Everything under one roof — branding, development, and marketing services built
-          to grow your business online.</p>
+        <p class="home-lead-text">Sites by Sara delivers expert website and digital marketing solutions that help
+          businesses strengthen their online presence, increase traffic, and win more customers.</p>
       </div>
 
       <div class="home-services-grid">
 
-        <a href="/services/web-design-development/custom-web-development/" class="home-service-card">
+        <a href="/services/web-design-development/custom-web-development/" class="home-service-card home-reveal home-reveal-delay-1">
           <span class="home-service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
               stroke-linejoin="round">
@@ -1715,7 +2899,7 @@
             </svg></span>
         </a>
 
-        <a href="/woocommerce-stores/" class="home-service-card">
+        <a href="/woocommerce-stores/" class="home-service-card home-reveal home-reveal-delay-2">
           <span class="home-service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
               stroke-linejoin="round">
@@ -1733,25 +2917,24 @@
             </svg></span>
         </a>
 
-        <a href="/shopify-ecommerce-store/" class="home-service-card">
+        <a href="/local-seo-google-business-profile/" class="home-service-card home-reveal home-reveal-delay-3">
           <span class="home-service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
               stroke-linejoin="round">
-              <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
-              <path d="M3 6h18"></path>
-              <path d="M16 10a4 4 0 0 1-8 0"></path>
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
             </svg>
           </span>
-          <h3 class="home-service-title">Shopify E-Commerce Stores</h3>
-          <p class="home-service-desc">Custom Shopify store builds from 3 to 100 products, design refreshes for
-            stores already live, and page/product additions.</p>
+          <h3 class="home-service-title">Local SEO &amp; Google Business Profile</h3>
+          <p class="home-service-desc">Local Domination Package, GBP Setup, 3-Pack Optimization, multi-location
+            support &amp; Reputation Management.</p>
           <span class="home-service-link">Learn More<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M13 5l7 7-7 7" />
             </svg></span>
         </a>
 
-        <a href="/cybersecurity-packages/" class="home-service-card">
+        <a href="/cybersecurity-packages/" class="home-service-card home-reveal home-reveal-delay-4">
           <span class="home-service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
               stroke-linejoin="round">
@@ -1768,7 +2951,7 @@
             </svg></span>
         </a>
 
-        <a href="/email-setup-migration-services-gws-ms365/" class="home-service-card">
+        <a href="/email-setup-migration-services-gws-ms365/" class="home-service-card home-reveal home-reveal-delay-5">
           <span class="home-service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
               stroke-linejoin="round">
@@ -1785,7 +2968,7 @@
             </svg></span>
         </a>
 
-        <a href="/site-audit-priority-fixes/" class="home-service-card">
+        <a href="/site-audit-priority-fixes/" class="home-service-card home-reveal home-reveal-delay-6">
           <span class="home-service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
               stroke-linejoin="round">
@@ -1818,7 +3001,7 @@
     <div class="home-container">
       <div class="home-story-row">
 
-        <div class="home-story-image-card">
+        <div class="home-story-image-card home-reveal">
           <img src="/wp-content/uploads/2026/09/home-why-choose-us.webp"
             alt="Sites by Sara team reviewing a website design together" width="600" height="450" loading="lazy">
         </div>
@@ -1829,11 +3012,12 @@
             Why Choose Us
           </div>
           <h2 class="home-h2-title">A Local Team That Treats Your Business Like Our Own</h2>
-          <p class="home-lead-text">We're not a call center or a big agency that hands you off to a junior account
-            manager. Here's what working with us actually looks like.</p>
+          <p class="home-lead-text">Sites by Sara is your local partner for websites and digital marketing that
+            help your business get found, attract customers, and grow. Here's what working with us actually looks
+            like.</p>
 
           <div class="home-story-list">
-            <div class="home-story-item">
+            <div class="home-story-item home-reveal home-reveal-delay-1">
               <span class="home-story-item-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round">
@@ -1850,7 +3034,7 @@
               </div>
             </div>
 
-            <div class="home-story-item">
+            <div class="home-story-item home-reveal home-reveal-delay-2">
               <span class="home-story-item-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round">
@@ -1865,7 +3049,7 @@
               </div>
             </div>
 
-            <div class="home-story-item">
+            <div class="home-story-item home-reveal home-reveal-delay-3">
               <span class="home-story-item-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round">
@@ -1879,7 +3063,7 @@
               </div>
             </div>
 
-            <div class="home-story-item">
+            <div class="home-story-item home-reveal home-reveal-delay-4">
               <span class="home-story-item-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                   stroke-linejoin="round">
@@ -1904,7 +3088,7 @@
        ============================================================ -->
   <section class="home-awards-section home-section-space" aria-label="Awards">
     <div class="home-container">
-      <div class="home-section-header">
+      <div class="home-section-header home-reveal">
         <div class="home-eyebrow">
           <span class="home-eyebrow-dot"></span>
           Recognized For Our Work
@@ -1920,7 +3104,8 @@
             alt="Salt Lake City web design award" loading="lazy">
         </div>
         <div class="home-award-tile">
-          <img src="https://i0.wp.com/www.sitesbysara.com/wp-content/uploads/2024/05/rankwatch-award-sbs.png?w=1170&ssl=1"
+          <img
+            src="https://i0.wp.com/www.sitesbysara.com/wp-content/uploads/2024/05/rankwatch-award-sbs.png?w=1170&ssl=1"
             alt="RankWatch award" loading="lazy">
         </div>
         <div class="home-award-tile">
@@ -1928,7 +3113,8 @@
             alt="Web Excellence Awards" loading="lazy">
         </div>
         <div class="home-award-tile">
-          <img src="https://i0.wp.com/www.sitesbysara.com/wp-content/uploads/2024/03/threebestrated-2024.png?w=1170&ssl=1"
+          <img
+            src="https://i0.wp.com/www.sitesbysara.com/wp-content/uploads/2024/03/threebestrated-2024.png?w=1170&ssl=1"
             alt="ThreeBest Rated 2024 — Best Business" loading="lazy">
         </div>
         <div class="home-award-tile">
@@ -1971,7 +3157,8 @@
             loading="lazy">
         </div>
         <div class="home-award-tile" aria-hidden="true">
-          <img src="https://i0.wp.com/www.sitesbysara.com/wp-content/uploads/2024/05/rankwatch-award-sbs.png?w=1170&ssl=1"
+          <img
+            src="https://i0.wp.com/www.sitesbysara.com/wp-content/uploads/2024/05/rankwatch-award-sbs.png?w=1170&ssl=1"
             alt="" loading="lazy">
         </div>
         <div class="home-award-tile" aria-hidden="true">
@@ -1979,7 +3166,8 @@
             loading="lazy">
         </div>
         <div class="home-award-tile" aria-hidden="true">
-          <img src="https://i0.wp.com/www.sitesbysara.com/wp-content/uploads/2024/03/threebestrated-2024.png?w=1170&ssl=1"
+          <img
+            src="https://i0.wp.com/www.sitesbysara.com/wp-content/uploads/2024/03/threebestrated-2024.png?w=1170&ssl=1"
             alt="" loading="lazy">
         </div>
         <div class="home-award-tile" aria-hidden="true">
@@ -1993,8 +3181,8 @@
             alt="" loading="lazy">
         </div>
         <div class="home-award-tile" aria-hidden="true">
-          <img src="https://i0.wp.com/www.sitesbysara.com/wp-content/uploads/2023/11/top-digital.png?w=1170&ssl=1" alt=""
-            loading="lazy">
+          <img src="https://i0.wp.com/www.sitesbysara.com/wp-content/uploads/2023/11/top-digital.png?w=1170&ssl=1"
+            alt="" loading="lazy">
         </div>
         <div class="home-award-tile" aria-hidden="true">
           <img
@@ -2046,8 +3234,8 @@
           <p class="home-lead-text">No confusing jargon or surprise steps — here's exactly what happens when you
             work with us.</p>
 
-          <div class="home-story-list">
-            <div class="home-story-item">
+          <div class="home-story-list home-story-list--numbered">
+            <div class="home-story-item home-reveal home-reveal-delay-1">
               <span class="home-story-item-icon">1</span>
               <div>
                 <div class="home-story-item-title">Free Discovery Call</div>
@@ -2056,7 +3244,7 @@
               </div>
             </div>
 
-            <div class="home-story-item">
+            <div class="home-story-item home-reveal home-reveal-delay-2">
               <span class="home-story-item-icon">2</span>
               <div>
                 <div class="home-story-item-title">Design &amp; Strategy</div>
@@ -2065,7 +3253,7 @@
               </div>
             </div>
 
-            <div class="home-story-item">
+            <div class="home-story-item home-reveal home-reveal-delay-3">
               <span class="home-story-item-icon">3</span>
               <div>
                 <div class="home-story-item-title">Development &amp; Testing</div>
@@ -2074,7 +3262,7 @@
               </div>
             </div>
 
-            <div class="home-story-item">
+            <div class="home-story-item home-reveal home-reveal-delay-4">
               <span class="home-story-item-icon">4</span>
               <div>
                 <div class="home-story-item-title">Launch &amp; Ongoing Support</div>
@@ -2085,10 +3273,9 @@
           </div>
         </div>
 
-        <div class="home-story-image-card">
-          <img src="/wp-content/uploads/2026/09/home-our-process.webp"
-            alt="Website planning session with wireframe sketches and a laptop" width="600" height="450"
-            loading="lazy">
+        <div class="home-story-image-card home-reveal">
+          <img src="/wp-content/uploads/2026/09/home-our-process-2.webp"
+            alt="Website planning session with wireframe sketches and a laptop" width="600" height="450" loading="lazy">
         </div>
 
       </div>
@@ -2100,20 +3287,20 @@
        ============================================================ -->
   <section class="home-portfolio-section home-section-space" aria-label="Portfolio">
     <div class="home-container portfolio-container">
-      <div class="home-section-header">
+      <div class="home-section-header home-reveal">
         <div class="home-eyebrow">
           <span class="home-eyebrow-dot"></span>
           Our Work
         </div>
         <h2 class="home-h2-title">Recent WordPress &amp; Web Design Projects</h2>
         <p class="home-lead-text">
-          Sites by Sara has been helping businesses with their web presence since 2007. We work with all types of
-          companies and handle various branding, development, and marketing services.
+          Sites by Sara helps businesses stand out online with professional websites and digital marketing
+          designed to drive traffic and grow your business.
         </p>
       </div>
 
       <div class="home-portfolio-grid">
-        <a href="https://leavitybread.com/" class="home-portfolio-card" target="_blank" rel="noopener noreferrer">
+        <a href="https://leavitybread.com/" class="home-portfolio-card home-reveal home-reveal-delay-1" target="_blank" rel="noopener noreferrer">
           <div class="home-portfolio-frame">
             <img src="/wp-content/uploads/2025/05/leavity-b-scaled.jpg" alt="Leavity Bread website design"
               loading="lazy">
@@ -2127,7 +3314,7 @@
           </div>
         </a>
 
-        <a href="https://girlyishskincare.com/" class="home-portfolio-card" target="_blank" rel="noopener noreferrer">
+        <a href="https://girlyishskincare.com/" class="home-portfolio-card home-reveal home-reveal-delay-2" target="_blank" rel="noopener noreferrer">
           <div class="home-portfolio-frame">
             <img src="/wp-content/uploads/2025/05/girlyish-scaled.jpg" alt="Girlyish Skincare website design"
               loading="lazy">
@@ -2141,7 +3328,7 @@
           </div>
         </a>
 
-        <a href="https://arborplus.us/" class="home-portfolio-card" target="_blank" rel="noopener noreferrer">
+        <a href="https://arborplus.us/" class="home-portfolio-card home-reveal home-reveal-delay-3" target="_blank" rel="noopener noreferrer">
           <div class="home-portfolio-frame">
             <img src="/wp-content/uploads/2025/05/arbor-scaled.jpg" alt="Arbor Plus website design" loading="lazy">
           </div>
@@ -2156,7 +3343,7 @@
       </div>
 
       <div class="home-text-center">
-        <a href="/all-services" class="home-btn home-btn-outline">View Services</a>
+        <a href="/portfolio/" class="home-btn home-btn-outline">View Our Portfolio</a>
       </div>
     </div>
   </section>
@@ -2166,7 +3353,7 @@
        ============================================================ -->
   <section class="home-press-section home-section-space" aria-label="Press and Publications">
     <div class="home-container">
-      <div class="home-section-header">
+      <div class="home-section-header home-reveal">
         <div class="home-eyebrow">
           <span class="home-eyebrow-dot"></span>
           As Featured In
@@ -2176,7 +3363,7 @@
 
       <div class="home-press-grid">
         <a href="https://bizweekly.com/the-power-of-collaboration-how-sites-by-sara-is-shaping-the-future-of-business-websites/"
-          class="home-press-card" target="_blank" rel="noopener noreferrer">
+          class="home-press-card home-reveal home-reveal-delay-1" target="_blank" rel="noopener noreferrer">
           <img
             src="https://i0.wp.com/www.sitesbysara.com/wp-content/uploads/2025/11/bizweekly-300x42.png?resize=300%2C42&ssl=1"
             alt="BizWeekly" loading="lazy">
@@ -2185,7 +3372,7 @@
         </a>
 
         <a href="https://usanews.com/newsroom/the-anatomy-of-success-how-sites-by-sara-s-unified-team-delivers-excellence"
-          class="home-press-card" target="_blank" rel="noopener noreferrer">
+          class="home-press-card home-reveal home-reveal-delay-2" target="_blank" rel="noopener noreferrer">
           <img
             src="https://i0.wp.com/www.sitesbysara.com/wp-content/uploads/2025/11/Untitled-design-64-300x68.png?resize=247%2C56&ssl=1"
             alt="USA News" loading="lazy">
@@ -2201,10 +3388,11 @@
        ============================================================ -->
   <section class="home-final-cta-section" aria-label="Get Started">
     <div class="home-container">
-      <div class="home-final-cta-inner">
+      <div class="home-final-cta-inner home-reveal">
         <h2 class="home-h2-title">200+ Positive Web Development and SEO Customer Success Stories</h2>
-        <p class="home-lead-text">Time to turn your business into online success.</p>
-        <a href="/testimonials/" class="home-btn home-btn-outline-light cta-button">View Our
+        <p class="home-lead-text">Get seen. Get found. Grow your business. Sites by Sara makes your online
+          presence work harder for you.</p>
+        <a href="/what-our-clients-say/" class="home-btn home-btn-outline-light cta-button">View Our
           Success
           Stories</a>
       </div>
@@ -2241,6 +3429,262 @@
   </div>
 
 </div>
+
+<script>
+  (function () {
+    var root = document.querySelector('.home-hero-root');
+    if (!root) return;
+
+    var prefersReducedMotion = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---------------- Reactive dot grid ---------------- */
+    var dotsCanvas = document.getElementById('homeHeroDots');
+    var dotsCtx = dotsCanvas ? dotsCanvas.getContext('2d') : null;
+    var dots = [];
+    var dotsMouse = { x: -9999, y: -9999, active: false };
+    var dotsRafId = null;
+    var dotsVisible = true;
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    var DOT_SPACING = 30;
+    var DOT_BASE_RADIUS = 1.1;
+    var DOT_BASE_ALPHA = 0.16;
+    var DOT_REACT_RADIUS = 160;
+    var DOT_MAX_EXTRA_ALPHA = 0.55;
+    var DOT_MAX_EXTRA_SIZE = 1.6;
+
+    function sizeDotsCanvas() {
+      if (!dotsCanvas) return;
+      var rect = root.getBoundingClientRect();
+      dotsCanvas.width = rect.width * dpr;
+      dotsCanvas.height = rect.height * dpr;
+      dotsCanvas.style.width = rect.width + 'px';
+      dotsCanvas.style.height = rect.height + 'px';
+      dotsCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function buildDots() {
+      if (!dotsCanvas) return;
+      var rect = root.getBoundingClientRect();
+      dots = [];
+      for (var y = DOT_SPACING; y < rect.height; y += DOT_SPACING) {
+        for (var x = DOT_SPACING; x < rect.width; x += DOT_SPACING) {
+          dots.push({ x: x, y: y });
+        }
+      }
+    }
+
+    function drawDots() {
+      if (!dotsCtx) return;
+      var rect = root.getBoundingClientRect();
+      dotsCtx.clearRect(0, 0, rect.width, rect.height);
+      for (var i = 0; i < dots.length; i++) {
+        var d = dots[i];
+        var extra = 0;
+        if (dotsMouse.active) {
+          var dx = d.x - dotsMouse.x;
+          var dy = d.y - dotsMouse.y;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < DOT_REACT_RADIUS) {
+            extra = 1 - dist / DOT_REACT_RADIUS;
+          }
+        }
+        var alpha = DOT_BASE_ALPHA + extra * DOT_MAX_EXTRA_ALPHA;
+        var radius = DOT_BASE_RADIUS + extra * DOT_MAX_EXTRA_SIZE;
+        dotsCtx.beginPath();
+        dotsCtx.fillStyle = 'rgba(255, 255, 255, ' + alpha.toFixed(3) + ')';
+        dotsCtx.arc(d.x, d.y, radius, 0, Math.PI * 2);
+        dotsCtx.fill();
+      }
+    }
+
+    function dotsStep() {
+      if (!dotsVisible) {
+        dotsRafId = null;
+        return;
+      }
+      drawDots();
+      dotsRafId = requestAnimationFrame(dotsStep);
+    }
+
+    function startDotsLoop() {
+      if (dotsRafId === null) {
+        dotsRafId = requestAnimationFrame(dotsStep);
+      }
+    }
+
+    if (dotsCanvas) {
+      sizeDotsCanvas();
+      buildDots();
+
+      if (prefersReducedMotion) {
+        // Draw once, statically — texture stays visible, just not reactive.
+        drawDots();
+      } else {
+        startDotsLoop();
+
+        root.addEventListener('mousemove', function (e) {
+          var rect = root.getBoundingClientRect();
+          dotsMouse.x = e.clientX - rect.left;
+          dotsMouse.y = e.clientY - rect.top;
+          dotsMouse.active = true;
+        });
+
+        root.addEventListener('mouseleave', function () {
+          dotsMouse.active = false;
+        });
+
+        if ('IntersectionObserver' in window) {
+          var dotsObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+              dotsVisible = entry.isIntersecting;
+              if (dotsVisible) startDotsLoop();
+            });
+          }, { threshold: 0 });
+          dotsObserver.observe(root);
+        }
+
+        var dotsResizeTimer;
+        window.addEventListener('resize', function () {
+          clearTimeout(dotsResizeTimer);
+          dotsResizeTimer = setTimeout(function () {
+            sizeDotsCanvas();
+            buildDots();
+          }, 150);
+        });
+      }
+    }
+
+    if (prefersReducedMotion) return;
+
+    /* ---------------- Cursor parallax on the geometric shapes ---------------- */
+    var shapeWraps = root.querySelectorAll('.home-hero-shape-wrap');
+    var MAX_SHAPE_PULL = 22;
+
+    root.addEventListener('mousemove', function (e) {
+      var rect = root.getBoundingClientRect();
+      var mx = e.clientX - rect.left;
+      var my = e.clientY - rect.top;
+
+      shapeWraps.forEach(function (wrap) {
+        var wRect = wrap.getBoundingClientRect();
+        var cx = wRect.left - rect.left + wRect.width / 2;
+        var cy = wRect.top - rect.top + wRect.height / 2;
+        var dx = mx - cx;
+        var dy = my - cy;
+        var dist = Math.sqrt(dx * dx + dy * dy) || 1;
+        var pull = Math.min(MAX_SHAPE_PULL, dist * 0.06);
+        var tx = (dx / dist) * pull;
+        var ty = (dy / dist) * pull;
+        wrap.style.transform = 'translate3d(' + tx.toFixed(1) + 'px, ' + ty.toFixed(1) + 'px, 0)';
+      });
+    });
+
+    root.addEventListener('mouseleave', function () {
+      shapeWraps.forEach(function (wrap) {
+        wrap.style.transform = '';
+      });
+    });
+
+    /* ---------------- Magnetic tilt on the showcase tiles ---------------- */
+    var tiles = root.querySelectorAll('.home-hero-image-tile');
+    var MAX_TILT_DEG = 9;
+
+    tiles.forEach(function (tile) {
+      tile.addEventListener('mousemove', function (e) {
+        var rect = tile.getBoundingClientRect();
+        var px = (e.clientX - rect.left) / rect.width;   // 0 -> 1
+        var py = (e.clientY - rect.top) / rect.height;   // 0 -> 1
+        var rotateY = (px - 0.5) * 2 * MAX_TILT_DEG;
+        var rotateX = (0.5 - py) * 2 * MAX_TILT_DEG;
+        tile.classList.add('is-tilting');
+        tile.style.transform =
+          'perspective(900px) rotateX(' + rotateX.toFixed(2) + 'deg) rotateY(' +
+          rotateY.toFixed(2) + 'deg) translateY(-6px) scale(1.03)';
+      });
+
+      tile.addEventListener('mouseleave', function () {
+        tile.classList.remove('is-tilting');
+        tile.style.transform = '';
+      });
+    });
+  })();
+</script>
+
+<script>
+  (function () {
+    var prefersReducedMotion = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ---------------- Scroll-reveal (services, why-choose-us, process,
+       portfolio, press, final CTA section headers/cards) ---------------- */
+    var revealEls = document.querySelectorAll('.home-reveal, .home-story-list--numbered');
+
+    if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+      revealEls.forEach(function (el) {
+        el.classList.add('is-visible');
+      });
+    } else {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+      revealEls.forEach(function (el) {
+        revealObserver.observe(el);
+      });
+    }
+
+    /* ---------------- Trust ribbon count-up ---------------- */
+    var countEls = document.querySelectorAll('[data-count-to]');
+
+    function animateCount(el) {
+      var target = parseInt(el.getAttribute('data-count-to'), 10);
+      var suffix = el.getAttribute('data-count-suffix') || '';
+      if (isNaN(target)) return;
+
+      if (prefersReducedMotion) {
+        el.textContent = target + suffix;
+        return;
+      }
+
+      var duration = 1400;
+      var start = null;
+
+      function step(ts) {
+        if (start === null) start = ts;
+        var progress = Math.min((ts - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(target * eased) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+
+      requestAnimationFrame(step);
+    }
+
+    if (countEls.length) {
+      var trustGrid = countEls[0].closest('.home-trust-grid');
+      if (trustGrid && 'IntersectionObserver' in window && !prefersReducedMotion) {
+        var countObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              countEls.forEach(animateCount);
+              countObserver.disconnect();
+            }
+          });
+        }, { threshold: 0.4 });
+        countObserver.observe(trustGrid);
+      } else {
+        countEls.forEach(animateCount);
+      }
+    }
+  })();
+</script>
 
 <script>
   (function () {

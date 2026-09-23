@@ -1,8 +1,8 @@
 <!-- Preload the header logo so it paints immediately instead of waiting on
      the browser to discover the <img> tag during HTML parsing — fixes the
      slight delay noticeable on each page load. -->
-<link rel="preload" as="image"
-  href="/wp-content/uploads/2025/08/Avenir-Next-SBS-logo-blue_v36.png" fetchpriority="high">
+<link rel="preload" as="image" href="/wp-content/uploads/2025/08/Avenir-Next-SBS-logo-blue_v36.png"
+  fetchpriority="high">
 
 <!-- Google Fonts: Manrope -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -109,6 +109,7 @@
 
   .custom-btn-primary {
     background: var(--brand-gradient);
+      background-clip: padding-box;
     color: #FFFFFF;
     box-shadow: 0 4px 14px rgba(2, 80, 197, 0.25);
   }
@@ -118,6 +119,7 @@
   .custom-btn-primary:focus-visible,
   .custom-btn-primary:active {
     background: var(--brand-gradient-hover);
+      background-clip: padding-box;
     transform: translateY(-1px);
     color: #FFFFFF !important;
   }
@@ -746,8 +748,7 @@
 
                   <div class="custom-mega-subgroup">
                     <div class="custom-mega-sub-label">WordPress</div>
-                    <a class="custom-mega-link"
-                      href="/services/web-design-development/custom-web-development/">Custom
+                    <a class="custom-mega-link" href="/services/web-design-development/custom-web-development/">Custom
                       WordPress Websites</a>
                     <a class="custom-mega-link" href="/woocommerce-stores/">WooCommerce
                       Stores</a>
@@ -792,24 +793,18 @@
 
                   <div class="custom-mega-subgroup">
                     <div class="custom-mega-sub-label">Hosting &amp; Maintenance</div>
-                    <a class="custom-mega-link is-soon" href="#">WordPress Maintenance Bundle<span
-                        class="custom-badge-soon">Coming Soon</span></a>
-                    <a class="custom-mega-link is-soon" href="#">Simple Site Hosting Bundle<span
-                        class="custom-badge-soon">Coming Soon</span></a>
+                    <a class="custom-mega-link" href="/wordpress-maintenance-hosting-bundle/">WordPress Maintenance
+                      Bundle</a>
+                    <a class="custom-mega-link" href="/simple-site-hosting-bundle/">Simple Site Hosting Bundle</a>
+                    <a class="custom-mega-link" href="/website-care/">Website Care</a>
                   </div>
 
                   <div class="custom-mega-subgroup">
                     <div class="custom-mega-sub-label">Security &amp; Tools</div>
-                    <a class="custom-mega-link"
-                      href="/cybersecurity-packages/">Cybersecurity
+                    <a class="custom-mega-link" href="/cybersecurity-packages/">Cybersecurity
                       &amp; Email Backup</a>
-                    <a class="custom-mega-link"
-                      href="/email-setup-migration-services-gws-ms365/">Email Setup &amp;
+                    <a class="custom-mega-link" href="/email-setup-migration-services-gws-ms365/">Email Setup &amp;
                       Migration</a>
-                    <a class="custom-mega-link is-soon" href="#">Web Hosting &amp; Domains<span
-                        class="custom-badge-soon">Coming Soon</span></a>
-                    <a class="custom-mega-link is-soon" href="#">Domain Registration &amp; Renewal<span
-                        class="custom-badge-soon">Coming Soon</span></a>
                   </div>
                 </div>
 
@@ -828,44 +823,31 @@
 
                   <div class="custom-mega-subgroup">
                     <div class="custom-mega-sub-label">SEO</div>
-                    <a class="custom-mega-link is-soon" href="#">SEO Plans<span class="custom-badge-soon">Coming
-                        Soon</span></a>
-                    <a class="custom-mega-link is-soon" href="#">SEO Audit &amp; Priority Fixes<span
-                        class="custom-badge-soon">Coming Soon</span></a>
+                    <a class="custom-mega-link" href="/seo-plans-site-audit/">SEO Plans &amp; Site Audit</a>
                   </div>
 
                   <div class="custom-mega-subgroup">
                     <div class="custom-mega-sub-label">Local SEO</div>
-                    <a class="custom-mega-link is-soon" href="#">Local Domination Package<span
-                        class="custom-badge-soon">Coming Soon</span></a>
-                    <a class="custom-mega-link is-soon" href="#">Google Business Profile Setup<span
-                        class="custom-badge-soon">Coming Soon</span></a>
-                    <a class="custom-mega-link is-soon" href="#">Google 3-Pack Optimization<span
-                        class="custom-badge-soon">Coming Soon</span></a>
-                    <a class="custom-mega-link is-soon" href="#">Additional Location Add-On<span
-                        class="custom-badge-soon">Coming Soon</span></a>
-                    <a class="custom-mega-link is-soon" href="#">Reputation Management<span
-                        class="custom-badge-soon">Coming Soon</span></a>
+                    <a class="custom-mega-link" href="/local-seo-google-business-profile/">Local SEO &amp; Google
+                      Business Profile</a>
+                  </div>
+
+                  <div class="custom-mega-subgroup">
+                    <div class="custom-mega-sub-label">Analytics &amp; Tracking</div>
+                    <a class="custom-mega-link" href="/google-analytics-search-console-setup/">Google Analytics
+                      &amp; Search Console Setup</a>
                   </div>
 
                   <div class="custom-mega-subgroup">
                     <div class="custom-mega-sub-label">Paid Advertising</div>
-                    <a class="custom-mega-link is-soon" href="#">Google Ads Management<span
-                        class="custom-badge-soon">Coming Soon</span></a>
-                    <a class="custom-mega-link is-soon" href="#">Meta Ads Management<span
-                        class="custom-badge-soon">Coming Soon</span></a>
-                    <a class="custom-mega-link is-soon" href="#">Amazon Ads Management<span
-                        class="custom-badge-soon">Coming Soon</span></a>
-                    <a class="custom-mega-link" href="/walmart-ads-management/">Walmart Ads
-                      Management</a>
+                    <a class="custom-mega-link" href="/paid-advertising/">Paid Advertising</a>
                   </div>
 
                   <div class="custom-mega-subgroup">
                     <div class="custom-mega-sub-label">CRM</div>
-                    <a class="custom-mega-link is-soon" href="#">CRM Build &amp; Setup<span
-                        class="custom-badge-soon">Coming Soon</span></a>
-                    <a class="custom-mega-link is-soon" href="#">CRM Management<span class="custom-badge-soon">Coming
-                        Soon</span></a>
+                    <a class="custom-mega-link" href="/go-high-level-service/">Go High Level (GHL)</a>
+                    <a class="custom-mega-link" href="/crm-build-setup-management/">CRM Build, Setup &amp;
+                      Management</a>
                   </div>
                 </div>
 
@@ -883,33 +865,21 @@
                   </div>
 
                   <div class="custom-mega-subgroup">
-                    <div class="custom-mega-sub-label">Marketing Packages</div>
-                    <a class="custom-mega-link is-soon" href="#">Marketing Visibility Packages<span
-                        class="custom-badge-soon">Coming Soon</span></a>
-                  </div>
-
-                  <div class="custom-mega-subgroup">
                     <div class="custom-mega-sub-label">Social Media</div>
-                    <a class="custom-mega-link is-soon" href="#">Social Media Management<span
-                        class="custom-badge-soon">Coming Soon</span></a>
-                    <a class="custom-mega-link is-soon" href="#">Social Account Setup<span
-                        class="custom-badge-soon">Coming Soon</span></a>
+                    <a class="custom-mega-link" href="/social-media-setup-and-management/">Social Media Setup
+                      &amp; Management</a>
                   </div>
 
                   <div class="custom-mega-subgroup">
                     <div class="custom-mega-sub-label">Email Newsletter</div>
-                    <a class="custom-mega-link is-soon" href="#">Newsletter Management<span
-                        class="custom-badge-soon">Coming Soon</span></a>
-                    <a class="custom-mega-link is-soon" href="#">Newsletter Template Design<span
-                        class="custom-badge-soon">Coming Soon</span></a>
+                    <a class="custom-mega-link" href="/newsletter-services/">Newsletter Management &amp; Email
+                      Marketing</a>
                   </div>
 
                   <div class="custom-mega-subgroup">
                     <div class="custom-mega-sub-label">Design &amp; Copy</div>
-                    <a class="custom-mega-link is-soon" href="#">Branding Package<span class="custom-badge-soon">Coming
-                        Soon</span></a>
-                    <a class="custom-mega-link is-soon" href="#">Content &amp; Copywriting<span
-                        class="custom-badge-soon">Coming Soon</span></a>
+                    <a class="custom-mega-link" href="/design/">Graphic Design &amp; Branding</a>
+                    <a class="custom-mega-link" href="/copywriting/">Copywriting &amp; Content Writing</a>
                   </div>
                 </div>
 
@@ -980,8 +950,8 @@
 <div class="custom-offcanvas-overlay" id="offcanvasOverlay"></div>
 <aside class="custom-offcanvas-panel" id="offcanvasPanel" aria-label="Mobile menu">
   <div class="custom-offcanvas-head">
-    <img src="/wp-content/uploads/2025/08/Avenir-Next-SBS-logo-blue_v36.png"
-      alt="Sites by Sara" width="128" height="27" style="width:128px;height:auto;">
+    <img src="/wp-content/uploads/2025/08/Avenir-Next-SBS-logo-blue_v36.png" alt="Sites by Sara" width="128" height="27"
+      style="width:128px;height:auto;">
     <button class="custom-offcanvas-close" id="offcanvasCloseBtn" aria-label="Close menu">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
         stroke-linecap="round" stroke-linejoin="round">
@@ -1023,8 +993,7 @@
           <div class="custom-m-acc-panel-inner">
 
             <div class="custom-m-group-title">WordPress</div>
-            <a class="custom-m-link"
-              href="/services/web-design-development/custom-web-development/">Custom
+            <a class="custom-m-link" href="/services/web-design-development/custom-web-development/">Custom
               WordPress Websites</a>
             <a class="custom-m-link" href="/woocommerce-stores/">WooCommerce Stores</a>
 
@@ -1047,77 +1016,45 @@
             <a class="custom-m-link" href="/hourly-dev-blocks/">Hourly Dev Blocks</a>
 
             <div class="custom-m-group-title">Hosting &amp; Maintenance</div>
-            <a class="custom-m-link is-soon" href="#">WordPress Maintenance Bundle<span class="custom-badge-soon">Coming
-                Soon</span></a>
-            <a class="custom-m-link is-soon" href="#">Joomla Maintenance Bundle<span class="custom-badge-soon">Coming
-                Soon</span></a>
-            <a class="custom-m-link is-soon" href="#">Simple Site Hosting Bundle<span class="custom-badge-soon">Coming
-                Soon</span></a>
+            <a class="custom-m-link" href="/wordpress-maintenance-hosting-bundle/">WordPress Maintenance
+              Bundle</a>
+            <a class="custom-m-link" href="/simple-site-hosting-bundle/">Simple Site Hosting Bundle</a>
+            <a class="custom-m-link" href="/website-care/">Website Care</a>
 
             <div class="custom-m-group-title">Security &amp; Tools</div>
             <a class="custom-m-link" href="/cybersecurity-packages/">Cybersecurity &amp;
               Email Backup</a>
             <a class="custom-m-link" href="/email-setup-migration-services-gws-ms365/">Email
               Setup &amp; Migration</a>
-            <a class="custom-m-link is-soon" href="#">Web Hosting &amp; Domains<span class="custom-badge-soon">Coming
-                Soon</span></a>
-            <a class="custom-m-link is-soon" href="#">Domain Registration &amp; Renewal<span
-                class="custom-badge-soon">Coming Soon</span></a>
 
             <div class="custom-m-group-title">SEO</div>
-            <a class="custom-m-link is-soon" href="#">SEO Plans<span class="custom-badge-soon">Coming Soon</span></a>
-            <a class="custom-m-link is-soon" href="#">SEO Audit &amp; Priority Fixes<span
-                class="custom-badge-soon">Coming Soon</span></a>
+            <a class="custom-m-link" href="/seo-plans-site-audit/">SEO Plans &amp; Site Audit</a>
 
             <div class="custom-m-group-title">Local SEO</div>
-            <a class="custom-m-link is-soon" href="#">Local Domination Package<span class="custom-badge-soon">Coming
-                Soon</span></a>
-            <a class="custom-m-link is-soon" href="#">Google Business Profile Setup<span
-                class="custom-badge-soon">Coming Soon</span></a>
-            <a class="custom-m-link is-soon" href="#">Google 3-Pack Optimization<span class="custom-badge-soon">Coming
-                Soon</span></a>
-            <a class="custom-m-link is-soon" href="#">Additional Location Add-On<span class="custom-badge-soon">Coming
-                Soon</span></a>
-            <a class="custom-m-link is-soon" href="#">Reputation Management<span class="custom-badge-soon">Coming
-                Soon</span></a>
+            <a class="custom-m-link" href="/local-seo-google-business-profile/">Local SEO &amp; Google Business
+              Profile</a>
+
+            <div class="custom-m-group-title">Analytics &amp; Tracking</div>
+            <a class="custom-m-link" href="/google-analytics-search-console-setup/">Google Analytics &amp; Search
+              Console Setup</a>
 
             <div class="custom-m-group-title">Paid Advertising</div>
-            <a class="custom-m-link is-soon" href="#">Google Ads Management<span class="custom-badge-soon">Coming
-                Soon</span></a>
-            <a class="custom-m-link is-soon" href="#">Meta Ads Management<span class="custom-badge-soon">Coming
-                Soon</span></a>
-            <a class="custom-m-link is-soon" href="#">Amazon Ads Management<span class="custom-badge-soon">Coming
-                Soon</span></a>
-            <a class="custom-m-link" href="/walmart-ads-management/">Walmart Ads
-              Management</a>
+            <a class="custom-m-link" href="/paid-advertising/">Paid Advertising</a>
 
             <div class="custom-m-group-title">CRM</div>
-            <a class="custom-m-link is-soon" href="#">CRM Build &amp; Setup<span class="custom-badge-soon">Coming
-                Soon</span></a>
-            <a class="custom-m-link is-soon" href="#">CRM Management<span class="custom-badge-soon">Coming
-                Soon</span></a>
-
-            <div class="custom-m-group-title">Marketing Packages</div>
-            <a class="custom-m-link is-soon" href="#">Marketing Visibility Packages<span
-                class="custom-badge-soon">Coming Soon</span></a>
+            <a class="custom-m-link" href="/go-high-level-service/">Go High Level (GHL)</a>
+            <a class="custom-m-link" href="/crm-build-setup-management/">CRM Build, Setup &amp; Management</a>
 
             <div class="custom-m-group-title">Social Media</div>
-            <a class="custom-m-link is-soon" href="#">Social Media Management<span class="custom-badge-soon">Coming
-                Soon</span></a>
-            <a class="custom-m-link is-soon" href="#">Social Account Setup<span class="custom-badge-soon">Coming
-                Soon</span></a>
+            <a class="custom-m-link" href="/social-media-setup-and-management/">Social Media Setup &amp;
+              Management</a>
 
             <div class="custom-m-group-title">Email Newsletter</div>
-            <a class="custom-m-link is-soon" href="#">Newsletter Management<span class="custom-badge-soon">Coming
-                Soon</span></a>
-            <a class="custom-m-link is-soon" href="#">Newsletter Template Design<span class="custom-badge-soon">Coming
-                Soon</span></a>
+            <a class="custom-m-link" href="/newsletter-services/">Newsletter Management &amp; Email Marketing</a>
 
             <div class="custom-m-group-title">Design &amp; Copy</div>
-            <a class="custom-m-link is-soon" href="#">Branding Package<span class="custom-badge-soon">Coming
-                Soon</span></a>
-            <a class="custom-m-link is-soon" href="#">Content &amp; Copywriting<span class="custom-badge-soon">Coming
-                Soon</span></a>
+            <a class="custom-m-link" href="/design/">Graphic Design &amp; Branding</a>
+            <a class="custom-m-link" href="/copywriting/">Copywriting &amp; Content Writing</a>
 
           </div>
         </div>
@@ -1156,8 +1093,7 @@
       </div>
 
       <div class="custom-m-acc-item">
-        <a class="custom-m-link" href="/blogs/"
-          style="padding:15px 8px;font-size:0.95rem;font-weight:700;">Blog</a>
+        <a class="custom-m-link" href="/blogs/" style="padding:15px 8px;font-size:0.95rem;font-weight:700;">Blog</a>
       </div>
 
     </div>

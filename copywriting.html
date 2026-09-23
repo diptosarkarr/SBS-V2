@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copywriting &amp; Content Writing Services | Sites by Sara</title>
+  <meta name="description"
+    content="Content writing priced by word count, blog post add-ons, and human or AI-human hybrid content writing from Sites by Sara. From $45.">
+  <meta property="og:title" content="Copywriting &amp; Content Writing Services | Sites by Sara">
+  <meta property="og:description"
+    content="Content writing priced by word count, blog post add-ons, and human or AI-human hybrid content writing from Sites by Sara. From $45.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- SEO: Service structured data (see design.md §7) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Copywriting & Content Writing",
+    "provider": {
+      "@type": "Organization",
+      "name": "Sites by Sara"
+    },
+    "description": "Standalone content writing priced by word count, single blog post add-ons, and human or AI-human hybrid content writing priced per word.",
+    "offers": {
+      "@type": "AggregateOffer",
+      "priceCurrency": "USD",
+      "lowPrice": "45",
+      "highPrice": "1000"
+    }
+  }
+  </script>
+  <!-- SEO: FAQPage structured data — mirrors the visible FAQ section verbatim -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How is Content Writing priced?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "By word count, per piece: 150 words at $45, 250 words at $75, 500 words at $1,000, 750 words at $225, 1000 words at $250, or 1500 words at $375."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's included with Content Writing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Standalone written content, priced per word count you choose."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you add a blog post to my existing blog?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Blog Post Add-On (Single) is $437 one-time for one additional blog post, roughly 1,000-1,500 words, SEO optimized, with an image sourced and uploaded for you."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between Human Content Writing and AI-Human Hybrid Content Writing?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Human Content Writing is fully human-written, priced at $0.25/word. AI-Human Hybrid Content Writing blends AI drafting with human editing, priced at $0.20/word with a 250-word minimum."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there a minimum word count?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Content Writing starts at 150 words. AI-Human Hybrid Content Writing has a 250-word minimum. Human Content Writing has no stated minimum."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you also design the pages this content goes on?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — content writing pairs naturally with our web design and graphic design services. See our Graphic Design & Branding page or our website services if you need both."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+    :root {
+      --brand-blue: #3A539B;
+      --brand-blue-hover: #2F437D;
+      --brand-blue-tint: #EEF2FA;
+      --brand-blue-subtle: #F6F8FD;
+
+      --brand-coral: #ea4e5f;
+      --brand-coral-hover: #d43d4e;
+      --brand-coral-tint: #FDEEEE;
+
+      --brand-peach: #FCEFE5;
+      --brand-peach-hover: #F8E3D4;
+      --brand-peach-tint: #FFF9F5;
+
+      --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+      --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+      --navy: #1E2140;
+      --navy-dark: #13152C;
+      --slate: #5F6368;
+      --slate-light: #80868B;
+      --slate-subtle: #9AA0A6;
+
+      --border: #DCE2EE;
+      --border-light: #ECEFF5;
+      --border-card: #DFE4EE;
+
+      --bg-white: #FFFFFF;
+      --bg-light: #F9FAFD;
+      --bg-banner: #FCEFE5;
+      --bg-callout: #FFFBF7;
+
+      --green: #1E8E3E;
+      --green-tint: #E6F4EA;
+      --yellow: #FBBC04;
+      --yellow-tint: #FEF7E0;
+      --coral: #ea4e5f;
+      --coral-tint: #FDEEEE;
+
+      --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --radius-pill: 9999px;
+
+      --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+      --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+      --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+      --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--navy);
+      background-color: var(--bg-white);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    strong,
+    b {
+      font-weight: 600;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-space {
+      padding: clamp(70px, 8vw, 110px) 0;
+    }
+
+    .section-space-tight {
+      padding: clamp(40px, 5vw, 65px) 0;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto clamp(36px, 5vw, 56px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 16px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--coral);
+      display: inline-block;
+    }
+
+    .h2-title {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .lead-text {
+      font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
+      color: var(--slate);
+      line-height: 1.65;
+      font-weight: 400;
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font);
+      font-size: 0.98rem;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1.5px solid transparent;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--brand-gradient);
+      background-clip: padding-box;
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:focus-visible,
+    .btn-primary:active {
+      background: var(--brand-gradient-hover);
+      background-clip: padding-box;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+      color: #FFFFFF !important;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--brand-blue);
+      border-color: var(--brand-blue);
+    }
+
+    .btn-outline:hover,
+    .btn-outline:focus,
+    .btn-outline:focus-visible,
+    .btn-outline:active {
+      background-color: var(--brand-peach);
+      border-color: var(--brand-blue);
+      color: var(--brand-blue) !important;
+    }
+
+    /* ============================================================
+     PAGE TITLE BANNER
+     ============================================================ */
+    .page-title-banner {
+      position: relative;
+      overflow: hidden;
+      background: var(--brand-gradient);
+      padding: clamp(52px, 6vw, 76px) 24px;
+      text-align: center;
+      color: #FFFFFF;
+      box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+    }
+
+    .page-title-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+      pointer-events: none;
+    }
+
+    .page-title-banner-mesh {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .page-title-banner-mesh::before,
+    .page-title-banner-mesh::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: 0.22;
+      pointer-events: none;
+    }
+
+    .page-title-banner-mesh::before {
+      width: 320px;
+      height: 320px;
+      background: #FFFFFF;
+      top: -120px;
+      left: 8%;
+    }
+
+    .page-title-banner-mesh::after {
+      width: 280px;
+      height: 280px;
+      background: var(--brand-coral);
+      bottom: -80px;
+      right: 10%;
+    }
+
+    .page-title-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-banner-h1 {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #FFFFFF;
+      letter-spacing: -0.025em;
+      margin: 0 0 10px;
+      text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+    }
+
+    .page-banner-sub {
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.94);
+      letter-spacing: 0.01em;
+      margin: 0;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+    }
+
+    /* ============================================================
+     HERO SECTION
+     ============================================================ */
+    .hero-section {
+      padding: clamp(48px, 6vw, 76px) 0 clamp(40px, 6vw, 70px);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: center;
+    }
+
+    .hero-left {
+      max-width: 580px;
+    }
+
+    .hero-footnote {
+      font-size: 0.88rem;
+      color: var(--slate-light);
+      line-height: 1.5;
+    }
+
+    .hero-footnote strong {
+      color: var(--slate);
+      font-weight: 600;
+    }
+
+    .hero-visual-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-floating);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      transition: transform 0.3s ease;
+      background: #FFFFFF;
+      aspect-ratio: 4 / 3;
+    }
+
+    .hero-image-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .hero-image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ============================================================
+     TRUST & CAPABILITY METRICS RIBBON
+     ============================================================ */
+    .trust-ribbon-section {
+      padding: 38px 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      background: var(--brand-blue-subtle);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+
+    .trust-stat-item {
+      padding: 8px 16px;
+    }
+
+    .trust-stat-number {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--brand-blue);
+      line-height: 1.1;
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+    }
+
+    .trust-stat-label {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--slate);
+      line-height: 1.35;
+    }
+
+    /* ============================================================
+     PRICING SECTION
+     ============================================================ */
+    .pricing-section {
+      padding: clamp(70px, 8vw, 110px) 0;
+      background: #FFFFFF;
+    }
+
+    .pricing-outer-container {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-card);
+      padding: clamp(24px, 4vw, 44px);
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .pricing-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-light);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .pricing-platform-pills {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .platform-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy);
+      background: #F1F3F9;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+    }
+
+    .pricing-currency-badge {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--slate);
+    }
+
+    .pricing-divider {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--brand-blue);
+      margin: 36px 0 16px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .pricing-outer-container>.pricing-divider:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    /* 3-Column Grid (Content Writing tiers, wraps to 2 rows for 6 items) */
+    .pricing-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .pricing-card-col {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 26px 20px 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+
+    .pricing-card-col:hover {
+      border-color: #BDC1C6;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .pricing-card-col.is-featured {
+      border: 2px solid var(--brand-blue);
+      box-shadow: 0 10px 28px rgba(58, 83, 155, 0.14);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: -12px;
+      left: 18px;
+      background: var(--brand-gradient);
+      color: #FFFFFF;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: var(--radius-pill);
+      box-shadow: 0 2px 8px rgba(2, 80, 197, 0.25);
+    }
+
+    .plan-name {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .plan-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+
+    .plan-price {
+      font-size: 1.7rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .plan-period {
+      font-size: 0.78rem;
+      color: var(--slate);
+      font-weight: 600;
+    }
+
+    .plan-subtext {
+      font-size: 0.82rem;
+      color: var(--brand-blue);
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .btn-plan {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 11px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 22px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-plan-primary {
+      background: var(--brand-gradient);
+      color: #FFFFFF;
+      box-shadow: 0 3px 12px rgba(2, 80, 197, 0.22);
+    }
+
+    .btn-plan-primary:hover,
+    .btn-plan-primary:focus,
+    .btn-plan-primary:focus-visible,
+    .btn-plan-primary:active {
+      background: var(--brand-gradient-hover);
+      box-shadow: 0 5px 16px rgba(212, 63, 141, 0.32);
+      color: #FFFFFF !important;
+    }
+
+    .btn-plan-outline {
+      background: transparent;
+      color: var(--brand-blue);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-plan-outline:hover,
+    .btn-plan-outline:focus,
+    .btn-plan-outline:focus-visible,
+    .btn-plan-outline:active {
+      background: var(--brand-peach);
+      border-color: var(--brand-blue);
+      color: var(--brand-blue) !important;
+    }
+
+    .plan-features-label {
+      font-size: 0.76rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--slate-light);
+      margin-bottom: 10px;
+    }
+
+    .plan-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      font-size: 0.84rem;
+      color: var(--slate);
+      line-height: 1.4;
+    }
+
+    .plan-features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+    }
+
+    .plan-features-list li svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .pricing-card-col.is-featured .plan-features-list li svg {
+      color: var(--brand-blue);
+    }
+
+    .pricing-card-col:not(.is-featured) .plan-features-list li svg {
+      color: var(--green);
+    }
+
+    /* Lightweight addon-style cards for blog/bulk content writing */
+    .pricing-addons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .addon-item-box {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .addon-item-box:hover {
+      background: #FFFFFF;
+      border-color: var(--border-card);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .addon-price-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--brand-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .addon-item-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .addon-item-desc {
+      font-size: 0.85rem;
+      color: var(--slate);
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    .addon-item-note {
+      font-size: 0.78rem;
+      color: var(--slate-light);
+      line-height: 1.4;
+    }
+
+    .pricing-disclaimer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--slate-light);
+      margin-top: 28px;
+      line-height: 1.6;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pricing-inline-link {
+      text-align: center;
+      font-size: 0.92rem;
+      color: var(--slate);
+      margin-top: 16px;
+    }
+
+    .pricing-inline-link a {
+      color: var(--brand-blue);
+      font-weight: 600;
+      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .pricing-inline-link a:hover,
+    .pricing-inline-link a:focus,
+    .pricing-inline-link a:focus-visible,
+    .pricing-inline-link a:active {
+      color: var(--brand-blue-hover) !important;
+      border-color: var(--brand-blue-hover);
+    }
+
+    /* ============================================================
+     DETAILED BREAKDOWN: OUR PROCESS (8-Step Scope)
+     ============================================================ */
+    .scope-section {
+      background: var(--bg-light);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .scope-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .scope-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+    }
+
+    .scope-card:hover {
+      border-color: var(--brand-blue);
+      box-shadow: var(--shadow-subtle);
+      transform: translateY(-2px);
+    }
+
+    .scope-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--brand-blue-tint);
+      color: var(--brand-blue);
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .scope-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .scope-desc {
+      font-size: 0.85rem;
+      color: var(--slate);
+      line-height: 1.55;
+    }
+
+    /* ============================================================
+     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     ============================================================ */
+    .story-features-section {
+      padding: clamp(60px, 8vw, 110px) 0;
+    }
+
+    .story-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 7vw, 100px);
+      align-items: center;
+      margin-bottom: clamp(70px, 9vw, 130px);
+    }
+
+    .story-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .story-row.is-reversed .story-text-col {
+      order: 2;
+    }
+
+    .story-row.is-reversed .story-visual-col {
+      order: 1;
+    }
+
+    .story-text-col {
+      max-width: 480px;
+    }
+
+    .story-title {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+
+    .story-desc {
+      font-size: 1.08rem;
+      color: var(--slate);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .story-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--brand-coral);
+      transition: gap 0.2s ease, color 0.2s ease;
+    }
+
+    .story-link:hover,
+    .story-link:focus,
+    .story-link:focus-visible,
+    .story-link:active {
+      gap: 10px;
+      color: var(--brand-coral-hover) !important;
+    }
+
+    .story-link svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    .story-visual-col {
+      display: flex;
+      justify-content: center;
+    }
+
+    .story-image-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-light);
+      transition: all 0.3s ease;
+      background: #FFFFFF;
+      max-width: 520px;
+      width: 100%;
+    }
+
+    .story-image-card:hover {
+      box-shadow: var(--shadow-floating);
+      transform: translateY(-3px);
+    }
+
+    .story-image-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    /* ============================================================
+     FAQ SECTION (Clean Modern Accordion)
+     ============================================================ */
+    .faq-section {
+      background: #FAFAFC;
+      padding: clamp(70px, 8vw, 100px) 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .faq-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      margin-bottom: 14px;
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .faq-item:hover {
+      border-color: #CBD5E1;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--brand-blue-tint);
+      color: var(--brand-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+
+    details[open] .faq-icon {
+      transform: rotate(45deg);
+      background: var(--coral-tint);
+      color: var(--coral);
+    }
+
+    .faq-answer {
+      padding: 0 24px 22px;
+      font-size: 0.95rem;
+      color: var(--slate);
+      line-height: 1.65;
+    }
+
+    .faq-answer strong {
+      color: var(--navy);
+    }
+
+    .faq-answer a {
+      color: var(--brand-blue);
+      font-weight: 600;
+      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
+    }
+
+    /* ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ */
+    .cta-banner-section {
+      padding: clamp(70px, 8vw, 110px) 0;
+    }
+
+    .cta-banner-box {
+      background: var(--bg-banner);
+      border-radius: var(--radius-xl);
+      padding: clamp(36px, 5vw, 60px);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .cta-banner-left h2 {
+      font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem);
+      font-weight: 700;
+      color: var(--brand-blue);
+      line-height: 1.25;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-banner-left p {
+      font-size: 1.05rem;
+      color: var(--slate);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .prep-card-right {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .prep-card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    .prep-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--slate);
+    }
+
+    .prep-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .prep-list-num {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--brand-blue-tint);
+      color: var(--brand-blue);
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+    @media (max-width: 1024px) {
+
+      .pricing-grid-3,
+      .pricing-addons-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .scope-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 820px) {
+
+      .hero-grid,
+      .story-row,
+      .cta-banner-box {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .story-row.is-reversed .story-text-col {
+        order: 1;
+      }
+
+      .story-row.is-reversed .story-visual-col {
+        order: 2;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .pricing-grid-3,
+      .pricing-addons-grid,
+      .scope-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn-group {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       PAGE TITLE BANNER
+       ============================================================ -->
+  <section class="page-title-banner" aria-label="Page Title">
+    <div class="page-title-banner-mesh" aria-hidden="true"></div>
+    <div class="container page-title-inner">
+      <h1 class="page-banner-h1">Copywriting &amp; Content Writing</h1>
+      <p class="page-banner-sub">(Word-Count Pricing, Blog Add-Ons &amp; Human or AI-Human Hybrid Writing)</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <section class="hero-section" id="overview">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Hero Copy -->
+        <div class="hero-left">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Copywriting
+          </div>
+
+          <h2 class="h2-title">Written content, priced exactly to the word count you need.</h2>
+
+          <p class="lead-text">
+            Sites by Sara writes standalone content priced by word count, adds single blog posts to an existing
+            blog, and offers ongoing content writing — fully human-written, or an AI-human hybrid — priced per
+            word for larger volumes.
+          </p>
+
+          <div class="btn-group">
+            <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+              Consultation</a>
+            <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
+          </div>
+
+          <div class="hero-footnote">
+            <strong>Content Writing starts at $45</strong> for 150 words. Blog posts, and human or AI-human
+            hybrid writing, are priced separately.
+          </div>
+        </div>
+
+        <!-- Hero Visual Mockup -->
+        <div class="hero-visual-wrap">
+          <div class="hero-image-card">
+            <img src="/wp-content/uploads/2026/09/copywriting-hero.webp"
+              alt="Written content draft on a document page with a word count indicator" width="600" height="450" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     TRUST & CAPABILITY METRICS RIBBON
+     ============================================================ -->
+  <section class="trust-ribbon-section" aria-label="Key Service Facts">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-stat-item">
+          <div class="trust-stat-number">6</div>
+          <div class="trust-stat-label">Word-Count Pricing Tiers</div>
+        </div>
+        <div class="trust-stat-item">
+          <div class="trust-stat-number">$45</div>
+          <div class="trust-stat-label">Starting Price (150 Words)</div>
+        </div>
+        <div class="trust-stat-item">
+          <div class="trust-stat-number">2</div>
+          <div class="trust-stat-label">Writing Styles: Human &amp; AI-Hybrid</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     PRICING SECTION
+     ============================================================ -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Simple, Transparent Pricing
+        </div>
+        <h2 class="h2-title">Pick your word count, add a blog post or ongoing writing.</h2>
+        <p class="lead-text">Content Writing is priced per piece, by word count. Everything else is priced and
+          ordered separately.</p>
+      </div>
+
+      <div class="pricing-outer-container">
+
+        <!-- Top Bar -->
+        <div class="pricing-top-bar">
+          <div class="pricing-platform-pills">
+            <span class="platform-tag">Content Writing</span>
+            <span class="platform-tag">Blog &amp; Ongoing Writing</span>
+          </div>
+          <span class="pricing-currency-badge">Per-piece &amp; per-word rates · USD</span>
+        </div>
+
+        <!-- Content Writing (primary — 6-tier grid by word count) -->
+        <div class="pricing-divider">Content Writing (By Word Count)</div>
+        <div class="pricing-grid-3">
+
+          <div class="pricing-card-col is-featured">
+            <span class="featured-badge">Lowest Tier</span>
+            <div>
+              <h3 class="plan-name">150 Words</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$45</span>
+                <span class="plan-period">one-time</span>
+              </div>
+              <div class="plan-subtext">Short-form content</div>
+
+              <a href="https://order.sitesbysara.com/configure?id=66" target="_blank" rel="noopener noreferrer"
+                class="btn-plan btn-plan-primary">Order Now</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6 9 17l-5-5" stroke="#3A539B" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Standalone written content</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">250 Words</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$75</span>
+                <span class="plan-period">one-time</span>
+              </div>
+              <div class="plan-subtext">Short-form content</div>
+
+              <a href="https://order.sitesbysara.com/configure?id=67" target="_blank" rel="noopener noreferrer"
+                class="btn-plan btn-plan-outline">Order Now</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Standalone written content</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">500 Words</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$1,000</span>
+                <span class="plan-period">one-time</span>
+              </div>
+              <div class="plan-subtext">Mid-length content</div>
+
+              <a href="https://order.sitesbysara.com/configure?id=68" target="_blank" rel="noopener noreferrer"
+                class="btn-plan btn-plan-outline">Order Now</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Standalone written content</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">750 Words</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$225</span>
+                <span class="plan-period">one-time</span>
+              </div>
+              <div class="plan-subtext">Mid-length content</div>
+
+              <a href="https://order.sitesbysara.com/configure?id=69" target="_blank" rel="noopener noreferrer"
+                class="btn-plan btn-plan-outline">Order Now</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Standalone written content</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">1000 Words</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$250</span>
+                <span class="plan-period">one-time</span>
+              </div>
+              <div class="plan-subtext">Long-form content</div>
+
+              <a href="https://order.sitesbysara.com/configure?id=70" target="_blank" rel="noopener noreferrer"
+                class="btn-plan btn-plan-outline">Order Now</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Standalone written content</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">1500 Words</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$375</span>
+                <span class="plan-period">one-time</span>
+              </div>
+              <div class="plan-subtext">Long-form content</div>
+
+              <a href="https://order.sitesbysara.com/configure?id=71" target="_blank" rel="noopener noreferrer"
+                class="btn-plan btn-plan-outline">Order Now</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Standalone written content</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Blog & Ongoing Writing -->
+        <div class="pricing-divider">Blog &amp; Ongoing Writing</div>
+        <div class="pricing-addons-grid">
+
+          <div class="addon-item-box">
+            <span class="addon-price-tag">$437 One-Time</span>
+            <h4 class="addon-item-title">Blog Post Add-On (Single)</h4>
+            <p class="addon-item-desc">One additional blog post added to an existing blog — roughly 1,000-1,500
+              words, SEO optimized, with an image sourced and uploaded for you.</p>
+            <a href="https://order.sitesbysara.com/configure?id=72" target="_blank" rel="noopener noreferrer"
+              class="btn-plan btn-plan-outline">Order Now</a>
+          </div>
+
+          <div class="addon-item-box">
+            <span class="addon-price-tag">$0.25 / Word</span>
+            <h4 class="addon-item-title">Human Content Writing</h4>
+            <p class="addon-item-desc">Fully human-written content, priced per word.</p>
+            <a href="https://order.sitesbysara.com/configure?id=124" target="_blank" rel="noopener noreferrer"
+              class="btn-plan btn-plan-outline">Order Now</a>
+          </div>
+
+          <div class="addon-item-box">
+            <span class="addon-price-tag">$0.20 / Word</span>
+            <h4 class="addon-item-title">AI-Human Hybrid Content Writing</h4>
+            <p class="addon-item-desc">AI-assisted drafting with human editing, priced per word.</p>
+            <p class="addon-item-note">Minimum 250 words.</p>
+            <a href="https://order.sitesbysara.com/configure?id=125" target="_blank" rel="noopener noreferrer"
+              class="btn-plan btn-plan-outline">Order Now</a>
+          </div>
+
+        </div>
+
+        <!-- Press Release Distribution -->
+        <div class="pricing-divider">Press Release Distribution</div>
+        <div class="pricing-addons-grid">
+
+          <div class="addon-item-box">
+            <span class="addon-price-tag">$150 One-Time</span>
+            <h4 class="addon-item-title">Press Release Distribution</h4>
+            <p class="addon-item-desc">Distribute a client-provided press release via EIN Presswire.</p>
+            <a href="https://order.sitesbysara.com/configure?id=64" target="_blank" rel="noopener noreferrer"
+              class="btn-plan btn-plan-outline">Order Now</a>
+          </div>
+
+          <div class="addon-item-box">
+            <span class="addon-price-tag">$275 One-Time</span>
+            <h4 class="addon-item-title">Press Release Writing &amp; Distribution</h4>
+            <p class="addon-item-desc">We write the press release, then distribute it via EIN Presswire.</p>
+            <a href="https://order.sitesbysara.com/configure?id=65" target="_blank" rel="noopener noreferrer"
+              class="btn-plan btn-plan-outline">Order Now</a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <p class="pricing-disclaimer">
+        Content Writing is priced per piece by word count. Blog Post Add-On and Press Release services are
+        one-time fees per piece. Human Content Writing and AI-Human Hybrid Content Writing are priced per word for
+        larger or ongoing volumes, rather than a fixed per-piece rate.
+      </p>
+
+      <p class="pricing-inline-link">
+        Need your content designed too? See our <a href="/design/">Graphic Design &amp; Branding</a> page.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+     DETAILED BREAKDOWN: OUR PROCESS (8-Step Scope)
+     ============================================================ -->
+  <section class="section-space scope-section" aria-label="Copywriting breakdown">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Detailed Breakdown
+        </div>
+        <h2 class="h2-title">What's involved in getting your content written.</h2>
+        <p class="lead-text">From your first word-count decision to final delivery.</p>
+      </div>
+
+      <div class="scope-grid">
+
+        <div class="scope-card">
+          <div class="scope-num">1</div>
+          <h3 class="scope-title">Discovery Call</h3>
+          <p class="scope-desc">We talk through your business, audience, and what the content needs to do.</p>
+        </div>
+
+        <div class="scope-card">
+          <div class="scope-num">2</div>
+          <h3 class="scope-title">Word Count &amp; Format</h3>
+          <p class="scope-desc">Choosing the right word count and format for your content.</p>
+        </div>
+
+        <div class="scope-card">
+          <div class="scope-num">3</div>
+          <h3 class="scope-title">Research</h3>
+          <p class="scope-desc">Researching your topic, business, and audience before writing.</p>
+        </div>
+
+        <div class="scope-card">
+          <div class="scope-num">4</div>
+          <h3 class="scope-title">First Draft</h3>
+          <p class="scope-desc">Writing your first draft, human-written or AI-human hybrid as chosen.</p>
+        </div>
+
+        <div class="scope-card">
+          <div class="scope-num">5</div>
+          <h3 class="scope-title">SEO Optimization (Blog Posts)</h3>
+          <p class="scope-desc">Optimizing blog post content for search, for the Blog Post Add-On.</p>
+        </div>
+
+        <div class="scope-card">
+          <div class="scope-num">6</div>
+          <h3 class="scope-title">Image Sourcing (Blog Posts)</h3>
+          <p class="scope-desc">Sourcing and uploading an image for blog post add-ons.</p>
+        </div>
+
+        <div class="scope-card">
+          <div class="scope-num">7</div>
+          <h3 class="scope-title">Review &amp; Edit</h3>
+          <p class="scope-desc">Reviewing and editing the content before it's finalized.</p>
+        </div>
+
+        <div class="scope-card">
+          <div class="scope-num">8</div>
+          <h3 class="scope-title">Final Delivery</h3>
+          <p class="scope-desc">Delivering your finished content, ready to publish.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     ============================================================ -->
+  <section class="story-features-section">
+    <div class="container">
+
+      <!-- Feature 1: Word-Count Pricing -->
+      <div class="story-row">
+        <div class="story-text-col">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Priced To The Word
+          </div>
+          <h2 class="story-title">Six word-count tiers, so you only pay for what you need.</h2>
+          <p class="story-desc">
+            From a short 150-word piece up to a full 1500-word piece, Content Writing is priced per piece at the
+            word count you choose — standalone content you can drop anywhere on your site.
+          </p>
+          <a href="#pricing" class="story-link">See word-count pricing<svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg></a>
+        </div>
+        <div class="story-visual-col">
+          <div class="story-image-card">
+            <img src="/wp-content/uploads/2026/09/content-writing-wordcount-detail.webp"
+              alt="Document pages of increasing length representing different word-count tiers" width="520"
+              height="390" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2: Blog Post Add-On -->
+      <div class="story-row is-reversed">
+        <div class="story-text-col">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Already Have A Blog?
+          </div>
+          <h2 class="story-title">One more post, SEO optimized and ready to publish.</h2>
+          <p class="story-desc">
+            Blog Post Add-On adds a single post to your existing blog — roughly 1,000-1,500 words, SEO optimized,
+            with an image sourced and uploaded for you, so it's ready to go live.
+          </p>
+          <a href="#pricing" class="story-link">See Blog Post Add-On pricing<svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg></a>
+        </div>
+        <div class="story-visual-col">
+          <div class="story-image-card">
+            <img src="/wp-content/uploads/2026/09/blog-post-addon-detail.webp"
+              alt="Blog post layout mockup with a headline, body text, and a sourced image" width="520"
+              height="390" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3: Human vs AI-Human Hybrid -->
+      <div class="story-row">
+        <div class="story-text-col">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Ongoing Or Bulk Content
+          </div>
+          <h2 class="story-title">Fully human-written, or an AI-human hybrid — your choice.</h2>
+          <p class="story-desc">
+            For larger or ongoing volumes, Human Content Writing is fully human-written at $0.25/word, while
+            AI-Human Hybrid Content Writing blends AI drafting with human editing at $0.20/word, with a 250-word
+            minimum.
+          </p>
+          <a href="#pricing" class="story-link">Compare per-word pricing<svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg></a>
+        </div>
+        <div class="story-visual-col">
+          <div class="story-image-card">
+            <img src="/wp-content/uploads/2026/09/human-vs-ai-hybrid-writing-detail.webp"
+              alt="Side-by-side comparison of a human writing icon and an AI-assisted writing icon" width="520"
+              height="390" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+     FAQ SECTION (Clean Accordion)
+     ============================================================ -->
+  <section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Common Questions
+        </div>
+        <h2 class="h2-title">Frequently Asked Questions</h2>
+        <p class="lead-text">Everything you need to know about our copywriting and content writing services.</p>
+      </div>
+
+      <div class="faq-wrap">
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>How is Content Writing priced?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            By word count, per piece: <strong>150 words</strong> at $45, <strong>250 words</strong> at $75,
+            <strong>500 words</strong> at $1,000, <strong>750 words</strong> at $225, <strong>1000
+              words</strong> at $250, or <strong>1500 words</strong> at $375.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>What's included with Content Writing?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Standalone written content, priced per word count you choose.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Can you add a blog post to my existing blog?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Yes. <strong>Blog Post Add-On (Single)</strong> is $437 one-time for one additional blog post,
+            roughly 1,000-1,500 words, SEO optimized, with an image sourced and uploaded for you.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>What's the difference between Human Content Writing and AI-Human Hybrid Content Writing?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <strong>Human Content Writing</strong> is fully human-written, priced at $0.25/word.
+            <strong>AI-Human Hybrid Content Writing</strong> blends AI drafting with human editing, priced at
+            $0.20/word with a 250-word minimum.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Is there a minimum word count?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Content Writing starts at 150 words. AI-Human Hybrid Content Writing has a 250-word minimum. Human
+            Content Writing has no stated minimum.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Do you also design the pages this content goes on?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Yes — content writing pairs naturally with our web design and graphic design services. See our <a
+              href="/design/"><strong>Graphic Design &amp; Branding</strong></a> page or our website services if
+            you need both.
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ -->
+  <section class="cta-banner-section" id="consultation">
+    <div class="container">
+      <div class="cta-banner-box">
+
+        <div class="cta-banner-left">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Next Steps
+          </div>
+          <h2>Ready to get your content written?</h2>
+          <p>
+            Book a free consultation and tell us what the content is for — we'll recommend the right word count
+            or writing style.
+          </p>
+          <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+            Consultation</a>
+        </div>
+
+        <div class="prep-card-right">
+          <h4 class="prep-card-title">Helpful to have ready:</h4>
+          <ul class="prep-list">
+            <li>
+              <span class="prep-list-num">1</span>
+              <span>What the content is for (page, blog, ongoing content)</span>
+            </li>
+            <li>
+              <span class="prep-list-num">2</span>
+              <span>Roughly how many words or pieces you need</span>
+            </li>
+            <li>
+              <span class="prep-list-num">3</span>
+              <span>Your target audience and tone</span>
+            </li>
+            <li>
+              <span class="prep-list-num">4</span>
+              <span>Whether you prefer fully human-written content</span>
+            </li>
+            <li>
+              <span class="prep-list-num">5</span>
+              <span>Any existing content or brand voice guidelines</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>

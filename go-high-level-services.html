@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Go High Level (GHL) Setup & Management — Sites by Sara</title>
+  <meta name="description"
+    content="Go High Level (GHL) setup and management from Sites by Sara — $3,000 one-time setup plus $500/mo ongoing management, minimum 6-month engagement.">
+  <meta property="og:title" content="Go High Level (GHL) Setup & Management — Sites by Sara">
+  <meta property="og:description"
+    content="Go High Level (GHL) setup and management from Sites by Sara — $3,000 one-time setup plus $500/mo ongoing management, minimum 6-month engagement.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- SEO: Service structured data (see design.md §7) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Go High Level (GHL) Setup and Management",
+    "provider": {
+      "@type": "Organization",
+      "name": "Sites by Sara"
+    },
+    "description": "Go High Level (GHL) account setup, CRM pipelines, funnels, and automation for a $3,000 one-time setup fee, plus $500/mo ongoing management with a minimum 6-month engagement.",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "GHL Setup",
+        "priceCurrency": "USD",
+        "price": "3000"
+      },
+      {
+        "@type": "Offer",
+        "name": "GHL Management",
+        "priceCurrency": "USD",
+        "price": "500",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "500",
+          "priceCurrency": "USD",
+          "billingDuration": "P1M"
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- SEO: FAQPage structured data — mirrors the visible FAQ section verbatim -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is Go High Level (GHL)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Go High Level is an all-in-one CRM, funnel, and marketing automation platform. It combines your pipeline, funnels, calendar, and follow-up automations into one workspace instead of several disconnected tools."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does GHL setup and management cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "$3,000 for one-time setup, plus $500/mo for ongoing management, with a minimum 6-month engagement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's included in GHL setup?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sub-account setup, CRM pipelines mapped to your sales process, funnel/landing pages, automations, and calendar and booking integration."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why is there a minimum 6-month engagement?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Setup is a one-time investment, and pipelines and automations need time to run and be tuned against real leads before results are clear — the 6-month minimum keeps management in place long enough for that tuning to pay off."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can GHL replace my other marketing tools?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For most small businesses, yes — GHL can replace a separate CRM, funnel builder, appointment scheduler, and follow-up/SMS tool with one connected workspace."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you migrate my existing CRM into GHL?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Existing contacts, pipeline stages, and automations from another CRM can be rebuilt inside GHL as part of setup."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I want a standalone CRM instead of the full GHL platform?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "That's a separate service — see our CRM Build, Setup & Management page for standalone CRM builds starting at $350, without the funnel and marketing automation tools bundled into GHL."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+    :root {
+      --brand-blue: #3A539B;
+      --brand-blue-hover: #2F437D;
+      --brand-blue-tint: #EEF2FA;
+      --brand-blue-subtle: #F6F8FD;
+
+      --brand-coral: #ea4e5f;
+      --brand-coral-hover: #d43d4e;
+      --brand-coral-tint: #FDEEEE;
+
+      --brand-peach: #FCEFE5;
+      --brand-peach-hover: #F8E3D4;
+      --brand-peach-tint: #FFF9F5;
+
+      --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+      --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+      --navy: #1E2140;
+      --navy-dark: #13152C;
+      --slate: #5F6368;
+      --slate-light: #80868B;
+      --slate-subtle: #9AA0A6;
+
+      --border: #DCE2EE;
+      --border-light: #ECEFF5;
+      --border-card: #DFE4EE;
+
+      --bg-white: #FFFFFF;
+      --bg-light: #F9FAFD;
+      --bg-banner: #FCEFE5;
+      --bg-callout: #FFFBF7;
+
+      --green: #1E8E3E;
+      --green-tint: #E6F4EA;
+      --yellow: #FBBC04;
+      --yellow-tint: #FEF7E0;
+      --coral: #ea4e5f;
+      --coral-tint: #FDEEEE;
+
+      --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --radius-pill: 9999px;
+
+      --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+      --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+      --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+      --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+      --shadow-featured: 0 16px 40px -8px rgba(58, 83, 155, 0.24), 0 4px 14px rgba(58, 83, 155, 0.1);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font);
+      color: var(--navy);
+      background-color: var(--bg-white);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    strong,
+    b {
+      font-weight: 600;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-space {
+      padding: clamp(70px, 8vw, 110px) 0;
+    }
+
+    .section-space-tight {
+      padding: clamp(40px, 5vw, 65px) 0;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto clamp(36px, 5vw, 56px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--slate);
+      margin-bottom: 16px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--coral);
+      display: inline-block;
+    }
+
+    .h2-title {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .lead-text {
+      font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
+      color: var(--slate);
+      line-height: 1.65;
+      font-weight: 400;
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font);
+      font-size: 0.98rem;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1.5px solid transparent;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--brand-gradient);
+      background-clip: padding-box;
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:focus-visible,
+    .btn-primary:active {
+      background: var(--brand-gradient-hover);
+      background-clip: padding-box;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+      color: #FFFFFF !important;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--brand-blue);
+      border-color: var(--brand-blue);
+    }
+
+    .btn-outline:hover,
+    .btn-outline:focus,
+    .btn-outline:focus-visible,
+    .btn-outline:active {
+      background-color: var(--brand-peach);
+      border-color: var(--brand-blue);
+      color: var(--brand-blue) !important;
+    }
+
+    /* ============================================================
+     PAGE TITLE BANNER
+     ============================================================ */
+    .page-title-banner {
+      position: relative;
+      overflow: hidden;
+      background: var(--brand-gradient);
+      padding: clamp(52px, 6vw, 76px) 24px;
+      text-align: center;
+      color: #FFFFFF;
+      box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+    }
+
+    .page-title-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+        radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+      pointer-events: none;
+    }
+
+    .page-title-banner-mesh {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .page-title-banner-mesh::before,
+    .page-title-banner-mesh::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: 0.22;
+      pointer-events: none;
+    }
+
+    .page-title-banner-mesh::before {
+      width: 320px;
+      height: 320px;
+      background: #FFFFFF;
+      top: -120px;
+      left: 8%;
+    }
+
+    .page-title-banner-mesh::after {
+      width: 280px;
+      height: 280px;
+      background: var(--brand-coral);
+      bottom: -80px;
+      right: 10%;
+    }
+
+    .page-title-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-banner-h1 {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #FFFFFF;
+      letter-spacing: -0.025em;
+      margin: 0 0 10px;
+      text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+    }
+
+    .page-banner-sub {
+      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.94);
+      letter-spacing: 0.01em;
+      margin: 0;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+    }
+
+    /* ============================================================
+     HERO SECTION
+     ============================================================ */
+    .hero-section {
+      padding: clamp(48px, 6vw, 76px) 0 clamp(40px, 6vw, 70px);
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: clamp(40px, 6vw, 80px);
+      align-items: center;
+    }
+
+    .hero-left {
+      max-width: 580px;
+    }
+
+    .hero-footnote {
+      font-size: 0.88rem;
+      color: var(--slate-light);
+      line-height: 1.5;
+    }
+
+    .hero-footnote strong {
+      color: var(--slate);
+      font-weight: 600;
+    }
+
+    .hero-visual-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-image-card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-floating);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      transition: transform 0.3s ease;
+      background: #FFFFFF;
+      aspect-ratio: 4 / 3;
+    }
+
+    .hero-image-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .hero-image-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ============================================================
+     TRUST & CAPABILITY METRICS RIBBON
+     ============================================================ */
+    .trust-ribbon-section {
+      padding: 38px 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+      background: var(--brand-blue-subtle);
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+
+    .trust-stat-item {
+      padding: 8px 16px;
+    }
+
+    .trust-stat-number {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: var(--brand-blue);
+      line-height: 1.1;
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+    }
+
+    .trust-stat-label {
+      font-size: 0.86rem;
+      font-weight: 600;
+      color: var(--slate);
+      line-height: 1.35;
+    }
+
+    /* ============================================================
+     PRICING SECTION (Single Setup + Management Package)
+     ============================================================ */
+    .pricing-section {
+      padding: clamp(70px, 8vw, 110px) 0;
+      background: #FFFFFF;
+    }
+
+    .pricing-outer-container {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-card);
+      padding: clamp(24px, 4vw, 44px);
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .pricing-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-light);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .pricing-platform-pills {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .platform-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy);
+      background: #F1F3F9;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+    }
+
+    .pricing-currency-badge {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--slate);
+    }
+
+    .pricing-group-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--slate-light);
+      margin-bottom: 20px;
+    }
+
+    .pricing-single-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .pricing-single-copy .plan-features-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .pricing-single-copy .plan-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--slate);
+      line-height: 1.5;
+    }
+
+    .pricing-single-copy .plan-features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .pricing-single-copy .plan-features-list li svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--green);
+    }
+
+    .pricing-single-card {
+      background: #FFFFFF;
+      border: 2px solid var(--brand-blue);
+      box-shadow: var(--shadow-featured);
+      border-radius: var(--radius-lg);
+      padding: 30px 26px;
+      text-align: center;
+    }
+
+    .price-stack {
+      margin-bottom: 6px;
+    }
+
+    .price-stack .plan-price-row {
+      justify-content: center;
+    }
+
+    .price-plus {
+      color: var(--slate-light);
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin: 6px 0;
+    }
+
+    .plan-minimum-note {
+      display: inline-block;
+      background: var(--brand-peach-tint);
+      border: 1px solid var(--brand-peach-hover);
+      color: var(--brand-coral);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 20px;
+    }
+
+    .plan-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .plan-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 5px;
+      margin-bottom: 4px;
+    }
+
+    .plan-price {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .plan-period {
+      font-size: 0.85rem;
+      color: var(--slate);
+      font-weight: 600;
+    }
+
+    .plan-subtext {
+      font-size: 0.85rem;
+      color: var(--brand-blue);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .btn-plan {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-family: var(--font);
+      font-size: 0.92rem;
+      font-weight: 600;
+      padding: 12px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 22px;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn-plan-primary {
+      background: var(--brand-gradient);
+      color: #FFFFFF;
+      border: none;
+      box-shadow: 0 4px 14px rgba(2, 80, 197, 0.25);
+    }
+
+    .btn-plan-primary:hover,
+    .btn-plan-primary:focus,
+    .btn-plan-primary:focus-visible,
+    .btn-plan-primary:active {
+      background: var(--brand-gradient-hover);
+      box-shadow: 0 5px 16px rgba(212, 63, 141, 0.32);
+      color: #FFFFFF !important;
+    }
+
+    .btn-plan-outline {
+      background: transparent;
+      color: var(--brand-blue);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-plan-outline:hover,
+    .btn-plan-outline:focus,
+    .btn-plan-outline:focus-visible,
+    .btn-plan-outline:active {
+      background: var(--brand-peach);
+      border-color: var(--brand-blue);
+      color: var(--brand-blue) !important;
+    }
+
+    .plan-features-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .plan-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--slate);
+      line-height: 1.45;
+    }
+
+    .plan-features-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .plan-features-list li svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--green);
+    }
+
+    .pricing-disclaimer {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--slate-light);
+      margin-top: 28px;
+      line-height: 1.6;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .pricing-inline-link {
+      text-align: center;
+      font-size: 0.92rem;
+      color: var(--slate);
+      margin-top: 16px;
+    }
+
+    .pricing-inline-link a {
+      color: var(--brand-blue);
+      font-weight: 600;
+      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .pricing-inline-link a:hover,
+    .pricing-inline-link a:focus,
+    .pricing-inline-link a:focus-visible,
+    .pricing-inline-link a:active {
+      color: var(--brand-blue-hover) !important;
+      border-color: var(--brand-blue-hover);
+    }
+
+    /* ============================================================
+     DETAILED BREAKDOWN: SETUP PROCESS (8-Step Scope)
+     ============================================================ */
+    .scope-section {
+      background: var(--bg-light);
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .scope-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .scope-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.2s ease;
+    }
+
+    .scope-card:hover {
+      border-color: var(--brand-blue);
+      box-shadow: var(--shadow-subtle);
+      transform: translateY(-2px);
+    }
+
+    .scope-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--brand-blue-tint);
+      color: var(--brand-blue);
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .scope-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .scope-desc {
+      font-size: 0.85rem;
+      color: var(--slate);
+      line-height: 1.55;
+    }
+
+    /* ============================================================
+     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     ============================================================ */
+    .story-features-section {
+      padding: clamp(60px, 8vw, 110px) 0;
+    }
+
+    .story-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 7vw, 100px);
+      align-items: center;
+      margin-bottom: clamp(70px, 9vw, 130px);
+    }
+
+    .story-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .story-row.is-reversed .story-text-col {
+      order: 2;
+    }
+
+    .story-row.is-reversed .story-visual-col {
+      order: 1;
+    }
+
+    .story-text-col {
+      max-width: 480px;
+    }
+
+    .story-title {
+      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+
+    .story-desc {
+      font-size: 1.08rem;
+      color: var(--slate);
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .story-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--brand-coral);
+      transition: gap 0.2s ease, color 0.2s ease;
+    }
+
+    .story-link:hover,
+    .story-link:focus,
+    .story-link:focus-visible,
+    .story-link:active {
+      gap: 10px;
+      color: var(--brand-coral-hover) !important;
+    }
+
+    .story-link svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    .story-visual-col {
+      display: flex;
+      justify-content: center;
+    }
+
+    .story-image-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--border-light);
+      transition: all 0.3s ease;
+      background: #FFFFFF;
+      max-width: 520px;
+      width: 100%;
+    }
+
+    .story-image-card:hover {
+      box-shadow: var(--shadow-floating);
+      transform: translateY(-3px);
+    }
+
+    .story-image-card img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    /* ============================================================
+     FAQ SECTION (Clean Modern Accordion)
+     ============================================================ */
+    .faq-section {
+      background: #FAFAFC;
+      padding: clamp(70px, 8vw, 100px) 0;
+      border-top: 1px solid var(--border-light);
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .faq-wrap {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      margin-bottom: 14px;
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .faq-item:hover {
+      border-color: #CBD5E1;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--navy);
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+
+    .faq-question::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-icon {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--brand-blue-tint);
+      color: var(--brand-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 600;
+      flex-shrink: 0;
+      transition: transform 0.25s ease;
+    }
+
+    details[open] .faq-icon {
+      transform: rotate(45deg);
+      background: var(--coral-tint);
+      color: var(--coral);
+    }
+
+    .faq-answer {
+      padding: 0 24px 22px;
+      font-size: 0.95rem;
+      color: var(--slate);
+      line-height: 1.65;
+    }
+
+    .faq-answer strong {
+      color: var(--navy);
+    }
+
+    /* ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ */
+    .cta-banner-section {
+      padding: clamp(70px, 8vw, 110px) 0;
+    }
+
+    .cta-banner-box {
+      background: var(--bg-banner);
+      border-radius: var(--radius-xl);
+      padding: clamp(36px, 5vw, 60px);
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .cta-banner-left h2 {
+      font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem);
+      font-weight: 700;
+      color: var(--brand-blue);
+      line-height: 1.25;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .cta-banner-left p {
+      font-size: 1.05rem;
+      color: var(--slate);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    .prep-card-right {
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .prep-card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    .prep-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 0.88rem;
+      color: var(--slate);
+    }
+
+    .prep-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .prep-list-num {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--brand-blue-tint);
+      color: var(--brand-blue);
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+    @media (max-width: 1024px) {
+
+      .scope-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 820px) {
+
+      .hero-grid,
+      .story-row,
+      .cta-banner-box,
+      .pricing-single-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .story-row.is-reversed .story-text-col {
+        order: 1;
+      }
+
+      .story-row.is-reversed .story-visual-col {
+        order: 2;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .scope-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .btn-group {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================================
+       PAGE TITLE BANNER
+       ============================================================ -->
+  <section class="page-title-banner" aria-label="Page Title">
+    <div class="page-title-banner-mesh" aria-hidden="true"></div>
+    <div class="container page-title-inner">
+      <h1 class="page-banner-h1">Go High Level (GHL) Setup &amp; Management</h1>
+      <p class="page-banner-sub">(CRM, Funnels &amp; Marketing Automation, Built For You)</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <section class="hero-section" id="overview">
+    <div class="container">
+      <div class="hero-grid">
+
+        <!-- Hero Copy -->
+        <div class="hero-left">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            GoHighLevel Experts
+          </div>
+
+          <h2 class="h2-title">One platform for your CRM, funnels, and follow-up — set up right, the first time.</h2>
+
+          <p class="lead-text">
+            Go High Level (GHL) combines your CRM, funnels, calendar, and follow-up automation into one connected
+            workspace. We handle the setup, build your pipelines and automations, and keep everything running so
+            you're not stitching together five separate tools.
+          </p>
+
+          <div class="btn-group">
+            <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+              Consultation</a>
+            <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
+          </div>
+
+          <div class="hero-footnote">
+            <strong>$3,000 one-time setup, plus $500/mo management.</strong> Minimum 6-month engagement.
+          </div>
+        </div>
+
+        <!-- Hero Visual Mockup -->
+        <div class="hero-visual-wrap">
+          <div class="hero-image-card">
+            <img src="/wp-content/uploads/2026/09/go-high-level-services-hero.webp"
+              alt="Go High Level CRM pipeline and automation dashboard mockup" width="600" height="450" />
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     TRUST & CAPABILITY METRICS RIBBON
+     ============================================================ -->
+  <section class="trust-ribbon-section" aria-label="Key Service Facts">
+    <div class="container">
+      <div class="trust-grid">
+        <div class="trust-stat-item">
+          <div class="trust-stat-number">$3,000</div>
+          <div class="trust-stat-label">One-Time Setup</div>
+        </div>
+        <div class="trust-stat-item">
+          <div class="trust-stat-number">$500/mo</div>
+          <div class="trust-stat-label">Ongoing Management</div>
+        </div>
+        <div class="trust-stat-item">
+          <div class="trust-stat-number">6 Months</div>
+          <div class="trust-stat-label">Minimum Engagement</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+     PRICING SECTION
+     ============================================================ -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Simple, Transparent Pricing
+        </div>
+        <h2 class="h2-title">One setup fee, one ongoing management rate.</h2>
+        <p class="lead-text">No tiers to compare — every GHL engagement follows the same straightforward pricing.
+        </p>
+      </div>
+
+      <div class="pricing-outer-container">
+
+        <!-- Top Bar -->
+        <div class="pricing-top-bar">
+          <div class="pricing-platform-pills">
+            <span class="platform-tag">Go High Level</span>
+          </div>
+          <span class="pricing-currency-badge">One-time &amp; monthly rates · USD</span>
+        </div>
+
+        <div class="pricing-group-label">GHL Setup &amp; Management</div>
+
+        <div class="pricing-single-grid">
+
+          <div class="pricing-single-copy">
+            <div class="plan-features-label">What's included:</div>
+            <ul class="plan-features-list">
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>GHL sub-account setup</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>CRM pipelines mapped to your sales process</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>Funnel / landing pages built in GHL</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>Automations (missed-call text-back, nurture, reminders, review requests)</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>Calendar &amp; booking integration</span>
+              </li>
+              <li>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6 9 17l-5-5"></path>
+                </svg>
+                <span>Ongoing management: workflow tweaks, data cleanup &amp; monthly review</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pricing-single-card">
+            <h3 class="plan-name">GHL Setup &amp; Management</h3>
+
+            <div class="price-stack">
+              <div class="plan-price-row">
+                <span class="plan-price">$3,000</span>
+                <span class="plan-period">one-time setup</span>
+              </div>
+            </div>
+            <div class="price-plus">+</div>
+            <div class="price-stack">
+              <div class="plan-price-row">
+                <span class="plan-price">$500</span>
+                <span class="plan-period">/mo management</span>
+              </div>
+            </div>
+
+            <div class="plan-minimum-note">Minimum 6-month engagement</div>
+
+            <a href="#" class="btn-plan btn-plan-primary">Order Now</a>
+          </div>
+
+        </div>
+
+      </div>
+
+      <p class="pricing-disclaimer">
+        $3,000 is a one-time setup fee. $500/mo covers ongoing management, billed monthly, with a minimum 6-month
+        engagement.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+     DETAILED BREAKDOWN: SETUP PROCESS (8-Step Scope)
+     ============================================================ -->
+  <section class="section-space scope-section" aria-label="Setup process">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Detailed Breakdown
+        </div>
+        <h2 class="h2-title">What happens during GHL setup.</h2>
+        <p class="lead-text">From your first call to a fully connected workspace.</p>
+      </div>
+
+      <div class="scope-grid">
+
+        <div class="scope-card">
+          <div class="scope-num">1</div>
+          <h3 class="scope-title">Discovery Call</h3>
+          <p class="scope-desc">We map out your current sales process and the tools you're using today.</p>
+        </div>
+
+        <div class="scope-card">
+          <div class="scope-num">2</div>
+          <h3 class="scope-title">Account &amp; Sub-Account Setup</h3>
+          <p class="scope-desc">Your GHL workspace is configured and branded for your business.</p>
+        </div>
+
+        <div class="scope-card">
+          <div class="scope-num">3</div>
+          <h3 class="scope-title">Pipeline &amp; CRM Setup</h3>
+          <p class="scope-desc">Pipeline stages are built to match how your leads actually move through your sales
+            process.</p>
+        </div>
+
+        <div class="scope-card">
+          <div class="scope-num">4</div>
+          <h3 class="scope-title">Funnel / Landing Page Build</h3>
+          <p class="scope-desc">Lead-capture pages are built directly inside GHL as part of your setup.</p>
+        </div>
+
+        <div class="scope-card">
+          <div class="scope-num">5</div>
+          <h3 class="scope-title">Automation &amp; Workflows</h3>
+          <p class="scope-desc">Follow-up automations like missed-call text-back and nurture sequences are built
+            and tested.</p>
+        </div>
+
+        <div class="scope-card">
+          <div class="scope-num">6</div>
+          <h3 class="scope-title">Calendar &amp; Booking Integration</h3>
+          <p class="scope-desc">Appointment scheduling is connected so bookings flow straight into your pipeline.
+          </p>
+        </div>
+
+        <div class="scope-card">
+          <div class="scope-num">7</div>
+          <h3 class="scope-title">Integrations</h3>
+          <p class="scope-desc">Payment, email, and any existing tools you're keeping are connected to GHL.</p>
+        </div>
+
+        <div class="scope-card">
+          <div class="scope-num">8</div>
+          <h3 class="scope-title">Training &amp; Handoff</h3>
+          <p class="scope-desc">A walkthrough so your team knows exactly how to use the workspace day-to-day.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     ============================================================ -->
+  <section class="story-features-section">
+    <div class="container">
+
+      <!-- Feature 1: One Platform -->
+      <div class="story-row">
+        <div class="story-text-col">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            One Platform, Not Five
+          </div>
+          <h2 class="story-title">Stop paying for a CRM, a funnel builder, and a scheduler separately.</h2>
+          <p class="story-desc">
+            Go High Level replaces a scattered stack of separate tools with one connected workspace for your
+            pipeline, funnels, calendar, and follow-up — so your leads and your team aren't split across five
+            different logins.
+          </p>
+          <a href="#pricing" class="story-link">See setup pricing<svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg></a>
+        </div>
+        <div class="story-visual-col">
+          <div class="story-image-card">
+            <img src="/wp-content/uploads/2026/09/ghl-one-platform-detail.webp"
+              alt="Multiple marketing tools consolidating into one Go High Level workspace" width="520" height="390" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2: Automations -->
+      <div class="story-row is-reversed">
+        <div class="story-text-col">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Automations That Actually Follow Up
+          </div>
+          <h2 class="story-title">Every missed call, lead, and review request, handled automatically.</h2>
+          <p class="story-desc">
+            Missed-call text-back, nurture sequences, appointment reminders, and review requests run on their own
+            inside GHL — so a lead that comes in after hours still gets a response instead of falling through the
+            cracks.
+          </p>
+          <a href="#pricing" class="story-link">See what's included<svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg></a>
+        </div>
+        <div class="story-visual-col">
+          <div class="story-image-card">
+            <img src="/wp-content/uploads/2026/09/ghl-automation-detail.webp"
+              alt="Go High Level automated workflow with follow-up messages" width="520" height="390" />
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 3: Ongoing Optimization -->
+      <div class="story-row">
+        <div class="story-text-col">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Ongoing Optimization, Not Just A Handoff
+          </div>
+          <h2 class="story-title">Your workspace keeps getting tuned as your business changes.</h2>
+          <p class="story-desc">
+            GHL Management &amp; Optimization covers workflow tweaks, data cleanup, and a monthly review, so your
+            pipelines and automations stay accurate instead of drifting out of date.
+          </p>
+          <a href="#pricing" class="story-link">See management pricing<svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg></a>
+        </div>
+        <div class="story-visual-col">
+          <div class="story-image-card">
+            <img src="/wp-content/uploads/2026/09/ghl-management-detail.webp"
+              alt="Monthly Go High Level workspace review and optimization report" width="520" height="390" />
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+     FAQ SECTION (Clean Accordion)
+     ============================================================ -->
+  <section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Common Questions
+        </div>
+        <h2 class="h2-title">Frequently Asked Questions</h2>
+        <p class="lead-text">Everything you need to know about Go High Level setup and management.</p>
+      </div>
+
+      <div class="faq-wrap">
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>What is Go High Level (GHL)?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Go High Level is an all-in-one CRM, funnel, and marketing automation platform. It combines your
+            <strong>pipeline</strong>, <strong>funnels</strong>, <strong>calendar</strong>, and
+            <strong>follow-up automations</strong> into one workspace instead of several disconnected tools.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>How much does GHL setup and management cost?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <strong>$3,000</strong> for one-time setup, plus <strong>$500/mo</strong> for ongoing management,
+            with a <strong>minimum 6-month engagement</strong>.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>What's included in GHL setup?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            <strong>Sub-account setup</strong>, CRM pipelines mapped to your sales process, funnel/landing pages,
+            automations, and calendar and booking integration.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Why is there a minimum 6-month engagement?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Setup is a one-time investment, and pipelines and automations need time to run and be tuned against
+            real leads before results are clear — the <strong>6-month minimum</strong> keeps management in place
+            long enough for that tuning to pay off.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Can GHL replace my other marketing tools?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            For most small businesses, yes — GHL can replace a separate <strong>CRM</strong>, <strong>funnel
+              builder</strong>, <strong>appointment scheduler</strong>, and <strong>follow-up/SMS tool</strong>
+            with one connected workspace.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Can you migrate my existing CRM into GHL?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Yes. Existing contacts, pipeline stages, and automations from another CRM can be rebuilt inside GHL
+            as part of setup.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>What if I want a standalone CRM instead of the full GHL platform?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            That's a separate service — see our <a href="/crm-build-setup-management/"><strong>CRM Build, Setup
+                &amp; Management</strong></a> page for standalone CRM builds starting at $350, without the funnel
+            and marketing automation tools bundled into GHL.
+          </div>
+        </details>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ -->
+  <section class="cta-banner-section" id="consultation">
+    <div class="container">
+      <div class="cta-banner-box">
+
+        <div class="cta-banner-left">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Next Steps
+          </div>
+          <h2>Ready to bring your CRM, funnels, and follow-up into one place?</h2>
+          <p>
+            Book a free consultation and we'll walk through your setup and get started.
+          </p>
+          <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+            Consultation</a>
+        </div>
+
+        <div class="prep-card-right">
+          <h4 class="prep-card-title">Helpful to have ready:</h4>
+          <ul class="prep-list">
+            <li>
+              <span class="prep-list-num">1</span>
+              <span>What CRM or tools you're currently using</span>
+            </li>
+            <li>
+              <span class="prep-list-num">2</span>
+              <span>Your current sales process and pipeline stages</span>
+            </li>
+            <li>
+              <span class="prep-list-num">3</span>
+              <span>Whether you need funnels or landing pages built</span>
+            </li>
+            <li>
+              <span class="prep-list-num">4</span>
+              <span>Whether you want ongoing monthly management</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+
+</html>

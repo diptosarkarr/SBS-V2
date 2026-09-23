@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Walmart Ads Management — Sites by Sara</title>
+  <title>Graphic Design &amp; Branding Services | Sites by Sara</title>
   <meta name="description"
-    content="Walmart Ads Management from Sites by Sara — ongoing ad campaign setup, monthly optimization, and performance reporting for Walmart sellers, from $350/mo.">
-  <meta property="og:title" content="Walmart Ads Management — Sites by Sara">
+    content="Logo design, branding packages, and print collateral design from Sites by Sara — business cards, envelopes, posters, postcards, and mailers. From $15.">
+  <meta property="og:title" content="Graphic Design &amp; Branding Services | Sites by Sara">
   <meta property="og:description"
-    content="Walmart Ads Management from Sites by Sara — ongoing ad campaign setup, monthly optimization, and performance reporting for Walmart sellers, from $350/mo.">
+    content="Logo design, branding packages, and print collateral design from Sites by Sara — business cards, envelopes, posters, postcards, and mailers. From $15.">
   <meta property="og:type" content="website">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,17 +21,17 @@
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": "Walmart Ads Management",
+    "serviceType": "Graphic Design & Branding",
     "provider": {
       "@type": "Organization",
       "name": "Sites by Sara"
     },
-    "description": "Ongoing Walmart Marketplace ads management with first month campaign setup, monthly optimization, and performance reporting.",
+    "description": "Logo design, branding packages, brand development, and print collateral design including business cards, envelopes, posters, postcards, and mailers.",
     "offers": {
       "@type": "AggregateOffer",
       "priceCurrency": "USD",
-      "lowPrice": "350",
-      "highPrice": "1000"
+      "lowPrice": "15",
+      "highPrice": "8500"
     }
   }
   </script>
@@ -43,50 +43,50 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What's included in Walmart Ads Management?",
+        "name": "What's the difference between Basic Logo and Logo Design Package?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Every tier includes first month campaign setup & management, ongoing monthly optimization, and monthly reporting. A $350 one-time onboarding fee applies."
+          "text": "Basic Logo ($500) delivers PNG/JPG files only, no source files, with up to 5 revisions. Logo Design Package ($1,000) includes unlimited revisions, source files, and a business card design."
         }
       },
       {
         "@type": "Question",
-        "name": "What are the different Walmart Ads Management tiers?",
+        "name": "What's included in the Branding Package?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Four tiers: Starter at $350/mo, Growth at $550/mo, Bloom at $850/mo, and Harvest at $1,000/mo."
+          "text": "Logo plus source files, defined colors and fonts, styling conventions, and taglines/hashtags — for $2,200 one-time."
         }
       },
       {
         "@type": "Question",
-        "name": "Does this include creating my Walmart product listings or store page?",
+        "name": "What's the difference between Branding Package and Brand Development?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No — Walmart Ads Management covers ad campaign setup and ongoing management for your existing Walmart listings. Your first month covers campaign setup, followed by ongoing monthly optimization and reporting every month after."
+          "text": "Branding Package ($2,200) builds your brand identity from scratch. Brand Development ($8,500) is a deeper engagement for existing brands — focus groups/surveys, rebranding analysis, and a full style guide."
         }
       },
       {
         "@type": "Question",
-        "name": "Is there a setup fee?",
+        "name": "Do you design print materials, not just digital branding?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, a $350 one-time onboarding fee applies in addition to your monthly tier."
+          "text": "Yes. Business card design, envelope design, poster design, postcard design, and mailer/EDDM design and printing are all available individually."
         }
       },
       {
         "@type": "Question",
-        "name": "Do you offer advertising services for Amazon as well?",
+        "name": "Can you update an existing business card design?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, we also work with Amazon sellers. See our Amazon Listing & Store Setup page for Amazon-specific listing and store services."
+          "text": "Yes. Business Card Edit ($15 per card) updates an existing business card design file."
         }
       },
       {
         "@type": "Question",
-        "name": "How is Walmart Ads Management priced?",
+        "name": "How is Mailer/EDDM Design & Printing priced?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A flat monthly rate based on your tier ($350 to $1,000/mo), plus a one-time $350 onboarding fee."
+          "text": "Custom quote. It includes custom mailer design, EDDM presort and postage coordination, and trucking to the sortation facility, so pricing depends on your mailer's size and distribution."
         }
       }
     ]
@@ -274,6 +274,7 @@
 
     .btn-primary {
       background: var(--brand-gradient);
+      background-clip: padding-box;
       color: #FFFFFF;
       box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
     }
@@ -283,6 +284,7 @@
     .btn-primary:focus-visible,
     .btn-primary:active {
       background: var(--brand-gradient-hover);
+      background-clip: padding-box;
       transform: translateY(-1px);
       box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
       color: #FFFFFF !important;
@@ -516,6 +518,7 @@
       display: flex;
       gap: 10px;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     .platform-tag {
@@ -536,7 +539,24 @@
       color: var(--slate);
     }
 
-    /* 4-Column Tier Grid (Starter / Growth / Bloom / Harvest) */
+    .pricing-divider {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--brand-blue);
+      margin: 36px 0 16px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .pricing-outer-container>.pricing-divider:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    /* 4-Column Tier Grid (Brand Identity) */
     .pricing-grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -695,13 +715,64 @@
       color: var(--green);
     }
 
+    /* Lightweight addon-style cards for print & collateral design */
+    .pricing-addons-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .addon-item-box {
+      background: var(--bg-light);
+      border: 1px solid var(--border-light);
+      border-radius: var(--radius-md);
+      padding: 20px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .addon-item-box:hover {
+      background: #FFFFFF;
+      border-color: var(--border-card);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .addon-price-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--brand-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .addon-item-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .addon-item-desc {
+      font-size: 0.85rem;
+      color: var(--slate);
+      line-height: 1.5;
+      flex-grow: 1;
+    }
+
+    .addon-item-note {
+      font-size: 0.78rem;
+      color: var(--slate-light);
+      line-height: 1.4;
+    }
+
     .pricing-disclaimer {
       text-align: center;
       font-size: 0.85rem;
       color: var(--slate-light);
       margin-top: 28px;
       line-height: 1.6;
-      max-width: 720px;
+      max-width: 760px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -962,6 +1033,12 @@
       color: var(--navy);
     }
 
+    .faq-answer a {
+      color: var(--brand-blue);
+      font-weight: 600;
+      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
+    }
+
     /* ============================================================
      NEXT STEPS / CONSULTATION CHECKLIST BANNER
      ============================================================ */
@@ -1044,7 +1121,9 @@
      RESPONSIVE BREAKPOINTS
      ============================================================ */
     @media (max-width: 1024px) {
-      .pricing-grid-4 {
+
+      .pricing-grid-4,
+      .pricing-addons-grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
@@ -1079,6 +1158,7 @@
     @media (max-width: 600px) {
 
       .pricing-grid-4,
+      .pricing-addons-grid,
       .scope-grid {
         grid-template-columns: 1fr;
       }
@@ -1103,8 +1183,8 @@
   <section class="page-title-banner" aria-label="Page Title">
     <div class="page-title-banner-mesh" aria-hidden="true"></div>
     <div class="container page-title-inner">
-      <h1 class="page-banner-h1">Walmart Ads Management</h1>
-      <p class="page-banner-sub">(Monthly Ad Campaign Management for Walmart Sellers)</p>
+      <h1 class="page-banner-h1">Graphic Design &amp; Branding</h1>
+      <p class="page-banner-sub">(Logo Design, Branding Packages &amp; Print Collateral)</p>
     </div>
   </section>
 
@@ -1119,14 +1199,15 @@
         <div class="hero-left">
           <div class="eyebrow">
             <span class="eyebrow-dot"></span>
-            Walmart Marketplace Ads
+            Graphic Design
           </div>
 
-          <h2 class="h2-title">Ongoing ad campaign management for your Walmart listings.</h2>
+          <h2 class="h2-title">From your first logo to your full brand identity.</h2>
 
           <p class="lead-text">
-            Your first month with Sites by Sara covers ad campaign setup and management for your existing Walmart
-            listings, followed by ongoing monthly optimization and reporting to keep your campaigns performing.
+            Sites by Sara designs your brand from the ground up — a simple logo, a full branding package, or a
+            deep brand development engagement — plus the print collateral that carries it into the real world:
+            business cards, envelopes, posters, postcards, and mailers.
           </p>
 
           <div class="btn-group">
@@ -1136,16 +1217,17 @@
           </div>
 
           <div class="hero-footnote">
-            <strong>First month campaign setup &amp; management included.</strong> Plans start at $350/mo, plus a
-            $350 one-time onboarding fee.
+            <strong>Brand identity packages start at $500.</strong> Print collateral design is priced
+            individually, starting at $15.
           </div>
         </div>
 
         <!-- Hero Visual Mockup -->
         <div class="hero-visual-wrap">
           <div class="hero-image-card">
-            <img src="/wp-content/uploads/2026/09/walmart-ads-management-hero.webp"
-              alt="Walmart Marketplace ad campaign dashboard and performance mockup" width="600" height="450" />
+            <img src="/wp-content/uploads/2026/09/design-services-hero.webp"
+              alt="Logo design concepts and a brand style guide mockup with color swatches and typography"
+              width="600" height="450" />
           </div>
         </div>
 
@@ -1160,16 +1242,16 @@
     <div class="container">
       <div class="trust-grid">
         <div class="trust-stat-item">
-          <div class="trust-stat-number">$350</div>
-          <div class="trust-stat-label">Starting Price (Per Month)</div>
-        </div>
-        <div class="trust-stat-item">
-          <div class="trust-stat-number">$350</div>
-          <div class="trust-stat-label">One-Time Onboarding Fee</div>
-        </div>
-        <div class="trust-stat-item">
           <div class="trust-stat-number">4</div>
-          <div class="trust-stat-label">Ad Management Tiers Available</div>
+          <div class="trust-stat-label">Brand Identity Packages</div>
+        </div>
+        <div class="trust-stat-item">
+          <div class="trust-stat-number">6</div>
+          <div class="trust-stat-label">Print &amp; Collateral Services</div>
+        </div>
+        <div class="trust-stat-item">
+          <div class="trust-stat-number">$15</div>
+          <div class="trust-stat-label">Starting Price</div>
         </div>
       </div>
     </div>
@@ -1186,9 +1268,8 @@
           <span class="eyebrow-dot"></span>
           Simple, Transparent Pricing
         </div>
-        <h2 class="h2-title">Choose the tier that fits your ad spend.</h2>
-        <p class="lead-text">Every tier includes the same setup and ongoing management — pick the one that matches
-          your monthly ad budget.</p>
+        <h2 class="h2-title">Choose your brand identity package, add print collateral as needed.</h2>
+        <p class="lead-text">Every package and print item below is priced and ordered on its own.</p>
       </div>
 
       <div class="pricing-outer-container">
@@ -1196,26 +1277,27 @@
         <!-- Top Bar -->
         <div class="pricing-top-bar">
           <div class="pricing-platform-pills">
-            <span class="platform-tag">Walmart Marketplace Ads</span>
+            <span class="platform-tag">Brand Identity</span>
+            <span class="platform-tag">Print &amp; Collateral</span>
           </div>
-          <span class="pricing-currency-badge">Monthly management fee · USD</span>
+          <span class="pricing-currency-badge">One-time design fees · USD</span>
         </div>
 
-        <!-- 4 Column Tier Grid -->
+        <!-- Brand Identity (primary — 4-tier grid) -->
+        <div class="pricing-divider">Brand Identity</div>
         <div class="pricing-grid-4">
 
-          <!-- Col 1: Starter -->
           <div class="pricing-card-col is-featured">
             <span class="featured-badge">Lowest Tier</span>
             <div>
-              <h3 class="plan-name">Starter</h3>
+              <h3 class="plan-name">Basic Logo</h3>
               <div class="plan-price-row">
-                <span class="plan-price">$350</span>
-                <span class="plan-period">/mo</span>
+                <span class="plan-price">$500</span>
+                <span class="plan-period">one-time</span>
               </div>
-              <div class="plan-subtext">Entry-level ad management</div>
+              <div class="plan-subtext">Simple, straightforward logo</div>
 
-              <a href="https://order.sitesbysara.com/configure?id=80" target="_blank" rel="noopener noreferrer"
+              <a href="https://order.sitesbysara.com/configure?id=34" target="_blank" rel="noopener noreferrer"
                 class="btn-plan btn-plan-primary">Order Now</a>
 
               <div class="plan-features-label">What's included:</div>
@@ -1225,117 +1307,36 @@
                     <path d="M20 6 9 17l-5-5" stroke="#3A539B" stroke-width="2" stroke-linecap="round"
                       stroke-linejoin="round" />
                   </svg>
-                  <span>First month campaign setup &amp; management</span>
+                  <span>PNG/JPG only</span>
                 </li>
                 <li>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                     <path d="M20 6 9 17l-5-5" stroke="#3A539B" stroke-width="2" stroke-linecap="round"
                       stroke-linejoin="round" />
                   </svg>
-                  <span>Ongoing monthly optimization</span>
+                  <span>No source files</span>
                 </li>
                 <li>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                     <path d="M20 6 9 17l-5-5" stroke="#3A539B" stroke-width="2" stroke-linecap="round"
                       stroke-linejoin="round" />
                   </svg>
-                  <span>Monthly reporting</span>
+                  <span>Up to 5 revisions</span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <!-- Col 2: Growth -->
           <div class="pricing-card-col">
             <div>
-              <h3 class="plan-name">Growth</h3>
-              <div class="plan-price-row">
-                <span class="plan-price">$550</span>
-                <span class="plan-period">/mo</span>
-              </div>
-              <div class="plan-subtext">Scaling your ad spend</div>
-
-              <a href="https://order.sitesbysara.com/configure?id=81" target="_blank" rel="noopener noreferrer"
-                class="btn-plan btn-plan-outline">Order Now</a>
-
-              <div class="plan-features-label">What's included:</div>
-              <ul class="plan-features-list">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>First month campaign setup &amp; management</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>Ongoing monthly optimization</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>Monthly reporting</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Col 3: Bloom -->
-          <div class="pricing-card-col">
-            <div>
-              <h3 class="plan-name">Bloom</h3>
-              <div class="plan-price-row">
-                <span class="plan-price">$850</span>
-                <span class="plan-period">/mo</span>
-              </div>
-              <div class="plan-subtext">Established ad campaigns</div>
-
-              <a href="https://order.sitesbysara.com/configure?id=82" target="_blank" rel="noopener noreferrer"
-                class="btn-plan btn-plan-outline">Order Now</a>
-
-              <div class="plan-features-label">What's included:</div>
-              <ul class="plan-features-list">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>First month campaign setup &amp; management</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>Ongoing monthly optimization</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>Monthly reporting</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- Col 4: Harvest -->
-          <div class="pricing-card-col">
-            <div>
-              <h3 class="plan-name">Harvest</h3>
+              <h3 class="plan-name">Logo Design Package</h3>
               <div class="plan-price-row">
                 <span class="plan-price">$1,000</span>
-                <span class="plan-period">/mo</span>
+                <span class="plan-period">one-time</span>
               </div>
-              <div class="plan-subtext">Highest ad spend tier</div>
+              <div class="plan-subtext">Full logo, with source files</div>
 
-              <a href="https://order.sitesbysara.com/configure?id=83" target="_blank" rel="noopener noreferrer"
+              <a href="https://order.sitesbysara.com/configure?id=33" target="_blank" rel="noopener noreferrer"
                 class="btn-plan btn-plan-outline">Order Now</a>
 
               <div class="plan-features-label">What's included:</div>
@@ -1345,21 +1346,106 @@
                     <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
                       stroke-linejoin="round" />
                   </svg>
-                  <span>First month campaign setup &amp; management</span>
+                  <span>Unlimited revisions</span>
                 </li>
                 <li>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                     <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
                       stroke-linejoin="round" />
                   </svg>
-                  <span>Ongoing monthly optimization</span>
+                  <span>Source files included</span>
                 </li>
                 <li>
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
                     <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
                       stroke-linejoin="round" />
                   </svg>
-                  <span>Monthly reporting</span>
+                  <span>Business card design</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">Branding Package</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$2,200</span>
+                <span class="plan-period">one-time</span>
+              </div>
+              <div class="plan-subtext">Full brand identity</div>
+
+              <a href="https://order.sitesbysara.com/configure?id=35" target="_blank" rel="noopener noreferrer"
+                class="btn-plan btn-plan-outline">Order Now</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Logo + source files</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Colors and fonts</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Styling conventions</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Taglines/hashtags</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="pricing-card-col">
+            <div>
+              <h3 class="plan-name">Brand Development</h3>
+              <div class="plan-price-row">
+                <span class="plan-price">$8,500</span>
+                <span class="plan-period">one-time</span>
+              </div>
+              <div class="plan-subtext">Deep rebranding engagement</div>
+
+              <a href="https://order.sitesbysara.com/configure?id=36" target="_blank" rel="noopener noreferrer"
+                class="btn-plan btn-plan-outline">Order Now</a>
+
+              <div class="plan-features-label">What's included:</div>
+              <ul class="plan-features-list">
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Focus groups/surveys</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Rebranding analysis</span>
+                </li>
+                <li>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                  <span>Full style guide</span>
                 </li>
               </ul>
             </div>
@@ -1367,16 +1453,78 @@
 
         </div>
 
+        <!-- Print & Collateral -->
+        <div class="pricing-divider">Print &amp; Marketing Collateral</div>
+        <div class="pricing-addons-grid">
+
+          <div class="addon-item-box">
+            <span class="addon-price-tag">$300 One-Time</span>
+            <h4 class="addon-item-title">Business Card Design</h4>
+            <p class="addon-item-desc">Two-sided design with print-ready files.</p>
+            <a href="https://order.sitesbysara.com/configure?id=38" target="_blank" rel="noopener noreferrer"
+              class="btn-plan btn-plan-outline">Order Now</a>
+          </div>
+
+          <div class="addon-item-box">
+            <span class="addon-price-tag">$15 One-Time</span>
+            <h4 class="addon-item-title">Business Card Edit</h4>
+            <p class="addon-item-desc">Update an existing business card design file.</p>
+            <p class="addon-item-note">Per card.</p>
+            <a href="https://order.sitesbysara.com/configure?id=39" target="_blank" rel="noopener noreferrer"
+              class="btn-plan btn-plan-outline">Order Now</a>
+          </div>
+
+          <div class="addon-item-box">
+            <span class="addon-price-tag">$75 One-Time</span>
+            <h4 class="addon-item-title">Envelope Design</h4>
+            <p class="addon-item-desc">Custom envelope design matched to your branding, print-ready.</p>
+            <a href="https://order.sitesbysara.com/configure?id=40" target="_blank" rel="noopener noreferrer"
+              class="btn-plan btn-plan-outline">Order Now</a>
+          </div>
+
+          <div class="addon-item-box">
+            <span class="addon-price-tag">$250 One-Time</span>
+            <h4 class="addon-item-title">Poster Design</h4>
+            <p class="addon-item-desc">11x17 poster design, one-sided.</p>
+            <a href="https://order.sitesbysara.com/configure?id=41" target="_blank" rel="noopener noreferrer"
+              class="btn-plan btn-plan-outline">Order Now</a>
+          </div>
+
+          <div class="addon-item-box">
+            <span class="addon-price-tag">$450 One-Time</span>
+            <h4 class="addon-item-title">Postcard Design</h4>
+            <p class="addon-item-desc">Double-sided design, no printing fees.</p>
+            <a href="https://order.sitesbysara.com/configure?id=123" target="_blank" rel="noopener noreferrer"
+              class="btn-plan btn-plan-outline">Order Now</a>
+          </div>
+
+          <div class="addon-item-box">
+            <span class="addon-price-tag">Custom Quote</span>
+            <h4 class="addon-item-title">Mailer / EDDM Design &amp; Printing</h4>
+            <p class="addon-item-desc">Custom mailer design, EDDM presort &amp; postage coordination, and
+              trucking to the sortation facility.</p>
+            <a href="https://order.sitesbysara.com/configure?id=42" target="_blank" rel="noopener noreferrer"
+              class="btn-plan btn-plan-outline">Order Now</a>
+          </div>
+
+        </div>
+
       </div>
 
       <p class="pricing-disclaimer">
-        All tiers include the same first month campaign setup &amp; management, ongoing monthly optimization, and
-        monthly reporting. A $350 one-time onboarding fee applies in addition to your monthly tier.
+        Brand Identity packages and Print &amp; Marketing Collateral are all one-time design fees, each priced
+        and ordered separately. Mailer / EDDM Design &amp; Printing is a custom quote based on your mailer's size
+        and distribution.
       </p>
 
       <p class="pricing-inline-link">
-        Also selling on Amazon? See our <a href="/amazon-listing-store-setup/">Amazon Listing &amp; Store
-          Setup</a> page.
+        Need your newsletter designed too? See our <a href="/newsletter-services/">Newsletter Management</a>
+        page.
+      </p>
+
+      <p class="pricing-inline-link">
+        Need copy written for your new brand too? See our <a href="/copywriting/">Copywriting &amp; Content
+          Writing</a> page.
       </p>
 
     </div>
@@ -1385,7 +1533,7 @@
   <!-- ============================================================
      DETAILED BREAKDOWN: OUR PROCESS (8-Step Scope)
      ============================================================ -->
-  <section class="section-space scope-section" aria-label="Build breakdown">
+  <section class="section-space scope-section" aria-label="Design breakdown">
     <div class="container">
 
       <div class="section-header">
@@ -1393,8 +1541,8 @@
           <span class="eyebrow-dot"></span>
           Detailed Breakdown
         </div>
-        <h2 class="h2-title">What's involved in managing your Walmart ads.</h2>
-        <p class="lead-text">From your first month's campaign setup to ongoing monthly optimization.</p>
+        <h2 class="h2-title">What's involved in designing your brand.</h2>
+        <p class="lead-text">From your first logo concept to your full style guide.</p>
       </div>
 
       <div class="scope-grid">
@@ -1402,50 +1550,49 @@
         <div class="scope-card">
           <div class="scope-num">1</div>
           <h3 class="scope-title">Discovery Call</h3>
-          <p class="scope-desc">We talk through your products, brand, and current Walmart seller status.</p>
+          <p class="scope-desc">We talk through your business, audience, and where your brand stands today.</p>
         </div>
 
         <div class="scope-card">
           <div class="scope-num">2</div>
-          <h3 class="scope-title">Account Review</h3>
-          <p class="scope-desc">Reviewing your Walmart seller account and existing listings to plan your ad
-            campaigns.</p>
+          <h3 class="scope-title">Concept Development</h3>
+          <p class="scope-desc">Initial logo or brand concepts based on your business and audience.</p>
         </div>
 
         <div class="scope-card">
           <div class="scope-num">3</div>
-          <h3 class="scope-title">First Month Campaign Setup</h3>
-          <p class="scope-desc">Setting up your Walmart ad campaigns and targeting for launch.</p>
+          <h3 class="scope-title">Revisions</h3>
+          <p class="scope-desc">Refining your chosen concept, up to your package's revision limit.</p>
         </div>
 
         <div class="scope-card">
           <div class="scope-num">4</div>
-          <h3 class="scope-title">Campaign Configuration</h3>
-          <p class="scope-desc">Configuring ad campaigns to match your tier and monthly ad budget.</p>
+          <h3 class="scope-title">Colors, Fonts &amp; Styling</h3>
+          <p class="scope-desc">Defining the colors, fonts, and styling conventions behind your brand.</p>
         </div>
 
         <div class="scope-card">
           <div class="scope-num">5</div>
-          <h3 class="scope-title">Launch</h3>
-          <p class="scope-desc">Going live with your first month of campaign management.</p>
+          <h3 class="scope-title">Source File Delivery</h3>
+          <p class="scope-desc">Delivering final source files for packages that include them.</p>
         </div>
 
         <div class="scope-card">
           <div class="scope-num">6</div>
-          <h3 class="scope-title">Monthly Optimization</h3>
-          <p class="scope-desc">Ongoing adjustments to keep your campaigns performing month over month.</p>
+          <h3 class="scope-title">Print Collateral Design</h3>
+          <p class="scope-desc">Business cards, envelopes, posters, postcards, or mailers, as needed.</p>
         </div>
 
         <div class="scope-card">
           <div class="scope-num">7</div>
-          <h3 class="scope-title">Monthly Reporting</h3>
-          <p class="scope-desc">A regular report so you can see how your ad campaigns are performing.</p>
+          <h3 class="scope-title">Style Guide (Brand Development)</h3>
+          <p class="scope-desc">A full style guide for clients going through Brand Development.</p>
         </div>
 
         <div class="scope-card">
           <div class="scope-num">8</div>
-          <h3 class="scope-title">Ongoing Support</h3>
-          <p class="scope-desc">Continued management and availability for questions as your ad spend grows.</p>
+          <h3 class="scope-title">Final Delivery</h3>
+          <p class="scope-desc">Print-ready and source files delivered, ready to use everywhere.</p>
         </div>
 
       </div>
@@ -1459,78 +1606,80 @@
   <section class="story-features-section">
     <div class="container">
 
-      <!-- Feature 1: First Month Campaign Setup -->
+      <!-- Feature 1: Brand Identity -->
       <div class="story-row">
         <div class="story-text-col">
           <div class="eyebrow">
             <span class="eyebrow-dot"></span>
-            Getting Your Campaigns Live
+            Four Ways To Start
           </div>
-          <h2 class="story-title">Your first month gets your campaigns up and running.</h2>
+          <h2 class="story-title">From a simple logo to a full rebrand.</h2>
           <p class="story-desc">
-            Every tier includes first month campaign setup &amp; management — the work involved in getting your
-            Walmart ad campaigns live, before we move into ongoing monthly optimization.
+            Basic Logo gets you a straightforward mark. Logo Design Package adds source files and unlimited
+            revisions. Branding Package builds a full identity. Brand Development is a deep engagement for brands
+            ready to evolve.
           </p>
-          <a href="#pricing" class="story-link">See pricing tiers<svg viewBox="0 0 24 24" fill="none"
+          <a href="#pricing" class="story-link">See brand identity packages<svg viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M13 5l7 7-7 7" />
             </svg></a>
         </div>
         <div class="story-visual-col">
           <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/walmart-ads-campaign-setup-detail.webp"
-              alt="Walmart ad campaign setup and targeting configuration mockup" width="520" height="390" />
+            <img src="/wp-content/uploads/2026/09/brand-identity-packages-detail.webp"
+              alt="Four brand identity package tiers shown as ascending logo and style guide mockups" width="520"
+              height="390" />
           </div>
         </div>
       </div>
 
-      <!-- Feature 2: Ongoing Management -->
+      <!-- Feature 2: Branding Package Detail -->
       <div class="story-row is-reversed">
         <div class="story-text-col">
           <div class="eyebrow">
             <span class="eyebrow-dot"></span>
-            Month Over Month
+            More Than Just A Logo
           </div>
-          <h2 class="story-title">Ongoing optimization, not a one-time setup.</h2>
+          <h2 class="story-title">Colors, fonts, and styling conventions, defined once.</h2>
           <p class="story-desc">
-            After your first month, we continue with ongoing monthly optimization and monthly reporting — so your
-            Walmart ad campaigns keep improving instead of sitting untouched.
+            Branding Package goes beyond a logo — colors, fonts, styling conventions, and taglines or hashtags,
+            so every future design decision has a clear standard to follow.
           </p>
-          <a href="#pricing" class="story-link">Compare monthly tiers<svg viewBox="0 0 24 24" fill="none"
+          <a href="#pricing" class="story-link">See Branding Package pricing<svg viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M13 5l7 7-7 7" />
             </svg></a>
         </div>
         <div class="story-visual-col">
           <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/walmart-ads-optimization-detail.webp"
-              alt="Monthly ad performance report and optimization dashboard mockup" width="520" height="390" />
+            <img src="/wp-content/uploads/2026/09/branding-package-detail.webp"
+              alt="Brand style guide mockup with color swatches, font pairings, and logo usage examples"
+              width="520" height="390" />
           </div>
         </div>
       </div>
 
-      <!-- Feature 3: Also Sell On Amazon -->
+      <!-- Feature 3: Print Collateral -->
       <div class="story-row">
         <div class="story-text-col">
           <div class="eyebrow">
             <span class="eyebrow-dot"></span>
-            Selling On More Than One Marketplace?
+            Your Brand, In Print
           </div>
-          <h2 class="story-title">Also selling on Amazon?</h2>
+          <h2 class="story-title">Business cards, mailers, and everything between.</h2>
           <p class="story-desc">
-            If you're building a presence on more than one marketplace, we also offer Amazon listing setup, store
-            creation, and related services — priced individually, just like Walmart.
+            Your brand doesn't stop at digital — business cards, envelopes, posters, postcards, and full
+            mailer/EDDM design and printing all carry your identity into the real world.
           </p>
-          <a href="/amazon-listing-store-setup/" class="story-link">See Amazon Listing &amp; Store Setup<svg
-              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-              stroke-linejoin="round">
+          <a href="#pricing" class="story-link">See print &amp; collateral pricing<svg viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M13 5l7 7-7 7" />
             </svg></a>
         </div>
         <div class="story-visual-col">
           <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/walmart-amazon-multichannel-ads.webp"
-              alt="Two marketplace ad campaign icons side by side representing multi-channel advertising" width="520"
+            <img src="/wp-content/uploads/2026/09/print-collateral-design-detail.webp"
+              alt="Business card, postcard, and poster print design mockups laid out together" width="520"
               height="390" />
           </div>
         </div>
@@ -1551,75 +1700,77 @@
           Common Questions
         </div>
         <h2 class="h2-title">Frequently Asked Questions</h2>
-        <p class="lead-text">Everything you need to know about our Walmart ads management.</p>
+        <p class="lead-text">Everything you need to know about our graphic design and branding services.</p>
       </div>
 
       <div class="faq-wrap">
 
         <details class="faq-item">
           <summary class="faq-question">
-            <span>What's included in Walmart Ads Management?</span>
+            <span>What's the difference between Basic Logo and Logo Design Package?</span>
             <span class="faq-icon">+</span>
           </summary>
           <div class="faq-answer">
-            Every tier includes <strong>first month campaign setup &amp; management</strong>, <strong>ongoing
-              monthly optimization</strong>, and <strong>monthly reporting</strong>. A $350 one-time onboarding fee
-            applies.
+            <strong>Basic Logo</strong> ($500) delivers PNG/JPG files only, no source files, with up to 5
+            revisions. <strong>Logo Design Package</strong> ($1,000) includes unlimited revisions, source files,
+            and a business card design.
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">
-            <span>What are the different Walmart Ads Management tiers?</span>
+            <span>What's included in the Branding Package?</span>
             <span class="faq-icon">+</span>
           </summary>
           <div class="faq-answer">
-            Four tiers: <strong>Starter</strong> at $350/mo, <strong>Growth</strong> at $550/mo,
-            <strong>Bloom</strong> at $850/mo, and <strong>Harvest</strong> at $1,000/mo.
+            Logo plus source files, defined colors and fonts, styling conventions, and taglines/hashtags — for
+            $2,200 one-time.
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">
-            <span>Does this include creating my Walmart product listings or store page?</span>
+            <span>What's the difference between Branding Package and Brand Development?</span>
             <span class="faq-icon">+</span>
           </summary>
           <div class="faq-answer">
-            No — Walmart Ads Management covers ad campaign setup and ongoing management for your existing Walmart
-            listings. Your first month covers campaign setup, followed by ongoing monthly optimization and
-            reporting every month after.
+            <strong>Branding Package</strong> ($2,200) builds your brand identity from scratch.
+            <strong>Brand Development</strong> ($8,500) is a deeper engagement for existing brands — focus
+            groups/surveys, rebranding analysis, and a full style guide.
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">
-            <span>Is there a setup fee?</span>
+            <span>Do you design print materials, not just digital branding?</span>
             <span class="faq-icon">+</span>
           </summary>
           <div class="faq-answer">
-            Yes, a <strong>$350 one-time onboarding fee</strong> applies in addition to your monthly tier.
+            Yes. Business card design, envelope design, poster design, postcard design, and mailer/EDDM design
+            and printing are all available individually.
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">
-            <span>Do you offer advertising services for Amazon as well?</span>
+            <span>Can you update an existing business card design?</span>
             <span class="faq-icon">+</span>
           </summary>
           <div class="faq-answer">
-            Yes, we also work with Amazon sellers. See our <a href="/amazon-listing-store-setup/"><strong>Amazon
-                Listing &amp; Store Setup</strong></a> page for Amazon-specific listing and store services.
+            Yes. <strong>Business Card Edit</strong> ($15 per card) updates an existing business card design
+            file.
           </div>
         </details>
 
         <details class="faq-item">
           <summary class="faq-question">
-            <span>How is Walmart Ads Management priced?</span>
+            <span>How is Mailer/EDDM Design &amp; Printing priced?</span>
             <span class="faq-icon">+</span>
           </summary>
           <div class="faq-answer">
-            A flat monthly rate based on your tier ($350 to $1,000/mo), plus a one-time <strong>$350
-              onboarding fee</strong>.
+            <strong>Custom quote.</strong> It includes custom mailer design, EDDM presort and postage
+            coordination, and trucking to the sortation facility, so pricing depends on your mailer's size and
+            distribution.
           </div>
         </details>
 
@@ -1640,10 +1791,10 @@
             <span class="eyebrow-dot"></span>
             Next Steps
           </div>
-          <h2>Ready to start advertising on Walmart Marketplace?</h2>
+          <h2>Ready to design or evolve your brand?</h2>
           <p>
-            Book a free consultation and tell us about your products and current Walmart listings — we'll
-            recommend the right tier.
+            Book a free consultation and tell us where your brand stands today — we'll recommend the right
+            package.
           </p>
           <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
             Consultation</a>
@@ -1654,23 +1805,23 @@
           <ul class="prep-list">
             <li>
               <span class="prep-list-num">1</span>
-              <span>Whether you already have a Walmart seller account</span>
+              <span>Whether you already have a logo or brand identity</span>
             </li>
             <li>
               <span class="prep-list-num">2</span>
-              <span>Which products you want to advertise</span>
+              <span>Your business name and what your business does</span>
             </li>
             <li>
               <span class="prep-list-num">3</span>
-              <span>Your expected monthly ad spend</span>
+              <span>Any color or style preferences</span>
             </li>
             <li>
               <span class="prep-list-num">4</span>
-              <span>Your existing Walmart product listings</span>
+              <span>Which print materials you need, if any</span>
             </li>
             <li>
               <span class="prep-list-num">5</span>
-              <span>Whether you also sell on Amazon or elsewhere</span>
+              <span>Examples of brands or styles you like</span>
             </li>
           </ul>
         </div>
