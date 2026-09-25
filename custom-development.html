@@ -1296,104 +1296,94 @@
      PORTFOLIO SHOWCASE SECTION
      ============================================================ */
     .portfolio-section {
-      background: #FFFFFF;
+      background: var(--brand-peach-tint);
     }
 
     .portfolio-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      gap: 24px;
+      margin-bottom: clamp(32px, 5vw, 48px);
     }
 
     .portfolio-card {
-      background: var(--bg-white);
+      background: #FFFFFF;
       border: 1px solid var(--border-card);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.3s ease;
-      box-shadow: var(--shadow-subtle);
+      box-shadow: var(--shadow-card);
+      transition: all 0.25s ease;
+      display: block;
     }
 
     .portfolio-card:hover {
-      transform: translateY(-6px);
       box-shadow: var(--shadow-card-hover);
-      border-color: var(--brand-blue);
+      transform: translateY(-3px);
     }
 
     .portfolio-img-wrap {
-      position: relative;
-      aspect-ratio: 16 / 10;
+      height: 400px;
       overflow: hidden;
-      background: #EAEFF7;
+      position: relative;
+      background: var(--bg-light);
     }
 
     .portfolio-img-wrap img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      transition: transform 0.5s ease;
+      height: auto;
+      transform: translateY(0);
+      transition: transform 30s ease;
     }
 
     .portfolio-card:hover .portfolio-img-wrap img {
-      transform: scale(1.05);
-    }
-
-    .portfolio-badge-overlay {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      background: rgba(30, 33, 64, 0.82);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      color: #FFFFFF;
-      font-size: 0.76rem;
-      font-weight: 600;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
+      transform: translateY(calc(-100% + 260px));
     }
 
     .portfolio-info {
-      padding: 22px 24px;
+      padding: 16px 20px;
       display: flex;
-      flex-direction: column;
-      flex-grow: 1;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      border-top: 1px solid var(--border-light);
     }
 
     .portfolio-client-title {
-      font-size: 1.15rem;
+      font-size: 0.98rem;
       font-weight: 600;
       color: var(--navy);
-      margin-bottom: 6px;
-    }
-
-    .portfolio-client-meta {
-      font-size: 0.88rem;
-      color: var(--slate);
-      margin-bottom: 16px;
-      flex-grow: 1;
     }
 
     .portfolio-live-link {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      font-size: 0.88rem;
-      font-weight: 700;
-      color: var(--brand-blue);
-      border-top: 1px solid var(--border-light);
-      padding-top: 14px;
-      transition: color 0.2s ease, gap 0.2s ease;
+      gap: 4px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--brand-coral);
+      flex-shrink: 0;
     }
 
-    .portfolio-live-link:hover,
-    .portfolio-live-link:focus,
-    .portfolio-live-link:focus-visible,
-    .portfolio-live-link:active {
-      color: var(--brand-coral) !important;
-      gap: 10px;
+    .portfolio-live-link svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    .portfolio-view-all {
+      text-align: center;
+    }
+
+    @media (max-width: 1024px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* ============================================================
@@ -3087,243 +3077,63 @@
       <div class="section-header">
         <div class="eyebrow">
           <span class="eyebrow-dot"></span>
-          Portfolio
+          Our Work
         </div>
-        <h2 class="h2-title">Portfolio</h2>
+        <h2 class="h2-title">Recent WordPress &amp; Web Design Projects</h2>
         <p class="lead-text">
-          Our portfolio is a testament to our dedication to excellence. Explore some of our recent projects and discover
-          the diversity and creativity that defines our work.
+          Sites by Sara helps businesses stand out online with professional websites and digital marketing
+          designed to drive traffic and grow your business.
         </p>
       </div>
 
       <div class="portfolio-grid">
 
-        <!-- Item 1 (no live link) -->
-        <div class="portfolio-card">
+        <a href="/connect-with-sky/" class="portfolio-card">
           <div class="portfolio-img-wrap">
-            <img src="/wp-content/uploads/2023/11/web-jfs-scaled.jpg"
-              alt="Portfolio project by Sites by Sara" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Item 2 (no live link) -->
-        <div class="portfolio-card">
-          <div class="portfolio-img-wrap">
-            <img src="/wp-content/uploads/2023/11/web-ec-scaled.jpg"
-              alt="Portfolio project by Sites by Sara" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Item 3 (no live link) -->
-        <div class="portfolio-card">
-          <div class="portfolio-img-wrap">
-            <img src="/wp-content/uploads/2023/11/eca-website-scaled.jpg"
-              alt="Portfolio project by Sites by Sara" loading="lazy">
-          </div>
-        </div>
-
-        <!-- Item 4: 801moving.com -->
-        <div class="portfolio-card">
-          <div class="portfolio-img-wrap">
-            <a href="https://801moving.com/" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/2023/11/moving-801-scaled.jpg"
-                alt="801 Moving — portfolio project by Sites by Sara" loading="lazy">
-            </a>
+            <img src="/wp-content/uploads/2026/07/Connect-with-Sky-scaled.png" alt="Connect with Sky website design"
+              loading="lazy">
           </div>
           <div class="portfolio-info">
-            <a href="https://801moving.com/" target="_blank" rel="noopener noreferrer" class="portfolio-live-link">
-              Visit Live Website
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
+            <span class="portfolio-client-title">Connect with Sky</span>
+            <span class="portfolio-live-link">View Case Study<svg width="15" height="15" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg></span>
           </div>
-        </div>
+        </a>
 
-        <!-- Item 5: 208moving.com -->
-        <div class="portfolio-card">
+        <a href="/clarity-consulting-and-counseling/" class="portfolio-card">
           <div class="portfolio-img-wrap">
-            <a href="https://208moving.com/" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/2023/11/moving-208-scaled.jpg"
-                alt="208 Moving — portfolio project by Sites by Sara" loading="lazy">
-            </a>
+            <img src="/wp-content/uploads/2026/09/FireShot-Capture-032-Northern-Utah-Mental-Health-Counseling-Clarity-Counseling_-clarityconsultingandcounseling.com_-scaled.png"
+              alt="Clarity Consulting and Counseling website design" loading="lazy">
           </div>
           <div class="portfolio-info">
-            <a href="https://208moving.com/" target="_blank" rel="noopener noreferrer" class="portfolio-live-link">
-              Visit Live Website
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
+            <span class="portfolio-client-title">Clarity Consulting and Counseling</span>
+            <span class="portfolio-live-link">View Case Study<svg width="15" height="15" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg></span>
           </div>
-        </div>
+        </a>
 
-        <!-- Item 6: reenewenergy.com -->
-        <div class="portfolio-card">
+        <a href="/salt-city-billiards/" class="portfolio-card">
           <div class="portfolio-img-wrap">
-            <a href="https://reenewenergy.com/" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/2023/09/web-1-scaled.jpg"
-                alt="ReeNew Energy — portfolio project by Sites by Sara" loading="lazy">
-            </a>
+            <img src="/wp-content/uploads/2026/07/Salt-City-Billiards-scaled.png" alt="Salt City Billiards website design"
+              loading="lazy">
           </div>
           <div class="portfolio-info">
-            <a href="https://reenewenergy.com/" target="_blank" rel="noopener noreferrer" class="portfolio-live-link">
-              Visit Live Website
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
+            <span class="portfolio-client-title">Salt City Billiards</span>
+            <span class="portfolio-live-link">View Case Study<svg width="15" height="15" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 5l7 7-7 7" />
+              </svg></span>
           </div>
-        </div>
+        </a>
 
-        <!-- Item 7: sortingthrough.com -->
-        <div class="portfolio-card">
-          <div class="portfolio-img-wrap">
-            <a href="https://sortingthrough.com/" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/2023/09/web-2-scaled.jpg"
-                alt="Sorting Through — portfolio project by Sites by Sara" loading="lazy">
-            </a>
-          </div>
-          <div class="portfolio-info">
-            <a href="https://sortingthrough.com/" target="_blank" rel="noopener noreferrer" class="portfolio-live-link">
-              Visit Live Website
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
-          </div>
-        </div>
+      </div>
 
-        <!-- Item 8: statues.com -->
-        <div class="portfolio-card">
-          <div class="portfolio-img-wrap">
-            <a href="https://statues.com/" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/2023/09/web-4-scaled.jpg"
-                alt="Statues.com — portfolio project by Sites by Sara" loading="lazy">
-            </a>
-          </div>
-          <div class="portfolio-info">
-            <a href="https://statues.com/" target="_blank" rel="noopener noreferrer" class="portfolio-live-link">
-              Visit Live Website
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Item 9: mavenmechanics.com -->
-        <div class="portfolio-card">
-          <div class="portfolio-img-wrap">
-            <a href="https://mavenmechanics.com/" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/2023/09/web-6-scaled.jpg"
-                alt="Maven Mechanics — portfolio project by Sites by Sara" loading="lazy">
-            </a>
-          </div>
-          <div class="portfolio-info">
-            <a href="https://mavenmechanics.com/" target="_blank" rel="noopener noreferrer" class="portfolio-live-link">
-              Visit Live Website
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Item 10: endowest.net -->
-        <div class="portfolio-card">
-          <div class="portfolio-img-wrap">
-            <a href="https://endowest.net/" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/2023/09/web-7-scaled.jpg"
-                alt="EndoWest — portfolio project by Sites by Sara" loading="lazy">
-            </a>
-          </div>
-          <div class="portfolio-info">
-            <a href="https://endowest.net/" target="_blank" rel="noopener noreferrer" class="portfolio-live-link">
-              Visit Live Website
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Item 11: rosecanyondoodles.com -->
-        <div class="portfolio-card">
-          <div class="portfolio-img-wrap">
-            <a href="https://rosecanyondoodles.com/" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/2023/09/web-8-scaled.jpg"
-                alt="Rose Canyon Doodles — portfolio project by Sites by Sara" loading="lazy">
-            </a>
-          </div>
-          <div class="portfolio-info">
-            <a href="https://rosecanyondoodles.com/" target="_blank" rel="noopener noreferrer"
-              class="portfolio-live-link">
-              Visit Live Website
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Item 12: dbwinklerwrites.com -->
-        <div class="portfolio-card">
-          <div class="portfolio-img-wrap">
-            <a href="https://dbwinklerwrites.com/" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/2023/09/web-9-scaled.jpg"
-                alt="DB Winkler Writes — portfolio project by Sites by Sara" loading="lazy">
-            </a>
-          </div>
-          <div class="portfolio-info">
-            <a href="https://dbwinklerwrites.com/" target="_blank" rel="noopener noreferrer"
-              class="portfolio-live-link">
-              Visit Live Website
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Item 13: andrewkopf.com -->
-        <div class="portfolio-card">
-          <div class="portfolio-img-wrap">
-            <a href="https://andrewkopf.com/" target="_blank" rel="noopener noreferrer">
-              <img src="/wp-content/uploads/2023/09/web-10.jpg"
-                alt="Andrew Kopf — portfolio project by Sites by Sara" loading="lazy">
-            </a>
-          </div>
-          <div class="portfolio-info">
-            <a href="https://andrewkopf.com/" target="_blank" rel="noopener noreferrer" class="portfolio-live-link">
-              Visit Live Website
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-            </a>
-          </div>
-        </div>
-
+      <div class="portfolio-view-all">
+        <a href="/our-portfolio/" class="btn btn-outline">View All Portfolio</a>
       </div>
 
     </div>
