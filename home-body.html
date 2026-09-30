@@ -140,17 +140,17 @@
   }
 
   .home-btn-outline {
-    background: transparent;
-    color: var(--brand-blue);
-    border-color: var(--brand-blue);
+    background: #ffffff !important;
+    color: var(--brand-blue) !important;
+    border-color: var(--brand-blue) !important;
   }
 
   .home-btn-outline:hover,
   .home-btn-outline:focus,
   .home-btn-outline:focus-visible,
   .home-btn-outline:active {
-    background: var(--brand-peach-tint);
-    border-color: var(--brand-blue-hover);
+    background: var(--brand-peach-tint) !important;
+    border-color: var(--brand-blue-hover) !important;
     color: var(--brand-blue-hover) !important;
   }
 
@@ -850,30 +850,11 @@
     }
 
     .home-hero-image-grid {
-      flex-direction: column;
+      gap: 10px;
     }
 
     .home-hero-image-col {
-      display: contents;
-    }
-
-    /* display:contents preserves source order (col 1's two children, then
-       col 2's two children) rather than interleaving them — force the
-       intended 1,2,3,4 reading order explicitly. */
-    .home-hero-image-tile--1 {
-      order: 1;
-    }
-
-    .home-hero-image-tile--2 {
-      order: 2;
-    }
-
-    .home-hero-image-tile--3 {
-      order: 3;
-    }
-
-    .home-hero-image-tile--4 {
-      order: 4;
+      gap: 10px;
     }
 
     .home-hero-stat-card {
@@ -2927,15 +2908,15 @@
             </svg>
           </span>
           <h3 class="home-service-title">Local SEO &amp; Google Business Profile</h3>
-          <p class="home-service-desc">Local Domination Package, GBP Setup, 3-Pack Optimization, multi-location
-            support &amp; Reputation Management.</p>
+          <p class="home-service-desc">Local SEO plans, the Local Domination Package, Google 3-Pack Optimization,
+            and multi-location support.</p>
           <span class="home-service-link">Learn More<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M13 5l7 7-7 7" />
             </svg></span>
         </a>
 
-        <a href="/cybersecurity-packages/" class="home-service-card home-reveal home-reveal-delay-4">
+        <a href="/custom-web-mobile-apps/#pricing" class="home-service-card home-reveal home-reveal-delay-4">
           <span class="home-service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
               stroke-linejoin="round">
@@ -2969,7 +2950,7 @@
             </svg></span>
         </a>
 
-        <a href="/site-audit-priority-fixes/" class="home-service-card home-reveal home-reveal-delay-6">
+        <a href="/seo-plans-site-audit/#pricing" class="home-service-card home-reveal home-reveal-delay-6">
           <span class="home-service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
               stroke-linejoin="round">
@@ -2978,8 +2959,8 @@
             </svg>
           </span>
           <h3 class="home-service-title">Site Audit &amp; Priority Fixes</h3>
-          <p class="home-service-desc">Full-site performance analysis with up to 10 priority fixes identified —
-            plus optional Analytics and Search Console setup.</p>
+          <p class="home-service-desc">Full-site performance analysis with a ranked list of priority fixes — plus
+            Google Analytics and Search Console setup.</p>
           <span class="home-service-link">Learn More<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
               stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M13 5l7 7-7 7" />
@@ -3301,7 +3282,8 @@
       </div>
 
       <div class="home-portfolio-grid">
-        <a href="/connect-with-sky/" class="home-portfolio-card home-reveal home-reveal-delay-1" target="_blank" rel="noopener noreferrer">
+        <a href="/connect-with-sky/" class="home-portfolio-card home-reveal home-reveal-delay-1" target="_blank"
+          rel="noopener noreferrer">
           <div class="home-portfolio-frame">
             <img src="/wp-content/uploads/2026/07/Connect-with-Sky-scaled.png" alt="Connect with Sky website design"
               loading="lazy">
@@ -3315,7 +3297,8 @@
           </div>
         </a>
 
-        <a href="/clarity-consulting-and-counseling/" class="home-portfolio-card home-reveal home-reveal-delay-2" target="_blank" rel="noopener noreferrer">
+        <a href="/clarity-consulting-and-counseling/" class="home-portfolio-card home-reveal home-reveal-delay-2"
+          target="_blank" rel="noopener noreferrer">
           <div class="home-portfolio-frame">
             <img
               src="/wp-content/uploads/2026/09/FireShot-Capture-032-Northern-Utah-Mental-Health-Counseling-Clarity-Counseling_-clarityconsultingandcounseling.com_-scaled.png"
@@ -3330,7 +3313,8 @@
           </div>
         </a>
 
-        <a href="/salt-city-billiards/" class="home-portfolio-card home-reveal home-reveal-delay-3" target="_blank" rel="noopener noreferrer">
+        <a href="/salt-city-billiards/" class="home-portfolio-card home-reveal home-reveal-delay-3" target="_blank"
+          rel="noopener noreferrer">
           <div class="home-portfolio-frame">
             <img src="/wp-content/uploads/2026/07/Salt-City-Billiards-scaled.png"
               alt="Salt City Billiards website design" loading="lazy">
