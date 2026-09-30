@@ -1,19 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Email Setup & Migration Services (Google Workspace & Microsoft 365) — Sites by Sara</title>
-  <meta name="description"
-    content="One-stop Google Workspace & Microsoft 365 setup, DNS configuration, and zero-loss mailbox data migration by Sites by Sara.">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <!-- SEO: Service structured data (see design.md §7) -->
-  <script type="application/ld+json">
+<!-- SEO: Service structured data (see design.md §7) -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -22,17 +12,11 @@
       "@type": "Organization",
       "name": "Sites by Sara"
     },
-    "description": "One-stop Google Workspace and Microsoft 365 setup, DNS configuration, and zero-loss mailbox data migration.",
-    "offers": {
-      "@type": "AggregateOffer",
-      "priceCurrency": "USD",
-      "lowPrice": "29",
-      "highPrice": "350"
-    }
+    "description": "One-stop Google Workspace and Microsoft 365 setup, DNS configuration, and zero-loss mailbox data migration."
   }
   </script>
-  <!-- SEO: FAQPage structured data — mirrors the visible FAQ section verbatim -->
-  <script type="application/ld+json">
+<!-- SEO: FAQPage structured data — mirrors the visible FAQ section verbatim -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -58,7 +42,7 @@
         "name": "What if we are a new business setting up email for the first time?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Our Domain & Account Setup runs a flat rate of $350, covering your first 3 accounts, complete DNS/SPF/DKIM/DMARC configuration, and 1 free data migration up to 10GB if you do have existing data to bring over."
+          "text": "Our GWS / MS365 Setup runs a flat one-time rate that covers your initial accounts, complete DNS/SPF/DKIM/DMARC configuration, and a free data migration allowance if you have existing data to bring over. See the pricing above for current details."
         }
       },
       {
@@ -67,14 +51,6 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "An account is a full mailbox with its own login and monthly software license. An alias is a forwarding address (like sales@yourcompany.com) that forwards messages into an existing account at no extra monthly license fee."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How does \"Send Mail and Reply As Another Alias\" work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "If one user wants to send and reply as billing@yourcompany.com or support@yourcompany.com directly from her inbox, we configure \"Send Mail As\" and \"Check Mail From\" permissions for $129 each, so she only pays for 1 software license instead of 3."
         }
       },
       {
@@ -89,1900 +65,1650 @@
   }
   </script>
 
-  <style>
-    /* ============================================================
+<style>
+  /* ============================================================
      DESIGN SYSTEM & TOKENS (Google Workspace Clean Aesthetic)
      ============================================================ */
-    :root {
-      /* SBS Brand Identity Palette */
-      --brand-blue: #3A539B;
-      --brand-blue-hover: #2F437D;
-      --brand-blue-tint: #EEF2FA;
-      --brand-blue-subtle: #F6F8FD;
+  :root {
+    /* SBS Brand Identity Palette */
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
+    --brand-blue-subtle: #F6F8FD;
 
-      --brand-coral: #ea4e5f;
-      --brand-coral-hover: #d43d4e;
-      --brand-coral-tint: #FDEEEE;
+    --brand-coral: #ea4e5f;
+    --brand-coral-hover: #d43d4e;
+    --brand-coral-tint: #FDEEEE;
 
-      --brand-peach: #FCEFE5;
-      --brand-peach-hover: #F8E3D4;
-      --brand-peach-tint: #FFF9F5;
+    --brand-peach: #FCEFE5;
+    --brand-peach-hover: #F8E3D4;
+    --brand-peach-tint: #FFF9F5;
 
-      --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
-      --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
 
-      --navy: #1E2140;
-      --navy-dark: #13152C;
-      --slate: #5F6368;
-      --slate-light: #80868B;
-      --slate-subtle: #9AA0A6;
+    --navy: #1E2140;
+    --navy-dark: #13152C;
+    --slate: #5F6368;
+    --slate-light: #80868B;
+    --slate-subtle: #9AA0A6;
 
-      --border: #DCE2EE;
-      --border-light: #ECEFF5;
-      --border-card: #DFE4EE;
+    --border: #DCE2EE;
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
 
-      --bg-white: #FFFFFF;
-      --bg-light: #F9FAFD;
-      --bg-banner: #FCEFE5;
-      --bg-callout: #FFFBF7;
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
+    --bg-banner: #FCEFE5;
+    --bg-callout: #FFFBF7;
 
-      --green: #1E8E3E;
-      --green-tint: #E6F4EA;
-      --yellow: #FBBC04;
-      --yellow-tint: #FEF7E0;
-      --coral: #ea4e5f;
-      --coral-tint: #FDEEEE;
+    --green: #1E8E3E;
+    --green-tint: #E6F4EA;
+    --yellow: #FBBC04;
+    --yellow-tint: #FEF7E0;
+    --coral: #ea4e5f;
+    --coral-tint: #FDEEEE;
 
-      --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-      --radius-sm: 8px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --radius-xl: 32px;
-      --radius-pill: 9999px;
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-pill: 9999px;
 
-      --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
-      --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
-      --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
-    }
+    --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+    --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+    --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+  }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-    body {
-      font-family: var(--font);
-      color: var(--navy);
-      background-color: var(--bg-white);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+  body {
+    font-family: var(--font);
+    color: var(--navy);
+    background-color: var(--bg-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-    strong,
-    b {
-      font-weight: 600;
-    }
+  strong,
+  b {
+    font-weight: 600;
+  }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
 
-    /* Utility Spacing */
-    .section-space {
-      padding: clamp(70px, 8vw, 110px) 0;
-    }
+  /* Utility Spacing */
+  .section-space {
+    padding: clamp(70px, 8vw, 110px) 0;
+  }
 
-    .section-space-tight {
-      padding: clamp(40px, 5vw, 65px) 0;
-    }
+  .section-space-tight {
+    padding: clamp(40px, 5vw, 65px) 0;
+  }
 
-    .text-center {
-      text-align: center;
-    }
+  .text-center {
+    text-align: center;
+  }
 
-    .section-header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto clamp(36px, 5vw, 56px);
-    }
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(36px, 5vw, 56px);
+  }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--slate);
-      margin-bottom: 16px;
-    }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
 
-    .eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background-color: var(--coral);
-      display: inline-block;
-    }
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--coral);
+    display: inline-block;
+  }
 
-    .eyebrow-dot-blue {
-      background-color: var(--brand-blue);
-    }
+  .eyebrow-dot-blue {
+    background-color: var(--brand-blue);
+  }
 
-    .h1-title {
-      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      color: var(--navy);
-      margin-bottom: 20px;
-    }
+  .h1-title {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
 
-    .h2-title {
-      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      color: var(--navy);
-      margin-bottom: 16px;
-    }
+  .h2-title {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
 
-    .h3-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      line-height: 1.35;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
+  .h3-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
 
-    .lead-text {
-      font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
-      color: var(--slate);
-      line-height: 1.65;
-      font-weight: 400;
-    }
+  .lead-text {
+    font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
+    color: var(--slate);
+    line-height: 1.65;
+    font-weight: 400;
+  }
 
-    /* Buttons */
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 16px;
-      margin: 24px 0;
-    }
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+  }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font);
-      font-size: 0.98rem;
-      font-weight: 600;
-      padding: 13px 28px;
-      border-radius: var(--radius-pill);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border: 1.5px solid transparent;
-      text-decoration: none;
-      white-space: nowrap;
-    }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+  }
 
-    .btn-primary {
-      background: var(--brand-gradient);
-      background-clip: padding-box;
-      color: #FFFFFF;
-      box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
-    }
+  .btn-primary {
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+  }
 
-    .btn-primary:hover,
-    .btn-primary:focus,
-    .btn-primary:focus-visible,
-    .btn-primary:active {
-      background: var(--brand-gradient-hover);
-      background-clip: padding-box;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
-      color: #FFFFFF !important;
-    }
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:focus-visible,
+  .btn-primary:active {
+    background: var(--brand-gradient-hover);
+    background-clip: padding-box;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+    color: #FFFFFF !important;
+  }
 
-    .btn-outline {
-      background-color: transparent;
-      color: var(--brand-blue);
-      border-color: var(--brand-blue);
-    }
+  .btn-outline {
+    background-color: transparent;
+    color: var(--brand-blue);
+    border-color: var(--brand-blue);
+  }
 
-    .btn-outline:hover,
-    .btn-outline:focus,
-    .btn-outline:focus-visible,
-    .btn-outline:active {
-      background-color: var(--brand-peach);
-      border-color: var(--brand-blue);
-      color: var(--brand-blue) !important;
-    }
+  .btn-outline:hover,
+  .btn-outline:focus,
+  .btn-outline:focus-visible,
+  .btn-outline:active {
+    background-color: var(--brand-peach);
+    border-color: var(--brand-blue);
+    color: var(--brand-blue) !important;
+  }
 
-    /* ============================================================
+  /* ============================================================
      PAGE TITLE BANNER (POLISHED GRADIENT BANNER)
      ============================================================ */
-    .page-title-banner {
-      position: relative;
-      overflow: hidden;
-      background: var(--brand-gradient);
-      padding: clamp(52px, 6vw, 76px) 24px;
-      text-align: center;
-      color: #FFFFFF;
-      box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
-    }
+  .page-title-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-gradient);
+    padding: clamp(52px, 6vw, 76px) 24px;
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+  }
 
-    .page-title-banner::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
-        radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
-      pointer-events: none;
-    }
+  .page-title-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+    pointer-events: none;
+  }
 
-    .page-title-banner-mesh {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
+  .page-title-banner-mesh {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
 
-    .page-title-banner-mesh::before,
-    .page-title-banner-mesh::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(55px);
-      opacity: 0.22;
-      pointer-events: none;
-    }
+  .page-title-banner-mesh::before,
+  .page-title-banner-mesh::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0.22;
+    pointer-events: none;
+  }
 
-    .page-title-banner-mesh::before {
-      width: 320px;
-      height: 320px;
-      background: #FFFFFF;
-      top: -120px;
-      left: 8%;
-    }
+  .page-title-banner-mesh::before {
+    width: 320px;
+    height: 320px;
+    background: #FFFFFF;
+    top: -120px;
+    left: 8%;
+  }
 
-    .page-title-banner-mesh::after {
-      width: 280px;
-      height: 280px;
-      background: var(--brand-coral);
-      bottom: -80px;
-      right: 10%;
-    }
+  .page-title-banner-mesh::after {
+    width: 280px;
+    height: 280px;
+    background: var(--brand-coral);
+    bottom: -80px;
+    right: 10%;
+  }
 
-    .page-title-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 860px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  .page-title-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .page-title-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 16px;
-      border-radius: var(--radius-pill);
-      background: rgba(255, 255, 255, 0.16);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.28);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #FFFFFF;
-      margin-bottom: 16px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-    }
+  .page-title-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.16);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  }
 
-    .page-banner-h1 {
-      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
-      color: #FFFFFF;
-      letter-spacing: -0.025em;
-      margin: 0 0 10px;
-      text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
-    }
+  .page-banner-h1 {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFFFFF;
+    letter-spacing: -0.025em;
+    margin: 0 0 10px;
+    text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+  }
 
-    .page-banner-sub {
-      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.94);
-      letter-spacing: 0.01em;
-      margin: 0;
-      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
-    }
+  .page-banner-sub {
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.94);
+    letter-spacing: 0.01em;
+    margin: 0;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+  }
 
-    /* ============================================================
+  /* ============================================================
      HERO SECTION
      ============================================================ */
-    .hero-section {
-      padding: clamp(48px, 6vw, 76px) 0 clamp(40px, 6vw, 70px);
-      overflow: hidden;
-    }
+  .hero-section {
+    padding: clamp(48px, 6vw, 76px) 0 clamp(40px, 6vw, 70px);
+    overflow: hidden;
+  }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: clamp(40px, 6vw, 80px);
-      align-items: center;
-    }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: center;
+  }
 
-    .hero-left {
-      max-width: 580px;
-    }
+  .hero-left {
+    max-width: 580px;
+  }
 
-    .hero-footnote {
-      font-size: 0.88rem;
-      color: var(--slate-light);
-      line-height: 1.5;
-    }
+  .hero-footnote {
+    font-size: 0.88rem;
+    color: var(--slate-light);
+    line-height: 1.5;
+  }
 
-    .hero-footnote strong {
-      color: var(--slate);
-      font-weight: 600;
-    }
+  .hero-footnote strong {
+    color: var(--slate);
+    font-weight: 600;
+  }
 
-    .hero-visual-wrap {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
+  .hero-visual-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
 
-    .hero-image-card {
-      position: relative;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-floating);
-      overflow: hidden;
-      border: 1px solid var(--border-light);
-      transition: transform 0.3s ease;
-      background: #FFFFFF;
-    }
+  .hero-image-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-floating);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    transition: transform 0.3s ease;
+    background: #FFFFFF;
+  }
 
-    .hero-image-card:hover {
-      transform: translateY(-4px);
-    }
+  .hero-image-card:hover {
+    transform: translateY(-4px);
+  }
 
-    /* ============================================================
+  /* ============================================================
      APP ICONS & FOUNDATION STRIP
      ============================================================ */
-    .apps-ribbon-section {
-      padding: 44px 0 54px;
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-      background: #FAFAFC;
-    }
+  .apps-ribbon-section {
+    padding: 44px 0 54px;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    background: #FAFAFC;
+  }
 
-    .apps-ribbon-label {
-      text-align: center;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--slate);
-      margin-bottom: 28px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
+  .apps-ribbon-label {
+    text-align: center;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--slate);
+    margin-bottom: 28px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
 
-    .apps-ribbon-grid {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: clamp(16px, 3.5vw, 36px);
-    }
+  .apps-ribbon-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: clamp(16px, 3.5vw, 36px);
+  }
 
-    .app-icon-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 8px;
-      transition: transform 0.2s ease;
-    }
+  .app-icon-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.2s ease;
+  }
 
-    .app-icon-item:hover {
-      transform: translateY(-2px);
-    }
+  .app-icon-item:hover {
+    transform: translateY(-2px);
+  }
 
-    .app-icon-img-wrap {
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #FFFFFF;
-      border: 1px solid var(--border-card);
-      border-radius: 50%;
-      box-shadow: var(--shadow-subtle);
-    }
+  .app-icon-img-wrap {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: 50%;
+    box-shadow: var(--shadow-subtle);
+  }
 
-    .app-icon-name {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--navy);
-    }
+  .app-icon-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
 
-    /* ============================================================
+  /* ============================================================
      PRICING & SERVICES SECTION (Google Workspace 4-Col Layout)
      ============================================================ */
-    .pricing-section {
-      padding: clamp(70px, 8vw, 110px) 0;
-      background: #FFFFFF;
-    }
+  .pricing-section {
+    padding: clamp(70px, 8vw, 110px) 0;
+    background: #FFFFFF;
+  }
 
-    .pricing-outer-container {
-      background: #FFFFFF;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-card);
-      padding: clamp(24px, 4vw, 44px);
-      overflow: hidden;
-    }
+  .pricing-outer-container {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    padding: clamp(24px, 4vw, 44px);
+    overflow: hidden;
+  }
 
-    .pricing-top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border-light);
-      flex-wrap: wrap;
-      gap: 16px;
-    }
+  .pricing-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
 
-    .pricing-platform-pills {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
+  .pricing-platform-pills {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
 
-    .platform-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--navy);
-      background: #F1F3F9;
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-    }
+  .platform-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--navy);
+    background: #F1F3F9;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+  }
 
-    .pricing-currency-badge {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--slate);
-    }
+  .pricing-currency-badge {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--slate);
+  }
 
-    /* 4 Main Columns Grid */
-    .pricing-grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-      margin-bottom: 32px;
-    }
+  /* 4 Main Columns Grid */
+  .pricing-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+  }
 
-    .pricing-card-col {
-      background: #FFFFFF;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 28px 20px 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      transition: all 0.25s ease;
-    }
+  .pricing-card-col {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 28px 20px 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    transition: all 0.25s ease;
+  }
 
-    .pricing-card-col:hover {
-      border-color: #BDC1C6;
-      box-shadow: var(--shadow-subtle);
-    }
+  .pricing-card-col:hover {
+    border-color: #BDC1C6;
+    box-shadow: var(--shadow-subtle);
+  }
 
-    .pricing-card-col.is-featured {
-      border: 2px solid var(--brand-blue);
-      box-shadow: 0 10px 28px rgba(58, 83, 155, 0.14);
-    }
+  .pricing-card-col.is-featured {
+    border: 2px solid var(--brand-blue);
+    box-shadow: 0 10px 28px rgba(58, 83, 155, 0.14);
+  }
 
-    .featured-badge {
-      position: absolute;
-      top: -12px;
-      left: 20px;
-      background: var(--brand-gradient);
-      color: #FFFFFF;
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 4px 14px;
-      border-radius: var(--radius-pill);
-      box-shadow: 0 2px 8px rgba(2, 80, 197, 0.25);
-    }
+  .featured-badge {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--brand-gradient);
+    color: #FFFFFF;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 2px 8px rgba(2, 80, 197, 0.25);
+  }
 
-    .plan-name {
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
+  .plan-name {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
 
-    .plan-price-row {
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-      margin-bottom: 4px;
-    }
+  .plan-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
 
-    .plan-price {
-      font-size: 2.1rem;
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1;
-    }
+  .plan-price {
+    font-size: 2.1rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+  }
 
-    .plan-period {
-      font-size: 0.85rem;
-      color: var(--slate);
-      font-weight: 600;
-    }
+  .plan-period {
+    font-size: 0.85rem;
+    color: var(--slate);
+    font-weight: 600;
+  }
 
-    .plan-subtext {
-      font-size: 0.8rem;
-      color: var(--brand-blue);
-      font-weight: 600;
-      margin-bottom: 18px;
-    }
+  .plan-subtext {
+    font-size: 0.8rem;
+    color: var(--brand-blue);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
 
-    .btn-plan {
-      display: block;
-      width: 100%;
-      text-align: center;
-      font-size: 0.92rem;
-      font-weight: 600;
-      padding: 11px;
-      border-radius: var(--radius-pill);
-      margin-bottom: 22px;
-      transition: all 0.2s ease;
-    }
+  .btn-plan {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 11px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 22px;
+    transition: all 0.2s ease;
+  }
 
-    .btn-plan-primary {
-      background: var(--brand-gradient);
-      color: #FFFFFF;
-      box-shadow: 0 3px 12px rgba(2, 80, 197, 0.22);
-    }
+  .btn-plan-primary {
+    background: var(--brand-gradient);
+    color: #FFFFFF;
+    box-shadow: 0 3px 12px rgba(2, 80, 197, 0.22);
+  }
 
-    .btn-plan-primary:hover,
-    .btn-plan-primary:focus,
-    .btn-plan-primary:focus-visible,
-    .btn-plan-primary:active {
-      background: var(--brand-gradient-hover);
-      box-shadow: 0 5px 16px rgba(212, 63, 141, 0.32);
-      color: #FFFFFF !important;
-    }
+  .btn-plan-primary:hover,
+  .btn-plan-primary:focus,
+  .btn-plan-primary:focus-visible,
+  .btn-plan-primary:active {
+    background: var(--brand-gradient-hover);
+    box-shadow: 0 5px 16px rgba(212, 63, 141, 0.32);
+    color: #FFFFFF !important;
+  }
 
-    .btn-plan-outline {
-      background: transparent;
-      color: var(--brand-blue);
-      border: 1.5px solid var(--border);
-    }
+  .btn-plan-outline {
+    background: transparent;
+    color: var(--brand-blue);
+    border: 1.5px solid var(--border);
+  }
 
-    .btn-plan-outline:hover,
-    .btn-plan-outline:focus,
-    .btn-plan-outline:focus-visible,
-    .btn-plan-outline:active {
-      background: var(--brand-peach);
-      border-color: var(--brand-blue);
-      color: var(--brand-blue) !important;
-    }
+  .btn-plan-outline:hover,
+  .btn-plan-outline:focus,
+  .btn-plan-outline:focus-visible,
+  .btn-plan-outline:active {
+    background: var(--brand-peach);
+    border-color: var(--brand-blue);
+    color: var(--brand-blue) !important;
+  }
 
-    .plan-features-label {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 12px;
-    }
+  .plan-features-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
 
-    .plan-features-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      font-size: 0.85rem;
-      color: var(--slate);
-      line-height: 1.45;
-    }
+  .plan-features-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--slate);
+    line-height: 1.45;
+  }
 
-    .plan-features-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-    }
+  .plan-features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
 
-    .plan-features-list li svg {
-      flex-shrink: 0;
-      margin-top: 3px;
-    }
+  .plan-features-list li svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
 
-    .plan-footer-box {
-      margin-top: auto;
-      padding-top: 14px;
-      border-top: 1px dashed var(--border);
-      font-size: 0.78rem;
-      color: var(--slate);
-    }
+  .plan-footer-box {
+    margin-top: auto;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border);
+    font-size: 0.78rem;
+    color: var(--slate);
+  }
 
-    /* 4 Bottom Addons Grid */
-    .pricing-addons-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border-light);
-    }
+  /* 4 Bottom Addons Grid */
+  .pricing-addons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border-light);
+  }
 
-    .addon-item-box {
-      background: #F9FAFD;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-sm);
-      padding: 18px 16px;
-      transition: all 0.2s ease;
-    }
+  .addon-item-box {
+    background: #F9FAFD;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-sm);
+    padding: 18px 16px;
+    transition: all 0.2s ease;
+  }
 
-    .addon-item-box:hover {
-      background: #FFFFFF;
-      border-color: var(--border-card);
-      box-shadow: var(--shadow-subtle);
-    }
+  .addon-item-box:hover {
+    background: #FFFFFF;
+    border-color: var(--border-card);
+    box-shadow: var(--shadow-subtle);
+  }
 
-    .addon-price-tag {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--brand-coral);
-      display: block;
-      margin-bottom: 6px;
-    }
+  .addon-price-tag {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--brand-coral);
+    display: block;
+    margin-bottom: 6px;
+  }
 
-    .addon-item-title {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
+  .addon-item-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
 
-    .addon-item-desc {
-      font-size: 0.82rem;
-      color: var(--slate);
-      line-height: 1.45;
-    }
+  .addon-item-desc {
+    font-size: 0.82rem;
+    color: var(--slate);
+    line-height: 1.45;
+  }
 
-    /* Smart Savings Tips */
-    .pricing-callouts-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 24px;
-    }
+  /* Smart Savings Tips */
+  .pricing-callouts-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 24px;
+  }
 
-    .pricing-callout-card {
-      background: var(--bg-callout);
-      border: 1px solid var(--brand-peach-hover);
-      border-radius: var(--radius-md);
-      padding: 14px 18px;
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 0.85rem;
-      color: #553C2D;
-      line-height: 1.5;
-    }
+  .pricing-callout-card {
+    background: var(--bg-callout);
+    border: 1px solid var(--brand-peach-hover);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: #553C2D;
+    line-height: 1.5;
+  }
 
-    .pricing-callout-card strong {
-      color: #352115;
-    }
+  .pricing-callout-card strong {
+    color: #352115;
+  }
 
-    .pricing-disclaimer {
-      text-align: center;
-      font-size: 0.82rem;
-      color: var(--slate-light);
-      margin-top: 24px;
-    }
+  .pricing-disclaimer {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--slate-light);
+    margin-top: 24px;
+  }
 
-    .pricing-inline-link {
-      text-align: center;
-      font-size: 0.92rem;
-      color: var(--slate);
-      margin-top: 16px;
-    }
+  .pricing-inline-link {
+    text-align: center;
+    font-size: 0.92rem;
+    color: var(--slate);
+    margin-top: 16px;
+  }
 
-    .pricing-inline-link a {
-      color: var(--brand-blue);
-      font-weight: 600;
-      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
+  .pricing-inline-link a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
 
-    .pricing-inline-link a:hover,
-    .pricing-inline-link a:focus,
-    .pricing-inline-link a:focus-visible,
-    .pricing-inline-link a:active {
-      color: var(--brand-blue-hover) !important;
-      border-color: var(--brand-blue-hover);
-    }
+  .pricing-inline-link a:hover,
+  .pricing-inline-link a:focus,
+  .pricing-inline-link a:focus-visible,
+  .pricing-inline-link a:active {
+    color: var(--brand-blue-hover) !important;
+    border-color: var(--brand-blue-hover);
+  }
 
-    /* ============================================================
+  /* ============================================================
      DETAILED BREAKDOWN: WHAT WE DO (8-Step Scope)
      ============================================================ */
-    .scope-section {
-      background: var(--bg-light);
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
+  .scope-section {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .scope-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .scope-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
+  }
+
+  .scope-card:hover {
+    border-color: var(--brand-blue);
+    box-shadow: var(--shadow-subtle);
+    transform: translateY(-2px);
+  }
+
+  .scope-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .scope-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .scope-desc {
+    font-size: 0.85rem;
+    color: var(--slate);
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     ============================================================ */
+  .story-features-section {
+    padding: clamp(60px, 8vw, 110px) 0;
+  }
+
+  .story-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 7vw, 100px);
+    align-items: center;
+    margin-bottom: clamp(70px, 9vw, 130px);
+  }
+
+  .story-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .story-row.is-reversed .story-text-col {
+    order: 2;
+  }
+
+  .story-row.is-reversed .story-visual-col {
+    order: 1;
+  }
+
+  .story-text-col {
+    max-width: 480px;
+  }
+
+  .story-title {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 18px;
+  }
+
+  .story-desc {
+    font-size: 1.08rem;
+    color: var(--slate);
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .story-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--brand-coral);
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+
+  .story-link:hover,
+  .story-link:focus,
+  .story-link:focus-visible,
+  .story-link:active {
+    gap: 10px;
+    color: var(--brand-coral-hover) !important;
+  }
+
+  .story-link svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+
+  .story-visual-col {
+    display: flex;
+    justify-content: center;
+  }
+
+  .story-image-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    background: #FFFFFF;
+    max-width: 520px;
+    width: 100%;
+  }
+
+  .story-image-card:hover {
+    box-shadow: var(--shadow-floating);
+    transform: translateY(-3px);
+  }
+
+  .story-image-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* ============================================================
+     FAQ SECTION (Clean Modern Accordion)
+     ============================================================ */
+  .faq-section {
+    background: #FAFAFC;
+    padding: clamp(70px, 8vw, 100px) 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .faq-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .faq-item:hover {
+    border-color: #CBD5E1;
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+  }
+
+  details[open] .faq-icon {
+    transform: rotate(45deg);
+    background: var(--coral-tint);
+    color: var(--coral);
+  }
+
+  .faq-answer {
+    padding: 0 24px 22px;
+    font-size: 0.95rem;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+
+  .faq-answer strong {
+    color: var(--navy);
+  }
+
+  /* ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ */
+  .cta-banner-section {
+    padding: clamp(70px, 8vw, 110px) 0;
+  }
+
+  .cta-banner-box {
+    background: var(--bg-banner);
+    border-radius: var(--radius-xl);
+    padding: clamp(36px, 5vw, 60px);
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .cta-banner-left h2 {
+    font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem);
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1.25;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .cta-banner-left p {
+    font-size: 1.05rem;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .prep-card-right {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .prep-card-title {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+
+  .prep-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--slate);
+  }
+
+  .prep-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .prep-list-num {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+  @media (max-width: 1024px) {
+    .pricing-grid-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .pricing-addons-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
 
     .scope-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
     }
+  }
 
-    .scope-card {
-      background: #FFFFFF;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-      padding: 24px 20px;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.2s ease;
-    }
+  @media (max-width: 820px) {
 
-    .scope-card:hover {
-      border-color: var(--brand-blue);
-      box-shadow: var(--shadow-subtle);
-      transform: translateY(-2px);
-    }
-
-    .scope-num {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--brand-blue-tint);
-      color: var(--brand-blue);
-      font-size: 0.9rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-    }
-
-    .scope-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-
-    .scope-desc {
-      font-size: 0.85rem;
-      color: var(--slate);
-      line-height: 1.55;
-    }
-
-    /* ============================================================
-     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
-     ============================================================ */
-    .story-features-section {
-      padding: clamp(60px, 8vw, 110px) 0;
-    }
-
-    .story-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(40px, 7vw, 100px);
-      align-items: center;
-      margin-bottom: clamp(70px, 9vw, 130px);
-    }
-
-    .story-row:last-child {
-      margin-bottom: 0;
+    .hero-grid,
+    .story-row,
+    .cta-banner-box {
+      grid-template-columns: 1fr;
+      gap: 40px;
     }
 
     .story-row.is-reversed .story-text-col {
-      order: 2;
-    }
-
-    .story-row.is-reversed .story-visual-col {
       order: 1;
     }
 
-    .story-text-col {
-      max-width: 480px;
+    .story-row.is-reversed .story-visual-col {
+      order: 2;
     }
 
-    .story-title {
-      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      color: var(--navy);
-      margin-bottom: 18px;
+    .pricing-callouts-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+
+    .pricing-grid-4,
+    .pricing-addons-grid,
+    .scope-grid {
+      grid-template-columns: 1fr;
     }
 
-    .story-desc {
-      font-size: 1.08rem;
-      color: var(--slate);
-      line-height: 1.65;
-      margin-bottom: 24px;
-    }
-
-    .story-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.98rem;
-      font-weight: 600;
-      color: var(--brand-coral);
-      transition: gap 0.2s ease, color 0.2s ease;
-    }
-
-    .story-link:hover,
-    .story-link:focus,
-    .story-link:focus-visible,
-    .story-link:active {
-      gap: 10px;
-      color: var(--brand-coral-hover) !important;
-    }
-
-    .story-link svg {
-      width: 15px;
-      height: 15px;
-      flex-shrink: 0;
-    }
-
-    .story-visual-col {
-      display: flex;
-      justify-content: center;
-    }
-
-    .story-image-card {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-card);
-      border: 1px solid var(--border-light);
-      transition: all 0.3s ease;
-      background: #FFFFFF;
-      max-width: 520px;
-      width: 100%;
-    }
-
-    .story-image-card:hover {
-      box-shadow: var(--shadow-floating);
-      transform: translateY(-3px);
-    }
-
-    .story-image-card img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    /* ============================================================
-     FAQ SECTION (Clean Modern Accordion)
-     ============================================================ */
-    .faq-section {
-      background: #FAFAFC;
-      padding: clamp(70px, 8vw, 100px) 0;
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .faq-wrap {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      background: #FFFFFF;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-md);
-      margin-bottom: 14px;
-      overflow: hidden;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .faq-item:hover {
-      border-color: #CBD5E1;
-      box-shadow: var(--shadow-subtle);
-    }
-
-    .faq-question {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 24px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--navy);
-      cursor: pointer;
-      list-style: none;
-      user-select: none;
-    }
-
-    .faq-question::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-icon {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: var(--brand-blue-tint);
-      color: var(--brand-blue);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      font-weight: 600;
-      flex-shrink: 0;
-      transition: transform 0.25s ease;
-    }
-
-    details[open] .faq-icon {
-      transform: rotate(45deg);
-      background: var(--coral-tint);
-      color: var(--coral);
-    }
-
-    .faq-answer {
-      padding: 0 24px 22px;
-      font-size: 0.95rem;
-      color: var(--slate);
-      line-height: 1.65;
-    }
-
-    .faq-answer strong {
-      color: var(--navy);
-    }
-
-    /* ============================================================
-     NEXT STEPS / CONSULTATION CHECKLIST BANNER
-     ============================================================ */
-    .cta-banner-section {
-      padding: clamp(70px, 8vw, 110px) 0;
-    }
-
-    .cta-banner-box {
-      background: var(--bg-banner);
-      border-radius: var(--radius-xl);
-      padding: clamp(36px, 5vw, 60px);
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .cta-banner-left h2 {
-      font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem);
-      font-weight: 700;
-      color: var(--brand-blue);
-      line-height: 1.25;
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-    }
-
-    .cta-banner-left p {
-      font-size: 1.05rem;
-      color: var(--slate);
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
-
-    .prep-card-right {
-      background: #FFFFFF;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-md);
-      padding: 28px;
-      box-shadow: var(--shadow-subtle);
-    }
-
-    .prep-card-title {
-      font-size: 0.98rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 14px;
-    }
-
-    .prep-list {
-      list-style: none;
-      display: flex;
+    .btn-group {
       flex-direction: column;
-      gap: 10px;
-      font-size: 0.88rem;
-      color: var(--slate);
+      width: 100%;
     }
 
-    .prep-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
+    .btn {
+      width: 100%;
     }
+  }
+</style>
 
-    .prep-list-num {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--brand-blue-tint);
-      color: var(--brand-blue);
-      font-size: 0.75rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    /* ============================================================
-     RESPONSIVE BREAKPOINTS
-     ============================================================ */
-    @media (max-width: 1024px) {
-      .pricing-grid-4 {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .pricing-addons-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .scope-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 820px) {
-
-      .hero-grid,
-      .story-row,
-      .cta-banner-box {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .story-row.is-reversed .story-text-col {
-        order: 1;
-      }
-
-      .story-row.is-reversed .story-visual-col {
-        order: 2;
-      }
-
-      .pricing-callouts-row {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 600px) {
-
-      .pricing-grid-4,
-      .pricing-addons-grid,
-      .scope-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .btn-group {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .btn {
-        width: 100%;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- ============================================================
+<!-- ============================================================
        PAGE TITLE BANNER (POLISHED BRAND GRADIENT)
        ============================================================ -->
-  <section class="page-title-banner" aria-label="Page Title">
-    <div class="page-title-banner-mesh" aria-hidden="true"></div>
-    <div class="container page-title-inner">
-      <h1 class="page-banner-h1">Email Setup / Migration Services</h1>
-      <p class="page-banner-sub">(GWS / MS365)</p>
-    </div>
-  </section>
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <h1 class="page-banner-h1">Email Setup / Migration Services</h1>
+    <p class="page-banner-sub">(GWS / MS365)</p>
+  </div>
+</section>
 
-  <!-- ============================================================
+<!-- ============================================================
        HERO SECTION
        ============================================================ -->
-  <section class="hero-section">
-    <div class="container">
-      <div class="hero-grid">
+<section class="hero-section">
+  <div class="container">
+    <div class="hero-grid">
 
-        <!-- Hero Copy -->
-        <div class="hero-left">
-          <!-- <div class="eyebrow">
+      <!-- Hero Copy -->
+      <div class="hero-left">
+        <!-- <div class="eyebrow">
             <span class="eyebrow-dot"></span>
             Account Setup & Migration Services
           </div> -->
 
-          <h2 class="h2-title">Google Workspace & Microsoft 365 setup, handled with precision.</h2>
+        <h2 class="h2-title">Google Workspace & Microsoft 365 setup, handled with precision.</h2>
 
-          <p class="lead-text">
-            Our service is designed to be a one-stop solution for businesses looking to seamlessly transition to Google
-            Workspace or Microsoft 365. From initial setup to complete email migration, domain configuration, and
-            consolidation — we ensure zero data loss and minimal disruption to your daily operations.
-          </p>
+        <p class="lead-text">
+          Our service is designed to be a one-stop solution for businesses looking to seamlessly transition to Google
+          Workspace or Microsoft 365. From initial setup to complete email migration, domain configuration, and
+          consolidation — we ensure zero data loss and minimal disruption to your daily operations.
+        </p>
 
-          <div class="btn-group">
-            <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
-              Consultation</a>
-            <a href="#pricing" class="btn btn-outline">View Pricing & Plans</a>
-          </div>
-
-          <div class="hero-footnote">
-            <strong>Zero data loss guarantee.</strong> Domain verification, MX records, SPF, DKIM, and DMARC security
-            records included with every setup.
-          </div>
+        <div class="btn-group">
+          <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+            Consultation</a>
+          <a href="#pricing" class="btn btn-outline">View Pricing & Plans</a>
         </div>
 
-        <!-- Hero Visual Mockup -->
-        <div class="hero-visual-wrap">
-          <div class="hero-image-card">
-            <img src="/wp-content/uploads/2026/09/hero-workspace-1.webp"
-              alt="Google Workspace and Microsoft 365 Cloud Migration Status Dashboard" width="600" height="450" />
-          </div>
+        <div class="hero-footnote">
+          <strong>Zero data loss guarantee.</strong> Domain verification, MX records, SPF, DKIM, and DMARC security
+          records included with every setup.
         </div>
-
       </div>
-    </div>
-  </section>
 
-  <!-- ============================================================
+      <!-- Hero Visual Mockup -->
+      <div class="hero-visual-wrap">
+        <div class="hero-image-card">
+          <img src="/wp-content/uploads/2026/09/hero-workspace-1.webp"
+            alt="Google Workspace and Microsoft 365 Cloud Migration Status Dashboard" width="600" height="450" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      APP ICONS & FOUNDATION RIBBON
      ============================================================ -->
-  <section class="apps-ribbon-section">
-    <div class="container">
-      <div class="apps-ribbon-label">Complete technical setup across leading business tools:</div>
-      <div class="apps-ribbon-grid">
+<section class="apps-ribbon-section">
+  <div class="container">
+    <div class="apps-ribbon-label">Complete technical setup across leading business tools:</div>
+    <div class="apps-ribbon-grid">
 
-        <div class="app-icon-item">
-          <div class="app-icon-img-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z"
-                fill="#ea4e5f" opacity="0.15" />
-              <path d="M20 4H4C2.9 4 2 4.9 2 6L12 13L22 6C22 4.9 21.1 4 20 4Z" fill="#ea4e5f" />
-              <path d="M2 18V6L12 13L22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18Z" stroke="#ea4e5f"
-                stroke-width="1.5" />
-            </svg>
-          </div>
-          <span class="app-icon-name">Gmail</span>
+      <div class="app-icon-item">
+        <div class="app-icon-img-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4Z"
+              fill="#ea4e5f" opacity="0.15" />
+            <path d="M20 4H4C2.9 4 2 4.9 2 6L12 13L22 6C22 4.9 21.1 4 20 4Z" fill="#ea4e5f" />
+            <path d="M2 18V6L12 13L22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18Z" stroke="#ea4e5f"
+              stroke-width="1.5" />
+          </svg>
         </div>
-
-        <div class="app-icon-item">
-          <div class="app-icon-img-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <rect x="2" y="4" width="20" height="16" rx="2" fill="#0078D4" />
-              <path d="M10 4V20M2 12H22" stroke="#FFFFFF" stroke-width="2" />
-            </svg>
-          </div>
-          <span class="app-icon-name">Outlook 365</span>
-        </div>
-
-        <div class="app-icon-item">
-          <div class="app-icon-img-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M8 2L2 12H9L15 2H8Z" fill="#FBBC04" />
-              <path d="M15 2L9 12L15 22H22L16 12H22L15 2Z" fill="#3A539B" />
-              <path d="M2 12L8 22H22L16 12H2Z" fill="#1E8E3E" />
-            </svg>
-          </div>
-          <span class="app-icon-name">Google Drive</span>
-        </div>
-
-        <div class="app-icon-item">
-          <div class="app-icon-img-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#3A539B" />
-              <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="#3A539B" stroke-width="2" stroke-linecap="round" />
-            </svg>
-          </div>
-          <span class="app-icon-name">OneDrive</span>
-        </div>
-
-        <div class="app-icon-item">
-          <div class="app-icon-img-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="4" width="18" height="18" rx="3" fill="#3A539B" opacity="0.15" stroke="#3A539B"
-                stroke-width="1.5" />
-              <path d="M3 9H21M9 2V6M15 2V6" stroke="#3A539B" stroke-width="2" stroke-linecap="round" />
-              <circle cx="12" cy="14" r="2" fill="#3A539B" />
-            </svg>
-          </div>
-          <span class="app-icon-name">Calendar</span>
-        </div>
-
-        <div class="app-icon-item">
-          <div class="app-icon-img-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <circle cx="9" cy="8" r="4" fill="#6264A7" />
-              <rect x="2" y="14" width="14" height="8" rx="4" fill="#6264A7" />
-              <circle cx="17" cy="10" r="3" fill="#505294" />
-              <rect x="13" y="15" width="9" height="7" rx="3" fill="#505294" />
-            </svg>
-          </div>
-          <span class="app-icon-name">Teams / Meet</span>
-        </div>
-
-        <div class="app-icon-item">
-          <div class="app-icon-img-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M12 22S20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" fill="#1E8E3E" opacity="0.15"
-                stroke="#1E8E3E" stroke-width="2" />
-              <path d="M9 12L11 14L15 9" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round" />
-            </svg>
-          </div>
-          <span class="app-icon-name">SPF · DKIM · DMARC</span>
-        </div>
-
+        <span class="app-icon-name">Gmail</span>
       </div>
-    </div>
-  </section>
 
-  <!-- ============================================================
+      <div class="app-icon-item">
+        <div class="app-icon-img-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect x="2" y="4" width="20" height="16" rx="2" fill="#0078D4" />
+            <path d="M10 4V20M2 12H22" stroke="#FFFFFF" stroke-width="2" />
+          </svg>
+        </div>
+        <span class="app-icon-name">Outlook 365</span>
+      </div>
+
+      <div class="app-icon-item">
+        <div class="app-icon-img-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M8 2L2 12H9L15 2H8Z" fill="#FBBC04" />
+            <path d="M15 2L9 12L15 22H22L16 12H22L15 2Z" fill="#3A539B" />
+            <path d="M2 12L8 22H22L16 12H2Z" fill="#1E8E3E" />
+          </svg>
+        </div>
+        <span class="app-icon-name">Google Drive</span>
+      </div>
+
+      <div class="app-icon-item">
+        <div class="app-icon-img-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#3A539B" />
+            <path d="M2 17L12 22L22 17M2 12L12 17L22 12" stroke="#3A539B" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </div>
+        <span class="app-icon-name">OneDrive</span>
+      </div>
+
+      <div class="app-icon-item">
+        <div class="app-icon-img-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="4" width="18" height="18" rx="3" fill="#3A539B" opacity="0.15" stroke="#3A539B"
+              stroke-width="1.5" />
+            <path d="M3 9H21M9 2V6M15 2V6" stroke="#3A539B" stroke-width="2" stroke-linecap="round" />
+            <circle cx="12" cy="14" r="2" fill="#3A539B" />
+          </svg>
+        </div>
+        <span class="app-icon-name">Calendar</span>
+      </div>
+
+      <div class="app-icon-item">
+        <div class="app-icon-img-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <circle cx="9" cy="8" r="4" fill="#6264A7" />
+            <rect x="2" y="14" width="14" height="8" rx="4" fill="#6264A7" />
+            <circle cx="17" cy="10" r="3" fill="#505294" />
+            <rect x="13" y="15" width="9" height="7" rx="3" fill="#505294" />
+          </svg>
+        </div>
+        <span class="app-icon-name">Teams / Meet</span>
+      </div>
+
+      <div class="app-icon-item">
+        <div class="app-icon-img-wrap">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <path d="M12 22S20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" fill="#1E8E3E" opacity="0.15" stroke="#1E8E3E"
+              stroke-width="2" />
+            <path d="M9 12L11 14L15 9" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </div>
+        <span class="app-icon-name">SPF · DKIM · DMARC</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
      PRICING & SERVICES SECTION
      ============================================================ -->
-  <section class="pricing-section" id="pricing">
-    <div class="container">
+<section class="pricing-section" id="pricing">
+  <div class="container">
 
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Simple, Transparent Pricing
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Simple, Transparent Pricing
+      </div>
+      <h2 class="h2-title">Everything handled, start to finish.</h2>
+      <p class="lead-text">Choose exactly what your team needs — no forced bundles, no hidden surprises.</p>
+    </div>
+
+    <div class="pricing-outer-container">
+
+      <!-- Top Bar -->
+      <div class="pricing-top-bar">
+        <div class="pricing-platform-pills">
+          <span class="platform-tag">Google Workspace</span>
+          <span class="platform-tag">Microsoft 365</span>
         </div>
-        <h2 class="h2-title">Everything handled, start to finish.</h2>
-        <p class="lead-text">Choose exactly what your team needs — no forced bundles, no hidden surprises.</p>
+        <span class="pricing-currency-badge">One-time service fees · USD</span>
       </div>
 
-      <div class="pricing-outer-container">
+      <!-- Core Services -->
+      <iframe class="sbs-pricing-frame"
+        src="https://order.sitesbysara.com/configure/pricing-cards?ids=118,119&popular=118&title=Core%20Setup%20%26%20Migration"
+        style="width:100%;border:0;display:block;margin-bottom:40px;" loading="lazy"></iframe>
 
-        <!-- Top Bar -->
-        <div class="pricing-top-bar">
-          <div class="pricing-platform-pills">
-            <span class="platform-tag">Google Workspace</span>
-            <span class="platform-tag">Microsoft 365</span>
-          </div>
-          <span class="pricing-currency-badge">One-time service fees · USD</span>
+      <!-- Account & Alias Add-Ons -->
+      <iframe class="sbs-pricing-frame"
+        src="https://order.sitesbysara.com/configure/pricing-cards?ids=120,121&title=Additional%20Accounts%20%26%20Aliases"
+        style="width:100%;border:0;display:block;margin-bottom:40px;" loading="lazy"></iframe>
+
+      <!-- Smart Savings Tips -->
+      <div class="pricing-callouts-row">
+        <div class="pricing-callout-card">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ea4e5f" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+            <path d="M9 18h6" />
+            <path d="M10 22h4" />
+            <path
+              d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14" />
+          </svg>
+          <div><strong>Smart savings recommendation:</strong> Use free email aliases for non-essential roles (like
+            sales@ or info@) instead of paying monthly software licenses for extra mailboxes.</div>
         </div>
-
-        <!-- 4 Column Core Services Grid -->
-        <div class="pricing-grid-4">
-
-          <!-- Col 1: GWS/MS365 Setup (Featured) -->
-          <div class="pricing-card-col is-featured">
-            <span class="featured-badge">Core Foundation</span>
-            <div>
-              <h3 class="plan-name">GWS / MS365 Setup</h3>
-              <div class="plan-price-row">
-                <span class="plan-price">$350</span>
-                <span class="plan-period">one-time</span>
-              </div>
-              <div class="plan-subtext">First 3 accounts included (1 primary user)</div>
-
-              <a href="https://order.sitesbysara.com/configure?id=118" target="_blank" rel="noopener noreferrer"
-                class="btn-plan btn-plan-primary">Order Now</a>
-
-              <div class="plan-features-label">Includes complete setup:</div>
-              <ul class="plan-features-list">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#3A539B" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>Domain verification & connection</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#3A539B" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>MX records configured to mail server</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#3A539B" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>SPF, DKIM & DMARC deliverability records</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#3A539B" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>Admin, user accounts & initial aliases</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#3A539B" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span><strong>1 account migration up to 10 GB included</strong></span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="plan-footer-box">
-              Need more than 10GB moved, or multiple accounts migrated? See <strong>Full Data Migration</strong>
-              next.
-            </div>
-          </div>
-
-          <!-- Col 2: Full Data Migration -->
-          <div class="pricing-card-col">
-            <div>
-              <h3 class="plan-name">Full Data Migration</h3>
-              <div class="plan-price-row">
-                <span class="plan-price">$225</span>
-                <span class="plan-period">/ account</span>
-              </div>
-              <div class="plan-subtext">Beyond the 10GB included with Setup, or migration-only</div>
-
-              <a href="https://order.sitesbysara.com/configure?id=119" target="_blank" rel="noopener noreferrer"
-                class="btn-plan btn-plan-outline">Order Now</a>
-
-              <div class="plan-features-label">Full transfer covers:</div>
-              <ul class="plan-features-list">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>Emails: Inbox, Sent, Drafts & Folders</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>Calendar events, schedules & recurring rules</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>Cloud files (Google Drive / OneDrive)</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>From Web Hosts, Outlook, cPanel or Gmail</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="plan-footer-box" style="color: var(--brand-blue); font-weight:600;">
-              Per account, beyond your Setup's included migration
-            </div>
-          </div>
-
-          <!-- Col 3: Outgoing Message Assistance -->
-          <div class="pricing-card-col">
-            <div>
-              <h3 class="plan-name">Outgoing Assistance</h3>
-              <div class="plan-price-row">
-                <span class="plan-price">$39</span>
-                <span class="plan-period">/ account</span>
-              </div>
-              <div class="plan-subtext">For domain switches</div>
-
-              <a href="/contact-us-2/" class="btn-plan btn-plan-outline">Contact Now</a>
-
-              <div class="plan-features-label">Domain switch routing:</div>
-              <ul class="plan-features-list">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>Automated notices with your new email</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>Auto-forwarding from old inbox to new inbox</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>Graceful phase-out of old domain addresses</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>Prevents lost client inquiries or orders</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="plan-footer-box">
-              Moving from domainA.com → domainB.com
-            </div>
-          </div>
-
-          <!-- Col 4: Company Catch-All -->
-          <div class="pricing-card-col">
-            <div>
-              <h3 class="plan-name">Company Catch-All</h3>
-              <div class="plan-price-row">
-                <span class="plan-price">$250</span>
-                <span class="plan-period">one-time</span>
-              </div>
-              <div class="plan-subtext">Up to 30 accounts/aliases</div>
-
-              <a href="/contact-us-2/" class="btn-plan btn-plan-outline">Contact Now</a>
-
-              <div class="plan-features-label">Governance & safety:</div>
-              <ul class="plan-features-list">
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>Routes all domain mail to 1 master inbox</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>Catches misspelled addresses & typos</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>Covers up to 30 accounts & aliases</span>
-                </li>
-                <li>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                    <path d="M20 6 9 17l-5-5" stroke="#1E8E3E" stroke-width="2" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
-                  <span>+$5 for each additional account/alias</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="plan-footer-box">
-              Review everything in one central place
-            </div>
-          </div>
-
+        <div class="pricing-callout-card">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3A539B" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+          <div><strong>Cost-efficient migration:</strong> For older or rarely accessed accounts, we often recommend
+            setting them up fresh instead of paying data migration fees.</div>
         </div>
-
-        <!-- 4 Additional Addon Services -->
-        <div class="pricing-addons-grid">
-
-          <div class="addon-item-box">
-            <span class="addon-price-tag">$59 each</span>
-            <h4 class="addon-item-title">Additional Email Accounts</h4>
-            <p class="addon-item-desc">User mailbox creation, invitations sent to each account holder, guided password
-              reset, and user support.</p>
-          </div>
-
-          <div class="addon-item-box">
-            <span class="addon-price-tag">$29 each</span>
-            <h4 class="addon-item-title">Additional Email Aliases</h4>
-            <p class="addon-item-desc">Free forwarders (e.g. info@, sales@) for non-essential accounts — saves money
-              without paying for extra licenses.</p>
-          </div>
-
-          <div class="addon-item-box">
-            <span class="addon-price-tag">$129 each</span>
-            <h4 class="addon-item-title">Send & Reply As Another Alias</h4>
-            <p class="addon-item-desc">Reply as billing@ or support@ straight from one primary inbox — "send mail as"
-              and "check mail from" configured. Same rate applies for setting up additional email accounts under one
-              login.</p>
-          </div>
-
-          <div class="addon-item-box">
-            <span class="addon-price-tag">$59 each</span>
-            <h4 class="addon-item-title">Email Group Setup</h4>
-            <p class="addon-item-desc">Shared distribution lists (e.g. team@yourcompany.com) so the right team members
-              always stay in the loop.</p>
-          </div>
-
-        </div>
-
-        <!-- Smart Savings Tips -->
-        <div class="pricing-callouts-row">
-          <div class="pricing-callout-card">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ea4e5f" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
-              <path d="M9 18h6" />
-              <path d="M10 22h4" />
-              <path
-                d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14" />
-            </svg>
-            <div><strong>Smart savings recommendation:</strong> Use free email aliases for non-essential roles (like
-              sales@ or info@) instead of paying monthly software licenses for extra mailboxes.</div>
-          </div>
-          <div class="pricing-callout-card">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3A539B" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-            <div><strong>Cost-efficient migration:</strong> For older or rarely accessed accounts, we often recommend
-              setting them up fresh instead of paying data migration fees.</div>
-          </div>
-        </div>
-
       </div>
-
-      <p class="pricing-disclaimer">
-        Pricing above represents Sites by Sara professional setup & migration fees. Google Workspace and Microsoft 365
-        software licenses are billed directly by Google or Microsoft.
-      </p>
-
-      <p class="pricing-inline-link">
-        Already have email set up? Protect it with our <a href="/cybersecurity-packages/">Cybersecurity
-          Services</a>.
-      </p>
 
     </div>
-  </section>
 
-  <!-- ============================================================
+    <p class="pricing-disclaimer">
+      Pricing above represents Sites by Sara professional setup & migration fees. Google Workspace and Microsoft 365
+      software licenses are billed directly by Google or Microsoft.
+    </p>
+
+    <p class="pricing-inline-link">
+      Already have email set up? Protect it with our <a href="/custom-web-mobile-apps/#pricing">Cybersecurity
+        &amp; Email Protection</a> plans.
+    </p>
+
+  </div>
+</section>
+
+<script>
+  window.addEventListener('message', function (e) {
+    if (e.data && e.data.source === 'sbs-pricing-cards') {
+      document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
+        if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
+      });
+    }
+  });
+</script>
+
+<!-- ============================================================
      DETAILED BREAKDOWN: WHAT WE DO (8-Step Scope)
      ============================================================ -->
-  <section class="section-space scope-section" aria-label="Setup breakdown">
-    <div class="container">
+<section class="section-space scope-section" aria-label="Setup breakdown">
+  <div class="container">
 
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Detailed Breakdown
-        </div>
-        <h2 class="h2-title">What's involved in your setup.</h2>
-        <p class="lead-text">Here is the exact step-by-step engineering behind every Google Workspace & Microsoft
-          Outlook deployment.</p>
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Detailed Breakdown
+      </div>
+      <h2 class="h2-title">What's involved in your setup.</h2>
+      <p class="lead-text">Here is the exact step-by-step engineering behind every Google Workspace & Microsoft
+        Outlook deployment.</p>
+    </div>
+
+    <div class="scope-grid">
+
+      <div class="scope-card">
+        <div class="scope-num">1</div>
+        <h3 class="scope-title">Account Creation</h3>
+        <p class="scope-desc">Business profile initialization, plan selection (Starter, Standard, Plus, Enterprise),
+          and master admin account provisioning.</p>
       </div>
 
-      <div class="scope-grid">
+      <div class="scope-card">
+        <div class="scope-num">2</div>
+        <h3 class="scope-title">Domain Connection</h3>
+        <p class="scope-desc">Connecting your existing business domain, confirming ownership intent, and preparing DNS
+          configuration.</p>
+      </div>
 
-        <div class="scope-card">
-          <div class="scope-num">1</div>
-          <h3 class="scope-title">Account Creation</h3>
-          <p class="scope-desc">Business profile initialization, plan selection (Starter, Standard, Plus, Enterprise),
-            and master admin account provisioning.</p>
-        </div>
+      <div class="scope-card">
+        <div class="scope-num">3</div>
+        <h3 class="scope-title">Domain Verification</h3>
+        <p class="scope-desc">Generating and publishing the unique TXT verification code at your domain host's DNS
+          settings.</p>
+      </div>
 
-        <div class="scope-card">
-          <div class="scope-num">2</div>
-          <h3 class="scope-title">Domain Connection</h3>
-          <p class="scope-desc">Connecting your existing business domain, confirming ownership intent, and preparing DNS
-            configuration.</p>
-        </div>
+      <div class="scope-card">
+        <div class="scope-num">4</div>
+        <h3 class="scope-title">DNS Security Records</h3>
+        <p class="scope-desc">Configuring MX routing records, SPF TXT records, DKIM cryptographic email signing, and
+          strict DMARC policies.</p>
+      </div>
 
-        <div class="scope-card">
-          <div class="scope-num">3</div>
-          <h3 class="scope-title">Domain Verification</h3>
-          <p class="scope-desc">Generating and publishing the unique TXT verification code at your domain host's DNS
-            settings.</p>
-        </div>
+      <div class="scope-card">
+        <div class="scope-num">5</div>
+        <h3 class="scope-title">User & Mailbox Setup</h3>
+        <p class="scope-desc">Creating user mailboxes (name@yourdomain.com), setting up aliases (info@, sales@,
+          support@), and configuring optional team distribution groups & shared inboxes.</p>
+      </div>
 
-        <div class="scope-card">
-          <div class="scope-num">4</div>
-          <h3 class="scope-title">DNS Security Records</h3>
-          <p class="scope-desc">Configuring MX routing records, SPF TXT records, DKIM cryptographic email signing, and
-            strict DMARC policies.</p>
-        </div>
+      <div class="scope-card">
+        <div class="scope-num">6</div>
+        <h3 class="scope-title">Data Migration</h3>
+        <p class="scope-desc">Migrating full mailbox history (inbox, sent, folders), calendars, and cloud files from
+          your old host, Outlook, or Gmail.</p>
+      </div>
 
-        <div class="scope-card">
-          <div class="scope-num">5</div>
-          <h3 class="scope-title">User & Mailbox Setup</h3>
-          <p class="scope-desc">Creating user mailboxes (name@yourdomain.com), setting up aliases (info@, sales@,
-            support@), and configuring optional team distribution groups & shared inboxes.</p>
-        </div>
+      <div class="scope-card">
+        <div class="scope-num">7</div>
+        <h3 class="scope-title">Security & Admin</h3>
+        <p class="scope-desc">Enforcing 2-Step Verification, configuring administrator roles/permissions, and applying
+          spam protection controls.</p>
+      </div>
 
-        <div class="scope-card">
-          <div class="scope-num">6</div>
-          <h3 class="scope-title">Data Migration</h3>
-          <p class="scope-desc">Migrating full mailbox history (inbox, sent, folders), calendars, and cloud files from
-            your old host, Outlook, or Gmail.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">7</div>
-          <h3 class="scope-title">Security & Admin</h3>
-          <p class="scope-desc">Enforcing 2-Step Verification, configuring administrator roles/permissions, and applying
-            spam protection controls.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">8</div>
-          <h3 class="scope-title">Testing, Handoff & Ongoing Support</h3>
-          <p class="scope-desc">Monitoring DNS propagation, testing inbound/outbound mail flow end-to-end, and providing
-            user onboarding walkthroughs. After handoff, we remain available for ongoing tech support for anything
-            related to your Google Workspace or Microsoft 365.</p>
-        </div>
-
+      <div class="scope-card">
+        <div class="scope-num">8</div>
+        <h3 class="scope-title">Testing, Handoff & Ongoing Support</h3>
+        <p class="scope-desc">Monitoring DNS propagation, testing inbound/outbound mail flow end-to-end, and providing
+          user onboarding walkthroughs. After handoff, we remain available for ongoing tech support for anything
+          related to your Google Workspace or Microsoft 365.</p>
       </div>
 
     </div>
-  </section>
 
-  <!-- ============================================================
+  </div>
+</section>
+
+<!-- ============================================================
      ALTERNATING STORYTELLING FEATURES (High Breathing Space)
      ============================================================ -->
-  <section class="story-features-section">
-    <div class="container">
+<section class="story-features-section">
+  <div class="container">
 
-      <!-- Feature 1: Custom Email & Aliases -->
-      <div class="story-row">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Professional Communication
-          </div>
-          <h2 class="story-title">Get custom email @yourcompany</h2>
-          <p class="story-desc">
-            Look more professional with personalized email addresses at your domain like
-            <strong>alex@yourcompany.com</strong>. Plus, set up cost-effective aliases such as <strong>sales@</strong>
-            and <strong>support@</strong> that route into your primary inbox without paying for extra licenses.
-          </p>
-          <a href="#pricing" class="story-link">View setup packages<svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/custom-email-1.webp"
-              alt="Custom business email interface with domain aliases" width="520" height="390" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature 2: Full Data Migration -->
-      <div class="story-row is-reversed">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Zero Data Loss
-          </div>
-          <h2 class="story-title">Migrate everything. Lose nothing.</h2>
-          <p class="story-desc">
-            We move your entire digital workspace from your existing web host, Outlook, cPanel, or another Google
-            account into your new Google Workspace or Microsoft 365 setup — with zero data loss and no downtime.
-          </p>
-          <a href="#pricing" class="story-link">Learn about migration<svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/laptop-meeting-1.webp"
-              alt="Zero data loss cloud email and file migration visual" width="520" height="390" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature 3: Scale Easily & Catch-All -->
-      <div class="story-row">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Built for Growth
-          </div>
-          <h2 class="story-title">Easily scale up or down</h2>
-          <p class="story-desc">
-            As your team and operations expand, we add users, configure "Send & Reply As" permissions, set up shared
-            team groups, and enable company catch-all routing so no customer inquiry ever falls through the cracks.
-          </p>
-          <a href="#pricing" class="story-link">See add-on options<svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/scale-team-1.webp"
-              alt="Team mailbox management and catch-all routing console" width="520" height="390" />
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-     FAQ SECTION (Clean Accordion)
-     ============================================================ -->
-  <section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
-    <div class="container">
-
-      <div class="section-header">
+    <!-- Feature 1: Custom Email & Aliases -->
+    <div class="story-row">
+      <div class="story-text-col">
         <div class="eyebrow">
           <span class="eyebrow-dot"></span>
-          Common Questions
+          Professional Communication
         </div>
-        <h2 class="h2-title">Frequently Asked Questions</h2>
-        <p class="lead-text">Everything you need to know about our Google Workspace & Microsoft 365 setup services.</p>
+        <h2 class="story-title">Get custom email @yourcompany</h2>
+        <p class="story-desc">
+          Look more professional with personalized email addresses at your domain like
+          <strong>alex@yourcompany.com</strong>. Plus, set up cost-effective aliases such as <strong>sales@</strong>
+          and <strong>support@</strong> that route into your primary inbox without paying for extra licenses.
+        </p>
+        <a href="#pricing" class="story-link">View setup packages<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
       </div>
-
-      <div class="faq-wrap">
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>Do we have to migrate every single email account?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            No. For cost efficiency, we usually recommend migrating only the accounts that need full historical archives
-            (inbox, sent, folders). Less critical or inactive addresses can be set up fresh or configured as free email
-            aliases.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>How long does domain verification & DNS propagation take?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Domain verification and record propagation take anywhere from a few minutes up to 24–48 hours depending on
-            your domain registrar. Because we pre-configure your records, there is <strong>zero downtime</strong> for
-            incoming email.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>What if we are a new business setting up email for the first time?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Our <strong>Domain & Account Setup</strong> runs a flat rate of <strong>$350</strong>, covering your
-            first 3 accounts, complete DNS/SPF/DKIM/DMARC configuration, and 1 free data migration up to 10GB if you
-            do have existing data to bring over.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>What is the difference between an email account and an alias?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            An <strong>account</strong> is a full mailbox with its own login and monthly software license. An
-            <strong>alias</strong> is a forwarding address (like <code>sales@yourcompany.com</code>) that forwards
-            messages into an existing account at <strong>no extra monthly license fee</strong>.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>How does "Send Mail and Reply As Another Alias" work?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            If one user (e.g. <code>jennifer@yourcompany.com</code>) wants to send and reply as
-            <code>billing@yourcompany.com</code> or <code>support@yourcompany.com</code> directly from her inbox, we
-            configure "Send Mail As" and "Check Mail From" permissions for $129 each. She only pays for 1 software
-            license instead of 3.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>Do you support Microsoft 365 as well as Google Workspace?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Yes. The exact same professional domain verification, DNS hardening (SPF, DKIM, DMARC), user configuration,
-            and data migration applies to both Google Workspace and Microsoft 365.
-          </div>
-        </details>
-
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/custom-email-1.webp"
+            alt="Custom business email interface with domain aliases" width="520" height="390" />
+        </div>
       </div>
+    </div>
+
+    <!-- Feature 2: Full Data Migration -->
+    <div class="story-row is-reversed">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Zero Data Loss
+        </div>
+        <h2 class="story-title">Migrate everything. Lose nothing.</h2>
+        <p class="story-desc">
+          We move your entire digital workspace from your existing web host, Outlook, cPanel, or another Google
+          account into your new Google Workspace or Microsoft 365 setup — with zero data loss and no downtime.
+        </p>
+        <a href="#pricing" class="story-link">Learn about migration<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/laptop-meeting-1.webp"
+            alt="Zero data loss cloud email and file migration visual" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 3: Scale Easily -->
+    <div class="story-row">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Built for Growth
+        </div>
+        <h2 class="story-title">Easily scale up or down</h2>
+        <p class="story-desc">
+          As your team and operations expand, we add new email accounts and aliases so every team member has a
+          professional address, without paying for extra licenses you don't need.
+        </p>
+        <a href="#pricing" class="story-link">See add-on options<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/scale-team-1.webp"
+            alt="Team mailbox management console with accounts and aliases" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ SECTION (Clean Accordion)
+     ============================================================ -->
+<section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Common Questions
+      </div>
+      <h2 class="h2-title">Frequently Asked Questions</h2>
+      <p class="lead-text">Everything you need to know about our Google Workspace & Microsoft 365 setup services.</p>
+    </div>
+
+    <div class="faq-wrap">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do we have to migrate every single email account?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          No. For cost efficiency, we usually recommend migrating only the accounts that need full historical archives
+          (inbox, sent, folders). Less critical or inactive addresses can be set up fresh or configured as free email
+          aliases.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>How long does domain verification & DNS propagation take?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Domain verification and record propagation take anywhere from a few minutes up to 24-48 hours depending on
+          your domain registrar. Because we pre-configure your records, there is <strong>zero downtime</strong> for
+          incoming email.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What if we are a new business setting up email for the first time?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Our <strong>GWS / MS365 Setup</strong> runs a flat one-time rate that covers your initial accounts,
+          complete DNS/SPF/DKIM/DMARC configuration, and a free data migration allowance if you have existing
+          data to bring over. See the pricing above for current details.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What is the difference between an email account and an alias?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          An <strong>account</strong> is a full mailbox with its own login and monthly software license. An
+          <strong>alias</strong> is a forwarding address (like <code>sales@yourcompany.com</code>) that forwards
+          messages into an existing account at <strong>no extra monthly license fee</strong>.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do you support Microsoft 365 as well as Google Workspace?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. The exact same professional domain verification, DNS hardening (SPF, DKIM, DMARC), user configuration,
+          and data migration applies to both Google Workspace and Microsoft 365.
+        </div>
+      </details>
 
     </div>
-  </section>
 
-  <!-- ============================================================
+  </div>
+</section>
+
+<!-- ============================================================
      NEXT STEPS / CONSULTATION CHECKLIST BANNER
      ============================================================ -->
-  <section class="cta-banner-section" id="consultation">
-    <div class="container">
-      <div class="cta-banner-box">
+<section class="cta-banner-section" id="consultation">
+  <div class="container">
+    <div class="cta-banner-box">
 
-        <div class="cta-banner-left">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Next Steps
-          </div>
-          <h2>Ready for a smooth, worry-free email transition?</h2>
-          <p>
-            Schedule a consultation to discuss your preferences, finalize the setup plan, and receive an exact
-            customized quote for your team.
-          </p>
-          <a href="/contact-us-2/" class="btn btn-primary">Book a Free Consultation</a>
+      <div class="cta-banner-left">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Next Steps
         </div>
-
-        <div class="prep-card-right">
-          <h4 class="prep-card-title">Helpful to have ready:</h4>
-          <ul class="prep-list">
-            <li>
-              <span class="prep-list-num">1</span>
-              <span>Which services you need from the list above</span>
-            </li>
-            <li>
-              <span class="prep-list-num">2</span>
-              <span>List of email accounts and aliases needed</span>
-            </li>
-            <li>
-              <span class="prep-list-num">3</span>
-              <span>Any aliases/accounts to set up under existing logins</span>
-            </li>
-            <li>
-              <span class="prep-list-num">4</span>
-              <span>Which accounts need data migration services</span>
-            </li>
-            <li>
-              <span class="prep-list-num">5</span>
-              <span>Which emails need automatic forwarding setup</span>
-            </li>
-          </ul>
-        </div>
-
+        <h2>Ready for a smooth, worry-free email transition?</h2>
+        <p>
+          Schedule a consultation to discuss your preferences, finalize the setup plan, and receive an exact
+          customized quote for your team.
+        </p>
+        <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free Consultation</a>
       </div>
+
+      <div class="prep-card-right">
+        <h4 class="prep-card-title">Helpful to have ready:</h4>
+        <ul class="prep-list">
+          <li>
+            <span class="prep-list-num">1</span>
+            <span>Which services you need from the list above</span>
+          </li>
+          <li>
+            <span class="prep-list-num">2</span>
+            <span>List of email accounts and aliases needed</span>
+          </li>
+          <li>
+            <span class="prep-list-num">3</span>
+            <span>Any aliases/accounts to set up under existing logins</span>
+          </li>
+          <li>
+            <span class="prep-list-num">4</span>
+            <span>Which accounts need data migration services</span>
+          </li>
+          <li>
+            <span class="prep-list-num">5</span>
+            <span>Which emails need automatic forwarding setup</span>
+          </li>
+        </ul>
+      </div>
+
     </div>
-  </section>
-
-</body>
-
-</html>
+  </div>
+</section>

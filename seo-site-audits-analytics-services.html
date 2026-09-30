@@ -1,0 +1,1699 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- SEO: Service structured data (see design.md §7) -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Search Engine Optimization, Site Audits, Google Business Profile & Analytics Setup",
+    "provider": {
+      "@type": "Organization",
+      "name": "Sites by Sara"
+    },
+    "description": "Ongoing white-hat SEO plans across three tiers, Google Business Profile setup and optimization, reputation management, one-time site audits with priority fixes, and Google Analytics, Tag Manager & Search Console setup."
+  }
+  </script>
+<!-- SEO: FAQPage structured data — mirrors the visible FAQ section verbatim -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What's included in an SEO Plan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Every SEO plan includes keyword tracking, backlinking and citations, and Google Business Profile / Maps optimization. Higher tiers add more tracked keywords, monthly content, and more GBP updates per month. See the pricing above for exact tier details."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between the three SEO plan tiers?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Starter, Standard, and Growth scale up in tracked keywords, monthly content pieces, and Google Business Profile updates. We'll recommend the right tier for your goals and market during a free consultation. See the pricing above for current rates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer white-hat SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Sites by Sara offers 100% white-hat SEO with a proven track record since 2007."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer Google Business Profile setup and reputation management?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We offer standalone Google Business Profile Setup for a new profile, GBP Optimization for a profile you already have, and ongoing Reputation Management to monitor and respond to your reviews — see the pricing above."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's included in the Site Audit & Priority Fixes services?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We offer three audit tiers: an SEO Audit focused on rankings and search visibility, a Website Audit focused on speed, usability, and security, and a combined Website + SEO Audit bundle. Each includes a detailed report and implementation of priority fixes. See the pricing above for current rates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I get an audit without committing to a monthly SEO plan?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All three audit tiers are standalone one-time services and don't require an SEO Plan."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do SEO Plans include Google Analytics or Search Console setup?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SEO Plans focus on rankings, content, and reporting. Google Analytics, Tag Manager, and Google Search Console setup are available as separate one-time services, or bundled together — see the pricing above."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between GA4 Setup, GTM Setup, and the Google Properties Bundle?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Google Analytics (GA4) Setup and Google Tag Manager (GTM) Setup can each be ordered on their own, or combined with Google Search Console setup in the Google Properties Bundle for all three at once. See the pricing above for current rates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need Google Search Console, or is Analytics enough?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most sites benefit from both — Analytics shows on-site visitor behavior, while Search Console shows how your site actually performs in Google Search. Each can be set up on its own if you only need one."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer ongoing Google Search Console monitoring, not just setup?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. GSC Ongoing Fixes is a monthly service that reviews your Search Console reports and fixes indexing, broken link, and Core Web Vitals issues as they come up — a separate service from the one-time GSC Setup. See the pricing above for current rates."
+        }
+      }
+    ]
+  }
+  </script>
+
+<style>
+  /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+  :root {
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
+    --brand-blue-subtle: #F6F8FD;
+
+    --brand-coral: #ea4e5f;
+    --brand-coral-hover: #d43d4e;
+    --brand-coral-tint: #FDEEEE;
+
+    --brand-peach: #FCEFE5;
+    --brand-peach-hover: #F8E3D4;
+    --brand-peach-tint: #FFF9F5;
+
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+    --navy: #1E2140;
+    --navy-dark: #13152C;
+    --slate: #5F6368;
+    --slate-light: #80868B;
+    --slate-subtle: #9AA0A6;
+
+    --border: #DCE2EE;
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
+
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
+    --bg-banner: #FCEFE5;
+    --bg-callout: #FFFBF7;
+
+    --green: #1E8E3E;
+    --green-tint: #E6F4EA;
+    --yellow: #FBBC04;
+    --yellow-tint: #FEF7E0;
+    --coral: #ea4e5f;
+    --coral-tint: #FDEEEE;
+
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-pill: 9999px;
+
+    --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+    --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+    --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+    --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font);
+    color: var(--navy);
+    background-color: var(--bg-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .section-space {
+    padding: clamp(70px, 8vw, 110px) 0;
+  }
+
+  .section-space-tight {
+    padding: clamp(40px, 5vw, 65px) 0;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(36px, 5vw, 56px);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
+
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--coral);
+    display: inline-block;
+  }
+
+  .h2-title {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .lead-text {
+    font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
+    color: var(--slate);
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:focus-visible,
+  .btn-primary:active {
+    background: var(--brand-gradient-hover);
+    background-clip: padding-box;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+    color: #FFFFFF !important;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--brand-blue);
+    border-color: var(--brand-blue);
+  }
+
+  .btn-outline:hover,
+  .btn-outline:focus,
+  .btn-outline:focus-visible,
+  .btn-outline:active {
+    background-color: var(--brand-peach);
+    border-color: var(--brand-blue);
+    color: var(--brand-blue) !important;
+  }
+
+  /* ============================================================
+     PAGE TITLE BANNER
+     ============================================================ */
+  .page-title-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-gradient);
+    padding: clamp(52px, 6vw, 76px) 24px;
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+  }
+
+  .page-title-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+    pointer-events: none;
+  }
+
+  .page-title-banner-mesh {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .page-title-banner-mesh::before,
+  .page-title-banner-mesh::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0.22;
+    pointer-events: none;
+  }
+
+  .page-title-banner-mesh::before {
+    width: 320px;
+    height: 320px;
+    background: #FFFFFF;
+    top: -120px;
+    left: 8%;
+  }
+
+  .page-title-banner-mesh::after {
+    width: 280px;
+    height: 280px;
+    background: var(--brand-coral);
+    bottom: -80px;
+    right: 10%;
+  }
+
+  .page-title-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-banner-h1 {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFFFFF;
+    letter-spacing: -0.025em;
+    margin: 0 0 10px;
+    text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+  }
+
+  .page-banner-sub {
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.94);
+    letter-spacing: 0.01em;
+    margin: 0;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+  }
+
+  /* ============================================================
+     HERO SECTION
+     ============================================================ */
+  .hero-section {
+    padding: clamp(48px, 6vw, 76px) 0 clamp(40px, 6vw, 70px);
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: center;
+  }
+
+  .hero-left {
+    max-width: 580px;
+  }
+
+  .hero-footnote {
+    font-size: 0.88rem;
+    color: var(--slate-light);
+    line-height: 1.5;
+  }
+
+  .hero-footnote strong {
+    color: var(--slate);
+    font-weight: 600;
+  }
+
+  .hero-visual-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-image-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-floating);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    transition: transform 0.3s ease;
+    background: #FFFFFF;
+    aspect-ratio: 4 / 3;
+  }
+
+  .hero-image-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .hero-image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ============================================================
+     TRUST & CAPABILITY METRICS RIBBON
+     ============================================================ */
+  .trust-ribbon-section {
+    padding: 38px 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    background: var(--brand-blue-subtle);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+
+  .trust-stat-item {
+    padding: 8px 16px;
+  }
+
+  .trust-stat-number {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1.1;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
+
+  .trust-stat-label {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--slate);
+    line-height: 1.35;
+  }
+
+  /* ============================================================
+     PRICING SECTION
+     ============================================================ */
+  .pricing-section {
+    padding: clamp(70px, 8vw, 110px) 0;
+    background: #FFFFFF;
+  }
+
+  .pricing-outer-container {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    padding: clamp(24px, 4vw, 44px);
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .pricing-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .pricing-platform-pills {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .platform-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--navy);
+    background: #F1F3F9;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+  }
+
+  .pricing-currency-badge {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--slate);
+  }
+
+  .pricing-group-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--slate-light);
+    margin-bottom: 20px;
+  }
+
+  .pricing-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .pricing-card-col {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    transition: all 0.25s ease;
+  }
+
+  .pricing-card-col:hover {
+    border-color: #BDC1C6;
+    box-shadow: var(--shadow-card);
+  }
+
+  .plan-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .plan-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    margin-bottom: 4px;
+  }
+
+  .plan-price {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .plan-period {
+    font-size: 0.85rem;
+    color: var(--slate);
+    font-weight: 600;
+  }
+
+  .plan-subtext {
+    font-size: 0.85rem;
+    color: var(--brand-blue);
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .btn-plan {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: var(--font);
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 12px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 22px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .btn-plan-primary {
+    background: var(--brand-gradient);
+    color: #FFFFFF;
+    border: none;
+    box-shadow: 0 4px 14px rgba(2, 80, 197, 0.25);
+  }
+
+  .btn-plan-primary:hover,
+  .btn-plan-primary:focus,
+  .btn-plan-primary:focus-visible,
+  .btn-plan-primary:active {
+    background: var(--brand-gradient-hover);
+    box-shadow: 0 5px 16px rgba(212, 63, 141, 0.32);
+    color: #FFFFFF !important;
+  }
+
+  .btn-plan-outline {
+    background: transparent;
+    color: var(--brand-blue);
+    border: 1.5px solid var(--border);
+  }
+
+  .btn-plan-outline:hover,
+  .btn-plan-outline:focus,
+  .btn-plan-outline:focus-visible,
+  .btn-plan-outline:active {
+    background: var(--brand-peach);
+    border-color: var(--brand-blue);
+    color: var(--brand-blue) !important;
+  }
+
+  .plan-features-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 12px;
+  }
+
+  .plan-features-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--slate);
+    line-height: 1.45;
+  }
+
+  .plan-features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .plan-features-list li svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: var(--green);
+  }
+
+  .pricing-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 44px 0 28px;
+    color: var(--slate-light);
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .pricing-divider::before,
+  .pricing-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border-light);
+  }
+
+  .pricing-addons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .addon-item-box {
+    background: var(--bg-light);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 24px 22px;
+    transition: all 0.2s ease;
+  }
+
+  .addon-item-box:hover {
+    background: #FFFFFF;
+    border-color: var(--border-card);
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .addon-item-box.is-highlight {
+    background: var(--brand-peach-tint);
+    border: 1.5px solid var(--brand-peach-hover);
+  }
+
+  .addon-price-tag {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--brand-coral);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .addon-item-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .addon-item-desc {
+    font-size: 0.88rem;
+    color: var(--slate);
+    line-height: 1.5;
+  }
+
+  .pricing-disclaimer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--slate-light);
+    margin-top: 28px;
+    line-height: 1.6;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pricing-inline-link {
+    text-align: center;
+    font-size: 0.92rem;
+    color: var(--slate);
+    margin-top: 16px;
+  }
+
+  .pricing-inline-link a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .pricing-inline-link a:hover,
+  .pricing-inline-link a:focus,
+  .pricing-inline-link a:focus-visible,
+  .pricing-inline-link a:active {
+    color: var(--brand-blue-hover) !important;
+    border-color: var(--brand-blue-hover);
+  }
+
+  /* ============================================================
+     DETAILED BREAKDOWN: KEY DELIVERABLES (8-Step Scope)
+     ============================================================ */
+  .scope-section {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .scope-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .scope-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
+  }
+
+  .scope-card:hover {
+    border-color: var(--brand-blue);
+    box-shadow: var(--shadow-subtle);
+    transform: translateY(-2px);
+  }
+
+  .scope-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .scope-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .scope-desc {
+    font-size: 0.85rem;
+    color: var(--slate);
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     ============================================================ */
+  .story-features-section {
+    padding: clamp(60px, 8vw, 110px) 0;
+  }
+
+  .story-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 7vw, 100px);
+    align-items: center;
+    margin-bottom: clamp(70px, 9vw, 130px);
+  }
+
+  .story-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .story-row.is-reversed .story-text-col {
+    order: 2;
+  }
+
+  .story-row.is-reversed .story-visual-col {
+    order: 1;
+  }
+
+  .story-text-col {
+    max-width: 480px;
+  }
+
+  .story-title {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 18px;
+  }
+
+  .story-desc {
+    font-size: 1.08rem;
+    color: var(--slate);
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .story-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--brand-coral);
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+
+  .story-link:hover,
+  .story-link:focus,
+  .story-link:focus-visible,
+  .story-link:active {
+    gap: 10px;
+    color: var(--brand-coral-hover) !important;
+  }
+
+  .story-link svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+
+  .story-visual-col {
+    display: flex;
+    justify-content: center;
+  }
+
+  .story-image-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    background: #FFFFFF;
+    max-width: 520px;
+    width: 100%;
+  }
+
+  .story-image-card:hover {
+    box-shadow: var(--shadow-floating);
+    transform: translateY(-3px);
+  }
+
+  .story-image-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* ============================================================
+     FAQ SECTION (Clean Modern Accordion)
+     ============================================================ */
+  .faq-section {
+    background: #FAFAFC;
+    padding: clamp(70px, 8vw, 100px) 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .faq-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .faq-item:hover {
+    border-color: #CBD5E1;
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+  }
+
+  details[open] .faq-icon {
+    transform: rotate(45deg);
+    background: var(--coral-tint);
+    color: var(--coral);
+  }
+
+  .faq-answer {
+    padding: 0 24px 22px;
+    font-size: 0.95rem;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+
+  .faq-answer strong {
+    color: var(--navy);
+  }
+
+  /* ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ */
+  .cta-banner-section {
+    padding: clamp(70px, 8vw, 110px) 0;
+  }
+
+  .cta-banner-box {
+    background: var(--bg-banner);
+    border-radius: var(--radius-xl);
+    padding: clamp(36px, 5vw, 60px);
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .cta-banner-left h2 {
+    font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem);
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1.25;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .cta-banner-left p {
+    font-size: 1.05rem;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .prep-card-right {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .prep-card-title {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+
+  .prep-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--slate);
+  }
+
+  .prep-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .prep-list-num {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+  @media (max-width: 1024px) {
+
+    .pricing-grid-3,
+    .pricing-addons-grid,
+    .scope-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 820px) {
+
+    .hero-grid,
+    .story-row,
+    .cta-banner-box {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .story-row.is-reversed .story-text-col {
+      order: 1;
+    }
+
+    .story-row.is-reversed .story-visual-col {
+      order: 2;
+    }
+
+    .trust-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 600px) {
+
+    .pricing-grid-3,
+    .pricing-addons-grid,
+    .scope-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .btn-group {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<!-- ============================================================
+       PAGE TITLE BANNER
+       ============================================================ -->
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <h1 class="page-banner-h1">SEO, Site Audits &amp; Analytics Services</h1>
+    <p class="page-banner-sub">(SEO Plans, Site Audits, GBP &amp; Analytics Setup)</p>
+  </div>
+</section>
+
+<!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+<section class="hero-section" id="overview">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Hero Copy -->
+      <div class="hero-left">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Search Engine Optimization
+        </div>
+
+        <h2 class="h2-title">Real rankings take an ongoing plan — or a clear starting point.</h2>
+
+        <p class="lead-text">
+          Sites by Sara offers award-winning, 100% white-hat SEO with a dedicated point of contact and monthly,
+          metrics-driven reporting. Not ready for an ongoing plan yet? Start with a one-time Site Audit that
+          identifies exactly what to fix first.
+        </p>
+
+        <div class="btn-group">
+          <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+            Consultation</a>
+          <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
+        </div>
+
+        <div class="hero-footnote">
+          <strong>3 SEO plans</strong> — plus Google Business Profile setup, reputation management, one-time
+          site audits, and Analytics &amp; Search Console setup, all in one place.
+        </div>
+      </div>
+
+      <!-- Hero Visual Mockup -->
+      <div class="hero-visual-wrap">
+        <div class="hero-image-card">
+          <img src="/wp-content/uploads/2026/09/seo-plans-site-audit-hero.webp"
+            alt="SEO keyword ranking dashboard with monthly performance report" width="600" height="450" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRUST & CAPABILITY METRICS RIBBON
+     ============================================================ -->
+<section class="trust-ribbon-section" aria-label="Key Service Facts">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-stat-item">
+        <div class="trust-stat-number">100%</div>
+        <div class="trust-stat-label">White-Hat SEO</div>
+      </div>
+      <div class="trust-stat-item">
+        <div class="trust-stat-number">3</div>
+        <div class="trust-stat-label">SEO Plan Tiers</div>
+      </div>
+      <div class="trust-stat-item">
+        <div class="trust-stat-number">14</div>
+        <div class="trust-stat-label">Services On This Page</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING SECTION
+     ============================================================ -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Simple, Transparent Pricing
+      </div>
+      <h2 class="h2-title">SEO plans, GBP, audits, and analytics — all in one place.</h2>
+      <p class="lead-text">Choose an ongoing plan, or start with a one-time audit or setup service first.</p>
+    </div>
+
+    <div class="pricing-outer-container">
+
+      <!-- Top Bar -->
+      <div class="pricing-top-bar">
+        <div class="pricing-platform-pills">
+          <span class="platform-tag">SEO</span>
+        </div>
+        <span class="pricing-currency-badge">Monthly &amp; one-time rates · USD</span>
+      </div>
+
+      <div class="pricing-group-label">Monthly SEO Plans</div>
+
+      <iframe class="sbs-pricing-frame"
+        src="https://order.sitesbysara.com/configure/pricing-cards?ids=43,44,45&popular=44&title=Monthly%20SEO%20Plans"
+        style="width:100%;border:0;display:block;margin-bottom:40px;" loading="lazy"></iframe>
+
+      <div class="pricing-divider">Google Business Profile &amp; Reputation</div>
+
+      <iframe class="sbs-pricing-frame"
+        src="https://order.sitesbysara.com/configure/pricing-cards?ids=46,47,48&title=Google%20Business%20Profile%20%26%20Reputation"
+        style="width:100%;border:0;display:block;margin-bottom:40px;" loading="lazy"></iframe>
+
+      <div class="pricing-divider">Site Audit &amp; Priority Fixes (One-Time)</div>
+
+      <iframe class="sbs-pricing-frame"
+        src="https://order.sitesbysara.com/configure/pricing-cards?ids=49,49-1,49-2&popular=49-2&title=Site%20Audit%20%26%20Priority%20Fixes"
+        style="width:100%;border:0;display:block;margin-bottom:40px;" loading="lazy"></iframe>
+
+      <div class="pricing-divider">Analytics &amp; Search Console Setup</div>
+
+      <iframe class="sbs-pricing-frame"
+        src="https://order.sitesbysara.com/configure/pricing-cards?ids=50,50-1,50-2,50-3,50-4&title=Analytics%20%26%20Search%20Console%20Setup"
+        style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+
+    </div>
+
+    <p class="pricing-disclaimer">
+      Monthly SEO Plans and Reputation Management are ongoing retainers. Google Business Profile Setup, GBP
+      Optimization, Site Audits, and Analytics &amp; Search Console setup are one-time services and can be
+      ordered on their own or alongside a plan.
+    </p>
+
+  </div>
+</section>
+
+<script>
+  window.addEventListener('message', function (e) {
+    if (e.data && e.data.source === 'sbs-pricing-cards') {
+      document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
+        if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
+      });
+    }
+  });
+</script>
+
+<!-- ============================================================
+     DETAILED BREAKDOWN: KEY DELIVERABLES (8-Step Scope)
+     ============================================================ -->
+<section class="section-space scope-section" aria-label="Key deliverables">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Detailed Breakdown
+      </div>
+      <h2 class="h2-title">What you actually get, every month.</h2>
+      <p class="lead-text">Complete transparency and actionable insights from day one.</p>
+    </div>
+
+    <div class="scope-grid">
+
+      <div class="scope-card">
+        <div class="scope-num">1</div>
+        <h3 class="scope-title">Keyword Audit &amp; Ranking Report</h3>
+        <p class="scope-desc">In-depth analysis of your current positions and opportunities.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">2</div>
+        <h3 class="scope-title">Dashboard Integration</h3>
+        <p class="scope-desc">Keyword ranking and Google Analytics integration for traffic, behavior, and
+          conversion insights.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">3</div>
+        <h3 class="scope-title">GBP Analytics Report</h3>
+        <p class="scope-desc">Calls, directions, search volume, and user visits from your Google Business
+          Profile.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">4</div>
+        <h3 class="scope-title">Agency Analytics Dashboard</h3>
+        <p class="scope-desc">A custom dashboard for real-time tracking and transparency.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">5</div>
+        <h3 class="scope-title">Customized Ranking Reports</h3>
+        <p class="scope-desc">Ongoing updates on your keyword positions.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">6</div>
+        <h3 class="scope-title">Monthly Link Building Report</h3>
+        <p class="scope-desc">Tracks new backlinks acquired on your behalf.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">7</div>
+        <h3 class="scope-title">Monthly SEO Technical Report</h3>
+        <p class="scope-desc">Highlights site health and optimization opportunities.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">8</div>
+        <h3 class="scope-title">Geogrid Rank Tracker Report</h3>
+        <p class="scope-desc">Local Google 3-Pack ranking insights across your service area.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     ============================================================ -->
+<section class="story-features-section">
+  <div class="container">
+
+    <!-- Feature 1: White-Hat SEO -->
+    <div class="story-row">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Ethical SEO, Built To Last
+        </div>
+        <h2 class="story-title">100% white-hat SEO, with a track record since 2007.</h2>
+        <p class="story-desc">
+          Sites by Sara offers award-winning, 100% white-hat SEO services with a proven track record since 2007
+          — ethical, sustainable strategies, not shortcuts that put your rankings at risk.
+        </p>
+        <a href="#pricing" class="story-link">See SEO plans<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/seo-white-hat-detail.webp"
+            alt="White-hat SEO strategy checklist and ranking growth chart" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 2: Dedicated Point of Contact -->
+    <div class="story-row is-reversed">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          A Dedicated Point Of Contact
+        </div>
+        <h2 class="story-title">One person to call, monthly reports you can actually read.</h2>
+        <p class="story-desc">
+          Every SEO plan includes a dedicated point of contact to manage your account, answer your questions, and
+          share monthly, metrics-driven reports showing tangible improvements.
+        </p>
+        <a href="#pricing" class="story-link">See plan pricing<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/seo-monthly-report-detail.webp"
+            alt="Monthly SEO performance report with a dedicated account contact" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 3: GBP & Reputation Management -->
+    <div class="story-row">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Local Visibility &amp; Trust
+        </div>
+        <h2 class="story-title">Your Google Business Profile, set up and protected.</h2>
+        <p class="story-desc">
+          We create and optimize your Google Business Profile so you show up correctly in local search and maps,
+          then monitor your online reviews every month so a bad moment doesn't become a bad first impression.
+        </p>
+        <a href="#pricing" class="story-link">See GBP &amp; reputation pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/gbp-reputation-detail.webp"
+            alt="Google Business Profile listing and review reputation management dashboard" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 4: Start With An Audit -->
+    <div class="story-row is-reversed">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Not Ready For A Plan Yet?
+        </div>
+        <h2 class="story-title">Start with a clear, one-time audit instead.</h2>
+        <p class="story-desc">
+          Choose an SEO Audit, a Website Audit, or a combined bundle covering both — each runs a full analysis
+          and hands you a ranked list of priority fixes, with no ongoing commitment required.
+        </p>
+        <a href="#pricing" class="story-link">See audit pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/seo-audit-detail.webp"
+            alt="Website performance audit with a ranked list of priority fixes" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 5: Analytics & Search Console -->
+    <div class="story-row">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Measure What Changes
+        </div>
+        <h2 class="story-title">Real data, so you know what's actually working.</h2>
+        <p class="story-desc">
+          Google Analytics and Tag Manager show you traffic, behavior, and conversions, while Google Search
+          Console shows exactly how your site appears and performs in Google Search — set up and verified
+          individually, or bundled together.
+        </p>
+        <a href="#pricing" class="story-link">See analytics &amp; tracking pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/ga-gtm-setup-detail.webp"
+            alt="Google Analytics traffic and conversion dashboard" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ SECTION (Clean Accordion)
+     ============================================================ -->
+<section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Common Questions
+      </div>
+      <h2 class="h2-title">Frequently Asked Questions</h2>
+      <p class="lead-text">Everything you need to know about our SEO plans, audits, and setup services.</p>
+    </div>
+
+    <div class="faq-wrap">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What's included in an SEO Plan?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Every SEO plan includes keyword tracking, backlinking and citations, and Google Business Profile /
+          Maps optimization. Higher tiers add more tracked keywords, monthly content, and more GBP updates per
+          month. See the pricing above for exact tier details.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What's the difference between the three SEO plan tiers?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          <strong>Starter</strong>, <strong>Standard</strong>, and <strong>Growth</strong> scale up in tracked
+          keywords, monthly content pieces, and Google Business Profile updates. We'll recommend the right tier
+          for your goals and market during a free consultation. See the pricing above for current rates.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do you offer white-hat SEO?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. Sites by Sara offers <strong>100% white-hat SEO</strong> with a proven track record since 2007.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do you offer Google Business Profile setup and reputation management?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. We offer standalone <strong>Google Business Profile Setup</strong> for a new profile, <strong>GBP
+            Optimization</strong> for a profile you already have, and ongoing <strong>Reputation
+            Management</strong> to monitor and respond to your reviews — see the pricing above.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What's included in the Site Audit &amp; Priority Fixes services?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          We offer three audit tiers: an <strong>SEO Audit</strong> focused on rankings and search visibility, a
+          <strong>Website Audit</strong> focused on speed, usability, and security, and a combined <strong>Website
+            + SEO Audit</strong> bundle. Each includes a detailed report and implementation of priority fixes.
+          See the pricing above for current rates.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Can I get an audit without committing to a monthly SEO plan?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. All three audit tiers are <strong>standalone one-time services</strong> and don't require an SEO
+          Plan.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do SEO Plans include Google Analytics or Search Console setup?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          SEO Plans focus on rankings, content, and reporting. Google Analytics, Tag Manager, and Google Search
+          Console setup are available as separate one-time services, or bundled together — see the pricing
+          above.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What's the difference between GA4 Setup, GTM Setup, and the Google Properties Bundle?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          <strong>Google Analytics (GA4) Setup</strong> and <strong>Google Tag Manager (GTM) Setup</strong> can
+          each be ordered on their own, or combined with Google Search Console setup in the
+          <strong>Google Properties Bundle</strong> for all three at once. See the pricing above for current
+          rates.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do I need Google Search Console, or is Analytics enough?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Most sites benefit from both — Analytics shows on-site visitor behavior, while Search Console shows
+          how your site actually performs in Google Search. Each can be set up on its own if you only need one.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do you offer ongoing Google Search Console monitoring, not just setup?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. <strong>GSC Ongoing Fixes</strong> is a monthly service that reviews your Search Console reports
+          and fixes indexing, broken link, and Core Web Vitals issues as they come up — a separate service from
+          the one-time GSC Setup. See the pricing above for current rates.
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ -->
+<section class="cta-banner-section" id="consultation">
+  <div class="container">
+    <div class="cta-banner-box">
+
+      <div class="cta-banner-left">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Next Steps
+        </div>
+        <h2>Ready to start ranking higher?</h2>
+        <p>
+          Book a free consultation and we'll recommend the right SEO plan — or start with a site audit first.
+        </p>
+        <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+          Consultation</a>
+      </div>
+
+      <div class="prep-card-right">
+        <h4 class="prep-card-title">Helpful to have ready:</h4>
+        <ul class="prep-list">
+          <li>
+            <span class="prep-list-num">1</span>
+            <span>Your current SEO efforts and tools, if any</span>
+          </li>
+          <li>
+            <span class="prep-list-num">2</span>
+            <span>Whether you're focused on local, regional, or national visibility</span>
+          </li>
+          <li>
+            <span class="prep-list-num">3</span>
+            <span>Whether you want ongoing management or a one-time audit first</span>
+          </li>
+          <li>
+            <span class="prep-list-num">4</span>
+            <span>Access to your website and analytics, if available</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>

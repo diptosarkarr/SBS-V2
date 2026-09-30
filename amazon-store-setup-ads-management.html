@@ -1,0 +1,1648 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- SEO: Service structured data (see design.md §7) -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Amazon Marketplace Listing and Store Setup",
+    "provider": {
+      "@type": "Organization",
+      "name": "Sites by Sara"
+    },
+    "description": "Amazon listing setup, custom store creation, branded images, product video, A+ Content, Brand Registry & FBA setup, and ongoing Amazon Ads Management, priced individually per product, listing, or tier."
+  }
+  </script>
+<!-- SEO: FAQPage structured data — mirrors the visible FAQ section verbatim -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What's included in Amazon Listing Setup?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Amazon Listing Setup is a one-time fee per product, and includes SEO titles and copy plus 3 professional images for that listing. See the pricing above for the current rate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's included in Amazon Store Creation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Amazon Store Creation is a one-time fee and includes a custom-branded storefront. Additional sub-pages beyond the base store are priced per page. See the pricing above for current rates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's the difference between Amazon Branded Images and Amazon A+ Content?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Amazon Branded Images is a one-time fee per image and covers professional image content. Amazon A+ Content is a one-time fee per product and covers enhanced brand content plus additional images - a more complete listing upgrade."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does Amazon Brand Registry & FBA Setup include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Amazon Brand Registry & FBA Setup is a one-time fee and covers Amazon Brand Registry enrollment plus PRIME/FBA delivery enrollment."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does Amazon Product Video Creation cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Amazon Product Video Creation starts from a one-time fee per product for a product video build. See the pricing above for the current rate."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I order these Amazon services individually, or do I need a full package?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Each service - Listing Setup, Store Creation, Branded Images, Product Video, A+ Content, Brand Registry & FBA Setup, and Ads Management - is priced and can be ordered individually, so you only pay for what your Amazon presence actually needs."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What's included in Amazon Ads Management?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ongoing management of your Amazon Ads account, scaled by monthly ad spend — from a strategy call and ongoing optimization at the entry tier, up to multiple strategy calls and complimentary A+ Content at the higher tiers. See the pricing above for current rates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you offer advertising services for Walmart as well?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. See our Walmart Ads Management page. We also manage Google and Meta ad campaigns as a separate service."
+        }
+      }
+    ]
+  }
+  </script>
+
+<style>
+  /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+  :root {
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
+    --brand-blue-subtle: #F6F8FD;
+
+    --brand-coral: #ea4e5f;
+    --brand-coral-hover: #d43d4e;
+    --brand-coral-tint: #FDEEEE;
+
+    --brand-peach: #FCEFE5;
+    --brand-peach-hover: #F8E3D4;
+    --brand-peach-tint: #FFF9F5;
+
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+    --navy: #1E2140;
+    --navy-dark: #13152C;
+    --slate: #5F6368;
+    --slate-light: #80868B;
+    --slate-subtle: #9AA0A6;
+
+    --border: #DCE2EE;
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
+
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
+    --bg-banner: #FCEFE5;
+    --bg-callout: #FFFBF7;
+
+    --green: #1E8E3E;
+    --green-tint: #E6F4EA;
+    --yellow: #FBBC04;
+    --yellow-tint: #FEF7E0;
+    --coral: #ea4e5f;
+    --coral-tint: #FDEEEE;
+
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-pill: 9999px;
+
+    --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+    --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+    --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+    --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font);
+    color: var(--navy);
+    background-color: var(--bg-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .section-space {
+    padding: clamp(70px, 8vw, 110px) 0;
+  }
+
+  .section-space-tight {
+    padding: clamp(40px, 5vw, 65px) 0;
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(36px, 5vw, 56px);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
+
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--coral);
+    display: inline-block;
+  }
+
+  .h2-title {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .lead-text {
+    font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
+    color: var(--slate);
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:focus-visible,
+  .btn-primary:active {
+    background: var(--brand-gradient-hover);
+    background-clip: padding-box;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+    color: #FFFFFF !important;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--brand-blue);
+    border-color: var(--brand-blue);
+  }
+
+  .btn-outline:hover,
+  .btn-outline:focus,
+  .btn-outline:focus-visible,
+  .btn-outline:active {
+    background-color: var(--brand-peach);
+    border-color: var(--brand-blue);
+    color: var(--brand-blue) !important;
+  }
+
+  /* ============================================================
+     PAGE TITLE BANNER
+     ============================================================ */
+  .page-title-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-gradient);
+    padding: clamp(52px, 6vw, 76px) 24px;
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+  }
+
+  .page-title-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+    pointer-events: none;
+  }
+
+  .page-title-banner-mesh {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .page-title-banner-mesh::before,
+  .page-title-banner-mesh::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0.22;
+    pointer-events: none;
+  }
+
+  .page-title-banner-mesh::before {
+    width: 320px;
+    height: 320px;
+    background: #FFFFFF;
+    top: -120px;
+    left: 8%;
+  }
+
+  .page-title-banner-mesh::after {
+    width: 280px;
+    height: 280px;
+    background: var(--brand-coral);
+    bottom: -80px;
+    right: 10%;
+  }
+
+  .page-title-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-banner-h1 {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFFFFF;
+    letter-spacing: -0.025em;
+    margin: 0 0 10px;
+    text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+  }
+
+  .page-banner-sub {
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.94);
+    letter-spacing: 0.01em;
+    margin: 0;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+  }
+
+  /* ============================================================
+     HERO SECTION
+     ============================================================ */
+  .hero-section {
+    padding: clamp(48px, 6vw, 76px) 0 clamp(40px, 6vw, 70px);
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: center;
+  }
+
+  .hero-left {
+    max-width: 580px;
+  }
+
+  .hero-footnote {
+    font-size: 0.88rem;
+    color: var(--slate-light);
+    margin-top: 24px;
+    line-height: 1.5;
+  }
+
+  .hero-footnote strong {
+    color: var(--slate);
+    font-weight: 600;
+  }
+
+  .hero-visual-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-image-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-floating);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    transition: transform 0.3s ease;
+    background: #FFFFFF;
+    aspect-ratio: 4 / 3;
+  }
+
+  .hero-image-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .hero-image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ============================================================
+     TRUST & CAPABILITY METRICS RIBBON
+     ============================================================ */
+  .trust-ribbon-section {
+    padding: 38px 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    background: var(--brand-blue-subtle);
+  }
+
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+
+  .trust-stat-item {
+    padding: 8px 16px;
+  }
+
+  .trust-stat-number {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1.1;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
+
+  .trust-stat-label {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--slate);
+    line-height: 1.35;
+  }
+
+  /* ============================================================
+     PRICING SECTION
+     ============================================================ */
+  .pricing-section {
+    padding: clamp(70px, 8vw, 110px) 0;
+    background: #FFFFFF;
+  }
+
+  .pricing-outer-container {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    padding: clamp(24px, 4vw, 44px);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .pricing-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .pricing-platform-pills {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .platform-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--navy);
+    background: #F1F3F9;
+    padding: 6px 14px;
+    border-radius: var(--radius-pill);
+  }
+
+  .pricing-currency-badge {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--slate);
+  }
+
+  /* 2-Column Main Tier Grid (Listing Setup / Store Creation) */
+  .pricing-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .pricing-card-col {
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 28px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    transition: all 0.25s ease;
+  }
+
+  .pricing-card-col:hover {
+    border-color: #BDC1C6;
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .pricing-card-col.is-featured {
+    border: 2px solid var(--brand-blue);
+    box-shadow: 0 10px 28px rgba(58, 83, 155, 0.14);
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background: var(--brand-gradient);
+    color: #FFFFFF;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: var(--radius-pill);
+    box-shadow: 0 2px 8px rgba(2, 80, 197, 0.25);
+  }
+
+  .plan-name {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .plan-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 4px;
+  }
+
+  .plan-price {
+    font-size: 2.1rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+  }
+
+  .plan-period {
+    font-size: 0.85rem;
+    color: var(--slate);
+    font-weight: 600;
+  }
+
+  .plan-subtext {
+    font-size: 0.8rem;
+    color: var(--brand-blue);
+    font-weight: 600;
+    margin-bottom: 18px;
+  }
+
+  .btn-plan {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 11px;
+    border-radius: var(--radius-pill);
+    margin-bottom: 22px;
+    transition: all 0.2s ease;
+  }
+
+  .btn-plan-primary {
+    background: var(--brand-gradient);
+    color: #FFFFFF;
+    box-shadow: 0 3px 12px rgba(2, 80, 197, 0.22);
+  }
+
+  .btn-plan-primary:hover,
+  .btn-plan-primary:focus,
+  .btn-plan-primary:focus-visible,
+  .btn-plan-primary:active {
+    background: var(--brand-gradient-hover);
+    box-shadow: 0 5px 16px rgba(212, 63, 141, 0.32);
+    color: #FFFFFF !important;
+  }
+
+  .btn-plan-outline {
+    background: transparent;
+    color: var(--brand-blue);
+    border: 1.5px solid var(--border);
+  }
+
+  .btn-plan-outline:hover,
+  .btn-plan-outline:focus,
+  .btn-plan-outline:focus-visible,
+  .btn-plan-outline:active {
+    background: var(--brand-peach);
+    border-color: var(--brand-blue);
+    color: var(--brand-blue) !important;
+  }
+
+  .plan-features-label {
+    font-size: 0.76rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--slate-light);
+    margin-bottom: 12px;
+  }
+
+  .plan-features-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--slate);
+    line-height: 1.45;
+  }
+
+  .plan-features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .plan-features-list li svg {
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .pricing-card-col.is-featured .plan-features-list li svg {
+    color: var(--brand-blue);
+  }
+
+  .pricing-card-col:not(.is-featured) .plan-features-list li svg {
+    color: var(--green);
+  }
+
+  .plan-footer-box {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px dashed var(--border);
+    font-size: 0.78rem;
+    color: var(--slate);
+  }
+
+  .pricing-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 44px 0 28px;
+    color: var(--slate-light);
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .pricing-divider::before,
+  .pricing-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border-light);
+  }
+
+  /* 2x2 Addon Grid (Listing Enhancement Add-Ons) */
+  .pricing-addons-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .addon-item-box {
+    background: var(--bg-light);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 24px 22px;
+    transition: all 0.2s ease;
+  }
+
+  .addon-item-box:hover {
+    background: #FFFFFF;
+    border-color: var(--border-card);
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .addon-price-tag {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--brand-coral);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .addon-item-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .addon-item-desc {
+    font-size: 0.88rem;
+    color: var(--slate);
+    line-height: 1.5;
+  }
+
+  /* Button is the last element in this box — no features-list follows */
+  .addon-item-box .btn-plan {
+    margin-top: 14px;
+    margin-bottom: 0;
+  }
+
+  .pricing-disclaimer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--slate-light);
+    margin-top: 28px;
+    line-height: 1.6;
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pricing-inline-link {
+    text-align: center;
+  }
+
+  /* ============================================================
+     DETAILED BREAKDOWN: OUR PROCESS (8-Step Scope)
+     ============================================================ */
+  .scope-section {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .scope-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .scope-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
+  }
+
+  .scope-card:hover {
+    border-color: var(--brand-blue);
+    box-shadow: var(--shadow-subtle);
+    transform: translateY(-2px);
+  }
+
+  .scope-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+
+  .scope-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
+
+  .scope-desc {
+    font-size: 0.85rem;
+    color: var(--slate);
+    line-height: 1.55;
+  }
+
+  /* ============================================================
+     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     ============================================================ */
+  .story-features-section {
+    padding: clamp(60px, 8vw, 110px) 0;
+  }
+
+  .story-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 7vw, 100px);
+    align-items: center;
+    margin-bottom: clamp(70px, 9vw, 130px);
+  }
+
+  .story-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .story-row.is-reversed .story-text-col {
+    order: 2;
+  }
+
+  .story-row.is-reversed .story-visual-col {
+    order: 1;
+  }
+
+  .story-text-col {
+    max-width: 480px;
+  }
+
+  .story-title {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 18px;
+  }
+
+  .story-desc {
+    font-size: 1.08rem;
+    color: var(--slate);
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .story-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--brand-coral);
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+
+  .story-link:hover,
+  .story-link:focus,
+  .story-link:focus-visible,
+  .story-link:active {
+    gap: 10px;
+    color: var(--brand-coral-hover) !important;
+  }
+
+  .story-link svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+
+  .story-visual-col {
+    display: flex;
+    justify-content: center;
+  }
+
+  .story-image-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    background: #FFFFFF;
+    max-width: 520px;
+    width: 100%;
+  }
+
+  .story-image-card:hover {
+    box-shadow: var(--shadow-floating);
+    transform: translateY(-3px);
+  }
+
+  .story-image-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* ============================================================
+     FAQ SECTION (Clean Modern Accordion)
+     ============================================================ */
+  .faq-section {
+    background: #FAFAFC;
+    padding: clamp(70px, 8vw, 100px) 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .faq-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .faq-item:hover {
+    border-color: #CBD5E1;
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+  }
+
+  details[open] .faq-icon {
+    transform: rotate(45deg);
+    background: var(--coral-tint);
+    color: var(--coral);
+  }
+
+  .faq-answer {
+    padding: 0 24px 22px;
+    font-size: 0.95rem;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+
+  .faq-answer strong {
+    color: var(--navy);
+  }
+
+  /* ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ */
+  .cta-banner-section {
+    padding: clamp(70px, 8vw, 110px) 0;
+  }
+
+  .cta-banner-box {
+    background: var(--bg-banner);
+    border-radius: var(--radius-xl);
+    padding: clamp(36px, 5vw, 60px);
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .cta-banner-left h2 {
+    font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem);
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1.25;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .cta-banner-left p {
+    font-size: 1.05rem;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .prep-card-right {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .prep-card-title {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+
+  .prep-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--slate);
+  }
+
+  .prep-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .prep-list-num {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+  @media (max-width: 1024px) {
+    .scope-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 820px) {
+
+    .hero-grid,
+    .story-row,
+    .cta-banner-box {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .story-row.is-reversed .story-text-col {
+      order: 1;
+    }
+
+    .story-row.is-reversed .story-visual-col {
+      order: 2;
+    }
+
+    .trust-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 600px) {
+
+    .pricing-grid-4,
+    .pricing-addons-grid,
+    .scope-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .btn-group {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<!-- ============================================================
+       PAGE TITLE BANNER
+       ============================================================ -->
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <h1 class="page-banner-h1">Amazon Store Setup &amp; Ads Management</h1>
+    <p class="page-banner-sub">(Professional Listings, Storefronts &amp; Brand Setup)</p>
+  </div>
+</section>
+
+<!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+<section class="hero-section" id="overview">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Hero Copy -->
+      <div class="hero-left">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Amazon Marketplace Setup
+        </div>
+
+        <h2 class="h2-title">A professional presence on Amazon, from listing to storefront.</h2>
+
+        <p class="lead-text">
+          Your Amazon listing is often a customer's first impression of your product. We build SEO-optimized
+          listings and custom-branded storefronts, and help you enroll in Amazon's own Brand Registry and FBA
+          programs — each priced individually, so you only pay for what your products need.
+        </p>
+
+        <div class="btn-group">
+          <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+            Consultation</a>
+          <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
+        </div>
+
+        <div class="hero-footnote">
+          <strong>Priced per listing, image, project, or ad management tier.</strong> See the full pricing
+          breakdown below.
+        </div>
+      </div>
+
+      <!-- Hero Visual Mockup -->
+      <div class="hero-visual-wrap">
+        <div class="hero-image-card">
+          <img src="/wp-content/uploads/2026/09/amazon-listing-store-setup-hero.webp"
+            alt="Amazon product listing and branded storefront mockup" width="600" height="450" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRUST & CAPABILITY METRICS RIBBON
+     ============================================================ -->
+<section class="trust-ribbon-section" aria-label="Key Service Facts">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="trust-stat-item">
+        <div class="trust-stat-number">2</div>
+        <div class="trust-stat-label">Ways To Start: Listing or Store</div>
+      </div>
+      <div class="trust-stat-item">
+        <div class="trust-stat-number">4</div>
+        <div class="trust-stat-label">Listing Enhancement Add-Ons</div>
+      </div>
+      <div class="trust-stat-item">
+        <div class="trust-stat-number">4</div>
+        <div class="trust-stat-label">Ads Management Tiers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING SECTION
+     ============================================================ -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Simple, Transparent Pricing
+      </div>
+      <h2 class="h2-title">Two ways to start, priced individually.</h2>
+      <p class="lead-text">Set up a single listing, build a full storefront, or both — every service below is
+        priced on its own.</p>
+    </div>
+
+    <div class="pricing-outer-container">
+
+      <!-- Top Bar -->
+      <div class="pricing-top-bar">
+        <div class="pricing-platform-pills">
+          <span class="platform-tag">Amazon Marketplace</span>
+        </div>
+        <span class="pricing-currency-badge">One-time service fees · USD</span>
+      </div>
+
+      <!-- 2 Column Main Tier Grid -->
+      <iframe class="sbs-pricing-frame"
+        src="https://order.sitesbysara.com/configure/pricing-cards?ids=96,100&popular=96&title=Listing%20Setup%20%26%20Store%20Creation"
+        style="width:100%;border:0;display:block;margin-bottom:40px;" loading="lazy"></iframe>
+
+      <!-- Listing Enhancement Add-Ons -->
+      <div class="pricing-divider">Listing Enhancement Add-Ons</div>
+
+      <iframe class="sbs-pricing-frame"
+        src="https://order.sitesbysara.com/configure/pricing-cards?ids=97,98,99,101&title=Listing%20Enhancement%20Add-Ons"
+        style="width:100%;border:0;display:block;margin-bottom:40px;" loading="lazy"></iframe>
+
+      <!-- Amazon Ads Management -->
+      <div class="pricing-divider">Amazon Ads Management (Ongoing)</div>
+
+      <iframe class="sbs-pricing-frame"
+        src="https://order.sitesbysara.com/configure/pricing-cards?ids=102,103,104,105&popular=102&title=Amazon%20Ads%20Management"
+        style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+
+    </div>
+
+    <p class="pricing-disclaimer">
+      Listing Setup, Store Creation, and the Listing Enhancement Add-Ons are one-time fees, each ordered on its
+      own or combined based on what your products need. Amazon Ads Management is an ongoing monthly service,
+      scaled by tier.
+    </p>
+
+    <p class="pricing-inline-link">
+      Want to advertise your listings on Walmart too? See our <a href="/walmart-ads-management/">Walmart Ads
+        Management</a> page.
+    </p>
+
+  </div>
+</section>
+
+<script>
+  window.addEventListener('message', function (e) {
+    if (e.data && e.data.source === 'sbs-pricing-cards') {
+      document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
+        if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
+      });
+    }
+  });
+</script>
+
+<!-- ============================================================
+     DETAILED BREAKDOWN: OUR PROCESS (8-Step Scope)
+     ============================================================ -->
+<section class="section-space scope-section" aria-label="Build breakdown">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Detailed Breakdown
+      </div>
+      <h2 class="h2-title">What's involved in setting up your Amazon presence.</h2>
+      <p class="lead-text">From your first product to a fully branded storefront — here's how we get there.</p>
+    </div>
+
+    <div class="scope-grid">
+
+      <div class="scope-card">
+        <div class="scope-num">1</div>
+        <h3 class="scope-title">Discovery Call</h3>
+        <p class="scope-desc">We talk through your products, brand, and current Amazon presence.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">2</div>
+        <h3 class="scope-title">Catalog Review</h3>
+        <p class="scope-desc">Reviewing existing listings and identifying what needs building or fixing.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">3</div>
+        <h3 class="scope-title">Listing Copy &amp; SEO</h3>
+        <p class="scope-desc">Writing SEO titles and copy for each product listing you're setting up.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">4</div>
+        <h3 class="scope-title">Professional Images</h3>
+        <p class="scope-desc">Building the professional image content your listing or brand needs.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">5</div>
+        <h3 class="scope-title">Video &amp; A+ Content</h3>
+        <p class="scope-desc">Product video and enhanced brand content, where selected.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">6</div>
+        <h3 class="scope-title">Store Design &amp; Build</h3>
+        <p class="scope-desc">Building your custom-branded Amazon storefront.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">7</div>
+        <h3 class="scope-title">Brand Registry &amp; FBA</h3>
+        <p class="scope-desc">Enrolling your brand in Amazon Brand Registry and PRIME/FBA delivery.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">8</div>
+        <h3 class="scope-title">Launch &amp; Review</h3>
+        <p class="scope-desc">Going live, with a walkthrough of what was built and how it's set up.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     ============================================================ -->
+<section class="story-features-section">
+  <div class="container">
+
+    <!-- Feature 1: Listing Setup -->
+    <div class="story-row">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          First Impressions Matter
+        </div>
+        <h2 class="story-title">Your listing is your storefront's first page.</h2>
+        <p class="story-desc">
+          Amazon Listing Setup gives each product SEO-optimized titles and copy, plus 3 professional images —
+          built to help your product get found and look credible the moment a shopper lands on it.
+        </p>
+        <a href="#pricing" class="story-link">See listing setup pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/amazon-listing-detail.webp"
+            alt="Amazon product listing page with SEO title, copy, and product images" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 2: Store Creation -->
+    <div class="story-row is-reversed">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Your Own Branded Space
+        </div>
+        <h2 class="story-title">A custom storefront, not just a listing.</h2>
+        <p class="story-desc">
+          Amazon Store Creation builds a custom-branded storefront for your business — a dedicated space on
+          Amazon that showcases your full catalog under your own brand, with additional sub-pages available as
+          you grow.
+        </p>
+        <a href="#pricing" class="story-link">See store creation pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/amazon-store-detail.webp"
+            alt="Custom-branded Amazon storefront mockup with product sections" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 3: Brand Registry & FBA -->
+    <div class="story-row">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Protect Your Brand
+        </div>
+        <h2 class="story-title">Brand Registry and FBA, handled for you.</h2>
+        <p class="story-desc">
+          We enroll your brand in Amazon Brand Registry and set up PRIME/FBA delivery — the two programs Amazon
+          offers brand owners for listing protection tools and Prime-eligible delivery.
+        </p>
+        <a href="#pricing" class="story-link">See Brand Registry &amp; FBA pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/amazon-brand-registry-detail.webp"
+            alt="Amazon Brand Registry and FBA enrollment confirmation screen mockup" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature 4: Ads Management -->
+    <div class="story-row is-reversed">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Drive Traffic To Your Listings
+        </div>
+        <h2 class="story-title">Ongoing ad management that scales with your ad spend.</h2>
+        <p class="story-desc">
+          Amazon Ads Management runs your ad account on an ongoing basis, with strategy calls and optimization
+          that scale up as your monthly ad spend grows — from a single strategy call at the entry tier to
+          complimentary A+ Content at the higher tiers.
+        </p>
+        <a href="#pricing" class="story-link">See Ads Management tiers<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/amazon-listing-detail.webp"
+            alt="Amazon Ads Management dashboard showing ad spend and performance" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ SECTION (Clean Accordion)
+     ============================================================ -->
+<section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Common Questions
+      </div>
+      <h2 class="h2-title">Frequently Asked Questions</h2>
+      <p class="lead-text">Everything you need to know about our Amazon listing and store setup services.</p>
+    </div>
+
+    <div class="faq-wrap">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What's included in Amazon Listing Setup?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Amazon Listing Setup is a <strong>one-time fee per product</strong>, and includes SEO titles and copy
+          plus 3 professional images for that listing. See the pricing above for the current rate.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What's included in Amazon Store Creation?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Amazon Store Creation is a <strong>one-time fee</strong> and includes a custom-branded storefront.
+          Additional sub-pages beyond the base store are priced per page. See the pricing above for current
+          rates.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What's the difference between Amazon Branded Images and Amazon A+ Content?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          <strong>Amazon Branded Images</strong> is a one-time fee per image and covers professional image
+          content. <strong>Amazon A+ Content</strong> is a one-time fee per product and covers enhanced brand
+          content plus additional images — a more complete listing upgrade.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What does Amazon Brand Registry &amp; FBA Setup include?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Amazon Brand Registry &amp; FBA Setup is a <strong>one-time fee</strong> and covers Amazon Brand
+          Registry enrollment plus PRIME/FBA delivery enrollment.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>How much does Amazon Product Video Creation cost?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Amazon Product Video Creation starts from a <strong>one-time fee per product</strong> for a product
+          video build. See the pricing above for the current rate.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Can I order these Amazon services individually, or do I need a full package?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Each service — Listing Setup, Store Creation, Branded Images, Product Video, A+ Content, Brand
+          Registry &amp; FBA Setup, and Ads Management — is priced and can be ordered individually, so you only
+          pay for what your Amazon presence actually needs.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What's included in Amazon Ads Management?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Ongoing management of your Amazon Ads account, scaled by monthly ad spend — from a strategy call and
+          ongoing optimization at the entry tier, up to multiple strategy calls and complimentary A+ Content at
+          the higher tiers. See the pricing above for current rates.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do you offer advertising services for Walmart as well?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. See our <a href="/walmart-ads-management/"><strong>Walmart Ads Management</strong></a> page. We
+          also manage Google and Meta ad campaigns as a separate service.
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ -->
+<section class="cta-banner-section" id="consultation">
+  <div class="container">
+    <div class="cta-banner-box">
+
+      <div class="cta-banner-left">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Next Steps
+        </div>
+        <h2>Ready to build out your Amazon presence?</h2>
+        <p>
+          Book a free consultation and tell us which products or services you need — we'll put together an exact
+          quote based on what's above.
+        </p>
+        <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+          Consultation</a>
+      </div>
+
+      <div class="prep-card-right">
+        <h4 class="prep-card-title">Helpful to have ready:</h4>
+        <ul class="prep-list">
+          <li>
+            <span class="prep-list-num">1</span>
+            <span>Which products need listings set up</span>
+          </li>
+          <li>
+            <span class="prep-list-num">2</span>
+            <span>Whether you want a full branded storefront</span>
+          </li>
+          <li>
+            <span class="prep-list-num">3</span>
+            <span>Any existing product photos or videos you have</span>
+          </li>
+          <li>
+            <span class="prep-list-num">4</span>
+            <span>Whether you're enrolled in Brand Registry or FBA yet</span>
+          </li>
+          <li>
+            <span class="prep-list-num">5</span>
+            <span>Your current Amazon seller account status</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
