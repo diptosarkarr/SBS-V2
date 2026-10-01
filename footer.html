@@ -1,439 +1,425 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Google Fonts: Manrope -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Site Footer — Sites by Sara</title>
+<style>
+  /* ============================================================
+   DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+   ============================================================ */
+  :root {
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-coral: #ea4e5f;
 
-  <!-- Google Fonts: Manrope -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    --navy: #1E2140;
+    --slate: #5F6368;
+    --slate-light: #80868B;
 
-  <style>
-    /* ============================================================
-     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
-     ============================================================ */
-    :root {
-      --brand-blue: #3A539B;
-      --brand-blue-hover: #2F437D;
-      --brand-coral: #ea4e5f;
+    --border-light: #ECEFF5;
+    --bg-light: #F9FAFD;
 
-      --navy: #1E2140;
-      --slate: #5F6368;
-      --slate-light: #80868B;
+    --radius-md: 16px;
 
-      --border-light: #ECEFF5;
-      --bg-light: #F9FAFD;
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
 
-      --radius-md: 16px;
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-      --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
+  body {
+    font-family: var(--font);
+    background-color: #FFFFFF;
+  }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-    body {
-      font-family: var(--font);
-      background-color: #FFFFFF;
-    }
+  .custom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+  /* ============================================================
+   SITE FOOTER
+   ============================================================ */
+  .custom-site-footer {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    color: var(--slate);
+  }
 
-    .custom-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+  .custom-footer-top {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 0.8fr 1fr;
+    gap: clamp(24px, 3.5vw, 40px);
+    padding-top: clamp(48px, 6vw, 72px) !important;
+    padding-bottom: clamp(36px, 5vw, 48px) !important;
+  }
 
-    /* ============================================================
-     SITE FOOTER
-     ============================================================ */
-    .custom-site-footer {
-      background: var(--bg-light);
-      border-top: 1px solid var(--border-light);
-      color: var(--slate);
-    }
+  /* Brand column */
+  .custom-footer-logo-img {
+    display: block;
+    width: 220px;
+    height: auto;
+    margin-bottom: 16px;
+  }
 
+  .custom-footer-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--slate);
+    max-width: 280px;
+    margin-bottom: 20px;
+  }
+
+  .custom-footer-social-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    max-width: 280px;
+  }
+
+  .custom-footer-social-link {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border-light);
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--slate-light);
+    transition: all 0.2s ease;
+  }
+
+  .custom-footer-social-link:hover,
+  .custom-footer-social-link:focus,
+  .custom-footer-social-link:focus-visible,
+  .custom-footer-social-link:active {
+    background: var(--brand-blue);
+    border-color: var(--brand-blue);
+    color: #FFFFFF !important;
+  }
+
+  /* Link columns */
+  .custom-footer-col-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--navy);
+    margin-bottom: 18px;
+  }
+
+  .custom-footer-link-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .custom-footer-link-list a {
+    font-size: 0.92rem;
+    color: var(--slate);
+    transition: color 0.2s ease;
+  }
+
+  .custom-footer-link-list a:hover,
+  .custom-footer-link-list a:focus,
+  .custom-footer-link-list a:focus-visible,
+  .custom-footer-link-list a:active {
+    color: var(--brand-blue) !important;
+  }
+
+  .custom-footer-link-strong {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 600;
+    color: var(--brand-coral) !important;
+  }
+
+  .custom-footer-link-strong:hover,
+  .custom-footer-link-strong:focus,
+  .custom-footer-link-strong:focus-visible,
+  .custom-footer-link-strong:active {
+    color: var(--brand-blue-hover) !important;
+  }
+
+  .custom-footer-link-strong svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    vertical-align: -1px;
+  }
+
+  /* Contact column (image, phone, email) */
+  .custom-footer-consult-link {
+    display: block;
+    width: 100%;
+    max-width: 250px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    margin-bottom: 18px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .custom-footer-consult-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(30, 33, 64, 0.15);
+  }
+
+  .custom-footer-consult-img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .custom-footer-contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .custom-footer-contact-list a {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--navy);
+    transition: color 0.2s ease;
+  }
+
+  .custom-footer-contact-list a:hover,
+  .custom-footer-contact-list a:focus,
+  .custom-footer-contact-list a:focus-visible,
+  .custom-footer-contact-list a:active {
+    color: var(--brand-blue) !important;
+  }
+
+  /* Bottom bar */
+  .custom-footer-bottom {
+    border-top: 1px solid var(--border-light);
+  }
+
+  .custom-footer-bottom-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .custom-footer-copyright {
+    font-size: 0.78rem;
+    color: var(--slate-light);
+    line-height: 1.5;
+    max-width: 640px;
+  }
+
+  .custom-footer-copyright a {
+    color: var(--slate-light);
+    text-decoration: underline;
+  }
+
+  .custom-footer-legal-links {
+    display: flex;
+    gap: 18px;
+    flex-shrink: 0;
+  }
+
+  .custom-footer-legal-links a {
+    font-size: 0.78rem;
+    color: var(--slate-light);
+    transition: color 0.2s ease;
+  }
+
+  .custom-footer-legal-links a:hover,
+  .custom-footer-legal-links a:focus,
+  .custom-footer-legal-links a:focus-visible,
+  .custom-footer-legal-links a:active {
+    color: var(--brand-blue) !important;
+  }
+
+  /* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+  @media (max-width: 992px) {
     .custom-footer-top {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr 0.8fr 1fr;
-      gap: clamp(24px, 3.5vw, 40px);
-      padding-top: clamp(48px, 6vw, 72px) !important;
-      padding-bottom: clamp(36px, 5vw, 48px) !important;
+      grid-template-columns: 1fr 1fr;
+      row-gap: 40px;
     }
+  }
 
-    /* Brand column */
-    .custom-footer-logo-img {
-      display: block;
-      width: 220px;
-      height: auto;
-      margin-bottom: 16px;
-    }
-
-    .custom-footer-desc {
-      font-size: 0.9rem;
-      line-height: 1.6;
-      color: var(--slate);
-      max-width: 280px;
-      margin-bottom: 20px;
-    }
-
-    .custom-footer-social-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      max-width: 280px;
-    }
-
-    .custom-footer-social-link {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      border: 1px solid var(--border-light);
-      background: #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--slate-light);
-      transition: all 0.2s ease;
-    }
-
-    .custom-footer-social-link:hover,
-    .custom-footer-social-link:focus,
-    .custom-footer-social-link:focus-visible,
-    .custom-footer-social-link:active {
-      background: var(--brand-blue);
-      border-color: var(--brand-blue);
-      color: #FFFFFF !important;
-    }
-
-    /* Link columns */
-    .custom-footer-col-title {
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--navy);
-      margin-bottom: 18px;
-    }
-
-    .custom-footer-link-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .custom-footer-link-list a {
-      font-size: 0.92rem;
-      color: var(--slate);
-      transition: color 0.2s ease;
-    }
-
-    .custom-footer-link-list a:hover,
-    .custom-footer-link-list a:focus,
-    .custom-footer-link-list a:focus-visible,
-    .custom-footer-link-list a:active {
-      color: var(--brand-blue) !important;
-    }
-
-    .custom-footer-link-strong {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-weight: 600;
-      color: var(--brand-coral) !important;
-    }
-
-    .custom-footer-link-strong:hover,
-    .custom-footer-link-strong:focus,
-    .custom-footer-link-strong:focus-visible,
-    .custom-footer-link-strong:active {
-      color: var(--brand-blue-hover) !important;
-    }
-
-    .custom-footer-link-strong svg {
-      width: 13px;
-      height: 13px;
-      flex-shrink: 0;
-      vertical-align: -1px;
-    }
-
-    /* Contact column (image, phone, email) */
-    .custom-footer-consult-link {
-      display: block;
-      width: 100%;
-      max-width: 250px;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      border: 1px solid var(--border-light);
-      margin-bottom: 18px;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .custom-footer-consult-link:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(30, 33, 64, 0.15);
-    }
-
-    .custom-footer-consult-img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .custom-footer-contact-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    .custom-footer-contact-list a {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--navy);
-      transition: color 0.2s ease;
-    }
-
-    .custom-footer-contact-list a:hover,
-    .custom-footer-contact-list a:focus,
-    .custom-footer-contact-list a:focus-visible,
-    .custom-footer-contact-list a:active {
-      color: var(--brand-blue) !important;
-    }
-
-    /* Bottom bar */
-    .custom-footer-bottom {
-      border-top: 1px solid var(--border-light);
+  @media (max-width: 600px) {
+    .custom-footer-top {
+      grid-template-columns: 1fr;
     }
 
     .custom-footer-bottom-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding-top: 18px;
-      padding-bottom: 18px;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
     }
+  }
+</style>
 
-    .custom-footer-copyright {
-      font-size: 0.78rem;
-      color: var(--slate-light);
-      line-height: 1.5;
-      max-width: 640px;
-    }
+<!-- ============================================================
+     SITE FOOTER (Reusable Component)
+     ============================================================ -->
+<footer class="custom-site-footer">
+  <div class="custom-container custom-footer-top">
 
-    .custom-footer-copyright a {
-      color: var(--slate-light);
-      text-decoration: underline;
-    }
-
-    .custom-footer-legal-links {
-      display: flex;
-      gap: 18px;
-      flex-shrink: 0;
-    }
-
-    .custom-footer-legal-links a {
-      font-size: 0.78rem;
-      color: var(--slate-light);
-      transition: color 0.2s ease;
-    }
-
-    .custom-footer-legal-links a:hover,
-    .custom-footer-legal-links a:focus,
-    .custom-footer-legal-links a:focus-visible,
-    .custom-footer-legal-links a:active {
-      color: var(--brand-blue) !important;
-    }
-
-    /* ============================================================
-     RESPONSIVE BREAKPOINTS
-     ============================================================ */
-    @media (max-width: 992px) {
-      .custom-footer-top {
-        grid-template-columns: 1fr 1fr;
-        row-gap: 40px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .custom-footer-top {
-        grid-template-columns: 1fr;
-      }
-
-      .custom-footer-bottom-inner {
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- ============================================================
-       SITE FOOTER (Reusable Component)
-       ============================================================ -->
-  <footer class="custom-site-footer">
-    <div class="custom-container custom-footer-top">
-
-      <!-- Brand -->
-      <div class="custom-footer-brand">
-        <a href="/">
-          <img src="/wp-content/uploads/2025/08/Avenir-Next-SBS-logo-blue_v36.png"
-            alt="Sites by Sara — Your Online Success Partner" class="custom-footer-logo-img" width="150" height="32">
+    <!-- Brand -->
+    <div class="custom-footer-brand">
+      <a href="/">
+        <img src="/wp-content/uploads/2025/08/Avenir-Next-SBS-logo-blue_v36.png"
+          alt="Sites by Sara — Your Online Success Partner" class="custom-footer-logo-img" width="150" height="32">
+      </a>
+      <p class="custom-footer-desc">
+        Award-winning WordPress web design, development, and digital growth services based in Salt Lake City,
+        Utah.
+      </p>
+      <div class="custom-footer-social-row">
+        <a href="https://www.facebook.com/sitesbysara" class="custom-footer-social-link" aria-label="Facebook"
+          target="_blank" rel="noopener noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+          </svg>
         </a>
-        <p class="custom-footer-desc">
-          Award-winning WordPress web design, development, and digital growth services based in Salt Lake City,
-          Utah.
-        </p>
-        <div class="custom-footer-social-row">
-          <a href="https://www.facebook.com/sitesbysara" class="custom-footer-social-link" aria-label="Facebook"
-            target="_blank" rel="noopener noreferrer">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-            </svg>
-          </a>
-          <a href="https://www.instagram.com/sitesbysara/" class="custom-footer-social-link" aria-label="Instagram"
-            target="_blank" rel="noopener noreferrer">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="2" width="20" height="20" rx="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-            </svg>
-          </a>
-          <a href="https://twitter.com/sitesbysaraweb" class="custom-footer-social-link" aria-label="Twitter"
-            target="_blank" rel="noopener noreferrer">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
-              </path>
-            </svg>
-          </a>
-          <a href="https://www.pinterest.com/sitesbysara" class="custom-footer-social-link" aria-label="Pinterest"
-            target="_blank" rel="noopener noreferrer">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-              <path
-                d="M12.02 0C5.4 0 0 5.4 0 12.02c0 5.08 3.16 9.43 7.63 11.16-.1-.95-.2-2.4.04-3.44.22-.94 1.41-5.97 1.41-5.97s-.36-.72-.36-1.78c0-1.67.97-2.91 2.17-2.91 1.03 0 1.52.77 1.52 1.69 0 1.03-.65 2.57-.99 3.99-.29 1.19.6 2.17 1.78 2.17 2.13 0 3.77-2.25 3.77-5.49 0-2.86-2.06-4.87-5.01-4.87-3.41 0-5.42 2.56-5.42 5.21 0 1.03.4 2.14.89 2.74a.36.36 0 0 1 .08.34l-.33 1.36c-.05.22-.17.27-.4.16-1.5-.7-2.44-2.89-2.44-4.65 0-3.78 2.75-7.26 7.93-7.26 4.16 0 7.4 2.97 7.4 6.93 0 4.14-2.61 7.47-6.23 7.47-1.22 0-2.36-.64-2.75-1.38 0 0-.6 2.29-.75 2.85-.27 1.04-1 2.35-1.49 3.15C10.76 23.81 11.76 24 12.02 24 18.64 24 24 18.64 24 12.02 24 5.4 18.64 0 12.02 0z">
-              </path>
-            </svg>
-          </a>
-          <a href="https://www.linkedin.com/company/sites-by-sara/" class="custom-footer-social-link"
-            aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-              <rect x="2" y="9" width="4" height="12"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
-          </a>
-          <a href="https://www.youtube.com/@sitesbysaraweb" class="custom-footer-social-link" aria-label="YouTube"
-            target="_blank" rel="noopener noreferrer">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z">
-              </path>
-              <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-            </svg>
-          </a>
-          <a href="https://www.tiktok.com/@sitesbysara" class="custom-footer-social-link" aria-label="TikTok"
-            target="_blank" rel="noopener noreferrer">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-              <path
-                d="M16.6 5.82c-.9-.6-1.53-1.54-1.72-2.62V3h-3.09v12.4a2.59 2.59 0 1 1-1.83-2.48v-3.17a5.86 5.86 0 0 0-.77-.05A5.94 5.94 0 0 0 3.25 15.6a5.94 5.94 0 0 0 5.94 5.94 5.94 5.94 0 0 0 5.94-5.94V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.85 4.85 0 0 1-2.83-1.48z">
-              </path>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Services -->
-      <div class="custom-footer-services">
-        <h4 class="custom-footer-col-title">Services</h4>
-        <ul class="custom-footer-link-list">
-          <li><a href="/services/web-design-development/custom-web-development/">Custom Web
-              Development</a></li>
-          <li><a href="/woocommerce-stores/">WooCommerce
-              Stores</a></li>
-          <li><a href="/shopify-ecommerce-store/">Shopify E-Commerce</a></li>
-          <li><a href="/custom-web-mobile-apps/">Custom Web &amp; Mobile Apps</a></li>
-          <li><a href="/email-setup-migration-services-gws-ms365/">Email Setup &amp;
-              Migration</a></li>
-          <li><a href="/all-services/" class="custom-footer-link-strong">View All
-              Services<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M5 12h14M13 5l7 7-7 7" />
-              </svg></a></li>
-        </ul>
-      </div>
-
-      <!-- Company -->
-      <div class="custom-footer-company">
-        <h4 class="custom-footer-col-title">Company</h4>
-        <ul class="custom-footer-link-list">
-          <li><a href="/who-we-are/">About Us</a></li>
-          </li>
-          <li><a href="/our-portfolio/">Our Portfolio</a></li>
-          <li><a href="/awards-recognition/">Awards</a>
-          </li>
-          <li><a href="/blogs/">Blog</a></li>
-          <li><a href="/contact-us-2/">Contact</a>
-          </li>
-        </ul>
-
-        <ul class="custom-footer-contact-list">
-          <li><a href="tel:+13853555351">(385) 355-5351</a></li>
-        </ul>
-      </div>
-
-      <!-- Get in Touch: image, then phone, then email -->
-      <div class="custom-footer-contact">
-        <a href="/book-a-free-consultation/" class="custom-footer-consult-link">
-          <img
-            src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/10/book-free-consultation.jpg?resize=300%2C300&ssl=1"
-            alt="Book a Free Consultation with Sites by Sara" class="custom-footer-consult-img">
+        <a href="https://www.instagram.com/sitesbysara/" class="custom-footer-social-link" aria-label="Instagram"
+          target="_blank" rel="noopener noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="https://twitter.com/sitesbysaraweb" class="custom-footer-social-link" aria-label="Twitter"
+          target="_blank" rel="noopener noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z">
+            </path>
+          </svg>
+        </a>
+        <a href="https://www.pinterest.com/sitesbysara" class="custom-footer-social-link" aria-label="Pinterest"
+          target="_blank" rel="noopener noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path
+              d="M12.02 0C5.4 0 0 5.4 0 12.02c0 5.08 3.16 9.43 7.63 11.16-.1-.95-.2-2.4.04-3.44.22-.94 1.41-5.97 1.41-5.97s-.36-.72-.36-1.78c0-1.67.97-2.91 2.17-2.91 1.03 0 1.52.77 1.52 1.69 0 1.03-.65 2.57-.99 3.99-.29 1.19.6 2.17 1.78 2.17 2.13 0 3.77-2.25 3.77-5.49 0-2.86-2.06-4.87-5.01-4.87-3.41 0-5.42 2.56-5.42 5.21 0 1.03.4 2.14.89 2.74a.36.36 0 0 1 .08.34l-.33 1.36c-.05.22-.17.27-.4.16-1.5-.7-2.44-2.89-2.44-4.65 0-3.78 2.75-7.26 7.93-7.26 4.16 0 7.4 2.97 7.4 6.93 0 4.14-2.61 7.47-6.23 7.47-1.22 0-2.36-.64-2.75-1.38 0 0-.6 2.29-.75 2.85-.27 1.04-1 2.35-1.49 3.15C10.76 23.81 11.76 24 12.02 24 18.64 24 24 18.64 24 12.02 24 5.4 18.64 0 12.02 0z">
+            </path>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/company/sites-by-sara/" class="custom-footer-social-link"
+          aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+        <a href="https://www.youtube.com/@sitesbysaraweb" class="custom-footer-social-link" aria-label="YouTube"
+          target="_blank" rel="noopener noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.42a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.42 8.6.42 8.6.42s6.88 0 8.6-.42a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.33 29 29 0 0 0-.46-5.33z">
+            </path>
+            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+          </svg>
+        </a>
+        <a href="https://www.tiktok.com/@sitesbysara" class="custom-footer-social-link" aria-label="TikTok"
+          target="_blank" rel="noopener noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" stroke="none">
+            <path
+              d="M16.6 5.82c-.9-.6-1.53-1.54-1.72-2.62V3h-3.09v12.4a2.59 2.59 0 1 1-1.83-2.48v-3.17a5.86 5.86 0 0 0-.77-.05A5.94 5.94 0 0 0 3.25 15.6a5.94 5.94 0 0 0 5.94 5.94 5.94 5.94 0 0 0 5.94-5.94V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.85 4.85 0 0 1-2.83-1.48z">
+            </path>
+          </svg>
         </a>
       </div>
-
     </div>
 
-    <div class="custom-footer-bottom">
-      <div class="custom-container custom-footer-bottom-inner">
-        <p class="custom-footer-copyright">
-          &copy; 2026 Accelerate Media Group, Inc. All Rights Reserved. Sites by Sara&reg; is a registered trademark
-          and a DBA of <a href="https://acceleratemediagroup.com/" target="_blank" rel="noopener noreferrer">Accelerate
-            Media Group, Inc.</a>
-        </p>
-        <div class="custom-footer-legal-links">
-          <a href="/terms-of-service-2/">Terms of
-            Service</a>
-          <a href="/privacy-policy-2/">Privacy
-            Policy</a>
-        </div>
+    <!-- Services -->
+    <div class="custom-footer-services">
+      <h4 class="custom-footer-col-title">Services</h4>
+      <ul class="custom-footer-link-list">
+        <li><a href="/services/web-design-development/custom-web-development/">Custom Web
+            Development</a></li>
+        <li><a href="/woocommerce-stores/">WooCommerce
+            Stores</a></li>
+        <li><a href="/shopify-ecommerce-store/">Shopify E-Commerce</a></li>
+        <li><a href="/custom-web-mobile-apps/">Custom Web &amp; Mobile Apps</a></li>
+        <li><a href="/email-setup-migration-services-gws-ms365/">Email Setup &amp;
+            Migration</a></li>
+        <li><a href="/all-services/" class="custom-footer-link-strong">View All
+            Services<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7" />
+            </svg></a></li>
+      </ul>
+    </div>
+
+    <!-- Company -->
+    <div class="custom-footer-company">
+      <h4 class="custom-footer-col-title">Company</h4>
+      <ul class="custom-footer-link-list">
+        <li><a href="/who-we-are/">About Us</a></li>
+        </li>
+        <li><a href="/our-portfolio/">Our Portfolio</a></li>
+        <li><a href="/awards-recognition/">Awards</a>
+        </li>
+        <li><a href="/tools-we-love/">Tools We Love</a></li>
+        <li><a href="/contact-us-2/">Contact</a>
+        <li><a href="/become-a-partner/">Become a Partner</a></li>
+        </li>
+      </ul>
+
+      <ul class="custom-footer-contact-list">
+        <li><a href="tel:+13853555351">(385) 355-5351</a></li>
+      </ul>
+    </div>
+
+    <!-- Get in Touch: image, then phone, then email -->
+    <div class="custom-footer-contact">
+      <a href="/book-a-free-consultation/" class="custom-footer-consult-link">
+        <img
+          src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/10/book-free-consultation.jpg?resize=300%2C300&ssl=1"
+          alt="Book a Free Consultation with Sites by Sara" class="custom-footer-consult-img">
+      </a>
+    </div>
+
+  </div>
+
+  <div class="custom-footer-bottom">
+    <div class="custom-container custom-footer-bottom-inner">
+      <p class="custom-footer-copyright">
+        &copy; 2026 Accelerate Media Group, Inc. All Rights Reserved. Sites by Sara&reg; is a registered trademark
+        and a DBA of <a href="https://acceleratemediagroup.com/" target="_blank" rel="noopener noreferrer">Accelerate
+          Media Group, Inc.</a>
+      </p>
+      <div class="custom-footer-legal-links">
+        <a href="/terms-of-service-2/">Terms of
+          Service</a>
+        <a href="/privacy-policy-2/">Privacy
+          Policy</a>
       </div>
     </div>
-  </footer>
-
-</body>
-
-</html>
+  </div>
+</footer>
