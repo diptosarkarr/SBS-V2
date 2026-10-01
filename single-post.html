@@ -1,0 +1,1251 @@
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+  :root {
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
+    --brand-blue-subtle: #F6F8FD;
+
+    --brand-coral: #ea4e5f;
+    --brand-coral-hover: #d43d4e;
+    --brand-coral-tint: #FDEEEE;
+
+    --brand-peach: #FCEFE5;
+    --brand-peach-hover: #F8E3D4;
+    --brand-peach-tint: #FFF9F5;
+
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+    --navy: #1E2140;
+    --navy-dark: #13152C;
+    --slate: #5F6368;
+    --slate-light: #80868B;
+    --slate-subtle: #9AA0A6;
+
+    --border: #DCE2EE;
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
+
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
+    --bg-banner: #FCEFE5;
+    --bg-callout: #FFFBF7;
+
+    --green: #1E8E3E;
+    --green-tint: #E6F4EA;
+    --yellow: #FBBC04;
+    --yellow-tint: #FEF7E0;
+
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-pill: 9999px;
+
+    --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+    --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+    --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+    --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font);
+    color: var(--navy);
+    background-color: var(--bg-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  strong,
+  b {
+    font-weight: 700;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--brand-coral);
+    display: inline-block;
+  }
+
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font);
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:focus-visible,
+  .btn-primary:active {
+    background: var(--brand-gradient-hover);
+    background-clip: padding-box;
+    transform: translateY(-1px);
+    color: #FFFFFF !important;
+  }
+
+  /* ============================================================
+     POST LAYOUT (content + sidebar)
+     ============================================================ */
+  .post-section {
+    padding: clamp(40px, 5vw, 64px) 0 clamp(70px, 8vw, 100px);
+  }
+
+  .post-layout {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: clamp(32px, 4vw, 56px);
+    align-items: start;
+  }
+
+  /* ---- Post header ---- */
+  .post-header {
+    margin-bottom: clamp(24px, 3vw, 32px);
+  }
+
+  .post-eyebrow-link {
+    border-bottom: 1.5px solid transparent;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .post-eyebrow-link:hover {
+    color: var(--brand-blue) !important;
+    border-color: var(--brand-blue);
+  }
+
+  .post-title {
+    font-size: clamp(1.8rem, 1.4rem + 1.6vw, 2.7rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+    margin: 14px 0 18px;
+  }
+
+  .post-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--slate-light);
+    font-weight: 500;
+  }
+
+  .post-meta-row .post-meta-dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--slate-subtle);
+    display: inline-block;
+  }
+
+  .post-meta-author {
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  /* ---- Featured image ---- */
+  .post-featured-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: clamp(28px, 4vw, 40px);
+    background: var(--bg-light);
+    border: 1px solid var(--border-light);
+  }
+
+  .post-featured-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ---- Post content (prose) ---- */
+  .post-content {
+    font-size: 1.02rem;
+    color: var(--slate);
+    line-height: 1.8;
+  }
+
+  .post-content>*+* {
+    margin-top: 1.1em;
+  }
+
+  .post-content h1,
+  .post-content h2,
+  .post-content h3,
+  .post-content h4 {
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    margin-top: 1.7em;
+  }
+
+  .post-content h1 {
+    font-size: 1.6rem;
+  }
+
+  .post-content h2 {
+    font-size: 1.4rem;
+  }
+
+  .post-content h3 {
+    font-size: 1.18rem;
+  }
+
+  .post-content h4 {
+    font-size: 1.05rem;
+  }
+
+  .post-content>h1:first-child,
+  .post-content>h2:first-child,
+  .post-content>h3:first-child {
+    margin-top: 0;
+  }
+
+  .post-content p {
+    margin-top: 0;
+  }
+
+  .post-content a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    border-bottom: 1.5px solid rgba(58, 83, 155, 0.3);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .post-content a:hover {
+    color: var(--brand-blue-hover) !important;
+    border-color: var(--brand-blue-hover);
+  }
+
+  .post-content a.btn-primary,
+  .post-content a.btn-primary:hover {
+    color: #FFFFFF !important;
+    border-bottom: none;
+  }
+
+  .post-content ul,
+  .post-content ol {
+    padding-left: 1.4em;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+  }
+
+  .post-content li {
+    padding-left: 0.2em;
+  }
+
+  .post-content blockquote {
+    border-left: 3px solid var(--brand-coral);
+    background: var(--bg-callout);
+    padding: 18px 22px;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    font-style: italic;
+    color: var(--navy);
+  }
+
+  .post-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: var(--radius-md);
+    display: block;
+  }
+
+  .post-content figure {
+    margin: 0;
+  }
+
+  .post-content figcaption {
+    font-size: 0.85rem;
+    color: var(--slate-light);
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .post-content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+  }
+
+  .post-content th,
+  .post-content td {
+    border: 1px solid var(--border-light);
+    padding: 10px 14px;
+    text-align: left;
+  }
+
+  .post-content th {
+    background: var(--bg-light);
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  /* ---- Share row ---- */
+  .post-share-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: clamp(32px, 4vw, 44px);
+    padding-top: 24px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .post-share-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--slate-light);
+  }
+
+  .post-share-link {
+    appearance: none;
+    -webkit-appearance: none;
+    font: inherit;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid var(--border-light);
+    background: #FFFFFF;
+    background-clip: padding-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--slate-light);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .post-share-link svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  .post-share-link:hover,
+  .post-share-link:focus,
+  .post-share-link:focus-visible {
+    background: var(--brand-blue) !important;
+    border-color: var(--brand-blue) !important;
+    color: #FFFFFF !important;
+  }
+
+  .post-share-link.is-copied {
+    background: var(--green) !important;
+    border-color: var(--green) !important;
+    color: #FFFFFF !important;
+  }
+
+  /* ============================================================
+     SIDEBAR
+     ============================================================ */
+  .post-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    position: sticky;
+    top: 24px;
+  }
+
+  .sidebar-widget {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+  }
+
+  .sidebar-search-form {
+    position: relative;
+    display: flex;
+    gap: 8px;
+  }
+
+  .sidebar-search-results {
+    display: none;
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-floating);
+    max-height: 360px;
+    overflow-y: auto;
+    z-index: 40;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .sidebar-search-results::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sidebar-search-results.is-open {
+    display: block;
+  }
+
+  .sidebar-search-result-item a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    transition: background 0.15s ease;
+  }
+
+  .sidebar-search-result-item a:hover,
+  .sidebar-search-result-item a:focus-visible {
+    background: var(--bg-light);
+  }
+
+  .sidebar-search-result-item+.sidebar-search-result-item {
+    border-top: 1px solid var(--border-light);
+  }
+
+  .sidebar-search-result-thumb {
+    width: 40px;
+    height: 40px !important;
+    border-radius: var(--radius-sm) !important;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--bg-light);
+  }
+
+  .sidebar-search-result-thumb-fallback {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar-search-result-thumb-fallback svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .sidebar-search-result-title {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .sidebar-search-status {
+    padding: 18px 14px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--slate-light);
+  }
+
+  .sidebar-search-input {
+    flex: 1;
+    min-width: 0;
+    font-family: var(--font);
+    font-size: 0.92rem;
+    color: var(--navy);
+    background: var(--bg-light);
+    border: 1.5px solid var(--border) !important;
+    border-radius: var(--radius-pill) !important;
+    padding: 10px 16px !important;
+  }
+
+  .sidebar-search-input:focus {
+    outline: none;
+    border-color: var(--brand-blue);
+    background: #FFFFFF;
+  }
+
+  .sidebar-search-btn {
+    appearance: none;
+    -webkit-appearance: none;
+    font: inherit;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    border: none;
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .sidebar-search-btn:hover {
+    background: var(--brand-gradient-hover);
+  }
+
+  .sidebar-search-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  .sidebar-widget-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .sidebar-recent-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .sidebar-recent-item a {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .sidebar-recent-thumb {
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: var(--radius-sm) !important;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: var(--bg-light);
+  }
+
+  .sidebar-recent-thumb-fallback {
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: var(--radius-sm) !important;
+    flex-shrink: 0;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar-recent-thumb-fallback svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .sidebar-recent-title {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.2s ease;
+  }
+
+  .sidebar-recent-item a:hover .sidebar-recent-title {
+    color: var(--brand-blue);
+  }
+
+  .sidebar-cta-box {
+    background: var(--brand-gradient);
+    border-radius: var(--radius-lg);
+    padding: 26px 22px;
+    text-align: center;
+    color: #FFFFFF;
+  }
+
+  .sidebar-cta-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 18px;
+  }
+
+  .sidebar-cta-box .btn-group {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .sidebar-cta-box .btn {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 12px 20px;
+  }
+
+  .sidebar-btn-light {
+    background: #FFFFFF;
+    color: var(--brand-blue) !important;
+  }
+
+  .sidebar-btn-light:hover,
+  .sidebar-btn-light:focus-visible {
+    background: var(--brand-peach) !important;
+    color: var(--brand-blue-hover) !important;
+  }
+
+  .sidebar-btn-outline {
+    background: transparent;
+    border-color: rgba(255, 255, 255, 0.5);
+    color: #FFFFFF !important;
+  }
+
+  .sidebar-btn-outline:hover,
+  .sidebar-btn-outline:focus-visible {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: #FFFFFF;
+    color: #FFFFFF !important;
+  }
+
+  /* ============================================================
+     RELATED POSTS
+     ============================================================ */
+  .related-posts-section {
+    padding: clamp(50px, 6vw, 80px) 0;
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+  }
+
+  .related-posts-title {
+    font-size: clamp(1.4rem, 1.2rem + 0.6vw, 1.75rem);
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 26px;
+  }
+
+  .related-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .related-post-card {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .related-post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--brand-blue);
+  }
+
+  .related-post-image-wrap {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: var(--brand-blue-tint);
+    overflow: hidden;
+  }
+
+  .related-post-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .related-post-cat-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--brand-blue);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+  }
+
+  .related-post-body {
+    padding: 18px 20px 20px;
+  }
+
+  .related-post-date {
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: var(--slate-light);
+    margin-bottom: 8px;
+  }
+
+  .related-post-title {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  /* ---- Loading skeletons ---- */
+  .skel {
+    background: linear-gradient(90deg, var(--border-light) 25%, var(--bg-light) 37%, var(--border-light) 63%);
+    background-size: 400% 100%;
+    animation: skel-shimmer 1.4s ease infinite;
+    border-radius: 6px;
+  }
+
+  @keyframes skel-shimmer {
+    0% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  .post-not-found {
+    text-align: center;
+    padding: 80px 24px;
+    grid-column: 1 / -1;
+  }
+
+  .post-not-found svg {
+    width: 48px;
+    height: 48px;
+    color: var(--slate-subtle);
+    margin-bottom: 20px;
+  }
+
+  .post-not-found h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .post-not-found p {
+    color: var(--slate);
+    margin-bottom: 24px;
+  }
+
+  /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+  @media (max-width: 900px) {
+    .post-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .post-sidebar {
+      position: static;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .post-sidebar>* {
+      flex: 1 1 260px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    .related-posts-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .related-posts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .post-sidebar {
+      flex-direction: column;
+    }
+
+    .btn-group {
+      flex-direction: column;
+      width: 100%;
+    }
+  }
+</style>
+
+<!-- ============================================================
+       SINGLE POST TEMPLATE
+       ============================================================ -->
+<section class="post-section" id="single-post">
+  <div class="container">
+    <div class="post-layout">
+
+      <!-- Main column -->
+      <article id="post-main">
+        <div class="post-header">
+          <div class="eyebrow skel" id="post-eyebrow" style="width:90px;height:14px;"></div>
+          <h1 class="post-title skel" id="post-title" style="height:2.4em;">&nbsp;</h1>
+          <div class="post-meta-row" id="post-meta"></div>
+        </div>
+
+        <div class="post-featured-image skel" id="post-featured-image"></div>
+
+        <div class="post-content" id="post-content">
+          <div class="skel" style="height:16px;width:100%;margin-bottom:10px;"></div>
+          <div class="skel" style="height:16px;width:95%;margin-bottom:10px;"></div>
+          <div class="skel" style="height:16px;width:80%;"></div>
+        </div>
+
+        <div class="post-share-row" id="post-share-row" style="display:none;">
+          <span class="post-share-label">Share</span>
+          <a class="post-share-link" href="#" id="share-facebook" target="_blank" rel="noopener noreferrer"
+            aria-label="Share on Facebook">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+            </svg>
+          </a>
+          <a class="post-share-link" href="#" id="share-linkedin" target="_blank" rel="noopener noreferrer"
+            aria-label="Share on LinkedIn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+              <rect x="2" y="9" width="4" height="12" />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+          </a>
+          <a class="post-share-link" href="#" id="share-twitter" target="_blank" rel="noopener noreferrer"
+            aria-label="Share on X / Twitter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z" />
+            </svg>
+          </a>
+          <button type="button" class="post-share-link" id="share-copy" aria-label="Copy link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" />
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+            </svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="post-sidebar">
+        <div class="sidebar-widget">
+          <form class="sidebar-search-form" action="/" method="get" id="sidebar-search-form" autocomplete="off">
+            <input type="search" name="s" class="sidebar-search-input" id="sidebar-search-input"
+              placeholder="Search here" aria-label="Search the blog" required>
+            <button type="submit" class="sidebar-search-btn" aria-label="Search">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </button>
+            <div class="sidebar-search-results" id="sidebar-search-results"></div>
+          </form>
+        </div>
+
+        <div class="sidebar-widget">
+          <div class="sidebar-widget-title">Recent Posts</div>
+          <ul class="sidebar-recent-list" id="sidebar-recent-list"></ul>
+        </div>
+
+        <div class="sidebar-cta-box">
+          <div class="sidebar-cta-title">Let's Drive More Traffic, Engage Customers, and Grow Your Business!</div>
+          <div class="btn-group">
+            <a href="tel:+13853555351" class="btn sidebar-btn-light">Call Us Today: (385) 355-5351</a>
+            <a href="/book-a-free-consultation/" class="btn sidebar-btn-outline">Book a Free Consultation</a>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+       RELATED POSTS
+       ============================================================ -->
+<section class="related-posts-section" id="related-posts-section" style="display:none;">
+  <div class="container">
+    <h2 class="related-posts-title">You Might Also Like</h2>
+    <div class="related-posts-grid" id="related-posts-grid"></div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var API_BASE = window.location.origin + '/wp-json/wp/v2';
+    var FALLBACK_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>';
+
+    function getSlugFromPath() {
+      var path = window.location.pathname.replace(/^\/+|\/+$/g, '');
+      var parts = path.split('/');
+      return parts[parts.length - 1] || '';
+    }
+
+    function htmlToText(html) {
+      var d = document.createElement('div');
+      d.innerHTML = html || '';
+      return (d.textContent || '').replace(/\s+/g, ' ').trim();
+    }
+
+    function formatDate(iso) {
+      var d = new Date(iso);
+      return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+    }
+
+    function estimateReadTime(html) {
+      var words = htmlToText(html).split(' ').filter(Boolean).length;
+      return Math.max(1, Math.round(words / 200));
+    }
+
+    function primaryCategory(post) {
+      var terms = post._embedded && post._embedded['wp:term'];
+      if (!terms) return null;
+      var group = terms.find(function (g) { return g.length && g[0].taxonomy === 'category'; });
+      return (group && group[0]) || null;
+    }
+
+    function featuredImageUrl(post, size) {
+      var media = post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0];
+      if (!media || media.code) return null;
+      var sizes = media.media_details && media.media_details.sizes;
+      if (size && sizes && sizes[size]) return sizes[size].source_url;
+      if (sizes && sizes.medium_large) return sizes.medium_large.source_url;
+      return media.source_url || null;
+    }
+
+    function renderPost(post) {
+      document.title = htmlToText(post.title.rendered) + ' — Sites by Sara';
+
+      var category = primaryCategory(post);
+      var eyebrowEl = document.getElementById('post-eyebrow');
+      eyebrowEl.classList.remove('skel');
+      eyebrowEl.style.width = '';
+      eyebrowEl.style.height = '';
+      if (category) {
+        eyebrowEl.innerHTML = '<span class="eyebrow-dot"></span><a class="post-eyebrow-link" href="' + category.link + '">' + category.name + '</a>';
+      } else {
+        eyebrowEl.innerHTML = '<span class="eyebrow-dot"></span>Blog';
+      }
+
+      var titleEl = document.getElementById('post-title');
+      titleEl.classList.remove('skel');
+      titleEl.style.height = '';
+      titleEl.textContent = htmlToText(post.title.rendered);
+
+      var author = post._embedded && post._embedded.author && post._embedded.author[0];
+      var authorName = author && author.name;
+      var metaEl = document.getElementById('post-meta');
+      metaEl.innerHTML =
+        (authorName ? '<span class="post-meta-author">' + authorName + '</span><span class="post-meta-dot"></span>' : '') +
+        '<span>' + formatDate(post.date) + '</span><span class="post-meta-dot"></span>' +
+        '<span>' + estimateReadTime(post.content.rendered) + ' min read</span>';
+
+      var imgWrap = document.getElementById('post-featured-image');
+      var imgUrl = featuredImageUrl(post, 'large');
+      imgWrap.classList.remove('skel');
+      if (imgUrl) {
+        imgWrap.innerHTML = '<img src="' + imgUrl + '" alt="' + htmlToText(post.title.rendered) + '">';
+      } else {
+        imgWrap.style.display = 'none';
+      }
+
+      var contentEl = document.getElementById('post-content');
+      contentEl.innerHTML = post.content.rendered;
+
+      document.getElementById('post-share-row').style.display = 'flex';
+      var pageUrl = encodeURIComponent(window.location.href);
+      var pageTitle = encodeURIComponent(htmlToText(post.title.rendered));
+      document.getElementById('share-facebook').href = 'https://www.facebook.com/sharer/sharer.php?u=' + pageUrl;
+      document.getElementById('share-linkedin').href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + pageUrl;
+      document.getElementById('share-twitter').href = 'https://twitter.com/intent/tweet?url=' + pageUrl + '&text=' + pageTitle;
+      document.getElementById('share-copy').addEventListener('click', function () {
+        var btn = this;
+        navigator.clipboard.writeText(window.location.href).then(function () {
+          btn.classList.add('is-copied');
+          btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+          setTimeout(function () {
+            btn.classList.remove('is-copied');
+            btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>';
+          }, 1800);
+        });
+      });
+
+      loadRelatedPosts(post, category);
+    }
+
+    function renderNotFound() {
+      document.getElementById('post-eyebrow').style.display = 'none';
+      var titleEl = document.getElementById('post-title');
+      titleEl.classList.remove('skel');
+      titleEl.style.height = '';
+      titleEl.textContent = '';
+      document.getElementById('post-featured-image').style.display = 'none';
+      document.getElementById('post-content').innerHTML =
+        '<div class="post-not-found">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>' +
+        '<h2>Article Not Found</h2>' +
+        '<p>This post may have moved or no longer exists.</p>' +
+        '<a href="/blogs/" class="btn btn-primary">Back to the Blog</a>' +
+        '</div>';
+    }
+
+    function loadRelatedPosts(currentPost, category) {
+      var excludeId = currentPost.id;
+      var url = API_BASE + '/posts?per_page=3&exclude=' + excludeId + '&_embed=true';
+      if (category) url += '&categories=' + category.id;
+
+      fetch(url)
+        .then(function (r) { return r.json(); })
+        .then(function (posts) {
+          if (!posts.length && category) {
+            return fetch(API_BASE + '/posts?per_page=3&exclude=' + excludeId + '&_embed=true')
+              .then(function (r) { return r.json(); });
+          }
+          return posts;
+        })
+        .then(function (posts) {
+          if (!posts || !posts.length) return;
+          var grid = document.getElementById('related-posts-grid');
+          grid.innerHTML = '';
+          posts.forEach(function (post) {
+            var cat = primaryCategory(post);
+            var img = featuredImageUrl(post, 'medium_large');
+            var card = document.createElement('a');
+            card.className = 'related-post-card';
+            card.href = post.link;
+            card.innerHTML =
+              '<div class="related-post-image-wrap">' +
+              (img ? '<img src="' + img + '" alt="" loading="lazy">' : '') +
+              (cat ? '<span class="related-post-cat-badge">' + cat.name + '</span>' : '') +
+              '</div>' +
+              '<div class="related-post-body">' +
+              '<div class="related-post-date">' + formatDate(post.date) + '</div>' +
+              '<div class="related-post-title">' + htmlToText(post.title.rendered) + '</div>' +
+              '</div>';
+            grid.appendChild(card);
+          });
+          document.getElementById('related-posts-section').style.display = 'block';
+        })
+        .catch(function () { /* related posts are a nice-to-have; fail silently */ });
+    }
+
+    function loadSidebarRecent(currentSlug) {
+      fetch(API_BASE + '/posts?per_page=6&_embed=true')
+        .then(function (r) { return r.json(); })
+        .then(function (posts) {
+          var list = document.getElementById('sidebar-recent-list');
+          list.innerHTML = '';
+          posts
+            .filter(function (p) { return p.slug !== currentSlug; })
+            .slice(0, 5)
+            .forEach(function (post) {
+              var img = featuredImageUrl(post, 'thumbnail');
+              var li = document.createElement('li');
+              li.className = 'sidebar-recent-item';
+              li.innerHTML =
+                '<a href="' + post.link + '">' +
+                (img
+                  ? '<img class="sidebar-recent-thumb" src="' + img + '" alt="" loading="lazy">'
+                  : '<div class="sidebar-recent-thumb-fallback">' + FALLBACK_ICON + '</div>') +
+                '<span class="sidebar-recent-title">' + htmlToText(post.title.rendered) + '</span>' +
+                '</a>';
+              list.appendChild(li);
+            });
+        })
+        .catch(function () { /* sidebar recent posts are a nice-to-have; fail silently */ });
+    }
+
+    function initLiveSearch() {
+      var form = document.getElementById('sidebar-search-form');
+      var input = document.getElementById('sidebar-search-input');
+      var resultsBox = document.getElementById('sidebar-search-results');
+      var debounceTimer;
+      var currentResults = [];
+      var requestToken = 0;
+
+      function closeResults() {
+        resultsBox.classList.remove('is-open');
+        resultsBox.innerHTML = '';
+        currentResults = [];
+      }
+
+      function renderResults(posts) {
+        if (!posts.length) {
+          resultsBox.innerHTML = '<div class="sidebar-search-status">No articles found.</div>';
+          resultsBox.classList.add('is-open');
+          return;
+        }
+        resultsBox.innerHTML = '';
+        posts.forEach(function (post) {
+          var img = featuredImageUrl(post, 'thumbnail');
+          var item = document.createElement('div');
+          item.className = 'sidebar-search-result-item';
+          item.innerHTML =
+            '<a href="' + post.link + '">' +
+            (img
+              ? '<img class="sidebar-search-result-thumb" src="' + img + '" alt="" loading="lazy">'
+              : '<div class="sidebar-search-result-thumb-fallback">' + FALLBACK_ICON + '</div>') +
+            '<span class="sidebar-search-result-title">' + htmlToText(post.title.rendered) + '</span>' +
+            '</a>';
+          resultsBox.appendChild(item);
+        });
+        resultsBox.classList.add('is-open');
+      }
+
+      function runSearch(query) {
+        var token = ++requestToken;
+        resultsBox.innerHTML = '<div class="sidebar-search-status">Searching...</div>';
+        resultsBox.classList.add('is-open');
+        fetch(API_BASE + '/posts?search=' + encodeURIComponent(query) + '&per_page=6&_embed=true')
+          .then(function (r) { return r.json(); })
+          .then(function (posts) {
+            if (token !== requestToken) return;
+            currentResults = posts;
+            renderResults(posts);
+          })
+          .catch(function () {
+            if (token !== requestToken) return;
+            resultsBox.innerHTML = '<div class="sidebar-search-status">Couldn\'t load results.</div>';
+          });
+      }
+
+      input.addEventListener('input', function () {
+        clearTimeout(debounceTimer);
+        var query = input.value.trim();
+        if (query.length < 2) {
+          closeResults();
+          return;
+        }
+        debounceTimer = setTimeout(function () { runSearch(query); }, 350);
+      });
+
+      input.addEventListener('focus', function () {
+        if (input.value.trim().length >= 2 && currentResults.length) {
+          resultsBox.classList.add('is-open');
+        }
+      });
+
+      document.addEventListener('click', function (e) {
+        if (!form.contains(e.target)) closeResults();
+      });
+
+      form.addEventListener('submit', function (e) {
+        if (currentResults.length) {
+          e.preventDefault();
+          window.location.href = currentResults[0].link;
+        }
+        // otherwise let it submit to the native WP search results page as a fallback
+      });
+    }
+
+    initLiveSearch();
+
+    var slug = getSlugFromPath();
+    loadSidebarRecent(slug);
+
+    if (!slug) {
+      renderNotFound();
+    } else {
+      fetch(API_BASE + '/posts?slug=' + encodeURIComponent(slug) + '&_embed=true')
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (!data.length) { renderNotFound(); return; }
+          renderPost(data[0]);
+        })
+        .catch(renderNotFound);
+    }
+  })();
+</script>
