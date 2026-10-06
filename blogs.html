@@ -7,6 +7,8 @@
      DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
      ============================================================ */
   :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
     --brand-blue: #3A539B;
     --brand-blue-hover: #2F437D;
     --brand-blue-tint: #EEF2FA;
@@ -95,7 +97,7 @@
   }
 
   .section-space {
-    padding: clamp(70px, 8vw, 110px) 0;
+    padding: var(--section-gap) 0;
   }
 
   .eyebrow {
@@ -487,7 +489,35 @@
     width: 60%;
   }
 
-  /* ---- Load more / empty / error states ---- */
+  /* ---- Infinite scroll sentinel / retry button / end note / empty / error states ---- */
+  .blog-sentinel {
+    height: 1px;
+  }
+
+  .blog-end-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin: clamp(40px, 5vw, 56px) 0 0;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--slate-light);
+    text-align: center;
+  }
+
+  .blog-end-note::before,
+  .blog-end-note::after {
+    content: "";
+    flex: 0 1 64px;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .blog-end-note[hidden] {
+    display: none;
+  }
+
   .blog-load-more-wrap {
     display: flex;
     flex-direction: column;
@@ -580,7 +610,7 @@
      FINAL CTA / CONSULTATION BANNER
      ============================================================ */
   .cta-banner-section {
-    padding: clamp(60px, 8vw, 100px) 0 clamp(80px, 9vw, 120px);
+    padding: var(--section-gap) 0;
     background: var(--bg-light);
     border-top: 1px solid var(--border-light);
   }
@@ -698,6 +728,9 @@
 
     <div class="blog-grid" id="blog-grid"></div>
 
+    <div class="blog-sentinel" id="blog-sentinel" aria-hidden="true"></div>
+
+    <!-- Only shown as a retry after a failed request, or as a fallback when IntersectionObserver is unavailable -->
     <div class="blog-load-more-wrap" id="blog-load-more-wrap" style="display:none;">
       <button type="button" class="blog-load-more-btn" id="blog-load-more-btn">
         <span class="blog-spinner" aria-hidden="true"></span>
@@ -705,13 +738,18 @@
       </button>
     </div>
 
+    <p class="blog-end-note" id="blog-end-note" hidden>You're all caught up</p>
+
   </div>
 </section>
 
 <script>
   (function () {
     var API_BASE = window.location.origin + '/wp-json/wp/v2';
-    var PER_PAGE = 9;
+    var PER_PAGE = 12;
+    var APPEND_SKELETONS = 3;
+    var PREFETCH_MARGIN = '0px 0px 600px 0px';
+    var HAS_OBSERVER = 'IntersectionObserver' in window;
 
     var state = {
       page: 1,
@@ -719,11 +757,15 @@
       total: 0,
       loaded: 0,
       categoryId: '',
-      requestToken: 0
+      requestToken: 0,
+      loading: false,
+      loadFailed: false
     };
 
     var grid = document.getElementById('blog-grid');
     var resultsLabel = document.getElementById('blog-results-label');
+    var sentinel = document.getElementById('blog-sentinel');
+    var endNote = document.getElementById('blog-end-note');
     var loadMoreWrap = document.getElementById('blog-load-more-wrap');
     var loadMoreBtn = document.getElementById('blog-load-more-btn');
     var loadMoreText = document.getElementById('blog-load-more-text');
@@ -839,7 +881,12 @@
 
     function updateLoadMore() {
       var hasMore = state.page < state.totalPages;
-      loadMoreWrap.style.display = hasMore ? 'flex' : 'none';
+      // The list loads itself on scroll; the button only appears to retry a failed request,
+      // or as a fallback in browsers without IntersectionObserver.
+      var showButton = hasMore && (!HAS_OBSERVER || state.loadFailed);
+      loadMoreWrap.style.display = showButton ? 'flex' : 'none';
+      loadMoreText.textContent = state.loadFailed ? 'Couldn\'t load more. Try again' : 'Load More Articles';
+      endNote.hidden = state.loading || hasMore || state.page < 2;
     }
 
     function buildUrl() {
@@ -850,20 +897,27 @@
 
     function loadPosts(reset) {
       var token = ++state.requestToken;
+      state.loading = true;
+      state.loadFailed = false;
+
       if (reset) {
         state.page = 1;
+        state.totalPages = 1;
         state.loaded = 0;
         grid.innerHTML = '';
         showSkeletons(PER_PAGE);
       } else {
+        showSkeletons(APPEND_SKELETONS);
         loadMoreBtn.classList.add('is-loading');
         loadMoreBtn.disabled = true;
         loadMoreText.textContent = 'Loading...';
       }
+      updateLoadMore();
 
       fetch(buildUrl())
         .then(function (res) {
           if (token !== state.requestToken) return null;
+          if (!res.ok) throw new Error('HTTP ' + res.status);
           state.totalPages = parseInt(res.headers.get('X-WP-TotalPages') || '1', 10);
           state.total = parseInt(res.headers.get('X-WP-Total') || '0', 10);
           return res.json();
@@ -875,24 +929,49 @@
             renderEmptyState();
             state.loaded = 0;
             updateResultsLabel();
-            updateLoadMore();
             return;
           }
-          posts.forEach(function (post) { grid.appendChild(buildCardEl(post)); });
+          var batch = document.createDocumentFragment();
+          posts.forEach(function (post) { batch.appendChild(buildCardEl(post)); });
+          grid.appendChild(batch);
           state.loaded += posts.length;
           updateResultsLabel();
-          updateLoadMore();
         })
         .catch(function () {
           if (token !== state.requestToken) return;
           clearSkeletons();
-          if (reset) renderErrorState();
+          if (reset) {
+            state.totalPages = 1;
+            renderErrorState();
+          } else {
+            state.page -= 1;
+            state.loadFailed = true;
+          }
         })
         .then(function () {
+          if (token !== state.requestToken) return;
+          state.loading = false;
           loadMoreBtn.classList.remove('is-loading');
           loadMoreBtn.disabled = false;
-          loadMoreText.textContent = 'Load More Articles';
+          updateLoadMore();
+          recheckSentinel();
         });
+    }
+
+    function loadNextPage() {
+      if (state.loading || state.loadFailed || state.page >= state.totalPages) return;
+      state.page += 1;
+      loadPosts(false);
+    }
+
+    // IntersectionObserver only fires when visibility changes, so after each load re-observe the
+    // sentinel: if it is still within the prefetch margin (tall screens), the next page loads too.
+    var observer = null;
+
+    function recheckSentinel() {
+      if (!observer) return;
+      observer.unobserve(sentinel);
+      observer.observe(sentinel);
     }
 
     function loadCategories() {
@@ -929,9 +1008,16 @@
     });
 
     loadMoreBtn.addEventListener('click', function () {
-      state.page += 1;
-      loadPosts(false);
+      state.loadFailed = false;
+      loadNextPage();
     });
+
+    if (HAS_OBSERVER) {
+      observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (entry) { return entry.isIntersecting; })) loadNextPage();
+      }, { rootMargin: PREFETCH_MARGIN });
+      observer.observe(sentinel);
+    }
 
     loadCategories();
     loadPosts(true);

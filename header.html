@@ -315,7 +315,7 @@
   /* ---------------- mega dropdown (Services) ---------------- */
   .custom-dropdown-mega {
     position: fixed;
-    top: 105px;
+    top: 70px;
     left: 50%;
     transform: translateX(-50%) translateY(-8px);
     width: min(1200px, calc(100% - 32px));
@@ -334,11 +334,6 @@
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(0);
-  }
-
-  .custom-mega-accent-bar {
-    height: 3px;
-    background: var(--brand-gradient);
   }
 
   .custom-mega-inner {
@@ -694,7 +689,23 @@
   /* ============================================================
    RESPONSIVE BREAKPOINTS
    ============================================================ */
-  @media (max-width: 992px) {
+  /* With the search icon the desktop header needs ~1250px, so tighten it on small laptops and switch to the
+     mobile menu below 1260px (the old 992px switch left the logo crushed between ~1000 and ~1240px). */
+  @media (max-width: 1400px) {
+    .custom-header-logo-img {
+      width: 200px;
+    }
+
+    .custom-header-inner {
+      gap: 16px;
+    }
+
+    .custom-nav-link {
+      padding: 9px 10px;
+    }
+  }
+
+  @media (max-width: 1260px) {
     .custom-header-logo-img {
       width: 200px;
     }
@@ -725,6 +736,669 @@
       padding: 10px 24px !important;
     }
   }
+
+  /* ============================================================
+   GLOBAL SEARCH — header icon + full-screen search overlay
+   ============================================================ */
+  .custom-header-search-btn {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: var(--navy);
+    flex-shrink: 0;
+    transition: background-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
+  }
+
+  .custom-header-search-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .custom-site-header .custom-header-search-btn:hover,
+  .custom-site-header .custom-header-search-btn:focus,
+  .custom-site-header .custom-header-search-btn:focus-visible,
+  .custom-site-header .custom-header-search-btn:active {
+    background: var(--brand-blue-tint) !important;
+    color: var(--brand-blue) !important;
+  }
+
+  html.sbs-sx-lock {
+    overflow: hidden !important;
+  }
+
+  /* Keep the chat bubble (and its popup) usable above the full-screen search, like the accessibility button
+     (that one is already above everything). Giving the widget's host its own stacking context lifts the fixed
+     button inside its shadow DOM above the overlay. */
+  html.sbs-sx-lock chat-widget {
+    position: relative;
+    z-index: 2147483000;
+  }
+
+  .sbs-sx,
+  .sbs-sx *,
+  .sbs-sx *::before,
+  .sbs-sx *::after {
+    box-sizing: border-box;
+  }
+
+  .sbs-sx {
+    position: fixed;
+    inset: 0;
+    z-index: 2147482000;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font);
+    color: var(--navy);
+    line-height: 1.5;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.22s ease, visibility 0s linear 0.22s;
+  }
+
+  .sbs-sx.is-open {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.22s ease, visibility 0s;
+  }
+
+  .sbs-sx-backdrop {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 12% 0%, rgba(2, 80, 197, 0.16) 0%, transparent 45%),
+      radial-gradient(circle at 92% 8%, rgba(212, 63, 141, 0.16) 0%, transparent 45%),
+      rgba(255, 255, 255, 0.97);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+
+  .sbs-sx-shell {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(-14px);
+    transition: transform 0.28s ease;
+  }
+
+  .sbs-sx.is-open .sbs-sx-shell {
+    transform: translateY(0);
+  }
+
+  .sbs-sx-top {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px clamp(18px, 4vw, 48px);
+  }
+
+  .sbs-sx-logo {
+    display: block;
+    width: 168px;
+    height: auto;
+  }
+
+  .sbs-sx-close {
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--navy);
+    background: #FFFFFF !important;
+    border: 1.5px solid var(--border) !important;
+    box-shadow: var(--shadow-subtle);
+    padding: 0 !important;
+    transition: transform 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  }
+
+  .sbs-sx-close svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .sbs-sx-close:hover,
+  .sbs-sx-close:focus,
+  .sbs-sx-close:focus-visible,
+  .sbs-sx-close:active {
+    background: #FFFFFF !important;
+    color: var(--brand-blue) !important;
+    border-color: var(--brand-blue) !important;
+    transform: rotate(90deg);
+  }
+
+  .sbs-sx-scroll {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: clamp(16px, 9vh, 110px) clamp(18px, 4vw, 48px) 48px;
+  }
+
+  .sbs-sx-container {
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+
+
+  /* ---- search field ---- */
+  .sbs-sx-form {
+    position: relative;
+    margin: 0;
+  }
+
+  .sbs-sx-field-icon {
+    position: absolute;
+    left: 24px;
+    top: 50%;
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+    color: var(--brand-blue);
+    pointer-events: none;
+  }
+
+  .sbs-sx .sbs-sx-input {
+    display: block;
+    width: 100%;
+    height: 72px;
+    margin: 0;
+    padding: 0 190px 0 62px !important;
+    font-family: var(--font) !important;
+    font-size: clamp(1.1rem, 1rem + 0.6vw, 1.4rem) !important;
+    font-weight: 600 !important;
+    line-height: 1.2;
+    color: var(--navy) !important;
+    background: #FFFFFF !important;
+    border: 1.5px solid var(--border) !important;
+    border-radius: 9999px !important;
+    box-shadow: var(--shadow-floating) !important;
+    outline: none !important;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .sbs-sx .sbs-sx-input::placeholder {
+    color: var(--slate-light) !important;
+    font-weight: 500;
+    opacity: 1;
+  }
+
+  .sbs-sx .sbs-sx-input::-webkit-search-cancel-button,
+  .sbs-sx .sbs-sx-input::-webkit-search-decoration {
+    -webkit-appearance: none;
+    display: none;
+  }
+
+  .sbs-sx .sbs-sx-input:focus {
+    border-color: var(--brand-blue) !important;
+    box-shadow: 0 0 0 4px var(--brand-blue-tint), var(--shadow-floating) !important;
+    outline: none !important;
+  }
+
+  .sbs-sx-clear {
+    position: absolute;
+    right: 142px;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    color: var(--slate) !important;
+    background: var(--border-light) !important;
+    border: none !important;
+    padding: 0 !important;
+    transition: background-color 0.18s ease, color 0.18s ease;
+  }
+
+  .sbs-sx-clear.is-visible {
+    display: flex;
+  }
+
+  .sbs-sx-clear svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .sbs-sx-clear:hover,
+  .sbs-sx-clear:focus,
+  .sbs-sx-clear:focus-visible,
+  .sbs-sx-clear:active {
+    background: var(--brand-blue-tint) !important;
+    color: var(--brand-blue) !important;
+  }
+
+  .sbs-sx-submit {
+    position: absolute;
+    right: 9px;
+    top: 9px;
+    bottom: 9px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 26px !important;
+    font-family: var(--font) !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.01em;
+    color: #FFFFFF !important;
+    background: var(--brand-gradient) !important;
+    border: none !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 4px 14px rgba(2, 80, 197, 0.28);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .sbs-sx-submit svg {
+    width: 18px;
+    height: 18px;
+    display: none;
+  }
+
+  .sbs-sx-submit:hover,
+  .sbs-sx-submit:focus,
+  .sbs-sx-submit:focus-visible,
+  .sbs-sx-submit:active {
+    color: #FFFFFF !important;
+    background: var(--brand-gradient-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(212, 63, 141, 0.35);
+  }
+
+  .sbs-sx-hint {
+    margin: 14px 0 0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--slate-light);
+  }
+
+  .sbs-sx-hint kbd {
+    display: inline-block;
+    min-width: 22px;
+    padding: 1px 6px;
+    margin: 0 2px;
+    font-family: var(--font);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-align: center;
+    color: var(--slate);
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    border-bottom-width: 2px;
+    border-radius: 6px;
+  }
+
+  /* ---- results body ---- */
+  .sbs-sx-body {
+    margin-top: 30px;
+  }
+
+  .sbs-sx-group {
+    margin-bottom: 26px;
+  }
+
+  .sbs-sx-group-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 0 8px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  .sbs-sx-group-title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border-light);
+  }
+
+  .sbs-sx-group-count {
+    font-weight: 700;
+    color: var(--brand-blue);
+  }
+
+  .sbs-sx-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sbs-sx-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 11px 14px;
+    margin: 0;
+    border-radius: 14px;
+    border: 1.5px solid transparent;
+    color: var(--navy) !important;
+    text-decoration: none !important;
+    transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+  }
+
+  .sbs-sx-item:hover,
+  .sbs-sx-item:focus,
+  .sbs-sx-item:focus-visible,
+  .sbs-sx-item:active,
+  .sbs-sx-item.is-active {
+    background: var(--brand-blue-subtle);
+    border-color: var(--border);
+    color: var(--navy) !important;
+    outline: none;
+  }
+
+  .sbs-sx-item.is-active {
+    background: var(--brand-blue-tint);
+    border-color: var(--brand-blue);
+  }
+
+  .sbs-sx-icon {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    color: var(--brand-blue);
+    background: var(--brand-blue-tint);
+  }
+
+  .sbs-sx-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .sbs-sx-icon.tone-maintain {
+    color: #1E8E3E;
+    background: #E8F5EC;
+  }
+
+  .sbs-sx-icon.tone-grow {
+    color: var(--brand-coral);
+    background: var(--brand-coral-tint);
+  }
+
+  .sbs-sx-icon.tone-market {
+    color: #C77B3F;
+    background: var(--brand-peach);
+  }
+
+  .sbs-sx-icon.tone-page {
+    color: var(--slate);
+    background: var(--border-light);
+  }
+
+  .sbs-sx-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sbs-sx-title {
+    display: block;
+    font-size: 0.98rem;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--navy);
+  }
+
+  .sbs-sx-title mark,
+  .sbs-sx-desc mark {
+    background: rgba(212, 63, 141, 0.14);
+    color: inherit;
+    border-radius: 3px;
+    padding: 0 1px;
+  }
+
+  .sbs-sx-desc {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.84rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--slate);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sbs-sx-tag {
+    flex-shrink: 0;
+    padding: 3px 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--brand-blue);
+    background: var(--brand-blue-tint);
+    border-radius: 9999px;
+  }
+
+  .sbs-sx-tag.tone-maintain {
+    color: #1E8E3E;
+    background: #E8F5EC;
+  }
+
+  .sbs-sx-tag.tone-grow {
+    color: var(--brand-coral);
+    background: var(--brand-coral-tint);
+  }
+
+  .sbs-sx-tag.tone-market {
+    color: #C77B3F;
+    background: var(--brand-peach);
+  }
+
+  .sbs-sx-arrow {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: var(--slate-light);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: opacity 0.15s ease, transform 0.15s ease, color 0.15s ease;
+  }
+
+  .sbs-sx-item:hover .sbs-sx-arrow,
+  .sbs-sx-item:focus-visible .sbs-sx-arrow,
+  .sbs-sx-item.is-active .sbs-sx-arrow {
+    opacity: 1;
+    transform: translateX(0);
+    color: var(--brand-blue);
+  }
+
+
+
+
+
+
+  .sbs-sx-all {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 6px;
+    padding: 15px 22px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--brand-blue) !important;
+    background: #FFFFFF;
+    border: 1.5px dashed var(--border);
+    border-radius: 16px;
+    text-decoration: none !important;
+    transition: all 0.18s ease;
+  }
+
+  .sbs-sx-all svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    transition: transform 0.18s ease;
+  }
+
+  .sbs-sx-all:hover,
+  .sbs-sx-all:focus,
+  .sbs-sx-all:focus-visible,
+  .sbs-sx-all:active,
+  .sbs-sx-all.is-active {
+    color: var(--brand-blue-hover) !important;
+    background: var(--brand-blue-tint);
+    border-color: var(--brand-blue);
+    border-style: solid;
+    outline: none;
+  }
+
+  .sbs-sx-all:hover svg,
+  .sbs-sx-all.is-active svg {
+    transform: translateX(4px);
+  }
+
+  .sbs-sx-empty {
+    padding: 8px 4px 22px;
+  }
+
+  .sbs-sx-empty-title {
+    margin: 0 0 6px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .sbs-sx-empty p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--slate);
+  }
+
+  /* skeleton rows while the site-wide results load */
+  .sbs-sx-skel {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 11px 14px;
+  }
+
+  .sbs-sx-skel-bar,
+  .sbs-sx-skel-box {
+    display: block;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #E9EDF5 0%, #F5F7FB 50%, #E9EDF5 100%);
+    background-size: 200% 100%;
+    animation: sbs-sx-shimmer 1.4s ease-in-out infinite;
+  }
+
+  .sbs-sx-skel-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    flex-shrink: 0;
+  }
+
+  .sbs-sx-skel-lines {
+    flex: 1;
+  }
+
+  .sbs-sx-skel-bar {
+    height: 11px;
+    margin: 3px 0;
+  }
+
+  @keyframes sbs-sx-shimmer {
+    0% {
+      background-position: 100% 0;
+    }
+
+    100% {
+      background-position: -100% 0;
+    }
+  }
+
+  @media (max-width: 700px) {
+    .sbs-sx-logo {
+      width: 140px;
+    }
+
+    .sbs-sx .sbs-sx-input {
+      height: 60px;
+      padding: 0 112px 0 50px !important;
+    }
+
+    .sbs-sx-field-icon {
+      left: 18px;
+      width: 22px;
+      height: 22px;
+      margin-top: -11px;
+    }
+
+    .sbs-sx-submit {
+      width: 44px;
+      padding: 0 !important;
+      right: 8px;
+      top: 8px;
+      bottom: 8px;
+    }
+
+    .sbs-sx-submit span {
+      display: none;
+    }
+
+    .sbs-sx-submit svg {
+      display: block;
+    }
+
+    .sbs-sx-clear {
+      right: 60px;
+    }
+
+    .sbs-sx-hint {
+      display: none;
+    }
+
+
+    .sbs-sx-tag {
+      display: none;
+    }
+
+    .sbs-sx-arrow {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .sbs-sx,
+    .sbs-sx-shell,
+    .sbs-sx-item,
+    .sbs-sx-arrow {
+      transition: none;
+    }
+
+    .sbs-sx-skel-bar,
+    .sbs-sx-skel-box {
+      animation: none;
+    }
+  }
 </style>
 
 <!-- ============================================================
@@ -734,7 +1408,7 @@
   <div class="custom-container custom-header-inner">
 
     <a href="/" aria-label="Sites by Sara — Home">
-      <img src="/wp-content/uploads/2025/08/Avenir-Next-SBS-logo-blue_v36.png"
+      <img src="/wp-content/uploads/2026/10/Avenir-Next-SBS-logo-blue_v36.webp"
         alt="Sites by Sara — Your Online Success Partner" class="custom-header-logo-img" width="168" height="35"
         loading="eager" fetchpriority="high" decoding="sync">
     </a>
@@ -755,7 +1429,6 @@
             <a href="/awards-recognition/">Awards</a>
             <a href="/giving-back/">Giving Back</a>
             <a href="/what-our-clients-say/">Testimonials</a>
-            <a href="/newsletter/">Newsletter Archive</a>
           </div>
         </li>
 
@@ -768,7 +1441,6 @@
             </svg>
           </button>
           <div class="custom-dropdown custom-dropdown-mega">
-            <div class="custom-mega-accent-bar"></div>
             <div class="custom-mega-inner">
               <div class="custom-mega-grid">
 
@@ -949,6 +1621,14 @@
     </nav>
 
     <div class="custom-header-actions">
+      <button type="button" class="custom-header-search-btn" data-sbs-search-open aria-label="Search the site"
+        aria-haspopup="dialog" title="Search (Ctrl+K)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
       <a href="https://business-assessment.sitesbysara.com/" target="_blank" rel="noopener noreferrer"
         class="custom-btn custom-btn-outline">Business
         Assessment</a>
@@ -1002,7 +1682,6 @@
             <a class="custom-m-link" href="/awards-recognition/">Awards</a>
             <a class="custom-m-link" href="/giving-back/">Giving Back</a>
             <a class="custom-m-link" href="/what-our-clients-say/">Testimonials</a>
-            <a class="custom-m-link" href="/newsletter/">Newsletter Archive</a>
           </div>
         </div>
       </div>
@@ -1124,6 +1803,67 @@
       Consultation</a>
   </div>
 </aside>
+<!-- ============================================================
+     GLOBAL SEARCH OVERLAY (opened by the search icon in the header, Ctrl/Cmd+K, or "/")
+     Enter / Search → WordPress search results page (/?s=…) — see search-results.html
+     ============================================================ -->
+<div class="sbs-sx" id="sbsSearch" role="dialog" aria-modal="true" aria-label="Search the site" aria-hidden="true">
+  <div class="sbs-sx-backdrop" data-sx-close></div>
+  <div class="sbs-sx-shell">
+
+    <div class="sbs-sx-top">
+      <img class="sbs-sx-logo" src="/wp-content/uploads/2026/10/Avenir-Next-SBS-logo-blue_v36.webp" alt="Sites by Sara"
+        width="168" height="35">
+      <button type="button" class="sbs-sx-close" id="sbsSxClose" aria-label="Close search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+          stroke-linejoin="round" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <div class="sbs-sx-scroll" id="sbsSxScroll">
+      <div class="sbs-sx-container">
+
+        <form class="sbs-sx-form" id="sbsSxForm" role="search" method="get" action="/">
+          <svg class="sbs-sx-field-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="search" name="s" id="sbsSxInput" class="sbs-sx-input"
+            placeholder="Search services, pages and articles&hellip;" autocomplete="off" autocapitalize="off"
+            spellcheck="false" aria-label="Search the site" role="combobox" aria-autocomplete="list"
+            aria-expanded="true" aria-controls="sbsSxBody">
+          <button type="button" class="sbs-sx-clear" id="sbsSxClear" aria-label="Clear search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+          <button type="submit" class="sbs-sx-submit" aria-label="Search">
+            <span>Search</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </form>
+
+        <p class="sbs-sx-hint" aria-hidden="true"><kbd>&uarr;</kbd><kbd>&darr;</kbd> to move &nbsp;&middot;&nbsp;
+          <kbd>Enter</kbd> to open or see all results &nbsp;&middot;&nbsp; <kbd>Esc</kbd> to close
+        </p>
+
+        <div class="sbs-sx-body" id="sbsSxBody" role="presentation" aria-live="polite"></div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <script>
   (function () {
@@ -1135,6 +1875,7 @@
     const megaOverlay = document.getElementById('megaOverlay');
     const navItems = document.querySelectorAll('.custom-nav-item');
     let closeTimer = null;
+    const MOBILE_NAV_MAX = 1260; // keep in sync with the @media (max-width: 1260px) block
 
     // `position: sticky` breaks completely if ANY ancestor between this
     // header and the page has overflow other than "visible" — Elementor
@@ -1200,12 +1941,12 @@
       });
 
       item.addEventListener('mouseenter', function () {
-        if (window.innerWidth <= 992) return;
+        if (window.innerWidth <= MOBILE_NAV_MAX) return;
         clearTimeout(closeTimer);
         openDropdown(item);
       });
       item.addEventListener('mouseleave', function () {
-        if (window.innerWidth <= 992) return;
+        if (window.innerWidth <= MOBILE_NAV_MAX) return;
         closeTimer = setTimeout(closeAllDropdowns, 160);
       });
     });
@@ -1254,7 +1995,7 @@
     });
 
     window.addEventListener('resize', function () {
-      if (window.innerWidth > 992) {
+      if (window.innerWidth > MOBILE_NAV_MAX) {
         closeMenu();
       } else {
         closeAllDropdowns();
@@ -1263,6 +2004,714 @@
 
     window.addEventListener('scroll', function () {
       header.classList.toggle('custom-is-scrolled', window.scrollY > 4);
+    });
+  })();
+</script>
+<script>
+  /* ============================================================
+   GLOBAL SEARCH
+   - window.SBSSearch: shared index + helpers (also used by the search results template)
+   - Services are ranked above everything else
+   - Enter / the Search button goes to the WordPress search results page (/?s=...)
+   ============================================================ */
+  (function () {
+    'use strict';
+
+    /* ---------------- search index ----------------
+       c = category (build | maintain | grow | market), pop = shown under "Popular services",
+       k = extra keywords / synonyms people might type. Add new services here. */
+    var SERVICES = [
+      {
+        t: 'Custom Web Development', u: '/services/web-design-development/custom-web-development/', c: 'build', pop: 1,
+        d: 'Bespoke WordPress websites built for performance, SEO and growth, from single pages to 600+ page sites.',
+        k: 'wordpress website web design development custom site build redesign developer new website web designer'
+      },
+      {
+        t: 'WooCommerce Stores', u: '/woocommerce-stores/', c: 'build',
+        d: 'Custom WooCommerce store builds from 3 to 100 products, plus design refreshes for live stores.',
+        k: 'woocommerce woo ecommerce e-commerce online store shop wordpress store products cart sell online'
+      },
+      {
+        t: 'Shopify E-Commerce Stores', u: '/shopify-ecommerce-store/', c: 'build', pop: 1,
+        d: 'Custom Shopify store builds, design refreshes for live stores, and page or product additions.',
+        k: 'shopify ecommerce e-commerce online store shop products sell online'
+      },
+      {
+        t: 'Static HTML Sites', u: '/static-html-sites/', c: 'build',
+        d: 'Fast, secure static websites with no CMS and no database. 1 to 5 pages.',
+        k: 'static html site one page landing page squeeze page simple website small website no cms'
+      },
+      {
+        t: 'Custom Web & Mobile Apps', u: '/custom-web-mobile-apps/', c: 'build',
+        d: 'Custom web app and mobile app design and development.',
+        k: 'app apps mobile app web app ios android software application custom development programming'
+      },
+      {
+        t: 'Merchant Processing Add-On', u: '/merchant-processing-add-on/', c: 'build',
+        d: 'Add payment processing to any existing website, no rebuild required.',
+        k: 'merchant payment processing credit card payments checkout accept payments gateway stripe square'
+      },
+      {
+        t: 'Amazon Listing & Store Setup', u: '/amazon-listing-store-setup/', c: 'build',
+        d: 'Amazon listing setup, custom stores, branded images, A+ Content, Brand Registry and FBA setup.',
+        k: 'amazon listing store seller fba brand registry a+ content images marketplace ecommerce'
+      },
+      {
+        t: 'Email Setup & Migration', u: '/email-setup-migration-services-gws-ms365/', c: 'maintain',
+        d: 'Google Workspace and Microsoft 365 setup, DNS configuration and zero-loss mailbox migration.',
+        k: 'email google workspace gsuite gmail microsoft 365 office 365 outlook mailbox migration dns domain email'
+      },
+      {
+        t: 'WordPress Maintenance Bundle', u: '/wordpress-maintenance-hosting-bundle/', c: 'maintain', pop: 1,
+        d: 'WordPress hosting, domain, SSL and done-for-you maintenance bundled into one plan.',
+        k: 'wordpress maintenance hosting host domain ssl updates backups security managed plugins care'
+      },
+      {
+        t: 'Simple Site Hosting Bundle', u: '/simple-site-hosting-bundle/', c: 'maintain',
+        d: 'Domain reservation and hosting for static HTML sites and squeeze pages.',
+        k: 'hosting host domain static site hosting squeeze page website hosting'
+      },
+      {
+        t: 'Website Care', u: '/website-care/', c: 'maintain', pop: 1,
+        d: 'Emergency repair, backups, migrations and rush updates, billed hourly.',
+        k: 'website care emergency repair fix broken site backup migration rush updates hourly support maintenance help hacked'
+      },
+      {
+        t: 'Cybersecurity & Email Backup', u: '/custom-web-mobile-apps/#pricing', c: 'maintain',
+        d: 'Cybersecurity and email protection plans for your business.',
+        k: 'cybersecurity security email backup protection phishing malware protect'
+      },
+      {
+        t: 'SEO Plans & Site Audit', u: '/seo-plans-site-audit/', c: 'grow', pop: 1,
+        d: 'White-hat SEO plans, site audits, Google Analytics and Search Console setup, reputation management.',
+        k: 'seo search engine optimization site audit analytics google analytics search console rankings keywords reputation management white hat'
+      },
+      {
+        t: 'Local SEO & Google Business Profile', u: '/local-seo-google-business-profile/', c: 'grow', pop: 1,
+        d: 'Local SEO plans, the Local Domination Package and Google 3-Pack optimization.',
+        k: 'local seo google business profile gbp maps 3-pack 3pack near me local search listings reviews'
+      },
+      {
+        t: 'Google & Meta Ads', u: '/google-meta-ads/', c: 'grow', pop: 1,
+        d: 'Ad campaign setup and management across Google Ads, Meta Ads and boosted posts.',
+        k: 'google ads meta ads facebook ads instagram ads ppc paid advertising campaigns boost posts adwords'
+      },
+      {
+        t: 'Walmart Ads Management', u: '/walmart-ads-management/', c: 'grow',
+        d: 'Walmart ad campaign management that scales with your monthly ad spend.',
+        k: 'walmart ads sponsored products marketplace advertising ppc'
+      },
+      {
+        t: 'Amazon Ads Management', u: '/amazon-listing-store-setup/#pricing', c: 'grow',
+        d: 'Amazon advertising management, priced individually.',
+        k: 'amazon ads ppc sponsored products advertising campaigns'
+      },
+      {
+        t: 'Go High Level (GHL)', u: '/go-high-level-service/', c: 'market', pop: 1,
+        d: 'CRM, funnels and marketing automation setup and management in one connected workspace.',
+        k: 'go high level gohighlevel ghl highlevel crm funnels automation marketing automation pipeline sms follow up'
+      },
+      {
+        t: 'CRM Build, Setup & Management', u: '/crm-build-setup-management/', c: 'market',
+        d: 'Custom CRM build and automation setup, plus monthly workflow tweaks and data cleanup.',
+        k: 'crm build setup management customer relationship automation pipeline workflow data cleanup leads'
+      },
+      {
+        t: 'Social Media Setup & Management', u: '/social-media-setup-and-management/', c: 'market',
+        d: 'Social account setup plus monthly content posting across up to 3 networks.',
+        k: 'social media facebook instagram linkedin tiktok twitter posting content profiles accounts'
+      },
+      {
+        t: 'Newsletter Management & Email Marketing', u: '/newsletter-services/', c: 'market',
+        d: 'Newsletter management, branded templates, deliverability setup and performance reporting.',
+        k: 'newsletter email marketing mailchimp brevo email campaigns list subscribers deliverability'
+      },
+      {
+        t: 'Graphic Design & Branding', u: '/design/', c: 'market',
+        d: 'Logo design, full branding packages and print collateral.',
+        k: 'graphic design logo branding brand identity business cards print flyers postcards mailers envelopes posters'
+      },
+      {
+        t: 'Copywriting & Content Writing', u: '/copywriting/', c: 'market',
+        d: 'Content writing priced by word count, blog post add-ons, human or AI-human hybrid writing.',
+        k: 'copywriting content writing writer blog posts articles website copy ai content words'
+      },
+      {
+        t: 'Marketing Visibility Packages', u: '/marketing-visibility-packages/', c: 'market',
+        d: 'All-in-one bundles of Google Business Profile, keywords, content, social and ads, plus press releases.',
+        k: 'marketing visibility packages bundle all in one press release keywords content social ads'
+      }
+    ];
+
+    var PAGES = [
+      {
+        t: 'Pricing & Plans', u: '/pricing/', d: 'Every service price in one place.',
+        k: 'pricing prices cost plans packages rates quote how much'
+      },
+      {
+        t: 'Book a Free Consultation', u: '/book-a-free-consultation/', d: 'Talk through your project with our team.',
+        k: 'book consultation appointment schedule call meeting free quote estimate'
+      },
+      {
+        t: 'Contact Us', u: '/contact-us-2/', d: 'Phone, email and a message form.',
+        k: 'contact phone email address location reach get in touch message'
+      },
+      {
+        t: 'Our Portfolio', u: '/our-portfolio/', d: 'Recent websites and projects we have built.',
+        k: 'portfolio work projects examples case studies websites we built samples'
+      },
+      {
+        t: 'Blog', u: '/blogs/', d: 'Articles, tips and company news.',
+        k: 'blog articles news posts tips insights guides'
+      },
+      {
+        t: 'About Us', u: '/who-we-are/', d: 'Who we are and how we work.',
+        k: 'about company team sara story agency who we are salt lake city utah'
+      },
+      {
+        t: 'Awards & Recognition', u: '/awards-recognition/', d: 'Awards and recognition year by year.',
+        k: 'awards recognition best of slc clutch top agency'
+      },
+      {
+        t: 'Client Testimonials', u: '/what-our-clients-say/', d: 'What our clients say about working with us.',
+        k: 'testimonials reviews clients say feedback ratings'
+      },
+      {
+        t: 'Giving Back', u: '/giving-back/', d: 'Nonprofits and charitable giving.',
+        k: 'giving back nonprofit charity community volunteer donate sites by sara cares'
+      },
+      {
+        t: 'Newsletter', u: '/newsletter/', d: 'Subscribe and browse past issues.',
+        k: 'newsletter subscribe signup email updates archive issues'
+      },
+      {
+        t: 'Tools We Love', u: '/tools-we-love/', d: 'Software and platforms we recommend.',
+        k: 'tools we love affiliate recommended software platforms partners referral links'
+      },
+      {
+        t: 'Client Support', u: '/support/', d: 'Support portal for existing clients.',
+        k: 'support help portal client login tickets existing customer'
+      },
+      {
+        t: 'Become a Partner', u: '/become-a-partner/', d: 'Partner and referral opportunities.',
+        k: 'partner partnership agency white label referral reseller affiliate'
+      },
+      {
+        t: 'All Services', u: '/all-services/', d: 'Everything we offer, in one directory.',
+        k: 'all services directory everything we offer list of services'
+      },
+      {
+        t: 'Privacy Policy', u: '/privacy-policy-2/', d: 'How we handle your information.',
+        k: 'privacy policy data legal'
+      },
+      {
+        t: 'Terms of Service', u: '/terms-of-service-2/', d: 'The terms for using our services.',
+        k: 'terms of service legal conditions agreement'
+      }
+    ];
+
+    var CATEGORIES = {
+      build: { label: 'Build', tone: 'build' },
+      maintain: { label: 'Maintain & Protect', tone: 'maintain' },
+      grow: { label: 'Grow', tone: 'grow' },
+      market: { label: 'Market & Brand', tone: 'market' }
+    };
+
+    var ICONS = {
+      build: '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>',
+      maintain: '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+      grow: '<polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/>',
+      market: '<path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 6a9 9 0 0 1 0 12"/>',
+      page: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/>',
+      post: '<path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>',
+      arrow: '<path d="M5 12h14M13 5l7 7-7 7"/>',
+      search: '<circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>'
+    };
+
+    function svg(name, cls) {
+      return '<svg' + (cls ? ' class="' + cls + '"' : '') + ' viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+        'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">' +
+        ICONS[name] + '</svg>';
+    }
+
+    /* ---------------- helpers ---------------- */
+    function esc(s) {
+      return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+
+    function escRe(s) {
+      return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function decode(html) {
+      var el = document.createElement('textarea');
+      el.innerHTML = html == null ? '' : String(html);
+      return el.value;
+    }
+
+    // lowercase, drop apostrophes and hyphens ("e-commerce" -> "ecommerce"), everything else non-alphanumeric -> space
+    function norm(s) {
+      return String(s).toLowerCase().replace(/['’]/g, '').replace(/-/g, '')
+        .replace(/[^a-z0-9]+/g, ' ').trim();
+    }
+
+    function tokensOf(q) {
+      var t = norm(q).split(' ').filter(Boolean);
+      if (t.length > 1) t = t.filter(function (x) { return x.length > 1; });
+      return t;
+    }
+
+    function wordStart(hay, tk) {
+      return (' ' + hay).indexOf(' ' + tk) > -1;
+    }
+
+    function pathOf(url) {
+      try {
+        var a = document.createElement('a');
+        a.href = url;
+        return a.pathname.replace(/\/+$/, '').toLowerCase() || '/';
+      } catch (e) {
+        return String(url);
+      }
+    }
+
+    function highlight(text, q) {
+      var raw = String(q).trim().split(/\s+/).filter(function (x) { return x.length > 1; });
+      if (!raw.length) return esc(text);
+      raw.sort(function (a, b) { return b.length - a.length; });
+      var re = new RegExp('(' + raw.map(escRe).join('|') + ')', 'ig');
+      var out = '';
+      var last = 0;
+      var m;
+      while ((m = re.exec(text)) !== null) {
+        if (!m[0].length) { re.lastIndex++; continue; }
+        out += esc(text.slice(last, m.index)) + '<mark>' + esc(m[0]) + '</mark>';
+        last = m.index + m[0].length;
+      }
+      return out + esc(text.slice(last));
+    }
+
+    function prepare(list, kind) {
+      list.forEach(function (it) {
+        it.kind = kind;
+        it._t = norm(it.t);
+        it._k = norm((it.k || '') + (it.c ? ' ' + CATEGORIES[it.c].label : ''));
+        it._d = norm(it.d || '');
+      });
+    }
+    prepare(SERVICES, 'service');
+    prepare(PAGES, 'page');
+
+    function scoreItem(it, tokens, phrase) {
+      var total = 0;
+      for (var i = 0; i < tokens.length; i++) {
+        var variants = [tokens[i]];
+        if (tokens[i].length > 3 && tokens[i].charAt(tokens[i].length - 1) === 's') {
+          variants.push(tokens[i].slice(0, -1));
+        }
+        var best = 0;
+        for (var v = 0; v < variants.length; v++) {
+          var tk = variants[v];
+          var s = 0;
+          if (wordStart(it._t, tk)) s = 30;
+          else if (it._t.indexOf(tk) > -1) s = 20;
+          else if (wordStart(it._k, tk)) s = 14;
+          else if (it._k.indexOf(tk) > -1) s = 10;
+          else if (it._d.indexOf(tk) > -1) s = 5;
+          if (s > best) best = s;
+        }
+        if (!best) return 0;
+        total += best;
+      }
+      if (it._t === phrase) total += 40;
+      else if (it._t.indexOf(phrase) > -1) total += 25;
+      return total;
+    }
+
+    function rank(list, q) {
+      var tokens = tokensOf(q);
+      var phrase = norm(q);
+      if (!tokens.length) return [];
+      var hits = [];
+      list.forEach(function (it, idx) {
+        var s = scoreItem(it, tokens, phrase);
+        if (s) hits.push({ it: it, s: s, i: idx });
+      });
+      hits.sort(function (a, b) { return b.s - a.s || a.i - b.i; });
+      return hits.map(function (h) { return h.it; });
+    }
+
+    function localSearch(q) {
+      return { services: rank(SERVICES, q), pages: rank(PAGES, q) };
+    }
+
+    function searchUrl(q) {
+      return '/?s=' + encodeURIComponent(String(q).trim());
+    }
+
+    var remoteCache = {};
+
+    function remoteSearch(q, signal) {
+      var key = norm(q);
+      if (remoteCache[key]) return Promise.resolve(remoteCache[key]);
+      var url = window.location.origin + '/wp-json/wp/v2/search?search=' + encodeURIComponent(q.trim()) +
+        '&per_page=12&type=post&subtype=post,page&_fields=id,title,url,subtype';
+      return fetch(url, { signal: signal, credentials: 'same-origin' })
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function (list) {
+          var out = { pages: [], posts: [] };
+          (Array.isArray(list) ? list : []).forEach(function (r) {
+            var title = decode(r.title).replace(/\s+/g, ' ').trim();
+            if (!title || !r.url) return;
+            var item = { t: title, u: r.url };
+            if (r.subtype === 'post') out.posts.push(item); else out.pages.push(item);
+          });
+          remoteCache[key] = out;
+          return out;
+        });
+    }
+
+    var SERVICE_BY_PATH = {};
+    SERVICES.forEach(function (svc) {
+      var p = pathOf(svc.u);
+      if (!SERVICE_BY_PATH[p]) SERVICE_BY_PATH[p] = svc; // first entry wins, so the plain page beats its #pricing variant
+    });
+    var PAGE_BY_PATH = {};
+    PAGES.forEach(function (pg) { PAGE_BY_PATH[pathOf(pg.u)] = pg; });
+
+    /* Combine the curated matches with the site-wide hits.
+       A site-wide hit that is really one of our service pages (it mentions the word in its content) is shown under
+       Services, so services always outrank other pages. Everything already shown is removed from the rest. */
+    function mergeResults(local, remote) {
+      var services = local.services.slice();
+      var pages = local.pages.slice();
+      var extraPages = [];
+      var posts = [];
+      var seenPaths = {};
+      var seenTitles = {};
+      services.concat(pages).forEach(function (it) {
+        seenPaths[pathOf(it.u)] = 1;
+        seenTitles[norm(it.t)] = 1;
+      });
+
+      (remote.pages || []).forEach(function (r) {
+        var p = pathOf(r.u);
+        if (p === '/' || p === '/search' || seenPaths[p]) return;
+        if (SERVICE_BY_PATH[p]) { services.push(SERVICE_BY_PATH[p]); seenPaths[p] = 1; return; }
+        if (PAGE_BY_PATH[p]) { pages.push(PAGE_BY_PATH[p]); seenPaths[p] = 1; return; }
+        if (seenTitles[norm(r.t)]) return;
+        seenPaths[p] = 1;
+        seenTitles[norm(r.t)] = 1;
+        extraPages.push(r);
+      });
+
+      (remote.posts || []).forEach(function (r) {
+        var p = pathOf(r.u);
+        if (seenPaths[p]) return;
+        seenPaths[p] = 1;
+        posts.push(r);
+      });
+
+      return { services: services, pages: pages.concat(extraPages), posts: posts };
+    }
+
+    window.SBSSearch = {
+      services: SERVICES,
+      pages: PAGES,
+      categories: CATEGORIES,
+      local: localSearch,
+      remote: remoteSearch,
+      merge: mergeResults,
+      url: searchUrl,
+      highlight: highlight,
+      esc: esc,
+      decode: decode,
+      norm: norm,
+      svg: svg,
+      popular: function () { return SERVICES.filter(function (s) { return s.pop; }); }
+    };
+
+    /* ============================================================
+       OVERLAY UI
+       ============================================================ */
+    var overlay = document.getElementById('sbsSearch');
+    if (!overlay) return;
+
+    // Elementor wraps the header in containers that can create their own stacking context (which let the WP admin
+    // bar and the chat widget draw over the overlay), so mount it directly on <body>.
+    if (overlay.parentNode !== document.body) document.body.appendChild(overlay);
+
+    var input = document.getElementById('sbsSxInput');
+    var form = document.getElementById('sbsSxForm');
+    var body = document.getElementById('sbsSxBody');
+    var scroller = document.getElementById('sbsSxScroll');
+    var clearBtn = document.getElementById('sbsSxClear');
+    var closeBtn = document.getElementById('sbsSxClose');
+
+    var MAX_SERVICES = 6;
+    var MAX_PAGES = 4;
+    var MAX_POSTS = 4;
+    var DEBOUNCE_MS = 220;
+
+    var isOpen = false;
+    var lastFocus = null;
+    var activeIdx = -1;
+    var remoteTimer = null;
+    var remoteToken = 0;
+    var controller = null;
+    var optSeq = 0;
+
+    function navItems() {
+      return Array.prototype.slice.call(body.querySelectorAll('.sbs-sx-item, .sbs-sx-all'));
+    }
+
+    function setActive(idx, scrollIntoView) {
+      var items = navItems();
+      items.forEach(function (el) { el.classList.remove('is-active'); });
+      activeIdx = idx;
+      if (idx >= 0 && items[idx]) {
+        items[idx].classList.add('is-active');
+        input.setAttribute('aria-activedescendant', items[idx].id || '');
+        if (scrollIntoView) items[idx].scrollIntoView({ block: 'nearest' });
+      } else {
+        activeIdx = -1;
+        input.removeAttribute('aria-activedescendant');
+      }
+    }
+
+    function itemHtml(it, q, opts) {
+      var cat = it.c ? CATEGORIES[it.c] : null;
+      var icon = it.kind === 'service' ? it.c : (opts && opts.icon) || 'page';
+      var tone = cat ? cat.tone : 'page';
+      var desc = (opts && opts.desc != null) ? opts.desc : it.d;
+      var id = 'sbsSxOpt' + (++optSeq);
+      return '<li role="presentation"><a class="sbs-sx-item" role="option" id="' + id + '" href="' + esc(it.u) + '">' +
+        '<span class="sbs-sx-icon tone-' + tone + '">' + svg(icon) + '</span>' +
+        '<span class="sbs-sx-text"><span class="sbs-sx-title">' + highlight(it.t, q || '') + '</span>' +
+        (desc ? '<span class="sbs-sx-desc">' + highlight(desc, q || '') + '</span>' : '') + '</span>' +
+        (cat ? '<span class="sbs-sx-tag tone-' + tone + '">' + esc(cat.label) + '</span>' : '') +
+        svg('arrow', 'sbs-sx-arrow') + '</a></li>';
+    }
+
+    function groupHtml(title, count, itemsHtml, modifier) {
+      return '<section class="sbs-sx-group"><h3 class="sbs-sx-group-title">' + esc(title) +
+        (count != null ? ' <span class="sbs-sx-group-count">' + count + '</span>' : '') + '</h3>' +
+        '<ul class="sbs-sx-list' + (modifier ? ' ' + modifier : '') + '" role="listbox" aria-label="' + esc(title) + '">' +
+        itemsHtml + '</ul></section>';
+    }
+
+    function skeletonHtml() {
+      var row = '<li class="sbs-sx-skel"><span class="sbs-sx-skel-box"></span><span class="sbs-sx-skel-lines">' +
+        '<span class="sbs-sx-skel-bar" style="width:55%"></span><span class="sbs-sx-skel-bar" style="width:80%"></span></span></li>';
+      return '<section class="sbs-sx-group" aria-hidden="true"><h3 class="sbs-sx-group-title">Searching the whole site</h3>' +
+        '<ul class="sbs-sx-list">' + row + row + '</ul></section>';
+    }
+
+    function allLinkHtml(q) {
+      return '<a class="sbs-sx-all" id="sbsSxOptAll" role="option" href="' + esc(searchUrl(q)) + '">' +
+        'See all results for &ldquo;' + esc(q.trim()) + '&rdquo;' + svg('arrow') + '</a>';
+    }
+
+    function render(html, keepHref) {
+      body.innerHTML = html;
+      if (keepHref) {
+        var items = navItems();
+        for (var i = 0; i < items.length; i++) {
+          if (items[i].getAttribute('href') === keepHref) { setActive(i, false); return; }
+        }
+      }
+      setActive(-1, false);
+    }
+
+    function renderIdle() {
+      render('');
+    }
+
+    function renderQuery(q, local, remote, loading) {
+      var keepHref = activeIdx >= 0 && navItems()[activeIdx] ? navItems()[activeIdx].getAttribute('href') : null;
+      var merged = remote ? mergeResults(local, remote) : { services: local.services, pages: local.pages, posts: [] };
+      var services = merged.services.slice(0, MAX_SERVICES);
+      var pages = merged.pages.slice(0, MAX_PAGES);
+      var posts = merged.posts.slice(0, MAX_POSTS);
+
+      var html = '';
+      if (services.length) {
+        html += groupHtml('Services', merged.services.length, services.map(function (s) { return itemHtml(s, q); }).join(''));
+      }
+      if (pages.length) {
+        html += groupHtml('Pages', null, pages.map(function (p) {
+          var it = p.kind ? p : { t: p.t, u: p.u, kind: 'page' };
+          return itemHtml(it, q, { desc: p.kind ? p.d : '' });
+        }).join(''));
+      }
+      if (posts.length) {
+        html += groupHtml('Articles', null, posts.map(function (p) {
+          return itemHtml({ t: p.t, u: p.u, kind: 'post' }, q, { icon: 'post', desc: '' });
+        }).join(''));
+      }
+      if (loading) html += skeletonHtml();
+
+      if (!loading && !services.length && !pages.length && !posts.length) {
+        render('<div class="sbs-sx-empty"><p class="sbs-sx-empty-title">No matches for &ldquo;' + esc(q.trim()) + '&rdquo;</p>' +
+          '<p>Try a simpler word, like &ldquo;seo&rdquo;, &ldquo;website&rdquo; or &ldquo;shopify&rdquo;.</p></div>');
+        return;
+      }
+
+      html += allLinkHtml(q);
+      render(html, keepHref);
+    }
+
+    function onInput() {
+      var q = input.value;
+      clearBtn.classList.toggle('is-visible', q.length > 0);
+      clearTimeout(remoteTimer);
+      remoteToken++;
+      if (controller) controller.abort();
+
+      if (!q.trim()) {
+        renderIdle();
+        return;
+      }
+
+      var local = localSearch(q);
+      var wantsRemote = q.trim().length >= 2;
+      renderQuery(q, local, null, wantsRemote);
+      if (!wantsRemote) return;
+
+      var token = remoteToken;
+      remoteTimer = setTimeout(function () {
+        controller = typeof AbortController !== 'undefined' ? new AbortController() : null;
+        remoteSearch(q, controller ? controller.signal : undefined)
+          .then(function (remote) {
+            if (token !== remoteToken || !isOpen) return;
+            renderQuery(q, local, remote, false);
+          })
+          .catch(function (err) {
+            if (err && err.name === 'AbortError') return;
+            if (token !== remoteToken || !isOpen) return;
+            renderQuery(q, local, { pages: [], posts: [] }, false);
+          });
+      }, DEBOUNCE_MS);
+    }
+
+    /* ---------------- open / close ---------------- */
+    function openSearch(prefill) {
+      if (isOpen) return;
+      isOpen = true;
+      lastFocus = document.activeElement;
+      overlay.classList.add('is-open');
+      overlay.setAttribute('aria-hidden', 'false');
+      document.documentElement.classList.add('sbs-sx-lock');
+      input.value = prefill || '';
+      clearBtn.classList.toggle('is-visible', !!input.value);
+      if (input.value.trim()) onInput(); else renderIdle();
+      scroller.scrollTop = 0;
+      window.requestAnimationFrame(function () {
+        input.focus();
+        input.select();
+      });
+    }
+
+    function closeSearch() {
+      if (!isOpen) return;
+      isOpen = false;
+      clearTimeout(remoteTimer);
+      remoteToken++;
+      if (controller) controller.abort();
+      overlay.classList.remove('is-open');
+      overlay.setAttribute('aria-hidden', 'true');
+      document.documentElement.classList.remove('sbs-sx-lock');
+      if (lastFocus && typeof lastFocus.focus === 'function') lastFocus.focus();
+    }
+
+    window.SBSSearch.open = openSearch;
+    window.SBSSearch.close = closeSearch;
+
+    document.querySelectorAll('[data-sbs-search-open]').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openSearch();
+      });
+    });
+
+    closeBtn.addEventListener('click', closeSearch);
+    overlay.querySelector('[data-sx-close]').addEventListener('click', closeSearch);
+
+    // clicking the empty space beside the content also closes it
+    scroller.addEventListener('click', function (e) {
+      if (e.target === scroller) closeSearch();
+    });
+
+    // links inside the overlay: close first so same-page anchors (#pricing) don't leave the overlay open
+    body.addEventListener('click', function (e) {
+      if (e.target.closest('a')) closeSearch();
+    });
+
+    clearBtn.addEventListener('click', function () {
+      input.value = '';
+      onInput();
+      input.focus();
+    });
+
+    input.addEventListener('input', onInput);
+
+    form.addEventListener('submit', function (e) {
+      if (!input.value.trim()) {
+        e.preventDefault();
+        input.focus();
+      }
+    });
+
+    input.addEventListener('keydown', function (e) {
+      var items = navItems();
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        if (items.length) setActive((activeIdx + 1) % items.length, true);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        if (items.length) setActive(activeIdx <= 0 ? -1 : activeIdx - 1, true);
+      } else if (e.key === 'Enter' && activeIdx >= 0 && items[activeIdx]) {
+        e.preventDefault();
+        window.location.href = items[activeIdx].href;
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && isOpen) {
+        e.preventDefault();
+        closeSearch();
+        return;
+      }
+
+      var tag = (document.activeElement && document.activeElement.tagName) || '';
+      var typing = /^(INPUT|TEXTAREA|SELECT)$/.test(tag) || (document.activeElement && document.activeElement.isContentEditable);
+      var wantsOpen = ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') || (e.key === '/' && !typing && !e.ctrlKey && !e.metaKey && !e.altKey);
+      if (wantsOpen && !isOpen) {
+        e.preventDefault();
+        openSearch();
+        return;
+      }
+
+      // keep Tab inside the dialog while it is open
+      if (e.key === 'Tab' && isOpen) {
+        var focusable = Array.prototype.slice.call(
+          overlay.querySelectorAll('a[href], button:not([disabled]), input:not([disabled])')
+        ).filter(function (el) { return el.offsetParent !== null; });
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     });
   })();
 </script>

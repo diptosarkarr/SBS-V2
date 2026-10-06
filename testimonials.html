@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Client Testimonials | Sites by Sara</title>
-  <meta name="description"
-    content="See why businesses trust Sites by Sara for SEO, web design, and marketing. Read real client testimonials and discover how we deliver results - join us today!">
-  <meta property="og:title" content="Client Testimonials | Sites by Sara">
-  <meta property="og:description"
-    content="See why businesses trust Sites by Sara for SEO, web design, and marketing. Read real client testimonials and discover how we deliver results - join us today!">
-  <meta property="og:type" content="website">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,6 +7,8 @@
      DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
      ============================================================ */
     :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
       --brand-blue: #3A539B;
       --brand-blue-hover: #2F437D;
       --brand-blue-tint: #EEF2FA;
@@ -102,11 +90,11 @@
     }
 
     .section-space {
-      padding: clamp(70px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .section-space-tight {
-      padding: clamp(40px, 5vw, 65px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .section-header {
@@ -272,25 +260,135 @@
     }
 
     /* ============================================================
-     VIDEO (full width embed)
+     VIDEO INTRO (text + compact click-to-play video)
      ============================================================ */
     .testimonials-video-section {
       background: var(--bg-light);
       border-bottom: 1px solid var(--border-light);
     }
 
-    .testimonials-video-wrap {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      border: 1px solid var(--border-light);
-      box-shadow: var(--shadow-floating);
-      background: #000;
+    .testimonials-video-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
+      gap: clamp(32px, 6vw, 72px);
+      align-items: center;
     }
 
-    .testimonials-video-wrap iframe {
+    .testimonials-video-text .eyebrow {
+      margin-bottom: 14px;
+    }
+
+    .testimonials-video-title {
+      font-family: var(--font);
+      font-size: clamp(1.6rem, 1.35rem + 1vw, 2.1rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      color: var(--navy);
+      margin: 0 0 14px;
+      text-wrap: balance;
+    }
+
+    .testimonials-video-text p {
+      font-size: 1.05rem;
+      color: var(--slate);
+      line-height: 1.65;
+      margin: 0 0 26px;
+      max-width: 520px;
+    }
+
+    .testimonials-video-text .btn svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+      margin-left: 8px;
+    }
+
+    /* The player is only loaded on click. Until then it is a plain image, so nothing
+       cross-origin is repainted while the page scrolls. */
+    .testimonials-video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #0E1028;
+      box-shadow: var(--shadow-floating);
+    }
+
+    .testimonials-video-facade {
+      position: absolute;
+      inset: 0;
+      display: block;
+      cursor: pointer;
+      color: #FFFFFF;
+    }
+
+    .testimonials-video-facade img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .testimonials-video-facade::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(14, 16, 40, 0.1) 40%, rgba(14, 16, 40, 0.6) 100%);
+      pointer-events: none;
+    }
+
+    .testimonials-video-facade:hover {
+      color: #ffffff;
+    }
+
+    .testimonials-video-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: 2;
+      width: 64px;
+      height: 64px;
+      margin: -32px 0 0 -32px;
+      border-radius: 50%;
+      background: var(--brand-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 28px rgba(2, 80, 197, 0.45), 0 0 0 8px rgba(255, 255, 255, 0.28);
+      transition: transform 0.2s ease;
+    }
+
+    .testimonials-video-play svg {
+      width: 24px;
+      height: 24px;
+      margin-left: 3px;
+      fill: #FFFFFF;
+    }
+
+    .testimonials-video-facade:hover .testimonials-video-play,
+    .testimonials-video-facade:focus-visible .testimonials-video-play {
+      transform: scale(1.1);
+    }
+
+    .testimonials-video-facade:focus-visible {
+      outline: 3px solid var(--brand-blue);
+      outline-offset: -3px;
+    }
+
+    .testimonials-video-caption {
+      position: absolute;
+      left: 16px;
+      bottom: 12px;
+      z-index: 2;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
+    }
+
+    .testimonials-video-frame iframe {
       position: absolute;
       inset: 0;
       width: 100%;
@@ -299,36 +397,12 @@
     }
 
     /* ============================================================
-     STAT ROW
-     ============================================================ */
-    .testimonials-stat-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-      text-align: center;
-      max-width: 560px;
-      margin: 0 auto;
-    }
-
-    .testimonials-stat-number {
-      font-size: clamp(1.9rem, 1.5rem + 1vw, 2.4rem);
-      font-weight: 700;
-      color: var(--brand-blue);
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 4px;
-    }
-
-    .testimonials-stat-label {
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--slate);
-      line-height: 1.35;
-    }
-
-    /* ============================================================
      TESTIMONIAL GRID
      ============================================================ */
+    #client-stories {
+      scroll-margin-top: 90px;
+    }
+
     .testimonials-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -560,6 +634,18 @@
       }
     }
 
+    @media (max-width: 860px) {
+      .testimonials-video-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .testimonials-video-frame {
+        max-width: 520px;
+        margin: 0 auto;
+      }
+    }
+
     @media (max-width: 600px) {
       .page-title-banner {
         padding: 48px 18px;
@@ -569,18 +655,15 @@
         grid-template-columns: 1fr;
       }
 
-      .testimonials-stat-grid {
-        max-width: 320px;
-      }
-
       .testimonials-lightbox-panel {
         padding: 26px 22px 22px;
       }
+
+      .testimonials-video-text .btn {
+        width: 100%;
+      }
     }
   </style>
-</head>
-
-<body>
 
   <!-- ============================================================
        PAGE TITLE BANNER
@@ -595,33 +678,46 @@
   </section>
 
   <!-- ============================================================
-       VIDEO (full width embed)
+       VIDEO INTRO (text + compact click-to-play video)
        ============================================================ -->
   <section class="section-space-tight testimonials-video-section" aria-label="Client Testimonial Video">
     <div class="container">
-      <div class="testimonials-video-wrap">
-        <iframe src="https://www.youtube.com/embed/Xv3MHIwb9fk" title="Sites by Sara Web Design Client Testimonial"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
+      <div class="testimonials-video-grid">
 
-  <!-- ============================================================
-       STAT ROW
-       ============================================================ -->
-  <section class="section-space-tight" aria-label="Testimonials At A Glance">
-    <div class="container">
-      <div class="testimonials-stat-grid">
-        <div>
-          <div class="testimonials-stat-number">31</div>
-          <div class="testimonials-stat-label">Real Client Testimonials</div>
+        <div class="testimonials-video-text">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Client Video
+          </div>
+          <h2 class="testimonials-video-title">Hear It Straight From Our Clients</h2>
+          <p>
+            Don&rsquo;t just take our word for it. Press play to hear how working with Sites by Sara has helped a
+            real business grow, then keep scrolling for more stories from the clients we&rsquo;ve partnered with.
+          </p>
+          <a href="#client-stories" class="btn btn-primary">
+            Read Client Stories
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M12 5v14" />
+              <path d="m19 12-7 7-7-7" />
+            </svg>
+          </a>
         </div>
-        <div>
-          <div class="testimonials-stat-number">2007</div>
-          <div class="testimonials-stat-label">Serving Businesses Since</div>
+
+        <div class="testimonials-video-frame">
+          <a href="https://www.youtube.com/watch?v=Xv3MHIwb9fk" class="testimonials-video-facade"
+            id="testimonialsVideoFacade" data-video-id="Xv3MHIwb9fk" aria-label="Play client testimonial video">
+            <img src="https://i.ytimg.com/vi/Xv3MHIwb9fk/maxresdefault.jpg" alt="" width="1280" height="720"
+              loading="lazy">
+            <span class="testimonials-video-play" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+            <span class="testimonials-video-caption">Watch a client story</span>
+          </a>
         </div>
+
       </div>
     </div>
   </section>
@@ -629,7 +725,7 @@
   <!-- ============================================================
        TESTIMONIALS GRID
        ============================================================ -->
-  <section class="section-space" aria-label="Client Testimonials" style="padding-top: 0;">
+  <section class="section-space" id="client-stories" aria-label="Client Testimonials">
     <div class="container">
       <div class="section-header">
         <div class="eyebrow">
@@ -1174,6 +1270,24 @@
 
   <script>
     (function () {
+      var facade = document.getElementById('testimonialsVideoFacade');
+      if (!facade) return;
+
+      facade.addEventListener('click', function (e) {
+        e.preventDefault();
+        var iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube.com/embed/' + facade.getAttribute('data-video-id') + '?autoplay=1&rel=0';
+        iframe.title = 'Sites by Sara Web Design Client Testimonial';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+        facade.parentNode.replaceChild(iframe, facade);
+        iframe.focus();
+      });
+    })();
+  </script>
+
+  <script>
+    (function () {
       var lightbox = document.getElementById('testimonialsLightbox');
       var lightboxAvatar = document.getElementById('testimonialsLightboxAvatar');
       var lightboxName = document.getElementById('testimonialsLightboxName');
@@ -1232,7 +1346,3 @@
       });
     })();
   </script>
-
-</body>
-
-</html>

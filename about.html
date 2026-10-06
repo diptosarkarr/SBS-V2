@@ -1,626 +1,1635 @@
-<!DOCTYPE html>
-<html lang="en">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Full Service Web Agency In Salt Lake City Utah | About</title>
-  <meta name="description"
-    content="Sites by Sara is a Full Service Web Agency based in Salt Lake City, Utah. Based out of Utah, Sites by Sara services clients all across the United States.">
-  <meta property="og:title" content="Full Service Web Agency In Salt Lake City Utah | About">
-  <meta property="og:description"
-    content="Sites by Sara is a Full Service Web Agency based in Salt Lake City, Utah. Based out of Utah, Sites by Sara services clients all across the United States.">
-  <meta property="og:type" content="website">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-  <style>
-    /* ============================================================
+<style>
+  /* ============================================================
      DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
      ============================================================ */
-    :root {
-      --brand-blue: #3A539B;
-      --brand-blue-hover: #2F437D;
-      --brand-blue-tint: #EEF2FA;
+  :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
 
-      --brand-coral: #ea4e5f;
+    --brand-coral: #ea4e5f;
 
-      --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
 
-      --brand-peach: #FCEFE5;
-      --brand-peach-tint: #FFF9F5;
+    --brand-peach: #FCEFE5;
+    --brand-peach-tint: #FFF9F5;
 
-      --navy: #1E2140;
-      --slate: #5F6368;
-      --slate-light: #80868B;
+    --navy: #1E2140;
+    --slate: #5F6368;
+    --slate-light: #80868B;
 
-      --border: #DCE2EE;
-      --border-light: #ECEFF5;
-      --border-card: #DFE4EE;
+    --border: #DCE2EE;
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
 
-      --bg-white: #FFFFFF;
-      --bg-light: #F9FAFD;
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
 
-      --green: #1E8E3E;
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-      --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-pill: 9999px;
 
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --radius-xl: 32px;
+    --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+    --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+    --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
 
-      --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
-      --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
-      --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
-    }
+    --hero-overlap: clamp(28px, 4vw, 56px);
+  }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-    html {
-      scroll-behavior: smooth;
-    }
+  html {
+    scroll-behavior: smooth;
+  }
 
-    body {
-      font-family: var(--font);
-      color: var(--navy);
-      background-color: var(--bg-white);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+  body {
+    font-family: var(--font);
+    color: var(--navy);
+    background-color: var(--bg-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-    strong,
-    b {
-      font-weight: 600;
-    }
+  strong,
+  b {
+    font-weight: 600;
+  }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
 
-    .section-space {
-      padding: clamp(70px, 8vw, 110px) 0;
-    }
+  .section-space {
+    padding: var(--section-gap) 0;
+  }
 
-    .section-space-tight {
-      padding: clamp(40px, 5vw, 65px) 0;
-    }
+  .section-space-tight {
+    padding: var(--section-gap) 0;
+  }
 
-    .section-header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto clamp(36px, 5vw, 52px);
-    }
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(36px, 5vw, 52px);
+  }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--slate);
-      margin-bottom: 16px;
-    }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
 
-    .eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background-color: var(--brand-coral);
-      display: inline-block;
-    }
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--brand-coral);
+    display: inline-block;
+  }
 
-    .h2-title {
-      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      color: var(--navy);
-      margin-bottom: 16px;
-    }
+  .h2-title {
+    font-family: var(--font);
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
 
-    .lead-text {
-      font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
-      color: var(--slate);
-      line-height: 1.65;
-      font-weight: 400;
-    }
+  .lead-text {
+    font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
+    color: var(--slate);
+    line-height: 1.65;
+    font-weight: 400;
+    margin: 0;
+  }
 
-    /* ============================================================
+  .section-header .lead-text,
+  .about-serve-inner .lead-text {
+    text-wrap: balance;
+  }
+
+  .section-header .lead-text {
+    margin-top: 4px;
+  }
+
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .btn-group-center {
+    justify-content: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-family: var(--font);
+    font-size: 0.98rem;
+    font-weight: 600;
+    line-height: 1.2;
+    padding: 14px 28px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  .btn:hover svg,
+  .btn:focus-visible svg {
+    transform: translateX(4px);
+  }
+
+  .btn-primary {
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:focus-visible,
+  .btn-primary:active {
+    background: var(--brand-gradient-hover);
+    background-clip: padding-box;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+    color: #FFFFFF !important;
+  }
+
+  .btn-outline {
+    background: #FFFFFF;
+    color: var(--brand-blue);
+    border-color: var(--brand-blue);
+  }
+
+  .btn-outline:hover,
+  .btn-outline:focus,
+  .btn-outline:focus-visible,
+  .btn-outline:active {
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue-hover) !important;
+    border-color: var(--brand-blue-hover);
+    transform: translateY(-1px);
+  }
+
+  /* ============================================================
      PAGE TITLE BANNER
      ============================================================ */
-    .page-title-banner {
-      position: relative;
-      overflow: hidden;
-      background: var(--brand-gradient);
-      padding: clamp(52px, 6vw, 76px) 24px;
-      text-align: center;
-      color: #FFFFFF;
-      box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
-    }
+  .page-title-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-gradient);
+    padding: clamp(52px, 6vw, 76px) 24px calc(clamp(52px, 6vw, 76px) + var(--hero-overlap));
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+  }
 
-    .page-title-banner::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
-        radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
-      pointer-events: none;
-    }
+  .page-title-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+    pointer-events: none;
+  }
 
-    .page-title-banner-mesh {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
+  .page-title-banner-mesh {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
 
-    .page-title-banner-mesh::before,
-    .page-title-banner-mesh::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(55px);
-      opacity: 0.22;
-      pointer-events: none;
-    }
+  .page-title-banner-mesh::before,
+  .page-title-banner-mesh::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0.22;
+    pointer-events: none;
+  }
 
-    .page-title-banner-mesh::before {
-      width: 320px;
-      height: 320px;
-      background: #FFFFFF;
-      top: -120px;
-      left: 8%;
-    }
+  .page-title-banner-mesh::before {
+    width: 320px;
+    height: 320px;
+    background: #FFFFFF;
+    top: -120px;
+    left: 8%;
+  }
 
-    .page-title-banner-mesh::after {
-      width: 280px;
-      height: 280px;
-      background: var(--brand-coral);
-      bottom: -80px;
-      right: 10%;
-    }
+  .page-title-banner-mesh::after {
+    width: 280px;
+    height: 280px;
+    background: var(--brand-coral);
+    bottom: -80px;
+    right: 10%;
+  }
 
-    .page-title-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 860px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  .page-title-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .page-banner-h1 {
-      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
-      color: #FFFFFF;
-      letter-spacing: -0.025em;
-      margin: 0;
-      text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
-    }
+  .page-banner-h1 {
+    font-family: var(--font);
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFFFFF;
+    letter-spacing: -0.025em;
+    margin: 0;
+    text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+  }
 
-    /* ============================================================
+  /* ============================================================
+     HERO IMAGE (team photo, overlaps the title banner)
+     ============================================================ */
+  .about-hero {
+    position: relative;
+    z-index: 3;
+    margin-top: calc(var(--hero-overlap) * -1);
+  }
+
+  .about-hero-frame {
+    position: relative;
+  }
+
+  .about-photo-band {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--bg-light);
+    box-shadow: 0 24px 56px -12px rgba(30, 33, 64, 0.28), 0 4px 14px rgba(30, 33, 64, 0.08);
+    border: 5px solid #FFFFFF;
+  }
+
+  .about-photo-band img {
+    width: 100%;
+    height: auto;
+  }
+
+  .about-hero-badge {
+    position: absolute;
+    left: clamp(16px, 3vw, 32px);
+    bottom: -20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-pill);
+    padding: 10px 20px 10px 12px;
+    box-shadow: var(--shadow-floating);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .about-hero-badge-icon {
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--brand-gradient);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-hero-badge-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* ============================================================
      INTRO
      ============================================================ */
-    .about-intro-lead {
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
-    }
+  .about-intro {
+    padding: var(--section-gap) 0;
+  }
 
-    /* ============================================================
-     TEAM PHOTO
+  .about-intro-header {
+    max-width: 880px;
+    margin-bottom: 0;
+  }
+
+  .about-intro-lead {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-intro-lead a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .about-intro-lead a:hover,
+  .about-intro-lead a:focus,
+  .about-intro-lead a:focus-visible,
+  .about-intro-lead a:active {
+    color: var(--brand-blue-hover) !important;
+    border-color: var(--brand-blue-hover);
+  }
+
+  /* ============================================================
+     ABOUT THE AGENCY (stats + detailed copy + services CTA)
      ============================================================ */
-    .about-photo-section {
-      background: var(--bg-light);
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-    }
+  .about-agency-section {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
 
-    .about-photo-band {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-floating);
-      border: 1px solid var(--border-light);
-    }
+  .about-agency-grid {
+    display: grid;
+    grid-template-columns: 0.72fr 1.28fr;
+    gap: clamp(36px, 6vw, 72px);
+    align-items: center;
+  }
 
-    .about-photo-band img {
-      width: 100%;
-      height: auto;
-    }
+  .about-stats-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+  }
 
-    /* ============================================================
-     FOUNDED BY SARA (stat pullout + text)
+  .about-stat {
+    text-align: center;
+    padding: 22px 20px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .about-stat:first-child {
+    border-top: 0;
+    padding: clamp(32px, 4vw, 44px) 20px;
+    background: var(--brand-blue-tint);
+  }
+
+  .about-stat-number {
+    font-size: clamp(2rem, 1.7rem + 1vw, 2.6rem);
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .about-stat:first-child .about-stat-number {
+    font-size: clamp(3rem, 2.4rem + 2vw, 4.2rem);
+  }
+
+  .about-stat-label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--slate);
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .about-agency-text .about-agency-title {
+    font-family: var(--font);
+    font-size: clamp(1.7rem, 1.4rem + 1vw, 2.3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin: 0 0 18px;
+  }
+
+  .about-agency-text p {
+    font-size: clamp(1.02rem, 0.95rem + 0.25vw, 1.12rem);
+    color: var(--slate);
+    line-height: 1.65;
+    font-weight: 400;
+    margin: 0 0 16px;
+  }
+
+  .about-agency-text p a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .about-agency-text p a:hover,
+  .about-agency-text p a:focus,
+  .about-agency-text p a:focus-visible,
+  .about-agency-text p a:active {
+    color: var(--brand-blue-hover) !important;
+    border-color: var(--brand-blue-hover);
+  }
+
+  .about-service-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 24px;
+    margin: 24px 0 30px;
+    padding: 0;
+  }
+
+  .about-service-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.97rem;
+    font-weight: 500;
+    color: var(--navy);
+    line-height: 1.45;
+    margin: 0;
+    padding: 0;
+  }
+
+  .about-service-check {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    margin-top: 1px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-service-check svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* ============================================================
+     OUR APPROACH (manifesto band)
      ============================================================ */
-    .about-founder-grid {
-      display: grid;
-      grid-template-columns: 0.7fr 1.3fr;
-      gap: clamp(40px, 6vw, 72px);
-      align-items: center;
-    }
+  .about-approach-section {
+    background: var(--brand-gradient);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
 
-    .about-stat-pullout {
-      text-align: center;
-      background: var(--brand-blue-tint);
-      border-radius: var(--radius-xl);
-      padding: clamp(32px, 5vw, 48px) 20px;
-    }
+  .about-approach-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 12% 30%, rgba(255, 255, 255, 0.16) 0%, transparent 42%),
+      radial-gradient(circle at 88% 75%, rgba(212, 63, 141, 0.28) 0%, transparent 50%);
+    pointer-events: none;
+  }
 
-    .about-stat-number {
-      font-size: clamp(3rem, 2.4rem + 2vw, 4.2rem);
-      font-weight: 700;
-      color: var(--brand-blue);
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
+  .about-approach-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    margin: 0 auto;
+  }
 
-    .about-stat-label {
-      font-size: 0.95rem;
-      font-weight: 600;
-      color: var(--slate);
-      margin-top: 8px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
+  .about-approach-section .eyebrow {
+    color: rgba(255, 255, 255, 0.88);
+  }
 
-    .about-founder-text p {
-      font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
-      color: var(--slate);
-      line-height: 1.65;
-      font-weight: 400;
-    }
+  .about-approach-section .eyebrow-dot {
+    background-color: #FFFFFF;
+  }
 
-    .about-founder-text a {
-      color: var(--brand-blue);
-      font-weight: 600;
-      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
+  .about-approach-title {
+    font-family: var(--font);
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: #FFFFFF;
+    margin: 0 0 22px;
+    text-wrap: balance;
+    text-shadow: 0 2px 16px rgba(2, 40, 100, 0.25);
+  }
 
-    .about-founder-text a:hover,
-    .about-founder-text a:focus,
-    .about-founder-text a:focus-visible,
-    .about-founder-text a:active {
-      color: var(--brand-blue-hover) !important;
-      border-color: var(--brand-blue-hover);
-    }
+  .about-approach-inner p {
+    font-size: clamp(1.1rem, 0.98rem + 0.5vw, 1.35rem);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.96);
+    line-height: 1.6;
+    margin: 0;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+  }
 
-    /* ============================================================
-     OUR APPROACH (manifesto / pull-quote band)
+  /* ============================================================
+     MISSION & VISION
      ============================================================ */
-    .about-approach-section {
-      background: var(--brand-gradient);
-      position: relative;
-      overflow: hidden;
-      text-align: center;
-    }
+  .about-mv-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
 
-    .about-approach-section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 12% 30%, rgba(255, 255, 255, 0.16) 0%, transparent 42%),
-        radial-gradient(circle at 88% 75%, rgba(212, 63, 141, 0.28) 0%, transparent 50%);
-      pointer-events: none;
-    }
+  .about-mv-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-xl);
+    padding: clamp(32px, 4vw, 48px);
+    border: 1px solid var(--border-light);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
 
-    .about-approach-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 780px;
-      margin: 0 auto;
-    }
+  .about-mv-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: var(--brand-gradient);
+  }
 
-    .about-approach-mark {
-      font-size: 3.5rem;
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.35);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
+  .about-mv-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+  }
 
-    .about-approach-inner p {
-      font-size: clamp(1.2rem, 1rem + 0.6vw, 1.5rem);
-      font-weight: 500;
-      color: #FFFFFF;
-      line-height: 1.55;
-      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
-    }
+  .about-mv-mission {
+    background: var(--brand-blue-tint);
+  }
 
-    /* ============================================================
+  .about-mv-vision {
+    background: var(--brand-peach-tint);
+    border-color: var(--brand-peach);
+  }
+
+  .about-mv-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    background: var(--brand-gradient);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    box-shadow: 0 8px 20px rgba(2, 80, 197, 0.25);
+  }
+
+  .about-mv-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .about-mv-label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brand-blue);
+    margin-bottom: 10px;
+  }
+
+  .about-mv-vision .about-mv-label {
+    color: var(--brand-coral);
+  }
+
+  .about-mv-card h3 {
+    font-family: var(--font);
+    font-size: clamp(1.4rem, 1.2rem + 0.7vw, 1.8rem);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+    margin: 0 0 14px;
+  }
+
+  .about-mv-card p {
+    font-size: 1.04rem;
+    color: var(--slate);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ============================================================
+     OUR VALUES
+     ============================================================ */
+  .about-values-section {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .about-values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .about-value-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 30px 28px;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.25s ease;
+  }
+
+  .about-value-card:hover {
+    border-color: var(--border-card);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+  }
+
+  .about-value-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+
+  .about-value-card:hover .about-value-icon {
+    background: var(--brand-gradient);
+    color: #FFFFFF;
+  }
+
+  .about-value-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .about-value-card h3 {
+    font-family: var(--font);
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+    margin: 0 0 8px;
+  }
+
+  .about-value-card p {
+    font-size: 0.97rem;
+    color: var(--slate);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  .about-value-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-size: 0.93rem;
+    font-weight: 600;
+    color: var(--brand-blue);
+    border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
+    align-self: flex-start;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .about-value-link:hover,
+  .about-value-link:focus,
+  .about-value-link:focus-visible,
+  .about-value-link:active {
+    color: var(--brand-blue-hover) !important;
+    border-color: var(--brand-blue-hover);
+  }
+
+  .about-value-link svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+
+  /* ============================================================
      WHAT SETS US APART
      ============================================================ */
+  .about-apart-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+
+  .about-apart-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    padding: 28px 26px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    transition: all 0.25s ease;
+  }
+
+  .about-apart-card:hover {
+    border-color: var(--border-card);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+  }
+
+  .about-apart-icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-apart-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .about-apart-card p {
+    font-size: 0.98rem;
+    color: var(--navy);
+    line-height: 1.55;
+    padding-top: 8px;
+    margin: 0;
+  }
+
+  /* ============================================================
+     WHO WE SERVE (closing statement + CTA)
+     ============================================================ */
+  .about-serve-section {
+    background: var(--brand-peach-tint);
+    border-top: 1px solid var(--border-light);
+  }
+
+  .about-serve-inner {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .about-serve-inner .lead-text {
+    margin-bottom: 32px;
+  }
+
+  /* ============================================================
+   HOW WE PROTECT YOUR BUSINESS (team security agreements) — anchor #security
+   ============================================================ */
+  .about-security-section {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    scroll-margin-top: 90px;
+  }
+
+  .about-security-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(36px, 6vw, 72px);
+    align-items: start;
+  }
+
+  @media (min-width: 821px) {
+    .about-security-intro {
+      position: sticky;
+      top: 110px;
+    }
+  }
+
+  .about-security-badge {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 22px;
+    border-radius: 20px;
+    background: var(--brand-gradient);
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 24px rgba(2, 80, 197, 0.25);
+  }
+
+  .about-security-badge svg {
+    width: 30px;
+    height: 30px;
+  }
+
+  .about-security-text {
+    margin: 0 0 16px;
+    font-size: clamp(1.02rem, 0.96rem + 0.25vw, 1.12rem);
+    line-height: 1.7;
+    color: var(--slate);
+  }
+
+  .about-security-text:last-child {
+    margin-bottom: 0;
+  }
+
+  .about-security-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+  }
+
+  .about-security-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .about-security-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin: 0;
+    padding: 22px 26px;
+    border-top: 1px solid var(--border-light);
+    transition: background-color 0.2s ease;
+  }
+
+  .about-security-item:first-child {
+    border-top: 0;
+  }
+
+  .about-security-item:hover {
+    background: var(--brand-blue-subtle);
+  }
+
+  .about-security-icon {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .about-security-icon svg {
+    width: 21px;
+    height: 21px;
+  }
+
+  .about-security-item strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 1.02rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--navy);
+  }
+
+  .about-security-desc {
+    display: block;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--slate);
+  }
+
+  .about-security-foot {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0;
+    padding: 18px 26px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--brand-blue);
+    background: var(--brand-blue-tint);
+  }
+
+  .about-security-foot svg {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+  }
+
+  /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+  @media (max-width: 1020px) {
+
     .about-apart-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-values-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 820px) {
+
+    .about-agency-grid,
+    .about-security-grid,
+    .about-mv-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-agency-grid {
+      gap: 32px;
+    }
+
+    .about-stats-card {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(3, 1fr);
     }
 
-    .about-apart-card {
-      background: #FFFFFF;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      padding: 28px 26px;
+    .about-stat,
+    .about-stat:first-child {
+      border-top: 0;
+      border-left: 1px solid var(--border-light);
+      padding: 24px 10px;
       display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      transition: all 0.25s ease;
-    }
-
-    .about-apart-card:hover {
-      border-color: var(--border-card);
-      box-shadow: var(--shadow-card-hover);
-      transform: translateY(-3px);
-    }
-
-    .about-apart-icon {
-      flex-shrink: 0;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--brand-blue-tint);
-      color: var(--brand-blue);
-      display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
     }
 
-    .about-apart-icon svg {
-      width: 20px;
-      height: 20px;
+    .about-stat:first-child {
+      border-left: 0;
     }
 
-    .about-apart-card p {
-      font-size: 0.98rem;
-      color: var(--navy);
-      line-height: 1.55;
-      padding-top: 8px;
+    .about-stat-number,
+    .about-stat:first-child .about-stat-number {
+      font-size: clamp(1.7rem, 1.2rem + 2vw, 2.4rem);
     }
 
-    /* ============================================================
-     WHO WE SERVE (closing statement)
-     ============================================================ */
-    .about-serve-section {
-      background: var(--brand-peach-tint);
-      border-top: 1px solid var(--border-light);
+    .about-stat-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.03em;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .page-title-banner {
+      padding: 48px 18px calc(48px + var(--hero-overlap));
     }
 
-    .about-serve-lead {
-      max-width: 760px;
-      margin: 0 auto;
-      text-align: center;
+    .about-photo-band {
+      border-width: 3px;
+      border-radius: var(--radius-md);
     }
 
-    /* ============================================================
-     RESPONSIVE BREAKPOINTS
-     ============================================================ */
-    @media (max-width: 1020px) {
-
-      .about-apart-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-      }
+    .about-hero-badge {
+      font-size: 0.8rem;
+      padding: 8px 14px 8px 8px;
+      bottom: -18px;
     }
 
-    @media (max-width: 820px) {
-
-      .about-founder-grid,
-      .about-apart-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-founder-grid {
-        gap: 32px;
-      }
-
-      .about-stat-pullout {
-        max-width: 260px;
-        margin: 0 auto;
-      }
+    .about-hero-badge-icon {
+      width: 26px;
+      height: 26px;
     }
 
-    @media (max-width: 600px) {
-      .page-title-banner {
-        padding: 48px 18px;
-      }
+    .about-hero-badge-extra {
+      display: none;
     }
-  </style>
-</head>
 
-<body>
+    .about-security-item {
+      padding: 18px 18px;
+    }
 
-  <!-- ============================================================
+    .about-security-foot {
+      padding: 16px 18px;
+    }
+
+    .about-service-list,
+    .about-values-grid,
+    .about-apart-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .btn-group {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .btn {
+      width: 100%;
+      white-space: normal;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .about-mv-card,
+    .about-value-card,
+    .about-apart-card,
+    .btn,
+    .btn svg {
+      transition: none;
+    }
+  }
+</style>
+
+<!-- ============================================================
        PAGE TITLE BANNER
        ============================================================ -->
-  <section class="page-title-banner" aria-label="Page Title">
-    <div class="page-title-banner-mesh" aria-hidden="true"></div>
-    <div class="container page-title-inner">
-      <h1 class="page-banner-h1">About Sites by Sara</h1>
-    </div>
-  </section>
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <h1 class="page-banner-h1">About Sites by Sara</h1>
+  </div>
+</section>
 
-  <!-- ============================================================
-       INTRO
+<!-- ============================================================
+       HERO IMAGE — TEAM PHOTO
        ============================================================ -->
-  <section class="section-space-tight" aria-label="Introduction">
-    <div class="container">
-      <div class="section-header" style="margin-bottom: 0;">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Our Story
-        </div>
-        <p class="lead-text about-intro-lead">
-          Sites by Sara has been helping other business owners to have a meaningful and effective presence online
-          since 2007. Comprised of a team of competent designers, developers and marketers, we work closely with
-          our clients to create and grow your business online. We bring a passionate, fresh approach to creating
-          professional websites for a variety of clientele. Contact us today!!
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       TEAM PHOTO
-       ============================================================ -->
-  <section class="section-space about-photo-section" aria-label="Our Team">
-    <div class="container">
+<section class="about-hero" aria-label="Our Team">
+  <div class="container">
+    <div class="about-hero-frame">
       <div class="about-photo-band">
         <img
           src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/12/20240915_TheMill_SbS-8734-2-1.jpg?fit=1200%2C524&ssl=1"
           alt="The Sites by Sara team" width="1200" height="524" loading="eager">
       </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FOUNDED BY SARA
-       ============================================================ -->
-  <section class="section-space" aria-label="Founded By Sara">
-    <div class="container">
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          About The Agency
-        </div>
+      <div class="about-hero-badge">
+        <span class="about-hero-badge-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+        </span>
+        Salt Lake City, Utah<span class="about-hero-badge-extra">&nbsp;&middot; Serving Clients Nationwide</span>
       </div>
+    </div>
+  </div>
+</section>
 
-      <div class="about-founder-grid">
-        <div class="about-stat-pullout">
+<!-- ============================================================
+       INTRO
+       ============================================================ -->
+<section class="about-intro" aria-labelledby="about-intro-title">
+  <div class="container">
+    <div class="section-header about-intro-header">
+      <h2 class="h2-title" id="about-intro-title">Helping Businesses Thrive Online Since 2007</h2>
+      <p class="lead-text about-intro-lead">
+        Sites by Sara has been helping other business owners to have a meaningful and effective presence online
+        since 2007. Comprised of a team of competent designers, developers and marketers, we work closely with
+        our clients to create and grow your business online. We bring a passionate, fresh approach to creating
+        professional websites for a variety of clientele. <a href="/contact-us-2/">Contact us today!</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+       ABOUT THE AGENCY
+       ============================================================ -->
+<section class="section-space about-agency-section" aria-labelledby="about-agency-title">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        About The Agency
+      </div>
+      <h2 class="h2-title" id="about-agency-title">A Boutique Agency That Treats Your Business Like Our Own</h2>
+    </div>
+
+    <div class="about-agency-grid">
+      <div class="about-stats-card">
+        <div class="about-stat">
           <div class="about-stat-number">19+</div>
           <div class="about-stat-label">Years Of Experience</div>
         </div>
-        <div class="about-founder-text">
-          <p>
-            At Sites by Sara, we operate as a boutique web design agency founded by Sara, a passionate designer
-            and developer. With over 19 years of experience, we specialize in creating <a
-              href="/services/web-design-development/custom-web-development/">Custom
-              WordPress
-              Websites</a>
-            for small businesses and nonprofits. Our mission is to blend creativity with functionality, delivering
-            sites that not only look beautiful but drive real results.
-          </p>
+        <div class="about-stat">
+          <div class="about-stat-number">57</div>
+          <div class="about-stat-label">Awards &amp; Recognitions</div>
+        </div>
+        <div class="about-stat">
+          <div class="about-stat-number">20+</div>
+          <div class="about-stat-label">Services Under One Roof</div>
+        </div>
+      </div>
+
+      <div class="about-agency-text">
+        <p>
+          Sites by Sara is a boutique web design agency founded by Sara, a passionate designer and developer. For
+          over 19 years we've helped small businesses and nonprofits turn big ideas into Custom WordPress Websites
+          that look beautiful, load fast and drive real results, and we stay by your side long after launch.
+        </p>
+        <p>
+          Whether you're launching your first site, growing an online store or looking for a team to handle your
+          marketing, you'll find it all here, with one friendly team and no juggling vendors:
+        </p>
+
+        <ul class="about-service-list">
+          <li>
+            <span class="about-service-check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </span>
+            Custom WordPress &amp; e-commerce sites
+          </li>
+          <li>
+            <span class="about-service-check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </span>
+            SEO &amp; local search marketing
+          </li>
+          <li>
+            <span class="about-service-check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </span>
+            Google, Meta &amp; marketplace ads
+          </li>
+          <li>
+            <span class="about-service-check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </span>
+            Branding, copywriting &amp; email marketing
+          </li>
+          <li>
+            <span class="about-service-check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </span>
+            CRM, automation &amp; social media
+          </li>
+          <li>
+            <span class="about-service-check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </span>
+            Website care, hosting &amp; maintenance
+          </li>
+        </ul>
+
+        <div class="btn-group">
+          <a href="/all-services/" class="btn btn-primary">
+            Check Out All Our Services
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true" focusable="false">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============================================================
+<!-- ============================================================
        OUR APPROACH
        ============================================================ -->
-  <section class="section-space about-approach-section" aria-label="Our Approach">
-    <div class="container">
-      <div class="about-approach-inner">
-        <div class="about-approach-mark" aria-hidden="true">&ldquo;</div>
-        <p>
-          Our team takes a personalized approach to every project. We don't use templates; instead, we build
-          completely custom designs tailored to your brand's unique identity. As a client-focused agency, we
-          prioritize clear communication and collaboration, ensuring your vision guides every step of the process.
-        </p>
+<section class="section-space about-approach-section" aria-labelledby="about-approach-title">
+  <div class="container">
+    <div class="about-approach-inner">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Our Approach
       </div>
+      <h2 class="about-approach-title" id="about-approach-title">Built Around You, Never Off a Template</h2>
+      <p>
+        Our team takes a personalized approach to every project. We don't use templates; instead, we build
+        completely custom designs tailored to your brand's unique identity. As a client-focused agency, we
+        prioritize clear communication and collaboration, ensuring your vision guides every step of the process.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============================================================
-       WHAT SETS US APART
-       ============================================================ -->
-  <section class="section-space" aria-label="What Sets Us Apart">
-    <div class="container">
-      <div class="section-header">
+<!-- ============================================================
+     HOW WE PROTECT YOUR BUSINESS (linked from the homepage "Why Choose Us" section)
+     ============================================================ -->
+<section class="section-space about-security-section" id="security" aria-labelledby="about-security-title">
+  <div class="container">
+    <div class="about-security-grid">
+
+      <div class="about-security-intro">
+        <span class="about-security-badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <polyline points="9 12 11 14 15 10" />
+          </svg>
+        </span>
         <div class="eyebrow">
           <span class="eyebrow-dot"></span>
-          Why Choose Us
+          Security &amp; Trust
         </div>
-        <h2 class="h2-title">What Sets Us Apart:</h2>
+        <h2 class="h2-title" id="about-security-title">How We Protect Your Business</h2>
+        <p class="about-security-text">
+          When you trust us with your website, you're trusting us with your brand, your customers' data, and the
+          logins that keep your business running. We take that seriously.
+        </p>
+        <p class="about-security-text">
+          Before anyone on our team works on a client project, they review and sign a set of agreements that hold
+          them to our standards for security and professionalism:
+        </p>
       </div>
 
-      <div class="about-apart-grid">
-
-        <div class="about-apart-card">
-          <span class="about-apart-icon">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </span>
-          <p>You work directly with Sara and our core team, not a large firm.</p>
-        </div>
-
-        <div class="about-apart-card">
-          <span class="about-apart-icon">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </span>
-          <p>Strategic design focused on user experience and conversions.</p>
-        </div>
-
-        <div class="about-apart-card">
-          <span class="about-apart-icon">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </span>
-          <p>Every website we build is mobile-optimized and fully responsive.</p>
-        </div>
-
-        <div class="about-apart-card">
-          <span class="about-apart-icon">
-            <svg viewBox="0 0 24 24" fill="none">
-              <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </span>
-          <p>We also provide ongoing support and maintenance packages.</p>
-        </div>
-
+      <div class="about-security-card">
+        <ul class="about-security-list">
+          <li class="about-security-item">
+            <span class="about-security-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+            </span>
+            <div>
+              <strong>Non-Disclosure Agreement</strong>
+              <span class="about-security-desc">Your business information, plans, and data stay private.</span>
+            </div>
+          </li>
+          <li class="about-security-item">
+            <span class="about-security-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><path d="m9 15 2 2 4-4" />
+              </svg>
+            </span>
+            <div>
+              <strong>Confidentiality &amp; Intellectual Property Agreement</strong>
+              <span class="about-security-desc">Your information stays confidential, and the work we create for you belongs to you.</span>
+            </div>
+          </li>
+          <li class="about-security-item">
+            <span class="about-security-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><polyline points="9 12 11 14 15 10" />
+              </svg>
+            </span>
+            <div>
+              <strong>Data Security Addendum</strong>
+              <span class="about-security-desc">Clear rules for how we handle passwords, site access, and sensitive data.</span>
+            </div>
+          </li>
+          <li class="about-security-item">
+            <span class="about-security-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="12" rx="2" /><path d="M2 20h20" />
+              </svg>
+            </span>
+            <div>
+              <strong>Remote Work Addendum</strong>
+              <span class="about-security-desc">Secure practices apply wherever our team works, including device and network standards.</span>
+            </div>
+          </li>
+          <li class="about-security-item">
+            <span class="about-security-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </span>
+            <div>
+              <strong>Code of Conduct Addendum</strong>
+              <span class="about-security-desc">Professional, respectful standards for how we work with you and your customers.</span>
+            </div>
+          </li>
+          <li class="about-security-item">
+            <span class="about-security-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" /><rect x="8" y="2" width="8" height="4" rx="1" /><path d="m9 14 2 2 4-4" />
+              </svg>
+            </span>
+            <div>
+              <strong>Team Member Agreement</strong>
+              <span class="about-security-desc">Defined responsibilities and accountability for everyone who touches your project.</span>
+            </div>
+          </li>
+        </ul>
+        <p class="about-security-foot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
+          It's one more way we treat your business like our own.
+        </p>
       </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============================================================
+<!-- ============================================================
+       MISSION & VISION
+       ============================================================ -->
+<section class="section-space" aria-labelledby="about-mv-title">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Mission &amp; Vision
+      </div>
+      <h2 class="h2-title" id="about-mv-title">The Purpose Behind Every Project</h2>
+      <p class="lead-text">What we do every day, and where we're taking it next.</p>
+    </div>
+
+    <div class="about-mv-grid">
+
+      <article class="about-mv-card about-mv-mission">
+        <div class="about-mv-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <circle cx="12" cy="12" r="6" />
+            <circle cx="12" cy="12" r="2" />
+          </svg>
+        </div>
+        <span class="about-mv-label">Our Mission</span>
+        <h3>Websites That Work as Hard as You</h3>
+        <p>
+          To help small businesses and nonprofits build a meaningful, effective presence online with custom
+          websites and digital marketing that blend creativity with function and deliver real, measurable results.
+        </p>
+      </article>
+
+      <article class="about-mv-card about-mv-vision">
+        <div class="about-mv-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z" />
+            <circle cx="12" cy="12" r="3" />
+          </svg>
+        </div>
+        <span class="about-mv-label">Our Vision</span>
+        <h3>A Level Playing Field Online</h3>
+        <p>
+          To be the trusted digital partner that mission-driven businesses call first: a team that grows alongside
+          you and helps every small business and nonprofit compete with confidence online.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+       OUR VALUES
+       ============================================================ -->
+<section class="section-space about-values-section" aria-labelledby="about-values-title">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Our Values
+      </div>
+      <h2 class="h2-title" id="about-values-title">The Values We Work By</h2>
+      <p class="lead-text">The principles that shape how we design, communicate and show up for our clients.</p>
+    </div>
+
+    <div class="about-values-grid">
+
+      <article class="about-value-card">
+        <div class="about-value-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+        </div>
+        <h3>Client-First Partnership</h3>
+        <p>Your goals come first. We listen closely, treat your business like our own and stay in your corner long
+          after launch.</p>
+      </article>
+
+      <article class="about-value-card">
+        <div class="about-value-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 20h9" />
+            <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+          </svg>
+        </div>
+        <h3>Craft Over Cookie-Cutter</h3>
+        <p>No recycled templates. Every design is built from scratch around your brand's identity and the people you
+          want to reach.</p>
+      </article>
+
+      <article class="about-value-card">
+        <div class="about-value-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path
+              d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+          </svg>
+        </div>
+        <h3>Clear Communication</h3>
+        <p>Plain-English updates, honest timelines and no jargon or surprises, so you always know where your project
+          stands.</p>
+      </article>
+
+      <article class="about-value-card">
+        <div class="about-value-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+            <polyline points="17 6 23 6 23 12" />
+          </svg>
+        </div>
+        <h3>Results That Matter</h3>
+        <p>Beautiful is just the start. We design for user experience and conversions so your website works as hard
+          as you do.</p>
+      </article>
+
+      <article class="about-value-card">
+        <div class="about-value-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <polyline points="9 12 11 14 15 10" />
+          </svg>
+        </div>
+        <h3>Integrity &amp; Transparency</h3>
+        <p>Straight answers, fair and upfront pricing and clear deliverables. You'll always know what you're getting
+          and why.</p>
+      </article>
+
+      <article class="about-value-card">
+        <div class="about-value-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+          </svg>
+        </div>
+        <h3>Giving Back</h3>
+        <p>We believe in lifting up our community, from volunteering and sponsorships to pro bono work for
+          nonprofits.</p>
+        <a href="/giving-back/" class="about-value-link">
+          See how we give back
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+            stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M5 12h14" />
+            <path d="m12 5 7 7-7 7" />
+          </svg>
+        </a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+       WHAT SETS US APART
+       ============================================================ -->
+<section class="section-space" aria-labelledby="about-apart-title">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Why Choose Us
+      </div>
+      <h2 class="h2-title" id="about-apart-title">What Sets Us Apart</h2>
+    </div>
+
+    <div class="about-apart-grid">
+
+      <div class="about-apart-card">
+        <span class="about-apart-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </span>
+        <p>You work directly with Sara and a dedicated team who know your business, not a large firm.</p>
+      </div>
+
+      <div class="about-apart-card">
+        <span class="about-apart-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </span>
+        <p>Strategic design focused on user experience and conversions.</p>
+      </div>
+
+      <div class="about-apart-card">
+        <span class="about-apart-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </span>
+        <p>Every website we build is mobile-optimized and fully responsive.</p>
+      </div>
+
+      <div class="about-apart-card">
+        <span class="about-apart-icon">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </span>
+        <p>We also provide ongoing support and maintenance packages.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
        WHO WE SERVE
        ============================================================ -->
-  <section class="section-space about-serve-section" aria-label="Who We Serve">
-    <div class="container">
-      <div class="eyebrow" style="display:flex; justify-content:center;">
+<section class="section-space about-serve-section" aria-labelledby="about-serve-title">
+  <div class="container">
+    <div class="about-serve-inner">
+      <div class="eyebrow">
         <span class="eyebrow-dot"></span>
         Who We Serve
       </div>
-      <p class="lead-text about-serve-lead">
+      <h2 class="h2-title" id="about-serve-title">Built for Mission-Driven Businesses &amp; Nonprofits</h2>
+      <p class="lead-text">
         We're proud to serve mission-driven organizations across various industries. Whether you need a simple
         brochure site or a complex e-commerce platform, our agency combines technical expertise with creative
         storytelling to help your business thrive online.
       </p>
+      <div class="btn-group btn-group-center">
+        <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free Consultation</a>
+        <a href="/our-portfolio/" class="btn btn-outline">See Our Work</a>
+      </div>
     </div>
-  </section>
-
-</body>
-
-</html>
+  </div>
+</section>

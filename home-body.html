@@ -8,6 +8,10 @@
    DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
    ============================================================ */
   :root {
+    /* Vertical padding of every full-width section (top and bottom). One value so the gap between sections
+       is identical everywhere on the page; this is about half of the previous clamp(64px, 8vw, 100px). */
+    --section-gap: clamp(32px, 4vw, 50px);
+
     --brand-blue: #3A539B;
     --brand-blue-hover: #2F437D;
     --brand-blue-tint: #EEF2FA;
@@ -36,7 +40,7 @@
     --radius-pill: 9999px;
 
     --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
-    --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+    --shadow-card-hover: 0 12px 20px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
 
     --yellow: #FBBC04;
     --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.16), 0 2px 8px rgba(30, 33, 64, 0.06);
@@ -80,7 +84,7 @@
   }
 
   .home-section-space {
-    padding: clamp(64px, 8vw, 100px) 0;
+    padding: var(--section-gap) 0;
   }
 
   .home-section-header {
@@ -785,9 +789,6 @@
     stroke-linejoin: round;
   }
 
-  /* ============================================================
-   HOME HERO — RESPONSIVE BREAKPOINTS
-   ============================================================ */
   /* ---- Desktop-only height cap: the masonry portrait tiles' aspect-ratio
      is width-driven, so on a wide 60%-width image column their natural
      height (2 stacked portrait tiles) can run well past the viewport,
@@ -879,7 +880,7 @@
    TRUST / STATS RIBBON
    ============================================================ */
   .home-trust-ribbon-section {
-    padding: 40px 0;
+    padding: clamp(20px, 2.5vw, 24px) 0;
     border-bottom: 1px solid var(--border-light);
     background: var(--bg-light);
   }
@@ -905,6 +906,87 @@
     font-weight: 600;
     color: var(--slate);
     line-height: 1.35;
+  }
+
+  /* ============================================================
+   CLIENT LOGOS: calm logo wall under the stats ribbon
+   ============================================================ */
+  .home-clients-section {
+    background: #FFFFFF;
+    padding: var(--section-gap) 0;
+  }
+
+  .home-clients-label {
+    text-align: center;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin: 0 0 22px;
+  }
+
+  .home-clients-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1px;
+    background: var(--border-light);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .home-client-logo {
+    background: #FFFFFF;
+    height: 104px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 22px;
+    transition: background 0.25s ease;
+  }
+
+  .home-client-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(1);
+    opacity: 0.7;
+    mix-blend-mode: multiply;
+    transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .home-client-logo:hover {
+    background: var(--bg-light);
+  }
+
+  .home-client-logo:hover img {
+    filter: none;
+    opacity: 1;
+    transform: scale(1.04);
+  }
+
+  @media (max-width: 1024px) {
+    .home-clients-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .home-clients-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .home-client-logo {
+      height: 84px;
+      padding: 14px;
+    }
+
+    .home-client-logo:nth-child(n+10) {
+      display: none;
+    }
   }
 
   /* ============================================================
@@ -1001,7 +1083,7 @@
 
   .home-awards-track-wrap {
     overflow: hidden;
-    padding: 8px 0;
+    padding: 5px 0 15px 0;
     mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
   }
@@ -1208,7 +1290,7 @@
     position: relative;
     overflow: hidden;
     background: var(--brand-gradient);
-    padding: clamp(64px, 8vw, 100px) 0;
+    padding: var(--section-gap) 0;
     text-align: center;
   }
 
@@ -1267,7 +1349,6 @@
     color: var(--brand-blue) !important;
   }
 
-
   /* ============================================================
    CLIENT TESTIMONIALS — dual marquee (top L-to-R, bottom R-to-L)
    ============================================================ */
@@ -1280,7 +1361,7 @@
 
   .home-testi-track-wrap {
     overflow: hidden;
-    padding: 6px 0;
+    padding: 5px 0 15px 0;
     mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
     -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
   }
@@ -1644,6 +1725,21 @@
     line-height: 1.55;
   }
 
+  .home-story-item-desc a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .home-story-item-desc a:hover,
+  .home-story-item-desc a:focus,
+  .home-story-item-desc a:focus-visible,
+  .home-story-item-desc a:active {
+    color: var(--brand-blue-hover) !important;
+    border-color: var(--brand-blue-hover);
+  }
+
   /* ============================================================
    RESPONSIVE BREAKPOINTS
    ============================================================ */
@@ -1852,8 +1948,68 @@
           <div class="home-trust-stat-label">Customer Success Stories</div>
         </div>
         <div>
-          <div class="home-trust-stat-number" data-count-to="54">54</div>
+          <div class="home-trust-stat-number" data-count-to="57">57</div>
           <div class="home-trust-stat-label">Industry Recognitions &amp; Awards</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       CLIENT LOGOS
+       ============================================================ -->
+  <section class="home-clients-section" aria-label="Clients We Serve">
+    <div class="home-container">
+      <p class="home-clients-label home-reveal">Trusted by businesses and organizations like these</p>
+      <div class="home-clients-grid home-reveal home-reveal-delay-1">
+        <div class="home-client-logo">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/pci.png?fit=400%2C200&amp;ssl=1"
+            alt="Park City Institute logo" width="400" height="200" loading="lazy">
+        </div>
+        <div class="home-client-logo">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/01/amtrade.png?fit=400%2C200&amp;ssl=1"
+            alt="Amtrade logo" width="400" height="200" loading="lazy">
+        </div>
+        <div class="home-client-logo">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/08/2.png?fit=400%2C200&amp;ssl=1"
+            alt="Stevenson Intermountain Seed logo" width="400" height="200" loading="lazy">
+        </div>
+        <div class="home-client-logo">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/11/jfsutah-logo.jpg?fit=400%2C200&amp;ssl=1"
+            alt="Jewish Family Service logo" width="400" height="200" loading="lazy">
+        </div>
+        <div class="home-client-logo">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/atlas-logo.png?fit=400%2C200&amp;ssl=1"
+            alt="Atlas Iron &amp; Metal Co. logo" width="400" height="200" loading="lazy">
+        </div>
+        <div class="home-client-logo">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/09/Solar.jpg?fit=400%2C200&amp;ssl=1"
+            alt="Solar.IQ logo" width="400" height="200" loading="lazy">
+        </div>
+        <div class="home-client-logo">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/10/MWL-logo-1.png?fit=400%2C200&amp;ssl=1"
+            alt="Mountain West Law logo" width="400" height="200" loading="lazy">
+        </div>
+        <div class="home-client-logo">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/01/1.png?fit=400%2C200&amp;ssl=1"
+            alt="Urban Painting Company logo" width="400" height="200" loading="lazy">
+        </div>
+        <div class="home-client-logo">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2020/05/Sundt-1.jpg?fit=400%2C200&amp;ssl=1"
+            alt="Sundt logo" width="400" height="200" loading="lazy">
+        </div>
+        <div class="home-client-logo">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/pc-logo.png?fit=400%2C200&amp;ssl=1"
+            alt="Protein Cult logo" width="400" height="200" loading="lazy">
+        </div>
+        <div class="home-client-logo">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/grandview-dental.png?fit=400%2C200&amp;ssl=1"
+            alt="Grandview Dental logo" width="400" height="200" loading="lazy">
+        </div>
+        <div class="home-client-logo">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2022/02/townmusic-logo.png?fit=400%2C200&amp;ssl=1"
+            alt="Mountain Town Music logo" width="400" height="200" loading="lazy">
         </div>
       </div>
     </div>
@@ -3010,8 +3166,8 @@
               </span>
               <div>
                 <div class="home-story-item-title">Direct Access to Our Team</div>
-                <p class="home-story-item-desc">You work directly with Sara and our core team — never outsourced,
-                  never passed between account managers.</p>
+                <p class="home-story-item-desc">You work directly with Sara and a dedicated team who know your
+                  business — never passed between account managers.</p>
               </div>
             </div>
 
@@ -3055,6 +3211,22 @@
                 <div class="home-story-item-title">A Track Record Since 2007</div>
                 <p class="home-story-item-desc">300+ completed projects and industry recognition across SEO, web
                   design, and digital marketing.</p>
+              </div>
+            </div>
+
+            <div class="home-story-item home-reveal home-reveal-delay-5">
+              <span class="home-story-item-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </span>
+              <div>
+                <div class="home-story-item-title">Your Site Is in Trusted Hands</div>
+                <p class="home-story-item-desc">Every team member signs strict confidentiality, data security, and
+                  code of conduct agreements before working on a client site. <a
+                    href="/who-we-are/#security">See how we protect your business &rarr;</a></p>
               </div>
             </div>
           </div>
@@ -3296,15 +3468,14 @@
           </div>
         </a>
 
-        <a href="/clarity-consulting-and-counseling/" class="home-portfolio-card home-reveal home-reveal-delay-2"
+        <a href="/this-is-the-place-gift-shop/" class="home-portfolio-card home-reveal home-reveal-delay-2"
           target="_blank" rel="noopener noreferrer">
           <div class="home-portfolio-frame">
-            <img
-              src="/wp-content/uploads/2026/09/FireShot-Capture-032-Northern-Utah-Mental-Health-Counseling-Clarity-Counseling_-clarityconsultingandcounseling.com_-scaled.png"
-              alt="Clarity Consulting and Counseling website design" loading="lazy">
+            <img src="/wp-content/uploads/2026/07/This-is-the-Place-Gift-Shop-scaled.png"
+              alt="This is the Place Gift Shop website design" loading="lazy">
           </div>
           <div class="home-portfolio-card-footer">
-            <span class="home-portfolio-name">Clarity Consulting and Counseling</span>
+            <span class="home-portfolio-name">This is the Place Gift Shop</span>
             <span class="home-portfolio-visit">Details<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14M13 5l7 7-7 7" />
@@ -3312,14 +3483,14 @@
           </div>
         </a>
 
-        <a href="/salt-city-billiards/" class="home-portfolio-card home-reveal home-reveal-delay-3" target="_blank"
+        <a href="/girlyish-skincare/" class="home-portfolio-card home-reveal home-reveal-delay-3" target="_blank"
           rel="noopener noreferrer">
           <div class="home-portfolio-frame">
-            <img src="/wp-content/uploads/2026/07/Salt-City-Billiards-scaled.png"
-              alt="Salt City Billiards website design" loading="lazy">
+            <img src="/wp-content/uploads/2026/07/Girlyish-Skincare-scaled.png" alt="Girlyish Skincare website design"
+              loading="lazy">
           </div>
           <div class="home-portfolio-card-footer">
-            <span class="home-portfolio-name">Salt City Billiards</span>
+            <span class="home-portfolio-name">Girlyish Skincare</span>
             <span class="home-portfolio-visit">Details<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M5 12h14M13 5l7 7-7 7" />

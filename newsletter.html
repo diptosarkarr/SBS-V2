@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Subscribe to Our Newsletter | Sites by Sara</title>
-  <meta name="description"
-    content="Subscribe to the Sites by Sara newsletter for monthly web design, SEO, and marketing updates, exclusive discounts, and industry news.">
-  <meta property="og:title" content="Subscribe to Our Newsletter | Sites by Sara">
-  <meta property="og:description"
-    content="Subscribe to the Sites by Sara newsletter for monthly web design, SEO, and marketing updates, exclusive discounts, and industry news.">
-  <meta property="og:type" content="website">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,6 +10,8 @@
      DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
      ============================================================ */
     :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
       --brand-blue: #3A539B;
       --brand-blue-hover: #2F437D;
       --brand-blue-tint: #EEF2FA;
@@ -108,11 +96,11 @@
     }
 
     .section-space {
-      padding: clamp(70px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .section-space-tight {
-      padding: clamp(40px, 5vw, 65px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .section-header {
@@ -288,6 +276,16 @@
       outline: none;
     }
 
+    /* Brevo's stylesheet puts a square 2px ring on the field wrapper (.entry__field:focus-within, 3px radius),
+       which showed up as a rectangle around our pill input. The input draws its own focus ring above. */
+    #sib-form .entry__field,
+    #sib-form .entry__field:focus-within {
+      background: transparent !important;
+      border-radius: var(--radius-pill) !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
     #sib-container input::placeholder,
     #sib-container textarea::placeholder {
       font-family: var(--font) !important;
@@ -317,88 +315,6 @@
 
     #sib-form .sib-form-block {
       text-align: center !important;
-    }
-
-    /* ============================================================
-     FEATURED / EXCLUSIVE NEWSLETTER CALLOUT
-     ============================================================ */
-    .newsletter-featured-card {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      background: var(--brand-peach);
-      border: 1.5px solid #F8E3D4;
-      border-radius: var(--radius-lg);
-      padding: 24px 28px;
-    }
-
-    .newsletter-featured-icon {
-      width: 46px;
-      height: 46px;
-      flex-shrink: 0;
-      border-radius: 50%;
-      background: #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--brand-coral);
-    }
-
-    .newsletter-featured-icon svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .newsletter-featured-body {
-      flex: 1;
-    }
-
-    .newsletter-featured-label {
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--brand-coral);
-      margin-bottom: 4px;
-    }
-
-    .newsletter-featured-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--navy);
-    }
-
-    .newsletter-featured-link {
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--brand-blue);
-      white-space: nowrap;
-      transition: color 0.2s ease, transform 0.2s ease;
-    }
-
-    .newsletter-featured-link:hover,
-    .newsletter-featured-link:focus,
-    .newsletter-featured-link:focus-visible,
-    .newsletter-featured-link:active {
-      color: var(--brand-blue-hover) !important;
-      transform: translateX(3px);
-    }
-
-    .newsletter-featured-link svg {
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-    }
-
-    @media (max-width: 700px) {
-      .newsletter-featured-card {
-        flex-direction: column;
-        text-align: center;
-      }
     }
 
     /* ============================================================
@@ -434,10 +350,10 @@
     .newsletter-tab:focus-visible,
     .newsletter-tab:active,
     .newsletter-tab.is-active {
-      background: var(--brand-blue);
-      border-color: var(--brand-blue);
-      color: #FFFFFF;
-      box-shadow: 0 4px 14px rgba(58, 83, 155, 0.3);
+      background: var(--brand-blue) !important;
+      border-color: var(--brand-blue) !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 14px rgba(58, 83, 155, 0.3) !important;
     }
 
     .newsletter-tabpanel {
@@ -448,66 +364,245 @@
       display: block;
     }
 
-    .newsletter-list {
+    /* ---- Newsletter cards: live scaled preview that auto-scrolls on hover (same behaviour as the portfolio cards) ---- */
+    .newsletter-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
-    .newsletter-row {
+    .newsletter-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      background: #FFFFFF;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: all 0.25s ease;
+    }
+
+    .newsletter-card:hover,
+    .newsletter-card:focus-within {
+      box-shadow: var(--shadow-card-hover);
+      transform: translateY(-3px);
+    }
+
+    .newsletter-preview {
+      position: relative;
+      height: 340px;
+      overflow: hidden;
+      background: var(--bg-light);
+    }
+
+    .newsletter-preview-placeholder {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 44px;
+      height: 44px;
+      margin: -22px 0 0 -22px;
+      color: var(--border);
+    }
+
+    /* The email renders at a fixed 640px width and is scaled down to the card width by JS (--nl-scale).
+       Elementor's frontend CSS sets `.elementor iframe { width: 100%; max-width: 100% }`, which would squash the
+       iframe to the card width before scaling, so the width is forced here. */
+    .newsletter-card .newsletter-frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 640px !important;
+      max-width: none !important;
+      height: var(--nl-h, 4000px);
+      border: 0;
+      background: #FFFFFF;
+      opacity: 0;
+      pointer-events: none;
+      transform-origin: 0 0;
+      transform: translateY(0) scale(var(--nl-scale, 0.55));
+      transition: opacity 0.4s ease, transform 0.6s ease;
+    }
+
+    .newsletter-card.is-loaded .newsletter-frame {
+      opacity: 1;
+    }
+
+    /* ---- Loading skeleton: an email-shaped shimmer shown until the real newsletter has loaded ---- */
+    .newsletter-skeleton {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 22px;
+      background: #FFFFFF;
+      transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+      pointer-events: none;
+    }
+
+    .newsletter-card.is-loaded .newsletter-skeleton {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .newsletter-skel {
+      display: block;
+      flex-shrink: 0;
+      border-radius: 8px;
+      background: linear-gradient(90deg, #E9EDF5 0%, #F5F7FB 50%, #E9EDF5 100%);
+      background-size: 200% 100%;
+      animation: newsletter-shimmer 1.4s ease-in-out infinite;
+    }
+
+    .newsletter-skel-head {
       display: flex;
       align-items: center;
-      gap: 16px;
-      padding: 14px 18px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      background: #FFFFFF;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+      gap: 12px;
+      margin-bottom: 6px;
     }
 
-    .newsletter-row:hover {
-      border-color: var(--brand-blue);
-      box-shadow: var(--shadow-card);
-      transform: translateY(-2px);
+    .newsletter-skel-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
     }
 
-    .newsletter-month {
-      flex-shrink: 0;
-      width: 72px;
-      text-align: center;
-      font-size: 0.7rem;
+    .newsletter-skel-brand {
+      flex: 1;
+      height: 16px;
+    }
+
+    .newsletter-skel-title {
+      width: 58%;
+      height: 20px;
+      margin-top: 4px;
+    }
+
+    .newsletter-skel-line {
+      height: 10px;
+    }
+
+    .newsletter-skel-image {
+      flex: 1;
+      min-height: 80px;
+      margin-top: 4px;
+      border-radius: 12px;
+    }
+
+    @keyframes newsletter-shimmer {
+      0% {
+        background-position: 100% 0;
+      }
+
+      100% {
+        background-position: -100% 0;
+      }
+    }
+
+    .newsletter-card:hover .newsletter-frame,
+    .newsletter-card:focus-within .newsletter-frame {
+      transform: translateY(calc(var(--nl-scroll, 0px) * -1)) scale(var(--nl-scale, 0.55));
+      transition: opacity 0.4s ease, transform var(--nl-dur, 20s) linear;
+    }
+
+    .newsletter-info {
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      border-top: 1px solid var(--border-light);
+      flex: 1;
+    }
+
+    .newsletter-info-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+
+    .newsletter-date {
+      font-size: 0.72rem;
       font-weight: 700;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
       color: var(--brand-blue);
-      background: var(--brand-blue-tint);
-      border-radius: var(--radius-sm);
-      padding: 7px 4px;
     }
 
     .newsletter-title {
-      flex: 1;
-      font-size: 0.9rem;
+      font-size: 0.96rem;
       font-weight: 600;
-      color: var(--navy);
       line-height: 1.4;
+      color: var(--navy);
     }
 
-    .newsletter-arrow {
+    .newsletter-link {
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    /* stretched link: the whole card is clickable */
+    .newsletter-link::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      border-radius: var(--radius-lg);
+    }
+
+    .newsletter-link:hover,
+    .newsletter-link:focus,
+    .newsletter-link:focus-visible,
+    .newsletter-link:active {
+      color: var(--brand-blue) !important;
+    }
+
+    .newsletter-link:focus-visible::after {
+      outline: 3px solid var(--brand-blue);
+      outline-offset: -3px;
+    }
+
+    .newsletter-read {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
       flex-shrink: 0;
-      width: 16px;
-      height: 16px;
-      color: var(--slate-light);
-      transition: color 0.2s ease;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--brand-coral);
     }
 
-    .newsletter-row:hover .newsletter-arrow {
-      color: var(--brand-blue);
+    .newsletter-read svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
     }
 
-    @media (max-width: 700px) {
-      .newsletter-list {
+    @media (max-width: 1024px) {
+      .newsletter-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .newsletter-grid {
         grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .newsletter-skel {
+        animation: none;
+      }
+
+      .newsletter-card:hover .newsletter-frame,
+      .newsletter-card:focus-within .newsletter-frame {
+        transform: translateY(0) scale(var(--nl-scale, 0.55));
       }
     }
 
@@ -571,9 +666,6 @@
       }
     }
   </style>
-</head>
-
-<body>
 
   <!-- ============================================================
        PAGE TITLE BANNER
@@ -723,34 +815,6 @@
   </section>
 
   <!-- ============================================================
-       FEATURED / EXCLUSIVE NEWSLETTER
-       ============================================================ -->
-  <section class="section-space-tight" aria-label="Exclusive Update" style="padding-top: 0;">
-    <div class="container">
-      <div class="newsletter-featured-card">
-        <div class="newsletter-featured-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z" />
-          </svg>
-        </div>
-        <div class="newsletter-featured-body">
-          <div class="newsletter-featured-label">Exclusive Update</div>
-          <div class="newsletter-featured-title">Don't Let Hidden Issues Hurt Your Rankings</div>
-        </div>
-        <a href="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/va3QUPdYHOpV"
-          class="newsletter-featured-link" target="_blank" rel="noopener noreferrer">
-          Read Now
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round">
-            <path d="M5 12h14M13 5l7 7-7 7" />
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
        NEWSLETTER ARCHIVE (year tabs)
        ============================================================ -->
   <section class="section-space" aria-label="Newsletter Archive" style="padding-top: 0;">
@@ -771,211 +835,427 @@
       </div>
 
       <div class="newsletter-tabpanel is-active" id="nlTab-2026" role="tabpanel" aria-labelledby="nlTabBtn-2026">
-        <div class="newsletter-list">
+        <div class="newsletter-grid">
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/MgENarJzWwSb" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">Sep</span>
-            <span class="newsletter-title">A Busy Summer at Sites By Sara</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="5647">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/MgENarJzWwSb" title="Preview of the September 2026 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">Sep 2026</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/MgENarJzWwSb" target="_blank"
+                  rel="noopener noreferrer">A Busy Summer at Sites By Sara</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/OltO6Vy9zKB_" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">Aug</span>
-            <span class="newsletter-title">In-House Financing Is Here!</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="4938">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/OltO6Vy9zKB_" title="Preview of the August 2026 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">Aug 2026</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/OltO6Vy9zKB_" target="_blank"
+                  rel="noopener noreferrer">In-House Financing Is Here!</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/fOSPmmF09qzi" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">Jul</span>
-            <span class="newsletter-title">Settling Into Summer — July Updates!</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="5787">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/fOSPmmF09qzi" title="Preview of the July 2026 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">Jul 2026</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/fOSPmmF09qzi" target="_blank"
+                  rel="noopener noreferrer">Settling Into Summer — July Updates!</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/PK9MwJWr72-x" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">Jun</span>
-            <span class="newsletter-title">Recent Awards &amp; Summer Savings</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="4777">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/PK9MwJWr72-x" title="Preview of the June 2026 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">Jun 2026</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/PK9MwJWr72-x" target="_blank"
+                  rel="noopener noreferrer">Recent Awards &amp; Summer Savings</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/6gEKfWTWu4sk" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">May</span>
-            <span class="newsletter-title">Spring Has Sprung! Let's Grow Together</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="6194">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/6gEKfWTWu4sk" title="Preview of the May 2026 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">May 2026</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/6gEKfWTWu4sk" target="_blank"
+                  rel="noopener noreferrer">Spring Has Sprung! Let's Grow Together</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHVbOJOruAmr9n14GS/0uanL11HOlSI" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">Apr</span>
-            <span class="newsletter-title">April Updates: Our New Commercial and Spring Savings!</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="4294">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHVbOJOruAmr9n14GS/0uanL11HOlSI" title="Preview of the April 2026 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">Apr 2026</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHVbOJOruAmr9n14GS/0uanL11HOlSI" target="_blank"
+                  rel="noopener noreferrer">April Updates: Our New Commercial and Spring Savings!</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/o2BP5oYytjuV" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">Mar</span>
-            <span class="newsletter-title">Special Event — Best of SLC Voting &amp; Spring Savings!</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="6201">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/o2BP5oYytjuV" title="Preview of the March 2026 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">Mar 2026</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/o2BP5oYytjuV" target="_blank"
+                  rel="noopener noreferrer">Special Event — Best of SLC Voting &amp; Spring Savings!</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/C_FMJj88A7ZM" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">Feb</span>
-            <span class="newsletter-title">Feeling Energized: Innovation, Excellence, &amp; More!</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="4393">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/C_FMJj88A7ZM" title="Preview of the February 2026 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">Feb 2026</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/C_FMJj88A7ZM" target="_blank"
+                  rel="noopener noreferrer">Feeling Energized: Innovation, Excellence, &amp; More!</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHWPajXtW9P7QfM3Hg/V1aI6KFpbIwU" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">Jan</span>
-            <span class="newsletter-title">Let's Level Up Your Web Presence in 2026</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="3210">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHWPajXtW9P7QfM3Hg/V1aI6KFpbIwU" title="Preview of the January 2026 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">Jan 2026</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHWPajXtW9P7QfM3Hg/V1aI6KFpbIwU" target="_blank"
+                  rel="noopener noreferrer">Let's Level Up Your Web Presence in 2026</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
         </div>
       </div>
 
       <div class="newsletter-tabpanel" id="nlTab-2025" role="tabpanel" aria-labelledby="nlTabBtn-2025">
-        <div class="newsletter-list">
+        <div class="newsletter-grid">
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHWoLvAsUuTK0Oceyy/DLENF6QUkWYo" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">Dec</span>
-            <span class="newsletter-title">2025 Wrap-Up: Let's Make 2026 Your Breakthrough Year</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="5070">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHWoLvAsUuTK0Oceyy/DLENF6QUkWYo" title="Preview of the December 2025 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">Dec 2025</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.ag.d.sendibm3.com/mk/mr/sh/SMJz09SDriOHWoLvAsUuTK0Oceyy/DLENF6QUkWYo" target="_blank"
+                  rel="noopener noreferrer">2025 Wrap-Up: Let's Make 2026 Your Breakthrough Year</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/X0-73VFO5zKp" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">Nov</span>
-            <span class="newsletter-title">November News: Bright Celebrations &amp; A Special Offer</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="4437">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/X0-73VFO5zKp" title="Preview of the November 2025 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">Nov 2025</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/X0-73VFO5zKp" target="_blank"
+                  rel="noopener noreferrer">November News: Bright Celebrations &amp; A Special Offer</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/LUUNIOet8B66" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">Oct</span>
-            <span class="newsletter-title">No Tricks, Just Treats! Happy Autumn, Everyone</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="3243">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/LUUNIOet8B66" title="Preview of the October 2025 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">Oct 2025</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHUOKXa9k1xjQBCvIa/LUUNIOet8B66" target="_blank"
+                  rel="noopener noreferrer">No Tricks, Just Treats! Happy Autumn, Everyone</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHWPOiVfXjxSk1aFsq/9O-wWCcVtiu4" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">Sep</span>
-            <span class="newsletter-title">Industry Insights &amp; Company News</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="4970">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHWPOiVfXjxSk1aFsq/9O-wWCcVtiu4" title="Preview of the September 2025 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">Sep 2025</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHWPOiVfXjxSk1aFsq/9O-wWCcVtiu4" target="_blank"
+                  rel="noopener noreferrer">Industry Insights &amp; Company News</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHTzxYGscDvrzwhEZQ/3tQqCUaVcDZO" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">Aug</span>
-            <span class="newsletter-title">Bright Ideas &amp; Fresh Updates This August!</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="4210">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHTzxYGscDvrzwhEZQ/3tQqCUaVcDZO" title="Preview of the August 2025 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">Aug 2025</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.a.d.sendibm1.com/mk/mr/sh/SMJz09SDriOHTzxYGscDvrzwhEZQ/3tQqCUaVcDZO" target="_blank"
+                  rel="noopener noreferrer">Bright Ideas &amp; Fresh Updates This August!</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.bh.d.sendibt3.com/mk/mr/sh/SMJz0ACyFvfrbiF1LlEY1qy5sDci/K81ourQbXX8_" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">Jul</span>
-            <span class="newsletter-title">Exciting Summer Upgrades &amp; Local Music Vibes</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="3801">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.bh.d.sendibt3.com/mk/mr/sh/SMJz0ACyFvfrbiF1LlEY1qy5sDci/K81ourQbXX8_" title="Preview of the July 2025 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">Jul 2025</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.bh.d.sendibt3.com/mk/mr/sh/SMJz0ACyFvfrbiF1LlEY1qy5sDci/K81ourQbXX8_" target="_blank"
+                  rel="noopener noreferrer">Exciting Summer Upgrades &amp; Local Music Vibes</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.bh.d.sendibt3.com/mk/mr/sh/6rqJ8H0EanKJHZ1qTx7cRdfyjGG/icK_8dWYfDu6" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">Jun</span>
-            <span class="newsletter-title">Fresh Designs &amp; Summer Deals — June Updates</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="3643">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.bh.d.sendibt3.com/mk/mr/sh/6rqJ8H0EanKJHZ1qTx7cRdfyjGG/icK_8dWYfDu6" title="Preview of the June 2025 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">Jun 2025</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.bh.d.sendibt3.com/mk/mr/sh/6rqJ8H0EanKJHZ1qTx7cRdfyjGG/icK_8dWYfDu6" target="_blank"
+                  rel="noopener noreferrer">Fresh Designs &amp; Summer Deals — June Updates</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.bh.d.sendibt3.com/mk/mr/sh/SMJz0ACyFvfrbiF1LlEY1qy5sDci/jwmsmTNtZU3G" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">May</span>
-            <span class="newsletter-title">May Updates – Fresh Tips, New Projects &amp; More!</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="6135">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.bh.d.sendibt3.com/mk/mr/sh/SMJz0ACyFvfrbiF1LlEY1qy5sDci/jwmsmTNtZU3G" title="Preview of the May 2025 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">May 2025</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.bh.d.sendibt3.com/mk/mr/sh/SMJz0ACyFvfrbiF1LlEY1qy5sDci/jwmsmTNtZU3G" target="_blank"
+                  rel="noopener noreferrer">May Updates – Fresh Tips, New Projects &amp; More!</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
-          <a class="newsletter-row"
-            href="https://7pv50.r.bh.d.sendibt3.com/mk/mr/sh/SMJz0ACyFvfrbiF1LlEY1qy5sDci/Hs02tZERijfQ" target="_blank"
-            rel="noopener noreferrer">
-            <span class="newsletter-month">Apr</span>
-            <span class="newsletter-title">Fresh Strategies for Spring! Elevate Your Website &amp; Marketing</span>
-            <svg class="newsletter-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+          <article class="newsletter-card" data-height="6258">
+            <div class="newsletter-preview">
+              <svg class="newsletter-preview-placeholder" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m3 7 9 6 9-6" />
+              </svg>
+              <iframe class="newsletter-frame" data-src="https://7pv50.r.bh.d.sendibt3.com/mk/mr/sh/SMJz0ACyFvfrbiF1LlEY1qy5sDci/Hs02tZERijfQ" title="Preview of the April 2025 newsletter"
+                tabindex="-1" sandbox="" scrolling="no" referrerpolicy="no-referrer"></iframe>
+            </div>
+            <div class="newsletter-info">
+              <div class="newsletter-info-text">
+                <span class="newsletter-date">Apr 2025</span>
+                <span class="newsletter-title"><a class="newsletter-link" href="https://7pv50.r.bh.d.sendibt3.com/mk/mr/sh/SMJz0ACyFvfrbiF1LlEY1qy5sDci/Hs02tZERijfQ" target="_blank"
+                  rel="noopener noreferrer">Fresh Strategies for Spring! Elevate Your Website &amp; Marketing</a></span>
+              </div>
+              <span class="newsletter-read" aria-hidden="true">Read<svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M13 5l7 7-7 7" />
+                </svg></span>
+            </div>
+          </article>
 
         </div>
       </div>
@@ -1026,6 +1306,93 @@
     })();
   </script>
 
+  <script>
+    // Newsletter card previews: each email is loaded in a sandboxed iframe only when its card is near the
+    // viewport, scaled to the card width, and scrolled by CSS on hover (like the portfolio cards).
+    (function () {
+      var FRAME_WIDTH = 640;   // must match .newsletter-frame width
+      var TRIM = 40;           // logical px trimmed from the end so hover-scroll never reveals blank space
+      var SPEED = 80;          // hover-scroll speed, px per second
+      var MIN_DURATION = 6;
+      var MAX_DURATION = 30;
+      var cards = document.querySelectorAll('.newsletter-card');
+
+      var SKELETON_HTML =
+        '<div class="newsletter-skeleton" aria-hidden="true">' +
+        '<div class="newsletter-skel-head">' +
+        '<span class="newsletter-skel newsletter-skel-logo"></span>' +
+        '<span class="newsletter-skel newsletter-skel-brand"></span>' +
+        '</div>' +
+        '<span class="newsletter-skel newsletter-skel-title"></span>' +
+        '<span class="newsletter-skel newsletter-skel-line" style="width:100%"></span>' +
+        '<span class="newsletter-skel newsletter-skel-line" style="width:92%"></span>' +
+        '<span class="newsletter-skel newsletter-skel-line" style="width:68%"></span>' +
+        '<span class="newsletter-skel newsletter-skel-image"></span>' +
+        '</div>';
+
+      cards.forEach(function (card) {
+        card.querySelector('.newsletter-preview').insertAdjacentHTML('beforeend', SKELETON_HTML);
+      });
+
+      function layout(card) {
+        var preview = card.querySelector('.newsletter-preview');
+        var width = preview.clientWidth;
+        if (!width) return; // inside a hidden tab panel
+
+        var scale = Math.min(1, width / FRAME_WIDTH);
+        var height = parseInt(card.getAttribute('data-height'), 10) || 4000;
+        var distance = Math.max(0, (height - TRIM) * scale - preview.clientHeight);
+        var duration = Math.min(MAX_DURATION, Math.max(MIN_DURATION, distance / SPEED));
+
+        card.style.setProperty('--nl-scale', scale.toFixed(4));
+        card.style.setProperty('--nl-h', (height + 200) + 'px');
+        card.style.setProperty('--nl-scroll', Math.round(distance) + 'px');
+        card.style.setProperty('--nl-dur', duration.toFixed(1) + 's');
+      }
+
+      function loadFrame(card) {
+        var frame = card.querySelector('.newsletter-frame');
+        if (!frame || frame.getAttribute('src')) return;
+        frame.addEventListener('load', function () {
+          card.classList.add('is-loaded');
+        });
+        frame.setAttribute('src', frame.getAttribute('data-src'));
+      }
+
+      cards.forEach(layout);
+
+      if ('ResizeObserver' in window) {
+        var sizeObserver = new ResizeObserver(function (entries) {
+          entries.forEach(function (entry) {
+            layout(entry.target.closest('.newsletter-card'));
+          });
+        });
+        cards.forEach(function (card) {
+          sizeObserver.observe(card.querySelector('.newsletter-preview'));
+        });
+      } else {
+        window.addEventListener('resize', function () {
+          cards.forEach(layout);
+        });
+      }
+
+      if ('IntersectionObserver' in window) {
+        var loadObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            loadFrame(entry.target);
+            loadObserver.unobserve(entry.target);
+          });
+        }, { rootMargin: '600px 0px' });
+        cards.forEach(function (card) {
+          loadObserver.observe(card);
+        });
+      } else {
+        cards.forEach(loadFrame);
+      }
+    })();
+  </script>
+
   <!-- Begin Brevo Form scripts -->
   <script>
     window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
@@ -1044,7 +1411,3 @@
   <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
   <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
   <!-- End Brevo Form scripts -->
-
-</body>
-
-</html>

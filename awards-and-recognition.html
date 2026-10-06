@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Awards &amp; Recognition | Sites by Sara</title>
-  <meta name="description"
-    content="Discover the awards and recognition earned by Sites by Sara for excellence in SEO, web design, and digital marketing. See our achievements &amp; awards!">
-  <meta property="og:title" content="Awards &amp; Recognition | Sites by Sara">
-  <meta property="og:description"
-    content="Discover the awards and recognition earned by Sites by Sara for excellence in SEO, web design, and digital marketing. See our achievements &amp; awards!">
-  <meta property="og:type" content="website">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,6 +7,8 @@
      DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
      ============================================================ */
     :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
       --brand-blue: #3A539B;
       --brand-blue-hover: #2F437D;
       --brand-blue-tint: #EEF2FA;
@@ -102,11 +90,11 @@
     }
 
     .section-space {
-      padding: clamp(70px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .section-space-tight {
-      padding: clamp(40px, 5vw, 65px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .section-header {
@@ -330,7 +318,7 @@
      STAT RIBBON
      ============================================================ */
     .awards-stat-section {
-      padding: 36px 0;
+      padding: clamp(20px, 2.5vw, 24px) 0;
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
       background: var(--bg-light);
@@ -579,9 +567,6 @@
       }
     }
   </style>
-</head>
-
-<body>
 
   <!-- ============================================================
        PAGE TITLE BANNER
@@ -637,7 +622,7 @@
     <div class="container">
       <div class="awards-stat-grid">
         <div>
-          <div class="awards-stat-number">54</div>
+          <div class="awards-stat-number">57</div>
           <div class="awards-stat-label">Awards &amp; Recognitions</div>
         </div>
         <div>
@@ -669,7 +654,7 @@
 
       <div class="awards-tablist" role="tablist" aria-label="Award Year">
         <button type="button" class="awards-tab is-active" role="tab" aria-selected="true" id="tabBtn-2026"
-          aria-controls="tab-2026" data-tab="tab-2026">2026 <span class="awards-tab-count">(4)</span></button>
+          aria-controls="tab-2026" data-tab="tab-2026">2026 <span class="awards-tab-count">(7)</span></button>
         <button type="button" class="awards-tab" role="tab" aria-selected="false" id="tabBtn-2025"
           aria-controls="tab-2025" data-tab="tab-2025">2025 <span class="awards-tab-count">(11)</span></button>
         <button type="button" class="awards-tab" role="tab" aria-selected="false" id="tabBtn-2024"
@@ -691,10 +676,34 @@
           <div class="award-card">
             <div class="award-card-badge">
               <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2026/02/logo2_wea_nobg.png"
-                alt="Web Excellence Awards 2026 winner badge" loading="lazy">
+                alt="Web Excellence Awards 2026 winner badge – Sites by Sara Instagram" loading="lazy">
             </div>
             <div class="award-card-body">
-              <div class="award-card-title">The Web Excellence Awards 2026</div>
+              <div class="award-card-title">Web Excellence Awards – Sites by Sara Instagram</div>
+              <a href="https://we-awards.com/winner/sites-sara-instagram/" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2026/02/logo2_wea_nobg.png"
+                alt="Web Excellence Awards 2026 winner badge – Utah Center for Psychological Services" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Web Excellence Awards – Utah Center for Psychological Services</div>
+              <a href="https://we-awards.com/winner/utah-center-psychological-services-website/" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+          <div class="award-card">
+            <div class="award-card-badge">
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2026/02/logo2_wea_nobg.png"
+                alt="Web Excellence Awards 2026 winner badge – Sky Connect" loading="lazy">
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Web Excellence Awards – Sky Connect</div>
               <a href="https://we-awards.com/winner/sky-connect/" class="award-card-link" target="_blank"
                 rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
             </div>
@@ -734,6 +743,26 @@
               <div class="award-card-title">ThreeBestRated - Best Web Designers in Salt Lake City</div>
               <a href="https://threebestrated.com/web-designers-in-salt-lake-city-ut" class="award-card-link"
                 target="_blank" rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
+            </div>
+          </div>
+
+
+          <div class="award-card">
+            <div class="award-card-badge is-text-only">
+              <!-- TODO: swap in the real badge once supplied, then drop the is-text-only class and the icon:
+              <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2026/10/companies-championing-women.png"
+                alt="Companies Championing Women 2026 badge" loading="lazy"> -->
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6" />
+                <path d="M8.21 13.89 7 22l5-3 5 3-1.21-8.12" />
+              </svg>
+            </div>
+            <div class="award-card-body">
+              <div class="award-card-title">Companies Championing Women</div>
+              <div class="award-card-meta">Utah Women &amp; Leadership Project · 2026</div>
+              <a href="https://www.usu.edu/uwlp/index.php" class="award-card-link" target="_blank"
+                rel="noopener noreferrer">View Award<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
             </div>
           </div>
 
@@ -1440,7 +1469,3 @@
       });
     })();
   </script>
-
-</body>
-
-</html>
