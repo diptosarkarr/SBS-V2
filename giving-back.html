@@ -279,7 +279,8 @@
     /* ============================================================
      CAMPAIGN CARD GRID
      ============================================================ */
-    .cares-campaigns-section.is-alt {
+    .cares-campaigns-section.is-alt,
+    .cares-total-section.is-alt {
       background: var(--bg-light);
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
@@ -368,6 +369,61 @@
       gap: 2px;
     }
 
+    /* Logos and collages: show the whole image instead of cropping it to the 4:3 frame */
+    .cares-card-img-wrap.is-fit img,
+    .cares-card-img-wrap.is-logo img {
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .cares-card-img-wrap.is-logo img {
+      padding: 8%;
+    }
+
+    /* Tall photos: keep the subject (not the sky) inside the 4:3 frame */
+    .cares-card-img-wrap.is-focus-low img {
+      object-position: center 62%;
+    }
+
+    /* Floating link button on a card image (bottom right), e.g. the Instagram post */
+    .cares-media-link {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      z-index: 2;
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-light);
+      border-radius: 50%;
+      background: #FFFFFF;
+      color: var(--navy);
+      box-shadow: var(--shadow-floating);
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    .cares-media-link svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .cares-media-link:hover,
+    .cares-media-link:focus,
+    .cares-media-link:focus-visible,
+    .cares-media-link:active {
+      background: var(--brand-gradient);
+      background-clip: padding-box;
+      color: #FFFFFF !important;
+      transform: translateY(-2px);
+    }
+
+    .cares-media-link:focus-visible {
+      outline: 2px solid var(--brand-blue);
+      outline-offset: 2px;
+    }
+
     .cares-card-body {
       padding: 22px 24px;
       flex-grow: 1;
@@ -447,6 +503,21 @@
       font-size: 0.9rem;
       color: var(--slate);
       line-height: 1.55;
+    }
+
+    .cares-card-desc a {
+      color: var(--brand-blue);
+      font-weight: 600;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color 0.2s ease;
+    }
+
+    .cares-card-desc a:hover,
+    .cares-card-desc a:focus,
+    .cares-card-desc a:focus-visible,
+    .cares-card-desc a:active {
+      color: var(--brand-blue-hover) !important;
     }
 
     /* Center the remainder row when the card count isn't a multiple of 3 */
@@ -581,9 +652,115 @@
   </section>
 
   <!-- ============================================================
+       2026 CAMPAIGNS
+       ============================================================ -->
+  <section class="section-space cares-campaigns-section" aria-label="2026 Campaigns">
+    <div class="container">
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Where We're Giving Back Now
+        </div>
+        <h2 class="h2-title">2026 Campaigns</h2>
+      </div>
+
+      <div class="cares-grid has-remainder-1">
+
+        <div class="cares-card">
+          <div class="cares-card-img-wrap is-logo">
+            <img src="/wp-content/uploads/2026/10/cares-2026-slc-school-district-logo.webp"
+              alt="Salt Lake City School District logo" width="667" height="442" loading="lazy">
+          </div>
+          <div class="cares-card-body">
+            <h3 class="cares-card-title">Salt Lake City School Board – Monthly Contributor</h3>
+            <p class="cares-card-desc">Strong schools build strong communities. Sites by Sara gives every month to support the Salt Lake City School Board and its work for students, teachers, and families across our city.</p>
+          </div>
+        </div>
+
+        <div class="cares-card">
+          <div class="cares-card-img-wrap is-fit">
+            <img src="/wp-content/uploads/2026/10/cares-2026-house-of-prayer-logo.webp"
+              alt="House of Prayer for All Peoples logo" width="512" height="512" loading="lazy">
+          </div>
+          <div class="cares-card-body">
+            <h3 class="cares-card-title">Table Sponsor – House of Prayer for All Peoples</h3>
+            <p class="cares-card-desc">Sites by Sara was proud to be a table sponsor and donor for <a href="https://houseofprayerforallpeoples.org/" target="_blank" rel="noopener noreferrer">House of Prayer for All Peoples</a>. This continues our partnership with them, which began through our work with Life Is Beautiful Prayers.</p>
+          </div>
+        </div>
+
+        <div class="cares-card">
+          <div class="cares-card-img-wrap is-logo">
+            <img src="/wp-content/uploads/2026/10/cares-2026-slcpd-badge.webp"
+              alt="Salt Lake City Police Department badge" width="360" height="360" loading="lazy">
+          </div>
+          <div class="cares-card-body">
+            <h3 class="cares-card-title">SLC Police Kids Back to School Supplies Program</h3>
+            <p class="cares-card-desc">Every child deserves to start the school year ready to learn. We donated to the Salt Lake City Police Department's Back to School Supplies Program, which helps local kids head back to class with the supplies they need.</p>
+          </div>
+        </div>
+
+        <div class="cares-card">
+          <div class="cares-card-img-wrap is-fit">
+            <img src="/wp-content/uploads/2026/10/cares-2026-mountain-town-music-stage.webp"
+              alt="Sites by Sara stage at Miner's Park for Mountain Town Music" width="705" height="550" loading="lazy">
+            <a class="cares-media-link" href="https://www.instagram.com/reel/DcgboFjhHfg/"
+              target="_blank" rel="noopener noreferrer"
+              aria-label="Watch the Mountain Town Music stage post on Instagram (opens in a new tab)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+          </div>
+          <div class="cares-card-body">
+            <h3 class="cares-card-title">Mountain Town Music – Stage Sponsor</h3>
+            <p class="cares-card-desc">This is our third year in a row as a stage sponsor for <a href="https://mountaintownmusic.org/" target="_blank" rel="noopener noreferrer">Mountain Town Music</a>. We're happy to help bring free live music to our mountain communities all summer long.</p>
+          </div>
+        </div>
+
+        <div class="cares-card">
+          <div class="cares-card-img-wrap is-fit">
+            <img src="/wp-content/uploads/2026/10/cares-2026-jfsu-volunteering.webp"
+              alt="Sites by Sara team volunteering at the Jewish Family Service of Utah food pantry" width="600" height="600" loading="lazy">
+          </div>
+          <div class="cares-card-body">
+            <h3 class="cares-card-title">Jewish Family Service of Utah – Donation &amp; Volunteer Time</h3>
+            <p class="cares-card-desc">We're still proud supporters of <a href="https://jfsutah.org/" target="_blank" rel="noopener noreferrer">Jewish Family Service of Utah</a>. This year our team gave both a financial donation and our own volunteer time to help JFSU serve individuals and families in need.</p>
+          </div>
+        </div>
+
+        <div class="cares-card">
+          <div class="cares-card-img-wrap is-logo">
+            <img src="/wp-content/uploads/2026/10/cares-2026-krcl-logo.webp"
+              alt="KRCL 90.9 FM Salt Lake City logo" width="1088" height="416" loading="lazy">
+          </div>
+          <div class="cares-card-body">
+            <h3 class="cares-card-title">KRCL Community Radio – Monthly Contributor</h3>
+            <p class="cares-card-desc">Sites by Sara gives every month to <a href="https://krcl.org/" target="_blank" rel="noopener noreferrer">KRCL 90.9 FM</a>, Salt Lake's listener-supported community radio station. KRCL amplifies local voices, music, and stories.</p>
+          </div>
+        </div>
+
+        <div class="cares-card">
+          <div class="cares-card-img-wrap is-focus-low">
+            <img src="/wp-content/uploads/2026/10/cares-2026-mountain-west-chamber.webp"
+              alt="Sites by Sara sponsor tent and banner at the Mountain West Chamber scholarship golf event" width="1200" height="1600" loading="lazy">
+          </div>
+          <div class="cares-card-body">
+            <h3 class="cares-card-title">Mountain West Chamber – Sponsor</h3>
+            <p class="cares-card-desc">We sponsor the Mountain West Chamber to support local businesses and the connections that help our regional economy grow.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
        2025 CAMPAIGNS
        ============================================================ -->
-  <section class="section-space cares-campaigns-section" aria-label="2025 Campaigns">
+  <section class="section-space cares-campaigns-section is-alt" aria-label="2025 Campaigns">
     <div class="container">
       <div class="section-header">
         <div class="eyebrow">
@@ -705,7 +882,7 @@
   <!-- ============================================================
        2024 CAMPAIGNS
        ============================================================ -->
-  <section class="section-space cares-campaigns-section is-alt" aria-label="2024 Campaigns">
+  <section class="section-space cares-campaigns-section" aria-label="2024 Campaigns">
     <div class="container">
       <div class="section-header">
         <div class="eyebrow">
@@ -849,7 +1026,7 @@
   <!-- ============================================================
        TOTAL CONTRIBUTIONS
        ============================================================ -->
-  <section class="section-space" aria-label="A Recent Contribution">
+  <section class="section-space cares-total-section is-alt" aria-label="A Recent Contribution">
     <div class="container">
       <div class="section-header">
         <div class="eyebrow">
@@ -861,7 +1038,7 @@
 
       <div class="cares-stat-pullout">
         <div class="cares-stat-number">$2,000</div>
-        <p class="cares-stat-desc">Donated to the House of Prayers for All Peoples, in collaboration with Life Is
+        <p class="cares-stat-desc">Donated to the House of Prayer for All Peoples, in collaboration with Life Is
           Beautiful Prayers.</p>
       </div>
 
