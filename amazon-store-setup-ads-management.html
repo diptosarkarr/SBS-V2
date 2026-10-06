@@ -850,6 +850,175 @@
     color: var(--brand-blue-hover) !important;
   }
 
+  /* ============================================================
+     CASE STUDIES
+     ============================================================ */
+  .case-studies-section {
+    padding: var(--section-gap) 0;
+    background: #FFFFFF;
+  }
+
+  .case-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+    align-items: stretch;
+  }
+
+  .case-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+  }
+
+  .case-card:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+  }
+
+  .case-media {
+    background: var(--bg-light);
+    border-bottom: 1px solid var(--border-light);
+    padding: 16px;
+    height: 280px;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .case-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: var(--radius-sm);
+    background: #FFFFFF;
+  }
+
+  .case-media-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .case-media-pair img {
+    height: auto;
+    max-height: 100%;
+  }
+
+  .case-body {
+    padding: 26px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .case-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--brand-coral);
+    margin-bottom: 8px;
+  }
+
+  .case-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .case-text {
+    font-size: 0.95rem;
+    color: var(--slate);
+    line-height: 1.65;
+    margin-bottom: 20px;
+  }
+
+  .case-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+
+  .case-stat {
+    background: var(--brand-blue-tint);
+    border-radius: var(--radius-md);
+    padding: 12px 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .case-stat-num {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1.2;
+  }
+
+  .case-stat-label {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--slate);
+    margin-top: 3px;
+    line-height: 1.3;
+  }
+
+  .case-download {
+    margin-top: auto;
+    align-self: flex-start;
+    gap: 8px;
+  }
+
+  .case-download svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 900px) {
+    .case-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .case-media {
+      height: auto;
+    }
+
+    .case-media-pair {
+      grid-template-columns: 1fr;
+    }
+
+    .case-media img {
+      height: auto;
+    }
+
+    .case-media-pair img:first-child {
+      max-height: 320px;
+    }
+
+    .case-stats {
+      grid-template-columns: 1fr;
+    }
+
+    .case-body {
+      padding: 22px 20px 24px;
+    }
+  }
+
 </style>
 
 <!-- ============================================================
@@ -880,7 +1049,7 @@
         <h2 class="h2-title">A professional presence on Amazon, from listing to storefront.</h2>
 
         <p class="lead-text">
-          Your Amazon listing is often a customer's first impression of your product. We build optimized listings and custom-branded storefronts, help you enroll in Amazon's Brand Registry and FBA programs, and manage your ads.
+          Sites by Sara is your local agency partner for Amazon store setup and management. We build optimized listings and custom-branded storefronts, help you with Brand Registry and FBA, and manage your ads.
         </p>
 
         <div class="btn-group">
@@ -1000,66 +1169,66 @@
 <!-- ============================================================
      HOW IT WORKS (SCOPE GRID)
      ============================================================ -->
-<section class="section-space scope-section" aria-label="How it works">
+<section class="section-space scope-section" aria-label="What we handle">
   <div class="container">
 
     <div class="section-header">
       <div class="eyebrow">
         <span class="eyebrow-dot"></span>
-        How It Works
+        What We Handle
       </div>
-      <h2 class="h2-title">What goes into your Amazon presence.</h2>
-      <p class="lead-text">From your first product to a fully branded storefront, here's how we get there.</p>
+      <h2 class="h2-title">Everything your Amazon presence needs.</h2>
+      <p class="lead-text">Expertly crafted solutions, tailored to your products and goals.</p>
     </div>
 
     <div class="scope-grid">
 
       <div class="scope-card">
         <div class="scope-num">1</div>
-        <h3 class="scope-title">Discovery Call</h3>
-        <p class="scope-desc">We talk through your products, brand, and current Amazon presence.</p>
+        <h3 class="scope-title">Professional Seller Account</h3>
+        <p class="scope-desc">We guide you through setting up a professional seller account with everything in place for a trustworthy presence.</p>
       </div>
 
       <div class="scope-card">
         <div class="scope-num">2</div>
-        <h3 class="scope-title">Catalog Review</h3>
-        <p class="scope-desc">Reviewing existing listings and identifying what needs building or fixing.</p>
+        <h3 class="scope-title">Amazon Brand Registry</h3>
+        <p class="scope-desc">Protect your brand from counterfeits and unlock enhanced content and extra tools for your listings.</p>
       </div>
 
       <div class="scope-card">
         <div class="scope-num">3</div>
-        <h3 class="scope-title">Listing Copy &amp; SEO</h3>
-        <p class="scope-desc">Writing SEO titles and copy for each product listing you're setting up.</p>
+        <h3 class="scope-title">Store Design &amp; Launch</h3>
+        <p class="scope-desc">A visually appealing storefront that reflects your brand and invites shoppers to explore.</p>
       </div>
 
       <div class="scope-card">
         <div class="scope-num">4</div>
-        <h3 class="scope-title">Professional Images</h3>
-        <p class="scope-desc">Building the professional image content your listings and brand need.</p>
+        <h3 class="scope-title">Content Tiles</h3>
+        <p class="scope-desc">Feature key products, promotions, and your brand story with strategically placed content tiles.</p>
       </div>
 
       <div class="scope-card">
         <div class="scope-num">5</div>
-        <h3 class="scope-title">Video &amp; A+ Content</h3>
-        <p class="scope-desc">Product video and enhanced brand content, where needed.</p>
+        <h3 class="scope-title">Listings That Convert</h3>
+        <p class="scope-desc">Keyword-rich titles, persuasive descriptions, and high-quality images, kept fresh over time.</p>
       </div>
 
       <div class="scope-card">
         <div class="scope-num">6</div>
-        <h3 class="scope-title">Store Design &amp; Build</h3>
-        <p class="scope-desc">Building your custom-branded Amazon storefront.</p>
+        <h3 class="scope-title">Promotions &amp; Discounts</h3>
+        <p class="scope-desc">Limited-time offers and discounts that create urgency and drive purchases.</p>
       </div>
 
       <div class="scope-card">
         <div class="scope-num">7</div>
-        <h3 class="scope-title">Brand Registry &amp; FBA</h3>
-        <p class="scope-desc">Helping you enroll in Amazon's Brand Registry and FBA programs.</p>
+        <h3 class="scope-title">Reviews &amp; Feedback</h3>
+        <p class="scope-desc">We monitor customer reviews and respond promptly to help protect your reputation.</p>
       </div>
 
       <div class="scope-card">
         <div class="scope-num">8</div>
-        <h3 class="scope-title">Launch &amp; Review</h3>
-        <p class="scope-desc">Going live, with a walkthrough of what was built and how it's set up.</p>
+        <h3 class="scope-title">Sponsored Ads</h3>
+        <p class="scope-desc">Sponsored Products campaigns that put your products where customers are searching, refined over time.</p>
       </div>
 
     </div>
@@ -1106,7 +1275,7 @@
         </div>
         <h2 class="story-title">A custom storefront, not just a listing.</h2>
         <p class="story-desc">
-          We build a custom-branded storefront that showcases your full catalog under your own brand, with room to grow as your business does.
+          We build a custom-branded storefront that showcases your full catalog, with content tiles that highlight key products, promotions, and your brand story.
         </p>
         <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1129,7 +1298,7 @@
         </div>
         <h2 class="story-title">Protect your brand and drive traffic to your listings.</h2>
         <p class="story-desc">
-          We help you enroll in Amazon's Brand Registry and FBA programs, then manage your ads on an ongoing basis to bring shoppers to your products.
+          We help you enroll in Amazon's Brand Registry and FBA programs, then run sponsored ad campaigns, refined over time, to bring shoppers to your products.
         </p>
         <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -1142,6 +1311,77 @@
             alt="Amazon Brand Registry and FBA enrollment confirmation screen mockup" width="520" height="390" />
         </div>
       </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     CASE STUDIES (content sourced from the original Amazon services page and its two case-study PDFs)
+     ============================================================ -->
+<section class="case-studies-section" id="case-studies" aria-label="Case Studies">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Case Studies
+      </div>
+      <h2 class="h2-title">Real results on Amazon.</h2>
+      <p class="lead-text">See how hands-on Amazon management has performed for our clients.</p>
+    </div>
+
+    <div class="case-grid">
+
+      <article class="case-card">
+        <div class="case-media case-media-pair">
+          <img src="/wp-content/uploads/2023/10/amazon-best-seller.jpg"
+            alt="Amazon listing image for a senior health product with a #1 Best Seller badge" width="650" height="650"
+            loading="lazy" />
+          <img src="/wp-content/uploads/2024/01/sbs-vs-ai-graph.jpg"
+            alt="Chart of Amazon PPC orders and profit growing from May to September" width="1280" height="853"
+            loading="lazy" />
+        </div>
+        <div class="case-body">
+          <div class="case-label">Senior Healthcare Products</div>
+          <h3 class="case-title">From brand-new launch to Amazon Best Seller</h3>
+          <p class="case-text">
+            A new product entered a crowded category and needed visibility and sales fast. We researched keywords,
+            rebuilt the listings, and ran Amazon PPC with Sponsored Products and Sponsored Brands.
+          </p>
+          <div class="case-stats">
+            <div class="case-stat"><div class="case-stat-num">2,000+</div><div class="case-stat-label">sales in 3 months</div></div>
+            <div class="case-stat"><div class="case-stat-num">75%</div><div class="case-stat-label">revenue growth in 150 days</div></div>
+            <div class="case-stat"><div class="case-stat-num">Best Seller</div><div class="case-stat-label">within 4 months</div></div>
+          </div>
+          <a href="/wp-content/uploads/2023/11/sma-case-study.pdf" class="btn btn-outline case-download"
+            target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>Download the case study</a>
+        </div>
+      </article>
+
+      <article class="case-card">
+        <div class="case-media">
+          <img src="/wp-content/uploads/2023/11/manual-vs-ai.jpg"
+            alt="Bar chart comparing Sites by Sara ad management with AI ad management on ACOS, spend, orders, and cost per acquisition"
+            width="1280" height="853" loading="lazy" />
+        </div>
+        <div class="case-body">
+          <div class="case-label">Hands-On vs. AI Ad Management</div>
+          <h3 class="case-title">More orders at a lower cost per acquisition</h3>
+          <p class="case-text">
+            In a head-to-head Amazon advertising comparison in October 2023, our hands-on management delivered more
+            orders, a lower cost per acquisition, and a lower ACOS than the AI-driven alternative, Flywheel AI.
+          </p>
+          <div class="case-stats">
+            <div class="case-stat"><div class="case-stat-num">632 vs 269</div><div class="case-stat-label">orders</div></div>
+            <div class="case-stat"><div class="case-stat-num">$113.70 vs $181.37</div><div class="case-stat-label">cost per acquisition</div></div>
+            <div class="case-stat"><div class="case-stat-num">Lower</div><div class="case-stat-label">ACOS</div></div>
+          </div>
+          <a href="/wp-content/uploads/2024/01/sItes-by-sara-vs-ai-content-case-study-doc.pdf"
+            class="btn btn-outline case-download" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>Download the case study</a>
+        </div>
+      </article>
+
     </div>
 
   </div>
