@@ -1,9 +1,9 @@
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- SEO: Service structured data (see design.md §7) -->
-  <script type="application/ld+json">
+<!-- SEO: Service structured data (generic by design, see SERVICE-PAGE-GUIDELINES.md) -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -12,72 +12,66 @@
       "@type": "Organization",
       "name": "Sites by Sara"
     },
-    "description": "Social media account setup, plus ongoing monthly content posting and management across up to 3 networks."
+    "description": "Social media profile setup and ongoing content posting and management for your business."
   }
-  </script>
-  <!-- SEO: FAQPage structured data — mirrors the visible FAQ section verbatim -->
-  <script type="application/ld+json">
+</script>
+<!-- SEO: FAQPage structured data, generated from the same list as the visible FAQ -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What's included in Social Media Management?",
+        "name": "What does social media management include?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ongoing content posting across up to 3 networks. Three tiers by posting volume: 5 posts/month, 12 posts/month, or 20 posts/month. See the pricing above for current rates."
+          "text": "Ongoing content planning and posting across your social networks, tailored to your brand."
         }
       },
       {
         "@type": "Question",
-        "name": "Do I need Social Account Setup before Social Media Management starts?",
+        "name": "Do I need account setup first?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Only if you don't already have social profiles. Social Account Setup (a one-time fee per profile) handles handle reservation and a branded profile image for each new profile. If your accounts already exist, you can start directly with Social Media Management."
+          "text": "Only if you don't already have social profiles. If your accounts exist, we can start posting right away."
         }
       },
       {
         "@type": "Question",
-        "name": "How many social networks are covered?",
+        "name": "Which social networks can you manage?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Up to 3 networks are included in every Social Media Management tier."
+          "text": "We'll talk through which networks matter most to your business in your free consultation and recommend where to focus."
         }
       },
       {
         "@type": "Question",
-        "name": "What's the difference between the three Social Media Management tiers?",
+        "name": "How do I choose how often to post?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Posting volume: 5 posts/month, 12 posts/month, or 20 posts/month — all three cover up to 3 networks. See the pricing above for current rates."
+          "text": "We'll recommend a posting rhythm based on your business and goals in your free consultation."
         }
       },
       {
         "@type": "Question",
-        "name": "Is Social Account Setup priced per platform or one flat fee?",
+        "name": "Do you run paid social ads too?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Per profile. Social Account Setup is a one-time fee for each individual social profile set up."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you run paid social ads too, not just organic posting?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes — paid social advertising (Meta Ads and Meta Boost Posts) is a separate service. See our Google & Meta Ads page for ad campaign setup and management."
+          "text": "Yes, as a separate service. See our Google & Meta Ads page for ad campaign setup and management."
         }
       }
     ]
   }
-  </script>
+</script>
 
-  <style>
+<style>
     /* ============================================================
      DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
      ============================================================ */
     :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
       --brand-blue: #3A539B;
       --brand-blue-hover: #2F437D;
       --brand-blue-tint: #EEF2FA;
@@ -174,15 +168,7 @@
     }
 
     .section-space {
-      padding: clamp(70px, 8vw, 110px) 0;
-    }
-
-    .section-space-tight {
-      padding: clamp(40px, 5vw, 65px) 0;
-    }
-
-    .text-center {
-      text-align: center;
+      padding: var(--section-gap) 0;
     }
 
     .section-header {
@@ -375,7 +361,7 @@
      HERO SECTION
      ============================================================ */
     .hero-section {
-      padding: clamp(48px, 6vw, 76px) 0 clamp(40px, 6vw, 70px);
+      padding: var(--section-gap) 0;
       overflow: hidden;
     }
 
@@ -388,17 +374,6 @@
 
     .hero-left {
       max-width: 580px;
-    }
-
-    .hero-footnote {
-      font-size: 0.88rem;
-      color: var(--slate-light);
-      line-height: 1.5;
-    }
-
-    .hero-footnote strong {
-      color: var(--slate);
-      font-weight: 600;
     }
 
     .hero-visual-wrap {
@@ -428,48 +403,50 @@
       object-fit: cover;
     }
 
-    /* ============================================================
-     TRUST & CAPABILITY METRICS RIBBON
+  /* ============================================================
+     TRUST STRIP: identical on every service page and on the homepage
      ============================================================ */
-    .trust-ribbon-section {
-      padding: 38px 0;
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-      background: var(--brand-blue-subtle);
-    }
+  .site-trust-strip {
+    padding: clamp(20px, 2.5vw, 24px) 0;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--bg-light);
+  }
 
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      text-align: center;
-    }
+  .site-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
 
-    .trust-stat-item {
-      padding: 8px 16px;
-    }
+  .site-trust-number {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1.15;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
 
-    .trust-stat-number {
-      font-size: 2.1rem;
-      font-weight: 700;
-      color: var(--brand-blue);
-      line-height: 1.1;
-      margin-bottom: 4px;
-      letter-spacing: -0.02em;
-    }
+  .site-trust-label {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--slate);
+    line-height: 1.35;
+  }
 
-    .trust-stat-label {
-      font-size: 0.86rem;
-      font-weight: 600;
-      color: var(--slate);
-      line-height: 1.35;
+  @media (max-width: 820px) {
+    .site-trust-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
     }
+  }
 
     /* ============================================================
      PRICING SECTION
      ============================================================ */
     .pricing-section {
-      padding: clamp(70px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
       background: #FFFFFF;
     }
 
@@ -481,265 +458,6 @@
       padding: clamp(24px, 4vw, 44px);
       max-width: 1120px;
       margin: 0 auto;
-    }
-
-    .pricing-top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border-light);
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .pricing-platform-pills {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .platform-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--navy);
-      background: #F1F3F9;
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-    }
-
-    .pricing-currency-badge {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--slate);
-    }
-
-    .pricing-divider {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--brand-blue);
-      margin: 36px 0 16px;
-      padding-top: 28px;
-      border-top: 1px solid var(--border-light);
-    }
-
-    .pricing-outer-container>.pricing-divider:first-of-type {
-      margin-top: 0;
-      padding-top: 0;
-      border-top: none;
-    }
-
-    /* 3-Column Tier Grid (Social Media Management) */
-    .pricing-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .pricing-card-col {
-      background: #FFFFFF;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 26px 20px 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      transition: all 0.25s ease;
-    }
-
-    .pricing-card-col:hover {
-      border-color: #BDC1C6;
-      box-shadow: var(--shadow-subtle);
-    }
-
-    .pricing-card-col.is-featured {
-      border: 2px solid var(--brand-blue);
-      box-shadow: 0 10px 28px rgba(58, 83, 155, 0.14);
-    }
-
-    .featured-badge {
-      position: absolute;
-      top: -12px;
-      left: 18px;
-      background: var(--brand-gradient);
-      color: #FFFFFF;
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: var(--radius-pill);
-      box-shadow: 0 2px 8px rgba(2, 80, 197, 0.25);
-    }
-
-    .plan-name {
-      font-size: 1.08rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-
-    .plan-price-row {
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-      margin-bottom: 4px;
-      flex-wrap: wrap;
-    }
-
-    .plan-price {
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1;
-    }
-
-    .plan-period {
-      font-size: 0.78rem;
-      color: var(--slate);
-      font-weight: 600;
-    }
-
-    .plan-subtext {
-      font-size: 0.82rem;
-      color: var(--brand-blue);
-      font-weight: 600;
-      margin-bottom: 18px;
-    }
-
-    .btn-plan {
-      display: block;
-      width: 100%;
-      text-align: center;
-      font-size: 0.92rem;
-      font-weight: 600;
-      padding: 11px;
-      border-radius: var(--radius-pill);
-      margin-bottom: 22px;
-      transition: all 0.2s ease;
-    }
-
-    .btn-plan-primary {
-      background: var(--brand-gradient);
-      color: #FFFFFF;
-      box-shadow: 0 3px 12px rgba(2, 80, 197, 0.22);
-    }
-
-    .btn-plan-primary:hover,
-    .btn-plan-primary:focus,
-    .btn-plan-primary:focus-visible,
-    .btn-plan-primary:active {
-      background: var(--brand-gradient-hover);
-      box-shadow: 0 5px 16px rgba(212, 63, 141, 0.32);
-      color: #FFFFFF !important;
-    }
-
-    .btn-plan-outline {
-      background: transparent;
-      color: var(--brand-blue);
-      border: 1.5px solid var(--border);
-    }
-
-    .btn-plan-outline:hover,
-    .btn-plan-outline:focus,
-    .btn-plan-outline:focus-visible,
-    .btn-plan-outline:active {
-      background: var(--brand-peach);
-      border-color: var(--brand-blue);
-      color: var(--brand-blue) !important;
-    }
-
-    .plan-features-label {
-      font-size: 0.76rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--slate-light);
-      margin-bottom: 10px;
-    }
-
-    .plan-features-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-      font-size: 0.84rem;
-      color: var(--slate);
-      line-height: 1.4;
-    }
-
-    .plan-features-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 7px;
-    }
-
-    .plan-features-list li svg {
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .pricing-card-col.is-featured .plan-features-list li svg {
-      color: var(--brand-blue);
-    }
-
-    .pricing-card-col:not(.is-featured) .plan-features-list li svg {
-      color: var(--green);
-    }
-
-    /* Single highlighted offer box (Social Account Setup — secondary flow) */
-    .single-offer-wrap {
-      max-width: 380px;
-      margin: 0 auto;
-    }
-
-    .pricing-tier-note {
-      font-size: 0.82rem;
-      color: var(--slate-light);
-      margin-top: 12px;
-      line-height: 1.5;
-      text-align: center;
-    }
-
-    .pricing-disclaimer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--slate-light);
-      margin-top: 28px;
-      line-height: 1.6;
-      max-width: 760px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .pricing-inline-link {
-      text-align: center;
-      font-size: 0.92rem;
-      color: var(--slate);
-      margin-top: 16px;
-    }
-
-    .pricing-inline-link a {
-      color: var(--brand-blue);
-      font-weight: 600;
-      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .pricing-inline-link a:hover,
-    .pricing-inline-link a:focus,
-    .pricing-inline-link a:focus-visible,
-    .pricing-inline-link a:active {
-      color: var(--brand-blue-hover) !important;
-      border-color: var(--brand-blue-hover);
     }
 
     /* ============================================================
@@ -804,7 +522,7 @@
      ALTERNATING STORYTELLING FEATURES (High Breathing Space)
      ============================================================ */
     .story-features-section {
-      padding: clamp(60px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .story-row {
@@ -903,7 +621,7 @@
      ============================================================ */
     .faq-section {
       background: #FAFAFC;
-      padding: clamp(70px, 8vw, 100px) 0;
+      padding: var(--section-gap) 0;
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
     }
@@ -986,7 +704,7 @@
      NEXT STEPS / CONSULTATION CHECKLIST BANNER
      ============================================================ */
     .cta-banner-section {
-      padding: clamp(70px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .cta-banner-box {
@@ -1064,9 +782,6 @@
      RESPONSIVE BREAKPOINTS
      ============================================================ */
     @media (max-width: 1024px) {
-      .pricing-grid-3 {
-        grid-template-columns: repeat(2, 1fr);
-      }
 
       .scope-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1090,16 +805,9 @@
         order: 2;
       }
 
-      .trust-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
     }
 
-    @media (max-width: 600px) {
-
-      .pricing-grid-3,
-      .scope-grid {
+    @media (max-width: 600px) {.scope-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1112,445 +820,446 @@
         width: 100%;
       }
     }
-  </style>
+    /* Short supporting line under a section's cards/grid; also used for related-service links */
+  .section-note {
+    text-align: center;
+    max-width: 720px;
+    margin: 28px auto 0;
+    font-size: 0.98rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
 
-  <!-- ============================================================
+  .section-note + .section-note {
+    margin-top: 12px;
+  }
+
+  .section-note a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
+
+  .section-note a:hover,
+  .section-note a:focus,
+  .section-note a:focus-visible,
+  .section-note a:active {
+    color: var(--brand-blue-hover) !important;
+  }
+
+</style>
+
+<!-- ============================================================
        PAGE TITLE BANNER
        ============================================================ -->
-  <section class="page-title-banner" aria-label="Page Title">
-    <div class="page-title-banner-mesh" aria-hidden="true"></div>
-    <div class="container page-title-inner">
-      <h1 class="page-banner-h1">Social Media Setup &amp; Management</h1>
-      <p class="page-banner-sub">(Account Setup, Content Posting &amp; Ongoing Management)</p>
-    </div>
-  </section>
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <h1 class="page-banner-h1">Social Media Setup &amp; Management</h1>
+    <p class="page-banner-sub">(Account Setup, Content Posting &amp; Ongoing Management)</p>
+  </div>
+</section>
 
-  <!-- ============================================================
+<!-- ============================================================
        HERO SECTION
        ============================================================ -->
-  <section class="hero-section" id="overview">
-    <div class="container">
-      <div class="hero-grid">
+<section class="hero-section" id="overview">
+  <div class="container">
+    <div class="hero-grid">
 
-        <!-- Hero Copy -->
-        <div class="hero-left">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Social Media
-          </div>
-
-          <h2 class="h2-title">Consistent social posting, without it landing on your plate.</h2>
-
-          <p class="lead-text">
-            Sites by Sara handles social media for you — from reserving and branding new profiles to ongoing
-            monthly content posting across up to 3 networks, so your social presence stays active without eating
-            into your week.
-          </p>
-
-          <div class="btn-group">
-            <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
-              Consultation</a>
-            <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
-          </div>
-
-          <div class="hero-footnote">
-            <strong>Social Media Management and Social Account Setup are priced and ordered separately.</strong>
-            See the full pricing breakdown below.
-          </div>
-        </div>
-
-        <!-- Hero Visual Mockup -->
-        <div class="hero-visual-wrap">
-          <div class="hero-image-card">
-            <img src="/wp-content/uploads/2026/09/social-media-setup-management-hero.webp"
-              alt="Social media content calendar and posting schedule mockup across multiple networks" width="600"
-              height="450" />
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-     TRUST & CAPABILITY METRICS RIBBON
-     ============================================================ -->
-  <section class="trust-ribbon-section" aria-label="Key Service Facts">
-    <div class="container">
-      <div class="trust-grid">
-        <div class="trust-stat-item">
-          <div class="trust-stat-number">3</div>
-          <div class="trust-stat-label">Posting Tiers Available</div>
-        </div>
-        <div class="trust-stat-item">
-          <div class="trust-stat-number">3</div>
-          <div class="trust-stat-label">Networks Covered Per Plan</div>
-        </div>
-        <div class="trust-stat-item">
-          <div class="trust-stat-number">2</div>
-          <div class="trust-stat-label">Service Types Available</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-     PRICING SECTION
-     ============================================================ -->
-  <section class="pricing-section" id="pricing">
-    <div class="container">
-
-      <div class="section-header">
+      <!-- Hero Copy -->
+      <div class="hero-left">
         <div class="eyebrow">
           <span class="eyebrow-dot"></span>
-          Simple, Transparent Pricing
-        </div>
-        <h2 class="h2-title">Pick your posting volume, add setup if you need it.</h2>
-        <p class="lead-text">Social Media Management is an ongoing monthly plan. Social Account Setup is a
-          one-time add-on for profiles that don't exist yet.</p>
-      </div>
-
-      <div class="pricing-outer-container">
-
-        <!-- Top Bar -->
-        <div class="pricing-top-bar">
-          <div class="pricing-platform-pills">
-            <span class="platform-tag">Social Media Management</span>
-            <span class="platform-tag">Social Account Setup</span>
-          </div>
-          <span class="pricing-currency-badge">One-time setup &amp; monthly management · USD</span>
+          Social Media
         </div>
 
-        <!-- Social Media Management (primary — 3-tier grid) -->
-        <iframe class="sbs-pricing-frame"
-          src="https://order.sitesbysara.com/configure/pricing-cards?ids=84,85,86&popular=84&title=Social%20Media%20Management%20(Ongoing)"
-          style="width:100%;border:0;display:block;margin-bottom:40px;" loading="lazy"></iframe>
+        <h2 class="h2-title">Consistent social posting, without it landing on your plate.</h2>
 
-        <!-- Social Account Setup (secondary — single highlighted offer) -->
-        <iframe class="sbs-pricing-frame"
-          src="https://order.sitesbysara.com/configure/pricing-cards?ids=87&title=Social%20Account%20Setup%20(One-Time)"
-          style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+        <p class="lead-text">
+          Sites by Sara handles social media for you, from reserving and branding new profiles to ongoing content posting across your networks, so your social presence stays active without eating into your week.
+        </p>
 
-      </div>
-
-      <p class="pricing-disclaimer">
-        Social Media Management is an ongoing monthly service covering up to 3 networks at your chosen posting
-        volume. Social Account Setup is a separate one-time fee, priced per individual profile.
-      </p>
-
-      <p class="pricing-inline-link">
-        Want to run paid social ads too, not just organic posts? See our <a href="/google-meta-ads/">Google &amp;
-          Meta Ads</a> page.
-      </p>
-
-    </div>
-  </section>
-
-  <script>
-    window.addEventListener('message', function (e) {
-      if (e.data && e.data.source === 'sbs-pricing-cards') {
-        document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
-          if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
-        });
-      }
-    });
-  </script>
-
-  <!-- ============================================================
-     DETAILED BREAKDOWN: OUR PROCESS (8-Step Scope)
-     ============================================================ -->
-  <section class="section-space scope-section" aria-label="Social media breakdown">
-    <div class="container">
-
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Detailed Breakdown
-        </div>
-        <h2 class="h2-title">What's involved in setting up and managing your social media.</h2>
-        <p class="lead-text">From reserving your handles to your monthly performance check-in.</p>
-      </div>
-
-      <div class="scope-grid">
-
-        <div class="scope-card">
-          <div class="scope-num">1</div>
-          <h3 class="scope-title">Discovery Call</h3>
-          <p class="scope-desc">We talk through your brand, audience, and which networks matter most.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">2</div>
-          <h3 class="scope-title">Handle Reservation</h3>
-          <p class="scope-desc">Reserving your handles on each network, for accounts that don't exist yet.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">3</div>
-          <h3 class="scope-title">Branded Profile Setup</h3>
-          <p class="scope-desc">Setting up a branded profile image and details for each new profile.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">4</div>
-          <h3 class="scope-title">Content Calendar Planning</h3>
-          <p class="scope-desc">Planning what gets posted, and when, for your chosen posting volume.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">5</div>
-          <h3 class="scope-title">Content Creation</h3>
-          <p class="scope-desc">Creating posts tailored to your brand across up to 3 networks.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">6</div>
-          <h3 class="scope-title">Scheduling &amp; Posting</h3>
-          <p class="scope-desc">Getting content live on schedule across your connected networks.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">7</div>
-          <h3 class="scope-title">Ongoing Management</h3>
-          <p class="scope-desc">Keeping your posting schedule consistent, month after month.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">8</div>
-          <h3 class="scope-title">Monthly Check-In</h3>
-          <p class="scope-desc">Reviewing what's working and adjusting your content plan as needed.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
-     ============================================================ -->
-  <section class="story-features-section">
-    <div class="container">
-
-      <!-- Feature 1: Management -->
-      <div class="story-row">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Stay Active, Without The Time Sink
-          </div>
-          <h2 class="story-title">Consistent posting is the hardest part — we handle it.</h2>
-          <p class="story-desc">
-            Social Media Management covers content posting across up to 3 networks, at a volume that matches your
-            business — from a light 5 posts a month up to a high-frequency 20 posts a month.
-          </p>
-          <a href="#pricing" class="story-link">See management tiers<svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/social-media-management-detail.webp"
-              alt="Social media posting schedule across three connected network icons" width="520" height="390" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature 2: Account Setup -->
-      <div class="story-row is-reversed">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            New To Social?
-          </div>
-          <h2 class="story-title">We'll reserve your handles and brand your profiles first.</h2>
-          <p class="story-desc">
-            If you don't have social profiles yet, Social Account Setup handles handle reservation and a branded
-            profile image for each one — so your accounts are ready before Social Media Management starts
-            posting.
-          </p>
-          <a href="#pricing" class="story-link">See Social Account Setup pricing<svg viewBox="0 0 24 24"
-              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/social-account-setup-detail.webp"
-              alt="Social media profile setup screen with branded profile image and handle" width="520"
-              height="390" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature 3: Paid Social Cross-Sell -->
-      <div class="story-row">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Want Paid Reach Too?
-          </div>
-          <h2 class="story-title">Organic posting builds your presence — paid ads can extend its reach.</h2>
-          <p class="story-desc">
-            Social Media Management is organic content posting. If you also want paid social advertising —
-            boosted posts or full Meta Ads campaigns — that's a separate service priced on its own.
-          </p>
-          <a href="/google-meta-ads/" class="story-link">See Google &amp; Meta Ads<svg viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/organic-vs-paid-social-detail.webp"
-              alt="Organic social post next to a paid ad campaign icon, side by side" width="520" height="390" />
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-     FAQ SECTION (Clean Accordion)
-     ============================================================ -->
-  <section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
-    <div class="container">
-
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Common Questions
-        </div>
-        <h2 class="h2-title">Frequently Asked Questions</h2>
-        <p class="lead-text">Everything you need to know about our social media setup and management.</p>
-      </div>
-
-      <div class="faq-wrap">
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>What's included in Social Media Management?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Ongoing content posting across <strong>up to 3 networks</strong>. Three tiers by posting volume:
-            <strong>5 posts/month</strong>, <strong>12 posts/month</strong>, or
-            <strong>20 posts/month</strong>. See the pricing above for current rates.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>Do I need Social Account Setup before Social Media Management starts?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Only if you don't already have social profiles. <strong>Social Account Setup</strong> (a one-time fee
-            per profile) handles handle reservation and a branded profile image for each new profile. If
-            your accounts already exist, you can start directly with Social Media Management.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>How many social networks are covered?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            <strong>Up to 3 networks</strong> are included in every Social Media Management tier.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>What's the difference between the three Social Media Management tiers?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Posting volume: <strong>5 posts/month</strong>, <strong>12 posts/month</strong>, or
-            <strong>20 posts/month</strong> — all three cover up to 3 networks. See the pricing above for
-            current rates.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>Is Social Account Setup priced per platform or one flat fee?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            <strong>Per profile.</strong> Social Account Setup is a one-time fee for each individual social
-            profile set up.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>Do you run paid social ads too, not just organic posting?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Yes — paid social advertising (Meta Ads and Meta Boost Posts) is a separate service. See our <a
-              href="/google-meta-ads/"><strong>Google &amp; Meta Ads</strong></a> page for ad campaign setup and
-            management.
-          </div>
-        </details>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-     NEXT STEPS / CONSULTATION CHECKLIST BANNER
-     ============================================================ -->
-  <section class="cta-banner-section" id="consultation">
-    <div class="container">
-      <div class="cta-banner-box">
-
-        <div class="cta-banner-left">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Next Steps
-          </div>
-          <h2>Ready to get your social media set up or managed?</h2>
-          <p>
-            Book a free consultation and tell us which networks matter most to your business — we'll recommend
-            the right posting volume.
-          </p>
+        <div class="btn-group">
           <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
             Consultation</a>
+          <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
         </div>
+      </div>
 
-        <div class="prep-card-right">
-          <h4 class="prep-card-title">Helpful to have ready:</h4>
-          <ul class="prep-list">
-            <li>
-              <span class="prep-list-num">1</span>
-              <span>Which social networks you want to be active on</span>
-            </li>
-            <li>
-              <span class="prep-list-num">2</span>
-              <span>Whether you already have profiles set up</span>
-            </li>
-            <li>
-              <span class="prep-list-num">3</span>
-              <span>Your brand logo and profile image assets</span>
-            </li>
-            <li>
-              <span class="prep-list-num">4</span>
-              <span>How often you'd like new content posted</span>
-            </li>
-            <li>
-              <span class="prep-list-num">5</span>
-              <span>Whether you also want paid social ads</span>
-            </li>
-          </ul>
+      <!-- Hero Visual Mockup -->
+      <div class="hero-visual-wrap">
+        <div class="hero-image-card">
+          <img src="/wp-content/uploads/2026/09/social-media-setup-management-hero.webp"
+            alt="Social media content calendar and posting schedule mockup across multiple networks" width="600" height="450" />
         </div>
+      </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+   TRUST & CAPABILITY METRICS RIBBON
+   ============================================================ -->
+<section class="site-trust-strip" aria-label="Key Agency Facts">
+  <div class="container">
+    <div class="site-trust-grid">
+      <div>
+        <div class="site-trust-number" data-count-to="2007">2007</div>
+        <div class="site-trust-label">Serving Utah Businesses Since</div>
+      </div>
+      <div>
+        <div class="site-trust-number" data-count-to="300" data-count-suffix="+">300+</div>
+        <div class="site-trust-label">Customer Success Stories</div>
+      </div>
+      <div>
+        <div class="site-trust-number" data-count-to="57">57</div>
+        <div class="site-trust-label">Industry Recognitions &amp; Awards</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+<script>
+  (function () {
+    var els = document.querySelectorAll('.site-trust-number[data-count-to]');
+    if (!els.length) return;
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function animate(el) {
+      var target = parseInt(el.getAttribute('data-count-to'), 10);
+      var suffix = el.getAttribute('data-count-suffix') || '';
+      if (isNaN(target)) return;
+      if (reduced) { el.textContent = target + suffix; return; }
+      var start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var progress = Math.min((ts - start) / 1400, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - progress, 3))) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    var grid = els[0].closest('.site-trust-grid');
+    if (grid && !reduced && 'IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) {
+          els.forEach(animate);
+          observer.disconnect();
+        }
+      }, { threshold: 0.4 });
+      observer.observe(grid);
+    } else {
+      els.forEach(animate);
+    }
+  })();
+</script>
+
+<!-- ============================================================
+     PRICING SECTION
+     ============================================================ -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Pricing
+      </div>
+      <h2 class="h2-title">Choose the social media support that fits your business.</h2>
+      <p class="lead-text">Compare the options below, or book a free consultation and we'll help you decide.</p>
+    </div>
+
+    <div class="pricing-outer-container">
+      <iframe class="sbs-pricing-frame"
+        src="https://order.sitesbysara.com/configure/pricing-cards?ids=84,85,86,87&popular=84&title=Social%20Media%20Setup%20%26%20Management"
+        title="Pricing options" style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+    </div>
+
+    <p class="section-note">Looking for more ways to grow your business? Explore
+      <a class="related-link" href="/google-meta-ads/">Google &amp; Meta Ads</a> and
+      <a class="related-link" href="/marketing-visibility-packages/">Marketing Visibility Packages</a>.</p>
+
+  </div>
+</section>
+
+<script>
+  window.addEventListener('message', function (e) {
+    if (e.data && e.data.source === 'sbs-pricing-cards') {
+      document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
+        if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
+      });
+    }
+  });
+</script>
+
+<!-- ============================================================
+     HOW IT WORKS (SCOPE GRID)
+     ============================================================ -->
+<section class="section-space scope-section" aria-label="How it works">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        How It Works
+      </div>
+      <h2 class="h2-title">What goes into setting up and managing your social media.</h2>
+      <p class="lead-text">From reserving your handles to regular check-ins.</p>
+    </div>
+
+    <div class="scope-grid">
+
+      <div class="scope-card">
+        <div class="scope-num">1</div>
+        <h3 class="scope-title">Discovery Call</h3>
+        <p class="scope-desc">We talk through your brand, audience, and which networks matter most.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">2</div>
+        <h3 class="scope-title">Handle Reservation</h3>
+        <p class="scope-desc">Reserving your handles on each network, for accounts that don't exist yet.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">3</div>
+        <h3 class="scope-title">Branded Profile Setup</h3>
+        <p class="scope-desc">Setting up a branded profile image and details for each new profile.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">4</div>
+        <h3 class="scope-title">Content Calendar Planning</h3>
+        <p class="scope-desc">Planning what gets posted, and when.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">5</div>
+        <h3 class="scope-title">Content Creation</h3>
+        <p class="scope-desc">Creating posts tailored to your brand for each network.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">6</div>
+        <h3 class="scope-title">Scheduling &amp; Posting</h3>
+        <p class="scope-desc">Getting content live on schedule across your connected networks.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">7</div>
+        <h3 class="scope-title">Ongoing Management</h3>
+        <p class="scope-desc">Keeping your posting consistent, month after month.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">8</div>
+        <h3 class="scope-title">Regular Check-Ins</h3>
+        <p class="scope-desc">Reviewing what's working and adjusting your content as needed.</p>
+      </div>
+
+    </div>
+
+    <p class="section-note">Every brand is different, so we shape the work around your audience and goals.</p>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     ============================================================ -->
+<section class="story-features-section">
+  <div class="container">
+
+    <div class="story-row">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Stay Active, Without The Time Sink
+        </div>
+        <h2 class="story-title">Consistent posting is the hardest part. We handle it.</h2>
+        <p class="story-desc">
+          We handle content posting across your networks at a volume that matches your business, so your presence stays active.
+        </p>
+        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/social-media-management-detail.webp"
+            alt="Social media posting schedule across connected network icons" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <div class="story-row is-reversed">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          New To Social?
+        </div>
+        <h2 class="story-title">We'll reserve your handles and brand your profiles first.</h2>
+        <p class="story-desc">
+          If you don't have social profiles yet, we can reserve your handles and set up a branded profile for each one, so your accounts are ready before posting starts.
+        </p>
+        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/social-account-setup-detail.webp"
+            alt="Social media profile setup screen with branded profile image and handle" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Want Paid Reach Too?
+        </div>
+        <h2 class="story-title">Organic posting builds your presence. Paid ads can extend its reach.</h2>
+        <p class="story-desc">
+          Social media management is organic content posting. If you also want paid social advertising, such as boosted posts or Meta Ads campaigns, that's a separate service.
+        </p>
+        <a href="/google-meta-ads/" class="story-link">Explore Google &amp; Meta Ads<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/organic-vs-paid-social-detail.webp"
+            alt="Organic social post next to a paid ad campaign icon, side by side" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ SECTION (Clean Accordion)
+     ============================================================ -->
+<section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Common Questions
+      </div>
+      <h2 class="h2-title">Frequently Asked Questions</h2>
+      <p class="lead-text">Quick answers about social media setup and management.</p>
+    </div>
+
+    <div class="faq-wrap">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What does social media management include?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Ongoing content planning and posting across your social networks, tailored to your brand.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do I need account setup first?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Only if you don't already have social profiles. If your accounts exist, we can start posting right away.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Which social networks can you manage?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          We'll talk through which networks matter most to your business in your free consultation and recommend where to focus.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>How do I choose how often to post?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          We'll recommend a posting rhythm based on your business and goals in your free consultation.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do you run paid social ads too?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes, as a separate service. See our Google &amp; Meta Ads page for ad campaign setup and management.
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ -->
+<section class="cta-banner-section" id="consultation">
+  <div class="container">
+    <div class="cta-banner-box">
+
+      <div class="cta-banner-left">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Next Steps
+        </div>
+        <h2>Ready to get your social media set up or managed?</h2>
+        <p>
+          Book a free consultation and tell us which networks matter most to your business, and we'll recommend the right approach.
+        </p>
+        <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+          Consultation</a>
+      </div>
+
+      <div class="prep-card-right">
+        <h4 class="prep-card-title">Helpful to have ready:</h4>
+        <ul class="prep-list">
+          <li>
+            <span class="prep-list-num">1</span>
+            <span>Which social networks you want to be active on</span>
+          </li>
+          <li>
+            <span class="prep-list-num">2</span>
+            <span>Whether you already have profiles set up</span>
+          </li>
+          <li>
+            <span class="prep-list-num">3</span>
+            <span>Your brand logo and profile image assets</span>
+          </li>
+          <li>
+            <span class="prep-list-num">4</span>
+            <span>Whether you also want paid social ads</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>

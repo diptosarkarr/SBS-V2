@@ -1,9 +1,8 @@
-<!-- Google Fonts: Manrope -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- SEO: Service structured data (see design.md §7) -->
+<!-- SEO: Service structured data (generic by design, see SERVICE-PAGE-GUIDELINES.md) -->
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -13,10 +12,10 @@
       "@type": "Organization",
       "name": "Sites by Sara"
     },
-    "description": "Custom WordPress website design and development, scoped by page count, with add-ons for growing an existing site."
+    "description": "Custom WordPress website design and development, from theme customization to launch, tailored to your business."
   }
-  </script>
-<!-- SEO: FAQPage structured data — mirrors the visible FAQ section verbatim -->
+</script>
+<!-- SEO: FAQPage structured data, generated from the same list as the visible FAQ -->
 <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -24,69 +23,55 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "Why should I choose custom WordPress website design over a pre-made template or DIY builder?",
+        "name": "Why choose a custom WordPress website over a template or DIY builder?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Custom WordPress websites offer a level of personalization, architectural flexibility, and brand distinctiveness that pre-made templates or DIY website builders simply cannot match. Generic templates often come bloated with excess code and plugins that degrade page speed and create security liabilities. A custom WordPress site is engineered specifically to align with your brand, deliver superior user experiences, rank higher in Google searches, and scale effortlessly as your business grows."
+          "text": "A custom site is designed around your brand and goals instead of a one-size-fits-all template. It tends to be faster, easier to grow, and more distinctive."
         }
       },
       {
         "@type": "Question",
-        "name": "How long does it take to develop a custom WordPress website?",
+        "name": "How long does it take to build a custom WordPress website?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "That depends on the size and complexity of the job. Most projects are completed within 4 weeks from the time we have received 100% of the client-promised content. A 2-10 page Starter build and our largest page-count tier are very different projects, so we establish a clear, milestone-driven timeline during the discovery phase."
+          "text": "It depends on the size and complexity of your site and how quickly your content is ready. We set a clear timeline together during discovery."
         }
       },
       {
         "@type": "Question",
-        "name": "Can I update content on my custom WordPress website myself?",
+        "name": "Can I update the content on my website myself?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, absolutely! One of the premier advantages of our custom WordPress websites is our clean Content Management System (CMS) implementation using the native WordPress Block Editor (Gutenberg). You and your team will be able to easily update text, swap out images, publish new blog articles, and add portfolio items without needing any coding or technical knowledge. We also provide full training and recorded video walkthroughs."
+          "text": "Yes. Your site is built on WordPress, so you can edit text, images, and blog posts yourself without any coding. We are happy to show you how."
         }
       },
       {
         "@type": "Question",
-        "name": "Will my custom WordPress website be mobile-friendly?",
+        "name": "Will my website work well on mobile?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Without question. Every custom website we design is 100% mobile-responsive, built from a mobile-first perspective. We test extensively on iPhones, Android smartphones, tablets, and desktop displays to ensure responsive typography, proportional imagery, and intuitive navigation across every screen size."
+          "text": "Yes. Every site we build is designed to look and work great on phones, tablets, and desktop screens."
         }
       },
       {
         "@type": "Question",
-        "name": "How is SEO handled for my custom WordPress website?",
+        "name": "Can I add more pages later?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "WordPress is internationally recognized for its SEO-friendly architecture, and our bespoke development maximizes this advantage. Every build includes stronger SEO/AEO as standard — clean semantic markup, structured metadata, and an SEO-ready page structure. This gives your business an immediate structural edge in search engine results pages (SERPs)."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is my custom WordPress website secure from cyber threats?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Security is an absolute priority in our engineering practice. Because we write clean, custom code without relying on vulnerable third-party template bloat, your attack surface is drastically minimized. We implement enterprise security protocols, including hardened wp-config rules, brute-force login protection, SSL/HTTPS enforcement, and automated database backups. Furthermore, our WordPress Hosting & Maintenance (WHAM) plans offer 24/7 security monitoring and patch management."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I add more pages or blog posts to my existing WordPress site without a full rebuild?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. For sites beyond our largest page-count tier, additional pages are available through the Add Pages add-on, billed one-time per additional set of 10 pages — see the pricing above for current rates. If you just need new blog content written, that's handled as a separate content writing service — see our Copywriting & Content Writing page."
+          "text": "Yes. Your site can grow as your business does. Tell us what you have in mind and we will recommend the right approach."
         }
       }
     ]
   }
-  </script>
+</script>
 
 <style>
   /* ============================================================
      DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
      ============================================================ */
   :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
     /* Brand Identity Palette */
     --brand-blue: #3A539B;
     --brand-blue-hover: #2F437D;
@@ -190,11 +175,11 @@
 
   /* Section Vertical Rhythm */
   .section-space {
-    padding: clamp(70px, 8vw, 110px) 0;
+    padding: var(--section-gap) 0;
   }
 
   .section-space-tight {
-    padding: clamp(40px, 5vw, 65px) 0;
+    padding: var(--section-gap) 0;
   }
 
   .text-center {
@@ -264,10 +249,6 @@
     display: inline-block;
   }
 
-  .eyebrow-dot-blue {
-    background-color: var(--brand-blue);
-  }
-
   /* ============================================================
      BUTTONS SYSTEM
      ============================================================ */
@@ -321,57 +302,8 @@
     color: var(--brand-blue) !important;
   }
 
-  .btn-plan {
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-family: var(--font);
-    font-size: 0.92rem;
-    font-weight: 700;
-    padding: 11px;
-    border-radius: var(--radius-pill);
-    transition: all 0.2s ease;
-    text-decoration: none;
-    margin: 22px 0;
-  }
-
   /* Addon boxes have no features-list after the button — replace the
        bottom margin with breathing room above it instead */
-  .addon-item-box .btn-plan {
-    margin-top: 14px;
-    margin-bottom: 0;
-  }
-
-  .btn-plan-primary {
-    background: var(--brand-gradient);
-    color: #FFFFFF;
-    border: none;
-    box-shadow: 0 3px 12px rgba(2, 80, 197, 0.22);
-  }
-
-  .btn-plan-primary:hover,
-  .btn-plan-primary:focus,
-  .btn-plan-primary:focus-visible,
-  .btn-plan-primary:active {
-    background: var(--brand-gradient-hover);
-    box-shadow: 0 5px 16px rgba(212, 63, 141, 0.32);
-    color: #FFFFFF !important;
-  }
-
-  .btn-plan-outline {
-    background: transparent;
-    color: var(--brand-blue);
-    border: 1.5px solid var(--border);
-  }
-
-  .btn-plan-outline:hover,
-  .btn-plan-outline:focus,
-  .btn-plan-outline:focus-visible,
-  .btn-plan-outline:active {
-    background: var(--brand-peach);
-    border-color: var(--brand-blue);
-    color: var(--brand-blue) !important;
-  }
 
   .btn-group {
     display: flex;
@@ -470,7 +402,7 @@
      HERO SECTION
      ============================================================ */
   .hero-section {
-    padding: clamp(48px, 6vw, 76px) 0 clamp(40px, 6vw, 70px);
+    padding: var(--section-gap) 0;
     overflow: hidden;
   }
 
@@ -483,26 +415,6 @@
 
   .hero-left {
     max-width: 600px;
-  }
-
-  .hero-badges-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 24px;
-  }
-
-  .hero-badge-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
-    border-radius: var(--radius-pill);
-    background: var(--brand-blue-tint);
-    color: var(--brand-blue);
-    font-size: 0.85rem;
-    font-weight: 600;
-    border: 1px solid rgba(58, 83, 155, 0.14);
   }
 
   .hero-visual-wrap {
@@ -533,86 +445,43 @@
     object-fit: cover;
   }
 
-  /* Floating Score Badge on Hero Mockup */
-  .hero-floating-stat {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    padding: 12px 18px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-card-hover);
-    border: 1px solid rgba(220, 226, 238, 0.8);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    z-index: 3;
-  }
-
-  .stat-circle-green {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: var(--green-tint);
-    color: var(--green);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    font-size: 0.95rem;
-  }
-
-  .stat-text-label {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--slate);
-    font-weight: 600;
-  }
-
-  .stat-text-val {
-    font-size: 0.98rem;
-    font-weight: 700;
-    color: var(--navy);
-  }
-
   /* ============================================================
-     TRUST & CAPABILITY METRICS RIBBON
+     TRUST STRIP: identical on every service page and on the homepage
      ============================================================ */
-  .trust-ribbon-section {
-    padding: 38px 0;
-    border-top: 1px solid var(--border-light);
+  .site-trust-strip {
+    padding: clamp(20px, 2.5vw, 24px) 0;
     border-bottom: 1px solid var(--border-light);
-    background: var(--brand-blue-subtle);
+    background: var(--bg-light);
   }
 
-  .trust-grid {
+  .site-trust-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     text-align: center;
   }
 
-  .trust-stat-item {
-    padding: 8px 16px;
-  }
-
-  .trust-stat-number {
-    font-size: 2.2rem;
+  .site-trust-number {
+    font-size: 1.7rem;
     font-weight: 700;
     color: var(--brand-blue);
-    line-height: 1.1;
+    line-height: 1.15;
     margin-bottom: 4px;
     letter-spacing: -0.02em;
   }
 
-  .trust-stat-label {
-    font-size: 0.88rem;
+  .site-trust-label {
+    font-size: 0.86rem;
     font-weight: 600;
     color: var(--slate);
     line-height: 1.35;
+  }
+
+  @media (max-width: 820px) {
+    .site-trust-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
   }
 
   /* ============================================================
@@ -679,66 +548,6 @@
     flex-grow: 1;
   }
 
-  /* Advantage Trio Callout Strip */
-  .advantage-trio-box {
-    margin-top: 48px;
-    background: var(--brand-peach-tint);
-    border: 1.5px solid var(--brand-peach-hover);
-    border-radius: var(--radius-xl);
-    padding: clamp(32px, 4vw, 44px);
-  }
-
-  .advantage-trio-header {
-    text-align: center;
-    max-width: 680px;
-    margin: 0 auto 36px;
-  }
-
-  .advantage-trio-header h3 {
-    font-size: 1.45rem;
-    color: var(--navy);
-    margin-bottom: 8px;
-  }
-
-  .advantage-trio-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-
-  .trio-item {
-    background: #FFFFFF;
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-md);
-    padding: 24px 22px;
-    box-shadow: var(--shadow-subtle);
-  }
-
-  .trio-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.78rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--brand-coral);
-    margin-bottom: 10px;
-  }
-
-  .trio-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 8px;
-  }
-
-  .trio-desc {
-    font-size: 0.92rem;
-    color: var(--slate);
-    line-height: 1.55;
-  }
-
   /* ============================================================
      SERVICES SECTION (Core Capabilities)
      ============================================================ */
@@ -776,21 +585,6 @@
     background: linear-gradient(180deg, #FFFFFF 0%, var(--brand-blue-subtle) 100%);
   }
 
-  .featured-service-badge {
-    position: absolute;
-    top: -14px;
-    left: 28px;
-    background: var(--brand-gradient);
-    color: #FFFFFF;
-    font-size: 0.76rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 4px 14px;
-    border-radius: var(--radius-pill);
-    box-shadow: 0 4px 12px rgba(2, 80, 197, 0.28);
-  }
-
   .service-icon-wrap {
     width: 54px;
     height: 54px;
@@ -815,14 +609,6 @@
     color: var(--navy);
     margin-bottom: 12px;
     line-height: 1.35;
-  }
-
-  .service-price-tag {
-    display: inline-flex;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--brand-coral);
-    margin-bottom: 12px;
   }
 
   .service-desc {
@@ -851,40 +637,13 @@
     gap: 10px;
   }
 
-  /* Span 2 Columns for 4th and 5th card on desktop if 5 items */
-  .service-card.span-1-5 {
-    grid-column: span 1;
-  }
-
-  .service-bottom-banner {
-    margin-top: 40px;
-    background: #FFFFFF;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    padding: 24px 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-  }
-
-  .service-bottom-banner p {
-    font-size: 1rem;
-    color: var(--navy);
-    font-weight: 500;
-  }
-
-  .service-bottom-banner p strong {
-    color: var(--brand-blue);
-  }
-
   /* ============================================================
      PRICING SECTION (WordPress Website Page Tiers + WHAM Plans)
      ============================================================ */
   .pricing-section {
     background: #FFFFFF;
     border-top: 1px solid var(--border-light);
-    padding-bottom: clamp(30px, 4vw, 50px);
+    padding-bottom: var(--section-gap);
   }
 
   .pricing-outer-container {
@@ -895,407 +654,6 @@
     padding: clamp(24px, 4vw, 44px);
     max-width: 1120px;
     margin: 0 auto;
-  }
-
-  .pricing-group-label {
-    font-size: 0.78rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    color: var(--slate-light);
-    margin-bottom: 20px;
-  }
-
-  /* 4-Column Pricing Card Grid */
-  .pricing-grid-4 {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-  }
-
-  .pricing-card-col {
-    background: #FFFFFF;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 26px 20px 22px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    position: relative;
-    transition: all 0.25s ease;
-  }
-
-  .pricing-card-col:hover {
-    border-color: #BDC1C6;
-    box-shadow: var(--shadow-subtle);
-  }
-
-  .pricing-card-col.is-featured {
-    border: 2px solid var(--brand-blue);
-    box-shadow: 0 10px 28px rgba(58, 83, 155, 0.14);
-  }
-
-  .featured-badge {
-    position: absolute;
-    top: -12px;
-    left: 18px;
-    background: var(--brand-gradient);
-    color: #FFFFFF;
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: var(--radius-pill);
-    box-shadow: 0 2px 8px rgba(2, 80, 197, 0.25);
-  }
-
-  .plan-name {
-    font-size: 1.08rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 6px;
-  }
-
-  .plan-price-row {
-    display: flex;
-    align-items: baseline;
-    gap: 4px;
-    margin-bottom: 4px;
-    flex-wrap: wrap;
-  }
-
-  .plan-price {
-    font-size: 1.7rem;
-    font-weight: 600;
-    color: var(--navy);
-    line-height: 1;
-  }
-
-  .plan-period {
-    font-size: 0.78rem;
-    color: var(--slate);
-    font-weight: 600;
-  }
-
-  .plan-subtext {
-    font-size: 0.82rem;
-    color: var(--brand-blue);
-    font-weight: 600;
-  }
-
-  .plan-features-label {
-    font-size: 0.76rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--slate-light);
-    margin-bottom: 10px;
-  }
-
-  .plan-features-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 9px;
-    font-size: 0.84rem;
-    color: var(--slate);
-    line-height: 1.4;
-  }
-
-  .plan-features-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 7px;
-  }
-
-  .plan-features-list li svg {
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .pricing-card-col.is-featured .plan-features-list li svg {
-    color: var(--brand-blue);
-  }
-
-  .pricing-card-col:not(.is-featured) .plan-features-list li svg {
-    color: var(--green);
-  }
-
-  /* Collapsible Full Page-Count Breakdown */
-  .pricing-breakdown-details {
-    margin-top: 28px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border-light);
-  }
-
-  .pricing-breakdown-summary {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    cursor: pointer;
-    font-size: 0.92rem;
-    font-weight: 600;
-    color: var(--brand-blue);
-    list-style: none;
-    user-select: none;
-  }
-
-  .pricing-breakdown-summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .pricing-breakdown-icon {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: var(--brand-blue-tint);
-    color: var(--brand-blue);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.95rem;
-    font-weight: 600;
-    flex-shrink: 0;
-    transition: transform 0.25s ease;
-  }
-
-  details[open] .pricing-breakdown-icon {
-    transform: rotate(45deg);
-    background: var(--coral-tint);
-    color: var(--coral);
-  }
-
-  .pricing-breakdown-content {
-    margin-top: 18px;
-  }
-
-  .wp-pricing-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 10px 4px;
-    border-bottom: 1px solid var(--border-light);
-    font-size: 0.9rem;
-  }
-
-  .wp-pricing-row:last-child {
-    border-bottom: none;
-  }
-
-  .wp-pricing-pages {
-    color: var(--slate);
-  }
-
-  .wp-pricing-price {
-    font-weight: 600;
-    color: var(--navy);
-    white-space: nowrap;
-  }
-
-  .pricing-additional-note {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    margin-top: 16px;
-    background: var(--bg-callout);
-    border: 1px solid var(--brand-peach-hover);
-    border-radius: var(--radius-md);
-    padding: 14px 18px;
-    font-size: 0.9rem;
-    color: #553C2D;
-    line-height: 1.5;
-  }
-
-  .pricing-additional-note svg {
-    flex-shrink: 0;
-    margin-top: 2px;
-    color: var(--brand-coral);
-  }
-
-  .pricing-divider {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin: 48px 0 28px;
-    color: var(--slate-light);
-    font-size: 0.82rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .pricing-divider::before,
-  .pricing-divider::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: var(--border-light);
-  }
-
-  .maint-plans-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 18px;
-    max-width: 1080px;
-    margin: 0 auto;
-  }
-
-  .maint-plan-card {
-    background: #FFFFFF;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-md);
-    padding: 24px 20px;
-    position: relative;
-    transition: all 0.25s ease;
-  }
-
-  .maint-plan-card:hover {
-    border-color: #BDC1C6;
-    box-shadow: var(--shadow-subtle);
-  }
-
-  .maint-plan-card.is-featured {
-    border: 2px solid var(--brand-blue);
-    box-shadow: 0 10px 28px rgba(58, 83, 155, 0.14);
-  }
-
-  .maint-plan-badge {
-    position: absolute;
-    top: -12px;
-    left: 18px;
-    background: var(--brand-gradient);
-    color: #FFFFFF;
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    padding: 4px 12px;
-    border-radius: var(--radius-pill);
-    box-shadow: 0 2px 8px rgba(2, 80, 197, 0.25);
-  }
-
-  .maint-plan-name {
-    font-size: 1.05rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 8px;
-  }
-
-  .maint-plan-price-row {
-    display: flex;
-    align-items: baseline;
-    gap: 5px;
-  }
-
-  .maint-plan-price {
-    font-size: 1.7rem;
-    font-weight: 600;
-    color: var(--navy);
-    line-height: 1;
-  }
-
-  .maint-plan-period {
-    font-size: 0.8rem;
-    color: var(--slate);
-    font-weight: 600;
-  }
-
-  .maint-plan-note {
-    font-size: 0.8rem;
-    color: var(--brand-blue);
-    font-weight: 600;
-    margin: 6px 0 16px;
-  }
-
-  .maint-plan-card.is-featured .plan-features-list li svg {
-    color: var(--brand-blue);
-  }
-
-  .maint-plan-card:not(.is-featured) .plan-features-list li svg {
-    color: var(--green);
-  }
-
-  .pricing-disclaimer {
-    text-align: center;
-    font-size: 0.85rem;
-    color: var(--slate-light);
-    margin-top: 28px;
-    line-height: 1.6;
-    max-width: 760px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .pricing-inline-link {
-    text-align: center;
-    font-size: 0.92rem;
-    color: var(--slate);
-    margin-top: 16px;
-  }
-
-  .pricing-inline-link a {
-    color: var(--brand-blue);
-    font-weight: 600;
-    border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
-    transition: color 0.2s ease, border-color 0.2s ease;
-  }
-
-  .pricing-inline-link a:hover,
-  .pricing-inline-link a:focus,
-  .pricing-inline-link a:focus-visible,
-  .pricing-inline-link a:active {
-    color: var(--brand-blue-hover) !important;
-    border-color: var(--brand-blue-hover);
-  }
-
-  /* Add Pages / Add Posts Addon Grid */
-  .pricing-addons-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .addon-item-box {
-    background: var(--bg-light);
-    border: 1px solid var(--border-light);
-    border-radius: var(--radius-md);
-    padding: 24px 22px;
-    transition: all 0.2s ease;
-  }
-
-  .addon-item-box:hover {
-    background: #FFFFFF;
-    border-color: var(--border-card);
-    box-shadow: var(--shadow-subtle);
-  }
-
-  .addon-price-tag {
-    font-size: 1.15rem;
-    font-weight: 700;
-    color: var(--brand-coral);
-    display: block;
-    margin-bottom: 8px;
-  }
-
-  .addon-item-title {
-    font-size: 1.02rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 8px;
-  }
-
-  .addon-item-desc {
-    font-size: 0.88rem;
-    color: var(--slate);
-    line-height: 1.5;
   }
 
   /* ============================================================
@@ -1638,33 +996,6 @@
     line-height: 1.55;
   }
 
-  .step-bullets {
-    list-style: none;
-    margin-top: 14px;
-    padding-top: 14px;
-    border-top: 1px solid var(--border-light);
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .step-bullets li {
-    font-size: 0.82rem;
-    color: var(--slate-light);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .step-bullets li::before {
-    content: "";
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--brand-coral);
-  }
-
   /* ============================================================
      FAQ ACCORDION SECTION (Clean Native Details)
      ============================================================ */
@@ -1840,15 +1171,6 @@
     .portfolio-grid {
       grid-template-columns: repeat(2, 1fr);
     }
-
-    .trust-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    .pricing-grid-4,
-    .maint-plans-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
   }
 
   @media (max-width: 820px) {
@@ -1863,43 +1185,18 @@
       max-width: 100%;
     }
 
-    .advantage-trio-grid {
-      grid-template-columns: 1fr;
-    }
-
     .process-grid-5 {
       grid-template-columns: repeat(2, 1fr);
-    }
-
-    .service-bottom-banner {
-      flex-direction: column;
-      text-align: center;
-    }
-
-    .wp-pricing-row {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 4px;
-    }
-
-    .wp-pricing-row.is-featured {
-      align-items: flex-start;
     }
   }
 
   @media (max-width: 600px) {
     .page-title-banner {
       padding: 44px 18px;
-    }
-
-    .benefits-grid-6,
-    .services-grid-5,
-    .portfolio-grid,
-    .process-grid-5,
-    .trust-grid,
-    .pricing-grid-4,
-    .maint-plans-grid,
-    .pricing-addons-grid {
+    }.benefits-grid-6,
+.services-grid-5,
+.portfolio-grid,
+.process-grid-5 {
       grid-template-columns: 1fr;
     }
 
@@ -1924,6 +1221,35 @@
       margin: 24px 0 10px 0;
     }
   }
+  /* Short supporting line under a section's cards/grid; also used for related-service links */
+  .section-note {
+    text-align: center;
+    max-width: 720px;
+    margin: 28px auto 0;
+    font-size: 0.98rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  .section-note + .section-note {
+    margin-top: 12px;
+  }
+
+  .section-note a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
+
+  .section-note a:hover,
+  .section-note a:focus,
+  .section-note a:focus-visible,
+  .section-note a:active {
+    color: var(--brand-blue-hover) !important;
+  }
+
 </style>
 
 <!-- ============================================================
@@ -1954,42 +1280,9 @@
         <h2 class="h2-title">Custom WordPress Websites That Are as Unique as Your Business</h2>
 
         <p class="lead-text">
-          At Sites by Sara, we craft exquisite custom web solutions for your business. We specialize in creating
-          beautiful, functional, and SEO-friendly WordPress websites that help businesses of all sizes grow online.
-          Our award-winning agency combines creativity with technology to build digital platforms that elevate your
-          brand
-          presence and convert visitors into loyal customers.
+          At Sites by Sara, we craft beautiful, functional, and SEO-friendly WordPress websites that help
+          businesses of all sizes grow online and turn visitors into loyal customers.
         </p>
-
-        <p style="color: var(--slate); margin-top: 14px; font-size: 0.98rem; line-height: 1.6;">
-          With over 19 years of experience building custom WordPress websites for businesses ranging from dynamic
-          local startups to Fortune 500 companies, we understand your unique objectives and engineer digital solutions
-          that consistently outperform the competition.
-        </p>
-
-        <div class="hero-badges-row">
-          <span class="hero-badge-pill">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            19+ Years WordPress Mastery
-          </span>
-          <span class="hero-badge-pill">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            100% Bespoke Code Architecture
-          </span>
-          <span class="hero-badge-pill">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            Zero Template Bloat
-          </span>
-        </div>
 
         <div class="btn-group">
           <a href="/book-a-free-consultation/" class="btn btn-primary">
@@ -2009,13 +1302,6 @@
         <div class="hero-image-card">
           <img src="/wp-content/uploads/2026/09/custom-web-dev-hero-1.webp"
             alt="Custom WordPress Web Development Studio Workstation Mockup" width="600" height="450" loading="eager">
-          <div class="hero-floating-stat">
-            <div class="stat-circle-green">11</div>
-            <div>
-              <div class="stat-text-label">Page-Count Tiers</div>
-              <div class="stat-text-val">2 to 500 Pages</div>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -2025,30 +1311,60 @@
 
 <!-- ============================================================
        TRUST & METRICS RIBBON
-       ============================================================ */
-  ============================================================ -->
-<section class="trust-ribbon-section" aria-label="Key Agency Metrics">
+       ============================================================ -->
+<section class="site-trust-strip" aria-label="Key Agency Facts">
   <div class="container">
-    <div class="trust-grid">
-      <div class="trust-stat-item">
-        <div class="trust-stat-number">19+</div>
-        <div class="trust-stat-label">Years of Custom WordPress Engineering</div>
+    <div class="site-trust-grid">
+      <div>
+        <div class="site-trust-number" data-count-to="2007">2007</div>
+        <div class="site-trust-label">Serving Utah Businesses Since</div>
       </div>
-      <div class="trust-stat-item">
-        <div class="trust-stat-number">100%</div>
-        <div class="trust-stat-label">Tailored Code & Brand Identity</div>
+      <div>
+        <div class="site-trust-number" data-count-to="300" data-count-suffix="+">300+</div>
+        <div class="site-trust-label">Customer Success Stories</div>
       </div>
-      <div class="trust-stat-item">
-        <div class="trust-stat-number">11</div>
-        <div class="trust-stat-label">Page-Count Tiers to Choose From</div>
-      </div>
-      <div class="trust-stat-item">
-        <div class="trust-stat-number">Up to 500</div>
-        <div class="trust-stat-label">Pages Per WordPress Build</div>
+      <div>
+        <div class="site-trust-number" data-count-to="57">57</div>
+        <div class="site-trust-label">Industry Recognitions &amp; Awards</div>
       </div>
     </div>
   </div>
 </section>
+<script>
+  (function () {
+    var els = document.querySelectorAll('.site-trust-number[data-count-to]');
+    if (!els.length) return;
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function animate(el) {
+      var target = parseInt(el.getAttribute('data-count-to'), 10);
+      var suffix = el.getAttribute('data-count-suffix') || '';
+      if (isNaN(target)) return;
+      if (reduced) { el.textContent = target + suffix; return; }
+      var start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var progress = Math.min((ts - start) / 1400, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - progress, 3))) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    var grid = els[0].closest('.site-trust-grid');
+    if (grid && !reduced && 'IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) {
+          els.forEach(animate);
+          observer.disconnect();
+        }
+      }, { threshold: 0.4 });
+      observer.observe(grid);
+    } else {
+      els.forEach(animate);
+    }
+  })();
+</script>
 
 <!-- ============================================================
        WHY CHOOSE CUSTOM WORDPRESS SECTION
@@ -2063,8 +1379,7 @@
       </div>
       <h2 class="h2-title">Why Choose Custom WordPress Website Design?</h2>
       <p class="lead-text">
-        Custom WordPress website design offers substantial advantages over pre-made themes, cookie-cutter templates,
-        and rigid DIY page builders. Here is why investing in custom architecture empowers your business:
+        A custom WordPress website gives you more than a pre-made theme or DIY builder can.
       </p>
     </div>
 
@@ -2081,8 +1396,7 @@
         </div>
         <h3 class="benefit-title">Unique and Distinctive Design</h3>
         <p class="benefit-desc">
-          Your website is handcrafted exclusively for your brand aesthetic and business vision. You will never have to
-          worry about your digital storefront blending into common templates or looking identical to your competitors.
+          Your website is handcrafted for your brand, so it stands out from common templates.
         </p>
       </div>
 
@@ -2098,10 +1412,7 @@
         </div>
         <h3 class="benefit-title">Tailored to Your Specific Needs</h3>
         <p class="benefit-desc">
-          Every module, user journey, and feature is designed around your precise business requirements—whether you
-          need
-          a focused high-conversion lead generation site or a multi-layered platform with customized e-commerce
-          workflows.
+          Every feature and user journey is designed around your business, from simple lead generation to custom e-commerce.
         </p>
       </div>
 
@@ -2114,10 +1425,7 @@
         </div>
         <h3 class="benefit-title">SEO-Friendly Architecture</h3>
         <p class="benefit-desc">
-          Engineered with clean semantic markup, fast server rendering, proper heading hierarchies, and schema
-          optimization.
-          This ensures search engine bots index your site effortlessly, lifting your rankings in SERPs and driving
-          organic traffic.
+          Clean structure and search-friendly code help search engines understand and rank your site.
         </p>
       </div>
 
@@ -2131,9 +1439,7 @@
         </div>
         <h3 class="benefit-title">Mobile-Responsive & Adaptive</h3>
         <p class="benefit-desc">
-          Constructed with a fluid, mobile-first approach. Your site looks stunning, touch targets are intuitive, and
-          layouts
-          adapt flawlessly across all smartphones, tablets, high-res laptops, and ultra-wide desktop monitors.
+          A mobile-first approach means your site looks and works great on every screen.
         </p>
       </div>
 
@@ -2147,10 +1453,7 @@
         </div>
         <h3 class="benefit-title">Scalable for Sustainable Growth</h3>
         <p class="benefit-desc">
-          Custom WordPress architecture grows seamlessly alongside your organization. Introduce new service lines,
-          landing pages,
-          and specialized business features over time without hitting code bottlenecks or having to start over from
-          scratch.
+          Add new pages, services, and features over time without starting over.
         </p>
       </div>
 
@@ -2165,76 +1468,10 @@
         </div>
         <h3 class="benefit-title">Flexible and Extensible</h3>
         <p class="benefit-desc">
-          WordPress offers unmatched flexibility. With bespoke engineering, we can integrate specialized APIs, custom
-          post types,
-          third-party CRM systems, and enterprise plugins without sacrificing speed or architectural integrity.
+          We can connect your site to the APIs, CRMs, and plugins your business relies on.
         </p>
       </div>
 
-    </div>
-
-    <!-- Additional Strategic Advantages Trio Callout -->
-    <div class="advantage-trio-box">
-      <div class="advantage-trio-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot eyebrow-dot-blue"></span>
-          Beyond Aesthetics
-        </div>
-        <h3>Crucial Advantages That Drive Measurable ROI</h3>
-        <p style="color: var(--slate); font-size: 0.96rem;">
-          In addition to custom aesthetics and branding, our custom development provides core operational advantages:
-        </p>
-      </div>
-
-      <div class="advantage-trio-grid">
-        <div class="trio-item">
-          <span class="trio-tag">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-            Peak Security & Speed
-          </span>
-          <h4 class="trio-title">Better Performance & Security</h4>
-          <p class="trio-desc">
-            Custom-coded themes contain zero redundant scripts or bloated template libraries. This translates to
-            blazing-fast
-            page load speeds and a radically reduced attack surface against malware and cyber threats.
-          </p>
-        </div>
-
-        <div class="trio-item">
-          <span class="trio-tag">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
-              <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
-            </svg>
-            Intuitive Administration
-          </span>
-          <h4 class="trio-title">Easier to Update and Manage</h4>
-          <p class="trio-desc">
-            We configure a tailored WordPress Gutenberg CMS workflow. Adding articles, updating team members, or
-            tweaking text
-            takes seconds with intuitive visual fields—no technical or coding knowledge required.
-          </p>
-        </div>
-
-        <div class="trio-item">
-          <span class="trio-tag">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <path
-                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
-              </path>
-            </svg>
-            Direct Expert Partnership
-          </span>
-          <h4 class="trio-title">Dedicated Senior WordPress Support</h4>
-          <p class="trio-desc">
-            When you partner with Sites by Sara, you have direct access to senior WordPress designers and engineers
-            who built
-            your site from day one and can promptly assist with any inquiries, additions, or technical guidance.
-          </p>
-        </div>
-      </div>
     </div>
 
   </div>
@@ -2253,8 +1490,7 @@
       </div>
       <h2 class="h2-title">Custom WordPress Web Design & Development Services</h2>
       <p class="lead-text">
-        We offer comprehensive end-to-end WordPress solutions crafted to help your organization outshine competitors
-        and achieve ambitious revenue milestones.
+        End-to-end WordPress solutions to help your business stand out and grow.
       </p>
     </div>
 
@@ -2262,7 +1498,6 @@
 
       <!-- Service 1 -->
       <div class="service-card is-featured">
-        <span class="featured-service-badge">Flagship Service</span>
         <div class="service-icon-wrap">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
             stroke-linecap="round" stroke-linejoin="round">
@@ -2272,16 +1507,11 @@
           </svg>
         </div>
         <h3 class="service-title">Custom WordPress Website Design</h3>
-        <span class="service-price-tag">Scoped By Page Count</span>
         <p class="service-desc">
-          We create custom WordPress website designs that are tailored to your specific needs and goals. We work
-          closely with you
-          to understand your brand identity, target demographic, and market positioning, developing an original visual
-          architecture
-          that reflects your core values and maximizes user engagement.
+          We design original WordPress websites around your brand, your audience, and your goals.
         </p>
         <a href="#pricing" class="service-link">
-          View Pricing By Page Count
+          View pricing
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
@@ -2304,11 +1534,7 @@
         </div>
         <h3 class="service-title">WordPress Theme Customization & Development</h3>
         <p class="service-desc">
-          We can customize existing WordPress themes to match your brand identity and meet your specific needs. We
-          also develop
-          completely bespoke, lightweight WordPress Gutenberg themes from scratch, ensuring clean code, rapid load
-          times,
-          and seamless editing experiences.
+          We customize existing themes or build lightweight custom themes from scratch.
         </p>
         <a href="/book-a-free-consultation/" class="service-link">
           Book A Free Consultation
@@ -2330,14 +1556,10 @@
         </div>
         <h3 class="service-title">WordPress E-Commerce & WooCommerce Solutions</h3>
         <p class="service-desc">
-          We build and launch robust WordPress e-commerce platforms tailored for high conversions. We assist you in
-          selecting,
-          customizing, and integrating the right e-commerce architecture—such as WooCommerce, custom payment gateways,
-          inventory
-          syncing, and frictionless checkout flows.
+          We build online stores that make it easy for customers to browse, buy, and come back.
         </p>
         <a href="/woocommerce-stores/" class="service-link">
-          View WooCommerce Store Pricing
+          Explore WordPress E-Commerce
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
@@ -2354,11 +1576,7 @@
         </div>
         <h3 class="service-title">WordPress Performance & Speed Optimization</h3>
         <p class="service-desc">
-          We optimize your WordPress website for lightning-fast speeds and top Core Web Vitals scores. By streamlining
-          assets,
-          configuring advanced caching, minifying scripts, and optimizing database queries, we ensure your site
-          delivers
-          an instantaneous user experience that converts higher.
+          We tune your site for fast load times and a smooth experience on every device.
         </p>
         <a href="/book-a-free-consultation/" class="service-link">
           Book A Free Consultation
@@ -2379,14 +1597,10 @@
         </div>
         <h3 class="service-title">WordPress Security, Hosting & Ongoing Maintenance</h3>
         <p class="service-desc">
-          We fortify your WordPress installation against vulnerabilities, malware, and cyber threats. Beyond initial
-          deployment,
-          we provide proactive ongoing maintenance, core/plugin security updates, off-site daily backups, and reliable
-          hosting
-          so you never have to stress over technical issues.
+          We help keep your site secure, updated, and running reliably after launch.
         </p>
         <a href="/wordpress-maintenance-hosting-bundle/" class="service-link">
-          See Hosting &amp; Maintenance Plans
+          Explore hosting &amp; maintenance
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
             <path d="M5 12h14M12 5l7 7-7 7" />
           </svg>
@@ -2395,17 +1609,7 @@
 
     </div>
 
-    <!-- Strategic Commitment Banner -->
-    <div class="service-bottom-banner">
-      <p>
-        <strong>Client-Centric Philosophy:</strong> As a dedicated agency, we ensure every custom website is
-        engineered
-        with meticulous attention to detail, rigorous code reviews, and strategic commercial insight.
-      </p>
-      <a href="/book-a-free-consultation/" class="btn btn-primary" style="flex-shrink: 0;">
-        Discuss Your Project
-      </a>
-    </div>
+    <p class="section-note">Every project is different, so we tailor the scope to your goals.</p>
 
   </div>
 </section>
@@ -2419,53 +1623,23 @@
     <div class="section-header">
       <div class="eyebrow">
         <span class="eyebrow-dot"></span>
-        Simple, Transparent Pricing
+        Pricing
       </div>
-      <h2 class="h2-title">Custom WordPress Website Pricing</h2>
+      <h2 class="h2-title">Choose the website that fits your business.</h2>
       <p class="lead-text">
-        Pricing is scoped by page count, so you only pay for the size of site your business actually needs.
+        Compare the options below, or book a free consultation and we'll help you decide.
       </p>
     </div>
 
     <div class="pricing-outer-container">
-
-      <div class="pricing-group-label">New WordPress Website — By Page Count</div>
-
       <iframe class="sbs-pricing-frame"
-        src="https://order.sitesbysara.com/configure/pricing-cards?ids=2-sp,2,3,122-1,122-2,122-3,122-4,122-5,122-6,122-7,122-8&popular=2&title=New%20WordPress%20Website"
-        style="width:100%;border:0;display:block;margin-bottom:32px;" loading="lazy"></iframe>
-
-      <div class="pricing-additional-note">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="10"></circle>
-          <line x1="12" y1="16" x2="12" y2="12"></line>
-          <line x1="12" y1="8" x2="12.01" y2="8"></line>
-        </svg>
-        <span><strong>Need more pages than any tier covers?</strong> Additional pages beyond our largest tier
-          are available through the Add Pages add-on below, billed one-time per additional block of 10
-          pages.</span>
-      </div>
-
-      <div class="pricing-divider">Growing An Existing WordPress Site?</div>
-
-      <!-- Add Pages -->
-      <iframe class="sbs-pricing-frame"
-        src="https://order.sitesbysara.com/configure/pricing-cards?ids=4&title=Growing%20an%20Existing%20Site"
-        style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-
+        src="https://order.sitesbysara.com/configure/pricing-cards?ids=2-sp,2,3,122-1,122-2,122-3,122-4,122-5,122-6,122-7,122-8,4&popular=2&title=New%20WordPress%20Website"
+        title="Pricing options" style="width:100%;border:0;display:block;" loading="lazy"></iframe>
     </div>
 
-    <p class="pricing-disclaimer">
-      Pricing above reflects Sites by Sara design &amp; development fees. Need ongoing hosting &amp;
-      maintenance? See our <a href="/wordpress-maintenance-hosting-bundle/">WordPress Hosting &amp;
-        Maintenance (WHAM)</a> plans.
-    </p>
-
-    <p class="pricing-inline-link">
-      Need a blog post added to your site? See our <a href="/copywriting/">Copywriting &amp; Content
-        Writing</a> page.
-    </p>
+    <p class="section-note">Looking for more ways to grow your business? Explore
+      <a class="related-link" href="/wordpress-maintenance-hosting-bundle/">WordPress Maintenance Bundle</a> and
+      <a class="related-link" href="/copywriting/">Copywriting &amp; Content Writing</a>.</p>
 
   </div>
 </section>
@@ -2514,14 +1688,13 @@
         </div>
       </a>
 
-      <a href="/clarity-consulting-and-counseling/" class="portfolio-card" target="_blank" rel="noopener noreferrer">
+      <a href="/this-is-the-place-gift-shop/" class="portfolio-card" target="_blank" rel="noopener noreferrer">
         <div class="portfolio-img-wrap">
-          <img
-            src="/wp-content/uploads/2026/09/FireShot-Capture-032-Northern-Utah-Mental-Health-Counseling-Clarity-Counseling_-clarityconsultingandcounseling.com_-scaled.png"
-            alt="Clarity Consulting and Counseling website design" loading="lazy">
+          <img src="/wp-content/uploads/2026/07/This-is-the-Place-Gift-Shop-scaled.png"
+            alt="This is the Place Gift Shop website design" loading="lazy">
         </div>
         <div class="portfolio-info">
-          <span class="portfolio-client-title">Clarity Consulting and Counseling</span>
+          <span class="portfolio-client-title">This is the Place Gift Shop</span>
           <span class="portfolio-live-link">Details<svg width="15" height="15" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M13 5l7 7-7 7" />
@@ -2529,13 +1702,13 @@
         </div>
       </a>
 
-      <a href="/salt-city-billiards/" class="portfolio-card" target="_blank" rel="noopener noreferrer">
+      <a href="/girlyish-skincare/" class="portfolio-card" target="_blank" rel="noopener noreferrer">
         <div class="portfolio-img-wrap">
-          <img src="/wp-content/uploads/2026/07/Salt-City-Billiards-scaled.png" alt="Salt City Billiards website design"
+          <img src="/wp-content/uploads/2026/07/Girlyish-Skincare-scaled.png" alt="Girlyish Skincare website design"
             loading="lazy">
         </div>
         <div class="portfolio-info">
-          <span class="portfolio-client-title">Salt City Billiards</span>
+          <span class="portfolio-client-title">Girlyish Skincare</span>
           <span class="portfolio-live-link">Details<svg width="15" height="15" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M13 5l7 7-7 7" />
@@ -2830,13 +2003,11 @@
     <div class="section-header">
       <div class="eyebrow">
         <span class="eyebrow-dot"></span>
-        Proven Methodology
+        Our Process
       </div>
       <h2 class="h2-title">Our Custom WordPress Web Design Process</h2>
       <p class="lead-text">
-        Our design and engineering process is a structured collaboration. Here is how we turn your vision into a
-        stunning,
-        high-performing digital reality:
+        A structured collaboration that turns your vision into a high-performing website.
       </p>
     </div>
 
@@ -2847,15 +2018,8 @@
         <div class="step-num-badge">1</div>
         <h3 class="step-title">Discovery</h3>
         <p class="step-desc">
-          We conduct in-depth strategic sessions to understand your business objectives, target audience demographics,
-          desired conversion flows, and budget parameters.
+          We learn about your business, audience, and goals so the project starts on solid ground.
         </p>
-        <ul class="step-bullets">
-          <li>Define core business KPIs</li>
-          <li>Analyze competitor positioning</li>
-          <li>Map target customer personas</li>
-          <li>Establish project timeline & scope</li>
-        </ul>
       </div>
 
       <!-- Step 2 -->
@@ -2863,16 +2027,8 @@
         <div class="step-num-badge">2</div>
         <h3 class="step-title">Planning</h3>
         <p class="step-desc">
-          We map the architectural blueprint of your website. This includes detailed sitemaps, low-fidelity
-          wireframes,
-          content outlines, and interactive page layouts.
+          We map your sitemap, page layouts, and content structure before design begins.
         </p>
-        <ul class="step-bullets">
-          <li>Sitemap & information structure</li>
-          <li>User journey flowcharts</li>
-          <li>Wireframe layout blueprints</li>
-          <li>Content strategy & page hierarchy</li>
-        </ul>
       </div>
 
       <!-- Step 3 -->
@@ -2880,15 +2036,8 @@
         <div class="step-num-badge">3</div>
         <h3 class="step-title">Design</h3>
         <p class="step-desc">
-          Our UI/UX designers create a bespoke visual design that authentically reflects your brand identity, using
-          modern typography, deliberate palettes, and mobile-first layouts.
+          We create a custom visual design that reflects your brand and works on every screen.
         </p>
-        <ul class="step-bullets">
-          <li>Brand-aligned visual prototypes</li>
-          <li>Mobile & tablet responsive views</li>
-          <li>Interactive UI micro-interactions</li>
-          <li>Client review & revisions round</li>
-        </ul>
       </div>
 
       <!-- Step 4 -->
@@ -2896,15 +2045,8 @@
         <div class="step-num-badge">4</div>
         <h3 class="step-title">Development</h3>
         <p class="step-desc">
-          Our senior WordPress engineers handcraft clean, modular code. We implement custom block themes, integrate
-          essential plugins, and build secure database connections.
+          We build your site on WordPress with clean, secure, well-organized code.
         </p>
-        <ul class="step-bullets">
-          <li>Handcrafted semantic code</li>
-          <li>Custom Gutenberg block systems</li>
-          <li>API & WooCommerce integrations</li>
-          <li>Strict WordPress coding standards</li>
-        </ul>
       </div>
 
       <!-- Step 5 -->
@@ -2912,15 +2054,8 @@
         <div class="step-num-badge">5</div>
         <h3 class="step-title">Testing & Launch</h3>
         <p class="step-desc">
-          Prior to going live, we rigorously test your website across browsers, devices, and screen sizes to ensure
-          uncompromising performance, security, and zero downtime.
+          We test across browsers and devices, then launch your site with care.
         </p>
-        <ul class="step-bullets">
-          <li>Cross-browser & mobile QA</li>
-          <li>Core Web Vitals speed audit</li>
-          <li>SEO verification & 301 redirects</li>
-          <li>Seamless live deployment</li>
-        </ul>
       </div>
 
     </div>
@@ -2941,145 +2076,59 @@
       </div>
       <h2 class="h2-title">Frequently Asked Questions</h2>
       <p class="lead-text">
-        Everything you need to know about our custom WordPress website design and development services.
+        Quick answers about custom WordPress website design.
       </p>
     </div>
 
     <div class="faq-wrap">
 
-      <!-- FAQ 1 -->
-      <details class="faq-item" open>
+      <details class="faq-item">
         <summary class="faq-question">
-          <span>Why should I choose custom WordPress website design over a pre-made template or DIY builder?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
+          <span>Why choose a custom WordPress website over a template or DIY builder?</span>
+          <span class="faq-icon">+</span>
         </summary>
         <div class="faq-answer">
-          <p>
-            Custom WordPress websites offer a level of personalization, architectural flexibility, and brand
-            distinctiveness
-            that pre-made templates or DIY website builders simply cannot match. Generic templates often come bloated
-            with
-            excess code and plugins that degrade page speed and create security liabilities.
-          </p>
-          <p>
-            A custom WordPress site is engineered specifically to align with your brand, deliver superior user
-            experiences,
-            rank higher in Google searches, and scale effortlessly as your business grows.
-          </p>
+          A custom site is designed around your brand and goals instead of a one-size-fits-all template. It tends to be faster, easier to grow, and more distinctive.
         </div>
       </details>
 
-      <!-- FAQ 2 -->
       <details class="faq-item">
         <summary class="faq-question">
-          <span>How long does it take to develop a custom WordPress website?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
+          <span>How long does it take to build a custom WordPress website?</span>
+          <span class="faq-icon">+</span>
         </summary>
         <div class="faq-answer">
-          <p>
-            That depends on the size and complexity of the job. <strong>Most projects are completed within 4
-              weeks</strong> from the time we have received 100% of the client-promised content.
-          </p>
-          <p>
-            A 2-10 page Starter build and our largest page-count tier are very different projects, so we
-            establish a clear, milestone-driven timeline during the discovery phase.
-          </p>
+          It depends on the size and complexity of your site and how quickly your content is ready. We set a clear timeline together during discovery.
         </div>
       </details>
 
-      <!-- FAQ 3 -->
       <details class="faq-item">
         <summary class="faq-question">
-          <span>Can I update content on my custom WordPress website myself?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
+          <span>Can I update the content on my website myself?</span>
+          <span class="faq-icon">+</span>
         </summary>
         <div class="faq-answer">
-          <p>
-            Yes, absolutely! One of the premier advantages of our custom WordPress websites is our clean Content
-            Management
-            System (CMS) implementation using the native WordPress Block Editor (Gutenberg).
-          </p>
-          <p>
-            You and your team will be able to easily update text, swap out images, publish new blog articles, and add
-            portfolio
-            items without needing any coding or technical knowledge. We also provide full training and recorded video
-            walkthroughs.
-          </p>
+          Yes. Your site is built on WordPress, so you can edit text, images, and blog posts yourself without any coding. We are happy to show you how.
         </div>
       </details>
 
-      <!-- FAQ 4 -->
       <details class="faq-item">
         <summary class="faq-question">
-          <span>Will my custom WordPress website be mobile-friendly?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
+          <span>Will my website work well on mobile?</span>
+          <span class="faq-icon">+</span>
         </summary>
         <div class="faq-answer">
-          <p>
-            Without question. Every custom website we design is 100% mobile-responsive, built from a mobile-first
-            perspective.
-            We test extensively on iPhones, Android smartphones, tablets, and desktop displays to ensure responsive
-            typography,
-            proportional imagery, and intuitive navigation across every screen size.
-          </p>
+          Yes. Every site we build is designed to look and work great on phones, tablets, and desktop screens.
         </div>
       </details>
 
-      <!-- FAQ 5 -->
       <details class="faq-item">
         <summary class="faq-question">
-          <span>How is SEO handled for my custom WordPress website?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
+          <span>Can I add more pages later?</span>
+          <span class="faq-icon">+</span>
         </summary>
         <div class="faq-answer">
-          <p>
-            WordPress is internationally recognized for its SEO-friendly architecture, and our bespoke development
-            maximizes this
-            advantage. Every build includes stronger SEO/AEO as standard — clean semantic markup, structured
-            metadata, and an SEO-ready page structure.
-          </p>
-          <p>
-            This gives your business an immediate structural edge in search engine results pages (SERPs).
-          </p>
-        </div>
-      </details>
-
-      <!-- FAQ 6 -->
-      <details class="faq-item">
-        <summary class="faq-question">
-          <span>Is my custom WordPress website secure from cyber threats?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </summary>
-        <div class="faq-answer">
-          <p>
-            Security is an absolute priority in our engineering practice. Because we write clean, custom code without
-            relying
-            on vulnerable third-party template bloat, your attack surface is drastically minimized.
-          </p>
-          <p>
-            We implement enterprise security protocols, including hardened wp-config rules, brute-force login
-            protection, SSL/HTTPS
-            enforcement, and automated database backups. Furthermore, our <strong>WordPress Hosting &amp;
-              Maintenance (WHAM)</strong> plans
-            offer 24/7 security monitoring and patch management.
-          </p>
-        </div>
-      </details>
-
-      <!-- FAQ 7 -->
-      <details class="faq-item">
-        <summary class="faq-question">
-          <span>Can I add more pages or blog posts to my existing WordPress site without a full rebuild?</span>
-          <span class="faq-icon" aria-hidden="true">+</span>
-        </summary>
-        <div class="faq-answer">
-          <p>
-            Yes. For sites beyond our largest page-count tier, additional pages are available through the Add
-            Pages add-on, billed one-time per additional set of 10 pages — see the pricing above for current
-            rates. If you just need new blog content written, that's handled as a separate content writing
-            service — see our <a href="/copywriting/"><strong>Copywriting &amp; Content Writing</strong></a>
-            page.
-          </p>
+          Yes. Your site can grow as your business does. Tell us what you have in mind and we will recommend the right approach.
         </div>
       </details>
 
@@ -3101,11 +2150,10 @@
           <span class="eyebrow-dot"></span>
           Take the Next Step
         </div>
-        <h2>Ready to Build a Website That Truly Grows Your Business?</h2>
+        <h2>Ready to build a website that grows with your business?</h2>
         <p>
-          Schedule a free, no-obligation consultation with Sites by Sara. We’ll discuss your goals, evaluate your
-          current web
-          presence, and outline a tailored roadmap for your new custom WordPress website.
+          Book a free consultation and we'll discuss your goals and outline the right next steps for your new
+          WordPress website.
         </p>
         <a href="/book-a-free-consultation/" class="btn btn-primary">
           Book A Free Consultation
@@ -3119,27 +2167,23 @@
 
       <!-- Right: Helpful Consultation Preparation Checklist -->
       <div class="prep-card-right">
-        <h4 class="prep-card-title">What We’ll Cover in Your Session:</h4>
+        <h4 class="prep-card-title">What we'll cover in your session:</h4>
         <ul class="prep-list">
           <li>
             <span class="prep-list-num">1</span>
-            <span><strong>Deep Dive into Business Goals:</strong> Target market, conversion priorities, and brand
-              vision.</span>
+            <span>Your business goals and target audience</span>
           </li>
           <li>
             <span class="prep-list-num">2</span>
-            <span><strong>Technical Requirements:</strong> Desired features, e-commerce needs, and 3rd party
-              integrations.</span>
+            <span>Features, e-commerce needs, and integrations</span>
           </li>
           <li>
             <span class="prep-list-num">3</span>
-            <span><strong>SEO & Speed Roadmap:</strong> Structural strategy to outperform competing search
-              rankings.</span>
+            <span>Your search and speed priorities</span>
           </li>
           <li>
             <span class="prep-list-num">4</span>
-            <span><strong>Transparent Scope & Timeline:</strong> Accurate project milestones and investment
-              estimates.</span>
+            <span>Project scope and timeline</span>
           </li>
         </ul>
       </div>

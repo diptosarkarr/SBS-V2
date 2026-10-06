@@ -1,9 +1,9 @@
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- SEO: Service structured data (see design.md §7) -->
-  <script type="application/ld+json">
+<!-- SEO: Service structured data (generic by design, see SERVICE-PAGE-GUIDELINES.md) -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -12,45 +12,29 @@
       "@type": "Organization",
       "name": "Sites by Sara"
     },
-    "description": "Walmart Ads campaign management across four tiers, scaling with your monthly ad spend, with first-month setup, ongoing optimization, and monthly reporting included."
+    "description": "Walmart Ads campaign setup, management, optimization, and reporting for your products."
   }
-  </script>
-  <!-- SEO: FAQPage structured data — mirrors the visible FAQ section verbatim -->
-  <script type="application/ld+json">
+</script>
+<!-- SEO: FAQPage structured data, generated from the same list as the visible FAQ -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How does Walmart Ads Management pricing work?",
+        "name": "What does Walmart Ads Management include?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Walmart Ads Management is priced in four tiers — Starter, Plus, Growth, and Enterprise — so your management fee scales with your monthly ad spend. See the pricing above for current rates."
+          "text": "Campaign setup, ongoing optimization, and regular performance reporting for your Walmart Ads."
         }
       },
       {
         "@type": "Question",
-        "name": "Is setup included in the monthly tier, or billed separately?",
+        "name": "Do I need a Walmart seller account?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "First-month campaign setup is included in your monthly tier — there's no separate one-time setup fee."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What's included every month?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Every tier includes ongoing monthly optimization and a regular performance report, in addition to first-month setup."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is there a minimum ad spend required?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No fixed minimum, but your ad spend is separate from our management fee and is paid directly to Walmart."
+          "text": "Advertising on Walmart starts from your seller account and product listings. We'll review what you have in your free consultation."
         }
       },
       {
@@ -58,18 +42,28 @@
         "name": "Do you also manage Google, Meta, or Amazon ads?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes, as separate services — see our Google & Meta Ads or Amazon Listing & Store Setup pages."
+          "text": "Yes, as separate services. See our Google & Meta Ads and Amazon Store Setup & Ads Management pages."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you help if I'm new to Walmart advertising?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Tell us about your products and goals in your free consultation and we'll recommend how to get started."
         }
       }
     ]
   }
-  </script>
+</script>
 
-  <style>
+<style>
     /* ============================================================
      DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
      ============================================================ */
     :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
       --brand-blue: #3A539B;
       --brand-blue-hover: #2F437D;
       --brand-blue-tint: #EEF2FA;
@@ -166,7 +160,7 @@
     }
 
     .section-space {
-      padding: clamp(70px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .section-header {
@@ -359,7 +353,7 @@
      HERO SECTION
      ============================================================ */
     .hero-section {
-      padding: clamp(48px, 6vw, 76px) 0 clamp(40px, 6vw, 70px);
+      padding: var(--section-gap) 0;
       overflow: hidden;
     }
 
@@ -372,17 +366,6 @@
 
     .hero-left {
       max-width: 580px;
-    }
-
-    .hero-footnote {
-      font-size: 0.88rem;
-      color: var(--slate-light);
-      line-height: 1.5;
-    }
-
-    .hero-footnote strong {
-      color: var(--slate);
-      font-weight: 600;
     }
 
     .hero-visual-wrap {
@@ -412,48 +395,50 @@
       object-fit: cover;
     }
 
-    /* ============================================================
-     TRUST & CAPABILITY METRICS RIBBON
+  /* ============================================================
+     TRUST STRIP: identical on every service page and on the homepage
      ============================================================ */
-    .trust-ribbon-section {
-      padding: 38px 0;
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-      background: var(--brand-blue-subtle);
-    }
+  .site-trust-strip {
+    padding: clamp(20px, 2.5vw, 24px) 0;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--bg-light);
+  }
 
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      text-align: center;
-    }
+  .site-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
 
-    .trust-stat-item {
-      padding: 8px 16px;
-    }
+  .site-trust-number {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1.15;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
 
-    .trust-stat-number {
-      font-size: 2.1rem;
-      font-weight: 700;
-      color: var(--brand-blue);
-      line-height: 1.1;
-      margin-bottom: 4px;
-      letter-spacing: -0.02em;
-    }
+  .site-trust-label {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--slate);
+    line-height: 1.35;
+  }
 
-    .trust-stat-label {
-      font-size: 0.86rem;
-      font-weight: 600;
-      color: var(--slate);
-      line-height: 1.35;
+  @media (max-width: 820px) {
+    .site-trust-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
     }
+  }
 
     /* ============================================================
      PRICING SECTION
      ============================================================ */
     .pricing-section {
-      padding: clamp(70px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
       background: #FFFFFF;
     }
 
@@ -465,84 +450,6 @@
       padding: clamp(24px, 4vw, 44px);
       max-width: 1120px;
       margin: 0 auto;
-    }
-
-    .pricing-top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border-light);
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .pricing-platform-pills {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .platform-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--navy);
-      background: #F1F3F9;
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-    }
-
-    .pricing-currency-badge {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--slate);
-    }
-
-    .pricing-group-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--slate-light);
-      margin-bottom: 20px;
-    }
-
-    .pricing-disclaimer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--slate-light);
-      margin-top: 28px;
-      line-height: 1.6;
-      max-width: 780px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .pricing-inline-link {
-      text-align: center;
-      font-size: 0.92rem;
-      color: var(--slate);
-      margin-top: 16px;
-    }
-
-    .pricing-inline-link a {
-      color: var(--brand-blue);
-      font-weight: 600;
-      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .pricing-inline-link a:hover,
-    .pricing-inline-link a:focus,
-    .pricing-inline-link a:focus-visible,
-    .pricing-inline-link a:active {
-      color: var(--brand-blue-hover) !important;
-      border-color: var(--brand-blue-hover);
     }
 
     /* ============================================================
@@ -607,7 +514,7 @@
      ALTERNATING STORYTELLING FEATURES (High Breathing Space)
      ============================================================ */
     .story-features-section {
-      padding: clamp(60px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .story-row {
@@ -706,7 +613,7 @@
      ============================================================ */
     .faq-section {
       background: #FAFAFC;
-      padding: clamp(70px, 8vw, 100px) 0;
+      padding: var(--section-gap) 0;
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
     }
@@ -783,7 +690,7 @@
      NEXT STEPS / CONSULTATION CHECKLIST BANNER
      ============================================================ */
     .cta-banner-section {
-      padding: clamp(70px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .cta-banner-box {
@@ -883,10 +790,6 @@
         order: 2;
       }
 
-      .trust-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
     }
 
     @media (max-width: 600px) {
@@ -903,426 +806,413 @@
         width: 100%;
       }
     }
-  </style>
+    /* Short supporting line under a section's cards/grid; also used for related-service links */
+  .section-note {
+    text-align: center;
+    max-width: 720px;
+    margin: 28px auto 0;
+    font-size: 0.98rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
 
-  <!-- ============================================================
+  .section-note + .section-note {
+    margin-top: 12px;
+  }
+
+  .section-note a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
+
+  .section-note a:hover,
+  .section-note a:focus,
+  .section-note a:focus-visible,
+  .section-note a:active {
+    color: var(--brand-blue-hover) !important;
+  }
+
+</style>
+
+<!-- ============================================================
        PAGE TITLE BANNER
        ============================================================ -->
-  <section class="page-title-banner" aria-label="Page Title">
-    <div class="page-title-banner-mesh" aria-hidden="true"></div>
-    <div class="container page-title-inner">
-      <h1 class="page-banner-h1">Walmart Ads Management</h1>
-      <p class="page-banner-sub">(Marketplace Ad Campaign Management, Tiered To Your Spend)</p>
-    </div>
-  </section>
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <h1 class="page-banner-h1">Walmart Ads Management</h1>
+    <p class="page-banner-sub">(Marketplace Ad Campaign Management)</p>
+  </div>
+</section>
 
-  <!-- ============================================================
+<!-- ============================================================
        HERO SECTION
        ============================================================ -->
-  <section class="hero-section" id="overview">
-    <div class="container">
-      <div class="hero-grid">
+<section class="hero-section" id="overview">
+  <div class="container">
+    <div class="hero-grid">
 
-        <!-- Hero Copy -->
-        <div class="hero-left">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Marketplace Advertising
-          </div>
-
-          <h2 class="h2-title">Walmart ad campaigns, tiered to your monthly ad spend.</h2>
-
-          <p class="lead-text">
-            Sites by Sara sets up and manages your Walmart Ads campaigns, with a management tier that scales
-            alongside how much you're spending on ads — plus ongoing monthly optimization and reporting.
-          </p>
-
-          <div class="btn-group">
-            <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
-              Consultation</a>
-            <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
-          </div>
-
-          <div class="hero-footnote">
-            <strong>First-month setup included in every tier.</strong> Ongoing monthly optimization and reporting
-            on top.
-          </div>
-        </div>
-
-        <!-- Hero Visual Mockup -->
-        <div class="hero-visual-wrap">
-          <div class="hero-image-card">
-            <img src="/wp-content/uploads/2026/09/walmart-ads-management-hero.webp"
-              alt="Walmart Ads campaign performance dashboard" width="600" height="450" />
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-     TRUST & CAPABILITY METRICS RIBBON
-     ============================================================ -->
-  <section class="trust-ribbon-section" aria-label="Key Service Facts">
-    <div class="container">
-      <div class="trust-grid">
-        <div class="trust-stat-item">
-          <div class="trust-stat-number">4</div>
-          <div class="trust-stat-label">Management Tiers Available</div>
-        </div>
-        <div class="trust-stat-item">
-          <div class="trust-stat-number">First Month</div>
-          <div class="trust-stat-label">Setup Included In Every Tier</div>
-        </div>
-        <div class="trust-stat-item">
-          <div class="trust-stat-number">Monthly</div>
-          <div class="trust-stat-label">Optimization &amp; Reporting</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-     PRICING SECTION
-     ============================================================ -->
-  <section class="pricing-section" id="pricing">
-    <div class="container">
-
-      <div class="section-header">
+      <!-- Hero Copy -->
+      <div class="hero-left">
         <div class="eyebrow">
           <span class="eyebrow-dot"></span>
-          Simple, Transparent Pricing
-        </div>
-        <h2 class="h2-title">One platform, four tiers.</h2>
-        <p class="lead-text">Choose the tier that matches your monthly ad spend.</p>
-      </div>
-
-      <div class="pricing-outer-container">
-
-        <!-- Top Bar -->
-        <div class="pricing-top-bar">
-          <div class="pricing-platform-pills">
-            <span class="platform-tag">Walmart Ads</span>
-          </div>
-          <span class="pricing-currency-badge">Monthly management · USD</span>
+          Marketplace Advertising
         </div>
 
-        <div class="pricing-group-label">Walmart Ads Management</div>
+        <h2 class="h2-title">Walmart ad campaigns, set up and managed for you.</h2>
 
-        <iframe class="sbs-pricing-frame"
-          src="https://order.sitesbysara.com/configure/pricing-cards?ids=80,81,82,83&popular=80&title=Walmart%20Ads%20Management"
-          style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+        <p class="lead-text">
+          Sites by Sara sets up and manages your Walmart Ads campaigns, with ongoing optimization and reporting so you can see how your ads are performing.
+        </p>
 
-      </div>
-
-      <p class="pricing-disclaimer">
-        Every Walmart Ads Management tier includes first-month campaign setup, with ongoing monthly optimization
-        and reporting after that. Ad spend itself is paid directly to Walmart and is separate from these
-        management fees.
-      </p>
-
-      <p class="pricing-inline-link">
-        Looking for Google or Meta ads instead? See our <a href="/google-meta-ads/">Google &amp; Meta Ads</a>
-        page. Advertising on Amazon too? See our <a href="/amazon-listing-store-setup/">Amazon Listing &amp; Store
-          Setup</a> page.
-      </p>
-
-    </div>
-  </section>
-
-  <script>
-    window.addEventListener('message', function (e) {
-      if (e.data && e.data.source === 'sbs-pricing-cards') {
-        document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
-          if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
-        });
-      }
-    });
-  </script>
-
-  <!-- ============================================================
-     DETAILED BREAKDOWN: OUR PROCESS (8-Step Scope)
-     ============================================================ -->
-  <section class="section-space scope-section" aria-label="Ad management breakdown">
-    <div class="container">
-
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Detailed Breakdown
-        </div>
-        <h2 class="h2-title">What's involved in managing your Walmart ad campaigns.</h2>
-        <p class="lead-text">From your first strategy call to ongoing monthly optimization.</p>
-      </div>
-
-      <div class="scope-grid">
-
-        <div class="scope-card">
-          <div class="scope-num">1</div>
-          <h3 class="scope-title">Discovery Call</h3>
-          <p class="scope-desc">We talk through your products, brand, and advertising goals on Walmart.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">2</div>
-          <h3 class="scope-title">Seller Account Review</h3>
-          <p class="scope-desc">Reviewing your existing Walmart seller account and product listings.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">3</div>
-          <h3 class="scope-title">Campaign Strategy</h3>
-          <p class="scope-desc">Keyword and targeting plan built for your products and budget.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">4</div>
-          <h3 class="scope-title">Ad Copy &amp; Creative</h3>
-          <p class="scope-desc">Writing ad copy and assembling creative for launch.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">5</div>
-          <h3 class="scope-title">Campaign Setup</h3>
-          <p class="scope-desc">Building out campaigns and tracking ahead of launch, included in your first
-            month.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">6</div>
-          <h3 class="scope-title">Launch</h3>
-          <p class="scope-desc">Going live with your first month of campaign management.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">7</div>
-          <h3 class="scope-title">Monthly Optimization</h3>
-          <p class="scope-desc">Ongoing adjustments to keep your campaigns performing month over month.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">8</div>
-          <h3 class="scope-title">Monthly Reporting</h3>
-          <p class="scope-desc">A regular report so you can see how your ad campaigns are performing.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
-     ============================================================ -->
-  <section class="story-features-section">
-    <div class="container">
-
-      <!-- Feature 1: Tiered To Your Spend -->
-      <div class="story-row">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Tiered To Your Spend
-          </div>
-          <h2 class="story-title">A management fee that scales with your ad spend.</h2>
-          <p class="story-desc">
-            Walmart Ads Management is priced in four tiers — Starter through Enterprise — so your management fee
-            scales with how much you're spending on ads, not a flat rate that doesn't fit your budget.
-          </p>
-          <a href="#pricing" class="story-link">Compare tiers<svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/walmart-ads-tiers-detail.webp"
-              alt="Walmart Ads Management tier comparison from Starter to Enterprise" width="520" height="390" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature 2: One Team, Every Tier -->
-      <div class="story-row is-reversed">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            One Team, Every Tier
-          </div>
-          <h2 class="story-title">Setup, optimization, and reporting — all included.</h2>
-          <p class="story-desc">
-            Whether you're just getting started with Walmart advertising or scaling a mature campaign, every tier
-            includes first-month setup, ongoing monthly optimization, and regular reporting — so you always know
-            how your ads are performing.
-          </p>
-          <a href="#pricing" class="story-link">See what's included<svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/walmart-ads-reporting-detail.webp"
-              alt="Monthly Walmart Ads optimization and reporting dashboard" width="520" height="390" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature 3: Also Advertising Elsewhere -->
-      <div class="story-row">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Also Advertising Elsewhere?
-          </div>
-          <h2 class="story-title">Combine Walmart with Google, Meta, or Amazon ads.</h2>
-          <p class="story-desc">
-            If you're also running ads on Google, Meta, or Amazon, those are managed as separate services — so
-            you can combine exactly the platforms your customers are actually on.
-          </p>
-          <a href="/google-meta-ads/" class="story-link">See Google &amp; Meta Ads<svg viewBox="0 0 24 24"
-              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/paid-advertising-platforms-detail.webp"
-              alt="Multiple ad platform icons connected to one dashboard" width="520" height="390" />
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-     FAQ SECTION (Clean Accordion)
-     ============================================================ -->
-  <section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
-    <div class="container">
-
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Common Questions
-        </div>
-        <h2 class="h2-title">Frequently Asked Questions</h2>
-        <p class="lead-text">Everything you need to know about Walmart Ads Management.</p>
-      </div>
-
-      <div class="faq-wrap">
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>How does Walmart Ads Management pricing work?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Walmart Ads Management is priced in four tiers — <strong>Starter</strong>, <strong>Plus</strong>,
-            <strong>Growth</strong>, and <strong>Enterprise</strong> — so your management fee scales with your
-            monthly ad spend. See the pricing above for current rates.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>Is setup included in the monthly tier, or billed separately?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            <strong>First-month campaign setup is included</strong> in your monthly tier — there's no separate
-            one-time setup fee.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>What's included every month?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Every tier includes <strong>ongoing monthly optimization</strong> and a <strong>regular performance
-              report</strong>, in addition to first-month setup.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>Is there a minimum ad spend required?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            No fixed minimum, but your ad spend is separate from our management fee and is paid directly to
-            Walmart.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>Do you also manage Google, Meta, or Amazon ads?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Yes, as separate services — see our <a href="/google-meta-ads/"><strong>Google &amp; Meta
-                Ads</strong></a> or <a href="/amazon-listing-store-setup/"><strong>Amazon Listing &amp; Store
-                Setup</strong></a> pages.
-          </div>
-        </details>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-     NEXT STEPS / CONSULTATION CHECKLIST BANNER
-     ============================================================ -->
-  <section class="cta-banner-section" id="consultation">
-    <div class="container">
-      <div class="cta-banner-box">
-
-        <div class="cta-banner-left">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Next Steps
-          </div>
-          <h2>Ready to start advertising on Walmart?</h2>
-          <p>
-            Book a free consultation and tell us about your Walmart seller account — we'll recommend the right
-            tier for your ad spend.
-          </p>
+        <div class="btn-group">
           <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
             Consultation</a>
+          <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
         </div>
+      </div>
 
-        <div class="prep-card-right">
-          <h4 class="prep-card-title">Helpful to have ready:</h4>
-          <ul class="prep-list">
-            <li>
-              <span class="prep-list-num">1</span>
-              <span>Whether you already have a Walmart seller account</span>
-            </li>
-            <li>
-              <span class="prep-list-num">2</span>
-              <span>Your expected monthly ad spend</span>
-            </li>
-            <li>
-              <span class="prep-list-num">3</span>
-              <span>Your current product listings</span>
-            </li>
-            <li>
-              <span class="prep-list-num">4</span>
-              <span>Whether you're also advertising on other platforms</span>
-            </li>
-            <li>
-              <span class="prep-list-num">5</span>
-              <span>Your main goals for Walmart ads</span>
-            </li>
-          </ul>
+      <!-- Hero Visual Mockup -->
+      <div class="hero-visual-wrap">
+        <div class="hero-image-card">
+          <img src="/wp-content/uploads/2026/09/walmart-ads-management-hero.webp"
+            alt="Walmart Ads campaign performance dashboard" width="600" height="450" />
         </div>
+      </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+   TRUST & CAPABILITY METRICS RIBBON
+   ============================================================ -->
+<section class="site-trust-strip" aria-label="Key Agency Facts">
+  <div class="container">
+    <div class="site-trust-grid">
+      <div>
+        <div class="site-trust-number" data-count-to="2007">2007</div>
+        <div class="site-trust-label">Serving Utah Businesses Since</div>
+      </div>
+      <div>
+        <div class="site-trust-number" data-count-to="300" data-count-suffix="+">300+</div>
+        <div class="site-trust-label">Customer Success Stories</div>
+      </div>
+      <div>
+        <div class="site-trust-number" data-count-to="57">57</div>
+        <div class="site-trust-label">Industry Recognitions &amp; Awards</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+<script>
+  (function () {
+    var els = document.querySelectorAll('.site-trust-number[data-count-to]');
+    if (!els.length) return;
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function animate(el) {
+      var target = parseInt(el.getAttribute('data-count-to'), 10);
+      var suffix = el.getAttribute('data-count-suffix') || '';
+      if (isNaN(target)) return;
+      if (reduced) { el.textContent = target + suffix; return; }
+      var start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var progress = Math.min((ts - start) / 1400, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - progress, 3))) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    var grid = els[0].closest('.site-trust-grid');
+    if (grid && !reduced && 'IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) {
+          els.forEach(animate);
+          observer.disconnect();
+        }
+      }, { threshold: 0.4 });
+      observer.observe(grid);
+    } else {
+      els.forEach(animate);
+    }
+  })();
+</script>
+
+<!-- ============================================================
+     PRICING SECTION
+     ============================================================ -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Pricing
+      </div>
+      <h2 class="h2-title">Choose the Walmart ads support that fits your business.</h2>
+      <p class="lead-text">Compare the options below, or book a free consultation and we'll help you decide.</p>
+    </div>
+
+    <div class="pricing-outer-container">
+      <iframe class="sbs-pricing-frame"
+        src="https://order.sitesbysara.com/configure/pricing-cards?ids=80,81,82,83&popular=80&title=Walmart%20Ads%20Management"
+        title="Pricing options" style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+    </div>
+
+    <p class="section-note">Looking for more ways to grow your business? Explore
+      <a class="related-link" href="/google-meta-ads/">Google &amp; Meta Ads</a> and
+      <a class="related-link" href="/amazon-listing-store-setup/">Amazon Store Setup &amp; Ads Management</a>.</p>
+
+  </div>
+</section>
+
+<script>
+  window.addEventListener('message', function (e) {
+    if (e.data && e.data.source === 'sbs-pricing-cards') {
+      document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
+        if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
+      });
+    }
+  });
+</script>
+
+<!-- ============================================================
+     HOW IT WORKS (SCOPE GRID)
+     ============================================================ -->
+<section class="section-space scope-section" aria-label="How it works">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        How It Works
+      </div>
+      <h2 class="h2-title">What goes into managing your Walmart ad campaigns.</h2>
+      <p class="lead-text">From your first strategy call to ongoing optimization.</p>
+    </div>
+
+    <div class="scope-grid">
+
+      <div class="scope-card">
+        <div class="scope-num">1</div>
+        <h3 class="scope-title">Discovery Call</h3>
+        <p class="scope-desc">We talk through your products, brand, and advertising goals on Walmart.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">2</div>
+        <h3 class="scope-title">Seller Account Review</h3>
+        <p class="scope-desc">Reviewing your existing Walmart seller account and product listings.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">3</div>
+        <h3 class="scope-title">Campaign Strategy</h3>
+        <p class="scope-desc">A keyword and targeting approach built for your products and budget.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">4</div>
+        <h3 class="scope-title">Ad Copy &amp; Creative</h3>
+        <p class="scope-desc">Writing ad copy and assembling creative for launch.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">5</div>
+        <h3 class="scope-title">Campaign Setup</h3>
+        <p class="scope-desc">Building out campaigns and tracking ahead of launch.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">6</div>
+        <h3 class="scope-title">Launch</h3>
+        <p class="scope-desc">Going live with your campaigns.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">7</div>
+        <h3 class="scope-title">Ongoing Optimization</h3>
+        <p class="scope-desc">Regular adjustments to keep your campaigns performing.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">8</div>
+        <h3 class="scope-title">Reporting</h3>
+        <p class="scope-desc">A regular report so you can see how your ad campaigns are performing.</p>
+      </div>
+
+    </div>
+
+    <p class="section-note">Every business is different, so we shape the campaigns around your products and goals.</p>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     ============================================================ -->
+<section class="story-features-section">
+  <div class="container">
+
+    <div class="story-row">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Setup, Optimization &amp; Reporting
+        </div>
+        <h2 class="story-title">Your ads managed from launch to ongoing results.</h2>
+        <p class="story-desc">
+          We set up your campaigns, then keep optimizing them and share regular reports, so you can see how your Walmart ads are performing.
+        </p>
+        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/walmart-ads-reporting-detail.webp"
+            alt="Walmart Ads optimization and reporting dashboard" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <div class="story-row is-reversed">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Also Advertising Elsewhere?
+        </div>
+        <h2 class="story-title">Combine Walmart with Google, Meta, or Amazon ads.</h2>
+        <p class="story-desc">
+          If you're also running ads on Google, Meta, or Amazon, those are managed as separate services, so you can combine exactly the platforms your customers are on.
+        </p>
+        <a href="/google-meta-ads/" class="story-link">Explore Google &amp; Meta Ads<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/paid-advertising-platforms-detail.webp"
+            alt="Multiple ad platform icons connected to one dashboard" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ SECTION (Clean Accordion)
+     ============================================================ -->
+<section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Common Questions
+      </div>
+      <h2 class="h2-title">Frequently Asked Questions</h2>
+      <p class="lead-text">Quick answers about Walmart Ads management.</p>
+    </div>
+
+    <div class="faq-wrap">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What does Walmart Ads Management include?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Campaign setup, ongoing optimization, and regular performance reporting for your Walmart Ads.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do I need a Walmart seller account?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Advertising on Walmart starts from your seller account and product listings. We'll review what you have in your free consultation.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do you also manage Google, Meta, or Amazon ads?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes, as separate services. See our Google &amp; Meta Ads and Amazon Store Setup &amp; Ads Management pages.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Can you help if I'm new to Walmart advertising?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. Tell us about your products and goals in your free consultation and we'll recommend how to get started.
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ -->
+<section class="cta-banner-section" id="consultation">
+  <div class="container">
+    <div class="cta-banner-box">
+
+      <div class="cta-banner-left">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Next Steps
+        </div>
+        <h2>Ready to start advertising on Walmart?</h2>
+        <p>
+          Book a free consultation and tell us about your Walmart seller account, and we'll recommend the right setup.
+        </p>
+        <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+          Consultation</a>
+      </div>
+
+      <div class="prep-card-right">
+        <h4 class="prep-card-title">Helpful to have ready:</h4>
+        <ul class="prep-list">
+          <li>
+            <span class="prep-list-num">1</span>
+            <span>Whether you already have a Walmart seller account</span>
+          </li>
+          <li>
+            <span class="prep-list-num">2</span>
+            <span>Your expected ad budget</span>
+          </li>
+          <li>
+            <span class="prep-list-num">3</span>
+            <span>Your current product listings</span>
+          </li>
+          <li>
+            <span class="prep-list-num">4</span>
+            <span>Your main goals for Walmart ads</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>

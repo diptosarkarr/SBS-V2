@@ -1,9 +1,9 @@
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- SEO: Service structured data (see design.md §7) -->
-  <script type="application/ld+json">
+<!-- SEO: Service structured data (generic by design, see SERVICE-PAGE-GUIDELINES.md) -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -12,37 +12,29 @@
       "@type": "Organization",
       "name": "Sites by Sara"
     },
-    "description": "Ongoing newsletter management, branded template design, deliverability and domain verification, email list import, and email metrics reporting."
+    "description": "Newsletter management and email marketing support, from branded templates to scheduled sends and reporting."
   }
-  </script>
-  <!-- SEO: FAQPage structured data — mirrors the visible FAQ section verbatim -->
-  <script type="application/ld+json">
+</script>
+<!-- SEO: FAQPage structured data, generated from the same list as the visible FAQ -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What's included in Newsletter Management?",
+        "name": "What does newsletter management include?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ongoing template management and campaign sends at your chosen frequency: Monthly (1 send/month), Bi-Weekly (2 sends/month), or Weekly (4 sends/month). See the pricing above for current rates."
+          "text": "Ongoing template management and campaign sends on the schedule you choose."
         }
       },
       {
         "@type": "Question",
-        "name": "Do I need Template Design before Newsletter Management starts?",
+        "name": "Do I need a template designed first?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Only if you don't already have a branded newsletter template. Template Design (a one-time fee) covers a branded template and your first campaign layout. If you already have a template, you can start directly with Newsletter Management."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What if I need more sends than my monthly plan covers?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Subsequent Campaign Send (a one-time fee, per send) covers layout, testing, and sending an extra campaign beyond what your plan includes."
+          "text": "Only if you don't already have a branded newsletter template. If you do, we can start right away."
         }
       },
       {
@@ -50,15 +42,15 @@
         "name": "Can you import our existing email list?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Email List Import (a one-time fee) is a done-for-you import of your existing contacts."
+          "text": "Yes. We can import your existing contacts for you."
         }
       },
       {
         "@type": "Question",
-        "name": "What is Deliverability & Domain Verification?",
+        "name": "What are deliverability and domain verification?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A one-time service that sets up mail deliverability and verifies your sending domain, so your newsletters are less likely to land in spam."
+          "text": "They set up your sending domain correctly so your newsletters are less likely to land in spam."
         }
       },
       {
@@ -66,18 +58,20 @@
         "name": "Can I see how my newsletter is performing?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Email Metrics Reporting (a one-time fee, per report) covers open and click performance for a campaign."
+          "text": "Yes. We can report on open and click performance for your campaigns."
         }
       }
     ]
   }
-  </script>
+</script>
 
-  <style>
+<style>
     /* ============================================================
      DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
      ============================================================ */
     :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
       --brand-blue: #3A539B;
       --brand-blue-hover: #2F437D;
       --brand-blue-tint: #EEF2FA;
@@ -174,15 +168,7 @@
     }
 
     .section-space {
-      padding: clamp(70px, 8vw, 110px) 0;
-    }
-
-    .section-space-tight {
-      padding: clamp(40px, 5vw, 65px) 0;
-    }
-
-    .text-center {
-      text-align: center;
+      padding: var(--section-gap) 0;
     }
 
     .section-header {
@@ -375,7 +361,7 @@
      HERO SECTION
      ============================================================ */
     .hero-section {
-      padding: clamp(48px, 6vw, 76px) 0 clamp(40px, 6vw, 70px);
+      padding: var(--section-gap) 0;
       overflow: hidden;
     }
 
@@ -388,17 +374,6 @@
 
     .hero-left {
       max-width: 580px;
-    }
-
-    .hero-footnote {
-      font-size: 0.88rem;
-      color: var(--slate-light);
-      line-height: 1.5;
-    }
-
-    .hero-footnote strong {
-      color: var(--slate);
-      font-weight: 600;
     }
 
     .hero-visual-wrap {
@@ -428,48 +403,50 @@
       object-fit: cover;
     }
 
-    /* ============================================================
-     TRUST & CAPABILITY METRICS RIBBON
+  /* ============================================================
+     TRUST STRIP: identical on every service page and on the homepage
      ============================================================ */
-    .trust-ribbon-section {
-      padding: 38px 0;
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-      background: var(--brand-blue-subtle);
-    }
+  .site-trust-strip {
+    padding: clamp(20px, 2.5vw, 24px) 0;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--bg-light);
+  }
 
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      text-align: center;
-    }
+  .site-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
 
-    .trust-stat-item {
-      padding: 8px 16px;
-    }
+  .site-trust-number {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1.15;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
 
-    .trust-stat-number {
-      font-size: 2.1rem;
-      font-weight: 700;
-      color: var(--brand-blue);
-      line-height: 1.1;
-      margin-bottom: 4px;
-      letter-spacing: -0.02em;
-    }
+  .site-trust-label {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--slate);
+    line-height: 1.35;
+  }
 
-    .trust-stat-label {
-      font-size: 0.86rem;
-      font-weight: 600;
-      color: var(--slate);
-      line-height: 1.35;
+  @media (max-width: 820px) {
+    .site-trust-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
     }
+  }
 
     /* ============================================================
      PRICING SECTION
      ============================================================ */
     .pricing-section {
-      padding: clamp(70px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
       background: #FFFFFF;
     }
 
@@ -481,302 +458,6 @@
       padding: clamp(24px, 4vw, 44px);
       max-width: 1120px;
       margin: 0 auto;
-    }
-
-    .pricing-top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border-light);
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .pricing-platform-pills {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .platform-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--navy);
-      background: #F1F3F9;
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-    }
-
-    .pricing-currency-badge {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--slate);
-    }
-
-    .pricing-divider {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--brand-blue);
-      margin: 36px 0 16px;
-      padding-top: 28px;
-      border-top: 1px solid var(--border-light);
-    }
-
-    .pricing-outer-container>.pricing-divider:first-of-type {
-      margin-top: 0;
-      padding-top: 0;
-      border-top: none;
-    }
-
-    /* 3-Column Tier Grid (Newsletter Management) */
-    .pricing-grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .pricing-card-col {
-      background: #FFFFFF;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 26px 20px 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      transition: all 0.25s ease;
-    }
-
-    .pricing-card-col:hover {
-      border-color: #BDC1C6;
-      box-shadow: var(--shadow-subtle);
-    }
-
-    .pricing-card-col.is-featured {
-      border: 2px solid var(--brand-blue);
-      box-shadow: 0 10px 28px rgba(58, 83, 155, 0.14);
-    }
-
-    .featured-badge {
-      position: absolute;
-      top: -12px;
-      left: 18px;
-      background: var(--brand-gradient);
-      color: #FFFFFF;
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: var(--radius-pill);
-      box-shadow: 0 2px 8px rgba(2, 80, 197, 0.25);
-    }
-
-    .plan-name {
-      font-size: 1.08rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-
-    .plan-price-row {
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-      margin-bottom: 4px;
-      flex-wrap: wrap;
-    }
-
-    .plan-price {
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1;
-    }
-
-    .plan-period {
-      font-size: 0.78rem;
-      color: var(--slate);
-      font-weight: 600;
-    }
-
-    .plan-subtext {
-      font-size: 0.82rem;
-      color: var(--brand-blue);
-      font-weight: 600;
-      margin-bottom: 18px;
-    }
-
-    .btn-plan {
-      display: block;
-      width: 100%;
-      text-align: center;
-      font-size: 0.92rem;
-      font-weight: 600;
-      padding: 11px;
-      border-radius: var(--radius-pill);
-      margin-bottom: 22px;
-      transition: all 0.2s ease;
-    }
-
-    .btn-plan-primary {
-      background: var(--brand-gradient);
-      color: #FFFFFF;
-      box-shadow: 0 3px 12px rgba(2, 80, 197, 0.22);
-    }
-
-    .btn-plan-primary:hover,
-    .btn-plan-primary:focus,
-    .btn-plan-primary:focus-visible,
-    .btn-plan-primary:active {
-      background: var(--brand-gradient-hover);
-      box-shadow: 0 5px 16px rgba(212, 63, 141, 0.32);
-      color: #FFFFFF !important;
-    }
-
-    .btn-plan-outline {
-      background: transparent;
-      color: var(--brand-blue);
-      border: 1.5px solid var(--border);
-    }
-
-    .btn-plan-outline:hover,
-    .btn-plan-outline:focus,
-    .btn-plan-outline:focus-visible,
-    .btn-plan-outline:active {
-      background: var(--brand-peach);
-      border-color: var(--brand-blue);
-      color: var(--brand-blue) !important;
-    }
-
-    .plan-features-label {
-      font-size: 0.76rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--slate-light);
-      margin-bottom: 10px;
-    }
-
-    .plan-features-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-      font-size: 0.84rem;
-      color: var(--slate);
-      line-height: 1.4;
-    }
-
-    .plan-features-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 7px;
-    }
-
-    .plan-features-list li svg {
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .pricing-card-col.is-featured .plan-features-list li svg {
-      color: var(--brand-blue);
-    }
-
-    .pricing-card-col:not(.is-featured) .plan-features-list li svg {
-      color: var(--green);
-    }
-
-    /* Lightweight addon-style cards for one-time email marketing add-ons */
-    .pricing-addons-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-    }
-
-    .addon-item-box {
-      background: var(--bg-light);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-      padding: 20px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      transition: all 0.2s ease;
-    }
-
-    .addon-item-box:hover {
-      background: #FFFFFF;
-      border-color: var(--border-card);
-      box-shadow: var(--shadow-subtle);
-    }
-
-    .addon-price-tag {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--brand-blue);
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-
-    .addon-item-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--navy);
-    }
-
-    .addon-item-desc {
-      font-size: 0.85rem;
-      color: var(--slate);
-      line-height: 1.5;
-      flex-grow: 1;
-    }
-
-    .addon-item-note {
-      font-size: 0.78rem;
-      color: var(--slate-light);
-      line-height: 1.4;
-    }
-
-    .pricing-disclaimer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--slate-light);
-      margin-top: 28px;
-      line-height: 1.6;
-      max-width: 760px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .pricing-inline-link {
-      text-align: center;
-      font-size: 0.92rem;
-      color: var(--slate);
-      margin-top: 16px;
-    }
-
-    .pricing-inline-link a {
-      color: var(--brand-blue);
-      font-weight: 600;
-      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .pricing-inline-link a:hover,
-    .pricing-inline-link a:focus,
-    .pricing-inline-link a:focus-visible,
-    .pricing-inline-link a:active {
-      color: var(--brand-blue-hover) !important;
-      border-color: var(--brand-blue-hover);
     }
 
     /* ============================================================
@@ -841,7 +522,7 @@
      ALTERNATING STORYTELLING FEATURES (High Breathing Space)
      ============================================================ */
     .story-features-section {
-      padding: clamp(60px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .story-row {
@@ -940,7 +621,7 @@
      ============================================================ */
     .faq-section {
       background: #FAFAFC;
-      padding: clamp(70px, 8vw, 100px) 0;
+      padding: var(--section-gap) 0;
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
     }
@@ -1023,7 +704,7 @@
      NEXT STEPS / CONSULTATION CHECKLIST BANNER
      ============================================================ */
     .cta-banner-section {
-      padding: clamp(70px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .cta-banner-box {
@@ -1102,11 +783,6 @@
      ============================================================ */
     @media (max-width: 1024px) {
 
-      .pricing-grid-3,
-      .pricing-addons-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
       .scope-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1129,17 +805,9 @@
         order: 2;
       }
 
-      .trust-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
     }
 
-    @media (max-width: 600px) {
-
-      .pricing-grid-3,
-      .pricing-addons-grid,
-      .scope-grid {
+    @media (max-width: 600px) {.scope-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1152,445 +820,446 @@
         width: 100%;
       }
     }
-  </style>
+    /* Short supporting line under a section's cards/grid; also used for related-service links */
+  .section-note {
+    text-align: center;
+    max-width: 720px;
+    margin: 28px auto 0;
+    font-size: 0.98rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
 
-  <!-- ============================================================
+  .section-note + .section-note {
+    margin-top: 12px;
+  }
+
+  .section-note a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
+
+  .section-note a:hover,
+  .section-note a:focus,
+  .section-note a:focus-visible,
+  .section-note a:active {
+    color: var(--brand-blue-hover) !important;
+  }
+
+</style>
+
+<!-- ============================================================
        PAGE TITLE BANNER
        ============================================================ -->
-  <section class="page-title-banner" aria-label="Page Title">
-    <div class="page-title-banner-mesh" aria-hidden="true"></div>
-    <div class="container page-title-inner">
-      <h1 class="page-banner-h1">Newsletter Management &amp; Email Marketing</h1>
-      <p class="page-banner-sub">(Newsletter Management, Template Design &amp; Email Marketing Support)</p>
-    </div>
-  </section>
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <h1 class="page-banner-h1">Newsletter Management &amp; Email Marketing</h1>
+    <p class="page-banner-sub">(Newsletter Management, Template Design &amp; Email Marketing Support)</p>
+  </div>
+</section>
 
-  <!-- ============================================================
+<!-- ============================================================
        HERO SECTION
        ============================================================ -->
-  <section class="hero-section" id="overview">
-    <div class="container">
-      <div class="hero-grid">
+<section class="hero-section" id="overview">
+  <div class="container">
+    <div class="hero-grid">
 
-        <!-- Hero Copy -->
-        <div class="hero-left">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Newsletter &amp; Email Marketing
-          </div>
-
-          <h2 class="h2-title">Newsletters that go out on schedule, every time.</h2>
-
-          <p class="lead-text">
-            Sites by Sara manages your newsletter from template to send — branded design, ongoing campaign
-            management at the frequency you choose, and the deliverability, list import, and reporting support
-            that keeps it running smoothly.
-          </p>
-
-          <div class="btn-group">
-            <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
-              Consultation</a>
-            <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
-          </div>
-
-          <div class="hero-footnote">
-            <strong>Newsletter Management is an ongoing monthly plan.</strong> Template design, list import,
-            deliverability setup, and reporting are priced individually — see the full breakdown below.
-          </div>
-        </div>
-
-        <!-- Hero Visual Mockup -->
-        <div class="hero-visual-wrap">
-          <div class="hero-image-card">
-            <img src="/wp-content/uploads/2026/09/newsletter-services-hero.webp"
-              alt="Branded email newsletter template mockup with a send schedule calendar" width="600" height="450" />
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-     TRUST & CAPABILITY METRICS RIBBON
-     ============================================================ -->
-  <section class="trust-ribbon-section" aria-label="Key Service Facts">
-    <div class="container">
-      <div class="trust-grid">
-        <div class="trust-stat-item">
-          <div class="trust-stat-number">3</div>
-          <div class="trust-stat-label">Send Frequency Tiers</div>
-        </div>
-        <div class="trust-stat-item">
-          <div class="trust-stat-number">1-4</div>
-          <div class="trust-stat-label">Sends Per Month</div>
-        </div>
-        <div class="trust-stat-item">
-          <div class="trust-stat-number">5</div>
-          <div class="trust-stat-label">Email Marketing Add-Ons</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-     PRICING SECTION
-     ============================================================ -->
-  <section class="pricing-section" id="pricing">
-    <div class="container">
-
-      <div class="section-header">
+      <!-- Hero Copy -->
+      <div class="hero-left">
         <div class="eyebrow">
           <span class="eyebrow-dot"></span>
-          Simple, Transparent Pricing
-        </div>
-        <h2 class="h2-title">Pick your send frequency, add exactly what you need.</h2>
-        <p class="lead-text">Newsletter Management is an ongoing monthly plan. Everything else is a one-time
-          add-on, priced and ordered on its own.</p>
-      </div>
-
-      <div class="pricing-outer-container">
-
-        <!-- Top Bar -->
-        <div class="pricing-top-bar">
-          <div class="pricing-platform-pills">
-            <span class="platform-tag">Newsletter Management</span>
-            <span class="platform-tag">Email Marketing Add-Ons</span>
-          </div>
-          <span class="pricing-currency-badge">One-time &amp; monthly rates · USD</span>
+          Newsletter &amp; Email Marketing
         </div>
 
-        <!-- Newsletter Management (primary — 3-tier grid) -->
-        <iframe class="sbs-pricing-frame"
-          src="https://order.sitesbysara.com/configure/pricing-cards?ids=88,89,90&popular=88&title=Newsletter%20Management%20(Ongoing)"
-          style="width:100%;border:0;display:block;margin-bottom:40px;" loading="lazy"></iframe>
+        <h2 class="h2-title">Newsletters that go out on schedule, every time.</h2>
 
-        <!-- Email Marketing Add-Ons -->
-        <iframe class="sbs-pricing-frame"
-          src="https://order.sitesbysara.com/configure/pricing-cards?ids=91,92,93,94,95&title=Email%20Marketing%20Add-Ons%20(One-Time)"
-          style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+        <p class="lead-text">
+          Sites by Sara manages your newsletter from template to send, with branded design, ongoing campaign management, and the deliverability, list import, and reporting support that keeps it running smoothly.
+        </p>
 
-      </div>
-
-      <p class="pricing-disclaimer">
-        Newsletter Management is an ongoing monthly service billed at your chosen send frequency. Template
-        Design, Deliverability &amp; Domain Verification, Email List Import, Subsequent Campaign Send, and Email
-        Metrics Reporting are one-time services, each priced and ordered separately.
-      </p>
-
-      <p class="pricing-inline-link">
-        Need your newsletter content written too? See our <a href="/copywriting/">Copywriting &amp; Content
-          Writing</a> page.
-      </p>
-
-    </div>
-  </section>
-
-  <script>
-    window.addEventListener('message', function (e) {
-      if (e.data && e.data.source === 'sbs-pricing-cards') {
-        document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
-          if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
-        });
-      }
-    });
-  </script>
-
-  <!-- ============================================================
-     DETAILED BREAKDOWN: OUR PROCESS (8-Step Scope)
-     ============================================================ -->
-  <section class="section-space scope-section" aria-label="Newsletter breakdown">
-    <div class="container">
-
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Detailed Breakdown
-        </div>
-        <h2 class="h2-title">What's involved in managing your newsletter.</h2>
-        <p class="lead-text">From your first branded template to your ongoing performance reports.</p>
-      </div>
-
-      <div class="scope-grid">
-
-        <div class="scope-card">
-          <div class="scope-num">1</div>
-          <h3 class="scope-title">Discovery Call</h3>
-          <p class="scope-desc">We talk through your brand, audience, and how often you want to send.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">2</div>
-          <h3 class="scope-title">Branded Template Design</h3>
-          <p class="scope-desc">Designing a template and first campaign layout that matches your brand.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">3</div>
-          <h3 class="scope-title">Deliverability &amp; Domain Setup</h3>
-          <p class="scope-desc">Setting up mail deliverability and verifying your sending domain.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">4</div>
-          <h3 class="scope-title">Email List Import</h3>
-          <p class="scope-desc">Importing your existing contacts, done for you.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">5</div>
-          <h3 class="scope-title">Campaign Layout &amp; Testing</h3>
-          <p class="scope-desc">Laying out and testing each campaign before it goes out.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">6</div>
-          <h3 class="scope-title">Scheduled Sending</h3>
-          <p class="scope-desc">Sending your newsletter at your chosen frequency, on schedule.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">7</div>
-          <h3 class="scope-title">Ongoing Template Management</h3>
-          <p class="scope-desc">Keeping your template current and your campaigns consistent.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">8</div>
-          <h3 class="scope-title">Performance Reporting</h3>
-          <p class="scope-desc">Open and click performance, so you can see what's working.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
-     ============================================================ -->
-  <section class="story-features-section">
-    <div class="container">
-
-      <!-- Feature 1: Management -->
-      <div class="story-row">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Consistent, Not Occasional
-          </div>
-          <h2 class="story-title">A newsletter that goes out on schedule, every time.</h2>
-          <p class="story-desc">
-            Newsletter Management keeps your sends consistent — whether that's a monthly update, a bi-weekly
-            check-in, or a weekly touchpoint — with ongoing template management handled for you.
-          </p>
-          <a href="#pricing" class="story-link">See management tiers<svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/newsletter-management-detail.webp"
-              alt="Newsletter send schedule calendar with monthly, bi-weekly, and weekly frequency options"
-              width="520" height="390" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature 2: Template Design -->
-      <div class="story-row is-reversed">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Starting From Scratch?
-          </div>
-          <h2 class="story-title">A branded template built before your first send.</h2>
-          <p class="story-desc">
-            If you don't have a newsletter template yet, Template Design covers a branded template and your
-            first campaign layout — so Newsletter Management has something ready to work with from day one.
-          </p>
-          <a href="#pricing" class="story-link">See Template Design pricing<svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/newsletter-template-design-detail.webp"
-              alt="Branded email newsletter template layout mockup" width="520" height="390" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature 3: Deliverability & Reporting -->
-      <div class="story-row">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Land In The Inbox, Not Spam
-          </div>
-          <h2 class="story-title">Deliverability setup and performance reporting, when you need them.</h2>
-          <p class="story-desc">
-            Deliverability &amp; Domain Verification helps your newsletters reach the inbox instead of the spam
-            folder, and Email Metrics Reporting shows you open and click performance whenever you want a
-            check-in.
-          </p>
-          <a href="#pricing" class="story-link">See email marketing add-ons<svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/newsletter-deliverability-reporting-detail.webp"
-              alt="Email deliverability checklist next to an open and click rate performance report" width="520"
-              height="390" />
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-     FAQ SECTION (Clean Accordion)
-     ============================================================ -->
-  <section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
-    <div class="container">
-
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Common Questions
-        </div>
-        <h2 class="h2-title">Frequently Asked Questions</h2>
-        <p class="lead-text">Everything you need to know about our newsletter management and email marketing
-          services.</p>
-      </div>
-
-      <div class="faq-wrap">
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>What's included in Newsletter Management?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Ongoing <strong>template management</strong> and campaign sends at your chosen frequency:
-            <strong>Monthly</strong> (1 send/month), <strong>Bi-Weekly</strong> (2 sends/month), or
-            <strong>Weekly</strong> (4 sends/month). See the pricing above for current rates.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>Do I need Template Design before Newsletter Management starts?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Only if you don't already have a branded newsletter template. <strong>Template Design</strong> (a
-            one-time fee) covers a branded template and your first campaign layout. If you already have a template,
-            you can start directly with Newsletter Management.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>What if I need more sends than my monthly plan covers?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            <strong>Subsequent Campaign Send</strong> (a one-time fee, per send) covers layout, testing, and
-            sending an extra campaign beyond what your plan includes.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>Can you import our existing email list?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Yes. <strong>Email List Import</strong> (a one-time fee) is a done-for-you import of your existing
-            contacts.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>What is Deliverability &amp; Domain Verification?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            A one-time service that sets up mail deliverability and verifies your sending domain, so your
-            newsletters are less likely to land in spam.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>Can I see how my newsletter is performing?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Yes. <strong>Email Metrics Reporting</strong> (a one-time fee, per report) covers open and click
-            performance for a campaign.
-          </div>
-        </details>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-     NEXT STEPS / CONSULTATION CHECKLIST BANNER
-     ============================================================ -->
-  <section class="cta-banner-section" id="consultation">
-    <div class="container">
-      <div class="cta-banner-box">
-
-        <div class="cta-banner-left">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Next Steps
-          </div>
-          <h2>Ready to get your newsletter managed?</h2>
-          <p>
-            Book a free consultation and tell us how often you want to send — we'll recommend the right plan and
-            add-ons.
-          </p>
+        <div class="btn-group">
           <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
             Consultation</a>
+          <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
         </div>
+      </div>
 
-        <div class="prep-card-right">
-          <h4 class="prep-card-title">Helpful to have ready:</h4>
-          <ul class="prep-list">
-            <li>
-              <span class="prep-list-num">1</span>
-              <span>Whether you already have a newsletter template</span>
-            </li>
-            <li>
-              <span class="prep-list-num">2</span>
-              <span>How often you'd like to send</span>
-            </li>
-            <li>
-              <span class="prep-list-num">3</span>
-              <span>Whether you have an existing contact list to import</span>
-            </li>
-            <li>
-              <span class="prep-list-num">4</span>
-              <span>Your current email sending domain</span>
-            </li>
-            <li>
-              <span class="prep-list-num">5</span>
-              <span>Whether you want performance reporting per send</span>
-            </li>
-          </ul>
+      <!-- Hero Visual Mockup -->
+      <div class="hero-visual-wrap">
+        <div class="hero-image-card">
+          <img src="/wp-content/uploads/2026/09/newsletter-services-hero.webp"
+            alt="Branded email newsletter template mockup with a send schedule calendar" width="600" height="450" />
         </div>
+      </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+   TRUST & CAPABILITY METRICS RIBBON
+   ============================================================ -->
+<section class="site-trust-strip" aria-label="Key Agency Facts">
+  <div class="container">
+    <div class="site-trust-grid">
+      <div>
+        <div class="site-trust-number" data-count-to="2007">2007</div>
+        <div class="site-trust-label">Serving Utah Businesses Since</div>
+      </div>
+      <div>
+        <div class="site-trust-number" data-count-to="300" data-count-suffix="+">300+</div>
+        <div class="site-trust-label">Customer Success Stories</div>
+      </div>
+      <div>
+        <div class="site-trust-number" data-count-to="57">57</div>
+        <div class="site-trust-label">Industry Recognitions &amp; Awards</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+<script>
+  (function () {
+    var els = document.querySelectorAll('.site-trust-number[data-count-to]');
+    if (!els.length) return;
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function animate(el) {
+      var target = parseInt(el.getAttribute('data-count-to'), 10);
+      var suffix = el.getAttribute('data-count-suffix') || '';
+      if (isNaN(target)) return;
+      if (reduced) { el.textContent = target + suffix; return; }
+      var start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var progress = Math.min((ts - start) / 1400, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - progress, 3))) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    var grid = els[0].closest('.site-trust-grid');
+    if (grid && !reduced && 'IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) {
+          els.forEach(animate);
+          observer.disconnect();
+        }
+      }, { threshold: 0.4 });
+      observer.observe(grid);
+    } else {
+      els.forEach(animate);
+    }
+  })();
+</script>
+
+<!-- ============================================================
+     PRICING SECTION
+     ============================================================ -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Pricing
+      </div>
+      <h2 class="h2-title">Choose the newsletter support that fits your business.</h2>
+      <p class="lead-text">Compare the options below, or book a free consultation and we'll help you decide.</p>
+    </div>
+
+    <div class="pricing-outer-container">
+      <iframe class="sbs-pricing-frame"
+        src="https://order.sitesbysara.com/configure/pricing-cards?ids=88,89,90,91,92,93,94,95&popular=88&title=Newsletter%20Management%20%26%20Email%20Marketing"
+        title="Pricing options" style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+    </div>
+
+    <p class="section-note">Looking for more ways to grow your business? Explore
+      <a class="related-link" href="/copywriting/">Copywriting &amp; Content Writing</a> and
+      <a class="related-link" href="/email-setup-migration-services-gws-ms365/">Email Setup &amp; Migration</a>.</p>
+
+  </div>
+</section>
+
+<script>
+  window.addEventListener('message', function (e) {
+    if (e.data && e.data.source === 'sbs-pricing-cards') {
+      document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
+        if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
+      });
+    }
+  });
+</script>
+
+<!-- ============================================================
+     HOW IT WORKS (SCOPE GRID)
+     ============================================================ -->
+<section class="section-space scope-section" aria-label="How it works">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        How It Works
+      </div>
+      <h2 class="h2-title">What goes into managing your newsletter.</h2>
+      <p class="lead-text">From your first branded template to your ongoing performance reports.</p>
+    </div>
+
+    <div class="scope-grid">
+
+      <div class="scope-card">
+        <div class="scope-num">1</div>
+        <h3 class="scope-title">Discovery Call</h3>
+        <p class="scope-desc">We talk through your brand, audience, and how often you want to send.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">2</div>
+        <h3 class="scope-title">Branded Template Design</h3>
+        <p class="scope-desc">Designing a template and first campaign layout that matches your brand.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">3</div>
+        <h3 class="scope-title">Deliverability &amp; Domain Setup</h3>
+        <p class="scope-desc">Setting up mail deliverability and verifying your sending domain.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">4</div>
+        <h3 class="scope-title">Email List Import</h3>
+        <p class="scope-desc">Importing your existing contacts, done for you.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">5</div>
+        <h3 class="scope-title">Campaign Layout &amp; Testing</h3>
+        <p class="scope-desc">Laying out and testing each campaign before it goes out.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">6</div>
+        <h3 class="scope-title">Scheduled Sending</h3>
+        <p class="scope-desc">Sending your newsletter on your chosen schedule.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">7</div>
+        <h3 class="scope-title">Ongoing Template Management</h3>
+        <p class="scope-desc">Keeping your template current and your campaigns consistent.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">8</div>
+        <h3 class="scope-title">Performance Reporting</h3>
+        <p class="scope-desc">Open and click performance, so you can see what's working.</p>
+      </div>
+
+    </div>
+
+    <p class="section-note">Every business is different, so we shape the process around your audience and goals.</p>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     ============================================================ -->
+<section class="story-features-section">
+  <div class="container">
+
+    <div class="story-row">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Consistent, Not Occasional
+        </div>
+        <h2 class="story-title">A newsletter that goes out on schedule, every time.</h2>
+        <p class="story-desc">
+          We keep your sends consistent, whether you send an update now and then or a regular touchpoint, with ongoing template management handled for you.
+        </p>
+        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/newsletter-management-detail.webp"
+            alt="Newsletter send schedule calendar with different frequency options" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <div class="story-row is-reversed">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Starting From Scratch?
+        </div>
+        <h2 class="story-title">A branded template built before your first send.</h2>
+        <p class="story-desc">
+          If you don't have a newsletter template yet, we can design a branded template and your first campaign layout, so you have something ready from day one.
+        </p>
+        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/newsletter-template-design-detail.webp"
+            alt="Branded email newsletter template layout mockup" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Land In The Inbox, Not Spam
+        </div>
+        <h2 class="story-title">Deliverability setup and performance reporting, when you need them.</h2>
+        <p class="story-desc">
+          Deliverability setup helps your newsletters reach the inbox instead of the spam folder, and reporting shows you open and click performance whenever you want a check-in.
+        </p>
+        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/newsletter-deliverability-reporting-detail.webp"
+            alt="Email deliverability checklist next to an open and click rate performance report" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ SECTION (Clean Accordion)
+     ============================================================ -->
+<section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Common Questions
+      </div>
+      <h2 class="h2-title">Frequently Asked Questions</h2>
+      <p class="lead-text">Quick answers about newsletter management and email marketing.</p>
+    </div>
+
+    <div class="faq-wrap">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What does newsletter management include?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Ongoing template management and campaign sends on the schedule you choose.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do I need a template designed first?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Only if you don't already have a branded newsletter template. If you do, we can start right away.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Can you import our existing email list?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. We can import your existing contacts for you.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What are deliverability and domain verification?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          They set up your sending domain correctly so your newsletters are less likely to land in spam.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Can I see how my newsletter is performing?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. We can report on open and click performance for your campaigns.
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ -->
+<section class="cta-banner-section" id="consultation">
+  <div class="container">
+    <div class="cta-banner-box">
+
+      <div class="cta-banner-left">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Next Steps
+        </div>
+        <h2>Ready to get your newsletter managed?</h2>
+        <p>
+          Book a free consultation and tell us how often you want to send, and we'll recommend the right setup.
+        </p>
+        <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+          Consultation</a>
+      </div>
+
+      <div class="prep-card-right">
+        <h4 class="prep-card-title">Helpful to have ready:</h4>
+        <ul class="prep-list">
+          <li>
+            <span class="prep-list-num">1</span>
+            <span>Whether you already have a newsletter template</span>
+          </li>
+          <li>
+            <span class="prep-list-num">2</span>
+            <span>How often you'd like to send</span>
+          </li>
+          <li>
+            <span class="prep-list-num">3</span>
+            <span>Whether you have an existing contact list to import</span>
+          </li>
+          <li>
+            <span class="prep-list-num">4</span>
+            <span>Your current email sending domain</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>

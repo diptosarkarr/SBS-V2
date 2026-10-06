@@ -1,48 +1,40 @@
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- SEO: Service structured data (see design.md §7) -->
-  <script type="application/ld+json">
+<!-- SEO: Service structured data (generic by design, see SERVICE-PAGE-GUIDELINES.md) -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": "Graphic Design & Branding",
+    "serviceType": "Graphic Design and Branding",
     "provider": {
       "@type": "Organization",
       "name": "Sites by Sara"
     },
-    "description": "Logo design, branding packages, brand development, and print collateral design including business cards, envelopes, posters, postcards, and mailers."
+    "description": "Logo design, brand identity, and print collateral design to help your business look consistent and professional."
   }
-  </script>
-  <!-- SEO: FAQPage structured data — mirrors the visible FAQ section verbatim -->
-  <script type="application/ld+json">
+</script>
+<!-- SEO: FAQPage structured data, generated from the same list as the visible FAQ -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What's the difference between Basic Logo and Logo Design Package?",
+        "name": "Do you design logos and full brand identities?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Basic Logo delivers PNG/JPG files only, no source files, with up to 5 revisions. Logo Design Package includes unlimited revisions, source files, and a business card design. See the pricing above for current rates."
+          "text": "Yes. We design everything from a simple logo to a complete brand identity, including colors, fonts, and a style guide."
         }
       },
       {
         "@type": "Question",
-        "name": "What's included in the Branding Package?",
+        "name": "What is a brand style guide?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Logo plus source files, defined colors and fonts, styling conventions, and taglines/hashtags — a one-time fee, see pricing above."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What's the difference between Branding Package and Brand Development?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Branding Package builds your brand identity from scratch. Brand Development is a deeper engagement for existing brands — focus groups/surveys, rebranding analysis, and a full style guide. See the pricing above for current rates."
+          "text": "A brand style guide documents your logo, colors, fonts, and styling so everything you create looks consistent."
         }
       },
       {
@@ -50,34 +42,36 @@
         "name": "Do you design print materials, not just digital branding?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Business card design, envelope design, poster design, postcard design, and mailer/EDDM design and printing are all available individually."
+          "text": "Yes. We design business cards, envelopes, posters, postcards, and mailers, and can handle printing for mailers."
         }
       },
       {
         "@type": "Question",
-        "name": "Can you update an existing business card design?",
+        "name": "Can you update an existing design?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Business Card Edit updates an existing business card design file, priced per card."
+          "text": "Yes. For example, we can update an existing business card design file for you."
         }
       },
       {
         "@type": "Question",
-        "name": "How is Mailer/EDDM Design & Printing priced?",
+        "name": "Can you help me rebrand an existing business?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Custom quote. It includes custom mailer design, EDDM presort and postage coordination, and trucking to the sortation facility, so pricing depends on your mailer's size and distribution."
+          "text": "Yes. If your brand is ready to evolve, we can help with rebranding, from research through to a full style guide."
         }
       }
     ]
   }
-  </script>
+</script>
 
-  <style>
+<style>
     /* ============================================================
      DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
      ============================================================ */
     :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
       --brand-blue: #3A539B;
       --brand-blue-hover: #2F437D;
       --brand-blue-tint: #EEF2FA;
@@ -174,15 +168,7 @@
     }
 
     .section-space {
-      padding: clamp(70px, 8vw, 110px) 0;
-    }
-
-    .section-space-tight {
-      padding: clamp(40px, 5vw, 65px) 0;
-    }
-
-    .text-center {
-      text-align: center;
+      padding: var(--section-gap) 0;
     }
 
     .section-header {
@@ -375,7 +361,7 @@
      HERO SECTION
      ============================================================ */
     .hero-section {
-      padding: clamp(48px, 6vw, 76px) 0 clamp(40px, 6vw, 70px);
+      padding: var(--section-gap) 0;
       overflow: hidden;
     }
 
@@ -388,17 +374,6 @@
 
     .hero-left {
       max-width: 580px;
-    }
-
-    .hero-footnote {
-      font-size: 0.88rem;
-      color: var(--slate-light);
-      line-height: 1.5;
-    }
-
-    .hero-footnote strong {
-      color: var(--slate);
-      font-weight: 600;
     }
 
     .hero-visual-wrap {
@@ -428,48 +403,50 @@
       object-fit: cover;
     }
 
-    /* ============================================================
-     TRUST & CAPABILITY METRICS RIBBON
+  /* ============================================================
+     TRUST STRIP: identical on every service page and on the homepage
      ============================================================ */
-    .trust-ribbon-section {
-      padding: 38px 0;
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-      background: var(--brand-blue-subtle);
-    }
+  .site-trust-strip {
+    padding: clamp(20px, 2.5vw, 24px) 0;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--bg-light);
+  }
 
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      text-align: center;
-    }
+  .site-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
 
-    .trust-stat-item {
-      padding: 8px 16px;
-    }
+  .site-trust-number {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1.15;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
 
-    .trust-stat-number {
-      font-size: 2.1rem;
-      font-weight: 700;
-      color: var(--brand-blue);
-      line-height: 1.1;
-      margin-bottom: 4px;
-      letter-spacing: -0.02em;
-    }
+  .site-trust-label {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--slate);
+    line-height: 1.35;
+  }
 
-    .trust-stat-label {
-      font-size: 0.86rem;
-      font-weight: 600;
-      color: var(--slate);
-      line-height: 1.35;
+  @media (max-width: 820px) {
+    .site-trust-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
     }
+  }
 
     /* ============================================================
      PRICING SECTION
      ============================================================ */
     .pricing-section {
-      padding: clamp(70px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
       background: #FFFFFF;
     }
 
@@ -481,302 +458,6 @@
       padding: clamp(24px, 4vw, 44px);
       max-width: 1120px;
       margin: 0 auto;
-    }
-
-    .pricing-top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border-light);
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .pricing-platform-pills {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .platform-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--navy);
-      background: #F1F3F9;
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-    }
-
-    .pricing-currency-badge {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--slate);
-    }
-
-    .pricing-divider {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--brand-blue);
-      margin: 36px 0 16px;
-      padding-top: 28px;
-      border-top: 1px solid var(--border-light);
-    }
-
-    .pricing-outer-container>.pricing-divider:first-of-type {
-      margin-top: 0;
-      padding-top: 0;
-      border-top: none;
-    }
-
-    /* 4-Column Tier Grid (Brand Identity) */
-    .pricing-grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-    }
-
-    .pricing-card-col {
-      background: #FFFFFF;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 26px 20px 22px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-      transition: all 0.25s ease;
-    }
-
-    .pricing-card-col:hover {
-      border-color: #BDC1C6;
-      box-shadow: var(--shadow-subtle);
-    }
-
-    .pricing-card-col.is-featured {
-      border: 2px solid var(--brand-blue);
-      box-shadow: 0 10px 28px rgba(58, 83, 155, 0.14);
-    }
-
-    .featured-badge {
-      position: absolute;
-      top: -12px;
-      left: 18px;
-      background: var(--brand-gradient);
-      color: #FFFFFF;
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: var(--radius-pill);
-      box-shadow: 0 2px 8px rgba(2, 80, 197, 0.25);
-    }
-
-    .plan-name {
-      font-size: 1.08rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 6px;
-    }
-
-    .plan-price-row {
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-      margin-bottom: 4px;
-      flex-wrap: wrap;
-    }
-
-    .plan-price {
-      font-size: 1.7rem;
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1;
-    }
-
-    .plan-period {
-      font-size: 0.78rem;
-      color: var(--slate);
-      font-weight: 600;
-    }
-
-    .plan-subtext {
-      font-size: 0.82rem;
-      color: var(--brand-blue);
-      font-weight: 600;
-      margin-bottom: 18px;
-    }
-
-    .btn-plan {
-      display: block;
-      width: 100%;
-      text-align: center;
-      font-size: 0.92rem;
-      font-weight: 600;
-      padding: 11px;
-      border-radius: var(--radius-pill);
-      margin-bottom: 22px;
-      transition: all 0.2s ease;
-    }
-
-    .btn-plan-primary {
-      background: var(--brand-gradient);
-      color: #FFFFFF;
-      box-shadow: 0 3px 12px rgba(2, 80, 197, 0.22);
-    }
-
-    .btn-plan-primary:hover,
-    .btn-plan-primary:focus,
-    .btn-plan-primary:focus-visible,
-    .btn-plan-primary:active {
-      background: var(--brand-gradient-hover);
-      box-shadow: 0 5px 16px rgba(212, 63, 141, 0.32);
-      color: #FFFFFF !important;
-    }
-
-    .btn-plan-outline {
-      background: transparent;
-      color: var(--brand-blue);
-      border: 1.5px solid var(--border);
-    }
-
-    .btn-plan-outline:hover,
-    .btn-plan-outline:focus,
-    .btn-plan-outline:focus-visible,
-    .btn-plan-outline:active {
-      background: var(--brand-peach);
-      border-color: var(--brand-blue);
-      color: var(--brand-blue) !important;
-    }
-
-    .plan-features-label {
-      font-size: 0.76rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--slate-light);
-      margin-bottom: 10px;
-    }
-
-    .plan-features-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-      font-size: 0.84rem;
-      color: var(--slate);
-      line-height: 1.4;
-    }
-
-    .plan-features-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 7px;
-    }
-
-    .plan-features-list li svg {
-      flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    .pricing-card-col.is-featured .plan-features-list li svg {
-      color: var(--brand-blue);
-    }
-
-    .pricing-card-col:not(.is-featured) .plan-features-list li svg {
-      color: var(--green);
-    }
-
-    /* Lightweight addon-style cards for print & collateral design */
-    .pricing-addons-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .addon-item-box {
-      background: var(--bg-light);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-      padding: 20px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      transition: all 0.2s ease;
-    }
-
-    .addon-item-box:hover {
-      background: #FFFFFF;
-      border-color: var(--border-card);
-      box-shadow: var(--shadow-subtle);
-    }
-
-    .addon-price-tag {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: var(--brand-blue);
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-
-    .addon-item-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--navy);
-    }
-
-    .addon-item-desc {
-      font-size: 0.85rem;
-      color: var(--slate);
-      line-height: 1.5;
-      flex-grow: 1;
-    }
-
-    .addon-item-note {
-      font-size: 0.78rem;
-      color: var(--slate-light);
-      line-height: 1.4;
-    }
-
-    .pricing-disclaimer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--slate-light);
-      margin-top: 28px;
-      line-height: 1.6;
-      max-width: 760px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .pricing-inline-link {
-      text-align: center;
-      font-size: 0.92rem;
-      color: var(--slate);
-      margin-top: 16px;
-    }
-
-    .pricing-inline-link a {
-      color: var(--brand-blue);
-      font-weight: 600;
-      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .pricing-inline-link a:hover,
-    .pricing-inline-link a:focus,
-    .pricing-inline-link a:focus-visible,
-    .pricing-inline-link a:active {
-      color: var(--brand-blue-hover) !important;
-      border-color: var(--brand-blue-hover);
     }
 
     /* ============================================================
@@ -841,7 +522,7 @@
      ALTERNATING STORYTELLING FEATURES (High Breathing Space)
      ============================================================ */
     .story-features-section {
-      padding: clamp(60px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .story-row {
@@ -940,7 +621,7 @@
      ============================================================ */
     .faq-section {
       background: #FAFAFC;
-      padding: clamp(70px, 8vw, 100px) 0;
+      padding: var(--section-gap) 0;
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
     }
@@ -1023,7 +704,7 @@
      NEXT STEPS / CONSULTATION CHECKLIST BANNER
      ============================================================ */
     .cta-banner-section {
-      padding: clamp(70px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .cta-banner-box {
@@ -1102,11 +783,6 @@
      ============================================================ */
     @media (max-width: 1024px) {
 
-      .pricing-grid-4,
-      .pricing-addons-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
       .scope-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -1129,17 +805,9 @@
         order: 2;
       }
 
-      .trust-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
     }
 
-    @media (max-width: 600px) {
-
-      .pricing-grid-4,
-      .pricing-addons-grid,
-      .scope-grid {
+    @media (max-width: 600px) {.scope-grid {
         grid-template-columns: 1fr;
       }
 
@@ -1152,451 +820,446 @@
         width: 100%;
       }
     }
-  </style>
+    /* Short supporting line under a section's cards/grid; also used for related-service links */
+  .section-note {
+    text-align: center;
+    max-width: 720px;
+    margin: 28px auto 0;
+    font-size: 0.98rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
 
-  <!-- ============================================================
+  .section-note + .section-note {
+    margin-top: 12px;
+  }
+
+  .section-note a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
+
+  .section-note a:hover,
+  .section-note a:focus,
+  .section-note a:focus-visible,
+  .section-note a:active {
+    color: var(--brand-blue-hover) !important;
+  }
+
+</style>
+
+<!-- ============================================================
        PAGE TITLE BANNER
        ============================================================ -->
-  <section class="page-title-banner" aria-label="Page Title">
-    <div class="page-title-banner-mesh" aria-hidden="true"></div>
-    <div class="container page-title-inner">
-      <h1 class="page-banner-h1">Graphic Design &amp; Branding</h1>
-      <p class="page-banner-sub">(Logo Design, Branding Packages &amp; Print Collateral)</p>
-    </div>
-  </section>
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <h1 class="page-banner-h1">Graphic Design &amp; Branding</h1>
+    <p class="page-banner-sub">(Logo Design, Brand Identity &amp; Print Collateral)</p>
+  </div>
+</section>
 
-  <!-- ============================================================
+<!-- ============================================================
        HERO SECTION
        ============================================================ -->
-  <section class="hero-section" id="overview">
-    <div class="container">
-      <div class="hero-grid">
+<section class="hero-section" id="overview">
+  <div class="container">
+    <div class="hero-grid">
 
-        <!-- Hero Copy -->
-        <div class="hero-left">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Graphic Design
-          </div>
-
-          <h2 class="h2-title">From your first logo to your full brand identity.</h2>
-
-          <p class="lead-text">
-            Sites by Sara designs your brand from the ground up — a simple logo, a full branding package, or a
-            deep brand development engagement — plus the print collateral that carries it into the real world:
-            business cards, envelopes, posters, postcards, and mailers.
-          </p>
-
-          <div class="btn-group">
-            <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
-              Consultation</a>
-            <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
-          </div>
-
-          <div class="hero-footnote">
-            <strong>Brand identity packages and print collateral are each priced individually.</strong> See the
-            full pricing breakdown below.
-          </div>
-        </div>
-
-        <!-- Hero Visual Mockup -->
-        <div class="hero-visual-wrap">
-          <div class="hero-image-card">
-            <img src="/wp-content/uploads/2026/09/design-services-hero.webp"
-              alt="Logo design concepts and a brand style guide mockup with color swatches and typography"
-              width="600" height="450" />
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-     TRUST & CAPABILITY METRICS RIBBON
-     ============================================================ -->
-  <section class="trust-ribbon-section" aria-label="Key Service Facts">
-    <div class="container">
-      <div class="trust-grid">
-        <div class="trust-stat-item">
-          <div class="trust-stat-number">4</div>
-          <div class="trust-stat-label">Brand Identity Packages</div>
-        </div>
-        <div class="trust-stat-item">
-          <div class="trust-stat-number">6</div>
-          <div class="trust-stat-label">Print &amp; Collateral Services</div>
-        </div>
-        <div class="trust-stat-item">
-          <div class="trust-stat-number">10</div>
-          <div class="trust-stat-label">Design Services Total</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-     PRICING SECTION
-     ============================================================ -->
-  <section class="pricing-section" id="pricing">
-    <div class="container">
-
-      <div class="section-header">
+      <!-- Hero Copy -->
+      <div class="hero-left">
         <div class="eyebrow">
           <span class="eyebrow-dot"></span>
-          Simple, Transparent Pricing
-        </div>
-        <h2 class="h2-title">Choose your brand identity package, add print collateral as needed.</h2>
-        <p class="lead-text">Every package and print item below is priced and ordered on its own.</p>
-      </div>
-
-      <div class="pricing-outer-container">
-
-        <!-- Top Bar -->
-        <div class="pricing-top-bar">
-          <div class="pricing-platform-pills">
-            <span class="platform-tag">Brand Identity</span>
-            <span class="platform-tag">Print &amp; Collateral</span>
-          </div>
-          <span class="pricing-currency-badge">One-time design fees · USD</span>
+          Graphic Design
         </div>
 
-        <!-- Brand Identity (primary — 4-tier grid) -->
-        <iframe class="sbs-pricing-frame"
-          src="https://order.sitesbysara.com/configure/pricing-cards?ids=34,33,35,36&popular=34&title=Brand%20Identity"
-          style="width:100%;border:0;display:block;margin-bottom:40px;" loading="lazy"></iframe>
+        <h2 class="h2-title">From your first logo to your full brand identity.</h2>
 
-        <!-- Print & Collateral -->
-        <iframe class="sbs-pricing-frame"
-          src="https://order.sitesbysara.com/configure/pricing-cards?ids=38,39,40,41,123,42&title=Print%20%26%20Marketing%20Collateral"
-          style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+        <p class="lead-text">
+          Sites by Sara designs your brand from the ground up, from a simple logo to a complete identity, plus the print collateral that carries it into the real world, like business cards, postcards, and mailers.
+        </p>
 
-      </div>
-
-      <p class="pricing-disclaimer">
-        Brand Identity packages and Print &amp; Marketing Collateral are all one-time design fees, each priced
-        and ordered separately. Mailer / EDDM Design &amp; Printing is a custom quote based on your mailer's size
-        and distribution.
-      </p>
-
-      <p class="pricing-inline-link">
-        Need your newsletter designed too? See our <a href="/newsletter-services/">Newsletter Management</a>
-        page.
-      </p>
-
-      <p class="pricing-inline-link">
-        Need copy written for your new brand too? See our <a href="/copywriting/">Copywriting &amp; Content
-          Writing</a> page.
-      </p>
-
-    </div>
-  </section>
-
-  <script>
-    window.addEventListener('message', function (e) {
-      if (e.data && e.data.source === 'sbs-pricing-cards') {
-        document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
-          if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
-        });
-      }
-    });
-  </script>
-
-  <!-- ============================================================
-     DETAILED BREAKDOWN: OUR PROCESS (8-Step Scope)
-     ============================================================ -->
-  <section class="section-space scope-section" aria-label="Design breakdown">
-    <div class="container">
-
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Detailed Breakdown
-        </div>
-        <h2 class="h2-title">What's involved in designing your brand.</h2>
-        <p class="lead-text">From your first logo concept to your full style guide.</p>
-      </div>
-
-      <div class="scope-grid">
-
-        <div class="scope-card">
-          <div class="scope-num">1</div>
-          <h3 class="scope-title">Discovery Call</h3>
-          <p class="scope-desc">We talk through your business, audience, and where your brand stands today.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">2</div>
-          <h3 class="scope-title">Concept Development</h3>
-          <p class="scope-desc">Initial logo or brand concepts based on your business and audience.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">3</div>
-          <h3 class="scope-title">Revisions</h3>
-          <p class="scope-desc">Refining your chosen concept, up to your package's revision limit.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">4</div>
-          <h3 class="scope-title">Colors, Fonts &amp; Styling</h3>
-          <p class="scope-desc">Defining the colors, fonts, and styling conventions behind your brand.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">5</div>
-          <h3 class="scope-title">Source File Delivery</h3>
-          <p class="scope-desc">Delivering final source files for packages that include them.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">6</div>
-          <h3 class="scope-title">Print Collateral Design</h3>
-          <p class="scope-desc">Business cards, envelopes, posters, postcards, or mailers, as needed.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">7</div>
-          <h3 class="scope-title">Style Guide (Brand Development)</h3>
-          <p class="scope-desc">A full style guide for clients going through Brand Development.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">8</div>
-          <h3 class="scope-title">Final Delivery</h3>
-          <p class="scope-desc">Print-ready and source files delivered, ready to use everywhere.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
-     ============================================================ -->
-  <section class="story-features-section">
-    <div class="container">
-
-      <!-- Feature 1: Brand Identity -->
-      <div class="story-row">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Four Ways To Start
-          </div>
-          <h2 class="story-title">From a simple logo to a full rebrand.</h2>
-          <p class="story-desc">
-            Basic Logo gets you a straightforward mark. Logo Design Package adds source files and unlimited
-            revisions. Branding Package builds a full identity. Brand Development is a deep engagement for brands
-            ready to evolve.
-          </p>
-          <a href="#pricing" class="story-link">See brand identity packages<svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/brand-identity-packages-detail.webp"
-              alt="Four brand identity package tiers shown as ascending logo and style guide mockups" width="520"
-              height="390" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature 2: Branding Package Detail -->
-      <div class="story-row is-reversed">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            More Than Just A Logo
-          </div>
-          <h2 class="story-title">Colors, fonts, and styling conventions, defined once.</h2>
-          <p class="story-desc">
-            Branding Package goes beyond a logo — colors, fonts, styling conventions, and taglines or hashtags,
-            so every future design decision has a clear standard to follow.
-          </p>
-          <a href="#pricing" class="story-link">See Branding Package pricing<svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/branding-package-detail.webp"
-              alt="Brand style guide mockup with color swatches, font pairings, and logo usage examples"
-              width="520" height="390" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature 3: Print Collateral -->
-      <div class="story-row">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Your Brand, In Print
-          </div>
-          <h2 class="story-title">Business cards, mailers, and everything between.</h2>
-          <p class="story-desc">
-            Your brand doesn't stop at digital — business cards, envelopes, posters, postcards, and full
-            mailer/EDDM design and printing all carry your identity into the real world.
-          </p>
-          <a href="#pricing" class="story-link">See print &amp; collateral pricing<svg viewBox="0 0 24 24"
-              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/print-collateral-design-detail.webp"
-              alt="Business card, postcard, and poster print design mockups laid out together" width="520"
-              height="390" />
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-     FAQ SECTION (Clean Accordion)
-     ============================================================ -->
-  <section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
-    <div class="container">
-
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Common Questions
-        </div>
-        <h2 class="h2-title">Frequently Asked Questions</h2>
-        <p class="lead-text">Everything you need to know about our graphic design and branding services.</p>
-      </div>
-
-      <div class="faq-wrap">
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>What's the difference between Basic Logo and Logo Design Package?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            <strong>Basic Logo</strong> delivers PNG/JPG files only, no source files, with up to 5
-            revisions. <strong>Logo Design Package</strong> includes unlimited revisions, source files,
-            and a business card design. See the pricing above for current rates.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>What's included in the Branding Package?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Logo plus source files, defined colors and fonts, styling conventions, and taglines/hashtags — a
-            one-time fee, see pricing above.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>What's the difference between Branding Package and Brand Development?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            <strong>Branding Package</strong> builds your brand identity from scratch.
-            <strong>Brand Development</strong> is a deeper engagement for existing brands — focus
-            groups/surveys, rebranding analysis, and a full style guide. See the pricing above for current rates.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>Do you design print materials, not just digital branding?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Yes. Business card design, envelope design, poster design, postcard design, and mailer/EDDM design
-            and printing are all available individually.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>Can you update an existing business card design?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Yes. <strong>Business Card Edit</strong> updates an existing business card design
-            file, priced per card.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>How is Mailer/EDDM Design &amp; Printing priced?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            <strong>Custom quote.</strong> It includes custom mailer design, EDDM presort and postage
-            coordination, and trucking to the sortation facility, so pricing depends on your mailer's size and
-            distribution.
-          </div>
-        </details>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-     NEXT STEPS / CONSULTATION CHECKLIST BANNER
-     ============================================================ -->
-  <section class="cta-banner-section" id="consultation">
-    <div class="container">
-      <div class="cta-banner-box">
-
-        <div class="cta-banner-left">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Next Steps
-          </div>
-          <h2>Ready to design or evolve your brand?</h2>
-          <p>
-            Book a free consultation and tell us where your brand stands today — we'll recommend the right
-            package.
-          </p>
+        <div class="btn-group">
           <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
             Consultation</a>
+          <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
         </div>
+      </div>
 
-        <div class="prep-card-right">
-          <h4 class="prep-card-title">Helpful to have ready:</h4>
-          <ul class="prep-list">
-            <li>
-              <span class="prep-list-num">1</span>
-              <span>Whether you already have a logo or brand identity</span>
-            </li>
-            <li>
-              <span class="prep-list-num">2</span>
-              <span>Your business name and what your business does</span>
-            </li>
-            <li>
-              <span class="prep-list-num">3</span>
-              <span>Any color or style preferences</span>
-            </li>
-            <li>
-              <span class="prep-list-num">4</span>
-              <span>Which print materials you need, if any</span>
-            </li>
-            <li>
-              <span class="prep-list-num">5</span>
-              <span>Examples of brands or styles you like</span>
-            </li>
-          </ul>
+      <!-- Hero Visual Mockup -->
+      <div class="hero-visual-wrap">
+        <div class="hero-image-card">
+          <img src="/wp-content/uploads/2026/09/design-services-hero.webp"
+            alt="Logo design concepts and a brand style guide mockup with color swatches and typography" width="600" height="450" />
         </div>
+      </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+   TRUST & CAPABILITY METRICS RIBBON
+   ============================================================ -->
+<section class="site-trust-strip" aria-label="Key Agency Facts">
+  <div class="container">
+    <div class="site-trust-grid">
+      <div>
+        <div class="site-trust-number" data-count-to="2007">2007</div>
+        <div class="site-trust-label">Serving Utah Businesses Since</div>
+      </div>
+      <div>
+        <div class="site-trust-number" data-count-to="300" data-count-suffix="+">300+</div>
+        <div class="site-trust-label">Customer Success Stories</div>
+      </div>
+      <div>
+        <div class="site-trust-number" data-count-to="57">57</div>
+        <div class="site-trust-label">Industry Recognitions &amp; Awards</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+<script>
+  (function () {
+    var els = document.querySelectorAll('.site-trust-number[data-count-to]');
+    if (!els.length) return;
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function animate(el) {
+      var target = parseInt(el.getAttribute('data-count-to'), 10);
+      var suffix = el.getAttribute('data-count-suffix') || '';
+      if (isNaN(target)) return;
+      if (reduced) { el.textContent = target + suffix; return; }
+      var start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var progress = Math.min((ts - start) / 1400, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - progress, 3))) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    var grid = els[0].closest('.site-trust-grid');
+    if (grid && !reduced && 'IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) {
+          els.forEach(animate);
+          observer.disconnect();
+        }
+      }, { threshold: 0.4 });
+      observer.observe(grid);
+    } else {
+      els.forEach(animate);
+    }
+  })();
+</script>
+
+<!-- ============================================================
+     PRICING SECTION
+     ============================================================ -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Pricing
+      </div>
+      <h2 class="h2-title">Choose the design support that fits your brand.</h2>
+      <p class="lead-text">Compare the options below, or book a free consultation and we'll help you decide.</p>
+    </div>
+
+    <div class="pricing-outer-container">
+      <iframe class="sbs-pricing-frame"
+        src="https://order.sitesbysara.com/configure/pricing-cards?ids=34,33,35,36,38,39,40,41,123,42&popular=34&title=Graphic%20Design%20%26%20Branding"
+        title="Pricing options" style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+    </div>
+
+    <p class="section-note">Looking for more ways to grow your business? Explore
+      <a class="related-link" href="/newsletter-services/">Newsletter Management &amp; Email Marketing</a> and
+      <a class="related-link" href="/copywriting/">Copywriting &amp; Content Writing</a>.</p>
+
+  </div>
+</section>
+
+<script>
+  window.addEventListener('message', function (e) {
+    if (e.data && e.data.source === 'sbs-pricing-cards') {
+      document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
+        if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
+      });
+    }
+  });
+</script>
+
+<!-- ============================================================
+     HOW IT WORKS (SCOPE GRID)
+     ============================================================ -->
+<section class="section-space scope-section" aria-label="How it works">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        How It Works
+      </div>
+      <h2 class="h2-title">What goes into designing your brand.</h2>
+      <p class="lead-text">From your first concept to final delivery.</p>
+    </div>
+
+    <div class="scope-grid">
+
+      <div class="scope-card">
+        <div class="scope-num">1</div>
+        <h3 class="scope-title">Discovery Call</h3>
+        <p class="scope-desc">We talk through your business, audience, and where your brand stands today.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">2</div>
+        <h3 class="scope-title">Concept Development</h3>
+        <p class="scope-desc">Initial logo or brand concepts based on your business and audience.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">3</div>
+        <h3 class="scope-title">Revisions</h3>
+        <p class="scope-desc">Refining your chosen concept with your feedback.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">4</div>
+        <h3 class="scope-title">Colors, Fonts &amp; Styling</h3>
+        <p class="scope-desc">Defining the colors, fonts, and styling conventions behind your brand.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">5</div>
+        <h3 class="scope-title">Brand Guide</h3>
+        <p class="scope-desc">Documenting your brand so everything you create stays consistent.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">6</div>
+        <h3 class="scope-title">Print Collateral Design</h3>
+        <p class="scope-desc">Business cards, envelopes, posters, postcards, or mailers, as needed.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">7</div>
+        <h3 class="scope-title">Print Preparation</h3>
+        <p class="scope-desc">Preparing print-ready files so everything looks right on paper.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">8</div>
+        <h3 class="scope-title">Final Delivery</h3>
+        <p class="scope-desc">Delivering your final files, ready to use everywhere.</p>
+      </div>
+
+    </div>
+
+    <p class="section-note">Every brand is different, so we shape the process around your business and goals.</p>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     ============================================================ -->
+<section class="story-features-section">
+  <div class="container">
+
+    <div class="story-row">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Start Where You Are
+        </div>
+        <h2 class="story-title">From a simple logo to a full rebrand.</h2>
+        <p class="story-desc">
+          Whether you need a straightforward logo or a deep brand evolution, we'll recommend the right level of design for where your brand is today.
+        </p>
+        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/brand-identity-packages-detail.webp"
+            alt="Brand identity mockups of increasing scope, from a simple logo to a full style guide" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <div class="story-row is-reversed">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          More Than Just A Logo
+        </div>
+        <h2 class="story-title">Colors, fonts, and styling, defined once.</h2>
+        <p class="story-desc">
+          A brand guide goes beyond a logo, defining colors, fonts, and styling conventions so every future design decision has a clear standard to follow.
+        </p>
+        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/branding-package-detail.webp"
+            alt="Brand style guide mockup with color swatches, font pairings, and logo usage examples" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <div class="story-row">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Your Brand, In Print
+        </div>
+        <h2 class="story-title">Business cards, mailers, and everything between.</h2>
+        <p class="story-desc">
+          Your brand doesn't stop at digital. Business cards, envelopes, posters, postcards, and mailers all carry your identity into the real world.
+        </p>
+        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/print-collateral-design-detail.webp"
+            alt="Business card, postcard, and poster print design mockups laid out together" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ SECTION (Clean Accordion)
+     ============================================================ -->
+<section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Common Questions
+      </div>
+      <h2 class="h2-title">Frequently Asked Questions</h2>
+      <p class="lead-text">Quick answers about graphic design and branding.</p>
+    </div>
+
+    <div class="faq-wrap">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do you design logos and full brand identities?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. We design everything from a simple logo to a complete brand identity, including colors, fonts, and a style guide.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What is a brand style guide?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          A brand style guide documents your logo, colors, fonts, and styling so everything you create looks consistent.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do you design print materials, not just digital branding?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. We design business cards, envelopes, posters, postcards, and mailers, and can handle printing for mailers.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Can you update an existing design?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. For example, we can update an existing business card design file for you.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Can you help me rebrand an existing business?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. If your brand is ready to evolve, we can help with rebranding, from research through to a full style guide.
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ -->
+<section class="cta-banner-section" id="consultation">
+  <div class="container">
+    <div class="cta-banner-box">
+
+      <div class="cta-banner-left">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Next Steps
+        </div>
+        <h2>Ready to design or evolve your brand?</h2>
+        <p>
+          Book a free consultation and tell us where your brand stands today, and we'll recommend the right level of design.
+        </p>
+        <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+          Consultation</a>
+      </div>
+
+      <div class="prep-card-right">
+        <h4 class="prep-card-title">Helpful to have ready:</h4>
+        <ul class="prep-list">
+          <li>
+            <span class="prep-list-num">1</span>
+            <span>Whether you already have a logo or brand identity</span>
+          </li>
+          <li>
+            <span class="prep-list-num">2</span>
+            <span>Your business name and what your business does</span>
+          </li>
+          <li>
+            <span class="prep-list-num">3</span>
+            <span>Any color or style preferences</span>
+          </li>
+          <li>
+            <span class="prep-list-num">4</span>
+            <span>Which print materials you need, if any</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>

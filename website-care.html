@@ -1,9 +1,9 @@
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- SEO: Service structured data (see design.md §7) -->
-  <script type="application/ld+json">
+<!-- SEO: Service structured data (generic by design, see SERVICE-PAGE-GUIDELINES.md) -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -12,11 +12,11 @@
       "@type": "Organization",
       "name": "Sites by Sara"
     },
-    "description": "On-demand website care covering emergency site repair, website backup, standard and premium website migration, and rush updates, billed hourly with an 8-hour block discount option."
+    "description": "On-demand website care: emergency repair, backups, migrations, and rush updates when your site needs help."
   }
-  </script>
-  <!-- SEO: FAQPage structured data — mirrors the visible FAQ section verbatim -->
-  <script type="application/ld+json">
+</script>
+<!-- SEO: FAQPage structured data, generated from the same list as the visible FAQ -->
+<script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -26,31 +26,7 @@
         "name": "What does Website Care cover?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Five services: Emergency Site Repair, Website Backup, Standard Website Migration, Premium Website Migration, and Rush Website Updates — each billed hourly. See the pricing above for current rates."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How is Rush different from standard hourly work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Rush Website Updates includes a rush fee for urgent hourly work and is billed by the quarter hour. See the pricing above for current rates."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is there a minimum for hourly work?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "No minimum for standard hourly billing. A Block of Hours requires a minimum block size and saves off the standard rate. See the pricing above for current details."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What if I need care regularly, not just once?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "For ongoing, recurring development time, see the WHAM Plus Hour Blocks tiers on our WordPress Hosting & Maintenance page for a monthly hour-block retainer instead of one-off hourly care."
+          "text": "Emergency repair, backups, migrations, and rush updates for your website."
         }
       },
       {
@@ -58,18 +34,44 @@
         "name": "Can Website Care fix a hacked site?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Emergency Site Repair covers fixing hacked sites and urgent breakage repair."
+          "text": "Yes. Emergency repair covers fixing hacked sites and urgent breakage."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need an ongoing service to use Website Care?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Website Care is on-demand help for when you need it, with nothing ongoing required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What if I need care regularly, not just once?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For ongoing support, see our WordPress maintenance and hosting service, which looks after your site over time."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you migrate my website to a new host?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We can move your website from one host to another, including more complex or high-traffic sites."
         }
       }
     ]
   }
-  </script>
+</script>
 
-  <style>
+<style>
     /* ============================================================
      DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
      ============================================================ */
     :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
       --brand-blue: #3A539B;
       --brand-blue-hover: #2F437D;
       --brand-blue-tint: #EEF2FA;
@@ -166,15 +168,7 @@
     }
 
     .section-space {
-      padding: clamp(70px, 8vw, 110px) 0;
-    }
-
-    .section-space-tight {
-      padding: clamp(40px, 5vw, 65px) 0;
-    }
-
-    .text-center {
-      text-align: center;
+      padding: var(--section-gap) 0;
     }
 
     .section-header {
@@ -367,7 +361,7 @@
      HERO SECTION
      ============================================================ */
     .hero-section {
-      padding: clamp(48px, 6vw, 76px) 0 clamp(40px, 6vw, 70px);
+      padding: var(--section-gap) 0;
       overflow: hidden;
     }
 
@@ -380,17 +374,6 @@
 
     .hero-left {
       max-width: 580px;
-    }
-
-    .hero-footnote {
-      font-size: 0.88rem;
-      color: var(--slate-light);
-      line-height: 1.5;
-    }
-
-    .hero-footnote strong {
-      color: var(--slate);
-      font-weight: 600;
     }
 
     .hero-visual-wrap {
@@ -420,48 +403,50 @@
       object-fit: cover;
     }
 
-    /* ============================================================
-     TRUST & CAPABILITY METRICS RIBBON
+  /* ============================================================
+     TRUST STRIP: identical on every service page and on the homepage
      ============================================================ */
-    .trust-ribbon-section {
-      padding: 38px 0;
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-      background: var(--brand-blue-subtle);
-    }
+  .site-trust-strip {
+    padding: clamp(20px, 2.5vw, 24px) 0;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--bg-light);
+  }
 
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-      text-align: center;
-    }
+  .site-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
 
-    .trust-stat-item {
-      padding: 8px 16px;
-    }
+  .site-trust-number {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1.15;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
 
-    .trust-stat-number {
-      font-size: 2.1rem;
-      font-weight: 700;
-      color: var(--brand-blue);
-      line-height: 1.1;
-      margin-bottom: 4px;
-      letter-spacing: -0.02em;
-    }
+  .site-trust-label {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--slate);
+    line-height: 1.35;
+  }
 
-    .trust-stat-label {
-      font-size: 0.86rem;
-      font-weight: 600;
-      color: var(--slate);
-      line-height: 1.35;
+  @media (max-width: 820px) {
+    .site-trust-grid {
+      grid-template-columns: 1fr;
+      gap: 28px;
     }
+  }
 
     /* ============================================================
      PRICING SECTION (Hourly Services Grid)
      ============================================================ */
     .pricing-section {
-      padding: clamp(70px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
       background: #FFFFFF;
     }
 
@@ -473,158 +458,6 @@
       padding: clamp(24px, 4vw, 44px);
       max-width: 1120px;
       margin: 0 auto;
-    }
-
-    .pricing-top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border-light);
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .pricing-platform-pills {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    .platform-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--navy);
-      background: #F1F3F9;
-      padding: 6px 14px;
-      border-radius: var(--radius-pill);
-    }
-
-    .pricing-currency-badge {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: var(--slate);
-    }
-
-    .pricing-group-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--slate-light);
-      margin-bottom: 20px;
-    }
-
-    .pricing-addons-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .addon-item-box {
-      background: var(--bg-light);
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-      padding: 24px 22px;
-      transition: all 0.2s ease;
-    }
-
-    .addon-item-box:hover {
-      background: #FFFFFF;
-      border-color: var(--border-card);
-      box-shadow: var(--shadow-subtle);
-    }
-
-    .addon-item-box.is-highlight {
-      background: var(--brand-peach-tint);
-      border: 1.5px solid var(--brand-peach-hover);
-    }
-
-    .addon-price-tag {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--brand-coral);
-      display: block;
-      margin-bottom: 8px;
-    }
-
-    .addon-item-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-
-    .addon-item-desc {
-      font-size: 0.88rem;
-      color: var(--slate);
-      line-height: 1.5;
-    }
-
-    .btn-plan {
-      display: block;
-      width: 100%;
-      text-align: center;
-      font-family: var(--font);
-      font-size: 0.92rem;
-      font-weight: 600;
-      padding: 11px;
-      border-radius: var(--radius-pill);
-      transition: all 0.2s ease;
-      text-decoration: none;
-      margin-top: 14px;
-    }
-
-    .btn-plan-outline {
-      background: transparent;
-      color: var(--brand-blue);
-      border: 1.5px solid var(--border);
-    }
-
-    .btn-plan-outline:hover,
-    .btn-plan-outline:focus,
-    .btn-plan-outline:focus-visible,
-    .btn-plan-outline:active {
-      background: var(--brand-peach);
-      border-color: var(--brand-blue);
-      color: var(--brand-blue) !important;
-    }
-
-    .pricing-disclaimer {
-      text-align: center;
-      font-size: 0.85rem;
-      color: var(--slate-light);
-      margin-top: 28px;
-      line-height: 1.6;
-      max-width: 760px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .pricing-inline-link {
-      text-align: center;
-      font-size: 0.92rem;
-      color: var(--slate);
-      margin-top: 16px;
-    }
-
-    .pricing-inline-link a {
-      color: var(--brand-blue);
-      font-weight: 600;
-      border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .pricing-inline-link a:hover,
-    .pricing-inline-link a:focus,
-    .pricing-inline-link a:focus-visible,
-    .pricing-inline-link a:active {
-      color: var(--brand-blue-hover) !important;
-      border-color: var(--brand-blue-hover);
     }
 
     /* ============================================================
@@ -689,7 +522,7 @@
      ALTERNATING STORYTELLING FEATURES (High Breathing Space)
      ============================================================ */
     .story-features-section {
-      padding: clamp(60px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .story-row {
@@ -788,7 +621,7 @@
      ============================================================ */
     .faq-section {
       background: #FAFAFC;
-      padding: clamp(70px, 8vw, 100px) 0;
+      padding: var(--section-gap) 0;
       border-top: 1px solid var(--border-light);
       border-bottom: 1px solid var(--border-light);
     }
@@ -865,7 +698,7 @@
      NEXT STEPS / CONSULTATION CHECKLIST BANNER
      ============================================================ */
     .cta-banner-section {
-      padding: clamp(70px, 8vw, 110px) 0;
+      padding: var(--section-gap) 0;
     }
 
     .cta-banner-box {
@@ -942,10 +775,7 @@
     /* ============================================================
      RESPONSIVE BREAKPOINTS
      ============================================================ */
-    @media (max-width: 1024px) {
-
-      .pricing-addons-grid,
-      .scope-grid {
+    @media (max-width: 1024px) {.scope-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -967,16 +797,9 @@
         order: 2;
       }
 
-      .trust-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
     }
 
-    @media (max-width: 600px) {
-
-      .pricing-addons-grid,
-      .scope-grid {
+    @media (max-width: 600px) {.scope-grid {
         grid-template-columns: 1fr;
       }
 
@@ -989,373 +812,399 @@
         width: 100%;
       }
     }
-  </style>
+    /* Short supporting line under a section's cards/grid; also used for related-service links */
+  .section-note {
+    text-align: center;
+    max-width: 720px;
+    margin: 28px auto 0;
+    font-size: 0.98rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
 
-  <!-- ============================================================
+  .section-note + .section-note {
+    margin-top: 12px;
+  }
+
+  .section-note a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
+
+  .section-note a:hover,
+  .section-note a:focus,
+  .section-note a:focus-visible,
+  .section-note a:active {
+    color: var(--brand-blue-hover) !important;
+  }
+
+</style>
+
+<!-- ============================================================
        PAGE TITLE BANNER
        ============================================================ -->
-  <section class="page-title-banner" aria-label="Page Title">
-    <div class="page-title-banner-mesh" aria-hidden="true"></div>
-    <div class="container page-title-inner">
-      <h1 class="page-banner-h1">Website Care</h1>
-      <p class="page-banner-sub">(Emergency Repair, Backup, Migration &amp; Rush Updates)</p>
-    </div>
-  </section>
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <h1 class="page-banner-h1">Website Care</h1>
+    <p class="page-banner-sub">(Emergency Repair, Backup, Migration &amp; Rush Updates)</p>
+  </div>
+</section>
 
-  <!-- ============================================================
+<!-- ============================================================
        HERO SECTION
        ============================================================ -->
-  <section class="hero-section" id="overview">
-    <div class="container">
-      <div class="hero-grid">
+<section class="hero-section" id="overview">
+  <div class="container">
+    <div class="hero-grid">
 
-        <!-- Hero Copy -->
-        <div class="hero-left">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            On-Demand Website Care
-          </div>
-
-          <h2 class="h2-title">When your site needs help right now, not next week.</h2>
-
-          <p class="lead-text">
-            Hacked site, botched update, or a host you need to leave — Website Care covers the hands-on fixes your
-            site needs when something's already gone wrong, billed hourly with no long-term commitment.
-          </p>
-
-          <div class="btn-group">
-            <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
-              Consultation</a>
-            <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
-          </div>
-
-          <div class="hero-footnote">
-            <strong>5 care services, billed hourly.</strong> No maintenance plan required.
-          </div>
-        </div>
-
-        <!-- Hero Visual Mockup -->
-        <div class="hero-visual-wrap">
-          <div class="hero-image-card">
-            <img src="/wp-content/uploads/2026/09/website-care-hero.webp"
-              alt="Website repair and backup status screen on a laptop" width="600" height="450" />
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-     TRUST & CAPABILITY METRICS RIBBON
-     ============================================================ -->
-  <section class="trust-ribbon-section" aria-label="Key Service Facts">
-    <div class="container">
-      <div class="trust-grid">
-        <div class="trust-stat-item">
-          <div class="trust-stat-number">5</div>
-          <div class="trust-stat-label">Website Care Services</div>
-        </div>
-        <div class="trust-stat-item">
-          <div class="trust-stat-number">Hourly</div>
-          <div class="trust-stat-label">No Long-Term Commitment</div>
-        </div>
-        <div class="trust-stat-item">
-          <div class="trust-stat-number">8-Hour</div>
-          <div class="trust-stat-label">Minimum For A Discounted Block</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-     PRICING SECTION
-     ============================================================ -->
-  <section class="pricing-section" id="pricing">
-    <div class="container">
-
-      <div class="section-header">
+      <!-- Hero Copy -->
+      <div class="hero-left">
         <div class="eyebrow">
           <span class="eyebrow-dot"></span>
-          Simple, Transparent Pricing
-        </div>
-        <h2 class="h2-title">Five care services, priced individually.</h2>
-        <p class="lead-text">Book what you need, when you need it — or save with a block of hours.</p>
-      </div>
-
-      <div class="pricing-outer-container">
-
-        <!-- Top Bar -->
-        <div class="pricing-top-bar">
-          <div class="pricing-platform-pills">
-            <span class="platform-tag">Hourly Billing</span>
-          </div>
-          <span class="pricing-currency-badge">Hourly rates · USD</span>
+          On-Demand Website Care
         </div>
 
-        <div class="pricing-group-label">Website Care Services</div>
+        <h2 class="h2-title">When your site needs help right now, not next week.</h2>
 
-        <iframe class="sbs-pricing-frame"
-          src="https://order.sitesbysara.com/configure/pricing-cards?ids=109,128,129,129-1,29,127&title=Website%20Care%20Services"
-          style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+        <p class="lead-text">
+          Hacked site, botched update, or a host you need to leave? Website Care covers the hands-on fixes your site needs when something has already gone wrong, with nothing ongoing required.
+        </p>
 
-      </div>
-
-      <p class="pricing-disclaimer">
-        Website Care is billed hourly as work happens, with no long-term commitment required.
-      </p>
-
-      <p class="pricing-inline-link">
-        Need ongoing development time instead of one-off care? See the
-        <a href="/wordpress-maintenance-hosting-bundle/">WHAM Plus Hour Blocks</a> tiers on our WordPress Hosting
-        &amp; Maintenance page for a monthly hour-block retainer.
-      </p>
-
-    </div>
-  </section>
-
-  <script>
-    window.addEventListener('message', function (e) {
-      if (e.data && e.data.source === 'sbs-pricing-cards') {
-        document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
-          if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
-        });
-      }
-    });
-  </script>
-
-  <!-- ============================================================
-     DETAILED BREAKDOWN: WHAT EACH SERVICE COVERS
-     ============================================================ -->
-  <section class="section-space scope-section" aria-label="What each service covers">
-    <div class="container">
-
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Detailed Breakdown
-        </div>
-        <h2 class="h2-title">What each care service covers.</h2>
-        <p class="lead-text">Four focused services, each billed at its own hourly rate.</p>
-      </div>
-
-      <div class="scope-grid">
-
-        <div class="scope-card">
-          <div class="scope-num">1</div>
-          <h3 class="scope-title">Emergency Site Repair</h3>
-          <p class="scope-desc">Fixing hacked sites and repairing urgent breakage on your website.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">2</div>
-          <h3 class="scope-title">Website Backup</h3>
-          <p class="scope-desc">A full backup of your website files and database.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">3</div>
-          <h3 class="scope-title">Standard Website Migration</h3>
-          <p class="scope-desc">Migrating your website from one host to another.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">4</div>
-          <h3 class="scope-title">Premium Website Migration</h3>
-          <p class="scope-desc">A more thorough, white-glove migration for complex or high-traffic sites.</p>
-        </div>
-
-        <div class="scope-card">
-          <div class="scope-num">5</div>
-          <h3 class="scope-title">Rush Website Updates</h3>
-          <p class="scope-desc">Urgent hourly work with a rush fee, billed by the quarter hour.</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
-     ============================================================ -->
-  <section class="story-features-section">
-    <div class="container">
-
-      <!-- Feature 1: When Something Breaks -->
-      <div class="story-row">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            When Something Breaks
-          </div>
-          <h2 class="story-title">Emergency and rush work, when you need it.</h2>
-          <p class="story-desc">
-            Emergency Site Repair covers hacked sites and urgent breakage. Rush Website Updates
-            covers urgent hourly work with a rush fee, billed by the quarter hour.
-          </p>
-          <a href="#pricing" class="story-link">See hourly rates<svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/website-care-emergency-detai.webp"
-              alt="Urgent website repair alert and rush fix status screen" width="520" height="390" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Feature 2: Moving Or Protecting Your Site -->
-      <div class="story-row is-reversed">
-        <div class="story-text-col">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Moving Or Protecting Your Site
-          </div>
-          <h2 class="story-title">Backups and migrations, handled hourly.</h2>
-          <p class="story-desc">
-            Website Backup covers a full website files and database backup. Standard and Premium Website Migration
-            move your website from one host to another, with Premium covering more complex or high-traffic sites.
-          </p>
-          <a href="#pricing" class="story-link">See backup &amp; migration rates<svg viewBox="0 0 24 24" fill="none"
-              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg></a>
-        </div>
-        <div class="story-visual-col">
-          <div class="story-image-card">
-            <img src="/wp-content/uploads/2026/09/website-care-backup-migration-detail.webp"
-              alt="Website backup files and host migration progress screen" width="520" height="390" />
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-     FAQ SECTION (Clean Accordion)
-     ============================================================ -->
-  <section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
-    <div class="container">
-
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Common Questions
-        </div>
-        <h2 class="h2-title">Frequently Asked Questions</h2>
-        <p class="lead-text">Everything you need to know about Website Care.</p>
-      </div>
-
-      <div class="faq-wrap">
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>What does Website Care cover?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Five services: <strong>Emergency Site Repair</strong>, <strong>Website Backup</strong>,
-            <strong>Standard Website Migration</strong>, <strong>Premium Website Migration</strong>, and
-            <strong>Rush Website Updates</strong> — each billed hourly. See the pricing above for current rates.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>How is Rush different from standard hourly work?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Rush Website Updates includes a <strong>rush fee</strong> for urgent hourly work and is billed
-            <strong>by the quarter hour</strong>. See the pricing above for current rates.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>Is there a minimum for hourly work?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            No minimum for standard hourly billing. A <strong>Block of Hours</strong> requires a minimum block
-            size and saves off the standard rate. See the pricing above for current details.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>What if I need care regularly, not just once?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            For ongoing, recurring development time, see the
-            <a href="/wordpress-maintenance-hosting-bundle/" style="color: var(--brand-blue); font-weight: 600;">WHAM
-              Plus Hour Blocks</a> tiers on our WordPress Hosting &amp; Maintenance page for a monthly hour-block
-            retainer instead of one-off hourly care.
-          </div>
-        </details>
-
-        <details class="faq-item">
-          <summary class="faq-question">
-            <span>Can Website Care fix a hacked site?</span>
-            <span class="faq-icon">+</span>
-          </summary>
-          <div class="faq-answer">
-            Yes. <strong>Emergency Site Repair</strong> covers fixing hacked sites and urgent breakage repair.
-          </div>
-        </details>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ============================================================
-     NEXT STEPS / CONSULTATION CHECKLIST BANNER
-     ============================================================ -->
-  <section class="cta-banner-section" id="consultation">
-    <div class="container">
-      <div class="cta-banner-box">
-
-        <div class="cta-banner-left">
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Next Steps
-          </div>
-          <h2>Ready to get your site taken care of?</h2>
-          <p>
-            Book a free consultation and tell us what's going on — we'll recommend the right care service.
-          </p>
+        <div class="btn-group">
           <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
             Consultation</a>
+          <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
         </div>
+      </div>
 
-        <div class="prep-card-right">
-          <h4 class="prep-card-title">Helpful to have ready:</h4>
-          <ul class="prep-list">
-            <li>
-              <span class="prep-list-num">1</span>
-              <span>Which of the 5 care services you need</span>
-            </li>
-            <li>
-              <span class="prep-list-num">2</span>
-              <span>How urgent the work is</span>
-            </li>
-            <li>
-              <span class="prep-list-num">3</span>
-              <span>Your website's current host and login access</span>
-            </li>
-            <li>
-              <span class="prep-list-num">4</span>
-              <span>Whether this is a one-time need or something recurring</span>
-            </li>
-          </ul>
+      <!-- Hero Visual Mockup -->
+      <div class="hero-visual-wrap">
+        <div class="hero-image-card">
+          <img src="/wp-content/uploads/2026/09/website-care-hero.webp"
+            alt="Website repair and backup status screen on a laptop" width="600" height="450" />
         </div>
+      </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+   TRUST & CAPABILITY METRICS RIBBON
+   ============================================================ -->
+<section class="site-trust-strip" aria-label="Key Agency Facts">
+  <div class="container">
+    <div class="site-trust-grid">
+      <div>
+        <div class="site-trust-number" data-count-to="2007">2007</div>
+        <div class="site-trust-label">Serving Utah Businesses Since</div>
+      </div>
+      <div>
+        <div class="site-trust-number" data-count-to="300" data-count-suffix="+">300+</div>
+        <div class="site-trust-label">Customer Success Stories</div>
+      </div>
+      <div>
+        <div class="site-trust-number" data-count-to="57">57</div>
+        <div class="site-trust-label">Industry Recognitions &amp; Awards</div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+<script>
+  (function () {
+    var els = document.querySelectorAll('.site-trust-number[data-count-to]');
+    if (!els.length) return;
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function animate(el) {
+      var target = parseInt(el.getAttribute('data-count-to'), 10);
+      var suffix = el.getAttribute('data-count-suffix') || '';
+      if (isNaN(target)) return;
+      if (reduced) { el.textContent = target + suffix; return; }
+      var start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var progress = Math.min((ts - start) / 1400, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - progress, 3))) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    var grid = els[0].closest('.site-trust-grid');
+    if (grid && !reduced && 'IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) {
+          els.forEach(animate);
+          observer.disconnect();
+        }
+      }, { threshold: 0.4 });
+      observer.observe(grid);
+    } else {
+      els.forEach(animate);
+    }
+  })();
+</script>
+
+<!-- ============================================================
+     PRICING SECTION
+     ============================================================ -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Pricing
+      </div>
+      <h2 class="h2-title">Choose the care your site needs right now.</h2>
+      <p class="lead-text">Compare the options below, or book a free consultation and we'll help you decide.</p>
+    </div>
+
+    <div class="pricing-outer-container">
+      <iframe class="sbs-pricing-frame"
+        src="https://order.sitesbysara.com/configure/pricing-cards?ids=109,128,129,129-1,29,127&title=Website%20Care%20Services"
+        title="Pricing options" style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+    </div>
+
+    <p class="section-note">Looking for more ways to grow your business? Explore
+      <a class="related-link" href="/wordpress-maintenance-hosting-bundle/">WordPress Maintenance Bundle</a> and
+      <a class="related-link" href="/services/web-design-development/custom-web-development/">WordPress Website</a>.</p>
+
+  </div>
+</section>
+
+<script>
+  window.addEventListener('message', function (e) {
+    if (e.data && e.data.source === 'sbs-pricing-cards') {
+      document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
+        if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
+      });
+    }
+  });
+</script>
+
+<!-- ============================================================
+     HOW IT WORKS (SCOPE GRID)
+     ============================================================ -->
+<section class="section-space scope-section" aria-label="How it works">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        What We Cover
+      </div>
+      <h2 class="h2-title">What each care service covers.</h2>
+      <p class="lead-text">Focused help for when something goes wrong or needs to move.</p>
+    </div>
+
+    <div class="scope-grid">
+
+      <div class="scope-card">
+        <div class="scope-num">1</div>
+        <h3 class="scope-title">Emergency Site Repair</h3>
+        <p class="scope-desc">Fixing hacked sites and repairing urgent breakage on your website.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">2</div>
+        <h3 class="scope-title">Website Backup</h3>
+        <p class="scope-desc">A full backup of your website files and database.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">3</div>
+        <h3 class="scope-title">Website Migration</h3>
+        <p class="scope-desc">Moving your website from one host to another, including more complex sites.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">4</div>
+        <h3 class="scope-title">Rush Updates</h3>
+        <p class="scope-desc">Urgent updates for work that cannot wait.</p>
+      </div>
+
+    </div>
+
+    <p class="section-note">Not sure which service you need? Tell us what is going on and we will point you to the right one.</p>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     ============================================================ -->
+<section class="story-features-section">
+  <div class="container">
+
+    <div class="story-row">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          When Something Breaks
+        </div>
+        <h2 class="story-title">Emergency and rush work, when you need it.</h2>
+        <p class="story-desc">
+          Emergency repair covers hacked sites and urgent breakage, and rush updates cover urgent work that can't wait.
+        </p>
+        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/website-care-emergency-detai.webp"
+            alt="Urgent website repair alert and rush fix status screen" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <div class="story-row is-reversed">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Moving Or Protecting Your Site
+        </div>
+        <h2 class="story-title">Backups and migrations, handled for you.</h2>
+        <p class="story-desc">
+          We can back up your website files and database, or move your site from one host to another, including more complex or high-traffic sites.
+        </p>
+        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/09/website-care-backup-migration-detail.webp"
+            alt="Website backup files and host migration progress screen" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ SECTION (Clean Accordion)
+     ============================================================ -->
+<section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Common Questions
+      </div>
+      <h2 class="h2-title">Frequently Asked Questions</h2>
+      <p class="lead-text">Quick answers about Website Care.</p>
+    </div>
+
+    <div class="faq-wrap">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What does Website Care cover?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Emergency repair, backups, migrations, and rush updates for your website.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Can Website Care fix a hacked site?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. Emergency repair covers fixing hacked sites and urgent breakage.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do I need an ongoing service to use Website Care?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          No. Website Care is on-demand help for when you need it, with nothing ongoing required.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What if I need care regularly, not just once?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          For ongoing support, see our WordPress maintenance and hosting service, which looks after your site over time.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Can you migrate my website to a new host?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. We can move your website from one host to another, including more complex or high-traffic sites.
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ -->
+<section class="cta-banner-section" id="consultation">
+  <div class="container">
+    <div class="cta-banner-box">
+
+      <div class="cta-banner-left">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Next Steps
+        </div>
+        <h2>Ready to get your site taken care of?</h2>
+        <p>
+          Book a free consultation and tell us what's going on, and we'll recommend the right care.
+        </p>
+        <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+          Consultation</a>
+      </div>
+
+      <div class="prep-card-right">
+        <h4 class="prep-card-title">Helpful to have ready:</h4>
+        <ul class="prep-list">
+          <li>
+            <span class="prep-list-num">1</span>
+            <span>Which kind of help you need (repair, backup, migration, or updates)</span>
+          </li>
+          <li>
+            <span class="prep-list-num">2</span>
+            <span>How urgent the work is</span>
+          </li>
+          <li>
+            <span class="prep-list-num">3</span>
+            <span>Your website's current host and login access</span>
+          </li>
+          <li>
+            <span class="prep-list-num">4</span>
+            <span>Whether this is a single issue or something ongoing</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
