@@ -6,6 +6,8 @@
 > This file governs **how a page gets built** — what to read first, where data comes from, how to structure the work, and how to know it's actually done.
 >
 > Read both before starting a new page.
+>
+> **Service page copy rules:** what a page may *say* (no numbers, prices, package/tier names, generic FAQ, short copy) lives in `SERVICE-PAGE-GUIDELINES.md`. Read it too, and run `python scripts/check_service_page.py <page>.html`. Where it conflicts with this file or `design.md` (e.g. price ranges in JSON-LD, "grounded price range" on cards), that file wins.
 
 ---
 
