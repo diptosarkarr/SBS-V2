@@ -19,7 +19,8 @@ from html.parser import HTMLParser
 sys.stdout.reconfigure(encoding="utf-8")
 
 SKIP_CLASSES = {"site-trust-strip", "scope-num", "prep-list-num", "faq-icon", "related-link", "step-num-badge",
-                "testimonials-section", "portfolio-card", "page-banner-h1", "client-disclosure"}
+                "testimonials-section", "portfolio-card", "page-banner-h1", "client-disclosure", "case-studies-section",
+                "client-content"}
 SKIP_TAGS = {"style", "script"}
 VOID_TAGS = {"img", "br", "hr", "input", "meta", "link", "source", "path", "circle", "rect", "line", "polyline",
              "polygon", "ellipse", "use", "stop"}
