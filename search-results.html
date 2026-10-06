@@ -1,0 +1,1369 @@
+<!--
+  SEARCH RESULTS TEMPLATE
+  Paste into an Elementor HTML widget inside Theme Builder > Search Results (display condition: Search Results).
+  It reads the ?s= term from the URL, so it also works if the header search or any /?s=… link sends people here.
+  Services are ranked first (shared index in header.html: window.SBSSearch), then other pages, then blog articles
+  (loaded from the WordPress REST API).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+  :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
+    --brand-blue-subtle: #F6F8FD;
+
+    --brand-coral: #ea4e5f;
+    --brand-coral-tint: #FDEEEE;
+
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+    --brand-peach: #FCEFE5;
+    --brand-peach-tint: #FFF9F5;
+
+    --navy: #1E2140;
+    --slate: #5F6368;
+    --slate-light: #80868B;
+
+    --border: #DCE2EE;
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
+
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
+
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-pill: 9999px;
+
+    --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+    --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+    --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+  }
+
+  .sr-page,
+  .sr-page *,
+  .sr-page *::before,
+  .sr-page *::after {
+    box-sizing: border-box;
+  }
+
+  .sr-page {
+    font-family: var(--font);
+    color: var(--navy);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .sr-page a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .sr-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ============================================================
+     BANNER WITH SEARCH FIELD
+     ============================================================ */
+  .sr-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-gradient);
+    padding: clamp(48px, 6vw, 76px) 24px clamp(52px, 6vw, 80px);
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+  }
+
+  .sr-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+    pointer-events: none;
+  }
+
+  .sr-banner-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .sr-banner-h1 {
+    margin: 0 0 10px;
+    font-family: var(--font);
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: #FFFFFF;
+    text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+  }
+
+  .sr-banner-sub {
+    margin: 0 0 26px;
+    font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.94);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+  }
+
+  .sr-form {
+    position: relative;
+    margin: 0;
+  }
+
+  .sr-form-icon {
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    width: 22px;
+    height: 22px;
+    margin-top: -11px;
+    color: var(--brand-blue);
+    pointer-events: none;
+  }
+
+  .sr-page .sr-input {
+    display: block;
+    width: 100%;
+    height: 64px;
+    margin: 0;
+    padding: 0 150px 0 56px !important;
+    font-family: var(--font) !important;
+    font-size: 1.05rem !important;
+    font-weight: 600 !important;
+    color: var(--navy) !important;
+    background: #FFFFFF !important;
+    border: 1.5px solid transparent !important;
+    border-radius: 9999px !important;
+    box-shadow: var(--shadow-floating) !important;
+    outline: none !important;
+    -webkit-appearance: none;
+    appearance: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .sr-page .sr-input::placeholder {
+    color: var(--slate-light) !important;
+    font-weight: 500;
+    opacity: 1;
+  }
+
+  .sr-page .sr-input::-webkit-search-cancel-button,
+  .sr-page .sr-input::-webkit-search-decoration {
+    -webkit-appearance: none;
+    display: none;
+  }
+
+  .sr-page .sr-input:focus {
+    border-color: var(--brand-blue) !important;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.35), var(--shadow-floating) !important;
+    outline: none !important;
+  }
+
+  .sr-page .sr-submit {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    bottom: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 26px !important;
+    font-family: var(--font) !important;
+    font-size: 0.95rem !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    background: var(--brand-gradient) !important;
+    border: none !important;
+    border-radius: 9999px !important;
+    box-shadow: 0 4px 14px rgba(2, 80, 197, 0.28);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .sr-submit-icon {
+    display: none;
+    width: 20px;
+    height: 20px;
+  }
+
+  .sr-page .sr-submit:hover,
+  .sr-page .sr-submit:focus,
+  .sr-page .sr-submit:focus-visible,
+  .sr-page .sr-submit:active {
+    color: #FFFFFF !important;
+    background: var(--brand-gradient-hover) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(212, 63, 141, 0.35);
+  }
+
+  /* ============================================================
+     RESULTS
+     ============================================================ */
+  .sr-section {
+    padding: var(--section-gap) 0;
+    background: #FFFFFF;
+  }
+
+  .sr-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: clamp(26px, 4vw, 40px);
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .sr-toolbar[hidden] {
+    display: none;
+  }
+
+  .sr-summary {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--slate);
+  }
+
+  .sr-summary strong {
+    font-weight: 700;
+    color: var(--navy);
+  }
+
+  .sr-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .sr-page .sr-filter {
+    appearance: none;
+    -webkit-appearance: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 8px 16px !important;
+    font-family: var(--font) !important;
+    font-size: 0.86rem !important;
+    font-weight: 600 !important;
+    color: var(--slate) !important;
+    background: #FFFFFF !important;
+    border: 1.5px solid var(--border) !important;
+    border-radius: 9999px !important;
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+
+  .sr-page .sr-filter span {
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    background: var(--brand-blue-tint);
+    border-radius: 9999px;
+    padding: 1px 8px;
+  }
+
+  .sr-page .sr-filter:hover,
+  .sr-page .sr-filter:focus,
+  .sr-page .sr-filter:focus-visible {
+    color: var(--brand-blue) !important;
+    background: var(--brand-blue-subtle) !important;
+    border-color: var(--brand-blue) !important;
+    outline: none;
+  }
+
+  .sr-page .sr-filter.is-active {
+    color: #FFFFFF !important;
+    background: var(--brand-blue) !important;
+    border-color: var(--brand-blue) !important;
+    box-shadow: 0 4px 14px rgba(58, 83, 155, 0.3);
+  }
+
+  .sr-page .sr-filter.is-active span {
+    color: var(--brand-blue);
+    background: #FFFFFF;
+  }
+
+  .sr-group {
+    margin-bottom: clamp(36px, 5vw, 56px);
+  }
+
+  .sr-group[hidden] {
+    display: none;
+  }
+
+  .sr-group-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin: 0 0 20px;
+  }
+
+  .sr-group-title {
+    margin: 0;
+    font-family: var(--font);
+    font-size: clamp(1.3rem, 1.15rem + 0.6vw, 1.65rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--navy);
+  }
+
+  .sr-group-note {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--slate-light);
+  }
+
+  .sr-page mark {
+    background: rgba(212, 63, 141, 0.14);
+    color: inherit;
+    border-radius: 3px;
+    padding: 0 1px;
+  }
+
+  /* ---- services (priority) ---- */
+  .sr-service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .sr-page .sr-service {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 24px 24px 22px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    transition: all 0.25s ease;
+  }
+
+  .sr-page .sr-service::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 24px;
+    right: 24px;
+    height: 3px;
+    border-radius: 0 0 4px 4px;
+    background: var(--brand-gradient);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+  }
+
+  .sr-page .sr-service:hover,
+  .sr-page .sr-service:focus-visible {
+    border-color: var(--border);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+    outline: none;
+  }
+
+  .sr-page .sr-service:hover::before,
+  .sr-page .sr-service:focus-visible::before {
+    opacity: 1;
+  }
+
+  .sr-service-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .sr-icon {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    color: var(--brand-blue);
+    background: var(--brand-blue-tint);
+  }
+
+  .sr-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .sr-icon.tone-maintain,
+  .sr-tag.tone-maintain {
+    color: #1E8E3E;
+    background: #E8F5EC;
+  }
+
+  .sr-icon.tone-grow,
+  .sr-tag.tone-grow {
+    color: var(--brand-coral);
+    background: var(--brand-coral-tint);
+  }
+
+  .sr-icon.tone-market,
+  .sr-tag.tone-market {
+    color: #C77B3F;
+    background: var(--brand-peach);
+  }
+
+  .sr-icon.tone-page {
+    color: var(--slate);
+    background: var(--border-light);
+  }
+
+  .sr-tag {
+    padding: 4px 11px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--brand-blue);
+    background: var(--brand-blue-tint);
+    border-radius: 9999px;
+  }
+
+  .sr-service-title {
+    margin: 4px 0 0;
+    font-family: var(--font);
+    font-size: 1.12rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+  }
+
+  .sr-service-desc {
+    margin: 0;
+    flex: 1;
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--slate);
+  }
+
+  .sr-link-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+  }
+
+  .sr-link-more svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease;
+  }
+
+  .sr-service:hover .sr-link-more svg {
+    transform: translateX(4px);
+  }
+
+  /* ---- pages ---- */
+  .sr-page-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 20px;
+  }
+
+  .sr-page .sr-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+  }
+
+  .sr-page .sr-row:hover,
+  .sr-page .sr-row:focus-visible {
+    border-color: var(--brand-blue);
+    box-shadow: var(--shadow-card);
+    transform: translateY(-2px);
+    outline: none;
+  }
+
+  .sr-row-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .sr-row-title {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--navy);
+  }
+
+  .sr-row-desc {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.87rem;
+    line-height: 1.45;
+    color: var(--slate);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .sr-row-arrow {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    color: var(--slate-light);
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .sr-row:hover .sr-row-arrow {
+    color: var(--brand-blue);
+    transform: translateX(3px);
+  }
+
+  /* ---- articles ---- */
+  .sr-post-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .sr-page .sr-post {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: all 0.25s ease;
+  }
+
+  .sr-page .sr-post:hover,
+  .sr-page .sr-post:focus-visible {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+    outline: none;
+  }
+
+  .sr-post-image {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    background: var(--brand-gradient);
+  }
+
+  .sr-post-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sr-post-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 5px 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--brand-blue);
+    background: #FFFFFF;
+    border-radius: 9999px;
+    box-shadow: var(--shadow-card);
+  }
+
+  .sr-post-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
+    padding: 20px 22px 22px;
+  }
+
+  .sr-post-date {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--slate-light);
+  }
+
+  .sr-post-title {
+    margin: 0;
+    font-family: var(--font);
+    font-size: 1.08rem;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+  }
+
+  .sr-post-excerpt {
+    margin: 0;
+    flex: 1;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--slate);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .sr-more-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 32px;
+  }
+
+  .sr-more-note {
+    margin: 0;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--slate-light);
+  }
+
+  .sr-page .sr-more {
+    appearance: none;
+    -webkit-appearance: none;
+    padding: 13px 30px !important;
+    font-family: var(--font) !important;
+    font-size: 0.95rem !important;
+    font-weight: 600 !important;
+    color: var(--brand-blue) !important;
+    background: #FFFFFF !important;
+    border: 1.5px solid var(--border) !important;
+    border-radius: 9999px !important;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .sr-page .sr-more:hover,
+  .sr-page .sr-more:focus,
+  .sr-page .sr-more:focus-visible {
+    color: var(--brand-blue) !important;
+    background: var(--brand-blue-tint) !important;
+    border-color: var(--brand-blue) !important;
+    outline: none;
+  }
+
+  .sr-page .sr-more:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  /* ---- skeletons ---- */
+  .sr-skel {
+    display: block;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #E9EDF5 0%, #F5F7FB 50%, #E9EDF5 100%);
+    background-size: 200% 100%;
+    animation: sr-shimmer 1.4s ease-in-out infinite;
+  }
+
+  .sr-skel-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .sr-skel-card .sr-skel:first-child {
+    aspect-ratio: 16 / 10;
+    border-radius: 0;
+  }
+
+  .sr-skel-body {
+    padding: 20px 22px 24px;
+  }
+
+  .sr-skel-body .sr-skel {
+    height: 12px;
+    margin-bottom: 10px;
+  }
+
+  .sr-skel-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 20px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+  }
+
+  .sr-skel-row .sr-skel:first-child {
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    flex-shrink: 0;
+  }
+
+  .sr-skel-row-lines {
+    flex: 1;
+  }
+
+  .sr-skel-row-lines .sr-skel {
+    height: 11px;
+    margin: 4px 0;
+  }
+
+  @keyframes sr-shimmer {
+    0% {
+      background-position: 100% 0;
+    }
+
+    100% {
+      background-position: -100% 0;
+    }
+  }
+
+  /* ---- empty / idle ---- */
+  .sr-empty {
+    max-width: 640px;
+    margin: 0 auto;
+    padding: clamp(24px, 4vw, 48px) 0 8px;
+    text-align: center;
+  }
+
+  .sr-empty-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 76px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    color: var(--brand-blue);
+    background: var(--brand-blue-tint);
+  }
+
+  .sr-empty-icon svg {
+    width: 34px;
+    height: 34px;
+  }
+
+  .sr-empty-title {
+    margin: 0 0 10px;
+    font-family: var(--font);
+    font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.85rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--navy);
+  }
+
+  .sr-empty-text {
+    margin: 0 0 8px;
+    font-size: 1rem;
+    color: var(--slate);
+  }
+
+  .sr-suggest {
+    max-width: 900px;
+    margin: 36px auto 0;
+  }
+
+  .sr-suggest-title {
+    margin: 0 0 14px;
+    text-align: center;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+  }
+
+  .sr-chips {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .sr-page .sr-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy);
+    background: #FFFFFF;
+    border: 1.5px solid var(--border);
+    border-radius: 9999px;
+    transition: all 0.18s ease;
+  }
+
+  .sr-chip svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+  }
+
+  .sr-page .sr-chip:hover,
+  .sr-page .sr-chip:focus-visible {
+    color: var(--brand-blue);
+    background: var(--brand-blue-tint);
+    border-color: var(--brand-blue);
+    outline: none;
+  }
+
+  .sr-empty-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 28px;
+  }
+
+  .sr-page .sr-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 13px 28px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    border: 1.5px solid transparent;
+    transition: all 0.2s ease;
+  }
+
+  .sr-page .sr-btn-primary {
+    color: #FFFFFF;
+    background: var(--brand-gradient);
+    box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+  }
+
+  .sr-page .sr-btn-primary:hover,
+  .sr-page .sr-btn-primary:focus-visible {
+    background: var(--brand-gradient-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+    color: #FFFFFF !important;
+  }
+
+  .sr-page .sr-btn-outline {
+    color: var(--brand-blue);
+    background: #FFFFFF;
+    border-color: var(--brand-blue);
+  }
+
+  .sr-page .sr-btn-outline:hover,
+  .sr-page .sr-btn-outline:focus-visible {
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue-hover) !important;
+  }
+
+  /* ---- closing CTA ---- */
+  .sr-cta {
+    padding: var(--section-gap) 0;
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+  }
+
+  .sr-cta-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: clamp(28px, 4vw, 44px);
+    background: var(--brand-peach);
+    border-radius: var(--radius-xl);
+  }
+
+  .sr-cta-title {
+    margin: 0 0 6px;
+    font-family: var(--font);
+    font-size: clamp(1.35rem, 1.15rem + 0.8vw, 1.8rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--brand-blue);
+  }
+
+  .sr-cta-text {
+    margin: 0;
+    max-width: 560px;
+    font-size: 1rem;
+    color: var(--slate);
+  }
+
+  @media (max-width: 1024px) {
+
+    .sr-service-grid,
+    .sr-post-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 760px) {
+
+    .sr-page-list {
+      grid-template-columns: 1fr;
+    }
+
+    .sr-filters {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      width: 100%;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .sr-filters::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sr-page .sr-filter {
+      flex-shrink: 0;
+    }
+  }
+
+  @media (max-width: 600px) {
+
+    .sr-service-grid,
+    .sr-post-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .sr-page .sr-input {
+      height: 58px;
+      padding: 0 62px 0 48px !important;
+    }
+
+    .sr-form-icon {
+      left: 16px;
+    }
+
+    .sr-page .sr-submit {
+      width: 44px;
+      padding: 0 !important;
+    }
+
+    .sr-submit-label {
+      display: none;
+    }
+
+    .sr-submit-icon {
+      display: block;
+    }
+
+    .sr-page .sr-btn {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .sr-skel {
+      animation: none;
+    }
+
+    .sr-page .sr-service,
+    .sr-page .sr-row,
+    .sr-page .sr-post {
+      transition: none;
+    }
+  }
+</style>
+
+<div class="sr-page" id="srPage">
+
+  <!-- ============================================================
+       BANNER + SEARCH FIELD
+       ============================================================ -->
+  <section class="sr-banner" aria-label="Search">
+    <div class="sr-banner-inner">
+      <h1 class="sr-banner-h1" id="srTitle">Search Results</h1>
+      <p class="sr-banner-sub" id="srSub">Find services, pages and articles across Sites by Sara.</p>
+
+      <form class="sr-form" role="search" method="get" action="/">
+        <svg class="sr-form-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="search" name="s" id="srInput" class="sr-input" placeholder="Search services, pages and articles&hellip;"
+          autocomplete="off" aria-label="Search the site">
+        <button type="submit" class="sr-submit" aria-label="Search">
+          <span class="sr-submit-label">Search</span>
+          <svg class="sr-submit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       RESULTS
+       ============================================================ -->
+  <section class="sr-section" aria-label="Search results">
+    <div class="sr-container">
+
+      <div class="sr-toolbar" id="srToolbar" hidden>
+        <p class="sr-summary" id="srSummary" aria-live="polite"></p>
+        <div class="sr-filters" id="srFilters" role="group" aria-label="Filter results"></div>
+      </div>
+
+      <div id="srResults" aria-live="polite"></div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CLOSING CTA
+       ============================================================ -->
+  <section class="sr-cta" aria-label="Get in touch">
+    <div class="sr-container">
+      <div class="sr-cta-box">
+        <div>
+          <h2 class="sr-cta-title">Can&rsquo;t find what you&rsquo;re looking for?</h2>
+          <p class="sr-cta-text">Tell us about your project and we&rsquo;ll point you to the right service, or build a plan around what you need.</p>
+        </div>
+        <a class="sr-btn sr-btn-primary" href="/book-a-free-consultation/">Book a Free Consultation</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+  (function () {
+    var PAGE_SIZE = 9;
+    var WAIT_TRIES = 40; // up to ~4s for the header script (window.SBSSearch) to be ready
+
+    var params = new URLSearchParams(window.location.search);
+    var query = (params.get('s') || '').trim();
+
+    var els = {
+      title: document.getElementById('srTitle'),
+      sub: document.getElementById('srSub'),
+      input: document.getElementById('srInput'),
+      toolbar: document.getElementById('srToolbar'),
+      summary: document.getElementById('srSummary'),
+      filters: document.getElementById('srFilters'),
+      results: document.getElementById('srResults')
+    };
+
+    var S = null; // window.SBSSearch
+    var state = {
+      local: { services: [], pages: [] },
+      remotePages: null,   // null = loading
+      posts: [],
+      postsTotal: 0,
+      postsPage: 0,
+      postsLoading: true,
+      postsDone: false,
+      filter: 'all'
+    };
+
+    els.input.value = query;
+
+    function api(path) {
+      return window.location.origin + '/wp-json/wp/v2/' + path;
+    }
+
+    function htmlToText(html) {
+      return S.decode(String(html || '').replace(/<[^>]+>/g, ' ')).replace(/\s+/g, ' ').trim();
+    }
+
+    function truncate(text, n) {
+      return text.length > n ? text.slice(0, n).replace(/\s+\S*$/, '') + '…' : text;
+    }
+
+    function formatDate(iso) {
+      return new Date(iso).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    }
+
+    function bestImage(post) {
+      var media = post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0];
+      if (!media || media.code) return null;
+      var sizes = media.media_details && media.media_details.sizes;
+      if (sizes && sizes.medium_large) return sizes.medium_large.source_url;
+      if (sizes && sizes.medium) return sizes.medium.source_url;
+      return media.source_url || null;
+    }
+
+    function primaryCategory(post) {
+      var groups = post._embedded && post._embedded['wp:term'];
+      var cat = groups && groups.filter(function (g) { return g.length && g[0].taxonomy === 'category'; })[0];
+      return (cat && cat[0] && cat[0].name) || 'Blog';
+    }
+
+    /* ---------------- markup builders ---------------- */
+    function serviceCard(s) {
+      var cat = S.categories[s.c];
+      return '<a class="sr-service" href="' + S.esc(s.u) + '">' +
+        '<span class="sr-service-top"><span class="sr-icon tone-' + cat.tone + '">' + S.svg(s.c) + '</span>' +
+        '<span class="sr-tag tone-' + cat.tone + '">' + S.esc(cat.label) + '</span></span>' +
+        '<h3 class="sr-service-title">' + S.highlight(s.t, query) + '</h3>' +
+        '<p class="sr-service-desc">' + S.highlight(s.d, query) + '</p>' +
+        '<span class="sr-link-more">View service ' + S.svg('arrow') + '</span></a>';
+    }
+
+    function pageRow(p) {
+      return '<a class="sr-row" href="' + S.esc(p.u) + '">' +
+        '<span class="sr-icon tone-page">' + S.svg('page') + '</span>' +
+        '<span class="sr-row-text"><span class="sr-row-title">' + S.highlight(p.t, query) + '</span>' +
+        (p.d ? '<span class="sr-row-desc">' + S.highlight(p.d, query) + '</span>' : '') + '</span>' +
+        S.svg('arrow', 'sr-row-arrow') + '</a>';
+    }
+
+    function postCard(post) {
+      var img = bestImage(post);
+      var title = htmlToText(post.title && post.title.rendered);
+      var excerpt = truncate(htmlToText(post.excerpt && post.excerpt.rendered), 160);
+      return '<a class="sr-post" href="' + S.esc(post.link) + '">' +
+        '<span class="sr-post-image">' + (img ? '<img src="' + S.esc(img) + '" alt="" loading="lazy">' : '') +
+        '<span class="sr-post-badge">' + S.esc(primaryCategory(post)) + '</span></span>' +
+        '<span class="sr-post-body"><span class="sr-post-date">' + S.esc(formatDate(post.date)) + '</span>' +
+        '<h3 class="sr-post-title">' + S.highlight(title, query) + '</h3>' +
+        '<p class="sr-post-excerpt">' + S.highlight(excerpt, query) + '</p>' +
+        '<span class="sr-link-more">Read article ' + S.svg('arrow') + '</span></span></a>';
+    }
+
+    function skeletonRows(n) {
+      var row = '<div class="sr-skel-row"><span class="sr-skel"></span><span class="sr-skel-row-lines">' +
+        '<span class="sr-skel" style="width:45%"></span><span class="sr-skel" style="width:75%"></span></span></div>';
+      return new Array(n + 1).join(row);
+    }
+
+    function skeletonCards(n) {
+      var card = '<div class="sr-skel-card"><span class="sr-skel"></span><div class="sr-skel-body">' +
+        '<span class="sr-skel" style="width:30%"></span><span class="sr-skel" style="width:85%"></span>' +
+        '<span class="sr-skel" style="width:60%"></span></div></div>';
+      return new Array(n + 1).join(card);
+    }
+
+    function group(key, title, note, inner) {
+      return '<section class="sr-group" data-group="' + key + '"' +
+        (state.filter !== 'all' && state.filter !== key ? ' hidden' : '') + '>' +
+        '<div class="sr-group-head"><h2 class="sr-group-title">' + S.esc(title) + '</h2>' +
+        (note ? '<span class="sr-group-note">' + S.esc(note) + '</span>' : '') + '</div>' + inner + '</section>';
+    }
+
+    function popularChips() {
+      return '<div class="sr-chips">' + S.popular().map(function (s) {
+        return '<a class="sr-chip" href="' + S.esc(s.u) + '">' + S.svg(s.c) + S.esc(s.t) + '</a>';
+      }).join('') + '</div>';
+    }
+
+    /* ---------------- derived data ---------------- */
+    // Services first: curated matches plus any site-wide page hit that is really one of our service pages.
+    function view() {
+      return S.merge(state.local, { pages: state.remotePages || [], posts: [] });
+    }
+
+    function counts() {
+      var v = view();
+      return { services: v.services.length, pages: v.pages.length, posts: state.postsTotal };
+    }
+
+    /* ---------------- render ---------------- */
+    function renderFilters(c) {
+      var defs = [
+        ['all', 'All', c.services + c.pages + c.posts],
+        ['services', 'Services', c.services],
+        ['pages', 'Pages', c.pages],
+        ['posts', 'Articles', c.posts]
+      ];
+      els.filters.innerHTML = defs.filter(function (d) { return d[0] === 'all' || d[2] > 0; }).map(function (d) {
+        return '<button type="button" class="sr-filter' + (state.filter === d[0] ? ' is-active' : '') +
+          '" data-filter="' + d[0] + '" aria-pressed="' + (state.filter === d[0]) + '">' + d[1] + ' <span>' + d[2] + '</span></button>';
+      }).join('');
+    }
+
+    function render() {
+      var c = counts();
+      var stillLoading = state.remotePages === null || state.postsLoading;
+      var total = c.services + c.pages + c.posts;
+
+      els.toolbar.hidden = false;
+      els.summary.innerHTML = stillLoading && !total
+        ? 'Searching for <strong>&ldquo;' + S.esc(query) + '&rdquo;</strong>&hellip;'
+        : '<strong>' + total + '</strong> result' + (total === 1 ? '' : 's') + ' for <strong>&ldquo;' + S.esc(query) + '&rdquo;</strong>' +
+          (stillLoading ? ' so far&hellip;' : '');
+      renderFilters(c);
+
+      var html = '';
+      var v = view();
+
+      if (c.services) {
+        html += group('services', 'Services', c.services + (c.services === 1 ? ' match' : ' matches'),
+          '<div class="sr-service-grid">' + v.services.map(serviceCard).join('') + '</div>');
+      }
+
+      var pages = v.pages;
+      if (pages.length || state.remotePages === null) {
+        html += group('pages', 'Pages', pages.length ? pages.length + (pages.length === 1 ? ' match' : ' matches') : '',
+          '<div class="sr-page-list">' + pages.map(pageRow).join('') +
+          (state.remotePages === null ? skeletonRows(2) : '') + '</div>');
+      }
+
+      if (state.posts.length || state.postsLoading) {
+        var more = '';
+        if (!state.postsLoading && !state.postsDone) {
+          more = '<div class="sr-more-wrap"><p class="sr-more-note">Showing ' + state.posts.length + ' of ' + state.postsTotal +
+            ' articles</p><button type="button" class="sr-more" id="srMore">Load more articles</button></div>';
+        }
+        html += group('posts', 'Articles', state.postsTotal ? state.postsTotal + (state.postsTotal === 1 ? ' match' : ' matches') : '',
+          '<div class="sr-post-grid">' + state.posts.map(postCard).join('') +
+          (state.postsLoading ? skeletonCards(3) : '') + '</div>' + more);
+      }
+
+      if (!stillLoading && !total) {
+        html = '<div class="sr-empty"><div class="sr-empty-icon">' + S.svg('search') + '</div>' +
+          '<h2 class="sr-empty-title">No results for &ldquo;' + S.esc(query) + '&rdquo;</h2>' +
+          '<p class="sr-empty-text">Check the spelling, or try a shorter or more general word, like &ldquo;seo&rdquo;, &ldquo;website&rdquo; or &ldquo;shopify&rdquo;.</p>' +
+          '<div class="sr-suggest"><p class="sr-suggest-title">Popular services</p>' + popularChips() + '</div>' +
+          '<div class="sr-empty-actions"><a class="sr-btn sr-btn-primary" href="/all-services/">Browse all services</a>' +
+          '<a class="sr-btn sr-btn-outline" href="/contact-us-2/">Contact us</a></div></div>';
+        els.toolbar.hidden = true;
+      }
+
+      els.results.innerHTML = html;
+    }
+
+    function renderIdle() {
+      els.title.textContent = 'Search Results';
+      els.toolbar.hidden = true;
+      els.results.innerHTML = '<div class="sr-empty"><div class="sr-empty-icon">' + S.svg('search') + '</div>' +
+        '<h2 class="sr-empty-title">What are you looking for?</h2>' +
+        '<p class="sr-empty-text">Search for a service, a page or an article, or start with one of our most popular services.</p>' +
+        '<div class="sr-suggest"><p class="sr-suggest-title">Popular services</p>' + popularChips() + '</div>' +
+        '<div class="sr-empty-actions"><a class="sr-btn sr-btn-primary" href="/all-services/">Browse all services</a></div></div>';
+    }
+
+    function renderError() {
+      els.results.innerHTML = '<div class="sr-empty"><div class="sr-empty-icon">' + (S ? S.svg('search') : '') + '</div>' +
+        '<h2 class="sr-empty-title">Search is temporarily unavailable</h2>' +
+        '<p class="sr-empty-text">Please refresh the page, or browse our services directly.</p>' +
+        '<div class="sr-empty-actions"><a class="sr-btn sr-btn-primary" href="/all-services/">Browse all services</a></div></div>';
+    }
+
+    /* ---------------- data ---------------- */
+    function loadPages() {
+      fetch(api('pages?search=' + encodeURIComponent(query) + '&per_page=12&_fields=id,link,title,excerpt'))
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          return res.json();
+        })
+        .then(function (list) {
+          state.remotePages = (Array.isArray(list) ? list : []).map(function (p) {
+            return {
+              t: htmlToText(p.title && p.title.rendered),
+              u: p.link,
+              d: truncate(htmlToText(p.excerpt && p.excerpt.rendered), 150)
+            };
+          }).filter(function (p) { return p.t && p.u; });
+        })
+        .catch(function () { state.remotePages = []; })
+        .then(render);
+    }
+
+    function loadPosts() {
+      state.postsLoading = true;
+      state.postsPage += 1;
+      render();
+      fetch(api('posts?search=' + encodeURIComponent(query) + '&per_page=' + PAGE_SIZE + '&page=' + state.postsPage + '&_embed=true'))
+        .then(function (res) {
+          if (!res.ok) throw new Error('HTTP ' + res.status);
+          state.postsTotal = parseInt(res.headers.get('X-WP-Total') || '0', 10);
+          var totalPages = parseInt(res.headers.get('X-WP-TotalPages') || '1', 10);
+          state.postsDone = state.postsPage >= totalPages;
+          return res.json();
+        })
+        .then(function (list) {
+          state.posts = state.posts.concat(Array.isArray(list) ? list : []);
+        })
+        .catch(function () {
+          state.postsDone = true;
+          state.postsPage = Math.max(0, state.postsPage - 1);
+        })
+        .then(function () {
+          state.postsLoading = false;
+          render();
+        });
+    }
+
+    /* ---------------- events ---------------- */
+    els.filters.addEventListener('click', function (e) {
+      var btn = e.target.closest('.sr-filter');
+      if (!btn) return;
+      state.filter = btn.getAttribute('data-filter');
+      render();
+    });
+
+    els.results.addEventListener('click', function (e) {
+      if (e.target.closest('#srMore')) {
+        e.target.closest('#srMore').disabled = true;
+        loadPosts();
+      }
+    });
+
+    /* ---------------- boot ---------------- */
+    function start() {
+      S = window.SBSSearch;
+      if (query) {
+        document.title = 'Search results for “' + query + '” | Sites by Sara';
+        els.title.textContent = 'Search Results';
+        els.sub.textContent = 'Results for “' + query + '”';
+        state.local = S.local(query);
+        render();
+        loadPages();
+        loadPosts();
+      } else {
+        renderIdle();
+      }
+    }
+
+    function waitForSearch(tries) {
+      if (window.SBSSearch) return start();
+      if (tries >= WAIT_TRIES) return renderError();
+      setTimeout(function () { waitForSearch(tries + 1); }, 100);
+    }
+
+    waitForSearch(0);
+  })();
+</script>
