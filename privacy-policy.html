@@ -1,0 +1,520 @@
+<!-- page-sync: privacy-policy.html -->
+
+<!-- Google Fonts: Manrope -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+  :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
+    --brand-blue-subtle: #F6F8FD;
+
+    --brand-coral: #ea4e5f;
+    --brand-coral-hover: #d43d4e;
+    --brand-coral-tint: #FDEEEE;
+
+    --brand-peach: #FCEFE5;
+    --brand-peach-hover: #F8E3D4;
+    --brand-peach-tint: #FFF9F5;
+
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+    --navy: #1E2140;
+    --navy-dark: #13152C;
+    --slate: #5F6368;
+    --slate-light: #80868B;
+    --slate-subtle: #9AA0A6;
+
+    --border: #DCE2EE;
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
+
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
+    --bg-banner: #FCEFE5;
+    --bg-callout: #FFFBF7;
+
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-pill: 9999px;
+
+    --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+    --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font);
+    color: var(--navy);
+    background-color: var(--bg-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    color: var(--brand-blue);
+    text-decoration: none;
+  }
+
+  a:hover,
+  a:focus-visible {
+    color: var(--brand-blue-hover);
+    text-decoration: underline;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ============================================================
+     PAGE TITLE BANNER
+     ============================================================ */
+  .page-title-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-gradient);
+    padding: clamp(52px, 6vw, 76px) 24px;
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+  }
+
+  .page-title-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+    pointer-events: none;
+  }
+
+  .page-title-banner-mesh {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .page-title-banner-mesh::before,
+  .page-title-banner-mesh::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0.22;
+  }
+
+  .page-title-banner-mesh::before {
+    width: 320px;
+    height: 320px;
+    background: #FFFFFF;
+    top: -120px;
+    left: 8%;
+  }
+
+  .page-title-banner-mesh::after {
+    width: 280px;
+    height: 280px;
+    background: var(--brand-coral);
+    bottom: -80px;
+    right: 10%;
+  }
+
+  .page-title-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-banner-h1 {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFFFFF;
+    letter-spacing: -0.025em;
+    margin: 0;
+    text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+  }
+
+  /* ============================================================
+     LEGAL META BAR
+     ============================================================ */
+  .legal-meta-section {
+    border-bottom: 1px solid var(--border-light);
+    background: var(--bg-light);
+  }
+
+  .legal-meta-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 28px;
+    padding: 20px 0;
+    font-size: 0.88rem;
+    color: var(--slate);
+  }
+
+  .legal-meta-bar strong {
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .legal-meta-updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    font-weight: 600;
+    font-size: 0.82rem;
+  }
+
+  /* ============================================================
+     LEGAL DOCUMENT LAYOUT (TOC + Content)
+     ============================================================ */
+  .legal-section {
+    padding: var(--section-gap) 0;
+  }
+
+  .legal-layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: start;
+  }
+
+  .legal-toc {
+    position: sticky;
+    top: 24px;
+    padding: 20px;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+    background: var(--bg-light);
+  }
+
+  .legal-toc-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--slate-light);
+    margin-bottom: 14px;
+  }
+
+  .legal-toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .legal-toc-list a {
+    color: var(--slate);
+    font-size: 0.86rem;
+    font-weight: 500;
+    line-height: 1.4;
+    display: block;
+  }
+
+  .legal-toc-list a:hover,
+  .legal-toc-list a:focus-visible {
+    color: var(--brand-blue);
+    text-decoration: none;
+  }
+
+  .legal-content {
+    max-width: 760px;
+  }
+
+  .legal-content section {
+    margin-bottom: 40px;
+    scroll-margin-top: 24px;
+  }
+
+  .legal-content section:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .legal-content p {
+    font-size: 0.98rem;
+    color: var(--slate);
+    line-height: 1.75;
+    margin-bottom: 14px;
+  }
+
+  .legal-content p:last-child {
+    margin-bottom: 0;
+  }
+
+  .legal-content strong {
+    color: var(--navy);
+    font-weight: 700;
+  }
+
+  .legal-content ul,
+  .legal-content ol {
+    margin: 0 0 14px 22px;
+    color: var(--slate);
+    font-size: 0.98rem;
+    line-height: 1.75;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .legal-content a {
+    word-break: break-word;
+  }
+
+  /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+  @media (max-width: 900px) {
+    .legal-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .legal-toc {
+      position: static;
+      top: auto;
+    }
+
+    .legal-toc-list {
+      max-height: none;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .page-title-banner {
+      padding: 44px 18px;
+    }
+  }
+</style>
+
+<!-- ============================================================
+       PAGE TITLE BANNER
+       ============================================================ -->
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <h1 class="page-banner-h1">Privacy Policy</h1>
+  </div>
+</section>
+
+<!-- ============================================================
+       LEGAL META BAR
+       ============================================================ -->
+<section class="legal-meta-section">
+  <div class="container">
+    <div class="legal-meta-bar">
+      <span>For: <strong>Sites by Sara</strong></span>
+      <span>Website: <a href="https://sitesbysara.com" target="_blank"
+          rel="noopener noreferrer">sitesbysara.com</a></span>
+      <span class="legal-meta-updated">Last updated: April 10, 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+       LEGAL DOCUMENT (TOC + Content)
+       ============================================================ -->
+<section class="legal-section">
+  <div class="container">
+    <div class="legal-layout">
+
+      <!-- Table of Contents -->
+      <nav class="legal-toc" aria-label="Table of contents">
+        <div class="legal-toc-label">On This Page</div>
+        <ul class="legal-toc-list">
+          <li><a href="#section-intro">Introduction</a></li>
+          <li><a href="#section-collect">Information we collect</a></li>
+          <li><a href="#section-how">How we collect data</a></li>
+          <li><a href="#section-why">Why we use your data</a></li>
+          <li><a href="#section-cookies">Cookies &amp; tracking</a></li>
+          <li><a href="#section-sms">SMS / Text Messaging</a></li>
+          <li><a href="#section-sharing">Third-party sharing</a></li>
+          <li><a href="#section-retention">Data retention</a></li>
+          <li><a href="#section-ai">AI &amp; automated decision-making</a></li>
+          <li><a href="#section-security">Security</a></li>
+          <li><a href="#section-laws">Applicable laws</a></li>
+          <li><a href="#section-children">Children's privacy</a></li>
+          <li><a href="#section-changes">Changes to this policy</a></li>
+          <li><a href="#section-contact">Contact us</a></li>
+        </ul>
+      </nav>
+
+      <!-- Content -->
+      <article class="legal-content">
+
+        <section id="section-intro">
+          <h2 class="legal-h2">Introduction</h2>
+          <p>Sites by Sara ("we," "us," or "our") operates sitesbysara.com (the "Site"). This Privacy Policy explains
+            how we collect, use, disclose, and protect your personal information when you visit our Site or use our
+            services. By using our Site, you agree to the collection and use of information in accordance with this
+            policy.</p>
+        </section>
+
+        <section id="section-collect">
+          <h2 class="legal-h2">Information we collect</h2>
+          <p>We may collect the following categories of personal data:</p>
+          <ul>
+            <li><strong>Contact information:</strong> name, email address, phone number</li>
+            <li><strong>Account data:</strong> username, password (encrypted), preferences</li>
+            <li><strong>Usage data:</strong> IP address, browser type, pages visited, time spent on the site</li>
+            <li><strong>Device data:</strong> device type, operating system, unique device identifiers</li>
+            <li><strong>Payment data:</strong> processed securely via QuickBooks Online — we do not store this</li>
+          </ul>
+        </section>
+
+        <section id="section-how">
+          <h2 class="legal-h2">How we collect data</h2>
+          <p>We collect data through: account registration forms, contact and inquiry forms, cookies and tracking
+            technologies, analytics tools such as Google Analytics and Brevo, our newsletter sign-up.</p>
+        </section>
+
+        <section id="section-why">
+          <h2 class="legal-h2">Why we use your data</h2>
+          <p>We use your personal data for the following purposes:</p>
+          <ul>
+            <li>To provide, operate, and maintain our site and services</li>
+            <li>To respond to your inquiries and provide customer support</li>
+            <li>To send transactional emails</li>
+            <li>To send marketing communications, if you have opted in</li>
+            <li>To analyze site usage and improve our services</li>
+            <li>To comply with legal obligations</li>
+          </ul>
+        </section>
+
+        <section id="section-cookies">
+          <h2 class="legal-h2">Cookies &amp; tracking</h2>
+          <p>We use cookies and similar tracking technologies to enhance your experience. These include: essential
+            cookies (required for the Site to function), analytics cookies (e.g. Google Analytics), and marketing
+            cookies (e.g. Meta Pixel and Google Ads). You can manage or withdraw your consent to non-essential cookies
+            at any time via our cookie settings banner or your browser settings.</p>
+        </section>
+
+        <section id="section-sms">
+          <h2 class="legal-h2">SMS / Text Messaging</h2>
+          <p>When you opt in to receive SMS messages from Sites by Sara, we collect your mobile phone number and a
+            record of consent (timestamp, IP address, and the page where consent was given).</p>
+          <p>No mobile information will be shared with third parties or affiliates for marketing or promotional
+            purposes. Information sharing with subcontractors that support our services (e.g., customer service) is
+            permitted. All other categories of use exclude text messaging originator opt-in data and consent; this
+            information will not be shared with any third parties.</p>
+          <p>Message frequency varies; on average 1–2 messages per month. Message and data rates may apply. Reply STOP
+            to opt out at any time, or HELP for assistance. For questions, contact <a
+              href="mailto:team@sitesbysara.com">team@sitesbysara.com</a>.</p>
+        </section>
+
+        <section id="section-sharing">
+          <h2 class="legal-h2">Third-party sharing</h2>
+          <p>We never share your data with anyone other than those trusted third-party sites mentioned above. Current
+            third parties include:</p>
+          <ul>
+            <li>[Brevo] — [purpose of private, opt-in email marketing]</li>
+            <li>[QuickBooks] — [purpose of payment processing]</li>
+            <li>[Google Analytics] — [purpose of website analytics]</li>
+            <li>[Google Ads] — [purpose of website analytics for Ads campaigns]</li>
+            <li>[Meta Pixel] — [purpose of tracking traffic between Meta and our website]</li>
+          </ul>
+          <p>We do not sell your personal data to third parties.</p>
+        </section>
+
+        <section id="section-retention">
+          <h2 class="legal-h2">Data retention</h2>
+          <p>We retain your personal data only for as long as necessary to fulfill the purposes described in this
+            policy, or as required by law. Account data is retained for as long as your account is active. You may
+            request deletion of your data at any time.</p>
+        </section>
+
+        <section id="section-ai">
+          <h2 class="legal-h2">AI &amp; automated decision-making</h2>
+          <p>At this writing (4/2026), we do not currently use AI tools on our site; however, we have used an AI-powered
+            live chat widget previously and reserve the right to reintroduce this feature at any time.</p>
+        </section>
+
+        <section id="section-security">
+          <h2 class="legal-h2">Security</h2>
+          <p>We implement appropriate technical and organizational measures to protect your personal data, including SSL
+            encryption, restricted access controls, password managers, secure email hosting through Google Workspace and
+            secure hosting via InMotion. Our team is held to the highest cybersecurity standards. However, no method of
+            transmission over the internet is 100% secure, and we cannot guarantee absolute security.</p>
+        </section>
+
+        <section id="section-laws">
+          <h2 class="legal-h2">Applicable laws</h2>
+          <p>This policy is designed to comply with all applicable privacy regulations.</p>
+        </section>
+
+        <section id="section-children">
+          <h2 class="legal-h2">Children's privacy</h2>
+          <p>Our Site is not directed to individuals under the age of 13. We do not knowingly collect personal data from
+            children. If you believe a child has provided us with personal data, please contact us, and we will promptly
+            delete it.</p>
+        </section>
+
+        <section id="section-changes">
+          <h2 class="legal-h2">Changes to this policy</h2>
+          <p>We may update this Privacy Policy from time to time. We will notify you of significant changes by posting
+            the new policy on this page with an updated "Last updated" date, and/or by sending an email. We encourage
+            you to review this policy periodically.</p>
+        </section>
+
+        <section id="section-contact">
+          <h2 class="legal-h2">Contact us</h2>
+          <p>If you have questions about this Privacy Policy or how we handle your data, please contact: Sites by Sara's
+            contact form, or send correspondence to 5769 S Sagewood Drive, Murray, UT 84107.</p>
+        </section>
+
+      </article>
+
+    </div>
+  </div>
+</section>
