@@ -852,6 +852,17 @@ The 4-column Services mega-menu (`header.html`, both the desktop grid and the mo
 - **Mobile accordion brought in sync and improved beyond parity:** the mobile Services panel previously had *no* top-level grouping at all — its 13 subgroup labels just ran together in one flat list with zero indication of Build/Maintain/Grow/Market structure. Added a new `.custom-m-top-title` style (bold, navy, larger than the existing `.custom-m-group-title`, with a small color-coded dot matching each column's desktop icon color) as a section divider between the 4 top-level groups, so mobile now shows the same structure as desktop instead of a flatter, less legible version of it.
 - Verified in the Browser pane at both desktop (1440px, forced `.custom-is-open` via `javascript_exec` since click/hover doesn't fire on a standalone `file://` snapshot) and mobile (375px) — both render correctly, and a `grep` diff confirmed the mobile and desktop link sets are identical (25 hrefs each, same set).
 
+### 5.39 Tabbed Portfolio Gallery With Lightbox (`design.html`, 2026-10-08)
+Brought over from the live `/marketing/branding-and-graphic-design` page (Logo Design, Print Designs, Branding tabs; the live "Websites" tab was left out because those projects live on `/our-portfolio/`). Built on §5.16 (horizontal pill tablist, one `.is-active` panel at a time), with these differences for artwork that must never be cropped:
+
+- **Natural proportions, no crop.** Every `<img>` is `width:100%; height:auto` with its real `width`/`height` attributes. Logos and print pieces are 1024x824, the Branding boards are 16:9, and a 4-column row only ever holds one proportion (Branding is exactly 4 + 4). Cards in a row stretch to equal height (`align-items: stretch`) so a two-line caption does not leave a ragged bottom edge. A short last row stays left-aligned (§5.16).
+- **Grid:** `repeat(4, 1fr)` desktop, `repeat(2, 1fr)` at `<=900px`, `1fr` at `<=600px`. The tablist scrolls horizontally on narrow screens instead of wrapping.
+- **Card = `<figure class="portfolio-card">`** holding a `<button class="portfolio-thumb">` (zoom icon bottom-right, always visible on touch via `@media (hover: none)`) and a `<figcaption>` with the client or piece name. `.portfolio-card` is a checker-skipped class, so client names containing digits are allowed there.
+- **Lightbox** (`#portfolioLightbox`, `role="dialog"`, `aria-modal`): click or Enter on a thumbnail opens it; it browses only the images of the open tab (previous/next buttons and Left/Right arrow keys, wrapping); Escape, the close button or a backdrop click closes it; focus moves to the close button, is trapped among the three buttons, and returns to the thumbnail that opened it. Page scrolling is locked while open.
+- **Tabs are accessible:** `role="tablist"/"tab"/"tabpanel"`, `aria-selected`, `aria-controls`, roving `tabindex`, Left/Right/Home/End keys.
+- **Images come from the existing Media Library through the image CDN** (`https://i0.wp.com/sitesbysara.com/wp-content/uploads/...?fit=W%2CH&ssl=1`). Oversized originals (a 4608x2592 PNG weighs 4.2 MB) are never loaded as-is: thumbnails use `fit=800%2C450` and the lightbox `fit=1600%2C900`. All images are `loading="lazy"`, so the hidden tabs cost nothing until opened.
+- **Buttons need explicit `:hover/:focus/:active` resets** (background and `color ... !important`) because Hello Elementor styles bare `button` elements pink on hover.
+
 ---
 
 ## 6. Image Standards & Asset Guidelines
