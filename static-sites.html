@@ -68,342 +68,342 @@
 </script>
 
 <style>
-    /* ============================================================
+  /* ============================================================
      DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
      ============================================================ */
-    :root {
+  :root {
     /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
     --section-gap: clamp(32px, 4vw, 50px);
-      --brand-blue: #3A539B;
-      --brand-blue-hover: #2F437D;
-      --brand-blue-tint: #EEF2FA;
-      --brand-blue-subtle: #F6F8FD;
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
+    --brand-blue-subtle: #F6F8FD;
 
-      --brand-coral: #ea4e5f;
-      --brand-coral-hover: #d43d4e;
-      --brand-coral-tint: #FDEEEE;
+    --brand-coral: #ea4e5f;
+    --brand-coral-hover: #d43d4e;
+    --brand-coral-tint: #FDEEEE;
 
-      --brand-peach: #FCEFE5;
-      --brand-peach-hover: #F8E3D4;
-      --brand-peach-tint: #FFF9F5;
+    --brand-peach: #FCEFE5;
+    --brand-peach-hover: #F8E3D4;
+    --brand-peach-tint: #FFF9F5;
 
-      --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
-      --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
 
-      --navy: #1E2140;
-      --navy-dark: #13152C;
-      --slate: #5F6368;
-      --slate-light: #80868B;
-      --slate-subtle: #9AA0A6;
+    --navy: #1E2140;
+    --navy-dark: #13152C;
+    --slate: #5F6368;
+    --slate-light: #80868B;
+    --slate-subtle: #9AA0A6;
 
-      --border: #DCE2EE;
-      --border-light: #ECEFF5;
-      --border-card: #DFE4EE;
+    --border: #DCE2EE;
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
 
-      --bg-white: #FFFFFF;
-      --bg-light: #F9FAFD;
-      --bg-banner: #FCEFE5;
-      --bg-callout: #FFFBF7;
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
+    --bg-banner: #FCEFE5;
+    --bg-callout: #FFFBF7;
 
-      --green: #1E8E3E;
-      --green-tint: #E6F4EA;
-      --yellow: #FBBC04;
-      --yellow-tint: #FEF7E0;
-      --coral: #ea4e5f;
-      --coral-tint: #FDEEEE;
+    --green: #1E8E3E;
+    --green-tint: #E6F4EA;
+    --yellow: #FBBC04;
+    --yellow-tint: #FEF7E0;
+    --coral: #ea4e5f;
+    --coral-tint: #FDEEEE;
 
-      --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-      --radius-sm: 8px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --radius-xl: 32px;
-      --radius-pill: 9999px;
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-pill: 9999px;
 
-      --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
-      --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
-      --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
-      --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
-    }
+    --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+    --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+    --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+    --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+  }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-    html {
-      scroll-behavior: smooth;
-    }
+  html {
+    scroll-behavior: smooth;
+  }
 
-    body {
-      font-family: var(--font);
-      color: var(--navy);
-      background-color: var(--bg-white);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+  body {
+    font-family: var(--font);
+    color: var(--navy);
+    background-color: var(--bg-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-    strong,
-    b {
-      font-weight: 600;
-    }
+  strong,
+  b {
+    font-weight: 600;
+  }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
 
-    .section-space {
-      padding: var(--section-gap) 0;
-    }
+  .section-space {
+    padding: var(--section-gap) 0;
+  }
 
-    .section-header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto clamp(36px, 5vw, 56px);
-    }
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(36px, 5vw, 56px);
+  }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--slate);
-      margin-bottom: 16px;
-    }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
 
-    .eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background-color: var(--coral);
-      display: inline-block;
-    }
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--coral);
+    display: inline-block;
+  }
 
-    .h2-title {
-      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      color: var(--navy);
-      margin-bottom: 16px;
-    }
+  .h2-title {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
 
-    .lead-text {
-      font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
-      color: var(--slate);
-      line-height: 1.65;
-      font-weight: 400;
-    }
+  .lead-text {
+    font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
+    color: var(--slate);
+    line-height: 1.65;
+    font-weight: 400;
+  }
 
-    /* Buttons */
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 16px;
-      margin: 24px 0;
-    }
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+  }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font);
-      font-size: 0.98rem;
-      font-weight: 600;
-      padding: 13px 28px;
-      border-radius: var(--radius-pill);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border: 1.5px solid transparent;
-      text-decoration: none;
-      white-space: nowrap;
-    }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+  }
 
-    .btn-primary {
-      background: var(--brand-gradient);
-      background-clip: padding-box;
-      color: #FFFFFF;
-      box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
-    }
+  .btn-primary {
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+  }
 
-    .btn-primary:hover,
-    .btn-primary:focus,
-    .btn-primary:focus-visible,
-    .btn-primary:active {
-      background: var(--brand-gradient-hover);
-      background-clip: padding-box;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
-      color: #FFFFFF !important;
-    }
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:focus-visible,
+  .btn-primary:active {
+    background: var(--brand-gradient-hover);
+    background-clip: padding-box;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+    color: #FFFFFF !important;
+  }
 
-    .btn-outline {
-      background-color: transparent;
-      color: var(--brand-blue);
-      border-color: var(--brand-blue);
-    }
+  .btn-outline {
+    background-color: transparent;
+    color: var(--brand-blue);
+    border-color: var(--brand-blue);
+  }
 
-    .btn-outline:hover,
-    .btn-outline:focus,
-    .btn-outline:focus-visible,
-    .btn-outline:active {
-      background-color: var(--brand-peach);
-      border-color: var(--brand-blue);
-      color: var(--brand-blue) !important;
-    }
+  .btn-outline:hover,
+  .btn-outline:focus,
+  .btn-outline:focus-visible,
+  .btn-outline:active {
+    background-color: var(--brand-peach);
+    border-color: var(--brand-blue);
+    color: var(--brand-blue) !important;
+  }
 
-    /* ============================================================
+  /* ============================================================
      PAGE TITLE BANNER
      ============================================================ */
-    .page-title-banner {
-      position: relative;
-      overflow: hidden;
-      background: var(--brand-gradient);
-      padding: clamp(52px, 6vw, 76px) 24px;
-      text-align: center;
-      color: #FFFFFF;
-      box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
-    }
+  .page-title-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-gradient);
+    padding: clamp(52px, 6vw, 76px) 24px;
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+  }
 
-    .page-title-banner::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
-        radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
-      pointer-events: none;
-    }
+  .page-title-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+    pointer-events: none;
+  }
 
-    .page-title-banner-mesh {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
+  .page-title-banner-mesh {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
 
-    .page-title-banner-mesh::before,
-    .page-title-banner-mesh::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(55px);
-      opacity: 0.22;
-      pointer-events: none;
-    }
+  .page-title-banner-mesh::before,
+  .page-title-banner-mesh::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0.22;
+    pointer-events: none;
+  }
 
-    .page-title-banner-mesh::before {
-      width: 320px;
-      height: 320px;
-      background: #FFFFFF;
-      top: -120px;
-      left: 8%;
-    }
+  .page-title-banner-mesh::before {
+    width: 320px;
+    height: 320px;
+    background: #FFFFFF;
+    top: -120px;
+    left: 8%;
+  }
 
-    .page-title-banner-mesh::after {
-      width: 280px;
-      height: 280px;
-      background: var(--brand-coral);
-      bottom: -80px;
-      right: 10%;
-    }
+  .page-title-banner-mesh::after {
+    width: 280px;
+    height: 280px;
+    background: var(--brand-coral);
+    bottom: -80px;
+    right: 10%;
+  }
 
-    .page-title-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 860px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  .page-title-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .page-banner-h1 {
-      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
-      color: #FFFFFF;
-      letter-spacing: -0.025em;
-      margin: 0 0 10px;
-      text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
-    }
+  .page-banner-h1 {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFFFFF;
+    letter-spacing: -0.025em;
+    margin: 0 0 10px;
+    text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+  }
 
-    .page-banner-sub {
-      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.94);
-      letter-spacing: 0.01em;
-      margin: 0;
-      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
-    }
+  .page-banner-sub {
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.94);
+    letter-spacing: 0.01em;
+    margin: 0;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+  }
 
-    /* ============================================================
+  /* ============================================================
      HERO SECTION
      ============================================================ */
-    .hero-section {
-      padding: var(--section-gap) 0;
-      overflow: hidden;
-    }
+  .hero-section {
+    padding: var(--section-gap) 0;
+    overflow: hidden;
+  }
 
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: clamp(40px, 6vw, 80px);
-      align-items: center;
-    }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: center;
+  }
 
-    .hero-left {
-      max-width: 580px;
-    }
+  .hero-left {
+    max-width: 580px;
+  }
 
-    .hero-visual-wrap {
-      position: relative;
-      display: flex;
-      justify-content: center;
-    }
+  .hero-visual-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
 
-    .hero-image-card {
-      position: relative;
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-floating);
-      overflow: hidden;
-      border: 1px solid var(--border-light);
-      transition: transform 0.3s ease;
-      background: #FFFFFF;
-      aspect-ratio: 4 / 3;
-    }
+  .hero-image-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-floating);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    transition: transform 0.3s ease;
+    background: #FFFFFF;
+    aspect-ratio: 4 / 3;
+  }
 
-    .hero-image-card:hover {
-      transform: translateY(-4px);
-    }
+  .hero-image-card:hover {
+    transform: translateY(-4px);
+  }
 
-    .hero-image-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  .hero-image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
   /* ============================================================
      TRUST STRIP: identical on every service page and on the homepage
@@ -444,378 +444,380 @@
     }
   }
 
-    /* ============================================================
+  /* ============================================================
      PRICING SECTION
      ============================================================ */
-    .pricing-section {
-      padding: var(--section-gap) 0;
-      background: #FFFFFF;
-    }
+  .pricing-section {
+    padding: var(--section-gap) 0;
+    background: #FFFFFF;
+  }
 
-    .pricing-outer-container {
-      background: #FFFFFF;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-xl);
-      box-shadow: var(--shadow-card);
-      padding: clamp(24px, 4vw, 44px);
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+  .pricing-outer-container {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    padding: clamp(24px, 4vw, 44px);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 
-    /* ============================================================
+  /* ============================================================
      DETAILED BREAKDOWN: WHAT'S INVOLVED (8-Step Scope)
      ============================================================ */
-    .scope-section {
-      background: var(--bg-light);
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-    }
+  .scope-section {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
 
-    .scope-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
+  .scope-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
 
-    .scope-card {
-      background: #FFFFFF;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-      padding: 24px 20px;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.2s ease;
-    }
+  .scope-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
+  }
 
-    .scope-card:hover {
-      border-color: var(--brand-blue);
-      box-shadow: var(--shadow-subtle);
-      transform: translateY(-2px);
-    }
+  .scope-card:hover {
+    border-color: var(--brand-blue);
+    box-shadow: var(--shadow-subtle);
+    transform: translateY(-2px);
+  }
 
-    .scope-num {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--brand-blue-tint);
-      color: var(--brand-blue);
-      font-size: 0.9rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-    }
+  .scope-num {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
 
-    .scope-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
+  .scope-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 8px;
+  }
 
-    .scope-desc {
-      font-size: 0.85rem;
-      color: var(--slate);
-      line-height: 1.55;
-    }
+  .scope-desc {
+    font-size: 0.85rem;
+    color: var(--slate);
+    line-height: 1.55;
+  }
 
-    /* ============================================================
+  /* ============================================================
      ALTERNATING STORYTELLING FEATURES (High Breathing Space)
      ============================================================ */
-    .story-features-section {
-      padding: var(--section-gap) 0;
-    }
+  .story-features-section {
+    padding: var(--section-gap) 0;
+  }
 
-    .story-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(40px, 7vw, 100px);
-      align-items: center;
-      margin-bottom: clamp(70px, 9vw, 130px);
-    }
+  .story-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 7vw, 100px);
+    align-items: center;
+    margin-bottom: clamp(70px, 9vw, 130px);
+  }
 
-    .story-row:last-child {
-      margin-bottom: 0;
+  .story-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .story-row.is-reversed .story-text-col {
+    order: 2;
+  }
+
+  .story-row.is-reversed .story-visual-col {
+    order: 1;
+  }
+
+  .story-text-col {
+    max-width: 480px;
+  }
+
+  .story-title {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 18px;
+  }
+
+  .story-desc {
+    font-size: 1.08rem;
+    color: var(--slate);
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .story-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--brand-coral);
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+
+  .story-link:hover,
+  .story-link:focus,
+  .story-link:focus-visible,
+  .story-link:active {
+    gap: 10px;
+    color: var(--brand-coral-hover) !important;
+  }
+
+  .story-link svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+
+  .story-visual-col {
+    display: flex;
+    justify-content: center;
+  }
+
+  .story-image-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    background: #FFFFFF;
+    max-width: 520px;
+    width: 100%;
+  }
+
+  .story-image-card:hover {
+    box-shadow: var(--shadow-floating);
+    transform: translateY(-3px);
+  }
+
+  .story-image-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* ============================================================
+     FAQ SECTION (Clean Modern Accordion)
+     ============================================================ */
+  .faq-section {
+    background: #FAFAFC;
+    padding: var(--section-gap) 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .faq-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .faq-item:hover {
+    border-color: #CBD5E1;
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+  }
+
+  details[open] .faq-icon {
+    transform: rotate(45deg);
+    background: var(--coral-tint);
+    color: var(--coral);
+  }
+
+  .faq-answer {
+    padding: 0 24px 22px;
+    font-size: 0.95rem;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+
+  .faq-answer strong {
+    color: var(--navy);
+  }
+
+  /* ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ */
+  .cta-banner-section {
+    padding: var(--section-gap) 0;
+  }
+
+  .cta-banner-box {
+    background: var(--bg-banner);
+    border-radius: var(--radius-xl);
+    padding: clamp(36px, 5vw, 60px);
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .cta-banner-left h2 {
+    font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem);
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1.25;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .cta-banner-left p {
+    font-size: 1.05rem;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .prep-card-right {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .prep-card-title {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+
+  .prep-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--slate);
+  }
+
+  .prep-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .prep-list-num {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+  @media (max-width: 1024px) {
+    .scope-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 820px) {
+
+    .hero-grid,
+    .story-row,
+    .cta-banner-box {
+      grid-template-columns: 1fr;
+      gap: 40px;
     }
 
     .story-row.is-reversed .story-text-col {
-      order: 2;
-    }
-
-    .story-row.is-reversed .story-visual-col {
       order: 1;
     }
 
-    .story-text-col {
-      max-width: 480px;
+    .story-row.is-reversed .story-visual-col {
+      order: 2;
     }
 
-    .story-title {
-      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      color: var(--navy);
-      margin-bottom: 18px;
+  }
+
+  @media (max-width: 600px) {
+    .scope-grid {
+      grid-template-columns: 1fr;
     }
 
-    .story-desc {
-      font-size: 1.08rem;
-      color: var(--slate);
-      line-height: 1.65;
-      margin-bottom: 24px;
-    }
-
-    .story-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.98rem;
-      font-weight: 600;
-      color: var(--brand-coral);
-      transition: gap 0.2s ease, color 0.2s ease;
-    }
-
-    .story-link:hover,
-    .story-link:focus,
-    .story-link:focus-visible,
-    .story-link:active {
-      gap: 10px;
-      color: var(--brand-coral-hover) !important;
-    }
-
-    .story-link svg {
-      width: 15px;
-      height: 15px;
-      flex-shrink: 0;
-    }
-
-    .story-visual-col {
-      display: flex;
-      justify-content: center;
-    }
-
-    .story-image-card {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-card);
-      border: 1px solid var(--border-light);
-      transition: all 0.3s ease;
-      background: #FFFFFF;
-      max-width: 520px;
-      width: 100%;
-    }
-
-    .story-image-card:hover {
-      box-shadow: var(--shadow-floating);
-      transform: translateY(-3px);
-    }
-
-    .story-image-card img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    /* ============================================================
-     FAQ SECTION (Clean Modern Accordion)
-     ============================================================ */
-    .faq-section {
-      background: #FAFAFC;
-      padding: var(--section-gap) 0;
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .faq-wrap {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .faq-item {
-      background: #FFFFFF;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-md);
-      margin-bottom: 14px;
-      overflow: hidden;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .faq-item:hover {
-      border-color: #CBD5E1;
-      box-shadow: var(--shadow-subtle);
-    }
-
-    .faq-question {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 24px;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--navy);
-      cursor: pointer;
-      list-style: none;
-      user-select: none;
-    }
-
-    .faq-question::-webkit-details-marker {
-      display: none;
-    }
-
-    .faq-icon {
-      width: 26px;
-      height: 26px;
-      border-radius: 50%;
-      background: var(--brand-blue-tint);
-      color: var(--brand-blue);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      font-weight: 600;
-      flex-shrink: 0;
-      transition: transform 0.25s ease;
-    }
-
-    details[open] .faq-icon {
-      transform: rotate(45deg);
-      background: var(--coral-tint);
-      color: var(--coral);
-    }
-
-    .faq-answer {
-      padding: 0 24px 22px;
-      font-size: 0.95rem;
-      color: var(--slate);
-      line-height: 1.65;
-    }
-
-    .faq-answer strong {
-      color: var(--navy);
-    }
-
-    /* ============================================================
-     NEXT STEPS / CONSULTATION CHECKLIST BANNER
-     ============================================================ */
-    .cta-banner-section {
-      padding: var(--section-gap) 0;
-    }
-
-    .cta-banner-box {
-      background: var(--bg-banner);
-      border-radius: var(--radius-xl);
-      padding: clamp(36px, 5vw, 60px);
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .cta-banner-left h2 {
-      font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem);
-      font-weight: 700;
-      color: var(--brand-blue);
-      line-height: 1.25;
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-    }
-
-    .cta-banner-left p {
-      font-size: 1.05rem;
-      color: var(--slate);
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
-
-    .prep-card-right {
-      background: #FFFFFF;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-md);
-      padding: 28px;
-      box-shadow: var(--shadow-subtle);
-    }
-
-    .prep-card-title {
-      font-size: 0.98rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 14px;
-    }
-
-    .prep-list {
-      list-style: none;
-      display: flex;
+    .btn-group {
       flex-direction: column;
-      gap: 10px;
-      font-size: 0.88rem;
-      color: var(--slate);
+      width: 100%;
     }
 
-    .prep-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
+    .btn {
+      width: 100%;
     }
+  }
 
-    .prep-list-num {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--brand-blue-tint);
-      color: var(--brand-blue);
-      font-size: 0.75rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    /* ============================================================
-     RESPONSIVE BREAKPOINTS
-     ============================================================ */
-    @media (max-width: 1024px) {
-      .scope-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 820px) {
-
-      .hero-grid,
-      .story-row,
-      .cta-banner-box {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .story-row.is-reversed .story-text-col {
-        order: 1;
-      }
-
-      .story-row.is-reversed .story-visual-col {
-        order: 2;
-      }
-
-    }
-
-    @media (max-width: 600px) {.scope-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .btn-group {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .btn {
-        width: 100%;
-      }
-    }
-    /* Short supporting line under a section's cards/grid; also used for related-service links */
+  /* Short supporting line under a section's cards/grid; also used for related-service links */
   .section-note {
     text-align: center;
     max-width: 720px;
@@ -825,7 +827,7 @@
     line-height: 1.6;
   }
 
-  .section-note + .section-note {
+  .section-note+.section-note {
     margin-top: 12px;
   }
 
@@ -843,7 +845,6 @@
   .section-note a:active {
     color: var(--brand-blue-hover) !important;
   }
-
 </style>
 
 <!-- ============================================================
@@ -874,7 +875,9 @@
         <h2 class="h2-title">A website with nothing to log into, patch, or break.</h2>
 
         <p class="lead-text">
-          Not every website needs a content management system. A static HTML site is built directly in code, with no database, no plugins, and no admin login for anyone to target, so it is fast, reliable, and does exactly what it needs to do.
+          Not every website needs a content management system. A static HTML site is built directly in code, with no
+          database, no plugins, and no admin login for anyone to target, so it is fast, reliable, and does exactly what
+          it needs to do.
         </p>
 
         <div class="btn-group">
@@ -888,7 +891,8 @@
       <div class="hero-visual-wrap">
         <div class="hero-image-card">
           <img src="/wp-content/uploads/2026/09/static-html-sites-hero.webp"
-            alt="Static HTML brochure website mockup with navigation menu and homepage layout" width="600" height="450" />
+            alt="Static HTML brochure website mockup with navigation menu and homepage layout" width="600"
+            height="450" />
         </div>
       </div>
 
@@ -976,7 +980,8 @@
 
     <p class="section-note">Looking for more ways to grow your business? Explore
       <a class="related-link" href="/simple-site-hosting-bundle/">Simple Site Hosting Bundle</a> and
-      <a class="related-link" href="/services/web-design-development/custom-web-development/">WordPress Website</a>.</p>
+      <a class="related-link" href="/custom-web-development/">WordPress Website</a>.
+    </p>
 
   </div>
 </section>
@@ -1077,17 +1082,19 @@
         </div>
         <h2 class="story-title">No CMS. No login. Nothing to break.</h2>
         <p class="story-desc">
-          A static HTML site has no database and no admin dashboard, so there is no login to target, no plugins to keep updated, and nothing that can silently break after an update. It is just code, served fast and reliably.
+          A static HTML site has no database and no admin dashboard, so there is no login to target, no plugins to keep
+          updated, and nothing that can silently break after an update. It is just code, served fast and reliably.
         </p>
-        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14M13 5l7 7-7 7" />
           </svg></a>
       </div>
       <div class="story-visual-col">
         <div class="story-image-card">
           <img src="/wp-content/uploads/2026/09/static-site-no-login-detail.webp"
-            alt="Static HTML files connected to a browser window with no login screen or database" width="520" height="390" />
+            alt="Static HTML files connected to a browser window with no login screen or database" width="520"
+            height="390" />
         </div>
       </div>
     </div>
@@ -1100,10 +1107,11 @@
         </div>
         <h2 class="story-title">Start small, or add more pages.</h2>
         <p class="story-desc">
-          Need one page for a straightforward online presence? Start there. Need room for About, Services, or Contact pages? The same no-CMS build can be split across more pages.
+          Need one page for a straightforward online presence? Start there. Need room for About, Services, or Contact
+          pages? The same no-CMS build can be split across more pages.
         </p>
-        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14M13 5l7 7-7 7" />
           </svg></a>
       </div>
@@ -1123,10 +1131,11 @@
         </div>
         <h2 class="story-title">Need to edit content yourself?</h2>
         <p class="story-desc">
-          A static site is built for pages that rarely change. If you'd rather log in and edit your own content, publish a blog, or grow into e-commerce down the road, WordPress is built around a full content management system.
+          A static site is built for pages that rarely change. If you'd rather log in and edit your own content, publish
+          a blog, or grow into e-commerce down the road, WordPress is built around a full content management system.
         </p>
-        <a href="/services/web-design-development/custom-web-development/" class="story-link">Explore WordPress Website<svg viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <a href="/custom-web-development/" class="story-link">Explore WordPress Website<svg viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M5 12h14M13 5l7 7-7 7" />
           </svg></a>
       </div>
@@ -1164,7 +1173,8 @@
           <span class="faq-icon">+</span>
         </summary>
         <div class="faq-answer">
-          Both are fully static with no CMS and no database. A single-page site fits your content on one page, while a multi-page site splits it across several pages.
+          Both are fully static with no CMS and no database. A single-page site fits your content on one page, while a
+          multi-page site splits it across several pages.
         </div>
       </details>
 
@@ -1184,7 +1194,8 @@
           <span class="faq-icon">+</span>
         </summary>
         <div class="faq-answer">
-          A static site has no CMS, database, dashboard, or plugins to maintain, so there is less to go wrong. If you'd rather edit your own content, publish a blog, or grow into e-commerce, WordPress is a better fit.
+          A static site has no CMS, database, dashboard, or plugins to maintain, so there is less to go wrong. If you'd
+          rather edit your own content, publish a blog, or grow into e-commerce, WordPress is a better fit.
         </div>
       </details>
 

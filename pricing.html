@@ -1,1382 +1,1595 @@
 <!-- page-sync: pricing.html -->
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    /* ============================================================
+<style>
+  /* ============================================================
      DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
      ============================================================ */
-    :root {
+  :root {
     /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
     --section-gap: clamp(32px, 4vw, 50px);
-      --brand-blue: #3A539B;
-      --brand-blue-hover: #2F437D;
-      --brand-blue-tint: #EEF2FA;
-      --brand-blue-subtle: #F6F8FD;
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
+    --brand-blue-subtle: #F6F8FD;
 
-      --brand-coral: #ea4e5f;
-      --brand-coral-hover: #d43d4e;
-      --brand-coral-tint: #FDEEEE;
+    --brand-coral: #ea4e5f;
+    --brand-coral-hover: #d43d4e;
+    --brand-coral-tint: #FDEEEE;
 
-      --brand-peach: #FCEFE5;
-      --brand-peach-hover: #F8E3D4;
-      --brand-peach-tint: #FFF9F5;
+    --brand-peach: #FCEFE5;
+    --brand-peach-hover: #F8E3D4;
+    --brand-peach-tint: #FFF9F5;
 
-      --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
-      --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
 
-      --navy: #1E2140;
-      --navy-dark: #13152C;
-      --slate: #5F6368;
-      --slate-light: #80868B;
-      --slate-subtle: #9AA0A6;
+    --navy: #1E2140;
+    --navy-dark: #13152C;
+    --slate: #5F6368;
+    --slate-light: #80868B;
+    --slate-subtle: #9AA0A6;
 
-      --border: #DCE2EE;
-      --border-light: #ECEFF5;
-      --border-card: #DFE4EE;
+    --border: #DCE2EE;
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
 
-      --bg-white: #FFFFFF;
-      --bg-light: #F9FAFD;
-      --bg-banner: #FCEFE5;
-      --bg-callout: #FFFBF7;
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
+    --bg-banner: #FCEFE5;
+    --bg-callout: #FFFBF7;
 
-      --green: #1E8E3E;
-      --green-tint: #E6F4EA;
-      --yellow: #FBBC04;
-      --yellow-tint: #FEF7E0;
+    --green: #1E8E3E;
+    --green-tint: #E6F4EA;
+    --yellow: #FBBC04;
+    --yellow-tint: #FEF7E0;
 
-      --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-      --radius-sm: 8px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --radius-xl: 32px;
-      --radius-pill: 9999px;
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-pill: 9999px;
 
-      --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
-      --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
-      --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
-      --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
-      --shadow-featured: 0 16px 40px -8px rgba(58, 83, 155, 0.22), 0 4px 14px rgba(30, 33, 64, 0.06);
-    }
+    --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+    --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+    --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+    --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+    --shadow-featured: 0 16px 40px -8px rgba(58, 83, 155, 0.22), 0 4px 14px rgba(30, 33, 64, 0.06);
+  }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-    html {
-      scroll-behavior: smooth;
-    }
+  html {
+    scroll-behavior: smooth;
+  }
 
-    body {
-      font-family: var(--font);
-      color: var(--navy);
-      background-color: var(--bg-white);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+  body {
+    font-family: var(--font);
+    color: var(--navy);
+    background-color: var(--bg-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-    strong,
-    b {
-      font-weight: 600;
-    }
+  strong,
+  b {
+    font-weight: 600;
+  }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
 
-    .section-space {
-      padding: var(--section-gap) 0;
-    }
+  .section-space {
+    padding: var(--section-gap) 0;
+  }
 
-    .section-header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto clamp(36px, 5vw, 56px);
-    }
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(36px, 5vw, 56px);
+  }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--slate);
-      margin-bottom: 16px;
-    }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
 
-    .eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background-color: var(--brand-coral);
-      display: inline-block;
-    }
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--brand-coral);
+    display: inline-block;
+  }
 
-    .h2-title {
-      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      color: var(--navy);
-      margin-bottom: 16px;
-    }
+  .h2-title {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
 
-    .lead-text {
-      font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
-      color: var(--slate);
-      line-height: 1.65;
-      font-weight: 400;
-    }
+  .lead-text {
+    font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
+    color: var(--slate);
+    line-height: 1.65;
+    font-weight: 400;
+  }
 
-    /* Buttons */
-    .btn-group {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-    }
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      font-family: var(--font);
-      font-size: 0.98rem;
-      font-weight: 600;
-      padding: 13px 28px;
-      border-radius: var(--radius-pill);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border: 1.5px solid transparent;
-      text-decoration: none;
-      white-space: nowrap;
-    }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font);
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+  }
 
-    .btn-primary {
-      background: var(--brand-gradient);
-      background-clip: padding-box;
-      color: #FFFFFF;
-      box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
-    }
+  .btn-primary {
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+  }
 
-    .btn-primary:hover,
-    .btn-primary:focus,
-    .btn-primary:focus-visible,
-    .btn-primary:active {
-      background: var(--brand-gradient-hover);
-      background-clip: padding-box;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
-      color: #FFFFFF !important;
-    }
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:focus-visible,
+  .btn-primary:active {
+    background: var(--brand-gradient-hover);
+    background-clip: padding-box;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+    color: #FFFFFF !important;
+  }
 
-    /* ============================================================
+  /* ============================================================
      PAGE TITLE BANNER
      ============================================================ */
-    .page-title-banner {
-      position: relative;
-      overflow: hidden;
-      background: var(--brand-gradient);
-      padding: clamp(52px, 6vw, 76px) 24px;
-      text-align: center;
-      color: #FFFFFF;
-      box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
-    }
+  .page-title-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-gradient);
+    padding: clamp(52px, 6vw, 76px) 24px;
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+  }
 
-    .page-title-banner::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
-        radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
-      pointer-events: none;
-    }
+  .page-title-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+    pointer-events: none;
+  }
 
-    .page-title-banner-mesh {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
+  .page-title-banner-mesh {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
 
-    .page-title-banner-mesh::before,
-    .page-title-banner-mesh::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(55px);
-      opacity: 0.22;
-    }
+  .page-title-banner-mesh::before,
+  .page-title-banner-mesh::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0.22;
+  }
 
-    .page-title-banner-mesh::before {
-      width: 320px;
-      height: 320px;
-      background: #FFFFFF;
-      top: -120px;
-      left: 8%;
-    }
+  .page-title-banner-mesh::before {
+    width: 320px;
+    height: 320px;
+    background: #FFFFFF;
+    top: -120px;
+    left: 8%;
+  }
 
-    .page-title-banner-mesh::after {
-      width: 280px;
-      height: 280px;
-      background: var(--brand-coral);
-      bottom: -80px;
-      right: 10%;
-    }
+  .page-title-banner-mesh::after {
+    width: 280px;
+    height: 280px;
+    background: var(--brand-coral);
+    bottom: -80px;
+    right: 10%;
+  }
 
-    .page-title-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 860px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  .page-title-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .page-banner-h1 {
-      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
-      color: #FFFFFF;
-      letter-spacing: -0.025em;
-      margin: 0 0 10px;
-      text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
-    }
+  .page-banner-h1 {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFFFFF;
+    letter-spacing: -0.025em;
+    margin: 0 0 10px;
+    text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+  }
 
-    .page-banner-sub {
-      font-size: clamp(1.15rem, 2.2vw, 1.45rem);
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.94);
-      letter-spacing: 0.01em;
-      margin: 0;
-      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
-    }
+  .page-banner-sub {
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.94);
+    letter-spacing: 0.01em;
+    margin: 0;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+  }
 
-    /* ============================================================
+  /* ============================================================
      PRICING HUB — INTRO NOTE + QUICK NAV
      ============================================================ */
-    .pricing-hub-section {
-      background: var(--bg-white);
-    }
+  .pricing-hub-section {
+    background: var(--bg-white);
+  }
 
-    .pricing-global-note {
-      max-width: 760px;
-      margin: 0 auto clamp(36px, 5vw, 48px);
-      text-align: center;
-      font-size: 0.98rem;
-      color: var(--slate);
-      line-height: 1.65;
-    }
+  .pricing-global-note {
+    max-width: 760px;
+    margin: 0 auto clamp(36px, 5vw, 48px);
+    text-align: center;
+    font-size: 0.98rem;
+    color: var(--slate);
+    line-height: 1.65;
+  }
 
-    .pricing-quicknav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin: 0 auto clamp(56px, 7vw, 84px);
-      max-width: 900px;
-    }
+  .pricing-quicknav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin: 0 auto clamp(56px, 7vw, 84px);
+    max-width: 900px;
+  }
 
-    .pricing-quicknav a {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 11px 22px;
-      border-radius: var(--radius-pill);
-      background: #F1F3F9;
-      color: var(--navy);
-      font-weight: 600;
-      font-size: 0.92rem;
-      border: 1.5px solid transparent;
-      transition: all 0.2s ease;
-    }
+  .pricing-quicknav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 22px;
+    border-radius: var(--radius-pill);
+    background: #F1F3F9;
+    color: var(--navy);
+    font-weight: 600;
+    font-size: 0.92rem;
+    border: 1.5px solid transparent;
+    transition: all 0.2s ease;
+  }
 
-    .pricing-quicknav a:hover,
-    .pricing-quicknav a:focus-visible {
-      border-color: var(--brand-blue);
-      color: var(--brand-blue);
-      background: var(--brand-blue-tint);
-    }
+  .pricing-quicknav a:hover,
+  .pricing-quicknav a:focus-visible {
+    border-color: var(--brand-blue);
+    color: var(--brand-blue);
+    background: var(--brand-blue-tint);
+  }
 
-    .pricing-quicknav-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
+  .pricing-quicknav-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
 
-    .pricing-quicknav-dot.icon-blue {
-      background: var(--brand-blue);
-    }
+  .pricing-quicknav-dot.icon-blue {
+    background: var(--brand-blue);
+  }
 
-    .pricing-quicknav-dot.icon-green {
-      background: var(--green);
-    }
+  .pricing-quicknav-dot.icon-green {
+    background: var(--green);
+  }
 
-    .pricing-quicknav-dot.icon-coral {
-      background: var(--brand-coral);
-    }
+  .pricing-quicknav-dot.icon-coral {
+    background: var(--brand-coral);
+  }
 
-    .pricing-quicknav-dot.icon-peach {
-      background: #C77B3F;
-    }
+  .pricing-quicknav-dot.icon-peach {
+    background: #C77B3F;
+  }
 
-    /* ============================================================
+  /* ============================================================
      CATEGORY SECTIONS
      ============================================================ */
-    .pricing-cat-section {
-      margin-bottom: clamp(56px, 7vw, 88px);
-      scroll-margin-top: 24px;
-    }
+  .pricing-cat-section {
+    margin-bottom: clamp(56px, 7vw, 88px);
+    scroll-margin-top: 24px;
+  }
 
-    .pricing-cat-section:last-child {
-      margin-bottom: 0;
-    }
+  .pricing-cat-section:last-child {
+    margin-bottom: 0;
+  }
 
+  .pricing-cat-header {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .pricing-cat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .pricing-cat-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .pricing-cat-icon.icon-blue {
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+  }
+
+  .pricing-cat-icon.icon-green {
+    background: var(--green-tint);
+    color: var(--green);
+  }
+
+  .pricing-cat-icon.icon-coral {
+    background: var(--brand-coral-tint);
+    color: var(--brand-coral);
+  }
+
+  .pricing-cat-icon.icon-peach {
+    background: var(--brand-peach);
+    color: #C77B3F;
+  }
+
+  .pricing-cat-title {
+    font-size: clamp(1.4rem, 1.2rem + 0.6vw, 1.75rem);
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+    margin-bottom: 3px;
+  }
+
+  .pricing-cat-desc {
+    font-size: 0.95rem;
+    color: var(--slate);
+  }
+
+  .pricing-cat-group-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--slate-light);
+    margin: 0 0 14px 2px;
+  }
+
+  /* ============================================================
+     ACCORDION ITEMS (per service)
+     ============================================================ */
+  .pricing-accordion-item {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .pricing-accordion-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .pricing-accordion-item:hover {
+    border-color: #BDC1C6;
+  }
+
+  .pricing-accordion-item[open] {
+    border-color: var(--brand-blue);
+    box-shadow: var(--shadow-card);
+  }
+
+  .pricing-accordion-summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 22px 26px;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .pricing-accordion-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .pricing-accordion-summary::marker {
+    content: "";
+  }
+
+  .pricing-accordion-summary:focus-visible {
+    outline: 2px solid var(--brand-blue);
+    outline-offset: -2px;
+  }
+
+  .pricing-accordion-summary-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .pricing-accordion-title {
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+
+  .pricing-accordion-desc {
+    font-size: 0.9rem;
+    color: var(--slate);
+    line-height: 1.5;
+  }
+
+  .pricing-accordion-chevron {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: var(--slate-light);
+    transition: transform 0.25s ease, color 0.2s ease;
+  }
+
+  .pricing-accordion-item[open] .pricing-accordion-chevron {
+    transform: rotate(180deg);
+    color: var(--brand-blue);
+  }
+
+  .pricing-accordion-body {
+    padding: 6px 26px 30px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .pricing-accordion-body .pricing-group-label {
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--slate-light);
+    margin: 22px 0 16px;
+  }
+
+  .pricing-accordion-body .pricing-group-label:first-child {
+    margin-top: 22px;
+  }
+
+  .pricing-accordion-body .pricing-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 38px 0 20px;
+    color: var(--slate-light);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .pricing-accordion-body .pricing-divider::before,
+  .pricing-accordion-body .pricing-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--border-light);
+  }
+
+  .pricing-accordion-viewlink {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 22px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--brand-blue);
+    border-bottom: 1.5px solid rgba(58, 83, 155, 0.3);
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .pricing-accordion-viewlink:hover,
+  .pricing-accordion-viewlink:focus-visible {
+    color: var(--brand-blue-hover) !important;
+    border-color: var(--brand-blue-hover);
+  }
+
+  .pricing-accordion-viewlink svg {
+    width: 15px;
+    height: 15px;
+    transition: transform 0.2s ease;
+  }
+
+  .pricing-accordion-viewlink:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* ============================================================
+     CROSS-REFERENCE CARDS (services listed under 2 groups)
+     ============================================================ */
+  .pricing-crossref-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: var(--bg-light);
+    border: 1.5px dashed var(--border);
+    border-radius: var(--radius-lg);
+    padding: 20px 26px;
+    margin-bottom: 14px;
+  }
+
+  .pricing-crossref-card:last-child {
+    margin-bottom: 0;
+  }
+
+  .pricing-crossref-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-sm);
+    background: #FFFFFF;
+    border: 1px solid var(--border);
+    color: var(--slate-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .pricing-crossref-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .pricing-crossref-text {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.94rem;
+    color: var(--slate);
+    line-height: 1.5;
+  }
+
+  .pricing-crossref-text strong {
+    color: var(--navy);
+  }
+
+  .pricing-crossref-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--brand-blue);
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .pricing-crossref-link:hover,
+  .pricing-crossref-link:focus-visible {
+    color: var(--brand-blue-hover) !important;
+  }
+
+  /* ============================================================
+     FINAL CTA / CONSULTATION BANNER
+     ============================================================ */
+  .cta-banner-section {
+    padding: var(--section-gap) 0;
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+  }
+
+  .cta-banner-box {
+    background: #FFFFFF;
+    border: 1.5px solid var(--brand-peach-hover);
+    background-color: var(--brand-peach);
+    border-radius: var(--radius-xl);
+    padding: clamp(36px, 5vw, 60px);
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .cta-banner-box h2 {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: 14px;
+  }
+
+  .cta-banner-box p {
+    font-size: 1.05rem;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+  @media (max-width: 768px) {
     .pricing-cat-header {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      margin-bottom: 28px;
-      padding-bottom: 20px;
-      border-bottom: 1px solid var(--border-light);
+      gap: 14px;
     }
 
     .pricing-cat-icon {
-      width: 50px;
-      height: 50px;
-      border-radius: var(--radius-md);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
     }
 
     .pricing-cat-icon svg {
-      width: 24px;
-      height: 24px;
-    }
-
-    .pricing-cat-icon.icon-blue {
-      background: var(--brand-blue-tint);
-      color: var(--brand-blue);
-    }
-
-    .pricing-cat-icon.icon-green {
-      background: var(--green-tint);
-      color: var(--green);
-    }
-
-    .pricing-cat-icon.icon-coral {
-      background: var(--brand-coral-tint);
-      color: var(--brand-coral);
-    }
-
-    .pricing-cat-icon.icon-peach {
-      background: var(--brand-peach);
-      color: #C77B3F;
-    }
-
-    .pricing-cat-title {
-      font-size: clamp(1.4rem, 1.2rem + 0.6vw, 1.75rem);
-      font-weight: 700;
-      color: var(--navy);
-      letter-spacing: -0.01em;
-      margin-bottom: 3px;
-    }
-
-    .pricing-cat-desc {
-      font-size: 0.95rem;
-      color: var(--slate);
-    }
-
-    .pricing-cat-group-label {
-      font-size: 0.8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--slate-light);
-      margin: 0 0 14px 2px;
-    }
-
-    /* ============================================================
-     ACCORDION ITEMS (per service)
-     ============================================================ */
-    .pricing-accordion-item {
-      background: #FFFFFF;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-lg);
-      margin-bottom: 14px;
-      overflow: hidden;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .pricing-accordion-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .pricing-accordion-item:hover {
-      border-color: #BDC1C6;
-    }
-
-    .pricing-accordion-item[open] {
-      border-color: var(--brand-blue);
-      box-shadow: var(--shadow-card);
+      width: 20px;
+      height: 20px;
     }
 
     .pricing-accordion-summary {
-      list-style: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 22px 26px;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .pricing-accordion-summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .pricing-accordion-summary::marker {
-      content: "";
-    }
-
-    .pricing-accordion-summary:focus-visible {
-      outline: 2px solid var(--brand-blue);
-      outline-offset: -2px;
-    }
-
-    .pricing-accordion-summary-text {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .pricing-accordion-title {
-      font-size: 1.08rem;
-      font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 4px;
-    }
-
-    .pricing-accordion-desc {
-      font-size: 0.9rem;
-      color: var(--slate);
-      line-height: 1.5;
-    }
-
-    .pricing-accordion-chevron {
-      flex-shrink: 0;
-      width: 20px;
-      height: 20px;
-      color: var(--slate-light);
-      transition: transform 0.25s ease, color 0.2s ease;
-    }
-
-    .pricing-accordion-item[open] .pricing-accordion-chevron {
-      transform: rotate(180deg);
-      color: var(--brand-blue);
+      padding: 18px 18px;
+      gap: 14px;
     }
 
     .pricing-accordion-body {
-      padding: 6px 26px 30px;
-      border-top: 1px solid var(--border-light);
+      padding: 4px 18px 24px;
     }
 
-    .pricing-accordion-body .pricing-group-label {
-      font-size: 0.78rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--slate-light);
-      margin: 22px 0 16px;
-    }
-
-    .pricing-accordion-body .pricing-group-label:first-child {
-      margin-top: 22px;
-    }
-
-    .pricing-accordion-body .pricing-divider {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin: 38px 0 20px;
-      color: var(--slate-light);
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .pricing-accordion-body .pricing-divider::before,
-    .pricing-accordion-body .pricing-divider::after {
-      content: "";
-      flex: 1;
-      height: 1px;
-      background: var(--border-light);
-    }
-
-    .pricing-accordion-viewlink {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 22px;
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--brand-blue);
-      border-bottom: 1.5px solid rgba(58, 83, 155, 0.3);
-      transition: color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .pricing-accordion-viewlink:hover,
-    .pricing-accordion-viewlink:focus-visible {
-      color: var(--brand-blue-hover) !important;
-      border-color: var(--brand-blue-hover);
-    }
-
-    .pricing-accordion-viewlink svg {
-      width: 15px;
-      height: 15px;
-      transition: transform 0.2s ease;
-    }
-
-    .pricing-accordion-viewlink:hover svg {
-      transform: translateX(3px);
-    }
-
-    /* ============================================================
-     CROSS-REFERENCE CARDS (services listed under 2 groups)
-     ============================================================ */
     .pricing-crossref-card {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      background: var(--bg-light);
-      border: 1.5px dashed var(--border);
-      border-radius: var(--radius-lg);
-      padding: 20px 26px;
-      margin-bottom: 14px;
+      flex-wrap: wrap;
+      padding: 18px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .page-title-banner {
+      padding: 44px 18px;
     }
 
-    .pricing-crossref-card:last-child {
-      margin-bottom: 0;
+    .btn-group {
+      flex-direction: column;
+      width: 100%;
     }
 
-    .pricing-crossref-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: var(--radius-sm);
-      background: #FFFFFF;
-      border: 1px solid var(--border);
-      color: var(--slate-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+    .btn {
+      width: 100%;
     }
 
-    .pricing-crossref-icon svg {
-      width: 18px;
-      height: 18px;
+    .pricing-quicknav a {
+      font-size: 0.86rem;
+      padding: 10px 16px;
     }
+  }
+</style>
 
-    .pricing-crossref-text {
-      flex: 1;
-      min-width: 0;
-      font-size: 0.94rem;
-      color: var(--slate);
-      line-height: 1.5;
-    }
-
-    .pricing-crossref-text strong {
-      color: var(--navy);
-    }
-
-    .pricing-crossref-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: var(--brand-blue);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .pricing-crossref-link:hover,
-    .pricing-crossref-link:focus-visible {
-      color: var(--brand-blue-hover) !important;
-    }
-
-    /* ============================================================
-     FINAL CTA / CONSULTATION BANNER
-     ============================================================ */
-    .cta-banner-section {
-      padding: var(--section-gap) 0;
-      background: var(--bg-light);
-      border-top: 1px solid var(--border-light);
-    }
-
-    .cta-banner-box {
-      background: #FFFFFF;
-      border: 1.5px solid var(--brand-peach-hover);
-      background-color: var(--brand-peach);
-      border-radius: var(--radius-xl);
-      padding: clamp(36px, 5vw, 60px);
-      text-align: center;
-      max-width: 780px;
-      margin: 0 auto;
-    }
-
-    .cta-banner-box h2 {
-      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
-      font-weight: 700;
-      color: var(--navy);
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      margin-bottom: 14px;
-    }
-
-    .cta-banner-box p {
-      font-size: 1.05rem;
-      color: var(--slate);
-      line-height: 1.6;
-      margin-bottom: 28px;
-      max-width: 560px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    /* ============================================================
-     RESPONSIVE BREAKPOINTS
-     ============================================================ */
-    @media (max-width: 768px) {
-      .pricing-cat-header {
-        gap: 14px;
-      }
-
-      .pricing-cat-icon {
-        width: 42px;
-        height: 42px;
-      }
-
-      .pricing-cat-icon svg {
-        width: 20px;
-        height: 20px;
-      }
-
-      .pricing-accordion-summary {
-        padding: 18px 18px;
-        gap: 14px;
-      }
-
-      .pricing-accordion-body {
-        padding: 4px 18px 24px;
-      }
-
-      .pricing-crossref-card {
-        flex-wrap: wrap;
-        padding: 18px;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .page-title-banner {
-        padding: 44px 18px;
-      }
-
-      .btn-group {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .pricing-quicknav a {
-        font-size: 0.86rem;
-        padding: 10px 16px;
-      }
-    }
-  </style>
-
-  <!-- ============================================================
+<!-- ============================================================
        PAGE TITLE BANNER
        ============================================================ -->
-  <section class="page-title-banner" aria-label="Page Title">
-    <div class="page-title-banner-mesh" aria-hidden="true"></div>
-    <div class="container page-title-inner">
-      <h1 class="page-banner-h1">Pricing</h1>
-      <p class="page-banner-sub">(Every Plan, Tier &amp; Add-On — Organized By Category)</p>
-    </div>
-  </section>
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <h1 class="page-banner-h1">Pricing</h1>
+    <p class="page-banner-sub">(Every Plan, Tier &amp; Add-On — Organized By Category)</p>
+  </div>
+</section>
 
-  <!-- ============================================================
+<!-- ============================================================
        PRICING HUB
        ============================================================ -->
-  <section class="section-space pricing-hub-section" id="pricing-hub">
-    <div class="container">
+<section class="section-space pricing-hub-section" id="pricing-hub">
+  <div class="container">
 
-      <p class="pricing-global-note">
-        Tap any service below to expand its live, up-to-date pricing. Rates shown are pulled directly from our
-        current price list — for exact scoping on custom or multi-service projects,
-        <a href="/book-a-free-consultation/" style="color:var(--brand-blue);font-weight:600;border-bottom:1.5px solid rgba(58,83,155,0.3);">book a free consultation</a>.
-      </p>
+    <p class="pricing-global-note">
+      Tap any service below to expand its live, up-to-date pricing. Rates shown are pulled directly from our
+      current price list — for exact scoping on custom or multi-service projects,
+      <a href="/book-a-free-consultation/"
+        style="color:var(--brand-blue);font-weight:600;border-bottom:1.5px solid rgba(58,83,155,0.3);">book a free
+        consultation</a>.
+    </p>
 
-      <!-- Quick Nav -->
-      <nav class="pricing-quicknav" aria-label="Jump to category">
-        <a href="#cat-build"><span class="pricing-quicknav-dot icon-blue"></span>Build</a>
-        <a href="#cat-maintain-protect"><span class="pricing-quicknav-dot icon-green"></span>Maintain &amp; Protect</a>
-        <a href="#cat-grow"><span class="pricing-quicknav-dot icon-coral"></span>Grow</a>
-        <a href="#cat-market-brand"><span class="pricing-quicknav-dot icon-peach"></span>Market &amp; Brand</a>
-      </nav>
+    <!-- Quick Nav -->
+    <nav class="pricing-quicknav" aria-label="Jump to category">
+      <a href="#cat-build"><span class="pricing-quicknav-dot icon-blue"></span>Build</a>
+      <a href="#cat-maintain-protect"><span class="pricing-quicknav-dot icon-green"></span>Maintain &amp; Protect</a>
+      <a href="#cat-grow"><span class="pricing-quicknav-dot icon-coral"></span>Grow</a>
+      <a href="#cat-market-brand"><span class="pricing-quicknav-dot icon-peach"></span>Market &amp; Brand</a>
+    </nav>
 
-      <!-- ============================================================
+    <!-- ============================================================
            COLUMN 1: BUILD
            ============================================================ -->
-      <div class="pricing-cat-section" id="cat-build">
-        <div class="pricing-cat-header">
-          <div class="pricing-cat-icon icon-blue">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="7" height="7" />
-              <rect x="14" y="3" width="7" height="7" />
-              <rect x="3" y="14" width="7" height="7" />
-              <rect x="14" y="14" width="7" height="7" />
-            </svg>
-          </div>
-          <div>
-            <div class="pricing-cat-title">Build</div>
-            <div class="pricing-cat-desc">New websites, stores, static sites, custom apps &amp; marketplace setup.</div>
-          </div>
+    <div class="pricing-cat-section" id="cat-build">
+      <div class="pricing-cat-header">
+        <div class="pricing-cat-icon icon-blue">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7" />
+            <rect x="14" y="3" width="7" height="7" />
+            <rect x="3" y="14" width="7" height="7" />
+            <rect x="14" y="14" width="7" height="7" />
+          </svg>
         </div>
-
-        <p class="pricing-cat-group-label">WordPress &amp; E-Commerce</p>
-
-        <details class="pricing-accordion-item" id="pp-wordpress-website" open>
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">WordPress Website</div>
-              <div class="pricing-accordion-desc">Bespoke WordPress websites engineered for performance, SEO, and scalable growth — from single-page sites to 500+ page platforms.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">New WordPress Website</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=2-sp,2,3,122-1,122-2,122-3,122-4,122-5,122-6,122-7,122-8&popular=2&title=New%20WordPress%20Website"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Growing an Existing Site</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=4&title=Growing%20an%20Existing%20Site"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/services/web-design-development/custom-web-development/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <details class="pricing-accordion-item" id="pp-wordpress-ecommerce">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">WordPress E-Commerce</div>
-              <div class="pricing-accordion-desc">Custom WooCommerce store builds from 3 to 100 products, plus design refreshes for stores you already have live.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Launch a New WooCommerce Store</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=6,7,8,9&popular=6&title=Launch%20a%20New%20WooCommerce%20Store"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">WooCommerce Design Refresh</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=10&title=WooCommerce%20Design%20Refresh"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Growing an Existing Store</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=wp-10&title=Growing%20an%20Existing%20Store"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/woocommerce-stores/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <details class="pricing-accordion-item" id="pp-shopify-ecommerce">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Shopify E-Commerce Stores</div>
-              <div class="pricing-accordion-desc">Custom Shopify store builds from 3 to 100 products, design refreshes for stores already live, and page/product additions.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Launch a New Shopify Store</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=11,12,13,14&popular=11&title=Launch%20a%20New%20Shopify%20Store"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Shopify Design Refresh</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=17&title=Shopify%20Design%20Refresh"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Growing an Existing Store</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=15,16&title=Growing%20an%20Existing%20Store"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/shopify-ecommerce-store/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <details class="pricing-accordion-item" id="pp-merchant-processing">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Merchant Processing Add-On</div>
-              <div class="pricing-accordion-desc">Add merchant payment processing to any existing website — no rebuild required.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Merchant Processing Add-On</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=5&title=Merchant%20Processing%20Add-On"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Additional Payment Add-Ons</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=5-1,46144,46145,46146&title=Additional%20Payment%20Add-Ons"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/merchant-processing-add-on/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <p class="pricing-cat-group-label" style="margin-top:36px;">Simple &amp; Static Sites</p>
-
-        <details class="pricing-accordion-item" id="pp-static-sites">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Static Sites</div>
-              <div class="pricing-accordion-desc">Fast, secure static HTML websites — no CMS, no database, nothing to patch. 1 to 5 pages.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Static HTML Site Tiers</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=30,31&popular=30&title=Static%20HTML%20Site%20Tiers"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Additional Pages</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=32&title=Additional%20Pages"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/static-html-sites/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <p class="pricing-cat-group-label" style="margin-top:36px;">Apps &amp; Marketplaces</p>
-
-        <details class="pricing-accordion-item" id="pp-custom-apps-cybersecurity">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Custom Apps &amp; Cybersecurity</div>
-              <div class="pricing-accordion-desc">Custom web app and mobile app design &amp; development, plus ongoing cybersecurity &amp; email protection plans for your business.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Custom Web &amp; Mobile App Development</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=73&title=Custom%20Web%20%26%20Mobile%20App%20Development"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider" id="pricing-cybersecurity-email">Cybersecurity &amp; Email Protection</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=21,130-1&popular=21&title=Cybersecurity%20%26%20Email%20Protection"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Additional Account Add-On</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=131&title=Additional%20Account%20Add-On"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/custom-web-mobile-apps/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <details class="pricing-accordion-item" id="pp-amazon-ads">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Amazon Store Setup &amp; Ads Management</div>
-              <div class="pricing-accordion-desc">Amazon listing setup, custom store creation, branded images, A+ Content, Brand Registry &amp; FBA setup, and Amazon Ads Management — priced individually.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Listing Setup &amp; Store Creation</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=96,100&popular=96&title=Listing%20Setup%20%26%20Store%20Creation"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Listing Enhancement Add-Ons</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=97,98,99,101&title=Listing%20Enhancement%20Add-Ons"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider" id="pricing-amazon-ads-mgmt">Amazon Ads Management</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=102,103,104,105&popular=102&title=Amazon%20Ads%20Management"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/amazon-listing-store-setup/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
+        <div>
+          <div class="pricing-cat-title">Build</div>
+          <div class="pricing-cat-desc">New websites, stores, static sites, custom apps &amp; marketplace setup.</div>
+        </div>
       </div>
 
-      <!-- ============================================================
+      <p class="pricing-cat-group-label">WordPress &amp; E-Commerce</p>
+
+      <details class="pricing-accordion-item" id="pp-wordpress-website" open>
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">WordPress Website</div>
+            <div class="pricing-accordion-desc">Bespoke WordPress websites engineered for performance, SEO, and scalable
+              growth — from single-page sites to 500+ page platforms.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">New WordPress Website</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=2-sp,2,3,122-1,122-2,122-3,122-4,122-5,122-6,122-7,122-8&popular=2&title=New%20WordPress%20Website"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Growing an Existing Site</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=4&title=Growing%20an%20Existing%20Site"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/custom-web-development/">View full service page <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <details class="pricing-accordion-item" id="pp-wordpress-ecommerce">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">WordPress E-Commerce</div>
+            <div class="pricing-accordion-desc">Custom WooCommerce store builds from 3 to 100 products, plus design
+              refreshes for stores you already have live.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Launch a New WooCommerce Store</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=6,7,8,9&popular=6&title=Launch%20a%20New%20WooCommerce%20Store"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">WooCommerce Design Refresh</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=10&title=WooCommerce%20Design%20Refresh"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Growing an Existing Store</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=wp-10&title=Growing%20an%20Existing%20Store"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/woocommerce-stores/">View full service page <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <details class="pricing-accordion-item" id="pp-shopify-ecommerce">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Shopify E-Commerce Stores</div>
+            <div class="pricing-accordion-desc">Custom Shopify store builds from 3 to 100 products, design refreshes for
+              stores already live, and page/product additions.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Launch a New Shopify Store</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=11,12,13,14&popular=11&title=Launch%20a%20New%20Shopify%20Store"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Shopify Design Refresh</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=17&title=Shopify%20Design%20Refresh"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Growing an Existing Store</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=15,16&title=Growing%20an%20Existing%20Store"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/shopify-ecommerce-store/">View full service page <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <details class="pricing-accordion-item" id="pp-merchant-processing">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Merchant Processing Add-On</div>
+            <div class="pricing-accordion-desc">Add merchant payment processing to any existing website — no rebuild
+              required.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Merchant Processing Add-On</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=5&title=Merchant%20Processing%20Add-On"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Additional Payment Add-Ons</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=5-1,46144,46145,46146&title=Additional%20Payment%20Add-Ons"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/merchant-processing-add-on/">View full service page <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <p class="pricing-cat-group-label" style="margin-top:36px;">Simple &amp; Static Sites</p>
+
+      <details class="pricing-accordion-item" id="pp-static-sites">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Static Sites</div>
+            <div class="pricing-accordion-desc">Fast, secure static HTML websites — no CMS, no database, nothing to
+              patch. 1 to 5 pages.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Static HTML Site Tiers</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=30,31&popular=30&title=Static%20HTML%20Site%20Tiers"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Additional Pages</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=32&title=Additional%20Pages"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/static-html-sites/">View full service page <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <p class="pricing-cat-group-label" style="margin-top:36px;">Apps &amp; Marketplaces</p>
+
+      <details class="pricing-accordion-item" id="pp-custom-apps-cybersecurity">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Custom Apps &amp; Cybersecurity</div>
+            <div class="pricing-accordion-desc">Custom web app and mobile app design &amp; development, plus ongoing
+              cybersecurity &amp; email protection plans for your business.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Custom Web &amp; Mobile App Development</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=73&title=Custom%20Web%20%26%20Mobile%20App%20Development"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider" id="pricing-cybersecurity-email">Cybersecurity &amp; Email Protection</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=21,130-1&popular=21&title=Cybersecurity%20%26%20Email%20Protection"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Additional Account Add-On</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=131&title=Additional%20Account%20Add-On"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/custom-web-mobile-apps/">View full service page <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <details class="pricing-accordion-item" id="pp-amazon-ads">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Amazon Store Setup &amp; Ads Management</div>
+            <div class="pricing-accordion-desc">Amazon listing setup, custom store creation, branded images, A+ Content,
+              Brand Registry &amp; FBA setup, and Amazon Ads Management — priced individually.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Listing Setup &amp; Store Creation</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=96,100&popular=96&title=Listing%20Setup%20%26%20Store%20Creation"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Listing Enhancement Add-Ons</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=97,98,99,101&title=Listing%20Enhancement%20Add-Ons"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider" id="pricing-amazon-ads-mgmt">Amazon Ads Management</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=102,103,104,105&popular=102&title=Amazon%20Ads%20Management"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/amazon-listing-store-setup/">View full service page <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+    </div>
+
+    <!-- ============================================================
            COLUMN 2: MAINTAIN & PROTECT
            ============================================================ -->
-      <div class="pricing-cat-section" id="cat-maintain-protect">
-        <div class="pricing-cat-header">
-          <div class="pricing-cat-icon icon-green">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-          </div>
-          <div>
-            <div class="pricing-cat-title">Maintain &amp; Protect</div>
-            <div class="pricing-cat-desc">Hosting, ongoing support, security &amp; email — keeping what's live, running and safe.</div>
-          </div>
+    <div class="pricing-cat-section" id="cat-maintain-protect">
+      <div class="pricing-cat-header">
+        <div class="pricing-cat-icon icon-green">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
         </div>
-
-        <p class="pricing-cat-group-label">Hosting &amp; Maintenance</p>
-
-        <details class="pricing-accordion-item" id="pp-wham-bundle" open>
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">WordPress Maintenance Bundle</div>
-              <div class="pricing-accordion-desc">WordPress hosting, domain registration, SSL, and done-for-you maintenance bundled into one plan.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">WordPress Hosting &amp; Maintenance (WHAM) Plans</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=132-1|132-2,19|134,140|20,141|22&popular=19&title=WordPress%20Hosting%20%26%20Maintenance%20(WHAM)%20Plans"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">WHAM Plus Hour Blocks</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=24|135,25|136,26|137&title=WHAM%20Plus%20Hour%20Blocks"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/wordpress-maintenance-hosting-bundle/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <details class="pricing-accordion-item" id="pp-simple-hosting">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Simple Site Hosting Bundle</div>
-              <div class="pricing-accordion-desc">Domain reservation and website hosting for non-WordPress sites — Static HTML Sites and Squeeze Pages.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Domain Renewal &amp; Hosting</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=27|138&title=Domain%20Renewal%20%26%20Hosting"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/simple-site-hosting-bundle/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <p class="pricing-cat-group-label" style="margin-top:36px;">Ongoing Support</p>
-
-        <details class="pricing-accordion-item" id="pp-website-care">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Website Care</div>
-              <div class="pricing-accordion-desc">Emergency site repair, backups, migrations, and rush updates, billed hourly with no long-term commitment.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Website Care Services</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=109,128,129,129-1,29,127&title=Website%20Care%20Services"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/website-care/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <p class="pricing-cat-group-label" style="margin-top:36px;">Security &amp; Email</p>
-
-        <div class="pricing-crossref-card">
-          <div class="pricing-crossref-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /></svg>
-          </div>
-          <div class="pricing-crossref-text"><strong>Cybersecurity &amp; Email Backup</strong> — pricing is shared with Custom Apps &amp; Cybersecurity, under Build.</div>
-          <a class="pricing-crossref-link" href="#pricing-cybersecurity-email">See pricing ↓</a>
+        <div>
+          <div class="pricing-cat-title">Maintain &amp; Protect</div>
+          <div class="pricing-cat-desc">Hosting, ongoing support, security &amp; email — keeping what's live, running
+            and safe.</div>
         </div>
-
-        <details class="pricing-accordion-item" id="pp-email-setup">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Email Setup &amp; Migration</div>
-              <div class="pricing-accordion-desc">Google Workspace &amp; Microsoft 365 setup, DNS configuration, and zero-loss mailbox migration — handled start to finish.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Core Setup &amp; Migration</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=118,119&popular=118&title=Core%20Setup%20%26%20Migration"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Additional Accounts &amp; Aliases</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=120,121&title=Additional%20Accounts%20%26%20Aliases"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/email-setup-migration-services-gws-ms365/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
       </div>
 
-      <!-- ============================================================
+      <p class="pricing-cat-group-label">Hosting &amp; Maintenance</p>
+
+      <details class="pricing-accordion-item" id="pp-wham-bundle" open>
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">WordPress Maintenance Bundle</div>
+            <div class="pricing-accordion-desc">WordPress hosting, domain registration, SSL, and done-for-you
+              maintenance bundled into one plan.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">WordPress Hosting &amp; Maintenance (WHAM) Plans</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=132-1|132-2,19|134,140|20,141|22&popular=19&title=WordPress%20Hosting%20%26%20Maintenance%20(WHAM)%20Plans"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">WHAM Plus Hour Blocks</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=24|135,25|136,26|137&title=WHAM%20Plus%20Hour%20Blocks"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/wordpress-maintenance-hosting-bundle/">View full service page
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <details class="pricing-accordion-item" id="pp-simple-hosting">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Simple Site Hosting Bundle</div>
+            <div class="pricing-accordion-desc">Domain reservation and website hosting for non-WordPress sites — Static
+              HTML Sites and Squeeze Pages.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Domain Renewal &amp; Hosting</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=27|138&title=Domain%20Renewal%20%26%20Hosting"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/simple-site-hosting-bundle/">View full service page <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <p class="pricing-cat-group-label" style="margin-top:36px;">Ongoing Support</p>
+
+      <details class="pricing-accordion-item" id="pp-website-care">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Website Care</div>
+            <div class="pricing-accordion-desc">Emergency site repair, backups, migrations, and rush updates, billed
+              hourly with no long-term commitment.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Website Care Services</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=109,128,129,129-1,29,127&title=Website%20Care%20Services"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/website-care/">View full service page <svg viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <p class="pricing-cat-group-label" style="margin-top:36px;">Security &amp; Email</p>
+
+      <div class="pricing-crossref-card">
+        <div class="pricing-crossref-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </div>
+        <div class="pricing-crossref-text"><strong>Cybersecurity &amp; Email Backup</strong> — pricing is shared with
+          Custom Apps &amp; Cybersecurity, under Build.</div>
+        <a class="pricing-crossref-link" href="#pricing-cybersecurity-email">See pricing ↓</a>
+      </div>
+
+      <details class="pricing-accordion-item" id="pp-email-setup">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Email Setup &amp; Migration</div>
+            <div class="pricing-accordion-desc">Google Workspace &amp; Microsoft 365 setup, DNS configuration, and
+              zero-loss mailbox migration — handled start to finish.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Core Setup &amp; Migration</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=118,119&popular=118&title=Core%20Setup%20%26%20Migration"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Additional Accounts &amp; Aliases</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=120,121&title=Additional%20Accounts%20%26%20Aliases"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/email-setup-migration-services-gws-ms365/">View full service page
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+    </div>
+
+    <!-- ============================================================
            COLUMN 3: GROW
            ============================================================ -->
-      <div class="pricing-cat-section" id="cat-grow">
-        <div class="pricing-cat-header">
-          <div class="pricing-cat-icon icon-coral">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-              <polyline points="17 6 23 6 23 12" />
-            </svg>
-          </div>
-          <div>
-            <div class="pricing-cat-title">Grow</div>
-            <div class="pricing-cat-desc">SEO, local visibility &amp; paid advertising across Google, Meta, Walmart &amp; Amazon.</div>
-          </div>
+    <div class="pricing-cat-section" id="cat-grow">
+      <div class="pricing-cat-header">
+        <div class="pricing-cat-icon icon-coral">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+            <polyline points="17 6 23 6 23 12" />
+          </svg>
         </div>
-
-        <p class="pricing-cat-group-label">SEO &amp; Visibility</p>
-
-        <details class="pricing-accordion-item" id="pp-seo-plans" open>
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">SEO, Site Audits &amp; Analytics Services</div>
-              <div class="pricing-accordion-desc">Award-winning, 100% white-hat SEO plans, Google Business Profile setup &amp; reputation management, one-time site audits, and Google Analytics &amp; Search Console setup.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Monthly SEO Plans</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=43,44,45&popular=44&title=Monthly%20SEO%20Plans"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Google Business Profile &amp; Reputation</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=46,47,48&title=Google%20Business%20Profile%20%26%20Reputation"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Site Audit &amp; Priority Fixes</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=49,49-1,49-2&popular=49-2&title=Site%20Audit%20%26%20Priority%20Fixes"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Analytics &amp; Search Console Setup</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=50,50-1,50-2,50-3,50-4&title=Analytics%20%26%20Search%20Console%20Setup"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/seo-plans-site-audit/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <details class="pricing-accordion-item" id="pp-local-seo">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Local SEO Services</div>
-              <div class="pricing-accordion-desc">Local SEO plans, the Local Domination Package, Google 3-Pack Optimization, and multi-location support.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Local SEO Plans</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=52,53,54,55&popular=52&title=Local%20SEO%20Plans"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Local Domination Package</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=56&title=Local%20Domination%20Package"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Local SEO Add-Ons</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=58,59,57&title=Local%20SEO%20Add-Ons"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/local-seo-google-business-profile/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <p class="pricing-cat-group-label" style="margin-top:36px;">Paid Advertising</p>
-
-        <details class="pricing-accordion-item" id="pp-google-meta-ads">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Google &amp; Meta Ads</div>
-              <div class="pricing-accordion-desc">Ad campaign setup and ongoing management across Google Ads, Meta Ads, and Meta Boost Posts.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Google Ads</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=74,75,126&popular=75&title=Google%20Ads"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Meta Ads</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=76,77&popular=76&title=Meta%20Ads"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Meta Boost Posts</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=78,79&title=Meta%20Boost%20Posts"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/google-meta-ads/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <details class="pricing-accordion-item" id="pp-walmart-ads">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Walmart Ads Management</div>
-              <div class="pricing-accordion-desc">Walmart ad campaign management across four tiers, scaling with your monthly ad spend.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Walmart Ads Management</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=80,81,82,83&popular=80&title=Walmart%20Ads%20Management"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/walmart-ads-management/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <div class="pricing-crossref-card">
-          <div class="pricing-crossref-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8l9 5 9-5Z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>
-          </div>
-          <div class="pricing-crossref-text"><strong>Amazon Ads Management</strong> — pricing is shared with Amazon Store Setup &amp; Ads Management, under Build.</div>
-          <a class="pricing-crossref-link" href="#pricing-amazon-ads-mgmt">See pricing ↓</a>
+        <div>
+          <div class="pricing-cat-title">Grow</div>
+          <div class="pricing-cat-desc">SEO, local visibility &amp; paid advertising across Google, Meta, Walmart &amp;
+            Amazon.</div>
         </div>
       </div>
 
-      <!-- ============================================================
+      <p class="pricing-cat-group-label">SEO &amp; Visibility</p>
+
+      <details class="pricing-accordion-item" id="pp-seo-plans" open>
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">SEO, Site Audits &amp; Analytics Services</div>
+            <div class="pricing-accordion-desc">Award-winning, 100% white-hat SEO plans, Google Business Profile setup
+              &amp; reputation management, one-time site audits, and Google Analytics &amp; Search Console setup.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Monthly SEO Plans</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=43,44,45&popular=44&title=Monthly%20SEO%20Plans"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Google Business Profile &amp; Reputation</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=46,47,48&title=Google%20Business%20Profile%20%26%20Reputation"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Site Audit &amp; Priority Fixes</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=49,49-1,49-2&popular=49-2&title=Site%20Audit%20%26%20Priority%20Fixes"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Analytics &amp; Search Console Setup</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=50,50-1,50-2,50-3,50-4&title=Analytics%20%26%20Search%20Console%20Setup"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/seo-plans-site-audit/">View full service page <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <details class="pricing-accordion-item" id="pp-local-seo">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Local SEO Services</div>
+            <div class="pricing-accordion-desc">Local SEO plans, the Local Domination Package, Google 3-Pack
+              Optimization, and multi-location support.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Local SEO Plans</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=52,53,54,55&popular=52&title=Local%20SEO%20Plans"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Local Domination Package</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=56&title=Local%20Domination%20Package"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Local SEO Add-Ons</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=58,59,57&title=Local%20SEO%20Add-Ons"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/local-seo-google-business-profile/">View full service page <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <p class="pricing-cat-group-label" style="margin-top:36px;">Paid Advertising</p>
+
+      <details class="pricing-accordion-item" id="pp-google-meta-ads">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Google &amp; Meta Ads</div>
+            <div class="pricing-accordion-desc">Ad campaign setup and ongoing management across Google Ads, Meta Ads,
+              and Meta Boost Posts.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Google Ads</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=74,75,126&popular=75&title=Google%20Ads"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Meta Ads</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=76,77&popular=76&title=Meta%20Ads"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Meta Boost Posts</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=78,79&title=Meta%20Boost%20Posts"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/google-meta-ads/">View full service page <svg viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <details class="pricing-accordion-item" id="pp-walmart-ads">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Walmart Ads Management</div>
+            <div class="pricing-accordion-desc">Walmart ad campaign management across four tiers, scaling with your
+              monthly ad spend.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Walmart Ads Management</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=80,81,82,83&popular=80&title=Walmart%20Ads%20Management"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/walmart-ads-management/">View full service page <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <div class="pricing-crossref-card">
+        <div class="pricing-crossref-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M21 8 12 3 3 8l9 5 9-5Z" />
+            <path d="M3 8v8l9 5 9-5V8" />
+            <path d="M12 13v8" />
+          </svg>
+        </div>
+        <div class="pricing-crossref-text"><strong>Amazon Ads Management</strong> — pricing is shared with Amazon Store
+          Setup &amp; Ads Management, under Build.</div>
+        <a class="pricing-crossref-link" href="#pricing-amazon-ads-mgmt">See pricing ↓</a>
+      </div>
+    </div>
+
+    <!-- ============================================================
            COLUMN 4: MARKET & BRAND
            ============================================================ -->
-      <div class="pricing-cat-section" id="cat-market-brand">
-        <div class="pricing-cat-header">
-          <div class="pricing-cat-icon icon-peach">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M3 11l18-5v12L3 14v-3z" />
-              <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
-            </svg>
-          </div>
-          <div>
-            <div class="pricing-cat-title">Market &amp; Brand</div>
-            <div class="pricing-cat-desc">Design, content, social, email, CRM &amp; automation, and all-in-one marketing bundles.</div>
-          </div>
+    <div class="pricing-cat-section" id="cat-market-brand">
+      <div class="pricing-cat-header">
+        <div class="pricing-cat-icon icon-peach">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M3 11l18-5v12L3 14v-3z" />
+            <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6" />
+          </svg>
         </div>
-
-        <p class="pricing-cat-group-label">Content &amp; Design</p>
-
-        <details class="pricing-accordion-item" id="pp-design" open>
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Graphic Design &amp; Branding</div>
-              <div class="pricing-accordion-desc">Logo design, full branding packages, and print collateral — business cards, envelopes, posters, postcards &amp; mailers.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Brand Identity</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=34,33,35,36&popular=34&title=Brand%20Identity"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Print &amp; Marketing Collateral</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=38,39,40,41,123,42&title=Print%20%26%20Marketing%20Collateral"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/design/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <details class="pricing-accordion-item" id="pp-copywriting">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Copywriting &amp; Content Writing</div>
-              <div class="pricing-accordion-desc">Content writing priced by word count, blog post add-ons, and human or AI-human hybrid content writing.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Content Writing (By Word Count)</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=66,67,68,69,70,71&popular=66&title=Content%20Writing%20(By%20Word%20Count)"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Blog &amp; Ongoing Writing</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=72,124,125&title=Blog%20%26%20Ongoing%20Writing"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/copywriting/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <p class="pricing-cat-group-label" style="margin-top:36px;">Social &amp; Email Marketing</p>
-
-        <details class="pricing-accordion-item" id="pp-social-media">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Social Media Setup &amp; Management</div>
-              <div class="pricing-accordion-desc">Social account setup (handle reservation &amp; branded profile), plus ongoing monthly content posting across up to 3 networks.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Social Media Management (Ongoing)</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=84,85,86&popular=84&title=Social%20Media%20Management%20(Ongoing)"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Social Account Setup (One-Time)</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=87&title=Social%20Account%20Setup%20(One-Time)"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/social-media-setup-and-management/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <details class="pricing-accordion-item" id="pp-newsletter">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Newsletter Management &amp; Email Marketing</div>
-              <div class="pricing-accordion-desc">Ongoing newsletter management, branded template design, deliverability setup, list import &amp; performance reporting.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Newsletter Management (Ongoing)</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=88,89,90&popular=88&title=Newsletter%20Management%20(Ongoing)"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Email Marketing Add-Ons (One-Time)</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=91,92,93,94,95&title=Email%20Marketing%20Add-Ons%20(One-Time)"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/newsletter-services/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <p class="pricing-cat-group-label" style="margin-top:36px;">CRM &amp; Automation</p>
-
-        <details class="pricing-accordion-item" id="pp-ghl">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Go High Level (GHL)</div>
-              <div class="pricing-accordion-desc">CRM, funnels, and marketing automation setup and management, all in one connected workspace.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">GHL Setup &amp; Management</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=133,139&popular=133&title=GHL%20Setup%20%26%20Management"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/go-high-level-service/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <details class="pricing-accordion-item" id="pp-crm">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">CRM Build, Setup &amp; Management</div>
-              <div class="pricing-accordion-desc">Custom CRM build and automation setup, plus ongoing monthly workflow tweaks, data cleanup, and optimization.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">CRM Build (One-Time)</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=111,110,112&popular=111&title=CRM%20Build%20(One-Time)"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">CRM Management &amp; Optimization (Ongoing)</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=113&title=CRM%20Management%20%26%20Optimization%20(Ongoing)"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/crm-build-setup-management/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
-
-        <p class="pricing-cat-group-label" style="margin-top:36px;">All-In-One Marketing</p>
-
-        <details class="pricing-accordion-item" id="pp-marketing-visibility">
-          <summary class="pricing-accordion-summary">
-            <div class="pricing-accordion-summary-text">
-              <div class="pricing-accordion-title">Marketing Visibility Packages</div>
-              <div class="pricing-accordion-desc">All-in-one bundles combining Google Business Profile, keywords, content, social, and ads — plus standalone press release services.</div>
-            </div>
-            <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-          </summary>
-          <div class="pricing-accordion-body">
-            <p class="pricing-group-label">Marketing Visibility Packages</p>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=60,61,62,63&popular=61&title=Marketing%20Visibility%20Packages"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <div class="pricing-divider">Press Release Services</div>
-            <iframe class="sbs-pricing-frame"
-              src="https://order.sitesbysara.com/configure/pricing-cards?ids=64,65&popular=65&title=Press%20Release%20Services"
-              style="width:100%;border:0;display:block;" loading="lazy"></iframe>
-            <a class="pricing-accordion-viewlink" href="/marketing-visibility-packages/">View full service page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-          </div>
-        </details>
+        <div>
+          <div class="pricing-cat-title">Market &amp; Brand</div>
+          <div class="pricing-cat-desc">Design, content, social, email, CRM &amp; automation, and all-in-one marketing
+            bundles.</div>
+        </div>
       </div>
 
+      <p class="pricing-cat-group-label">Content &amp; Design</p>
+
+      <details class="pricing-accordion-item" id="pp-design" open>
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Graphic Design &amp; Branding</div>
+            <div class="pricing-accordion-desc">Logo design, full branding packages, and print collateral — business
+              cards, envelopes, posters, postcards &amp; mailers.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Brand Identity</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=34,33,35,36&popular=34&title=Brand%20Identity"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Print &amp; Marketing Collateral</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=38,39,40,41,123,42&title=Print%20%26%20Marketing%20Collateral"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/design/">View full service page <svg viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <details class="pricing-accordion-item" id="pp-copywriting">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Copywriting &amp; Content Writing</div>
+            <div class="pricing-accordion-desc">Content writing priced by word count, blog post add-ons, and human or
+              AI-human hybrid content writing.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Content Writing (By Word Count)</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=66,67,68,69,70,71&popular=66&title=Content%20Writing%20(By%20Word%20Count)"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Blog &amp; Ongoing Writing</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=72,124,125&title=Blog%20%26%20Ongoing%20Writing"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/copywriting/">View full service page <svg viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <p class="pricing-cat-group-label" style="margin-top:36px;">Social &amp; Email Marketing</p>
+
+      <details class="pricing-accordion-item" id="pp-social-media">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Social Media Setup &amp; Management</div>
+            <div class="pricing-accordion-desc">Social account setup (handle reservation &amp; branded profile), plus
+              ongoing monthly content posting across up to 3 networks.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Social Media Management (Ongoing)</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=84,85,86&popular=84&title=Social%20Media%20Management%20(Ongoing)"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Social Account Setup (One-Time)</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=87&title=Social%20Account%20Setup%20(One-Time)"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/social-media-setup-and-management/">View full service page <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <details class="pricing-accordion-item" id="pp-newsletter">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Newsletter Management &amp; Email Marketing</div>
+            <div class="pricing-accordion-desc">Ongoing newsletter management, branded template design, deliverability
+              setup, list import &amp; performance reporting.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Newsletter Management (Ongoing)</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=88,89,90&popular=88&title=Newsletter%20Management%20(Ongoing)"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Email Marketing Add-Ons (One-Time)</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=91,92,93,94,95&title=Email%20Marketing%20Add-Ons%20(One-Time)"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/newsletter-services/">View full service page <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <p class="pricing-cat-group-label" style="margin-top:36px;">CRM &amp; Automation</p>
+
+      <details class="pricing-accordion-item" id="pp-ghl">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Go High Level (GHL)</div>
+            <div class="pricing-accordion-desc">CRM, funnels, and marketing automation setup and management, all in one
+              connected workspace.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">GHL Setup &amp; Management</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=133,139&popular=133&title=GHL%20Setup%20%26%20Management"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/go-high-level-service/">View full service page <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <details class="pricing-accordion-item" id="pp-crm">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">CRM Build, Setup &amp; Management</div>
+            <div class="pricing-accordion-desc">Custom CRM build and automation setup, plus ongoing monthly workflow
+              tweaks, data cleanup, and optimization.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">CRM Build (One-Time)</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=111,110,112&popular=111&title=CRM%20Build%20(One-Time)"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">CRM Management &amp; Optimization (Ongoing)</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=113&title=CRM%20Management%20%26%20Optimization%20(Ongoing)"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/crm-build-setup-management/">View full service page <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
+
+      <p class="pricing-cat-group-label" style="margin-top:36px;">All-In-One Marketing</p>
+
+      <details class="pricing-accordion-item" id="pp-marketing-visibility">
+        <summary class="pricing-accordion-summary">
+          <div class="pricing-accordion-summary-text">
+            <div class="pricing-accordion-title">Marketing Visibility Packages</div>
+            <div class="pricing-accordion-desc">All-in-one bundles combining Google Business Profile, keywords, content,
+              social, and ads — plus standalone press release services.</div>
+          </div>
+          <svg class="pricing-accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </summary>
+        <div class="pricing-accordion-body">
+          <p class="pricing-group-label">Marketing Visibility Packages</p>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=60,61,62,63&popular=61&title=Marketing%20Visibility%20Packages"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <div class="pricing-divider">Press Release Services</div>
+          <iframe class="sbs-pricing-frame"
+            src="https://order.sitesbysara.com/configure/pricing-cards?ids=64,65&popular=65&title=Press%20Release%20Services"
+            style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+          <a class="pricing-accordion-viewlink" href="/marketing-visibility-packages/">View full service page <svg
+              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+              stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12" />
+              <polyline points="12 5 19 12 12 19" />
+            </svg></a>
+        </div>
+      </details>
     </div>
-  </section>
 
-  <script>
-    window.addEventListener('message', function (e) {
-      if (e.data && e.data.source === 'sbs-pricing-cards') {
-        document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
-          if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
-        });
-      }
-    });
-  </script>
+  </div>
+</section>
 
-  <!-- ============================================================
+<script>
+  window.addEventListener('message', function (e) {
+    if (e.data && e.data.source === 'sbs-pricing-cards') {
+      document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
+        if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
+      });
+    }
+  });
+</script>
+
+<!-- ============================================================
        FINAL CTA / CONSULTATION BANNER
        ============================================================ -->
-  <section class="cta-banner-section">
-    <div class="container">
-      <div class="cta-banner-box">
-        <div class="eyebrow" style="justify-content: center;">
-          <span class="eyebrow-dot"></span>
-          Not Sure Which Service Fits?
-        </div>
-        <h2>Let's Find the Right Solution for Your Business</h2>
-        <p>
-          Book a free consultation and we'll walk through your goals, your current setup, and recommend exactly
-          which services make sense for you.
-        </p>
-        <div class="btn-group">
-          <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
-            Consultation</a>
-        </div>
+<section class="cta-banner-section">
+  <div class="container">
+    <div class="cta-banner-box">
+      <div class="eyebrow" style="justify-content: center;">
+        <span class="eyebrow-dot"></span>
+        Not Sure Which Service Fits?
+      </div>
+      <h2>Let's Find the Right Solution for Your Business</h2>
+      <p>
+        Book a free consultation and we'll walk through your goals, your current setup, and recommend exactly
+        which services make sense for you.
+      </p>
+      <div class="btn-group">
+        <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+          Consultation</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
