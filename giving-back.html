@@ -1,1168 +1,1182 @@
 <!-- page-sync: giving-back.html -->
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <style>
-    /* ============================================================
+<style>
+  /* ============================================================
      DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
      ============================================================ */
-    :root {
+  :root {
     /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
     --section-gap: clamp(32px, 4vw, 50px);
-      --brand-blue: #3A539B;
-      --brand-blue-hover: #2F437D;
-      --brand-blue-tint: #EEF2FA;
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
 
-      --brand-coral: #ea4e5f;
-      --brand-coral-tint: #FDEEEE;
+    --brand-coral: #ea4e5f;
+    --brand-coral-tint: #FDEEEE;
 
-      --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
-      --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
 
-      --brand-peach: #FCEFE5;
-      --brand-peach-hover: #F8E3D4;
+    --brand-peach: #FCEFE5;
+    --brand-peach-hover: #F8E3D4;
 
-      --navy: #1E2140;
-      --slate: #5F6368;
-      --slate-light: #80868B;
+    --navy: #1E2140;
+    --slate: #5F6368;
+    --slate-light: #80868B;
 
-      --border: #DCE2EE;
-      --border-light: #ECEFF5;
-      --border-card: #DFE4EE;
+    --border: #DCE2EE;
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
 
-      --bg-white: #FFFFFF;
-      --bg-light: #F9FAFD;
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
 
-      --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-      --radius-sm: 8px;
-      --radius-md: 16px;
-      --radius-lg: 24px;
-      --radius-xl: 32px;
-      --radius-pill: 9999px;
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-pill: 9999px;
 
-      --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
-      --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
-    }
+    --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+    --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+  }
 
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-    html {
-      scroll-behavior: smooth;
-    }
+  html {
+    scroll-behavior: smooth;
+  }
 
-    body {
-      font-family: var(--font);
-      color: var(--navy);
-      background-color: var(--bg-white);
-      line-height: 1.55;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+  body {
+    font-family: var(--font);
+    color: var(--navy);
+    background-color: var(--bg-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-    strong,
-    b {
-      font-weight: 600;
-    }
+  strong,
+  b {
+    font-weight: 600;
+  }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
 
-    .section-space {
-      padding: var(--section-gap) 0;
-    }
+  .section-space {
+    padding: var(--section-gap) 0;
+  }
 
-    .section-space-tight {
-      padding: var(--section-gap) 0;
-    }
+  .section-space-tight {
+    padding: var(--section-gap) 0;
+  }
 
-    .section-space-tight.is-alt {
-      background: var(--bg-light);
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-    }
+  .section-space-tight.is-alt {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
 
-    .section-header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto clamp(36px, 5vw, 52px);
-    }
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(36px, 5vw, 52px);
+  }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--slate);
-      margin-bottom: 16px;
-    }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
 
-    .eyebrow-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background-color: var(--brand-coral);
-      display: inline-block;
-    }
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--brand-coral);
+    display: inline-block;
+  }
 
-    .h2-title {
-      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      color: var(--navy);
-      margin-bottom: 16px;
-    }
+  .h2-title {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
 
-    .lead-text {
-      font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
-      color: var(--slate);
-      line-height: 1.65;
-      font-weight: 400;
-    }
+  .lead-text {
+    font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
+    color: var(--slate);
+    line-height: 1.65;
+    font-weight: 400;
+  }
 
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-family: var(--font);
-      font-size: 0.98rem;
-      font-weight: 600;
-      padding: 13px 28px;
-      border-radius: var(--radius-pill);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      border: 1.5px solid transparent;
-      text-decoration: none;
-      white-space: nowrap;
-    }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+  }
 
-    .btn-primary {
-      background: var(--brand-gradient);
-      background-clip: padding-box;
-      color: #FFFFFF;
-      box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
-    }
+  .btn-primary {
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+  }
 
-    .btn-primary:hover,
-    .btn-primary:focus,
-    .btn-primary:focus-visible,
-    .btn-primary:active {
-      background: var(--brand-gradient-hover);
-      background-clip: padding-box;
-      transform: translateY(-1px);
-      box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
-      color: #FFFFFF !important;
-    }
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:focus-visible,
+  .btn-primary:active {
+    background: var(--brand-gradient-hover);
+    background-clip: padding-box;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+    color: #FFFFFF !important;
+  }
 
-    /* ============================================================
+  /* ============================================================
      PAGE TITLE BANNER
      ============================================================ */
-    .page-title-banner {
-      position: relative;
-      overflow: hidden;
-      background: var(--brand-gradient);
-      /* padding: clamp(52px, 6vw, 76px) 24px; */
-      text-align: center;
-      color: #FFFFFF;
-      box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
-    }
+  .page-title-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-gradient);
+    /* padding: clamp(52px, 6vw, 76px) 24px; */
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+  }
 
-    .page-title-banner::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
-        radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
-      pointer-events: none;
-    }
+  .page-title-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+    pointer-events: none;
+  }
 
-    .page-title-banner-mesh {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
+  .page-title-banner-mesh {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
 
-    .page-title-banner-mesh::before,
-    .page-title-banner-mesh::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(55px);
-      opacity: 0.22;
-      pointer-events: none;
-    }
+  .page-title-banner-mesh::before,
+  .page-title-banner-mesh::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0.22;
+    pointer-events: none;
+  }
 
-    .page-title-banner-mesh::before {
-      width: 320px;
-      height: 320px;
-      background: #FFFFFF;
-      top: -120px;
-      left: 8%;
-    }
+  .page-title-banner-mesh::before {
+    width: 320px;
+    height: 320px;
+    background: #FFFFFF;
+    top: -120px;
+    left: 8%;
+  }
 
-    .page-title-banner-mesh::after {
-      width: 280px;
-      height: 280px;
-      background: var(--brand-coral);
-      bottom: -80px;
-      right: 10%;
-    }
+  .page-title-banner-mesh::after {
+    width: 280px;
+    height: 280px;
+    background: var(--brand-coral);
+    bottom: -80px;
+    right: 10%;
+  }
 
-    .page-title-inner {
-      position: relative;
-      z-index: 2;
-      max-width: 860px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  .page-title-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    /* ============================================================
+  /* ============================================================
      INTRO / OUR MISSION
      ============================================================ */
-    .cares-banner-logo {
-      width: 350px;
-      margin: 0 auto;
-      filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.25));
-    }
+  .cares-banner-logo {
+    width: 350px;
+    margin: 0 auto;
+    filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.25));
+  }
 
-    .cares-mission-h1 {
-      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      color: var(--navy);
-      margin-bottom: 10px;
-    }
+  .cares-mission-h1 {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 10px;
+  }
 
-    .cares-mission-sub {
-      font-size: clamp(1.1rem, 1rem + 0.4vw, 1.3rem);
-      font-weight: 500;
-      color: var(--brand-coral);
-      margin-bottom: 20px;
-    }
+  .cares-mission-sub {
+    font-size: clamp(1.1rem, 1rem + 0.4vw, 1.3rem);
+    font-weight: 500;
+    color: var(--brand-coral);
+    margin-bottom: 20px;
+  }
 
-    .cares-intro-lead {
-      max-width: 700px;
-      margin: 0 auto;
-      text-align: center;
-    }
+  .cares-intro-lead {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
 
-    /* ============================================================
+  /* ============================================================
      CAMPAIGN CARD GRID
      ============================================================ */
-    .cares-campaigns-section.is-alt,
-    .cares-total-section.is-alt {
-      background: var(--bg-light);
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-    }
+  .cares-campaigns-section.is-alt,
+  .cares-total-section.is-alt {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
 
-    .cares-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
+  .cares-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
 
-    .cares-card {
-      background: #FFFFFF;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-card);
-      transition: all 0.25s ease;
-      display: flex;
-      flex-direction: column;
-    }
+  .cares-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+  }
 
-    .cares-card:hover {
-      border-color: var(--border-card);
-      box-shadow: var(--shadow-card-hover);
-      transform: translateY(-3px);
-    }
+  .cares-card:hover {
+    border-color: var(--border-card);
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-3px);
+  }
 
-    .cares-card-img-wrap {
-      aspect-ratio: 4 / 3;
-      overflow: hidden;
-      background: var(--bg-light);
-      position: relative;
-    }
+  .cares-card-img-wrap {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: var(--bg-light);
+    position: relative;
+  }
 
-    .cares-card-img-wrap img,
-    .cares-card-img-wrap video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  .cares-card-img-wrap img,
+  .cares-card-img-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-    .cares-card-img-wrap img {
-      cursor: zoom-in;
-      transition: transform 0.3s ease;
-      object-position: top center;
-    }
+  .cares-card-img-wrap img {
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+    object-position: top center;
+  }
 
-    .cares-card-img-wrap img:hover {
-      transform: scale(1.04);
-    }
+  .cares-card-img-wrap img:hover {
+    transform: scale(1.04);
+  }
 
-    .cares-expand-btn {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: rgba(19, 21, 44, 0.55);
-      color: #FFFFFF;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s ease;
-    }
+  .cares-expand-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(19, 21, 44, 0.55);
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+  }
 
-    .cares-expand-btn:hover,
-    .cares-expand-btn:focus,
-    .cares-expand-btn:focus-visible,
-    .cares-expand-btn:active {
-      background: rgba(19, 21, 44, 0.8);
-      color: #FFFFFF !important;
-    }
+  .cares-expand-btn:hover,
+  .cares-expand-btn:focus,
+  .cares-expand-btn:focus-visible,
+  .cares-expand-btn:active {
+    background: rgba(19, 21, 44, 0.8);
+    color: #FFFFFF !important;
+  }
 
-    .cares-expand-btn svg {
-      width: 18px;
-      height: 18px;
-    }
+  .cares-expand-btn svg {
+    width: 18px;
+    height: 18px;
+  }
 
-    .cares-card-img-wrap.is-split {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-    }
+  .cares-card-img-wrap.is-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
 
-    /* Logos and collages: show the whole image instead of cropping it to the 4:3 frame */
-    .cares-card-img-wrap.is-fit img,
-    .cares-card-img-wrap.is-logo img {
-      object-fit: contain;
-      object-position: center;
-    }
+  /* Logos and collages: show the whole image instead of cropping it to the 4:3 frame */
+  .cares-card-img-wrap.is-fit img,
+  .cares-card-img-wrap.is-logo img {
+    object-fit: contain;
+    object-position: center;
+  }
 
-    .cares-card-img-wrap.is-logo img {
-      padding: 8%;
-    }
+  .cares-card-img-wrap.is-logo img {
+    padding: 8%;
+  }
 
-    /* Tall photos: keep the subject (not the sky) inside the 4:3 frame */
-    .cares-card-img-wrap.is-focus-low img {
-      object-position: center 62%;
-    }
+  /* Tall photos: keep the subject (not the sky) inside the 4:3 frame */
+  .cares-card-img-wrap.is-focus-low img {
+    object-position: center 62%;
+  }
 
-    /* Floating link button on a card image (bottom right), e.g. the Instagram post */
-    .cares-media-link {
-      position: absolute;
-      right: 12px;
-      bottom: 12px;
-      z-index: 2;
-      width: 44px;
-      height: 44px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--border-light);
-      border-radius: 50%;
-      background: #FFFFFF;
-      color: var(--navy);
-      box-shadow: var(--shadow-floating);
-      transition: transform 0.2s ease, color 0.2s ease;
-    }
+  /* Floating link button on a card image (bottom right), e.g. the Instagram post */
+  .cares-media-link {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-light);
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: var(--navy);
+    box-shadow: var(--shadow-floating);
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
 
-    .cares-media-link svg {
-      width: 22px;
-      height: 22px;
-    }
+  .cares-media-link svg {
+    width: 22px;
+    height: 22px;
+  }
 
-    .cares-media-link:hover,
-    .cares-media-link:focus,
-    .cares-media-link:focus-visible,
-    .cares-media-link:active {
-      background: var(--brand-gradient);
-      background-clip: padding-box;
-      color: #FFFFFF !important;
-      transform: translateY(-2px);
-    }
+  .cares-media-link:hover,
+  .cares-media-link:focus,
+  .cares-media-link:focus-visible,
+  .cares-media-link:active {
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF !important;
+    transform: translateY(-2px);
+  }
 
-    .cares-media-link:focus-visible {
-      outline: 2px solid var(--brand-blue);
-      outline-offset: 2px;
-    }
+  .cares-media-link:focus-visible {
+    outline: 2px solid var(--brand-blue);
+    outline-offset: 2px;
+  }
 
-    .cares-card-body {
-      padding: 22px 24px;
-      flex-grow: 1;
-    }
+  .cares-card-body {
+    padding: 22px 24px;
+    flex-grow: 1;
+  }
 
-    .cares-card-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--navy);
-      line-height: 1.35;
-      margin-bottom: 8px;
-    }
+  .cares-card-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
 
-    /* ============================================================
+  /* ============================================================
      LIGHTBOX
      ============================================================ */
-    .cares-lightbox {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(19, 21, 44, 0.88);
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.25s ease;
-      padding: 40px;
-    }
+  .cares-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(19, 21, 44, 0.88);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease;
+    padding: 40px;
+  }
 
-    .cares-lightbox.is-open {
-      opacity: 1;
-      visibility: visible;
-    }
+  .cares-lightbox.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
 
-    .cares-lightbox img,
-    .cares-lightbox video {
-      max-width: min(90vw, 900px);
-      max-height: 85vh;
-      width: auto;
-      height: auto;
-      border-radius: var(--radius-md);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
-    }
+  .cares-lightbox img,
+  .cares-lightbox video {
+    max-width: min(90vw, 900px);
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    border-radius: var(--radius-md);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  }
 
-    .cares-lightbox-close {
-      position: absolute;
-      top: 24px;
-      right: 28px;
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.12);
-      color: #FFFFFF;
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s ease;
-    }
+  .cares-lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 28px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+  }
 
-    .cares-lightbox-close svg {
-      width: 20px;
-      height: 20px;
-    }
+  .cares-lightbox-close svg {
+    width: 20px;
+    height: 20px;
+  }
 
-    .cares-lightbox-close:hover,
-    .cares-lightbox-close:focus,
-    .cares-lightbox-close:focus-visible,
-    .cares-lightbox-close:active {
-      background: rgba(255, 255, 255, 0.22);
-      color: #FFFFFF !important;
-    }
+  .cares-lightbox-close:hover,
+  .cares-lightbox-close:focus,
+  .cares-lightbox-close:focus-visible,
+  .cares-lightbox-close:active {
+    background: rgba(255, 255, 255, 0.22);
+    color: #FFFFFF !important;
+  }
 
-    .cares-card-desc {
-      font-size: 0.9rem;
-      color: var(--slate);
-      line-height: 1.55;
-    }
+  .cares-card-desc {
+    font-size: 0.9rem;
+    color: var(--slate);
+    line-height: 1.55;
+  }
 
-    .cares-card-desc a {
-      color: var(--brand-blue);
-      font-weight: 600;
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      transition: color 0.2s ease;
-    }
+  .cares-card-desc a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
 
-    .cares-card-desc a:hover,
-    .cares-card-desc a:focus,
-    .cares-card-desc a:focus-visible,
-    .cares-card-desc a:active {
-      color: var(--brand-blue-hover) !important;
-    }
+  .cares-card-desc a:hover,
+  .cares-card-desc a:focus,
+  .cares-card-desc a:focus-visible,
+  .cares-card-desc a:active {
+    color: var(--brand-blue-hover) !important;
+  }
 
-    /* Center the remainder row when the card count isn't a multiple of 3 */
-    .cares-grid.has-remainder-1>.cares-card:last-child {
-      grid-column: 2;
-    }
+  /* Center the remainder row when the card count isn't a multiple of 3 */
+  .cares-grid.has-remainder-1>.cares-card:last-child {
+    grid-column: 2;
+  }
 
-    /* ============================================================
+  /* ============================================================
      TOTAL CONTRIBUTIONS
      ============================================================ */
-    .cares-stat-pullout {
-      text-align: center;
-      background: var(--brand-blue-tint);
-      border-radius: var(--radius-xl);
-      padding: clamp(28px, 4vw, 40px) 20px;
-      max-width: 420px;
-      margin: 0 auto clamp(40px, 5vw, 56px);
-    }
+  .cares-stat-pullout {
+    text-align: center;
+    background: var(--brand-blue-tint);
+    border-radius: var(--radius-xl);
+    padding: clamp(28px, 4vw, 40px) 20px;
+    max-width: 420px;
+    margin: 0 auto clamp(40px, 5vw, 56px);
+  }
 
-    .cares-stat-number {
-      font-size: clamp(2.6rem, 2.1rem + 1.6vw, 3.4rem);
-      font-weight: 700;
-      color: var(--brand-blue);
-      line-height: 1;
-      letter-spacing: -0.02em;
-    }
+  .cares-stat-number {
+    font-size: clamp(2.6rem, 2.1rem + 1.6vw, 3.4rem);
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
 
-    .cares-stat-desc {
-      font-size: 0.95rem;
-      color: var(--slate);
-      margin-top: 10px;
-      line-height: 1.5;
-    }
+  .cares-stat-desc {
+    font-size: 0.95rem;
+    color: var(--slate);
+    margin-top: 10px;
+    line-height: 1.5;
+  }
 
-    .cares-orgs-label {
-      text-align: center;
-      font-size: 0.98rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 20px;
-    }
+  .cares-orgs-label {
+    text-align: center;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
 
-    .cares-orgs-list {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      list-style: none;
-      max-width: 900px;
-      margin: 0 auto;
-    }
+  .cares-orgs-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    list-style: none;
+    max-width: 900px;
+    margin: 0 auto;
+  }
 
-    .cares-orgs-list li {
-      background: #FFFFFF;
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-pill);
-      padding: 10px 20px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--navy);
-    }
+  .cares-orgs-list li {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-pill);
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
 
-    /* ============================================================
+  /* ============================================================
      GET INVOLVED
      ============================================================ */
-    .cares-involved-section {
-      background: var(--brand-peach);
-      border-top: 1.5px solid var(--brand-peach-hover);
-      border-bottom: 1.5px solid var(--brand-peach-hover);
-      text-align: center;
-    }
+  .cares-involved-section {
+    background: var(--brand-peach);
+    border-top: 1.5px solid var(--brand-peach-hover);
+    border-bottom: 1.5px solid var(--brand-peach-hover);
+    text-align: center;
+  }
 
-    .cares-involved-inner {
-      max-width: 640px;
-      margin: 0 auto;
-    }
+  .cares-involved-inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
 
-    .cares-involved-inner .lead-text {
-      margin-bottom: 28px;
-    }
+  .cares-involved-inner .lead-text {
+    margin-bottom: 28px;
+  }
 
-    /* ============================================================
+  /* ============================================================
      RESPONSIVE BREAKPOINTS
      ============================================================ */
-    @media (max-width: 1024px) {
-      .cares-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .cares-grid.has-remainder-1>.cares-card:last-child {
-        grid-column: auto;
-      }
+  @media (max-width: 1024px) {
+    .cares-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (max-width: 600px) {
-
-      .cares-grid {
-        grid-template-columns: 1fr;
-      }
+    .cares-grid.has-remainder-1>.cares-card:last-child {
+      grid-column: auto;
     }
-  </style>
+  }
 
-  <!-- ============================================================
+  @media (max-width: 600px) {
+
+    .cares-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<!-- ============================================================
        PAGE TITLE BANNER
        ============================================================ -->
-  <section class="page-title-banner" aria-label="Page Title">
-    <div class="page-title-banner-mesh" aria-hidden="true"></div>
-    <div class="container page-title-inner">
-      <img class="cares-banner-logo"
-        src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/10/Your-paragraph-text-20.png?fit=750%2C750&ssl=1"
-        alt="Sites By Sara Cares logo" width="750" height="750" loading="eager">
-    </div>
-  </section>
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <img class="cares-banner-logo"
+      src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/10/Your-paragraph-text-20.png?fit=750%2C750&ssl=1"
+      alt="Sites By Sara Cares logo" width="750" height="750" loading="eager">
+  </div>
+</section>
 
-  <!-- ============================================================
+<!-- ============================================================
        OUR MISSION (banner heading + intro combined)
        ============================================================ -->
-  <section class="section-space-tight is-alt" aria-label="Our Mission">
-    <div class="container">
-      <div class="section-header" style="margin-bottom: 0;">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Our Mission
-        </div>
-        <h1 class="cares-mission-h1">Supporting Nonprofits and Charitable Giving</h1>
-        <p class="cares-mission-sub">Join Us in Making a Difference</p>
-        <p class="lead-text cares-intro-lead">
-          At Sites by Sara, we are committed to supporting various nonprofits and social giving initiatives.
-        </p>
+<section class="section-space-tight is-alt" aria-label="Our Mission">
+  <div class="container">
+    <div class="section-header" style="margin-bottom: 0;">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Our Mission
       </div>
+      <h1 class="cares-mission-h1">Supporting Nonprofits and Charitable Giving</h1>
+      <p class="cares-mission-sub">Join Us in Making a Difference</p>
+      <p class="lead-text cares-intro-lead">
+        At Sites by Sara, we are committed to supporting various nonprofits and social giving initiatives.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============================================================
+<!-- ============================================================
        2026 CAMPAIGNS
        ============================================================ -->
-  <section class="section-space cares-campaigns-section" aria-label="2026 Campaigns">
-    <div class="container">
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Where We're Giving Back Now
-        </div>
-        <h2 class="h2-title">2026 Campaigns</h2>
+<section class="section-space cares-campaigns-section" aria-label="2026 Campaigns">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Where We're Giving Back Now
       </div>
-
-      <div class="cares-grid has-remainder-1">
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap is-logo">
-            <img src="/wp-content/uploads/2026/10/cares-2026-slc-school-district-logo.webp"
-              alt="Salt Lake City School District logo" width="667" height="442" loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Salt Lake City School Board – Monthly Contributor</h3>
-            <p class="cares-card-desc">Strong schools build strong communities. Sites by Sara gives every month to support the Salt Lake City School Board and its work for students, teachers, and families across our city.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap is-fit">
-            <img src="/wp-content/uploads/2026/10/cares-2026-house-of-prayer-logo.webp"
-              alt="House of Prayer for All Peoples logo" width="512" height="512" loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Table Sponsor – House of Prayer for All Peoples</h3>
-            <p class="cares-card-desc">Sites by Sara was proud to be a table sponsor and donor for <a href="https://houseofprayerforallpeoples.org/" target="_blank" rel="noopener noreferrer">House of Prayer for All Peoples</a>. This continues our partnership with them, which began through our work with Life Is Beautiful Prayers.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap is-logo">
-            <img src="/wp-content/uploads/2026/10/cares-2026-slcpd-badge.webp"
-              alt="Salt Lake City Police Department badge" width="360" height="360" loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">SLC Police Kids Back to School Supplies Program</h3>
-            <p class="cares-card-desc">Every child deserves to start the school year ready to learn. We donated to the Salt Lake City Police Department's Back to School Supplies Program, which helps local kids head back to class with the supplies they need.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap is-fit">
-            <img src="/wp-content/uploads/2026/10/cares-2026-mountain-town-music-stage.webp"
-              alt="Sites by Sara stage at Miner's Park for Mountain Town Music" width="705" height="550" loading="lazy">
-            <a class="cares-media-link" href="https://www.instagram.com/reel/DcgboFjhHfg/"
-              target="_blank" rel="noopener noreferrer"
-              aria-label="Watch the Mountain Town Music stage post on Instagram (opens in a new tab)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" aria-hidden="true">
-                <rect x="2" y="2" width="20" height="20" rx="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-              </svg>
-            </a>
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Mountain Town Music – Stage Sponsor</h3>
-            <p class="cares-card-desc">This is our third year in a row as a stage sponsor for <a href="https://mountaintownmusic.org/" target="_blank" rel="noopener noreferrer">Mountain Town Music</a>. We're happy to help bring free live music to our mountain communities all summer long.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap is-fit">
-            <img src="/wp-content/uploads/2026/10/cares-2026-jfsu-volunteering.webp"
-              alt="Sites by Sara team volunteering at the Jewish Family Service of Utah food pantry" width="600" height="600" loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Jewish Family Service of Utah – Donation &amp; Volunteer Time</h3>
-            <p class="cares-card-desc">We're still proud supporters of <a href="https://jfsutah.org/" target="_blank" rel="noopener noreferrer">Jewish Family Service of Utah</a>. This year our team gave both a financial donation and our own volunteer time to help JFSU serve individuals and families in need.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap is-logo">
-            <img src="/wp-content/uploads/2026/10/cares-2026-krcl-logo.webp"
-              alt="KRCL 90.9 FM Salt Lake City logo" width="1088" height="416" loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">KRCL Community Radio – Monthly Contributor</h3>
-            <p class="cares-card-desc">Sites by Sara gives every month to <a href="https://krcl.org/" target="_blank" rel="noopener noreferrer">KRCL 90.9 FM</a>, Salt Lake's listener-supported community radio station. KRCL amplifies local voices, music, and stories.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap is-focus-low">
-            <img src="/wp-content/uploads/2026/10/cares-2026-mountain-west-chamber.webp"
-              alt="Sites by Sara sponsor tent and banner at the Mountain West Chamber scholarship golf event" width="1200" height="1600" loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Mountain West Chamber – Sponsor</h3>
-            <p class="cares-card-desc">We sponsor the Mountain West Chamber to support local businesses and the connections that help our regional economy grow.</p>
-          </div>
-        </div>
-
-      </div>
+      <h2 class="h2-title">2026 Campaigns</h2>
     </div>
-  </section>
 
-  <!-- ============================================================
+    <div class="cares-grid has-remainder-1">
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap is-logo">
+          <img src="/wp-content/uploads/2026/10/cares-2026-slc-school-district-logo.webp"
+            alt="Salt Lake City School District logo" width="667" height="442" loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Salt Lake City School Board – Monthly Contributor</h3>
+          <p class="cares-card-desc">Strong schools build strong communities. Sites by Sara gives every month to support
+            the Salt Lake City School Board and its work for students, teachers, and families across our city.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap is-fit">
+          <img src="/wp-content/uploads/2026/10/cares-2026-house-of-prayer-logo.webp"
+            alt="House of Prayer for All Peoples logo" width="512" height="512" loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Table Sponsor – House of Prayer for All Peoples</h3>
+          <p class="cares-card-desc">Sites by Sara was proud to be a table sponsor and donor for <a
+              href="https://houseofprayerforallpeoples.org/" target="_blank" rel="noopener noreferrer">House of Prayer
+              for All Peoples</a>. This continues our partnership with them, which began through our work with Life Is
+            Beautiful Prayers.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap is-logo">
+          <img src="/wp-content/uploads/2026/10/cares-2026-slcpd-badge.webp"
+            alt="Salt Lake City Police Department badge" width="360" height="360" loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">SLC Police Kids Back to School Supplies Program</h3>
+          <p class="cares-card-desc">Every child deserves to start the school year ready to learn. We donated to the
+            Salt Lake City Police Department's Back to School Supplies Program, which helps local kids head back to
+            class with the supplies they need.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap is-fit">
+          <img src="/wp-content/uploads/2026/10/cares-2026-mountain-town-music-stage.webp"
+            alt="Sites by Sara stage at Miner's Park for Mountain Town Music" width="705" height="550" loading="lazy">
+          <a class="cares-media-link" href="https://www.instagram.com/reel/DcgboFjhHfg/" target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Watch the Mountain Town Music stage post on Instagram (opens in a new tab)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Mountain Town Music – Stage Sponsor</h3>
+          <p class="cares-card-desc">This is our third year in a row as a stage sponsor for <a
+              href="https://mountaintownmusic.org/" target="_blank" rel="noopener noreferrer">Mountain Town Music</a>.
+            We're happy to help bring free live music to our mountain communities all summer long.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap is-fit">
+          <img src="/wp-content/uploads/2026/10/cares-2026-jfsu-volunteering.webp"
+            alt="Sites by Sara team volunteering at the Jewish Family Service of Utah food pantry" width="600"
+            height="600" loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Jewish Family Service of Utah – Donation &amp; Volunteer Time</h3>
+          <p class="cares-card-desc">We're still proud supporters of <a href="https://jfsutah.org/" target="_blank"
+              rel="noopener noreferrer">Jewish Family Service of Utah</a>. This year our team gave both a financial
+            donation and our own volunteer time to help JFSU serve individuals and families in need.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap is-logo">
+          <img src="/wp-content/uploads/2026/10/cares-2026-krcl-logo.webp" alt="KRCL 90.9 FM Salt Lake City logo"
+            width="1088" height="416" loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">KRCL Community Radio – Monthly Contributor</h3>
+          <p class="cares-card-desc">Sites by Sara gives every month to <a href="https://krcl.org/" target="_blank"
+              rel="noopener noreferrer">KRCL 90.9 FM</a>, Salt Lake's listener-supported community radio station. KRCL
+            amplifies local voices, music, and stories.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap is-focus-low">
+          <img src="/wp-content/uploads/2026/10/cares-2026-mountain-west-chamber.webp"
+            alt="Sites by Sara sponsor tent and banner at the Mountain West Chamber scholarship golf event" width="1200"
+            height="1600" loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Mountain West Chamber – Sponsor</h3>
+          <p class="cares-card-desc">We sponsor the Mountain West Chamber to support local businesses and the
+            connections that help our regional economy grow.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
        2025 CAMPAIGNS
        ============================================================ -->
-  <section class="section-space cares-campaigns-section is-alt" aria-label="2025 Campaigns">
-    <div class="container">
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Here's How We've Been Making An Impact
-        </div>
-        <h2 class="h2-title">2025 Campaigns</h2>
+<section class="section-space cares-campaigns-section is-alt" aria-label="2025 Campaigns">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Here's How We've Been Making An Impact
       </div>
-
-      <div class="cares-grid has-remainder-1">
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap">
-            <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/12/SBSCARES.png?fit=682%2C1024&ssl=1"
-              alt="Sites by Sara team volunteering at the JFSU Food Pantry" width="682" height="1024" loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Food Pantry Volunteering – Holiday Season</h3>
-            <p class="cares-card-desc">During the holiday season, the Sites by Sara team volunteered at the JFSU
-              Food Pantry as part of our ongoing social giving efforts. It was a meaningful day of service spent
-              supporting our local community together.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap">
-            <img
-              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/12/Social-Giving.png?fit=682%2C1024&ssl=1"
-              alt="Community outreach event in Balanga City, Bataan, Philippines" width="682" height="1024"
-              loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Community Outreach in Balanga City, Bataan, Philippines</h3>
-            <p class="cares-card-desc">Sites by Sara, Exquisite Network Inc., and MedServ Pharmacy partnered to
-              support the elderlies of Bahay Puso and the Bahay Puso Apostolate Foundation. The team delivered food,
-              medicine, essential supplies, and shared moments of joy, care, and connection.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap cares-video-wrap">
-            <video controls playsinline aria-label="Sites by Sara India team Diwali support">
-              <source src="/wp-content/uploads/2025/12/IMG_5802.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <button type="button" class="cares-expand-btn" aria-label="Expand video">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-                stroke-linejoin="round">
-                <path d="M8 3H5a2 2 0 0 0-2 2v3"></path>
-                <path d="M16 3h3a2 2 0 0 1 2 2v3"></path>
-                <path d="M8 21H5a2 2 0 0 1-2-2v-3"></path>
-                <path d="M16 21h3a2 2 0 0 0 2-2v-3"></path>
-              </svg>
-            </button>
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Diwali Support – India Team</h3>
-            <p class="cares-card-desc">To celebrate Diwali, the Sites by Sara team in India provided essential
-              supplies to a local orphanage. We are grateful for the opportunity to help spread joy, light, and
-              kindness during this festive season.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap">
-            <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/06/1.png?fit=1000%2C1000&ssl=1"
-              alt="Sponsorship graphic for Gerald's kindergarten education in Tanzania" width="1000" height="1000"
-              loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Sponsored Gerald's Kindergarten Education</h3>
-            <p class="cares-card-desc">Public education is not free in Tanzania. Sites by Sara sponsored Gerald's
-              kindergarten education through the Life Is Beautiful Prayers initiative.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap">
-            <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/06/2.png?fit=1000%2C1000&ssl=1"
-              alt="Neighbors 4 Neighbors Casino Night Fundraiser table sponsorship" width="1000" height="1000"
-              loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Table Sponsor at Neighbors 4 Neighbors Casino Night Fundraiser</h3>
-            <p class="cares-card-desc">Sites by Sara proudly sponsored a blackjack table and contributed $1,500 in
-              raffle prizes for the Casino Night fundraiser put on by Keller Williams Real Estate for SLC Neighbors
-              4 More Neighbors!</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap">
-            <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/06/3.png?fit=1000%2C1000&ssl=1"
-              alt="Summer 2025 stage sponsorship at Miners Plaza" width="1000" height="1000" loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Summer 2025 Stage Sponsor</h3>
-            <p class="cares-card-desc">Summer 2025 Stage Sponsor at Miners Plaza.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap">
-            <img
-              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/06/Untitled-design-9.png?fit=1000%2C1000&ssl=1"
-              alt="Pro bono website project for We Take Care Of Our Own" width="1000" height="1000" loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Pro Bono Website Project – WTCOOO</h3>
-            <p class="cares-card-desc">Sites by Sara stepped up to create the website for We Take Care Of Our Own,
-              Support for Roadies in Crisis.</p>
-          </div>
-        </div>
-
-      </div>
+      <h2 class="h2-title">2025 Campaigns</h2>
     </div>
-  </section>
 
-  <!-- ============================================================
+    <div class="cares-grid has-remainder-1">
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/12/SBSCARES.png?fit=682%2C1024&ssl=1"
+            alt="Sites by Sara team volunteering at the JFSU Food Pantry" width="682" height="1024" loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Food Pantry Volunteering – Holiday Season</h3>
+          <p class="cares-card-desc">During the holiday season, the Sites by Sara team volunteered at the JFSU
+            Food Pantry as part of our ongoing social giving efforts. It was a meaningful day of service spent
+            supporting our local community together.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/12/Social-Giving.png?fit=682%2C1024&ssl=1"
+            alt="Community outreach event in Balanga City, Bataan, Philippines" width="682" height="1024"
+            loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Community Outreach in Balanga City, Bataan, Philippines</h3>
+          <p class="cares-card-desc">Sites by Sara, Exquisite Network Inc., and MedServ Pharmacy partnered to
+            support the elderlies of Bahay Puso and the Bahay Puso Apostolate Foundation. The team delivered food,
+            medicine, essential supplies, and shared moments of joy, care, and connection.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap cares-video-wrap">
+          <video controls playsinline aria-label="Sites by Sara India team Diwali support">
+            <source src="/wp-content/uploads/2025/12/IMG_5802.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <button type="button" class="cares-expand-btn" aria-label="Expand video">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3"></path>
+              <path d="M16 3h3a2 2 0 0 1 2 2v3"></path>
+              <path d="M8 21H5a2 2 0 0 1-2-2v-3"></path>
+              <path d="M16 21h3a2 2 0 0 0 2-2v-3"></path>
+            </svg>
+          </button>
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Diwali Support – India Team</h3>
+          <p class="cares-card-desc">To celebrate Diwali, the Sites by Sara team in India provided essential
+            supplies to a local orphanage. We are grateful for the opportunity to help spread joy, light, and
+            kindness during this festive season.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/06/1.png?fit=1000%2C1000&ssl=1"
+            alt="Sponsorship graphic for Gerald's kindergarten education in Tanzania" width="1000" height="1000"
+            loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Sponsored Gerald's Kindergarten Education</h3>
+          <p class="cares-card-desc">Public education is not free in Tanzania. Sites by Sara sponsored Gerald's
+            kindergarten education through the Life Is Beautiful Prayers initiative.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/06/2.png?fit=1000%2C1000&ssl=1"
+            alt="Neighbors 4 Neighbors Casino Night Fundraiser table sponsorship" width="1000" height="1000"
+            loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Table Sponsor at Neighbors 4 Neighbors Casino Night Fundraiser</h3>
+          <p class="cares-card-desc">Sites by Sara proudly sponsored a blackjack table and contributed $1,500 in
+            raffle prizes for the Casino Night fundraiser put on by Keller Williams Real Estate for SLC Neighbors
+            4 More Neighbors!</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/06/3.png?fit=1000%2C1000&ssl=1"
+            alt="Summer 2025 stage sponsorship at Miners Plaza" width="1000" height="1000" loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Summer 2025 Stage Sponsor</h3>
+          <p class="cares-card-desc">Summer 2025 Stage Sponsor at Miners Plaza.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap">
+          <img
+            src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/06/Untitled-design-9.png?fit=1000%2C1000&ssl=1"
+            alt="Pro bono website project for We Take Care Of Our Own" width="1000" height="1000" loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Pro Bono Website Project – WTCOOO</h3>
+          <p class="cares-card-desc">Sites by Sara stepped up to create the website for We Take Care Of Our Own,
+            Support for Roadies in Crisis.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
        2024 CAMPAIGNS
        ============================================================ -->
-  <section class="section-space cares-campaigns-section" aria-label="2024 Campaigns">
-    <div class="container">
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          A Year Of Giving Back
-        </div>
-        <h2 class="h2-title">2024 Campaigns</h2>
+<section class="section-space cares-campaigns-section" aria-label="2024 Campaigns">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        A Year Of Giving Back
       </div>
-
-      <div class="cares-grid has-remainder-1">
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap">
-            <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/06/4.png?fit=1000%2C1000&ssl=1"
-              alt="Life Is Beautiful Prayers pro bono website and fundraising project" width="1000" height="1000"
-              loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Life Is Beautiful Prayers Website &amp; Fundraising</h3>
-            <p class="cares-card-desc">Pro bono project to support the dreams of Kilimanjaro porters struggling to
-              make ends meet who are living in Tanzania: Life Is Beautiful Prayers.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap">
-            <img
-              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/06/Copy-of-Addwtwewtwtw-a-heading-1.png?fit=1024%2C1024&ssl=1"
-              alt="LiveGivePC Park City Community Foundation donation" width="1024" height="1024" loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">LiveGivePC | Park City Community Foundation</h3>
-            <p class="cares-card-desc">Monetary donations made to Live Give Park City Foundation.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap">
-            <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/10/image-10.jpg?fit=1024%2C1024&ssl=1"
-              alt="Hayahigh Skate Event feeding program for kids in the Philippines" width="1024" height="1024"
-              loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Hayahigh Skate Event</h3>
-            <p class="cares-card-desc">A feeding program for kids in the Philippines, including both organizational
-              and monetary donations.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap">
-            <img
-              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/12/SBS-COMMUNITY-OUTREACH-PH.png?fit=1024%2C1024&ssl=1"
-              alt="SBS Community Outreach in the Philippines" width="1024" height="1024" loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">SBS Community Outreach</h3>
-            <p class="cares-card-desc">Philippines.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap">
-            <img
-              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/06/Copy-of-Addwtwewtwtw-a-heading.png?fit=1024%2C1024&ssl=1"
-              alt="Food drive collaboration with The Mill at Salt Lake Community College" width="1024" height="1024"
-              loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Food Drive</h3>
-            <p class="cares-card-desc">Collaborating with The Mill at Salt Lake Community College.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap">
-            <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/10/SBS-HR2024.png?fit=1024%2C1024&ssl=1"
-              alt="Hurricane relief donation for families in North Carolina" width="1024" height="1024" loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Hurricane Relief for Families in North Carolina, Oct. 2024</h3>
-            <p class="cares-card-desc">Monetary donation via the Virginia Rosenburg fundraiser.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap">
-            <img
-              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-16-at-13.22.28_bfca1d23.jpg?fit=1024%2C1024&ssl=1"
-              alt="Mental Health Utah nonprofit event support" width="1024" height="1024" loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Mental Health Event Support, Sept. 2024</h3>
-            <p class="cares-card-desc">Monetary donation to Mental Health Utah (nonprofit).</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap">
-            <img
-              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-21-at-08.21.41_eb35e131-2.jpg?fit=1024%2C1024&ssl=1"
-              alt="Donation to a local orphanage in India" width="1024" height="1024" loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">India</h3>
-            <p class="cares-card-desc">We donated items to a local orphanage, bringing smiles to the faces of the
-              children there.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap">
-            <img
-              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-16-at-13.32.00_b77d44a8.jpg?fit=1024%2C1018&ssl=1"
-              alt="Mountain Town Music summer concert stage sponsorship" width="1024" height="1018" loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Stage Sponsorship – Mountain Town Music</h3>
-            <p class="cares-card-desc">Sponsorship for summer 2024 concert events.</p>
-          </div>
-        </div>
-
-        <div class="cares-card">
-          <div class="cares-card-img-wrap is-split">
-            <img
-              src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-16-at-13.28.33_3eed6cee.jpg?fit=1024%2C1020&ssl=1"
-              alt="Jewish Family Service of Utah sponsorship" width="1024" height="1020" loading="lazy">
-            <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/10/SBSSS.png?fit=1024%2C1024&ssl=1"
-              alt="KPCW nonprofit sponsorship and donation" width="1024" height="1024" loading="lazy">
-          </div>
-          <div class="cares-card-body">
-            <h3 class="cares-card-title">Sponsorship for Jewish Family Service of Utah &amp; KPCW, Aug. 2024</h3>
-            <p class="cares-card-desc">Sponsorship &amp; donation for KPCW to support this important nonprofit.</p>
-          </div>
-        </div>
-
-      </div>
+      <h2 class="h2-title">2024 Campaigns</h2>
     </div>
-  </section>
 
-  <!-- ============================================================
+    <div class="cares-grid has-remainder-1">
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/06/4.png?fit=1000%2C1000&ssl=1"
+            alt="Life Is Beautiful Prayers pro bono website and fundraising project" width="1000" height="1000"
+            loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Life Is Beautiful Prayers Website &amp; Fundraising</h3>
+          <p class="cares-card-desc">Pro bono project to support the dreams of Kilimanjaro porters struggling to
+            make ends meet who are living in Tanzania: Life Is Beautiful Prayers.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap">
+          <img
+            src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/06/Copy-of-Addwtwewtwtw-a-heading-1.png?fit=1024%2C1024&ssl=1"
+            alt="LiveGivePC Park City Community Foundation donation" width="1024" height="1024" loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">LiveGivePC | Park City Community Foundation</h3>
+          <p class="cares-card-desc">Monetary donations made to Live Give Park City Foundation.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/10/image-10.jpg?fit=1024%2C1024&ssl=1"
+            alt="Hayahigh Skate Event feeding program for kids in the Philippines" width="1024" height="1024"
+            loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Hayahigh Skate Event</h3>
+          <p class="cares-card-desc">A feeding program for kids in the Philippines, including both organizational
+            and monetary donations.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap">
+          <img
+            src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/12/SBS-COMMUNITY-OUTREACH-PH.png?fit=1024%2C1024&ssl=1"
+            alt="SBS Community Outreach in the Philippines" width="1024" height="1024" loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">SBS Community Outreach</h3>
+          <p class="cares-card-desc">Philippines.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap">
+          <img
+            src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2025/06/Copy-of-Addwtwewtwtw-a-heading.png?fit=1024%2C1024&ssl=1"
+            alt="Food drive collaboration with The Mill at Salt Lake Community College" width="1024" height="1024"
+            loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Food Drive</h3>
+          <p class="cares-card-desc">Collaborating with The Mill at Salt Lake Community College.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/10/SBS-HR2024.png?fit=1024%2C1024&ssl=1"
+            alt="Hurricane relief donation for families in North Carolina" width="1024" height="1024" loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Hurricane Relief for Families in North Carolina, Oct. 2024</h3>
+          <p class="cares-card-desc">Monetary donation via the Virginia Rosenburg fundraiser.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap">
+          <img
+            src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-16-at-13.22.28_bfca1d23.jpg?fit=1024%2C1024&ssl=1"
+            alt="Mental Health Utah nonprofit event support" width="1024" height="1024" loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Mental Health Event Support, Sept. 2024</h3>
+          <p class="cares-card-desc">Monetary donation to Mental Health Utah (nonprofit).</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap">
+          <img
+            src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-21-at-08.21.41_eb35e131-2.jpg?fit=1024%2C1024&ssl=1"
+            alt="Donation to a local orphanage in India" width="1024" height="1024" loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">India</h3>
+          <p class="cares-card-desc">We donated items to a local orphanage, bringing smiles to the faces of the
+            children there.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap">
+          <img
+            src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-16-at-13.32.00_b77d44a8.jpg?fit=1024%2C1018&ssl=1"
+            alt="Mountain Town Music summer concert stage sponsorship" width="1024" height="1018" loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Stage Sponsorship – Mountain Town Music</h3>
+          <p class="cares-card-desc">Sponsorship for summer 2024 concert events.</p>
+        </div>
+      </div>
+
+      <div class="cares-card">
+        <div class="cares-card-img-wrap is-split">
+          <img
+            src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/10/WhatsApp-Image-2024-10-16-at-13.28.33_3eed6cee.jpg?fit=1024%2C1020&ssl=1"
+            alt="Jewish Family Service of Utah sponsorship" width="1024" height="1020" loading="lazy">
+          <img src="https://i0.wp.com/sitesbysara.com/wp-content/uploads/2024/10/SBSSS.png?fit=1024%2C1024&ssl=1"
+            alt="KPCW nonprofit sponsorship and donation" width="1024" height="1024" loading="lazy">
+        </div>
+        <div class="cares-card-body">
+          <h3 class="cares-card-title">Sponsorship for Jewish Family Service of Utah &amp; KPCW, Aug. 2024</h3>
+          <p class="cares-card-desc">Sponsorship &amp; donation for KPCW to support this important nonprofit.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
        TOTAL CONTRIBUTIONS
        ============================================================ -->
-  <section class="section-space cares-total-section is-alt" aria-label="A Recent Contribution">
-    <div class="container">
-      <div class="section-header">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Our Impact
-        </div>
-        <h2 class="h2-title">A Recent Contribution</h2>
+<section class="section-space cares-total-section is-alt" aria-label="A Recent Contribution">
+  <div class="container">
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Our Impact
       </div>
-
-      <div class="cares-stat-pullout">
-        <div class="cares-stat-number">$2,000</div>
-        <p class="cares-stat-desc">Donated to the House of Prayer for All Peoples, in collaboration with Life Is
-          Beautiful Prayers.</p>
-      </div>
-
-      <p class="cares-orgs-label">Sites by Sara donated to some wonderful local organizations:</p>
-      <ul class="cares-orgs-list">
-        <li>Artes de México</li>
-        <li>Sage Mountain</li>
-        <li>Park City Summit County Arts Council</li>
-        <li>Park City Community Foundation</li>
-        <li>Jewish Family Service Utah</li>
-        <li>Equestrian Wellness</li>
-        <li>Mountain Town Music</li>
-        <li>Park City Song Summit</li>
-        <li>Humanity First: Serving Mankind</li>
-      </ul>
+      <h2 class="h2-title">A Recent Contribution</h2>
     </div>
-  </section>
 
-  <!-- ============================================================
+    <div class="cares-stat-pullout">
+      <div class="cares-stat-number">$2,000</div>
+      <p class="cares-stat-desc">Donated to the House of Prayer for All Peoples, in collaboration with Life Is
+        Beautiful Prayers.</p>
+    </div>
+
+    <p class="cares-orgs-label">Sites by Sara donated to some wonderful local organizations:</p>
+    <ul class="cares-orgs-list">
+      <li>Artes de México</li>
+      <li>Sage Mountain</li>
+      <li>Park City Summit County Arts Council</li>
+      <li>Park City Community Foundation</li>
+      <li>Jewish Family Service Utah</li>
+      <li>Equestrian Wellness</li>
+      <li>Mountain Town Music</li>
+      <li>Park City Song Summit</li>
+      <li>Humanity First: Serving Mankind</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============================================================
        GET INVOLVED
        ============================================================ -->
-  <section class="section-space cares-involved-section" aria-label="Get Involved">
-    <div class="container">
-      <div class="cares-involved-inner">
-        <div class="eyebrow" style="justify-content: center; display: flex;">
-          <span class="eyebrow-dot"></span>
-          Get Involved
-        </div>
-        <h2 class="h2-title">Your Support Matters</h2>
-        <p class="lead-text">
-          Whether through donations or participation in events, together we can create positive change in our
-          communities.
-        </p>
-        <a href="/contact-us-2/" class="btn btn-primary">Contact Us</a>
+<section class="section-space cares-involved-section" aria-label="Get Involved">
+  <div class="container">
+    <div class="cares-involved-inner">
+      <div class="eyebrow" style="justify-content: center; display: flex;">
+        <span class="eyebrow-dot"></span>
+        Get Involved
       </div>
+      <h2 class="h2-title">Your Support Matters</h2>
+      <p class="lead-text">
+        Whether through donations or participation in events, together we can create positive change in our
+        communities.
+      </p>
+      <a href="/contact-us/" class="btn btn-primary">Contact Us</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============================================================
+<!-- ============================================================
        LIGHTBOX
        ============================================================ -->
-  <div class="cares-lightbox" id="caresLightbox" role="dialog" aria-modal="true" aria-label="Media preview">
-    <button type="button" class="cares-lightbox-close" id="caresLightboxClose" aria-label="Close preview">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-        stroke-linejoin="round">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
-    <img id="caresLightboxImg" src="" alt="">
-    <video id="caresLightboxVideo" controls playsinline style="display: none;"></video>
-  </div>
+<div class="cares-lightbox" id="caresLightbox" role="dialog" aria-modal="true" aria-label="Media preview">
+  <button type="button" class="cares-lightbox-close" id="caresLightboxClose" aria-label="Close preview">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+      stroke-linejoin="round">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+  <img id="caresLightboxImg" src="" alt="">
+  <video id="caresLightboxVideo" controls playsinline style="display: none;"></video>
+</div>
 
-  <script>
-    (function () {
-      var lightbox = document.getElementById('caresLightbox');
-      var lightboxImg = document.getElementById('caresLightboxImg');
-      var lightboxVideo = document.getElementById('caresLightboxVideo');
-      var closeBtn = document.getElementById('caresLightboxClose');
-      var hoverTimer = null;
+<script>
+  (function () {
+    var lightbox = document.getElementById('caresLightbox');
+    var lightboxImg = document.getElementById('caresLightboxImg');
+    var lightboxVideo = document.getElementById('caresLightboxVideo');
+    var closeBtn = document.getElementById('caresLightboxClose');
+    var hoverTimer = null;
 
-      function openImageLightbox(img) {
-        lightboxVideo.pause();
-        lightboxVideo.removeAttribute('src');
-        lightboxVideo.style.display = 'none';
+    function openImageLightbox(img) {
+      lightboxVideo.pause();
+      lightboxVideo.removeAttribute('src');
+      lightboxVideo.style.display = 'none';
 
-        lightboxImg.src = img.currentSrc || img.src;
-        lightboxImg.alt = img.alt || '';
-        lightboxImg.style.display = 'block';
+      lightboxImg.src = img.currentSrc || img.src;
+      lightboxImg.alt = img.alt || '';
+      lightboxImg.style.display = 'block';
 
-        lightbox.classList.add('is-open');
-      }
+      lightbox.classList.add('is-open');
+    }
 
-      function openVideoLightbox(sourceVideo) {
-        lightboxImg.style.display = 'none';
-        lightboxImg.src = '';
+    function openVideoLightbox(sourceVideo) {
+      lightboxImg.style.display = 'none';
+      lightboxImg.src = '';
 
-        lightboxVideo.src = sourceVideo.currentSrc || sourceVideo.querySelector('source').src;
-        lightboxVideo.style.display = 'block';
-        lightbox.classList.add('is-open');
-        lightboxVideo.play();
-      }
+      lightboxVideo.src = sourceVideo.currentSrc || sourceVideo.querySelector('source').src;
+      lightboxVideo.style.display = 'block';
+      lightbox.classList.add('is-open');
+      lightboxVideo.play();
+    }
 
-      function closeLightbox() {
-        lightbox.classList.remove('is-open');
-        lightboxVideo.pause();
-      }
+    function closeLightbox() {
+      lightbox.classList.remove('is-open');
+      lightboxVideo.pause();
+    }
 
-      document.querySelectorAll('.cares-card-img-wrap img').forEach(function (img) {
-        img.addEventListener('click', function () {
+    document.querySelectorAll('.cares-card-img-wrap img').forEach(function (img) {
+      img.addEventListener('click', function () {
+        openImageLightbox(img);
+      });
+
+      img.addEventListener('mouseenter', function () {
+        hoverTimer = setTimeout(function () {
           openImageLightbox(img);
-        });
-
-        img.addEventListener('mouseenter', function () {
-          hoverTimer = setTimeout(function () {
-            openImageLightbox(img);
-          }, 2000);
-        });
-
-        img.addEventListener('mouseleave', function () {
-          clearTimeout(hoverTimer);
-        });
+        }, 2000);
       });
 
-      document.querySelectorAll('.cares-video-wrap').forEach(function (wrap) {
-        var sourceVideo = wrap.querySelector('video');
-        var expandBtn = wrap.querySelector('.cares-expand-btn');
-
-        expandBtn.addEventListener('click', function () {
-          sourceVideo.pause();
-          openVideoLightbox(sourceVideo);
-        });
+      img.addEventListener('mouseleave', function () {
+        clearTimeout(hoverTimer);
       });
+    });
 
-      closeBtn.addEventListener('click', closeLightbox);
+    document.querySelectorAll('.cares-video-wrap').forEach(function (wrap) {
+      var sourceVideo = wrap.querySelector('video');
+      var expandBtn = wrap.querySelector('.cares-expand-btn');
 
-      lightbox.addEventListener('click', function (e) {
-        if (e.target === lightbox) closeLightbox();
+      expandBtn.addEventListener('click', function () {
+        sourceVideo.pause();
+        openVideoLightbox(sourceVideo);
       });
+    });
 
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeLightbox();
-      });
-    })();
-  </script>
+    closeBtn.addEventListener('click', closeLightbox);
+
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  })();
+</script>
