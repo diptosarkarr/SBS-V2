@@ -1,0 +1,353 @@
+/* SBS blog index: category buttons + post grid + pagination.
+   Paste into: Elementor > the /blogs/ page > Page Settings (gear) > Advanced > Custom CSS.
+   Self-contained: every rule is scoped to .sbs-blog-index and the design tokens are declared on it.
+   Markup comes from the [sbs_blog_index] shortcode. */
+
+.sbs-blog-index {
+  --brand-blue: #3A539B;
+  --brand-blue-tint: #EEF2FA;
+  --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+  --navy: #1E2140;
+  --slate: #5F6368;
+  --slate-light: #80868B;
+  --slate-subtle: #9AA0A6;
+  --border: #DCE2EE;
+  --border-card: #DFE4EE;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+  --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--navy);
+  scroll-margin-top: 90px; /* page/category links jump back to the grid; leave room for a sticky header */
+}
+
+.sbs-blog-index *,
+.sbs-blog-index *::before,
+.sbs-blog-index *::after {
+  box-sizing: border-box;
+}
+
+.sbs-blog-index a {
+  text-decoration: none;
+}
+
+/* ---------- category buttons ---------- */
+.sbs-blog-index .blog-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  margin-bottom: clamp(36px, 5vw, 52px);
+}
+
+.sbs-blog-index .blog-cat-pills {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.sbs-blog-index .blog-cat-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--navy) !important;
+  background: #F1F3F9;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill);
+  padding: 9px 18px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.sbs-blog-index .blog-cat-pill:hover,
+.sbs-blog-index .blog-cat-pill:focus-visible {
+  border-color: var(--brand-blue);
+  color: var(--brand-blue) !important;
+}
+
+.sbs-blog-index .blog-cat-pill.is-active {
+  background: var(--brand-gradient);
+  background-clip: padding-box;
+  color: #FFFFFF !important;
+}
+
+.sbs-blog-index .blog-cat-pill-count {
+  font-size: 0.78rem;
+  opacity: 0.7;
+  font-weight: 500;
+}
+
+.sbs-blog-index .blog-results-label {
+  text-align: center;
+  font-size: 0.88rem;
+  color: var(--slate-light);
+  margin: 0 0 24px;
+}
+
+/* ---------- grid + cards ---------- */
+.sbs-blog-index .blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.sbs-blog-index .blog-card {
+  display: flex;
+  flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.sbs-blog-index .blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--brand-blue);
+}
+
+.sbs-blog-index .blog-card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+}
+
+.sbs-blog-index .blog-card-image-wrap {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--brand-blue-tint);
+  overflow: hidden;
+}
+
+.sbs-blog-index .blog-card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.sbs-blog-index .blog-card:hover .blog-card-image-wrap img {
+  transform: scale(1.06);
+}
+
+.sbs-blog-index .blog-card-image-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--brand-gradient);
+}
+
+.sbs-blog-index .blog-card-image-fallback svg {
+  width: 38px;
+  height: 38px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.sbs-blog-index .blog-card-cat-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--brand-blue);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 8px rgba(30, 33, 64, 0.14);
+}
+
+.sbs-blog-index .blog-card-body {
+  padding: 22px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.sbs-blog-index .blog-card-date {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--slate-light);
+  margin-bottom: 10px;
+}
+
+.sbs-blog-index .blog-card-title {
+  font-family: inherit;
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.35;
+  margin: 0 0 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sbs-blog-index .blog-card-excerpt {
+  font-size: 0.92rem;
+  color: var(--slate);
+  line-height: 1.6;
+  margin-bottom: 18px;
+  flex-grow: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sbs-blog-index .blog-card-readmore {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--brand-blue);
+  margin-top: auto;
+}
+
+.sbs-blog-index .blog-card-readmore svg {
+  width: 15px;
+  height: 15px;
+  transition: transform 0.2s ease;
+}
+
+.sbs-blog-index .blog-card:hover .blog-card-readmore svg {
+  transform: translateX(3px);
+}
+
+/* ---------- pagination ---------- */
+.sbs-blog-index .blog-pagination {
+  margin-top: clamp(36px, 5vw, 52px);
+}
+
+.sbs-blog-index .blog-pagination-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.sbs-blog-index .blog-pagination-list li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.sbs-blog-index .blog-pagination .page-numbers {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-width: 42px;
+  height: 42px;
+  padding: 0 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--navy) !important;
+  background: #FFFFFF;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+}
+
+.sbs-blog-index .blog-pagination a.page-numbers:hover,
+.sbs-blog-index .blog-pagination a.page-numbers:focus-visible {
+  border-color: var(--brand-blue);
+  color: var(--brand-blue) !important;
+}
+
+.sbs-blog-index .blog-pagination .page-numbers.current {
+  background: var(--brand-gradient);
+  background-clip: padding-box;
+  border-color: transparent;
+  color: #FFFFFF !important;
+}
+
+.sbs-blog-index .blog-pagination .page-numbers.dots {
+  min-width: 0;
+  padding: 0 2px;
+  border-color: transparent;
+  background: transparent;
+  color: var(--slate-light) !important;
+}
+
+/* ---------- empty state ---------- */
+.sbs-blog-index .blog-empty-state {
+  text-align: center;
+  padding: 60px 24px;
+  color: var(--slate);
+}
+
+.sbs-blog-index .blog-empty-state svg {
+  width: 44px;
+  height: 44px;
+  color: var(--slate-subtle);
+  margin-bottom: 18px;
+}
+
+.sbs-blog-index .blog-empty-state h3 {
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin: 0 0 8px;
+}
+
+.sbs-blog-index .blog-empty-state p {
+  font-size: 0.95rem;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* ---------- responsive ---------- */
+@media (min-width: 1025px) {
+  .sbs-blog-index .blog-cat-pills {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 1024px) {
+  .sbs-blog-index .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .sbs-blog-index .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sbs-blog-index .blog-cat-pills {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .sbs-blog-index .blog-cat-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .sbs-blog-index .blog-cat-pill {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}

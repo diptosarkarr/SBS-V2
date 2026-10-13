@@ -1,0 +1,262 @@
+<!-- page-sync: blogs-cta.html -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+  :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
+    --brand-blue-subtle: #F6F8FD;
+
+    --brand-coral: #ea4e5f;
+    --brand-coral-hover: #d43d4e;
+    --brand-coral-tint: #FDEEEE;
+
+    --brand-peach: #FCEFE5;
+    --brand-peach-hover: #F8E3D4;
+    --brand-peach-tint: #FFF9F5;
+
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+    --navy: #1E2140;
+    --navy-dark: #13152C;
+    --slate: #5F6368;
+    --slate-light: #80868B;
+    --slate-subtle: #9AA0A6;
+
+    --border: #DCE2EE;
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
+
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
+    --bg-banner: #FCEFE5;
+    --bg-callout: #FFFBF7;
+
+    --green: #1E8E3E;
+    --green-tint: #E6F4EA;
+    --yellow: #FBBC04;
+    --yellow-tint: #FEF7E0;
+
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-pill: 9999px;
+
+    --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+    --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+    --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+    --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font);
+    color: var(--navy);
+    background-color: var(--bg-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
+
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--brand-coral);
+    display: inline-block;
+  }
+
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-family: var(--font);
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:focus-visible,
+  .btn-primary:active {
+    background: var(--brand-gradient-hover);
+    background-clip: padding-box;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+    color: #FFFFFF !important;
+  }
+
+  /* ---- Loading skeletons ---- */
+
+  @keyframes blog-shimmer {
+    0% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  /* ---- Infinite scroll sentinel / retry button / end note / empty / error states ---- */
+
+  @keyframes blog-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* ============================================================
+     FINAL CTA / CONSULTATION BANNER
+     ============================================================ */
+  .cta-banner-section {
+    padding: var(--section-gap) 0;
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+  }
+
+  .cta-banner-box {
+    background: #FFFFFF;
+    border: 1.5px solid var(--brand-peach-hover);
+    background-color: var(--brand-peach);
+    border-radius: var(--radius-xl);
+    padding: clamp(36px, 5vw, 60px);
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .cta-banner-box h2 {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    margin-bottom: 14px;
+  }
+
+  .cta-banner-box p {
+    font-size: 1.05rem;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+
+  @media (max-width: 640px) {
+
+    .btn-group {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+</style>
+
+<!-- ============================================================
+       FINAL CTA / CONSULTATION BANNER
+       ============================================================ -->
+<section class="cta-banner-section">
+  <div class="container">
+    <div class="cta-banner-box">
+      <div class="eyebrow" style="justify-content: center;">
+        <span class="eyebrow-dot"></span>
+        Ready To Put This Into Action?
+      </div>
+      <h2>Let's Grow Your Business Online</h2>
+      <p>
+        Book a free consultation and we'll walk through your goals, your current setup, and recommend exactly
+        which services make sense for you.
+      </p>
+      <div class="btn-group">
+        <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+          Consultation</a>
+      </div>
+    </div>
+  </div>
+</section>
