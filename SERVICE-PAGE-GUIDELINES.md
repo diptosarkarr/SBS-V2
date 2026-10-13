@@ -84,6 +84,7 @@ Disclosures that were removed and have NOT been re-requested: Shopify's own subs
 ## 4. Fixed page structure and shared components (do not improvise)
 
 Order: Banner → Hero → **Shared trust strip** → Pricing → Scope grid → Story rows → FAQ → CTA banner.
+(Five pages also carry the optional **Local presence** section between FAQ and CTA banner, see below.)
 
 - **Headless fragment.** No `<html>`, `<head>`, `<body>`, `<meta>`, `<title>`, no `<header>`/`<footer>`. Pages are pasted into Elementor HTML widgets.
 - **Trust strip:** the identical homepage strip (`.site-trust-strip`: 2007 / 300+ / awards count, with the count-up script). Never write a page-specific strip. The awards number is global; if it changes, update it sitewide (home-body, about, every service page).
@@ -96,6 +97,7 @@ Order: Banner → Hero → **Shared trust strip** → Pricing → Scope grid →
 - **Never** add a "← Browse All Services" / `all-services` link on a service page.
 - **Spacing:** every full-width section uses `padding: var(--section-gap) 0` (token defined in `:root` on every page). No custom section paddings.
 - **Links:** own-site links are root-relative (`/book-a-free-consultation/`), external links open in a new tab with `rel="noopener noreferrer"`.
+- **Local presence section (2026-10-14, SEO review "local relevance"):** only on `seo-site-audits-analytics-services.html`, `local-seo-services.html`, `web-development.html`, `design.html` and `google-meta-ads.html`. Markup: `<section class="local-section">` directly before the CTA banner, with a section header (eyebrow "Local Expertise", H2 "<Service> for Utah and Colorado Businesses", one lead sentence), two `.local-card` links (Salt Lake City, Utah → `/contact-us/`; Colorado Springs, Colorado → `/colorado/`) and one `.section-note` with `.related-link` links to local case studies (`/utah-center-for-psychological-services/`, `/jfs-utah/`, `/cornerstone-exteriors/`) and to `/what-our-clients-say/`. The copy follows section 2: place names only, no numbers, no claims. The Service JSON-LD of these pages also carries `areaServed` (State Utah, State Colorado). Do not add it to other service pages without asking. Facts used (assumptions to confirm with the client): Utah base = Salt Lake City (footer/About), Colorado office = Colorado Springs (Contact page). The CSS lives in each page's own stylesheet (`.local-section`, `.local-grid`, `.local-card*`).
 - **Related services:** link 1-2 natural peer service pages directly under the pricing cards (`class="related-link"`, root-relative, label = the page's nav label). The checker ignores the text of `.related-link` links, so peer page names are allowed there.
 - **Alt text:** specific, descriptive, no package names, no numbers.
 - **JSON-LD:** `Service` (generic `description`, **no `offers` / `AggregateOffer` / prices**) and `FAQPage` (mirrors the visible FAQ).
@@ -182,4 +184,5 @@ Technical notes:
 - [ ] Page is not bare: lead sentence under each section heading, note under pricing and scope, 3 story rows, 5 FAQ, related-service line under the pricing cards (§5).
 - [ ] Scope grid shows one even row (or rows) on desktop: the page's own CSS must be `repeat(4, 1fr)` for 4 or 8 cards, 2 columns on tablet, 1 on phones (the checker enforces this; the hosting page once wrapped 3+1).
 - [ ] Previewed desktop + mobile; FAQ opened; temp files removed.
+- [ ] On the five pages listed in section 4 the Local presence section is still there (before the CTA banner) and `areaServed` is in the Service JSON-LD.
 - [ ] Report lists assumptions and out-of-scope items (order-system issues, stale pages).

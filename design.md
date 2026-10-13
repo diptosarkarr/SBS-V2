@@ -586,6 +586,7 @@ Applies site-wide, on every page, to every `<a>` whose `href` is an absolute URL
 - **Same tab (no `target`):** any of our own pages/media (see §5.15.1 — as of 2026-09-16 these are root-relative paths, not an absolute hostname at all) — this includes Book a Free Consultation, all header/footer nav, the all-services directory, and every internal cross-link. It also includes same-page anchors (`#pricing`) — those were never in scope for this rule, they just never get a `target` at all.
 - **New tab (`target="_blank" rel="noopener noreferrer"`):** every other hostname — `order.sitesbysara.com` (all Order Now buttons), social icons, real portfolio client sites, press/publication links, third-party embeds (Brevo, Google Calendar), and any other genuinely third-party domain.
 - **Always pair `target="_blank"` with `rel="noopener noreferrer"`** — never one without the other. Without it, the opened tab can use `window.opener` to redirect the original tab (reverse tabnabbing).
+- **Exception — case-study "Visit Website" buttons (2026-10-13, SEO review):** the button on every `portfolio-*.html` page that links to the client's live site uses `target="_blank" rel="noopener nofollow"` (no `noreferrer`, so the client's analytics can see us as a referrer; `nofollow` because most client sites link back to us from their footer). Portfolio/"Details" cards on the homepage, `web-development.html` and `our-portfolio.html` link to our own case-study pages, so they are plain internal links: same tab, no `target`, no `rel`, never nofollow.
 - `order.sitesbysara.com` is a different hostname from our own site and always counts as "external" for this rule, even though it shares the same root domain — it's a distinct checkout/configurator tool, not a content page of the site.
 - The distinction is the **hostname's role** (own site vs. a separate tool), not "is this technically the same company." A link can be 100% real Sites by Sara content and still open in a new tab (Order Now) if it's on a different subdomain that functions as a separate tool.
 
@@ -864,6 +865,12 @@ Brought over from the live `/marketing/branding-and-graphic-design` page (Logo D
 - **Buttons need explicit `:hover/:focus/:active` resets** (background and `color ... !important`) because Hello Elementor styles bare `button` elements pink on hover.
 
 ---
+
+### 5.40 Local Presence Section + Colorado Location Page (2026-10-14)
+
+- **Local presence section** (`.local-section`): white band (`padding: var(--section-gap) 0`) between the FAQ and the CTA banner on five service pages (list and copy rules in `SERVICE-PAGE-GUIDELINES.md` section 4). Section header + a 2-column `.local-grid` of `.local-card` links (tinted `--bg-light` card, 44px blue-tint pin icon, title, one sentence, "link →" line, lifts 3px with `--shadow-floating` on hover; one column under 640px) + one `.section-note` line of case-study and review links.
+- **Location page `colorado.html`** (`/colorado/`, replaces the live `/colorado/` and `/seo-company-colorado-utah/`): built from the standard service-page components without pricing: banner, hero with an `.office-card` instead of an image (gradient pin tile, "Our Colorado office", city, one sentence, Google Business Profile + call buttons), shared trust strip, 8 linked `.scope-card` service cards (white section, cards tinted `--bg-light`), 2 story rows (Local SEO, the Cornerstone Exteriors case study), 5-question FAQ, CTA with a 4-item checklist. JSON-LD is a `ProfessionalService` (Colorado Springs, CO, `areaServed` Colorado) plus `FAQPage` from the same list. The checker reports exactly three expected errors on it (no pricing iframe, no resize listener, no `#pricing` button); that is correct for a location page.
+- Linked from the Contact and Book a Free Consultation pages (trust pill + a third item in the Contact "Connect with Google My Business" list), the footer Company column and the header search index.
 
 ## 6. Image Standards & Asset Guidelines
 

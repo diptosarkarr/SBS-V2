@@ -14,7 +14,17 @@
       "@type": "Organization",
       "name": "Sites by Sara"
     },
-    "description": "Custom WordPress website design and development, from theme customization to launch, tailored to your business."
+    "description": "Custom WordPress website design and development, from theme customization to launch, tailored to your business.",
+    "areaServed": [
+      {
+        "@type": "State",
+        "name": "Utah"
+      },
+      {
+        "@type": "State",
+        "name": "Colorado"
+      }
+    ]
   }
 </script>
 <!-- SEO: FAQPage structured data, generated from the same list as the visible FAQ -->
@@ -698,7 +708,7 @@
     width: 100%;
     height: auto;
     transform: translateY(0);
-    transition: transform 30s ease;
+    transition: transform 20s ease;
   }
 
   .portfolio-card:hover .portfolio-img-wrap img {
@@ -1195,10 +1205,12 @@
   @media (max-width: 600px) {
     .page-title-banner {
       padding: 44px 18px;
-    }.benefits-grid-6,
-.services-grid-5,
-.portfolio-grid,
-.process-grid-5 {
+    }
+
+    .benefits-grid-6,
+    .services-grid-5,
+    .portfolio-grid,
+    .process-grid-5 {
       grid-template-columns: 1fr;
     }
 
@@ -1223,6 +1235,7 @@
       margin: 24px 0 10px 0;
     }
   }
+
   /* Short supporting line under a section's cards/grid; also used for related-service links */
   .section-note {
     text-align: center;
@@ -1233,7 +1246,7 @@
     line-height: 1.6;
   }
 
-  .section-note + .section-note {
+  .section-note+.section-note {
     margin-top: 12px;
   }
 
@@ -1252,6 +1265,95 @@
     color: var(--brand-blue-hover) !important;
   }
 
+  /* Local presence: where we work (SERVICE-PAGE-GUIDELINES.md section 4b) */
+  .local-section {
+    padding: var(--section-gap) 0;
+    background: #FFFFFF;
+  }
+
+  .local-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .local-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--bg-light);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 26px 24px;
+    transition: all 0.2s ease;
+  }
+
+  .local-card:hover,
+  .local-card:focus-visible {
+    border-color: var(--brand-blue);
+    box-shadow: var(--shadow-floating);
+    transform: translateY(-3px);
+  }
+
+  .local-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .local-card-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .local-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .local-card-desc {
+    font-size: 0.95rem;
+    color: var(--slate);
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .local-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--brand-blue);
+  }
+
+  .local-card-link svg {
+    width: 15px;
+    height: 15px;
+    transition: transform 0.2s ease;
+  }
+
+  .local-card:hover .local-card-link svg {
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 640px) {
+    .local-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
 
 <!-- ============================================================
@@ -1414,7 +1516,8 @@
         </div>
         <h3 class="benefit-title">Tailored to Your Specific Needs</h3>
         <p class="benefit-desc">
-          Every feature and user journey is designed around your business, from simple lead generation to custom e-commerce.
+          Every feature and user journey is designed around your business, from simple lead generation to custom
+          e-commerce.
         </p>
       </div>
 
@@ -1641,7 +1744,8 @@
 
     <p class="section-note">Looking for more ways to grow your business? Explore
       <a class="related-link" href="/wordpress-maintenance-hosting-bundle/">WordPress Maintenance Bundle</a> and
-      <a class="related-link" href="/copywriting/">Copywriting &amp; Content Writing</a>.</p>
+      <a class="related-link" href="/copywriting/">Copywriting &amp; Content Writing</a>.
+    </p>
 
   </div>
 </section>
@@ -1676,13 +1780,13 @@
 
     <div class="portfolio-grid">
 
-      <a href="/connect-with-sky/" class="portfolio-card" target="_blank" rel="noopener noreferrer">
+      <a href="/maddox-solar-shield-pro/" class="portfolio-card">
         <div class="portfolio-img-wrap">
-          <img src="/wp-content/uploads/2026/07/Connect-with-Sky-scaled.png" alt="Connect with Sky website design"
-            loading="lazy">
+          <img src="/wp-content/uploads/2026/10/portfolio-maddox-solar-shield-pro-grid.webp"
+            alt="Maddox Solar Shield Pro website design" loading="lazy">
         </div>
         <div class="portfolio-info">
-          <span class="portfolio-client-title">Connect with Sky</span>
+          <span class="portfolio-client-title">Maddox Solar Shield Pro</span>
           <span class="portfolio-live-link">Details<svg width="15" height="15" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M13 5l7 7-7 7" />
@@ -1690,13 +1794,13 @@
         </div>
       </a>
 
-      <a href="/this-is-the-place-gift-shop/" class="portfolio-card" target="_blank" rel="noopener noreferrer">
+      <a href="/first-step-house/" class="portfolio-card">
         <div class="portfolio-img-wrap">
-          <img src="/wp-content/uploads/2026/07/This-is-the-Place-Gift-Shop-scaled.png"
-            alt="This is the Place Gift Shop website design" loading="lazy">
+          <img src="/wp-content/uploads/2026/10/portfolio-first-step-house-grid.webp"
+            alt="First Step House website design" loading="lazy">
         </div>
         <div class="portfolio-info">
-          <span class="portfolio-client-title">This is the Place Gift Shop</span>
+          <span class="portfolio-client-title">First Step House</span>
           <span class="portfolio-live-link">Details<svg width="15" height="15" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M13 5l7 7-7 7" />
@@ -1704,20 +1808,19 @@
         </div>
       </a>
 
-      <a href="/girlyish-skincare/" class="portfolio-card" target="_blank" rel="noopener noreferrer">
+      <a href="/utah-center-for-psychological-services/" class="portfolio-card">
         <div class="portfolio-img-wrap">
-          <img src="/wp-content/uploads/2026/07/Girlyish-Skincare-scaled.png" alt="Girlyish Skincare website design"
-            loading="lazy">
+          <img src="/wp-content/uploads/2026/10/portfolio-utah-center-for-psychological-services-grid.webp"
+            alt="Utah Center for Psychological Services website design" loading="lazy">
         </div>
         <div class="portfolio-info">
-          <span class="portfolio-client-title">Girlyish Skincare</span>
+          <span class="portfolio-client-title">Utah Center for Psychological Services</span>
           <span class="portfolio-live-link">Details<svg width="15" height="15" viewBox="0 0 24 24" fill="none"
               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M5 12h14M13 5l7 7-7 7" />
             </svg></span>
         </div>
       </a>
-
     </div>
 
     <div class="portfolio-view-all">
@@ -2090,7 +2193,8 @@
           <span class="faq-icon">+</span>
         </summary>
         <div class="faq-answer">
-          A custom site is designed around your brand and goals instead of a one-size-fits-all template. It tends to be faster, easier to grow, and more distinctive.
+          A custom site is designed around your brand and goals instead of a one-size-fits-all template. It tends to be
+          faster, easier to grow, and more distinctive.
         </div>
       </details>
 
@@ -2100,7 +2204,8 @@
           <span class="faq-icon">+</span>
         </summary>
         <div class="faq-answer">
-          It depends on the size and complexity of your site and how quickly your content is ready. We set a clear timeline together during discovery.
+          It depends on the size and complexity of your site and how quickly your content is ready. We set a clear
+          timeline together during discovery.
         </div>
       </details>
 
@@ -2110,7 +2215,8 @@
           <span class="faq-icon">+</span>
         </summary>
         <div class="faq-answer">
-          Yes. Your site is built on WordPress, so you can edit text, images, and blog posts yourself without any coding. We are happy to show you how.
+          Yes. Your site is built on WordPress, so you can edit text, images, and blog posts yourself without any
+          coding. We are happy to show you how.
         </div>
       </details>
 
@@ -2130,11 +2236,51 @@
           <span class="faq-icon">+</span>
         </summary>
         <div class="faq-answer">
-          Yes. Your site can grow as your business does. Tell us what you have in mind and we will recommend the right approach.
+          Yes. Your site can grow as your business does. Tell us what you have in mind and we will recommend the right
+          approach.
         </div>
       </details>
 
     </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     LOCAL PRESENCE (where we work)
+     ============================================================ -->
+<section class="local-section" aria-label="Where we work">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Local Expertise
+      </div>
+      <h2 class="h2-title">Web Design for Utah and Colorado Businesses</h2>
+      <p class="lead-text">We design and build websites for businesses in Salt Lake City, Utah and Colorado Springs, Colorado, and work with clients across the country.</p>
+    </div>
+
+    <div class="local-grid">
+      <a class="local-card" href="/contact-us/">
+        <span class="local-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <h3 class="local-card-title">Salt Lake City, Utah</h3>
+        <p class="local-card-desc">Our Utah team supports businesses across the state.</p>
+        <span class="local-card-link">Contact our Utah office <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="local-card" href="/colorado/">
+        <span class="local-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <h3 class="local-card-title">Colorado Springs, Colorado</h3>
+        <p class="local-card-desc">Our Colorado office supports businesses across Colorado.</p>
+        <span class="local-card-link">Visit our Colorado page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+    </div>
+
+    <p class="section-note">See local work for
+      <a class="related-link" href="/utah-center-for-psychological-services/">Utah Center for Psychological Services</a>,
+      <a class="related-link" href="/jfs-utah/">JFS Utah</a> and
+      <a class="related-link" href="/cornerstone-exteriors/">Cornerstone Exteriors</a>, or read
+      <a class="related-link" href="/what-our-clients-say/">what local clients say</a>.</p>
 
   </div>
 </section>

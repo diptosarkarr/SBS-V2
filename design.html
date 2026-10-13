@@ -14,7 +14,17 @@
       "@type": "Organization",
       "name": "Sites by Sara"
     },
-    "description": "Logo design, brand identity, and print collateral design to help your business look consistent and professional."
+    "description": "Logo design, brand identity, and print collateral design to help your business look consistent and professional.",
+    "areaServed": [
+      {
+        "@type": "State",
+        "name": "Utah"
+      },
+      {
+        "@type": "State",
+        "name": "Colorado"
+      }
+    ]
   }
 </script>
 <!-- SEO: FAQPage structured data, generated from the same list as the visible FAQ -->
@@ -1163,6 +1173,96 @@
         transition: none;
       }
     }
+
+  /* Local presence: where we work (SERVICE-PAGE-GUIDELINES.md section 4b) */
+  .local-section {
+    padding: var(--section-gap) 0;
+    background: #FFFFFF;
+  }
+
+  .local-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .local-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    background: var(--bg-light);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 26px 24px;
+    transition: all 0.2s ease;
+  }
+
+  .local-card:hover,
+  .local-card:focus-visible {
+    border-color: var(--brand-blue);
+    box-shadow: var(--shadow-floating);
+    transform: translateY(-3px);
+  }
+
+  .local-card-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .local-card-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .local-card-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.3;
+    margin: 0;
+  }
+
+  .local-card-desc {
+    font-size: 0.95rem;
+    color: var(--slate);
+    line-height: 1.6;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .local-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--brand-blue);
+  }
+
+  .local-card-link svg {
+    width: 15px;
+    height: 15px;
+    transition: transform 0.2s ease;
+  }
+
+  .local-card:hover .local-card-link svg {
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 640px) {
+    .local-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
 
 <!-- ============================================================
@@ -1968,6 +2068,45 @@
       </details>
 
     </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     LOCAL PRESENCE (where we work)
+     ============================================================ -->
+<section class="local-section" aria-label="Where we work">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Local Expertise
+      </div>
+      <h2 class="h2-title">Design and Branding for Utah and Colorado Businesses</h2>
+      <p class="lead-text">Our design team works with businesses in Salt Lake City, Utah and Colorado Springs, Colorado, and with clients across the country.</p>
+    </div>
+
+    <div class="local-grid">
+      <a class="local-card" href="/contact-us/">
+        <span class="local-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <h3 class="local-card-title">Salt Lake City, Utah</h3>
+        <p class="local-card-desc">Our Utah team supports businesses across the state.</p>
+        <span class="local-card-link">Contact our Utah office <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+      <a class="local-card" href="/colorado/">
+        <span class="local-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <h3 class="local-card-title">Colorado Springs, Colorado</h3>
+        <p class="local-card-desc">Our Colorado office supports businesses across Colorado.</p>
+        <span class="local-card-link">Visit our Colorado page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+      </a>
+    </div>
+
+    <p class="section-note">See local work for
+      <a class="related-link" href="/utah-center-for-psychological-services/">Utah Center for Psychological Services</a>,
+      <a class="related-link" href="/jfs-utah/">JFS Utah</a> and
+      <a class="related-link" href="/cornerstone-exteriors/">Cornerstone Exteriors</a>, or read
+      <a class="related-link" href="/what-our-clients-say/">what local clients say</a>.</p>
 
   </div>
 </section>
