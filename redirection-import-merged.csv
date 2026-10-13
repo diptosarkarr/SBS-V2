@@ -1,8 +1,8 @@
 source,target,regex,code
-/salt-lake-city-seo-company/,/seo-utah-agency/,0,301
-/services/salt-lake-city-seo-company/,/seo-utah-agency/,0,301
-/services/salt-lake-city-seo-company-new/,/seo-utah-agency/,0,301
-/services/salt-lake-city-seo-company-old/,/seo-utah-agency/,0,301
+/salt-lake-city-seo-company/,/seo-plans-site-audit/,0,301
+/services/salt-lake-city-seo-company/,/seo-plans-site-audit/,0,301
+/services/salt-lake-city-seo-company-new/,/seo-plans-site-audit/,0,301
+/services/salt-lake-city-seo-company-old/,/seo-plans-site-audit/,0,301
 /seo-packages/,/seo-plans-site-audit/,0,301
 /free-seo-audit-report/,/seo-plans-site-audit/,0,301
 /services/google-my-business-optimization/,/local-seo-google-business-profile/,0,301
@@ -19,7 +19,7 @@ source,target,regex,code
 /services/mobile-app-development/,/custom-web-mobile-apps/,0,301
 /services/mobile-sites/,/custom-web-mobile-apps/,0,301
 /custom-web-application/,/custom-web-mobile-apps/,0,301
-/services/salt-lake-city-web-design-company/,/design/,0,301
+/services/salt-lake-city-web-design-company/,/custom-web-development/,0,301
 /services/print-media-services/,/design/,0,301
 /services/graphic-design/,/design/,0,301
 /services/branding-identity/,/design/,0,301
@@ -108,9 +108,8 @@ source,target,regex,code
 ^/newsletters(/.*)?$,/newsletter/,1,301
 ^/jobs/.*$,/who-we-are/,1,301
 ^/contact-us/book-with-.*$,/book-a-free-consultation/,1,301
-/seo-company-sandy/,/seo-utah-agency/,0,301
-/seo-company-colorado-utah/,/seo-utah-agency/,0,301
-/colorado/,/seo-utah-agency/,0,301
+/seo-company-sandy/,/seo-plans-site-audit/,0,301
+/seo-company-colorado-utah/,/colorado/,0,301
 /areas-we-serve/,/,0,301
 /why-using-live-chat-wins-the-data-to-back-that-up/,/blogs/,0,301
 /services/servicios-web-para-hispanohablantes/,/all-services/,0,301
@@ -151,7 +150,7 @@ source,target,regex,code
 /services/merchant-services/,/merchant-processing-add-on/,0,301
 /live-chat/,/,0,301
 /graphic-design-services/,/design/,0,301
-/services/digital-marketing-services/,/seo-utah-agency/,0,301
+/services/digital-marketing-services/,/marketing-visibility-packages/,0,301
 /email-marketing/,/,0,301
 /online-booking/,/book-a-free-consultation/,0,301
 /diy-ai-tactics-for-your-website-to-get-recommended-by-chat-engines-2/,/diy-ai-tactics-for-your-website-to-get-recommended-by-chat-engines/,0,301
@@ -166,7 +165,7 @@ source,target,regex,code
 /web-development-questionnaire/,/custom-web-development/,0,301
 /blog/portfolio-item/furaha-supermarket/,/our-portfolio/,0,301
 /content-writing/,/copywriting/,0,301
-/local-seo/,/seo-utah-agency/,0,301
+/local-seo/,/local-seo-google-business-profile/,0,301
 /blog/portfolio-item/song-heart-studios/,/our-portfolio/,0,301
 /blog/portfolio-types/webdesign/,/our-portfolio/,0,301
 /blog/web-design-services/,/blogs/,0,301
@@ -181,7 +180,7 @@ source,target,regex,code
 /services-2-2/marketing-services/,/marketing-visibility-packages/,0,301
 /blog/portfolio-item/sweet-leaf-family-practice/,/our-portfolio/,0,301
 /portfolio/andrew-kopf,/our-portfolio/,0,301
-/services-2-2/utah-seo-company/,/seo-utah-agency/,0,301
+/services-2-2/utah-seo-company/,/seo-plans-site-audit/,0,301
 /blog/portfolio-item/the-sport-loft/,/our-portfolio/,0,301
 /blog/logo-design/,/blogs/,0,301
 /blog/portfolio-item/apocalypse-bicycle-repair-2/,/our-portfolio/,0,301
@@ -206,7 +205,7 @@ source,target,regex,code
 /contact-form-1/,/contact-us/,0,301
 /home-new/,/,0,301
 /pagead/aclk,/,0,301
-/seo-services.com,/seo-utah-agency/,0,301
+/seo-services.com,/seo-plans-site-audit/,0,301
 /services/marketing/google/,/local-seo-google-business-profile/,0,301
 /services/web-design-development/custom-development/services/web-design-development/custom-development/,/custom-web-development/,0,301
 /web-design-dev.com,/custom-web-development/,0,301
