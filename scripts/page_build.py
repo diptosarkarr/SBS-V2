@@ -160,9 +160,9 @@ def extract_shared(page):
     end = s.index('</script>', sec) + len('</script>')
     trust = _dedented(s, start, end)
     m = re.search(r"<script>\s*window\.addEventListener\('message'.*?</script>", s, re.S)
-    resizer = _dedented(s, m.start(), m.end())
-    assert 'data-count-to="2007"' in trust and 'sbs-pricing-cards' in resizer
-    return trust + '\n', resizer + '\n'
+    resizer = _dedented(s, m.start(), m.end()) if m else ''  # only pages that still use the old pricing iframe have one
+    assert 'data-count-to="2007"' in trust
+    return trust + '\n', (resizer + '\n') if resizer else ''
 
 
 def story_row_html(row, reversed_):
@@ -189,6 +189,21 @@ def story_row_html(row, reversed_):
       </div>
     </div>
 '''
+
+
+def pricing_shortcode(src):
+    """Turn a pricing-cards URL (ids/popular/title query) into the [sbs_pricing_cards ...] shortcode that the
+    pricing plugin renders on the server. Accepts a ready-made shortcode too."""
+    import urllib.parse
+    if src.lstrip().startswith('['):
+        return src.strip()
+    q = urllib.parse.parse_qs(urllib.parse.urlparse(html.unescape(src)).query)
+    parts = [f'ids="{q["ids"][0]}"']
+    if q.get('popular'):
+        parts.append(f'popular="{q["popular"][0]}"')
+    if q.get('title'):
+        parts.append(f'title="{q["title"][0]}"')
+    return '[sbs_pricing_cards ' + ' '.join(parts) + ']'
 
 
 DEFAULT_PRICING_LEAD = "Compare the options below, or book a free consultation and we'll help you decide."
@@ -281,9 +296,7 @@ def standard_body(cfg, trust, resizer):
     </div>
 
     <div class="pricing-outer-container">
-      <iframe class="sbs-pricing-frame"
-        src="{pr['src']}"
-        title="Pricing options" style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+      {pricing_shortcode(pr['src'])}
     </div>
 
     <p class="section-note">Looking for more ways to grow your business? Explore
@@ -292,7 +305,6 @@ def standard_body(cfg, trust, resizer):
   </div>
 </section>
 
-{resizer}
 <!-- ============================================================
      HOW IT WORKS (SCOPE GRID)
      ============================================================ -->

@@ -77,6 +77,7 @@ class TextCollector(HTMLParser):
 
     def handle_data(self, data):
         data = re.sub(r"\[/?sg_popup[^\]]*\]", " ", data)  # WordPress popup shortcodes are not copy
+        data = re.sub(r"\[sbs_pricing_cards\b[^\]]*\]", " ", data)  # pricing shortcode: the plugin renders the cards
         if self.skip_depth == 0 and data.strip():
             self.segments.append(("text", " ".join(data.split())))
 
@@ -101,10 +102,18 @@ def check_structure(src, errors, warns):
     if src.count("site-trust-strip") < 2 or 'data-count-to="2007"' not in src:
         errors.append("shared trust strip missing")
     frames = re.findall(r"<iframe\b[^>]*sbs-pricing-frame[^>]*>", src, re.S)
-    if len(frames) != 1:
-        errors.append(f"expected exactly 1 pricing iframe, found {len(frames)}")
-    if "sbs-pricing-cards" not in src:
-        errors.append("pricing iframe resize listener missing")
+    shortcodes = re.findall(r"\[sbs_pricing_cards\b[^\]]*\]", src)
+    if shortcodes:
+        # server-rendered pricing (plugin shortcode) replaces the iframe: one shortcode, no iframe, no resize listener
+        if len(shortcodes) != 1 or frames:
+            errors.append(f"expected exactly 1 [sbs_pricing_cards] shortcode and no pricing iframe, found "
+                          f"{len(shortcodes)} shortcode(s) and {len(frames)} iframe(s)")
+        frames = shortcodes
+    else:
+        if len(frames) != 1:
+            errors.append(f"expected exactly 1 pricing iframe, found {len(frames)}")
+        if "sbs-pricing-cards" not in src:
+            errors.append("pricing iframe resize listener missing")
     if not re.search(r'href="#pricing"[^>]*>\s*View Pricing\s*&amp;\s*Plans', src):
         errors.append('hero button "View Pricing & Plans" -> #pricing missing')
     if 'class="related-link"' not in src:
@@ -180,8 +189,11 @@ def check_jsonld(src, errors, warns):
 def check_ids(frames, errors):
     if not frames:
         return
-    src = re.search(r'src="([^"]+)"', frames[0]).group(1)
-    ids = urllib.parse.parse_qs(urllib.parse.urlparse(html.unescape(src)).query).get("ids", [""])[0].split(",")
+    if frames[0].startswith("["):  # [sbs_pricing_cards ids="..." ...]
+        ids = html.unescape(re.search(r'ids="([^"]*)"', frames[0]).group(1)).split(",")
+    else:
+        src = re.search(r'src="([^"]+)"', frames[0]).group(1)
+        ids = urllib.parse.parse_qs(urllib.parse.urlparse(html.unescape(src)).query).get("ids", [""])[0].split(",")
     for card_id in ids:
         url = "https://order.sitesbysara.com/configure/pricing-cards?ids=" + urllib.parse.quote(card_id)
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})

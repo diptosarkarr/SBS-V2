@@ -11,7 +11,7 @@
 
 ## 1. The client directive (2026-10-04)
 
-Page copy must be **generic and stable**. Anything that can change in the order system (prices, packages, tiers, add-ons, radii, frequencies, counts) lives **only in the pricing-card iframe**, never in the page text.
+Page copy must be **generic and stable**. Anything that can change in the order system (prices, packages, tiers, add-ons, radii, frequencies, counts) lives **only in the pricing cards (rendered from the order system)**, never typed into the page text.
 
 Why: the client changed the pricing package (e.g. Local SEO lost "3-Pack Optimization" and the graduated plans) and the page text instantly became wrong. Page copy must not go stale when the order system changes.
 
@@ -26,7 +26,7 @@ Second directive: **light, not empty.** Keep the core meaning and cut repetition
 | **Numbers as claims or highlights** | "4 tiers", "5 or 10 square mile radius", "8-step", "fifth location", "24/7", "99.9% uptime", "within 48 hours", "50+ pages" |
 | **Prices / billing / cost** | `$`, "price", "cost", "fee", "monthly", "weekly", "one-time", "retainer", "per month", "minimum term", "billed", "starting at", "free trial" |
 | **Package / tier / add-on names and contents** | "Local Domination Package", "Starter / Plus / Growth", "Additional Location Add-On", "3-Pack Optimization", "Local SEO Plans" |
-| **What a specific package includes** | bullet lists of package scope (the iframe card owns this) |
+| **What a specific package includes** | bullet lists of package scope (the order-system card owns this) |
 | **Frequencies, durations, turnaround, guarantees** | "weekly updates", "ongoing monthly", "results in 30 days", "guaranteed", "#1 ranking" |
 | **Comparisons between plans** | "difference between Plans and the Package", "start smaller or scale up" |
 | **Platform / tool / integration lists, policies** | anything only the client knows. Do not invent; write the safest generic wording and list it as an assumption for the user |
@@ -88,11 +88,12 @@ Order: Banner → Hero → **Shared trust strip** → Pricing → Scope grid →
 
 - **Headless fragment.** No `<html>`, `<head>`, `<body>`, `<meta>`, `<title>`, no `<header>`/`<footer>`. Pages are pasted into Elementor HTML widgets.
 - **Trust strip:** the identical homepage strip (`.site-trust-strip`: 2007 / 300+ / awards count, with the count-up script). Never write a page-specific strip. The awards number is global; if it changes, update it sitewide (home-body, about, every service page).
-- **Pricing:** exactly **ONE** `<iframe class="sbs-pricing-frame">` holding every card of the page (no groups, no "starting at" summary card), plus the `postMessage` height-resize listener script. No extra text around it: no billing notes, no tier notes, no currency/billing bar, no disclaimer.
+- **Pricing:** exactly **ONE** `[sbs_pricing_cards ids="..." popular="..." title="..."]` shortcode holding every card of the page (no groups, no "starting at" summary card). The pricing plugin renders it on the server, so plans, prices and inclusions are in the page HTML that crawlers read (the old iframe page was `noindex`). No iframe and no resize script (since 2026-10-15). No extra text around it: no billing notes, no tier notes, no currency/billing bar, no disclaimer.
   - `src="https://order.sitesbysara.com/configure/pricing-cards?ids=a,b,c&title=Short%20Service%20Label"`. **Always set `title`**: it renders the small label above the cards (without it the cards float with no heading; the client flagged this). Use a short generic label such as the service name, URL-encoded. Only one `popular` id; do not add one unless the client asked.
   - **Read what the live cards say before writing copy** (names, what is included). Card names change (the CRM tiers were renamed and "training" disappeared) and page copy must never promise something the cards no longer show.
   - **Verify the ids before touching copy:** fetch `…/pricing-cards?ids=<id>` for each id and read the `pc-name` values (see §7). Ids that return no card are stale: drop them from the URL.
   - Never put prices in page text. Never edit what the cards say (they come from the order system).
+  - **Pilot (2026-10-15): server-rendered pricing.** `wordpress-maintenance-bundle.html` has no iframe: the pricing block is the plugin shortcode `[sbs_pricing_cards ids="..." popular="..." title="..."]` (same `ids` syntax as the iframe URL, `|` joins the two billing variants of one card), so the plans, prices and inclusions are in the HTML the server sends (the iframe page is `noindex`, so Google did not count them). The text is rendered from the order system, never typed into the repo, so it cannot go stale and the "no prices in page text" rule still holds for the repo file. The checker accepts either form (one iframe + resize listener, or exactly one shortcode and no iframe). If the pilot is confirmed in Search Console, move the other service pages over the same way. The shortcode must run in a Shortcode widget (or wherever the site processes shortcodes); if the raw text shows on the page, move it out of the HTML widget.
 - **Hero:** secondary button `href="#pricing"` reading **View Pricing & Plans**. No hero footnote line.
 - **Never** add a "← Browse All Services" / `all-services` link on a service page.
 - **Spacing:** every full-width section uses `padding: var(--section-gap) 0` (token defined in `:root` on every page). No custom section paddings.
@@ -140,7 +141,7 @@ When cutting or adding rows/cards, keep the layout correct: `.is-reversed` must 
 
 - Never invent a business fact (policy, timeline, platform, guarantee). If an answer needs one, use hedged generic wording and list it as an **assumption to confirm** in the report.
 - Don't "fix" an eyebrow by rewriting real content; reword the eyebrow (`design.md` §5.35).
-- Do not touch the content of the iframe cards.
+- Do not touch the content of the pricing cards.
 
 ---
 
@@ -150,7 +151,7 @@ When cutting or adding rows/cards, keep the layout correct: `.is-reversed` must 
    ```bash
    python scripts/check_service_page.py <page>.html
    ```
-2. **Check live cards:** `python scripts/check_service_page.py <page>.html --check-ids` (fetches each iframe id and lists the card names it really renders, flags dead ids).
+2. **Check live cards:** `python scripts/check_service_page.py <page>.html --check-ids` (fetches each pricing id and lists the card names it really renders, flags dead ids).
 3. **Rewrite** the page to §2–§5. Build FAQ + JSON-LD from one list in a script.
 4. **Re-run the checker** until it reports `0 errors`. Review warnings by hand.
 5. **Preview** in a local wrapper page (headless fragment inside `<body>` of a temp HTML file), check desktop + mobile, open FAQ items, delete temp files.
@@ -173,9 +174,9 @@ Technical notes:
 
 - [ ] `check_service_page.py` → **0 errors** (digits / prices / billing words / package names / wrapper tags / FAQ ↔ JSON-LD).
 - [ ] No numbers or specifics in prose, headings, alt text, FAQ, JSON-LD, meta.
-- [ ] No pricing, cost, billing, tier, plan-comparison, or "what's included" talk anywhere outside the iframe.
+- [ ] No pricing, cost, billing, tier, plan-comparison, or "what's included" talk anywhere outside the pricing cards.
 - [ ] FAQ is generic, 4–5 questions, no bold key points, JSON-LD identical.
-- [ ] One pricing iframe, only live ids, `title=` label set, resize script present, only the related-services `.section-note` line under it.
+- [ ] One `[sbs_pricing_cards]` shortcode (no iframe, no resize script), only live ids, `title=` label set, only the related-services `.section-note` line under it.
 - [ ] Shared trust strip (identical to homepage), shared awards number.
 - [ ] Hero secondary button → `#pricing` "View Pricing & Plans". No hero footnote.
 - [ ] Story rows alternate correctly after any row removal; images/alt still match their row.

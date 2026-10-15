@@ -22,11 +22,17 @@ def text_of(markup):
 
 def live_cards(src):
     m = re.search(r'pricing-cards\?([^"]+)"', src)
-    if not m:
+    sc = re.search(r'\[sbs_pricing_cards\b([^\]]*)\]', src)
+    if m:
+        qs = html.unescape(m.group(1))
+    elif sc:  # server-rendered pricing: same parameters as the old iframe URL
+        attrs = dict(re.findall(r'(\w+)="([^"]*)"', html.unescape(sc.group(1))))
+        qs = urllib.parse.urlencode({k: v for k, v in attrs.items() if k in ('ids', 'popular', 'title')})
+    else:
         return
-    query = urllib.parse.parse_qs(html.unescape(m.group(1)))
+    query = urllib.parse.parse_qs(qs)
     ids = query.get('ids', [''])[0]
-    url = 'https://order.sitesbysara.com/configure/pricing-cards?' + html.unescape(m.group(1))
+    url = 'https://order.sitesbysara.com/configure/pricing-cards?' + qs
     body = urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}), timeout=30).read()
     body = re.sub(r'<(style|script)\b.*?</\1>', '', body.decode('utf-8', 'ignore'), flags=re.S)
     print(f'\n=== LIVE CARDS (ids={ids}) ===')
