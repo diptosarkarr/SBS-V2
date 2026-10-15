@@ -1191,9 +1191,7 @@
     </div>
 
     <div class="pricing-outer-container">
-      <iframe class="sbs-pricing-frame"
-        src="https://order.sitesbysara.com/configure/pricing-cards?ids=111,110,112,113&popular=110&title=CRM%20Build%20%26%20Management"
-        title="Pricing options" style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+      [sbs_pricing_cards ids="111,110,112,113" popular="110" title="CRM Build & Management"]
     </div>
 
     <!-- Client-supplied content (CRM_Revised_Pricing_Section.pdf): sits under the Management card -->
@@ -1233,16 +1231,6 @@
 
   </div>
 </section>
-
-<script>
-  window.addEventListener('message', function (e) {
-    if (e.data && e.data.source === 'sbs-pricing-cards') {
-      document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
-        if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
-      });
-    }
-  });
-</script>
 
 <!-- ============================================================
      HOW IT WORKS (SCOPE GRID)

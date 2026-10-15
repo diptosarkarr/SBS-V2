@@ -1405,9 +1405,7 @@
     </div>
 
     <div class="pricing-outer-container">
-      <iframe class="sbs-pricing-frame"
-        src="https://order.sitesbysara.com/configure/pricing-cards?ids=56,57&title=Local%20SEO%20%26%20Google%20Business%20Profile"
-        title="Pricing options" style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+      [sbs_pricing_cards ids="56,57" title="Local SEO & Google Business Profile"]
     </div>
 
     <p class="section-note">Looking for more ways to grow your visibility? Explore
@@ -1416,16 +1414,6 @@
 
   </div>
 </section>
-
-<script>
-  window.addEventListener('message', function (e) {
-    if (e.data && e.data.source === 'sbs-pricing-cards') {
-      document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
-        if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
-      });
-    }
-  });
-</script>
 
 <!-- ============================================================
      WHAT WE DO (SCOPE GRID)

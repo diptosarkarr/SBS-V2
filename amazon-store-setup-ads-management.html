@@ -1146,9 +1146,7 @@
     </div>
 
     <div class="pricing-outer-container">
-      <iframe class="sbs-pricing-frame"
-        src="https://order.sitesbysara.com/configure/pricing-cards?ids=96,100,97,98,99,101,102,103,104,105&popular=96&title=Amazon%20Store%20Setup%20%26%20Ads%20Management"
-        title="Pricing options" style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+      [sbs_pricing_cards ids="96,100,97,98,99,101,102,103,104,105" popular="96" title="Amazon Store Setup & Ads Management"]
     </div>
 
     <p class="section-note">Looking for more ways to grow your business? Explore
@@ -1157,16 +1155,6 @@
 
   </div>
 </section>
-
-<script>
-  window.addEventListener('message', function (e) {
-    if (e.data && e.data.source === 'sbs-pricing-cards') {
-      document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
-        if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
-      });
-    }
-  });
-</script>
 
 <!-- ============================================================
      HOW IT WORKS (SCOPE GRID)

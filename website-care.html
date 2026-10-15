@@ -971,9 +971,7 @@
     </div>
 
     <div class="pricing-outer-container">
-      <iframe class="sbs-pricing-frame"
-        src="https://order.sitesbysara.com/configure/pricing-cards?ids=109,128,129,129-1,29,127&title=Website%20Care%20Services"
-        title="Pricing options" style="width:100%;border:0;display:block;" loading="lazy"></iframe>
+      [sbs_pricing_cards ids="109,128,129,129-1,29,127" title="Website Care Services"]
     </div>
 
     <p class="section-note">Looking for more ways to grow your business? Explore
@@ -983,16 +981,6 @@
 
   </div>
 </section>
-
-<script>
-  window.addEventListener('message', function (e) {
-    if (e.data && e.data.source === 'sbs-pricing-cards') {
-      document.querySelectorAll('iframe.sbs-pricing-frame').forEach(function (frame) {
-        if (frame.contentWindow === e.source) frame.style.height = e.data.height + 'px';
-      });
-    }
-  });
-</script>
 
 <!-- ============================================================
      HOW IT WORKS (SCOPE GRID)
