@@ -9,12 +9,12 @@
   {
     "@context": "https://schema.org",
     "@type": "Service",
-    "serviceType": "Merchant Processing for Existing Websites",
+    "serviceType": "Payment Processing and E-Commerce Integration",
     "provider": {
       "@type": "Organization",
       "name": "Sites by Sara"
     },
-    "description": "Add merchant processing to your existing website so you can accept online payments, with no rebuild required."
+    "description": "Payment platform setup for your website: checkout integration, the payment methods your customers use, testing and launch, on a merchant account you own."
   }
 </script>
 <!-- SEO: FAQPage structured data, generated from the same list as the visible FAQ -->
@@ -25,42 +25,74 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What does merchant processing do?",
+        "name": "Do the payment platforms charge setup fees?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Merchant processing lets your website accept credit card and other online payments securely from your customers."
+          "text": "No. Stripe, PayPal, and PayPal Enterprise Payments all have no setup fees, no monthly fees, and no minimum processing requirements. You pay them only when you process a transaction. Our own fees are the one-time integration fees shown in the pricing section, for the integration work."
         }
       },
       {
         "@type": "Question",
-        "name": "Do I need a specific type of website?",
+        "name": "Who owns the merchant account?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No specific platform is required. Tell us about your site in your free consultation and we will confirm the right approach."
+          "text": "You do, always. You sign up under your own business, your own bank account, and your own tax identification, and then grant us team access to do the work. We never hold your banking credentials or your passwords, and you can remove our access at any moment without touching your payment flow."
         }
       },
       {
         "@type": "Question",
-        "name": "Does adding payment processing mean rebuilding my website?",
+        "name": "Do I need a PayPal Business account?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. It is added to your existing website, not a rebuild."
+          "text": "Yes, for PayPal Checkout. A personal PayPal account will not accept commercial payments through a website checkout. PayPal Enterprise Payments is a separate application with its own underwriting review, it is not an upgrade toggle on an existing PayPal account, and approval is not instant. We will tell you what the application asks for before you start."
         }
       },
       {
         "@type": "Question",
-        "name": "What if I don't have a website yet?",
+        "name": "Can I accept both Venmo and Cash App Pay?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Payment processing is added to an existing website. If you don't have one yet, our e-commerce store services can build one for you."
+          "text": "Not on one platform. Cash App Pay is available only through Stripe; Venmo is available only through PayPal and PayPal Enterprise Payments. Accepting both means running two processors in parallel, with two dashboards, two payout schedules, and two sets of reconciliation. That is a real project rather than an add-on, and we scope it separately. In most cases one of the two is clearly the right fit for a given customer base."
         }
       },
       {
         "@type": "Question",
-        "name": "What payment options are available?",
+        "name": "Who pays the processing fees, and can I pass them on?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Beyond standard card processing, we can also help with options such as bank transfers and custom gateway connections. Tell us what you need in your free consultation."
+          "text": "The platform deducts its fee from each transaction before the money reaches you. We do not mark it up and we do not collect it. If you would rather not absorb that cost, there are two approaches. The simplest is to build the expected fee into your published prices: invisible to customers, no compliance exposure, and it works on every payment method. The alternative is a customer-facing fee added at checkout, which both Stripe and PayPal can support technically. That second route is regulated. What such a fee may be called, how large it may be, whether it may be applied to debit cards, and whether it is permitted at all depends on your state and on card network rules, and the requirements differ between platforms. We will build it for you, but confirm the structure and the exact wording with your attorney before you turn it on. We are not able to give legal advice on this point."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Why does ACH cost more to set up than a wallet?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Because it behaves differently from a card. Enabling Apple Pay or Venmo is largely configuration. ACH means verifying that the customer owns the bank account, collecting an authorization, handling payments that settle over several business days rather than confirming instantly, and catching payments that fail after the fact when an account is closed or short. On PayPal Enterprise Payments it also requires a custom checkout build, because ACH is not available in their standard drop-in interface. The payoff is the rate: on the same payment, ACH costs a fraction of what a card does."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Link, and is it a financing option?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Link is Stripe's own wallet, closer to Apple Pay than to a buy now pay later product. Nothing is borrowed. Customers who saved a card or bank account at any other Stripe business can check out on your site with an email and a code instead of typing card details. It comes with your Stripe integration at no extra charge, and its Instant Bank Payments option runs slightly below the standard card rate while still settling on the card timeline."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I add payment methods later?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Add-on pricing applies at the rates shown in the pricing section, and most wallets can be enabled without disturbing your live checkout. Moving between platforms later is a bigger job, which is why we spend time on the platform decision up front."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How soon do I get paid?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Card and wallet payments typically settle to your bank within a couple of business days once your account is established, though every platform holds initial payouts a little longer while it verifies a new merchant. ACH payments take longer and can be returned after they appear to have succeeded, which is why we build a failure path into every ACH integration."
         }
       }
     ]
@@ -167,18 +199,6 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 24px;
-    }
-
-    .section-space {
-      padding: var(--section-gap) 0;
-    }
-
-    .section-space-tight {
-      padding: var(--section-gap) 0;
-    }
-
-    .text-center {
-      text-align: center;
     }
 
     .section-header {
@@ -471,162 +491,6 @@
     }
 
     /* ============================================================
-     DETAILED BREAKDOWN: OUR PROCESS (8-Step Scope)
-     ============================================================ */
-    .scope-section {
-      background: var(--bg-light);
-      border-top: 1px solid var(--border-light);
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .scope-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .scope-card {
-      background: #FFFFFF;
-      border: 1px solid var(--border-light);
-      border-radius: var(--radius-md);
-      padding: 24px 20px;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.2s ease;
-    }
-
-    .scope-card:hover {
-      border-color: var(--brand-blue);
-      box-shadow: var(--shadow-subtle);
-      transform: translateY(-2px);
-    }
-
-    .scope-num {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: var(--brand-blue-tint);
-      color: var(--brand-blue);
-      font-size: 0.9rem;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 16px;
-    }
-
-    .scope-title {
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 8px;
-    }
-
-    .scope-desc {
-      font-size: 0.85rem;
-      color: var(--slate);
-      line-height: 1.55;
-    }
-
-    /* ============================================================
-     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
-     ============================================================ */
-    .story-features-section {
-      padding: var(--section-gap) 0;
-    }
-
-    .story-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: clamp(40px, 7vw, 100px);
-      align-items: center;
-      margin-bottom: clamp(70px, 9vw, 130px);
-    }
-
-    .story-row:last-child {
-      margin-bottom: 0;
-    }
-
-    .story-row.is-reversed .story-text-col {
-      order: 2;
-    }
-
-    .story-row.is-reversed .story-visual-col {
-      order: 1;
-    }
-
-    .story-text-col {
-      max-width: 480px;
-    }
-
-    .story-title {
-      font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.025em;
-      color: var(--navy);
-      margin-bottom: 18px;
-    }
-
-    .story-desc {
-      font-size: 1.08rem;
-      color: var(--slate);
-      line-height: 1.65;
-      margin-bottom: 24px;
-    }
-
-    .story-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.98rem;
-      font-weight: 600;
-      color: var(--brand-coral);
-      transition: gap 0.2s ease, color 0.2s ease;
-    }
-
-    .story-link:hover,
-    .story-link:focus,
-    .story-link:focus-visible,
-    .story-link:active {
-      gap: 10px;
-      color: var(--brand-coral-hover) !important;
-    }
-
-    .story-link svg {
-      width: 15px;
-      height: 15px;
-      flex-shrink: 0;
-    }
-
-    .story-visual-col {
-      display: flex;
-      justify-content: center;
-    }
-
-    .story-image-card {
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-card);
-      border: 1px solid var(--border-light);
-      transition: all 0.3s ease;
-      background: #FFFFFF;
-      max-width: 520px;
-      width: 100%;
-    }
-
-    .story-image-card:hover {
-      box-shadow: var(--shadow-floating);
-      transform: translateY(-3px);
-    }
-
-    .story-image-card img {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    /* ============================================================
      FAQ SECTION (Clean Modern Accordion)
      ============================================================ */
     .faq-section {
@@ -785,35 +649,15 @@
     /* ============================================================
      RESPONSIVE BREAKPOINTS
      ============================================================ */
-    @media (max-width: 1024px) {
-      .scope-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
 
-    @media (max-width: 820px) {
-
-      .hero-grid,
-      .story-row,
-      .cta-banner-box {
+    @media (max-width: 820px) {.hero-grid,
+.cta-banner-box {
         grid-template-columns: 1fr;
         gap: 40px;
-      }
-
-      .story-row.is-reversed .story-text-col {
-        order: 1;
-      }
-
-      .story-row.is-reversed .story-visual-col {
-        order: 2;
       }
     }
 
     @media (max-width: 600px) {
-
-      .scope-grid {
-        grid-template-columns: 1fr;
-      }
 
       .btn-group {
         flex-direction: column;
@@ -853,6 +697,391 @@
     color: var(--brand-blue-hover) !important;
   }
 
+  /* Short supporting line under a section's cards/grid; also used for related-service links */
+  .section-note {
+    text-align: center;
+    max-width: 720px;
+    margin: 28px auto 0;
+    font-size: 0.98rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  .section-note + .section-note {
+    margin-top: 12px;
+  }
+
+  .section-note a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
+
+  .section-note a:hover,
+  .section-note a:focus,
+  .section-note a:focus-visible,
+  .section-note a:active {
+    color: var(--brand-blue-hover) !important;
+  }
+
+
+  /* ============================================================
+     PAYMENT PAGE: platform cards, rule callout, compatibility table, processing rates, steps
+     (client-supplied copy, see SERVICE-PAGE-GUIDELINES.md section 2b)
+     ============================================================ */
+  .pp-section {
+    padding: var(--section-gap) 0;
+    background: #FFFFFF;
+  }
+
+  .pp-section.is-tint {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .pp-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* ---- platform cards ---- */
+  .pp-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  .pp-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    padding: 30px 26px;
+  }
+
+  .pp-card.is-featured {
+    border: 2px solid var(--brand-blue);
+    box-shadow: var(--shadow-card);
+    padding-top: 36px;
+  }
+
+  .pp-card-flag {
+    position: absolute;
+    top: -13px;
+    left: 24px;
+    background: var(--brand-gradient);
+    color: #FFFFFF;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: var(--radius-pill);
+  }
+
+  .pp-card-name {
+    font-size: 1.35rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--navy);
+    margin: 0;
+  }
+
+  .pp-card-best {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--brand-blue);
+  }
+
+  .pp-card-text {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--slate);
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .pp-card-limit {
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--slate-light);
+    margin: 0;
+    padding-top: 12px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  /* ---- the Venmo / Cash App rule ---- */
+  .pp-callout {
+    margin-top: 28px;
+    background: var(--brand-blue-tint);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 30px 32px;
+  }
+
+  .pp-callout-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 10px;
+  }
+
+  .pp-callout-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--slate);
+    margin: 0;
+    max-width: 900px;
+  }
+
+  /* ---- compatibility table ---- */
+  .pp-table-wrap {
+    overflow-x: auto;
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+  }
+
+  .pp-table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    font-size: 0.98rem;
+  }
+
+  .pp-table thead th {
+    background: var(--brand-blue);
+    color: #FFFFFF;
+    font-size: 0.88rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-align: center;
+    padding: 16px 14px;
+  }
+
+  .pp-table thead th:first-child {
+    text-align: left;
+    padding-left: 24px;
+  }
+
+  .pp-table tbody th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--navy);
+    padding: 15px 14px 15px 24px;
+  }
+
+  .pp-table tbody tr + tr th,
+  .pp-table tbody tr + tr td {
+    border-top: 1px solid var(--border-light);
+  }
+
+  .pp-table tbody tr:nth-child(even) {
+    background: var(--bg-light);
+  }
+
+  .pp-table td {
+    text-align: center;
+    font-weight: 700;
+    padding: 15px 14px;
+  }
+
+  .pp-table td.is-yes {
+    color: var(--green);
+  }
+
+  .pp-table td.is-no {
+    color: #B42318;
+  }
+
+  /* ---- processing rates ---- */
+  .pp-fine {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--slate-light);
+    max-width: 820px;
+    margin: 12px auto 0;
+  }
+
+  .pp-rates {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: start;
+  }
+
+  .pp-rate-card {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    padding: 28px 24px;
+  }
+
+  .pp-rate-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--navy);
+    margin: 0 0 10px;
+  }
+
+  .pp-rate-sub {
+    font-size: 0.88rem;
+    color: var(--slate-light);
+    margin: -6px 0 10px;
+  }
+
+  .pp-rate-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 14px;
+    padding: 11px 0;
+    border-top: 1px solid var(--border-light);
+    font-size: 0.93rem;
+  }
+
+  .pp-rate-key {
+    color: var(--slate);
+  }
+
+  .pp-rate-val {
+    font-weight: 700;
+    color: var(--navy);
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .pp-rate-na {
+    font-weight: 700;
+    color: #B42318;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  .pp-rate-note {
+    font-size: 0.86rem;
+    line-height: 1.6;
+    color: var(--slate-light);
+    margin: 12px 0 0;
+    padding-top: 14px;
+    border-top: 1px solid var(--border-light);
+  }
+
+  .pp-rate-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--brand-blue);
+    text-decoration: none;
+  }
+
+  .pp-rate-link:hover,
+  .pp-rate-link:focus-visible {
+    text-decoration: underline;
+  }
+
+  .pp-rate-link svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  /* ---- how it works: numbered steps ---- */
+  .pp-steps {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 960px;
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .pp-step {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding: 26px 32px;
+  }
+
+  .pp-step + .pp-step {
+    border-top: 1px solid var(--border-light);
+  }
+
+  .pp-step-num {
+    flex-shrink: 0;
+    min-width: 46px;
+    font-size: 1.6rem;
+    font-weight: 800;
+    line-height: 1;
+    color: var(--brand-blue);
+    opacity: 0.45;
+  }
+
+  .pp-step-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 0 0 6px;
+  }
+
+  .pp-step-text {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--slate);
+    margin: 0;
+  }
+
+  /* ---- disclaimer under the closing banner ---- */
+  .pp-disclaimer {
+    max-width: 900px;
+    margin: 24px auto 0;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--slate-light);
+    text-align: center;
+  }
+
+  @media (max-width: 1024px) {
+    .pp-grid,
+    .pp-rates {
+      grid-template-columns: 1fr;
+    }
+
+    .pp-card.is-featured {
+      margin-top: 8px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .pp-step {
+      gap: 14px;
+      padding: 22px 20px;
+    }
+
+    .pp-callout {
+      padding: 24px 22px;
+    }
+  }
 </style>
 
 <!-- ============================================================
@@ -861,8 +1090,8 @@
 <section class="page-title-banner" aria-label="Page Title">
   <div class="page-title-banner-mesh" aria-hidden="true"></div>
   <div class="container page-title-inner">
-    <h1 class="page-banner-h1">Merchant Processing Add-On</h1>
-    <p class="page-banner-sub">(Accept Payments on Your Existing Website)</p>
+    <h1 class="page-banner-h1">Payment Processing &amp; E-Commerce Integration</h1>
+    <p class="page-banner-sub">(Stripe, PayPal &amp; PayPal Enterprise Payments, Set Up for You)</p>
   </div>
 </section>
 
@@ -880,10 +1109,12 @@
           Payment Processing
         </div>
 
-        <h2 class="h2-title">Start accepting payments on the website you already have.</h2>
+        <h2 class="h2-title">A checkout that works, on a merchant account you own</h2>
 
         <p class="lead-text">
-          If you already have a website and just need to accept payments, we can add merchant processing to your existing site, with no rebuild required.
+          We connect your website to a real payment platform, turn on the payment methods your customers actually use, and
+          hand you a checkout that works. You keep ownership of your merchant account and your money. We handle the
+          configuration, testing, and launch.
         </p>
 
         <div class="btn-group">
@@ -893,7 +1124,7 @@
         </div>
       </div>
 
-      <!-- Hero Visual Mockup -->
+      <!-- Hero Visual -->
       <div class="hero-visual-wrap">
         <div class="hero-image-card">
           <img src="/wp-content/uploads/2026/09/merchant-processing-addon-hero.webp"
@@ -963,7 +1194,97 @@
 </script>
 
 <!-- ============================================================
-     PRICING SECTION
+     CHOOSE A PLATFORM  (client-supplied copy)
+     ============================================================ -->
+<section class="pp-section client-content" id="platforms" aria-label="Choose a platform">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Platforms
+      </div>
+      <h2 class="h2-title">Start by choosing a platform</h2>
+      <p class="lead-text">Every integration runs on one of three platforms. The right one is decided by which payment methods your customers expect, not by preference. Here is what each one is and who it suits.</p>
+    </div>
+
+    <div class="pp-grid">
+      <div class="pp-card">
+        
+        <h3 class="pp-card-name">Stripe</h3>
+        <div class="pp-card-best">Best for subscriptions &amp; Cash App Pay</div>
+        <p class="pp-card-text">The strongest option for tiered plans and recurring billing. Proration, plan upgrades, dunning, and a hosted customer portal are built in. Cash App Pay and ACH are both available here.</p>
+        <p class="pp-card-limit">Does not support Venmo. US Stripe accounts cannot accept PayPal.</p>
+      </div>
+      <div class="pp-card">
+        
+        <h3 class="pp-card-name">PayPal Checkout</h3>
+        <div class="pp-card-best">Best for Venmo &amp; brand familiarity</div>
+        <p class="pp-card-text">The fastest route to accepting PayPal and Venmo. Requires a PayPal Business account. Venmo appears on your existing PayPal buttons once enabled.</p>
+        <p class="pp-card-limit">Does not support ACH bank debit or Cash App Pay.</p>
+      </div>
+      <div class="pp-card is-featured">
+        <div class="pp-card-flag">Most complete</div>
+        <h3 class="pp-card-name">PayPal Enterprise Payments</h3>
+        <div class="pp-card-best">Formerly Braintree</div>
+        <p class="pp-card-text">PayPal's full processing platform. Cards, PayPal, Venmo, Apple Pay, Google Pay, and ACH from a single integration. Separate application and underwriting.</p>
+        <p class="pp-card-limit">Does not support Cash App Pay. Subscription tooling is lighter than Stripe's.</p>
+      </div>
+    </div>
+
+    <div class="pp-callout">
+      <h3 class="pp-callout-title">The one rule that decides most projects</h3>
+      <p class="pp-callout-text">No single platform offers both Venmo and Cash App Pay. Cash App Pay exists only on Stripe. Venmo exists only on PayPal and PayPal Enterprise Payments. If your customers expect one of the two, that requirement chooses your platform for you. If you need both, you would run two processors side by side, which we can scope separately.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     COMPATIBILITY TABLE  (client-supplied copy)
+     ============================================================ -->
+<section class="pp-section is-tint client-content" id="compatibility" aria-label="Payment methods by platform">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Compare
+      </div>
+      <h2 class="h2-title">What works where</h2>
+      <p class="lead-text">Payment method availability by platform. Every method listed is available in the United States for US-based businesses transacting in USD.</p>
+    </div>
+
+    <div class="pp-table-wrap">
+      <table class="pp-table">
+        <caption class="pp-sr-only">Payment methods available on Stripe, PayPal Checkout and PayPal Enterprise Payments</caption>
+        <thead>
+          <tr>
+            <th scope="col">Payment method</th>
+            <th scope="col">Stripe</th>
+            <th scope="col">PayPal Checkout</th>
+            <th scope="col">PayPal Enterprise Payments</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">Major credit &amp; debit cards</th><td class="is-yes">Yes</td><td class="is-yes">Yes</td><td class="is-yes">Yes</td></tr>
+          <tr><th scope="row">Apple Pay</th><td class="is-yes">Yes</td><td class="is-yes">Yes</td><td class="is-yes">Yes</td></tr>
+          <tr><th scope="row">Google Pay</th><td class="is-yes">Yes</td><td class="is-yes">Yes</td><td class="is-yes">Yes</td></tr>
+          <tr><th scope="row">Cash App Pay</th><td class="is-yes">Yes</td><td class="is-no">No</td><td class="is-no">No</td></tr>
+          <tr><th scope="row">Venmo</th><td class="is-no">No</td><td class="is-yes">Yes</td><td class="is-yes">Yes</td></tr>
+          <tr><th scope="row">PayPal wallet</th><td class="is-no">No</td><td class="is-yes">Yes</td><td class="is-yes">Yes</td></tr>
+          <tr><th scope="row">ACH Direct Debit (bank)</th><td class="is-yes">Yes</td><td class="is-no">No</td><td class="is-yes">Yes</td></tr>
+          <tr><th scope="row">Link / Instant Bank Payments</th><td class="is-yes">Yes</td><td class="is-no">No</td><td class="is-no">No</td></tr>
+          <tr><th scope="row">Buy now, pay later</th><td class="is-yes">Yes</td><td class="is-yes">Yes</td><td class="is-yes">Yes</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     PRICING SECTION (cards rendered from the order system)
      ============================================================ -->
 <section class="pricing-section" id="pricing">
   <div class="container">
@@ -973,8 +1294,8 @@
         <span class="eyebrow-dot"></span>
         Pricing
       </div>
-      <h2 class="h2-title">Choose the payment option that fits your business.</h2>
-      <p class="lead-text">Compare the options below, or book a free consultation and we'll help you decide.</p>
+      <h2 class="h2-title">Our integration pricing</h2>
+      <p class="lead-text"><span class="client-content">One-time fees for configuration, integration, testing, and launch. These are our fees for the work. They are separate from the platform's processing rates, which are listed below.</span></p>
     </div>
 
     <div class="pricing-outer-container">
@@ -989,9 +1310,67 @@
 </section>
 
 <!-- ============================================================
-     HOW IT WORKS (SCOPE GRID)
+     PLATFORM PROCESSING RATES  (the one place rates are shown on the page, client-supplied)
      ============================================================ -->
-<section class="section-space scope-section" aria-label="How it works">
+<section class="pp-section is-tint client-content" id="rates" aria-label="Platform processing rates">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Processing Rates
+      </div>
+      <h2 class="h2-title">Platform processing rates</h2>
+      <p class="lead-text">These are the platforms' own published US rates, charged directly to you on each transaction. We do not mark them up, and we do not collect them. None of these platforms charge a setup fee, a monthly fee, or a minimum processing requirement.</p>
+      <p class="pp-fine">Rates are subject to change by the platform at any time. Confirm current pricing on the provider's own pricing page before relying on these figures.</p>
+    </div>
+
+    <div class="pp-rates">
+      <div class="pp-rate-card">
+        <h3 class="pp-rate-title">Stripe</h3>
+        
+        <div class="pp-rate-row"><span class="pp-rate-key">Domestic cards</span><span class="pp-rate-val">2.9% + 30¢</span></div>
+        <div class="pp-rate-row"><span class="pp-rate-key">Apple Pay, Google Pay, Cash App Pay</span><span class="pp-rate-val">Card rate</span></div>
+        <div class="pp-rate-row"><span class="pp-rate-key">Link Instant Bank Payments</span><span class="pp-rate-val">2.6% + 30¢</span></div>
+        <div class="pp-rate-row"><span class="pp-rate-key">ACH Direct Debit</span><span class="pp-rate-val">0.8%, capped at $5</span></div>
+        <div class="pp-rate-row"><span class="pp-rate-key">Klarna</span><span class="pp-rate-val">5.99% + 30¢</span></div>
+        <div class="pp-rate-row"><span class="pp-rate-key">International cards</span><span class="pp-rate-val">+1.5%</span></div>
+        <div class="pp-rate-row"><span class="pp-rate-key">Currency conversion</span><span class="pp-rate-val">+1%</span></div>
+        <div class="pp-rate-row"><span class="pp-rate-key">Manually entered cards</span><span class="pp-rate-val">+0.5%</span></div>
+        <a class="pp-rate-link" href="https://stripe.com/pricing" target="_blank" rel="noopener noreferrer">Stripe pricing page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="pp-rate-card">
+        <h3 class="pp-rate-title">PayPal Checkout</h3>
+        
+        <div class="pp-rate-row"><span class="pp-rate-key">Domestic cards</span><span class="pp-rate-val">2.99% + 49¢</span></div>
+        <div class="pp-rate-row"><span class="pp-rate-key">PayPal wallet</span><span class="pp-rate-val">3.49% + 49¢</span></div>
+        <div class="pp-rate-row"><span class="pp-rate-key">Venmo</span><span class="pp-rate-val">3.49% + 49¢</span></div>
+        <div class="pp-rate-row"><span class="pp-rate-key">Apple Pay, Google Pay</span><span class="pp-rate-val">Card rate</span></div>
+        <div class="pp-rate-row"><span class="pp-rate-key">ACH Direct Debit</span><span class="pp-rate-na">Not available</span></div>
+        <p class="pp-rate-note">PayPal publishes rates by product and account type. We confirm your exact rate against your account during onboarding.</p>
+        <a class="pp-rate-link" href="https://www.paypal.com/us/business/paypal-business-fees" target="_blank" rel="noopener noreferrer">PayPal fees page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <div class="pp-rate-card">
+        <h3 class="pp-rate-title">PayPal Enterprise Payments</h3>
+        <div class="pp-rate-sub">formerly Braintree</div>
+        <div class="pp-rate-row"><span class="pp-rate-key">Cards &amp; digital wallets</span><span class="pp-rate-val">2.59% + 49¢</span></div>
+        <div class="pp-rate-row"><span class="pp-rate-key">Venmo</span><span class="pp-rate-val">3.49% + 49¢</span></div>
+        <div class="pp-rate-row"><span class="pp-rate-key">ACH Direct Debit</span><span class="pp-rate-val">0.75%, capped at $5</span></div>
+        <div class="pp-rate-row"><span class="pp-rate-key">International cards</span><span class="pp-rate-val">+1%</span></div>
+        <div class="pp-rate-row"><span class="pp-rate-key">Currency conversion</span><span class="pp-rate-val">+1%</span></div>
+        <div class="pp-rate-row"><span class="pp-rate-key">Chargebacks</span><span class="pp-rate-val">$15 per dispute</span></div>
+        <p class="pp-rate-note">Businesses processing roughly $80,000 a month or more can request negotiated interchange-plus pricing.</p>
+        <a class="pp-rate-link" href="https://www.paypal.com/us/enterprise/paypal-braintree-fees" target="_blank" rel="noopener noreferrer">PayPal Enterprise fees page <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     HOW IT WORKS  (client-supplied copy)
+     ============================================================ -->
+<section class="pp-section client-content" id="process" aria-label="How it works">
   <div class="container">
 
     <div class="section-header">
@@ -999,149 +1378,62 @@
         <span class="eyebrow-dot"></span>
         How It Works
       </div>
-      <h2 class="h2-title">How we add payments to your site.</h2>
-      <p class="lead-text">How adding payment processing typically works, from your first call to handoff.</p>
+      <h2 class="h2-title">How it works</h2>
+      <p class="lead-text">You own the merchant account. You create it, you control it, and you can revoke our access at any time. We never ask for your banking details, tax identification documents, or account passwords. Every platform we work with supports proper delegated access, and that is what we use.</p>
     </div>
 
-    <div class="scope-grid">
-
-      <div class="scope-card">
-        <div class="scope-num">1</div>
-        <h3 class="scope-title">Discovery Call</h3>
-        <p class="scope-desc">We review your existing website and what you need to start accepting payments.</p>
-      </div>
-
-      <div class="scope-card">
-        <div class="scope-num">2</div>
-        <h3 class="scope-title">Website Review</h3>
-        <p class="scope-desc">Confirming your website is ready for payment processing to be added.</p>
-      </div>
-
-      <div class="scope-card">
-        <div class="scope-num">3</div>
-        <h3 class="scope-title">Payment Gateway Setup</h3>
-        <p class="scope-desc">Configuring your merchant processing connection to your site.</p>
-      </div>
-
-      <div class="scope-card">
-        <div class="scope-num">4</div>
-        <h3 class="scope-title">Checkout Integration</h3>
-        <p class="scope-desc">Connecting payment processing into your site's checkout flow.</p>
-      </div>
-
-      <div class="scope-card">
-        <div class="scope-num">5</div>
-        <h3 class="scope-title">Security Review</h3>
-        <p class="scope-desc">Confirming the connection between your site and your payment processor is secure.</p>
-      </div>
-
-      <div class="scope-card">
-        <div class="scope-num">6</div>
-        <h3 class="scope-title">Test Transactions</h3>
-        <p class="scope-desc">Running test transactions before anything goes live for real customers.</p>
-      </div>
-
-      <div class="scope-card">
-        <div class="scope-num">7</div>
-        <h3 class="scope-title">Launch</h3>
-        <p class="scope-desc">Turning on payment processing for your website.</p>
-      </div>
-
-      <div class="scope-card">
-        <div class="scope-num">8</div>
-        <h3 class="scope-title">Handoff</h3>
-        <p class="scope-desc">A walkthrough of how payments now flow through your site.</p>
-      </div>
-
-    </div>
-
-    <p class="section-note">Every website is different, so we adapt the process to yours.</p>
+    <ol class="pp-steps">
+      <li class="pp-step">
+        <span class="pp-step-num" aria-hidden="true">01</span>
+        <div class="pp-step-body">
+          <h3 class="pp-step-title">Discovery call</h3>
+          <p class="pp-step-text">We look at who your customers are, what you sell, whether you bill once or on a recurring basis, and which payment methods your buyers expect. That conversation determines your platform.</p>
+        </div>
+      </li>
+      <li class="pp-step">
+        <span class="pp-step-num" aria-hidden="true">02</span>
+        <div class="pp-step-body">
+          <h3 class="pp-step-title">You create the account</h3>
+          <p class="pp-step-text">You sign up directly with Stripe, PayPal, or PayPal Enterprise Payments and complete their verification using your own business and banking information. We send you a checklist and stay on the phone if you want a hand, but the credentials stay yours.</p>
+        </div>
+      </li>
+      <li class="pp-step">
+        <span class="pp-step-num" aria-hidden="true">03</span>
+        <div class="pp-step-body">
+          <h3 class="pp-step-title">You grant us access</h3>
+          <p class="pp-step-text">You invite us as a team member with the permissions the work requires. No shared passwords. When the project ends, you remove us in a single click.</p>
+        </div>
+      </li>
+      <li class="pp-step">
+        <span class="pp-step-num" aria-hidden="true">04</span>
+        <div class="pp-step-body">
+          <h3 class="pp-step-title">We build and test in sandbox</h3>
+          <p class="pp-step-text">Checkout integration, payment method configuration, tax and currency settings, receipts, and webhooks, all built against the platform's test environment first. Apple Pay domain verification and wallet eligibility are confirmed here.</p>
+        </div>
+      </li>
+      <li class="pp-step">
+        <span class="pp-step-num" aria-hidden="true">05</span>
+        <div class="pp-step-body">
+          <h3 class="pp-step-title">Live verification</h3>
+          <p class="pp-step-text">We run a real transaction on every enabled method, on desktop and mobile, and confirm the funds land in your account and the money reconciles in your dashboard.</p>
+        </div>
+      </li>
+      <li class="pp-step">
+        <span class="pp-step-num" aria-hidden="true">06</span>
+        <div class="pp-step-body">
+          <h3 class="pp-step-title">Handoff</h3>
+          <p class="pp-step-text">A walkthrough of your dashboard: where to find payouts, how to issue a refund, what a dispute looks like, and who to call. You leave knowing how to run it.</p>
+        </div>
+      </li>
+    </ol>
 
   </div>
 </section>
 
 <!-- ============================================================
-     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     FAQ SECTION (Clean Accordion)  (client-supplied copy)
      ============================================================ -->
-<section class="story-features-section">
-  <div class="container">
-
-    <div class="story-row">
-      <div class="story-text-col">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Start Accepting Payments
-        </div>
-        <h2 class="story-title">Payment processing, added to what you already have.</h2>
-        <p class="story-desc">
-          We add merchant processing to your existing website as a focused project, not a new build.
-        </p>
-        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M13 5l7 7-7 7" />
-          </svg></a>
-      </div>
-      <div class="story-visual-col">
-        <div class="story-image-card">
-          <img src="/wp-content/uploads/2026/09/merchant-processing-detail.webp"
-            alt="Payment processing connection added to an existing website checkout" width="520" height="390" />
-        </div>
-      </div>
-    </div>
-
-    <div class="story-row is-reversed">
-      <div class="story-text-col">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          No Rebuild Required
-        </div>
-        <h2 class="story-title">Works with your existing website.</h2>
-        <p class="story-desc">
-          We connect payment processing to the site you already have, whatever platform it is built on, without rebuilding anything.
-        </p>
-        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M13 5l7 7-7 7" />
-          </svg></a>
-      </div>
-      <div class="story-visual-col">
-        <div class="story-image-card">
-          <img src="/wp-content/uploads/2026/09/existing-website-compatibility.webp"
-            alt="Generic website icon connected to a payment processing icon" width="520" height="390" />
-        </div>
-      </div>
-    </div>
-
-    <div class="story-row">
-      <div class="story-text-col">
-        <div class="eyebrow">
-          <span class="eyebrow-dot"></span>
-          Selling Online?
-        </div>
-        <h2 class="story-title">Already running an online store?</h2>
-        <p class="story-desc">
-          We can add payment processing to an existing store. If you don't have one yet, we can build one first.
-        </p>
-        <a href="/woocommerce-stores/" class="story-link">Explore WordPress E-Commerce<svg viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M5 12h14M13 5l7 7-7 7" />
-          </svg></a>
-      </div>
-      <div class="story-visual-col">
-        <div class="story-image-card">
-          <img src="/wp-content/uploads/2026/09/merchant-processing-woocommerce.webp"
-            alt="WooCommerce store checkout page with payment processing icon" width="520" height="390" />
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ============================================================
-     FAQ SECTION (Clean Accordion)
-     ============================================================ -->
-<section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
+<section class="faq-section client-content" id="faq" aria-label="Frequently Asked Questions">
   <div class="container">
 
     <div class="section-header">
@@ -1149,59 +1441,99 @@
         <span class="eyebrow-dot"></span>
         Common Questions
       </div>
-      <h2 class="h2-title">Frequently Asked Questions</h2>
-      <p class="lead-text">Quick answers about adding payment processing.</p>
+      <h2 class="h2-title">Frequently asked questions</h2>
+      <p class="lead-text">Quick answers about payment platforms, accounts and fees.</p>
     </div>
 
     <div class="faq-wrap">
 
       <details class="faq-item">
         <summary class="faq-question">
-          <span>What does merchant processing do?</span>
+          <span>Do the payment platforms charge setup fees?</span>
           <span class="faq-icon">+</span>
         </summary>
         <div class="faq-answer">
-          Merchant processing lets your website accept credit card and other online payments securely from your customers.
+          No. Stripe, PayPal, and PayPal Enterprise Payments all have no setup fees, no monthly fees, and no minimum processing requirements. You pay them only when you process a transaction. Our own fees are the one-time integration fees shown in the pricing section, for the integration work.
         </div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">
-          <span>Do I need a specific type of website?</span>
+          <span>Who owns the merchant account?</span>
           <span class="faq-icon">+</span>
         </summary>
         <div class="faq-answer">
-          No specific platform is required. Tell us about your site in your free consultation and we will confirm the right approach.
+          You do, always. You sign up under your own business, your own bank account, and your own tax identification, and then grant us team access to do the work. We never hold your banking credentials or your passwords, and you can remove our access at any moment without touching your payment flow.
         </div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">
-          <span>Does adding payment processing mean rebuilding my website?</span>
+          <span>Do I need a PayPal Business account?</span>
           <span class="faq-icon">+</span>
         </summary>
         <div class="faq-answer">
-          No. It is added to your existing website, not a rebuild.
+          Yes, for PayPal Checkout. A personal PayPal account will not accept commercial payments through a website checkout. PayPal Enterprise Payments is a separate application with its own underwriting review, it is not an upgrade toggle on an existing PayPal account, and approval is not instant. We will tell you what the application asks for before you start.
         </div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">
-          <span>What if I don't have a website yet?</span>
+          <span>Can I accept both Venmo and Cash App Pay?</span>
           <span class="faq-icon">+</span>
         </summary>
         <div class="faq-answer">
-          Payment processing is added to an existing website. If you don't have one yet, our e-commerce store services can build one for you.
+          Not on one platform. Cash App Pay is available only through Stripe; Venmo is available only through PayPal and PayPal Enterprise Payments. Accepting both means running two processors in parallel, with two dashboards, two payout schedules, and two sets of reconciliation. That is a real project rather than an add-on, and we scope it separately. In most cases one of the two is clearly the right fit for a given customer base.
         </div>
       </details>
 
       <details class="faq-item">
         <summary class="faq-question">
-          <span>What payment options are available?</span>
+          <span>Who pays the processing fees, and can I pass them on?</span>
           <span class="faq-icon">+</span>
         </summary>
         <div class="faq-answer">
-          Beyond standard card processing, we can also help with options such as bank transfers and custom gateway connections. Tell us what you need in your free consultation.
+          The platform deducts its fee from each transaction before the money reaches you. We do not mark it up and we do not collect it. If you would rather not absorb that cost, there are two approaches. The simplest is to build the expected fee into your published prices: invisible to customers, no compliance exposure, and it works on every payment method. The alternative is a customer-facing fee added at checkout, which both Stripe and PayPal can support technically. That second route is regulated. What such a fee may be called, how large it may be, whether it may be applied to debit cards, and whether it is permitted at all depends on your state and on card network rules, and the requirements differ between platforms. We will build it for you, but confirm the structure and the exact wording with your attorney before you turn it on. We are not able to give legal advice on this point.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Why does ACH cost more to set up than a wallet?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Because it behaves differently from a card. Enabling Apple Pay or Venmo is largely configuration. ACH means verifying that the customer owns the bank account, collecting an authorization, handling payments that settle over several business days rather than confirming instantly, and catching payments that fail after the fact when an account is closed or short. On PayPal Enterprise Payments it also requires a custom checkout build, because ACH is not available in their standard drop-in interface. The payoff is the rate: on the same payment, ACH costs a fraction of what a card does.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What is Link, and is it a financing option?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          No. Link is Stripe's own wallet, closer to Apple Pay than to a buy now pay later product. Nothing is borrowed. Customers who saved a card or bank account at any other Stripe business can check out on your site with an email and a code instead of typing card details. It comes with your Stripe integration at no extra charge, and its Instant Bank Payments option runs slightly below the standard card rate while still settling on the card timeline.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Can I add payment methods later?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. Add-on pricing applies at the rates shown in the pricing section, and most wallets can be enabled without disturbing your live checkout. Moving between platforms later is a bigger job, which is why we spend time on the platform decision up front.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>How soon do I get paid?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Card and wallet payments typically settle to your bank within a couple of business days once your account is established, though every platform holds initial payouts a little longer while it verifies a new merchant. ACH payments take longer and can be returned after they appear to have succeeded, which is why we build a failure path into every ACH integration.
         </div>
       </details>
 
@@ -1222,9 +1554,9 @@
           <span class="eyebrow-dot"></span>
           Next Steps
         </div>
-        <h2>Ready to start accepting payments?</h2>
+        <h2>Not sure which platform you need?</h2>
         <p>
-          Book a free consultation and tell us about your website, and we'll help you get payment processing added.
+          Tell us who your customers are and how you bill, and we will tell you which platform fits, before you sign up for anything.
         </p>
         <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
           Consultation</a>
@@ -1253,5 +1585,6 @@
       </div>
 
     </div>
+    <p class="pp-disclaimer client-content">Sites by Sara is an independent integration provider. We are not a payment processor, a reseller, or an agent of Stripe or PayPal, and we do not hold client funds. All processing rates shown are set by the platforms and are subject to change. Nothing on this page is legal, tax, or financial advice.</p>
   </div>
 </section>

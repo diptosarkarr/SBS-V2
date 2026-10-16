@@ -872,6 +872,12 @@ Brought over from the live `/marketing/branding-and-graphic-design` page (Logo D
 - **Location page `colorado.html`** (`/colorado/`, replaces the live `/colorado/` and `/seo-company-colorado-utah/`): built from the standard service-page components without pricing: banner, hero with an `.office-card` instead of an image (gradient pin tile, "Our Colorado office", city, one sentence, Google Business Profile + call buttons), shared trust strip, 8 linked `.scope-card` service cards (white section, cards tinted `--bg-light`), 2 story rows (Local SEO, the Cornerstone Exteriors case study), 5-question FAQ, CTA with a 4-item checklist. JSON-LD is a `ProfessionalService` (Colorado Springs, CO, `areaServed` Colorado) plus `FAQPage` from the same list. The checker reports exactly three expected errors on it (no pricing iframe, no resize listener, no `#pricing` button); that is correct for a location page.
 - Linked from the Contact and Book a Free Consultation pages (trust pill + a third item in the Contact "Connect with Google My Business" list), the footer Company column and the header search index.
 
+### 5.41 Payment Page Components (`merchant-processing-addon.html`, 2026-10-17)
+
+- **Platform cards** `.pp-grid` > `.pp-card` (3 columns, 1 under 1024px; `.is-featured` = 2px blue border + gradient `.pp-card-flag` badge), **rule callout** `.pp-callout` (blue-tint panel), **compatibility table** `.pp-table` inside `.pp-table-wrap` (blue header row, green "Yes" / red "No", scrolls sideways under 640px, `<caption>` is screen-reader only), **processing rates** `.pp-rates` > `.pp-rate-card` (label / value rows, note, official-pricing link that opens in a new tab), **steps** `.pp-steps` (numbered list in one rounded card), disclaimer `.pp-disclaimer`.
+- Section backgrounds alternate white / `.pp-section.is-tint` (`--bg-light` with borders). All new classes are in the page's own stylesheet; the client mockup's own palette and serif font were not used.
+- **Pricing cards are 2 columns on every page** (1 on phones): the `sbs-pricing-cards` plugin prints `.pc-wrap .pc-grid{grid-template-columns:repeat(2,...)}` after the order system's own 4-column CSS (`sbs_pricing_cards_columns` filter changes it).
+
 ## 6. Image Standards & Asset Guidelines
 
 To ensure every page looks cohesive, executive, and custom-built:
