@@ -123,7 +123,7 @@ Cut specifics and repetition, **not** the supporting sentences that make a page 
 | CTA prep checklist | ≤ 4 items; every item must be something the page actually covers |
 | Repetition | the same message may not appear in hero, pricing header, story row *and* FAQ. Say it once |
 
-When cutting or adding rows/cards, keep the layout correct: `.is-reversed` must alternate (row 1 normal, row 2 reversed, …); the scope grid is 4 columns on desktop, so use 4 or 8 cards. A story row needs a real image: if a generated image already exists for the page (check `/wp-content/uploads/2026/09/…` on the dev site and look at it), reuse it with an alt text that describes what it actually shows.
+When cutting or adding rows/cards, keep the layout correct: `.is-reversed` must alternate (row 1 normal, row 2 reversed, …); the scope grid is 2 columns on desktop (since 2026-10-17: 4 across looked cramped), so use an even number of cards (4 or 8). A story row needs a real image: if a generated image already exists for the page (check `/wp-content/uploads/2026/09/…` on the dev site and look at it), reuse it with an alt text that describes what it actually shows.
 
 ---
 
@@ -184,7 +184,7 @@ Technical notes:
 - [ ] No `all-services` link, no `<html>/<head>/<body>/<meta>/<title>`.
 - [ ] If the page lists tools/platforms: logos shown (§5b), names confirmed with the user.
 - [ ] Page is not bare: lead sentence under each section heading, note under pricing and scope, 3 story rows, 5 FAQ, related-service line under the pricing cards (§5).
-- [ ] Scope grid shows one even row (or rows) on desktop: the page's own CSS must be `repeat(4, 1fr)` for 4 or 8 cards, 2 columns on tablet, 1 on phones (the checker enforces this; the hosting page once wrapped 3+1).
+- [ ] Scope grid shows one even row (or rows) on desktop: the page's own CSS must be `repeat(2, 1fr)` for 4 or 8 cards (same on tablet), 1 on phones (the checker enforces this; the hosting page once wrapped 3+1).
 - [ ] Previewed desktop + mobile; FAQ opened; temp files removed.
 - [ ] On the five pages listed in section 4 the Local presence section is still there (before the CTA banner) and `areaServed` is in the Service JSON-LD.
 - [ ] Report lists assumptions and out-of-scope items (order-system issues, stale pages).

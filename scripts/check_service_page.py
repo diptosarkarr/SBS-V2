@@ -209,7 +209,7 @@ def check_ids(frames, errors):
 
 
 def check_layout(src, errors, warns):
-    """The scope grid must be 4 columns on desktop (cards come in 4 or 8), 2 on tablet and 1 on phones."""
+    """The scope grid must be 2 columns on desktop (and tablet) and 1 on phones (cards come in even numbers: 4 or 8)."""
     m = re.search(r"<style>(.*?)</style>", src, re.S)
     css = re.sub(r"/\*.*?\*/", "", m.group(1), flags=re.S) if m else ""
     if re.search(r",[ \t]*\n[ \t]*\n", css):
@@ -232,8 +232,8 @@ def check_layout(src, errors, warns):
             c = re.search(r"grid-template-columns:\s*([^;]+);", decl)
             if c:
                 cols["desktop"] = c.group(1).strip()
-    if cols.get("desktop") != "repeat(4, 1fr)":
-        errors.append(f"scope grid is {cols.get('desktop')} on desktop (expected repeat(4, 1fr)); {cards} cards would wrap unevenly")
+    if cols.get("desktop") != "repeat(2, 1fr)":
+        errors.append(f"scope grid is {cols.get('desktop')} on desktop (expected repeat(2, 1fr)); {cards} cards would wrap unevenly")
     if cols.get("@media (max-width: 600px)") != "1fr":
         errors.append("scope grid is not a single column on phones (@media max-width 600px)")
 
