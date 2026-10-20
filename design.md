@@ -878,6 +878,13 @@ Brought over from the live `/marketing/branding-and-graphic-design` page (Logo D
 - Section backgrounds alternate white / `.pp-section.is-tint` (`--bg-light` with borders). All new classes are in the page's own stylesheet; the client mockup's own palette and serif font were not used.
 - **Pricing cards are 2 columns on every page** (1 on phones): the `sbs-pricing-cards` plugin prints `.pc-wrap .pc-grid{grid-template-columns:repeat(2,...)}` after the order system's own 4-column CSS (`sbs_pricing_cards_columns` filter changes it).
 
+### 5.42 HTML Sitemap (`sitemap.html`, `/sitemap/`, 2026-10-21)
+
+- Standard banner (H1 "Sitemap") + one intro line + the `[sbs_sitemap]` shortcode, which prints every published page and blog post (`wp-snippets/sbs-sitemap.php`, installed like the other snippets). The page's own stylesheet carries all the CSS (`.sbs-sitemap-*`).
+- **Pages** are grouped like the header menu (Main Pages, Build, Maintain & Protect, Grow, Market & Brand, Our Work, About Us, Locations, Support & Updates, Legal) in 3 masonry columns (`columns: 3 300px`, 1 on phones). A page that is in no group prints under "More Pages", so a new page is never missing; add its slug to `sbs_sitemap_page_groups()` (or the `sbs_sitemap_page_groups` filter) to place it. **Blog posts** are one full-width card per category (Yoast primary category), the posts flowing into 3 columns, each post listed once.
+- Skipped: drafts, private/password-protected items and anything Yoast marks noindex. Output is cached 12 hours and cleared on every save/trash/delete.
+- Linked as "Sitemap" in the footer bottom bar, after Terms of Service and Privacy Policy.
+
 ## 6. Image Standards & Asset Guidelines
 
 To ensure every page looks cohesive, executive, and custom-built:

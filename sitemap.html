@@ -1,0 +1,322 @@
+<!-- page-sync: sitemap.html -->
+
+<!-- Google Fonts: Manrope -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+  :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
+    --brand-blue-subtle: #F6F8FD;
+
+    --brand-coral: #ea4e5f;
+
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+
+    --navy: #1E2140;
+    --slate: #5F6368;
+    --slate-light: #80868B;
+
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
+
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
+
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-pill: 9999px;
+
+    --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font);
+    color: var(--navy);
+    background-color: var(--bg-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    color: var(--brand-blue);
+    text-decoration: none;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ============================================================
+     PAGE TITLE BANNER
+     ============================================================ */
+  .page-title-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-gradient);
+    padding: clamp(52px, 6vw, 76px) 24px;
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+  }
+
+  .page-title-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+    pointer-events: none;
+  }
+
+  .page-title-banner-mesh {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .page-title-banner-mesh::before,
+  .page-title-banner-mesh::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0.22;
+  }
+
+  .page-title-banner-mesh::before {
+    width: 320px;
+    height: 320px;
+    background: #FFFFFF;
+    top: -120px;
+    left: 8%;
+  }
+
+  .page-title-banner-mesh::after {
+    width: 280px;
+    height: 280px;
+    background: var(--brand-coral);
+    bottom: -80px;
+    right: 10%;
+  }
+
+  .page-title-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-banner-h1 {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFFFFF;
+    letter-spacing: -0.025em;
+    margin: 0;
+    text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+  }
+
+  /* ============================================================
+     SITEMAP
+     The groups and links are printed by the [sbs_sitemap] shortcode (wp-snippets/sbs-sitemap.php).
+     ============================================================ */
+  .sitemap-section {
+    padding: var(--section-gap) 0;
+  }
+
+  .sitemap-intro {
+    max-width: 680px;
+    margin: 0 0 clamp(28px, 3vw, 40px);
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: var(--slate);
+  }
+
+  .sbs-sitemap-section + .sbs-sitemap-section {
+    margin-top: clamp(36px, 4vw, 56px);
+  }
+
+  .sbs-sitemap-heading {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 0 0 22px;
+    font-size: clamp(1.35rem, 1.15rem + 0.6vw, 1.7rem);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--navy);
+  }
+
+  .sbs-sitemap-heading::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    border-radius: var(--radius-pill);
+    background: linear-gradient(90deg, var(--border-card), transparent);
+  }
+
+  /* Columns (not a grid) so cards of very different heights pack without gaps. */
+  .sbs-sitemap-groups {
+    columns: 3 300px;
+    column-gap: 24px;
+  }
+
+  .sbs-sitemap-group {
+    break-inside: avoid;
+    margin: 0 0 24px;
+    padding: 22px 24px 20px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+  }
+
+  .sbs-sitemap-group-title {
+    margin: 0 0 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--brand-blue);
+  }
+
+  .sbs-sitemap-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  /* Blog posts: one full-width card per category, its posts flowing into columns (a 50-post category no longer leaves a tall empty gap beside it). */
+  .sbs-sitemap-groups--wide {
+    columns: auto;
+  }
+
+  .sbs-sitemap-groups--wide .sbs-sitemap-list {
+    display: block;
+    columns: 3 280px;
+    column-gap: 36px;
+  }
+
+  .sbs-sitemap-groups--wide .sbs-sitemap-list li {
+    break-inside: avoid;
+  }
+
+  .sbs-sitemap-list li {
+    position: relative;
+    padding-left: 18px;
+  }
+
+  .sbs-sitemap-list li::before {
+    content: "";
+    position: absolute;
+    left: 2px;
+    top: 0.82em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border-card);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .sbs-sitemap-list li:hover::before,
+  .sbs-sitemap-list li:focus-within::before {
+    background: var(--brand-coral);
+    transform: scale(1.25);
+  }
+
+  .sbs-sitemap-list a {
+    display: block;
+    padding: 5px 0;
+    font-size: 0.94rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--navy);
+    transition: color 0.2s ease;
+  }
+
+  .sbs-sitemap-list a:hover,
+  .sbs-sitemap-list a:focus-visible {
+    color: var(--brand-blue);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .sbs-sitemap-list a:focus-visible {
+    outline: 2px solid var(--brand-blue);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 600px) {
+    .page-title-banner {
+      padding: 44px 18px;
+    }
+
+    .sbs-sitemap-group {
+      padding: 18px 18px 16px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sbs-sitemap-list li::before,
+    .sbs-sitemap-list a {
+      transition: none;
+    }
+  }
+</style>
+
+<!-- ============================================================
+       PAGE TITLE BANNER
+       ============================================================ -->
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <h1 class="page-banner-h1">Sitemap</h1>
+  </div>
+</section>
+
+<!-- ============================================================
+       SITEMAP (pages + blog posts, printed by the shortcode)
+       ============================================================ -->
+<section class="sitemap-section">
+  <div class="container">
+    <p class="sitemap-intro">Every page and blog post on the Sites by Sara website, in one place.</p>
+    [sbs_sitemap]
+  </div>
+</section>
