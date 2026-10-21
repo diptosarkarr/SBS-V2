@@ -9,6 +9,7 @@
  * What it lists (always current, nothing to maintain by hand):
  *   - Pages: grouped like the site menu (see sbs_sitemap_page_groups()). A page that is not in any group
  *     lands in "More Pages", so a brand-new page is never missing from the sitemap.
+ *   - Portfolio items: every published item of the Portfolio post type, in the "Our Work" card.
  *   - Blog posts: grouped by category (Yoast's primary category when set), newest first, each post once.
  * Left out on purpose: drafts, private and password-protected items, and anything set to noindex in Yoast.
  * The result is cached for 12 hours and cleared whenever a post, page or category is saved, trashed or deleted.
@@ -39,12 +40,7 @@ function sbs_sitemap_page_groups() {
 		'Maintain & Protect' => array( 'wordpress-maintenance-hosting-bundle', 'simple-site-hosting-bundle', 'website-care', 'email-setup-migration-services-gws-ms365' ),
 		'Grow'               => array( 'seo-plans-site-audit', 'local-seo-google-business-profile', 'marketing-visibility-packages', 'google-meta-ads', 'walmart-ads-management' ),
 		'Market & Brand'     => array( 'design', 'copywriting', 'social-media-setup-and-management', 'newsletter-services', 'go-high-level-service', 'crm-build-setup-management' ),
-		'Our Work'           => array(
-			'our-portfolio', 'clarity-consulting-and-counseling', 'paradigm-music-lessons', 'connect-with-sky', 'townsend-relationship-coaching',
-			'salt-city-billiards', 'this-is-the-place-gift-shop', 'girlyish-skincare', 'dt-cosas', 'kanab-center', 'signet-north-america',
-			'creations-west', 'jfs-utah', 'monster-mural', 'gtms', 'cornerstone-exteriors', 'true-peak-plumbing',
-			'utah-center-for-psychological-services', 'first-step-house', 'star-mountain-roasters', 'maddox-solar-shield-pro',
-		),
+		'Our Work'           => array( 'our-portfolio' ), // the portfolio items themselves are added after these, see sbs_sitemap_pages_html()
 		'About Us'           => array( 'who-we-are', 'awards-recognition', 'giving-back', 'what-our-clients-say', 'our-clients', 'tools-we-love', 'become-a-partner' ),
 		'Locations'          => array( 'colorado' ),
 		'Support & Updates'  => array( 'support', 'newsletter' ),
@@ -95,6 +91,19 @@ function sbs_sitemap_group_html( $title, $items ) {
 	return '<div class="sbs-sitemap-group"><h3 class="sbs-sitemap-group-title">' . esc_html( $title ) . '</h3><ul class="sbs-sitemap-list">' . implode( '', $items ) . '</ul></div>';
 }
 
+/** Portfolio items (the "Portfolio" post type), in the order the portfolio page shows them. */
+function sbs_sitemap_portfolio_links() {
+	$type = (string) apply_filters( 'sbs_portfolio_post_type', 'portfolio' );
+	if ( ! post_type_exists( $type ) ) {
+		return array();
+	}
+	$items = array();
+	foreach ( get_posts( sbs_sitemap_query_args( $type, 'menu_order date', 'ASC' ) ) as $post ) {
+		$items[] = sbs_sitemap_link( $post );
+	}
+	return $items;
+}
+
 /** Page cards: the groups above, then any page that is in none of them. */
 function sbs_sitemap_pages_html() {
 	$exclude = array_map( 'sanitize_title', (array) apply_filters( 'sbs_sitemap_exclude_slugs', array() ) );
@@ -115,6 +124,9 @@ function sbs_sitemap_pages_html() {
 				$items[] = sbs_sitemap_link( $by_slug[ $slug ], 'home' === $slug ? 'Home' : '' );
 				unset( $by_slug[ $slug ] );
 			}
+		}
+		if ( 'Our Work' === $title ) {
+			$items = array_merge( $items, sbs_sitemap_portfolio_links() );
 		}
 		$html .= sbs_sitemap_group_html( $title, $items );
 	}

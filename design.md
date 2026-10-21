@@ -881,9 +881,15 @@ Brought over from the live `/marketing/branding-and-graphic-design` page (Logo D
 ### 5.42 HTML Sitemap (`sitemap.html`, `/sitemap/`, 2026-10-21)
 
 - Standard banner (H1 "Sitemap") + one intro line + the `[sbs_sitemap]` shortcode, which prints every published page and blog post (`wp-snippets/sbs-sitemap.php`, installed like the other snippets). The page's own stylesheet carries all the CSS (`.sbs-sitemap-*`).
-- **Pages** are grouped like the header menu (Main Pages, Build, Maintain & Protect, Grow, Market & Brand, Our Work, About Us, Locations, Support & Updates, Legal) in 3 masonry columns (`columns: 3 300px`, 1 on phones). A page that is in no group prints under "More Pages", so a new page is never missing; add its slug to `sbs_sitemap_page_groups()` (or the `sbs_sitemap_page_groups` filter) to place it. **Blog posts** are one full-width card per category (Yoast primary category), the posts flowing into 3 columns, each post listed once.
+- **Pages** are grouped like the header menu (Main Pages, Build, Maintain & Protect, Grow, Market & Brand, Our Work, About Us, Locations, Support & Updates, Legal) in 3 masonry columns (`columns: 3 300px`, 1 on phones). The "Our Work" card also lists every published `portfolio` post-type item. A page that is in no group prints under "More Pages", so a new page is never missing; add its slug to `sbs_sitemap_page_groups()` (or the `sbs_sitemap_page_groups` filter) to place it. **Blog posts** are one full-width card per category (Yoast primary category), the posts flowing into 3 columns, each post listed once.
 - Skipped: drafts, private/password-protected items and anything Yoast marks noindex. Output is cached 12 hours and cleared on every save/trash/delete.
 - Linked as "Sitemap" in the footer bottom bar, after Terms of Service and Privacy Policy.
+
+### 5.43 Portfolio From the Post Type (2026-10-22)
+
+- Case studies are items of the `portfolio` post type (`/portfolio/<slug>/`). `our-portfolio.html` prints its cards with `[sbs_portfolio_grid]` and every `portfolio-*.html` prints its previous / next block with `[sbs_portfolio_nav]` (both in `wp-snippets/sbs-portfolio.php`). The markup and classes are exactly the old hand-written ones (`.portfolio-card`, `.project-nav-*`), so the CSS already in those pages is unchanged.
+- Order = the item's "Order" number (lowest first), then oldest first. The first item's previous and the last item's next are the "Browse All Projects" card. Card picture = the item's **featured image** (the tall full-page screenshot that scrolls on hover; `large` size). The small thumbnail in prev / next is the same image (`object-position: top`).
+- New or re-ordered projects need no page edits; the snippet purges LiteSpeed for the portfolio page and every item on save.
 
 ## 6. Image Standards & Asset Guidelines
 
