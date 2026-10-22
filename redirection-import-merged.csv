@@ -115,8 +115,7 @@ source,target,regex,code
 /services/servicios-web-para-hispanohablantes/,/all-services/,0,301
 /contact-us/success/,/contact-us/,0,301
 /contact-us/thank-you/,/contact-us/,0,301
-/thankyou/,/contact-us/,0,301
-/thank-you/,/contact-us/,0,301
+/thankyou/,/thank-you/,0,301
 /book-a-free-consultation/thank-you/,/book-a-free-consultation/,0,301
 /portfolio/atlas-iron-metal-co-2/,/portfolio/atlas-iron-metal-co/,0,301
 /portfolio/summerfield-retirement-2/,/portfolio/summerfield-retirement/,0,301

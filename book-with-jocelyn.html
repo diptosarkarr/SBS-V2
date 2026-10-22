@@ -1,0 +1,258 @@
+<!-- page-sync: book-with-jocelyn.html -->
+
+<!-- Google Fonts: Manrope -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+  :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
+
+    --brand-coral: #ea4e5f;
+
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+    --navy: #1E2140;
+    --slate: #5F6368;
+    --slate-light: #80868B;
+
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
+
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
+
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-lg: 24px;
+    --radius-pill: 9999px;
+
+    --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font);
+    color: var(--navy);
+    background-color: var(--bg-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ============================================================
+     PAGE TITLE BANNER
+     ============================================================ */
+  .page-title-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-gradient);
+    padding: clamp(52px, 6vw, 76px) 24px;
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+  }
+
+  .page-title-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+    pointer-events: none;
+  }
+
+  .page-title-banner-mesh {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .page-title-banner-mesh::before,
+  .page-title-banner-mesh::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0.22;
+  }
+
+  .page-title-banner-mesh::before {
+    width: 320px;
+    height: 320px;
+    background: #FFFFFF;
+    top: -120px;
+    left: 8%;
+  }
+
+  .page-title-banner-mesh::after {
+    width: 280px;
+    height: 280px;
+    background: var(--brand-coral);
+    bottom: -80px;
+    right: 10%;
+  }
+
+  .page-title-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-banner-h1 {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFFFFF;
+    letter-spacing: -0.025em;
+    margin: 0;
+    text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+  }
+
+  /* ============================================================
+     BOOKING WIDGET
+     ============================================================ */
+  .booking-section {
+    padding: var(--section-gap) 0;
+    background: #FFFFFF;
+  }
+
+  .booking-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-floating);
+    padding: clamp(20px, 3vw, 32px);
+  }
+
+  .booking-embed-wrapper {
+    width: 100%;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    background: #FFFFFF;
+  }
+
+  .booking-embed-wrapper iframe {
+    display: block;
+    width: 100%;
+    border: 0;
+  }
+
+  .booking-disclaimer {
+    max-width: 860px;
+    margin: 24px auto 0;
+    font-size: 0.76rem;
+    line-height: 1.6;
+    color: var(--slate-light);
+    text-align: center;
+  }
+
+  .booking-disclaimer p+p {
+    margin-top: 10px;
+  }
+
+  .booking-disclaimer p a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
+
+  .booking-disclaimer p a:hover,
+  .booking-disclaimer p a:focus,
+  .booking-disclaimer p a:focus-visible,
+  .booking-disclaimer p a:active {
+    color: var(--brand-blue-hover) !important;
+  }
+
+  @media (max-width: 600px) {
+    .page-title-banner {
+      padding: 44px 18px;
+    }
+
+    .booking-embed-wrapper iframe {
+      height: 900px !important;
+    }
+  }
+</style>
+
+<!-- ============================================================
+       PAGE TITLE BANNER
+       ============================================================ -->
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <h1 class="page-banner-h1">Book with Jocelyn</h1>
+  </div>
+</section>
+
+<!-- ============================================================
+       BOOKING WIDGET
+       ============================================================ -->
+<section class="booking-section" aria-label="Schedule a call with Jocelyn">
+  <div class="container">
+    <div class="booking-card">
+
+      <!-- Google Calendar Appointment Scheduling begin -->
+      <div class="booking-embed-wrapper">
+        <iframe
+          src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2B0v2c8XiQOfDcZSOXD0JA-zn1FM9AqxO7pclD0mX6zeqhCI0c-rdvwGjLFfLflXKk1MSeurSJ?gv=true"
+          style="border: 0" width="100%" height="700" frameborder="0"
+          title="Book a call with Jocelyn">
+        </iframe>
+      </div>
+      <!-- end Google Calendar Appointment Scheduling -->
+
+      <div class="booking-disclaimer">
+        <p>By submitting your phone number, you are opting in to receive recurring appointments, reminders, and
+          update messages from Sites by Sara. Message and data rates may apply, and message frequency varies.
+          Mobile information will not be shared with third parties/affiliates for marketing or promotional
+          purposes.</p>
+        <p>Message frequency may vary, with an average of 1–2 messages per month. For assistance, text HELP or
+          INFO. To opt out at any time, text <strong>STOP</strong> or <strong>UNSUBSCRIBE</strong>. For more
+          information, see our <a href="/privacy-policy/">Privacy Policy</a>
+          and <a href="/terms-of-service/">Terms &amp; Conditions</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>

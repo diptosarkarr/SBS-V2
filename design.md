@@ -891,6 +891,11 @@ Brought over from the live `/marketing/branding-and-graphic-design` page (Logo D
 - Order = the item's "Order" number (lowest first), then oldest first. The first item's previous and the last item's next are the "Browse All Projects" card. Card picture = the item's **featured image** (the tall full-page screenshot that scrolls on hover; `large` size). The small thumbnail in prev / next is the same image (`object-position: top`).
 - New or re-ordered projects need no page edits; the snippet purges LiteSpeed for the portfolio page and every item on save.
 
+### 5.44 Booking and Thank-You Pages (2026-10-23)
+
+- `book-with-sara.html` (`/book-with-sara/`) and `book-with-jocelyn.html` (`/book-with-jocelyn/`): standard banner (H1 only, no subtitle) + one `.booking-card` holding that person's Google Calendar appointment iframe (700px tall, 900px under 600px wide) and the same SMS opt-in disclaimer as `book-a-free-consultation.html`. Sara's iframe is the one from the consultation page.
+- `thank-you.html` (`/thank-you/`): banner "Thank You" + a centered `.thanks-card` (gradient top edge, gradient check badge that pops in and draws its tick, one heading, one sentence, "Back to Home" button). The animation is off under `prefers-reduced-motion`. Set this page to noindex in Yoast.
+
 ## 6. Image Standards & Asset Guidelines
 
 To ensure every page looks cohesive, executive, and custom-built:
