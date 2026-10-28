@@ -27,6 +27,7 @@ function sbs_blog_sidebar_shortcode( $atts ) {
 	$args = array(
 		'post_type'           => 'post',
 		'post_status'         => 'publish',
+		'has_password'        => false,
 		'posts_per_page'      => $count,
 		'ignore_sticky_posts' => true,
 		'no_found_rows'       => true,

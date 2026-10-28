@@ -47,10 +47,11 @@ function sbs_blog_index_current_page() {
 
 /** Category slug from ?topic=, or '' when missing or unknown. */
 function sbs_blog_index_topic() {
-	if ( empty( $_GET['topic'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification -- read-only filter, no state change
-		return '';
+	$raw = isset( $_GET['topic'] ) ? wp_unslash( $_GET['topic'] ) : ''; // phpcs:ignore WordPress.Security.NonceVerification, WordPress.Security.ValidatedSanitizedInput -- read-only filter, no state change
+	if ( ! is_string( $raw ) || '' === $raw ) {
+		return ''; // missing, empty or an array (?topic[]=x)
 	}
-	$slug = sanitize_title( wp_unslash( $_GET['topic'] ) ); // phpcs:ignore WordPress.Security.NonceVerification
+	$slug = sanitize_title( $raw );
 	return ( $slug && term_exists( $slug, 'category' ) ) ? $slug : '';
 }
 
@@ -64,6 +65,7 @@ function sbs_blog_index_query_args( $topic, $paged ) {
 	$args = array(
 		'post_type'           => 'post',
 		'post_status'         => 'publish',
+		'has_password'        => false,
 		'posts_per_page'      => sbs_blog_index_per_page(),
 		'paged'               => $paged,
 		'ignore_sticky_posts' => true,

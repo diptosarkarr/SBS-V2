@@ -45,6 +45,7 @@ function sbs_related_posts_shortcode( $atts ) {
 	$base = array(
 		'post_type'           => 'post',
 		'post_status'         => 'publish',
+		'has_password'        => false,
 		'ignore_sticky_posts' => true,
 		'no_found_rows'       => true,
 		'fields'              => 'ids',
