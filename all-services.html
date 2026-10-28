@@ -288,8 +288,28 @@
     gap: 28px;
   }
 
-  .services-directory-grid .service-directory-card:last-child {
-    grid-column: 2;
+  /* A last row with fewer than 3 cards is centered: six narrow tracks, each card spans two. Desktop only, below
+     1025px the grid is 2 columns (then 1). */
+  @media (min-width: 1025px) {
+    .services-directory-grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    .services-directory-grid .service-directory-card {
+      grid-column: span 2;
+    }
+
+    .services-directory-grid .service-directory-card:last-child:nth-child(3n + 1) {
+      grid-column: 3 / span 2;
+    }
+
+    .services-directory-grid .service-directory-card:nth-last-child(2):nth-child(3n + 1) {
+      grid-column: 2 / span 2;
+    }
+
+    .services-directory-grid .service-directory-card:last-child:nth-child(3n + 2) {
+      grid-column: 4 / span 2;
+    }
   }
 
   .service-directory-card {
@@ -435,10 +455,6 @@
   @media (max-width: 1024px) {
     .services-directory-grid {
       grid-template-columns: repeat(2, 1fr);
-    }
-
-    .services-directory-grid .service-directory-card:last-child {
-      grid-column: auto;
     }
   }
 
@@ -700,6 +716,27 @@
           <span class="service-directory-price-value">One-Time Add-On</span>
         </div>
         <a href="/merchant-processing-add-on/" class="service-directory-btn">See More</a>
+      </div>
+
+      <!-- Card: WordPress to HTML Conversion -->
+      <div class="service-directory-card">
+        <div class="service-directory-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="16 18 22 12 16 6"></polyline>
+            <polyline points="8 6 2 12 8 18"></polyline>
+          </svg>
+        </div>
+        <h3 class="service-directory-title">WordPress to HTML Conversion</h3>
+        <p class="service-directory-desc">
+          Convert a WordPress site to a simple HTML site with far fewer maintenance requirements, and see what you
+          could save with an instant page count and quote.
+        </p>
+        <div class="service-directory-price-row">
+          <span class="service-directory-price-label">Pricing</span>
+          <span class="service-directory-price-value">Priced Per Page</span>
+        </div>
+        <a href="/wordpress-to-html-conversion/" class="service-directory-btn">See More</a>
       </div>
 
       <!-- Card 14: WordPress Maintenance Bundle -->
