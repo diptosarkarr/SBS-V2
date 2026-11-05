@@ -1158,6 +1158,103 @@
 </section>
 
 <!-- ============================================================
+     INSTANT QUOTE (top of the page): the same calculator as the one near the bottom.
+     Both copies are built from one pattern and kept in step by the one script at the end of the file;
+     fields are found by data-q, never by id, so a change to one copy must be made in the other too.
+     ============================================================ -->
+<section class="wc-section is-tint client-content" id="quote" aria-label="Get your instant conversion quote" data-quote>
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Instant Quote
+      </div>
+      <h2 class="h2-title">Get your instant conversion quote</h2>
+      <p class="lead-text">Our pricing is simple: <strong>$350 base + $35 per page</strong>. Enter your website address and we'll count your pages and blog posts, then show you what you'd save.</p>
+    </div>
+
+    <div class="quote-card">
+
+      <form class="finder" data-q="finder" novalidate
+        onsubmit="event.preventDefault(); if (!window.sbsReady) { window.sbsQueued = this; this.parentNode.querySelector('.status').textContent = 'Getting ready&hellip; the count starts in a moment.'; }">
+        <label for="site-url-top" class="wc-sr-only">Your website address</label>
+        <input id="site-url-top" data-q="site" type="text" inputmode="url" autocomplete="url" placeholder="yourwebsite.com" required>
+        <button class="btn btn-primary" type="submit" data-q="scan">Count my pages</button>
+      </form>
+      <p class="status" data-q="status" role="status" aria-live="polite"></p>
+
+      <div class="quote-result" data-q="result" hidden>
+
+        <div class="inputs">
+          <div class="field">
+            <label for="page-count-top">Pages + blog posts</label>
+            <input id="page-count-top" data-q="pages" type="number" min="1" step="1" value="10">
+            <small data-q="note">Adjust if you know your exact count.</small>
+          </div>
+          <div class="field">
+            <label for="wham-cost-top">What you pay for WHAM per year</label>
+            <div class="money"><span>$</span><input id="wham-cost-top" data-q="wham" type="number" min="0" step="10" value="1800"></div>
+            <small>$150/month is $1,800/year. Use your actual renewal amount if you know it.</small>
+          </div>
+        </div>
+
+        <div class="price-box">
+          <div class="price-label">Your one-time conversion</div>
+          <div class="price" data-q="price">$0</div>
+          <div class="price-formula" data-q="formula"></div>
+        </div>
+
+        <div class="stat-grid">
+          <div class="stat-card"><div class="stat-num" data-q="annual">$0</div><div class="stat-label">saved every year</div></div>
+          <div class="stat-card"><div class="stat-num" data-q="breakeven">&mdash;</div><div class="stat-label">to break even</div></div>
+          <div class="stat-card"><div class="stat-num" data-q="y3">$0</div><div class="stat-label">saved over 3 years</div></div>
+          <div class="stat-card"><div class="stat-num" data-q="y5">$0</div><div class="stat-label">saved over 5 years</div></div>
+        </div>
+
+        <div class="compare-wrap">
+          <table class="compare-table">
+            <caption class="wc-sr-only">Your cost of staying on WordPress compared with converting to HTML</caption>
+            <thead>
+              <tr>
+                <th scope="col"><span class="wc-sr-only">Period</span></th>
+                <th scope="col">Stay on WordPress</th>
+                <th scope="col">Convert to HTML</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Year 1</th>
+                <td data-q="wp1"></td>
+                <td data-q="html1"></td>
+              </tr>
+              <tr>
+                <th scope="row">Each year after</th>
+                <td data-q="wp2"></td>
+                <td data-q="html2">$300</td>
+              </tr>
+              <tr>
+                <th scope="row">5-year total</th>
+                <td data-q="wp5"></td>
+                <td data-q="html5"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="quote-fine">Estimate only. Your final quote is confirmed after we review your site. Hosting doesn't include edits; changes after launch are billed at our standard hourly rate.</p>
+
+        <div class="quote-cta">
+          <a class="btn btn-primary" data-q="request" href="mailto:sara@sitesbysara.com">Request this quote</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
        HERO SECTION: the question and the short answer
        ============================================================ -->
 <section class="hero-section" id="overview">
@@ -1469,9 +1566,10 @@
 </section>
 
 <!-- ============================================================
-     INSTANT QUOTE: page counter + savings calculator
+     INSTANT QUOTE (bottom of the page): page counter + savings calculator.
+     Same markup as the copy under the page banner; keep the two identical (see the note there).
      ============================================================ -->
-<section class="wc-section client-content" id="quote" aria-label="Get your instant conversion quote">
+<section class="wc-section client-content" id="quote-bottom" aria-label="Your instant conversion quote" data-quote>
   <div class="container">
 
     <div class="section-header">
@@ -1485,40 +1583,40 @@
 
     <div class="quote-card">
 
-      <form class="finder" id="finder" novalidate
-        onsubmit="event.preventDefault(); if (!window.sbsReady) { window.sbsQueued = true; document.getElementById('status').textContent = 'Getting ready&hellip; the count starts in a moment.'; }">
-        <label for="site-url" class="wc-sr-only">Your website address</label>
-        <input id="site-url" type="text" inputmode="url" autocomplete="url" placeholder="yourwebsite.com" required>
-        <button class="btn btn-primary" type="submit" id="scan-btn">Count my pages</button>
+      <form class="finder" data-q="finder" novalidate
+        onsubmit="event.preventDefault(); if (!window.sbsReady) { window.sbsQueued = this; this.parentNode.querySelector('.status').textContent = 'Getting ready&hellip; the count starts in a moment.'; }">
+        <label for="site-url-bottom" class="wc-sr-only">Your website address</label>
+        <input id="site-url-bottom" data-q="site" type="text" inputmode="url" autocomplete="url" placeholder="yourwebsite.com" required>
+        <button class="btn btn-primary" type="submit" data-q="scan">Count my pages</button>
       </form>
-      <p class="status" id="status" role="status" aria-live="polite"></p>
+      <p class="status" data-q="status" role="status" aria-live="polite"></p>
 
-      <div class="quote-result" id="quote-result" hidden>
+      <div class="quote-result" data-q="result" hidden>
 
         <div class="inputs">
           <div class="field">
-            <label for="page-count">Pages + blog posts</label>
-            <input id="page-count" type="number" min="1" step="1" value="10">
-            <small id="count-note">Adjust if you know your exact count.</small>
+            <label for="page-count-bottom">Pages + blog posts</label>
+            <input id="page-count-bottom" data-q="pages" type="number" min="1" step="1" value="10">
+            <small data-q="note">Adjust if you know your exact count.</small>
           </div>
           <div class="field">
-            <label for="wham-cost">What you pay for WHAM per year</label>
-            <div class="money"><span>$</span><input id="wham-cost" type="number" min="0" step="10" value="1800"></div>
+            <label for="wham-cost-bottom">What you pay for WHAM per year</label>
+            <div class="money"><span>$</span><input id="wham-cost-bottom" data-q="wham" type="number" min="0" step="10" value="1800"></div>
             <small>$150/month is $1,800/year. Use your actual renewal amount if you know it.</small>
           </div>
         </div>
 
         <div class="price-box">
           <div class="price-label">Your one-time conversion</div>
-          <div class="price" id="q-price">$0</div>
-          <div class="price-formula" id="q-formula"></div>
+          <div class="price" data-q="price">$0</div>
+          <div class="price-formula" data-q="formula"></div>
         </div>
 
         <div class="stat-grid">
-          <div class="stat-card"><div class="stat-num" id="q-annual">$0</div><div class="stat-label">saved every year</div></div>
-          <div class="stat-card"><div class="stat-num" id="q-breakeven">&mdash;</div><div class="stat-label">to break even</div></div>
-          <div class="stat-card"><div class="stat-num" id="q-3yr">$0</div><div class="stat-label">saved over 3 years</div></div>
-          <div class="stat-card"><div class="stat-num" id="q-5yr">$0</div><div class="stat-label">saved over 5 years</div></div>
+          <div class="stat-card"><div class="stat-num" data-q="annual">$0</div><div class="stat-label">saved every year</div></div>
+          <div class="stat-card"><div class="stat-num" data-q="breakeven">&mdash;</div><div class="stat-label">to break even</div></div>
+          <div class="stat-card"><div class="stat-num" data-q="y3">$0</div><div class="stat-label">saved over 3 years</div></div>
+          <div class="stat-card"><div class="stat-num" data-q="y5">$0</div><div class="stat-label">saved over 5 years</div></div>
         </div>
 
         <div class="compare-wrap">
@@ -1534,18 +1632,18 @@
             <tbody>
               <tr>
                 <th scope="row">Year 1</th>
-                <td id="t-wp1"></td>
-                <td id="t-html1"></td>
+                <td data-q="wp1"></td>
+                <td data-q="html1"></td>
               </tr>
               <tr>
                 <th scope="row">Each year after</th>
-                <td id="t-wp2"></td>
-                <td id="t-html2">$300</td>
+                <td data-q="wp2"></td>
+                <td data-q="html2">$300</td>
               </tr>
               <tr>
                 <th scope="row">5-year total</th>
-                <td id="t-wp5"></td>
-                <td id="t-html5"></td>
+                <td data-q="wp5"></td>
+                <td data-q="html5"></td>
               </tr>
             </tbody>
           </table>
@@ -1554,7 +1652,7 @@
         <p class="quote-fine">Estimate only. Your final quote is confirmed after we review your site. Hosting doesn't include edits; changes after launch are billed at our standard hourly rate.</p>
 
         <div class="quote-cta">
-          <a class="btn btn-primary" id="request-btn" href="mailto:sara@sitesbysara.com">Request this quote</a>
+          <a class="btn btn-primary" data-q="request" href="mailto:sara@sitesbysara.com">Request this quote</a>
         </div>
 
       </div>
@@ -1588,9 +1686,21 @@
   var QUOTE_EMAIL = 'sara@sitesbysara.com'; // where "Request this quote" goes
   var REQUEST_TIMEOUT = 8000;               // milliseconds to wait for the other site
 
-  var $ = function (id) { return document.getElementById(id); };
   var money = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
   var lastSite = '';
+
+  // The calculator is on the page twice (under the banner and near the bottom). Every copy is found here by
+  // data-quote / data-q and kept in step: what is typed or counted in one shows in the other.
+  var quotes = Array.prototype.map.call(document.querySelectorAll('[data-quote]'), function (root) {
+    var q = {};
+    Array.prototype.forEach.call(root.querySelectorAll('[data-q]'), function (el) { q[el.getAttribute('data-q')] = el; });
+    return q;
+  });
+  if (!quotes.length) return;
+
+  function each(fn) { quotes.forEach(fn); }
+  function setText(role, text) { each(function (q) { q[role].textContent = text; }); }
+  function copyValue(from, role) { each(function (q) { if (q !== from) q[role].value = from[role].value; }); }
 
   function normalize(raw) {
     raw = (raw || '').trim();
@@ -1600,38 +1710,41 @@
   }
 
   function calc() {
-    var pages = Math.max(1, parseInt($('page-count').value, 10) || 1);
-    var wham = Math.max(0, parseFloat($('wham-cost').value) || 0);
+    var pages = Math.max(1, parseInt(quotes[0].pages.value, 10) || 1);
+    var wham = Math.max(0, parseFloat(quotes[0].wham.value) || 0);
     var conv = BASE + PER_PAGE * pages;
     var yearly = wham - HTML_HOSTING_YEAR;
 
-    $('q-price').textContent = money(conv);
-    $('q-formula').textContent = '$' + BASE + ' base + ' + pages + ' page' + (pages === 1 ? '' : 's') + ' \u00d7 $' + PER_PAGE;
-    $('q-annual').textContent = yearly > 0 ? money(yearly) : '$0';
-    $('q-breakeven').textContent = yearly > 0 ? Math.ceil(conv / (yearly / 12)) + ' mo' : '\u2014';
-    $('q-3yr').textContent = money(Math.max(0, 3 * wham - (conv + 3 * HTML_HOSTING_YEAR)));
-    $('q-5yr').textContent = money(Math.max(0, 5 * wham - (conv + 5 * HTML_HOSTING_YEAR)));
-    $('t-wp1').textContent = money(wham);
-    $('t-wp2').textContent = money(wham);
-    $('t-wp5').textContent = money(5 * wham);
-    $('t-html1').textContent = money(conv + HTML_HOSTING_YEAR) + ' (conversion + hosting)';
-    $('t-html2').textContent = money(HTML_HOSTING_YEAR);
-    $('t-html5').textContent = money(conv + 5 * HTML_HOSTING_YEAR);
+    setText('price', money(conv));
+    setText('formula', '$' + BASE + ' base + ' + pages + ' page' + (pages === 1 ? '' : 's') + ' \u00d7 $' + PER_PAGE);
+    setText('annual', yearly > 0 ? money(yearly) : '$0');
+    setText('breakeven', yearly > 0 ? Math.ceil(conv / (yearly / 12)) + ' mo' : '\u2014');
+    setText('y3', money(Math.max(0, 3 * wham - (conv + 3 * HTML_HOSTING_YEAR))));
+    setText('y5', money(Math.max(0, 5 * wham - (conv + 5 * HTML_HOSTING_YEAR))));
+    setText('wp1', money(wham));
+    setText('wp2', money(wham));
+    setText('wp5', money(5 * wham));
+    setText('html1', money(conv + HTML_HOSTING_YEAR) + ' (conversion + hosting)');
+    setText('html2', money(HTML_HOSTING_YEAR));
+    setText('html5', money(conv + 5 * HTML_HOSTING_YEAR));
 
     var body = 'Hi Sara,\n\nI\'d like a quote to convert my WordPress site to HTML.\n\n' +
       'Website: ' + (lastSite || '(not entered)') + '\n' +
       'Pages + posts: ' + pages + '\n' +
       'Estimated conversion: ' + money(conv) + '\n' +
       'Current WHAM per year: ' + money(wham) + '\n\nThanks!';
-    $('request-btn').href = 'mailto:' + QUOTE_EMAIL + '?subject=' +
+    var mail = 'mailto:' + QUOTE_EMAIL + '?subject=' +
       encodeURIComponent('Conversion quote request' + (lastSite ? ' \u2013 ' + lastSite.replace(/^https?:\/\//, '') : '')) +
       '&body=' + encodeURIComponent(body);
+    each(function (q) { q.request.href = mail; });
   }
 
   function show(total, note) {
-    $('page-count').value = total;
-    $('count-note').textContent = note;
-    $('quote-result').hidden = false;
+    each(function (q) {
+      q.pages.value = total;
+      q.note.textContent = note;
+      q.result.hidden = false;
+    });
     calc();
   }
 
@@ -1693,38 +1806,46 @@
     });
   }
 
-  $('finder').addEventListener('submit', function (e) {
-    e.preventDefault();
-    var site = normalize($('site-url').value);
-    if (!site) { $('status').textContent = 'Please enter a website address, like yourwebsite.com.'; return; }
-    lastSite = site;
-    $('scan-btn').disabled = true;
-    $('status').textContent = 'Counting pages on ' + site.replace(/^https?:\/\//, '') + '\u2026 this can take a few seconds.';
+  function setBusy(busy) { each(function (q) { q.scan.disabled = busy; }); }
 
-    countDirect(site)
-      .catch(function () { return { ok: false }; })
-      .then(function (d) {
-        $('scan-btn').disabled = false;
-        if (d.ok) {
-          lastSite = d.site;
-          var parts = d.pages + ' page' + (d.pages === 1 ? '' : 's') + (d.posts ? ' and ' + d.posts + ' blog post' + (d.posts === 1 ? '' : 's') : '');
-          $('status').textContent = 'We found ' + parts + '.';
-          show(d.total, 'Found ' + parts + '. Adjust if needed.');
-        } else {
-          $('status').textContent = 'We couldn\'t count the pages automatically. Enter your page count below to see your estimate.';
-          show($('page-count').value || 10, 'Enter the number of pages and blog posts on your site.');
-        }
-      });
+  quotes.forEach(function (q) {
+    q.finder.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var site = normalize(q.site.value);
+      if (!site) { q.status.textContent = 'Please enter a website address, like yourwebsite.com.'; return; }
+      lastSite = site;
+      copyValue(q, 'site');
+      each(function (other) { if (other !== q) other.status.textContent = ''; });
+      setBusy(true);
+      q.status.textContent = 'Counting pages on ' + site.replace(/^https?:\/\//, '') + '\u2026 this can take a few seconds.';
+
+      countDirect(site)
+        .catch(function () { return { ok: false }; })
+        .then(function (d) {
+          setBusy(false);
+          if (d.ok) {
+            lastSite = d.site;
+            var parts = d.pages + ' page' + (d.pages === 1 ? '' : 's') + (d.posts ? ' and ' + d.posts + ' blog post' + (d.posts === 1 ? '' : 's') : '');
+            q.status.textContent = 'We found ' + parts + '.';
+            show(d.total, 'Found ' + parts + '. Adjust if needed.');
+          } else {
+            q.status.textContent = 'We couldn\'t count the pages automatically. Enter your page count below to see your estimate.';
+            show(q.pages.value || 10, 'Enter the number of pages and blog posts on your site.');
+          }
+        });
+    });
+
+    q.site.addEventListener('input', function () { copyValue(q, 'site'); });
+    q.pages.addEventListener('input', function () { copyValue(q, 'pages'); calc(); });
+    q.wham.addEventListener('input', function () { copyValue(q, 'wham'); calc(); });
   });
-
-  $('page-count').addEventListener('input', calc);
-  $('wham-cost').addEventListener('input', calc);
 
   // A click that arrived before this script ran (a cache plugin can hold scripts back) is run now.
   window.sbsReady = true;
-  if (window.sbsQueued) {
-    window.sbsQueued = false;
-    $('finder').dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+  var waiting = window.sbsQueued;
+  if (waiting) {
+    window.sbsQueued = null;
+    waiting.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
   }
 })();
 </script>
