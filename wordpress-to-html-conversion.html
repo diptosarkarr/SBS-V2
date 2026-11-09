@@ -1031,6 +1031,13 @@
     text-align: center;
   }
 
+  .quote-hint {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: var(--slate);
+    margin: 14px 0 0;
+  }
+
   /* ---- closing banner (single column) ---- */
   .cta-banner-section {
     padding: var(--section-gap) 0;
@@ -1245,7 +1252,8 @@
         <p class="quote-fine">Estimate only. Your final quote is confirmed after we review your site. Hosting doesn't include edits; changes after launch are billed at our standard hourly rate.</p>
 
         <div class="quote-cta">
-          <a class="btn btn-primary" data-q="request" href="mailto:sara@sitesbysara.com">Request this quote</a>
+          <a class="btn btn-primary" href="https://order.sitesbysara.com/configure?services=27.1,27.2" target="_blank" rel="noopener noreferrer">Request this quote</a>
+          <p class="quote-hint" data-q="hint">On the order page, set &ldquo;Number of Pages&rdquo; to 10 so the total matches this estimate.</p>
         </div>
 
       </div>
@@ -1652,7 +1660,8 @@
         <p class="quote-fine">Estimate only. Your final quote is confirmed after we review your site. Hosting doesn't include edits; changes after launch are billed at our standard hourly rate.</p>
 
         <div class="quote-cta">
-          <a class="btn btn-primary" data-q="request" href="mailto:sara@sitesbysara.com">Request this quote</a>
+          <a class="btn btn-primary" href="https://order.sitesbysara.com/configure?services=27.1,27.2" target="_blank" rel="noopener noreferrer">Request this quote</a>
+          <p class="quote-hint" data-q="hint">On the order page, set &ldquo;Number of Pages&rdquo; to 10 so the total matches this estimate.</p>
         </div>
 
       </div>
@@ -1683,11 +1692,11 @@
 (function () {
   // ---- Settings: change these if your pricing changes ----
   var BASE = 350, PER_PAGE = 35, HTML_HOSTING_YEAR = 300;
-  var QUOTE_EMAIL = 'sara@sitesbysara.com'; // where "Request this quote" goes
+  // "Request this quote" is a plain link in the markup: the order system with WordPress to HTML Conversion (27.1) and
+  // Number of Pages (27.2) preselected. Its links cannot carry a quantity, so the hint under the button says what to enter.
   var REQUEST_TIMEOUT = 8000;               // milliseconds to wait for the other site
 
   var money = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
-  var lastSite = '';
 
   // The calculator is on the page twice (under the banner and near the bottom). Every copy is found here by
   // data-quote / data-q and kept in step: what is typed or counted in one shows in the other.
@@ -1728,15 +1737,7 @@
     setText('html2', money(HTML_HOSTING_YEAR));
     setText('html5', money(conv + 5 * HTML_HOSTING_YEAR));
 
-    var body = 'Hi Sara,\n\nI\'d like a quote to convert my WordPress site to HTML.\n\n' +
-      'Website: ' + (lastSite || '(not entered)') + '\n' +
-      'Pages + posts: ' + pages + '\n' +
-      'Estimated conversion: ' + money(conv) + '\n' +
-      'Current WHAM per year: ' + money(wham) + '\n\nThanks!';
-    var mail = 'mailto:' + QUOTE_EMAIL + '?subject=' +
-      encodeURIComponent('Conversion quote request' + (lastSite ? ' \u2013 ' + lastSite.replace(/^https?:\/\//, '') : '')) +
-      '&body=' + encodeURIComponent(body);
-    each(function (q) { q.request.href = mail; });
+    setText('hint', 'On the order page, set \u201cNumber of Pages\u201d to ' + pages + ' so the total matches this estimate.');
   }
 
   function show(total, note) {
@@ -1813,7 +1814,6 @@
       e.preventDefault();
       var site = normalize(q.site.value);
       if (!site) { q.status.textContent = 'Please enter a website address, like yourwebsite.com.'; return; }
-      lastSite = site;
       copyValue(q, 'site');
       each(function (other) { if (other !== q) other.status.textContent = ''; });
       setBusy(true);
@@ -1824,7 +1824,6 @@
         .then(function (d) {
           setBusy(false);
           if (d.ok) {
-            lastSite = d.site;
             var parts = d.pages + ' page' + (d.pages === 1 ? '' : 's') + (d.posts ? ' and ' + d.posts + ' blog post' + (d.posts === 1 ? '' : 's') : '');
             q.status.textContent = 'We found ' + parts + '.';
             show(d.total, 'Found ' + parts + '. Adjust if needed.');
