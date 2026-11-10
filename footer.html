@@ -256,6 +256,320 @@
   }
 
   /* ============================================================
+   NEWSLETTER CTA (sits directly above the footer and overlaps its top edge)
+   Only links to /newsletter/, where the signup form lives; nothing is submitted from here.
+   The overlap (--nl-overlap) is repeated in the "+ .custom-site-footer" rule below: keep the two equal.
+   ============================================================ */
+  .custom-newsletter-cta {
+    --nl-overlap: clamp(40px, 5vw, 64px);
+    position: relative;
+    z-index: 2;
+    padding: clamp(32px, 4vw, 56px) 0 0;
+    margin-bottom: calc(-1 * var(--nl-overlap));
+    background: linear-gradient(#FFFFFF, #FFFFFF) no-repeat 0 0 / 100% calc(100% - var(--nl-overlap));
+  }
+
+  .custom-newsletter-cta+.custom-site-footer {
+    padding-top: clamp(40px, 5vw, 64px);
+  }
+
+  .custom-newsletter-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: center;
+    gap: clamp(24px, 4vw, 56px);
+    padding: clamp(32px, 5vw, 56px) clamp(24px, 5vw, 64px);
+    border-radius: 28px;
+    color: #FFFFFF;
+    background:
+      radial-gradient(ellipse 55% 90% at 100% 0%, rgba(255, 255, 255, 0.22), transparent 62%),
+      linear-gradient(115deg, #0243a4 0%, #0250c5 38%, #8a44a6 72%, #d43f8d 100%);
+    box-shadow: 0 28px 48px -18px rgba(2, 80, 197, 0.5), 0 8px 20px rgba(30, 33, 64, 0.12);
+  }
+
+  /* fine dot texture, fading out toward the right */
+  .custom-newsletter-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1.3px);
+    background-size: 18px 18px;
+    -webkit-mask-image: linear-gradient(115deg, #000 0%, transparent 62%);
+    mask-image: linear-gradient(115deg, #000 0%, transparent 62%);
+  }
+
+  .custom-newsletter-copy {
+    position: relative;
+    z-index: 1;
+  }
+
+  .custom-newsletter-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.14);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+
+  .custom-newsletter-eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #FF8A97;
+  }
+
+  .custom-newsletter-cta .custom-newsletter-title {
+    margin: 18px 0 12px;
+    font-family: var(--font);
+    font-size: clamp(1.7rem, 1.25rem + 1.6vw, 2.55rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: #FFFFFF;
+  }
+
+  .custom-newsletter-cta .custom-newsletter-text {
+    max-width: 46ch;
+    margin-bottom: 28px;
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .custom-newsletter-cta .custom-newsletter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 28px;
+    border-radius: 999px;
+    background: #FFFFFF;
+    font-family: var(--font);
+    font-size: 0.98rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #0250C5 !important;
+    box-shadow: 0 10px 26px rgba(8, 18, 60, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  }
+
+  .custom-newsletter-cta .custom-newsletter-btn svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  .custom-newsletter-cta .custom-newsletter-btn:hover,
+  .custom-newsletter-cta .custom-newsletter-btn:focus,
+  .custom-newsletter-cta .custom-newsletter-btn:focus-visible,
+  .custom-newsletter-cta .custom-newsletter-btn:active {
+    background: #F2F6FF;
+    color: #0243A4 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 14px 32px rgba(8, 18, 60, 0.38);
+  }
+
+  .custom-newsletter-cta .custom-newsletter-btn:hover svg,
+  .custom-newsletter-cta .custom-newsletter-btn:focus-visible svg {
+    transform: translateX(4px);
+  }
+
+  .custom-newsletter-cta .custom-newsletter-btn:focus-visible {
+    outline: 3px solid #FFFFFF;
+    outline-offset: 3px;
+  }
+
+  /* Decorative "issue" mock-up: the art column spans the full card height (negative margins cancel the card
+     padding) so the front issue can poke out above the card's top edge. */
+  .custom-newsletter-art {
+    position: relative;
+    z-index: 1;
+    align-self: stretch;
+    margin: calc(-1 * clamp(32px, 5vw, 56px)) 0;
+    min-height: 260px;
+  }
+
+  .custom-newsletter-issue {
+    position: absolute;
+    width: min(250px, 62%);
+    padding: 14px;
+    border-radius: 16px;
+    background: #FFFFFF;
+    box-shadow: 0 26px 44px -14px rgba(8, 18, 60, 0.55);
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .custom-newsletter-issue.is-back {
+    top: 28px;
+    right: 2%;
+    height: 250px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: none;
+    transform: rotate(8deg);
+  }
+
+  .custom-newsletter-issue.is-front {
+    top: -28px;
+    right: 20%;
+    transform: rotate(-5deg);
+    animation: custom-newsletter-float 6s ease-in-out infinite;
+  }
+
+  .custom-newsletter-issue-mast {
+    display: flex;
+    align-items: flex-end;
+    height: 54px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    font-size: 0.58rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+
+  .custom-newsletter-issue-hero {
+    height: 64px;
+    border-radius: 10px;
+    background:
+      radial-gradient(circle at 28% 62%, rgba(212, 63, 141, 0.28) 0 22px, transparent 23px),
+      radial-gradient(circle at 70% 40%, rgba(2, 80, 197, 0.22) 0 28px, transparent 29px),
+      #EEF2FA;
+  }
+
+  .custom-newsletter-issue-line {
+    display: block;
+    height: 7px;
+    border-radius: 4px;
+    background: #E3E8F4;
+  }
+
+  .custom-newsletter-issue-line.is-mid {
+    width: 78%;
+  }
+
+  .custom-newsletter-issue-line.is-short {
+    width: 54%;
+  }
+
+  .custom-newsletter-issue-chip {
+    display: block;
+    width: 38%;
+    height: 16px;
+    margin-top: 2px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+  }
+
+  .custom-newsletter-envelope {
+    position: absolute;
+    left: 4%;
+    bottom: 30px;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #FFFFFF;
+    color: #0250C5;
+    box-shadow: 0 16px 30px rgba(8, 18, 60, 0.4);
+    animation: custom-newsletter-bob 5s ease-in-out infinite;
+  }
+
+  .custom-newsletter-envelope svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .custom-newsletter-envelope::after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    right: 9px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ea4e5f;
+    border: 2px solid #FFFFFF;
+  }
+
+  @keyframes custom-newsletter-float {
+
+    0%,
+    100% {
+      transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+      transform: translateY(-9px) rotate(-5deg);
+    }
+  }
+
+  @keyframes custom-newsletter-bob {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(7px);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .custom-newsletter-card {
+      grid-template-columns: 1fr;
+      border-radius: 22px;
+    }
+
+    .custom-newsletter-art {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .custom-newsletter-cta .custom-newsletter-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .custom-newsletter-issue.is-front,
+    .custom-newsletter-envelope {
+      animation: none;
+    }
+
+    .custom-newsletter-cta .custom-newsletter-btn,
+    .custom-newsletter-cta .custom-newsletter-btn svg {
+      transition: none;
+    }
+  }
+
+  @media print {
+    .custom-newsletter-cta {
+      display: none;
+    }
+  }
+
+  /* ============================================================
    BACK TO TOP (floating)
    Bottom-right, stacked directly above the 58px chat widget (which is
    fixed 20px from the right/bottom edges) so the two never overlap.
@@ -394,6 +708,47 @@
     }
   }
 </style>
+
+<!-- ============================================================
+     NEWSLETTER CTA (straight above the footer; links to the newsletter page)
+     ============================================================ -->
+<section class="custom-newsletter-cta" aria-labelledby="customNewsletterTitle">
+  <div class="custom-container">
+    <div class="custom-newsletter-card">
+
+      <div class="custom-newsletter-copy">
+        <span class="custom-newsletter-eyebrow"><span class="custom-newsletter-eyebrow-dot"></span>Stay Updated</span>
+        <h2 class="custom-newsletter-title" id="customNewsletterTitle">Get our monthly newsletter</h2>
+        <p class="custom-newsletter-text">Industry news, Sites by Sara updates and exclusive monthly discounts, straight to your inbox.</p>
+        <a href="/newsletter/" class="custom-newsletter-btn">Subscribe Now<svg viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+            aria-hidden="true" focusable="false">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+
+      <div class="custom-newsletter-art" aria-hidden="true">
+        <div class="custom-newsletter-issue is-back"></div>
+        <div class="custom-newsletter-issue is-front">
+          <div class="custom-newsletter-issue-mast">Sites by Sara</div>
+          <div class="custom-newsletter-issue-hero"></div>
+          <span class="custom-newsletter-issue-line"></span>
+          <span class="custom-newsletter-issue-line is-mid"></span>
+          <span class="custom-newsletter-issue-line is-short"></span>
+          <span class="custom-newsletter-issue-chip"></span>
+        </div>
+        <span class="custom-newsletter-envelope">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+            stroke-linejoin="round" focusable="false">
+            <rect x="2" y="4" width="20" height="16" rx="3" />
+            <path d="m22 7-10 6L2 7" />
+          </svg>
+        </span>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- ============================================================
      SITE FOOTER (Reusable Component)
