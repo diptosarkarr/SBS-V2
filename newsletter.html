@@ -4,9 +4,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Brevo form structural CSS (kept as provided — required for input layout, the loader spinner, and error/success panel behavior). -->
-  <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
-
   <style>
     /* ============================================================
      DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
@@ -252,71 +249,33 @@
     }
 
     /* ============================================================
-     BREVO FORM — restyled to match SBS design tokens
+     NEWSLETTER SIGNUP CARD
+     The form itself is a GHL iframe: its fields, colors and button are styled in GHL (Sites > Forms),
+     so only the card around it is styled here. GHL's script sets the iframe height when the form loads, but the
+     CAPTCHA widget and its error line load after that and make the form taller, so the iframe keeps a minimum
+     height that fits the form with the CAPTCHA (528px measured at 294px and 1280px widths) instead of
+     showing an inner scrollbar that hides the Submit button.
      ============================================================ */
-    #sib-form .entry__field {
-      margin-bottom: 4px;
+    .newsletter-form-card {
+      position: relative;
+      width: 100%;
+      padding: 16px;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-card-hover);
+      overflow: hidden;
     }
 
-    .sib-form .entry__field {
-      border: none;
+    .newsletter-form-card iframe {
+      display: block;
+      min-height: 530px;
     }
 
-    #sib-form .input {
-      font-family: var(--font) !important;
-      font-size: 0.95rem !important;
-      color: var(--navy) !important;
-      border: 1px solid var(--border) !important;
-      border-radius: var(--radius-pill) !important;
-      padding: 5px 16px !important;
-      transition: border-color 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    #sib-form .input:focus {
-      border-color: var(--brand-blue) !important;
-      box-shadow: 0 0 0 3px var(--brand-blue-tint);
-      outline: none;
-    }
-
-    /* Brevo's stylesheet puts a square 2px ring on the field wrapper (.entry__field:focus-within, 3px radius),
-       which showed up as a rectangle around our pill input. The input draws its own focus ring above. */
-    #sib-form .entry__field,
-    #sib-form .entry__field:focus-within {
-      background: transparent !important;
-      border-radius: var(--radius-pill) !important;
-      box-shadow: none !important;
-      outline: none !important;
-    }
-
-    #sib-container input::placeholder,
-    #sib-container textarea::placeholder {
-      font-family: var(--font) !important;
-      color: var(--slate-light) !important;
-    }
-
-    #sib-form .sib-form-block__button {
-      font-family: var(--font) !important;
-      width: 100% !important;
-      display: flex !important;
-      align-items: center !important;
-      justify-content: center !important;
-      gap: 8px !important;
-      text-align: center !important;
-      border-radius: var(--radius-pill) !important;
-      padding: 14px 20px !important;
-      font-size: 0.95rem !important;
-      letter-spacing: 0.02em;
-      transition: all 0.2s ease !important;
-      box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
-    }
-
-    #sib-form .sib-form-block__button:hover {
-      background: var(--brand-gradient-hover) !important;
-      transform: translateY(-1px);
-    }
-
-    #sib-form .sib-form-block {
-      text-align: center !important;
+    @media (max-width: 600px) {
+      .newsletter-form-card {
+        padding: 8px;
+      }
     }
 
     /* ============================================================
@@ -700,116 +659,29 @@
         </div>
 
         <div class="newsletter-hero-form">
-          <!-- Begin Brevo Form -->
-          <div class="sib-form" style="text-align: center; background-color: transparent;">
-            <div id="sib-form-container" class="sib-form-container">
-              <div id="error-message" class="sib-form-message-panel"
-                style="font-size:16px; text-align:left; font-family:var(--font); color:#661d1d; background-color:var(--brand-coral-tint); border-radius:var(--radius-sm); border-color:var(--brand-coral); max-width:540px;">
-                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-                  <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
-                    <path
-                      d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
-                  </svg>
-                  <span class="sib-form-message-panel__inner-text">
-                    Your subscription could not be saved. Please try again.
-                  </span>
-                </div>
-              </div>
-              <div></div>
-              <div id="success-message" class="sib-form-message-panel"
-                style="font-size:16px; text-align:left; font-family:var(--font); color:#085229; background-color:var(--green-tint); border-radius:var(--radius-sm); border-color:var(--green); max-width:540px;">
-                <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-                  <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
-                    <path
-                      d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
-                  </svg>
-                  <span class="sib-form-message-panel__inner-text">
-                    Your subscription has been successful.
-                  </span>
-                </div>
-              </div>
-              <div></div>
-              <div id="sib-container" class="sib-container--large sib-container--vertical"
-                style="padding: 28px; text-align:center; background-color:#FFFFFF; max-width:100%; border-radius:var(--radius-md); border-width:1px; border-color:var(--border); border-style:solid; box-shadow:var(--shadow-card-hover); direction:ltr">
-                <form id="sib-form" method="POST"
-                  action="https://f8a61904.sibforms.com/serve/MUIFAPSjRKtIzo8u1Iew8vnTqFf5qEq_73i7MlOc1W_QjSIP_zOvcLgFTvbumuXFicYQk27XtUTuLpn4sB3i6JwXiBM9yVxH0hLZQgii7VFlDpnAS3Sc-AC49Jf5uytUbkvwOhH0Zoa30VzedT9Q6LUkun2odA1UqfQfpHculs5DfeBWxd_I9VfIUYuHDdDD-ssVALrJ3F_RjROH"
-                  data-type="subscription">
-
-                  <div style="padding: 8px 0;">
-                    <div class="sib-input sib-form-block">
-                      <div class="form__entry entry_block">
-                        <div class="form__label-row ">
-                          <div class="entry__field">
-                            <input class="input" maxlength="200" type="text" id="FIRSTNAME" name="FIRSTNAME"
-                              autocomplete="off" placeholder="First Name" />
-                          </div>
-                        </div>
-                        <label class="entry__error entry__error--primary"
-                          style="font-size:16px; text-align:left; font-family:var(--font); color:#661d1d; background-color:var(--brand-coral-tint); border-radius:var(--radius-sm); border-color:var(--brand-coral);">
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div style="padding: 8px 0;">
-                    <div class="sib-input sib-form-block">
-                      <div class="form__entry entry_block">
-                        <div class="form__label-row ">
-                          <div class="entry__field">
-                            <input class="input" maxlength="200" type="text" id="LASTNAME" name="LASTNAME"
-                              autocomplete="off" placeholder="Last Name" />
-                          </div>
-                        </div>
-                        <label class="entry__error entry__error--primary"
-                          style="font-size:16px; text-align:left; font-family:var(--font); color:#661d1d; background-color:var(--brand-coral-tint); border-radius:var(--radius-sm); border-color:var(--brand-coral);">
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div style="padding: 8px 0;">
-                    <div class="sib-input sib-form-block">
-                      <div class="form__entry entry_block">
-                        <div class="form__label-row ">
-                          <div class="entry__field">
-                            <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off"
-                              placeholder="Email" data-required="true" required />
-                          </div>
-                        </div>
-                        <label class="entry__error entry__error--primary"
-                          style="font-size:16px; text-align:left; font-family:var(--font); color:#661d1d; background-color:var(--brand-coral-tint); border-radius:var(--radius-sm); border-color:var(--brand-coral);">
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div style="padding: 8px 0;">
-                    <div class="g-recaptcha" data-sitekey="6Lfr3NsiAAAAAMO6g2Zd-MFETxkHbXLGu2RVAnxB"
-                      data-callback="invisibleCaptchaCallback" data-size="invisible" onclick="executeCaptcha"></div>
-                  </div>
-
-                  <div style="padding: 8px 0;">
-                    <div class="sib-form-block" style="text-align: center">
-                      <button class="sib-form-block__button sib-form-block__button-with-loader"
-                        style="font-weight:700; font-family:var(--font); color:#FFFFFF; background:var(--brand-gradient); border-width:0px;"
-                        form="sib-form" type="submit">
-                        <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon"
-                          viewBox="0 0 512 512">
-                          <path
-                            d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
-                        </svg>
-                        SUBSCRIBE
-                      </button>
-                    </div>
-                  </div>
-
-                  <input type="text" name="email_address_check" value="" class="input--hidden">
-                  <input type="hidden" name="locale" value="en">
-                </form>
-              </div>
-            </div>
+          <!-- GHL form: a submission becomes a GHL contact and the workflow adds the newsletter tag. Edit the form in GHL, not here. -->
+          <div class="newsletter-form-card">
+            <iframe
+              src="https://profile.sitesbysara.com/widget/form/dlEqL3ZWRcLVwrBBCtfS"
+              style="width:100%;height:100%;border:none;border-radius:8px"
+              id="inline-dlEqL3ZWRcLVwrBBCtfS"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Newsletter Signup Form"
+              data-height="513"
+              data-layout-iframe-id="inline-dlEqL3ZWRcLVwrBBCtfS"
+              data-form-id="dlEqL3ZWRcLVwrBBCtfS"
+              data-cookie-consent="true"
+              data-cookie-consent-provider="auto"
+              title="Newsletter Signup Form">
+            </iframe>
+            <script src="https://profile.sitesbysara.com/js/form_embed.js" data-no-optimize="1" data-no-defer="1"></script>
           </div>
-          <!-- End Brevo Form -->
         </div>
 
       </div>
@@ -1417,22 +1289,3 @@
       }
     })();
   </script>
-
-  <!-- Begin Brevo Form scripts -->
-  <script>
-    window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
-    window.LOCALE = 'en';
-    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
-    window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
-    window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
-    window.translation = {
-      common: {
-        selectedList: '{quantity} list selected',
-        selectedLists: '{quantity} lists selected'
-      }
-    };
-    var AUTOHIDE = Boolean(0);
-  </script>
-  <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
-  <!-- End Brevo Form scripts -->
