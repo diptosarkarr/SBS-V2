@@ -1232,8 +1232,8 @@
         <p class="quote-fine">Estimate only. Your final quote is confirmed after we review your site. Hosting doesn't include edits; changes after launch are billed at our standard hourly rate.</p>
 
         <div class="quote-cta">
-          <a class="btn btn-primary" href="https://order.sitesbysara.com/configure?services=27.1,27.2" target="_blank" rel="noopener noreferrer">Request this quote</a>
-          <p class="quote-hint" data-q="hint">On the order page, set &ldquo;Number of Pages&rdquo; to your page count so the total matches this estimate.</p>
+          <a class="btn btn-primary" data-q="request" href="https://order.sitesbysara.com/configure?services=27.1,27.2" target="_blank" rel="noopener noreferrer">Request this quote</a>
+          <p class="quote-hint" data-q="hint">Opens our order page with your page count already entered.</p>
         </div>
 
       </div>
@@ -1634,8 +1634,8 @@
         <p class="quote-fine">Estimate only. Your final quote is confirmed after we review your site. Hosting doesn't include edits; changes after launch are billed at our standard hourly rate.</p>
 
         <div class="quote-cta">
-          <a class="btn btn-primary" href="https://order.sitesbysara.com/configure?services=27.1,27.2" target="_blank" rel="noopener noreferrer">Request this quote</a>
-          <p class="quote-hint" data-q="hint">On the order page, set &ldquo;Number of Pages&rdquo; to your page count so the total matches this estimate.</p>
+          <a class="btn btn-primary" data-q="request" href="https://order.sitesbysara.com/configure?services=27.1,27.2" target="_blank" rel="noopener noreferrer">Request this quote</a>
+          <p class="quote-hint" data-q="hint">Opens our order page with your page count already entered.</p>
         </div>
 
       </div>
@@ -1666,9 +1666,10 @@
 (function () {
   // ---- Settings: change these if your pricing changes ----
   var BASE = 350, PER_PAGE = 35, HTML_HOSTING_YEAR = 300;
-  var ORDER_PAGES_MAX = 99; // the order page's "Number of Pages" quantity stops at 99
-  // "Request this quote" is a plain link in the markup: the order system with WordPress to HTML Conversion (27.1) and
-  // Number of Pages (27.2) preselected. Its links cannot carry a quantity, so the hint under the button says what to enter.
+  // "Request this quote" opens the order system with WordPress to HTML Conversion (27.1) and Number of Pages (27.2)
+  // selected; ":N" after an id sets its quantity (supported by the order page since 2026-11-14), so 27.2 gets the typed page count.
+  var ORDER_URL = 'https://order.sitesbysara.com/configure?services=27.1,27.2:';
+  var ORDER_PAGES_MAX = 9999; // the order page's "Number of Pages" quantity stops at 9,999
 
   var money = function (n) { return '$' + Math.round(n).toLocaleString('en-US'); };
   var count = function (n) { return n.toLocaleString('en-US'); };
@@ -1721,9 +1722,12 @@
     setText('html2', money(HTML_HOSTING_YEAR));
     setText('html5', money(conv + 5 * HTML_HOSTING_YEAR));
 
+    // the button carries the page count to the order page (more than it can hold: the most it takes, and the hint says so)
+    var link = ORDER_URL + Math.min(pages, ORDER_PAGES_MAX);
+    each(function (q) { q.request.href = link; });
     setText('hint', pages > ORDER_PAGES_MAX
-      ? 'The order page stops at ' + ORDER_PAGES_MAX + ' pages. Set it to ' + ORDER_PAGES_MAX + ' there and put your ' + count(pages) + ' pages in the \u201cAnything else we should know?\u201d box.'
-      : 'On the order page, set \u201cNumber of Pages\u201d to ' + pages + ' so the total matches this estimate.');
+      ? 'The order page takes up to ' + count(ORDER_PAGES_MAX) + ' pages. Put your ' + count(pages) + ' pages in the \u201cAnything else we should know?\u201d box.'
+      : 'Opens our order page with your ' + count(pages) + ' page' + (pages === 1 ? '' : 's') + ' already entered.');
   }
 
   // Only the copy the visitor is typing in announces the new price to screen readers (not both copies).
