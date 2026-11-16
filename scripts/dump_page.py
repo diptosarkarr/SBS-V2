@@ -27,11 +27,11 @@ def live_cards(src):
         qs = html.unescape(m.group(1))
     elif sc:  # server-rendered pricing: same parameters as the old iframe URL
         attrs = dict(re.findall(r'(\w+)="([^"]*)"', html.unescape(sc.group(1))))
-        qs = urllib.parse.urlencode({k: v for k, v in attrs.items() if k in ('ids', 'popular', 'title')})
+        qs = urllib.parse.urlencode({k: v for k, v in attrs.items() if k in ('category', 'ids', 'popular', 'title')})
     else:
         return
     query = urllib.parse.parse_qs(qs)
-    ids = query.get('ids', [''])[0]
+    ids = query.get('ids', [''])[0] or 'category ' + query.get('category', [''])[0]
     url = 'https://order.sitesbysara.com/configure/pricing-cards?' + qs
     body = urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'}), timeout=30).read()
     body = re.sub(r'<(style|script)\b.*?</\1>', '', body.decode('utf-8', 'ignore'), flags=re.S)

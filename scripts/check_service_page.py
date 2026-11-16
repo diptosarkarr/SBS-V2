@@ -189,11 +189,28 @@ def check_jsonld(src, errors, warns):
 def check_ids(frames, errors):
     if not frames:
         return
-    if frames[0].startswith("["):  # [sbs_pricing_cards ids="..." ...]
-        ids = html.unescape(re.search(r'ids="([^"]*)"', frames[0]).group(1)).split(",")
+    category = ""
+    if frames[0].startswith("["):  # [sbs_pricing_cards category="..." ids="..." ...]
+        attrs = dict(re.findall(r'(\w+)="([^"]*)"', html.unescape(frames[0])))
+        category = attrs.get("category", "").strip()
+        ids = [i for i in attrs.get("ids", "").split(",") if i.strip()]
+        if not category and not ids:
+            errors.append("pricing shortcode has neither category= nor ids=")
     else:
         src = re.search(r'src="([^"]+)"', frames[0]).group(1)
         ids = urllib.parse.parse_qs(urllib.parse.urlparse(html.unescape(src)).query).get("ids", [""])[0].split(",")
+    if category:  # a whole order-system category: it must exist and render at least one card
+        url = "https://order.sitesbysara.com/configure/pricing-cards?category=" + urllib.parse.quote(category)
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        try:
+            body = urllib.request.urlopen(req, timeout=20).read().decode("utf-8", "ignore")
+        except OSError as exc:
+            errors.append(f"could not fetch category {category}: {exc}")
+            body = ""
+        names = re.findall(r'class="pc-name">([^<]*)', body)
+        print(f"  category {category} -> {len(names)} card(s): {', '.join(html.unescape(n) for n in names) or 'NO CARD'}")
+        if body and not names:
+            errors.append(f"unknown or empty category {category} (renders no card)")
     for card_id in ids:
         url = "https://order.sitesbysara.com/configure/pricing-cards?ids=" + urllib.parse.quote(card_id)
         req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
@@ -205,7 +222,7 @@ def check_ids(frames, errors):
         names = re.findall(r'class="pc-name">([^<]*)', body)
         print(f"  id {card_id:>8} -> {', '.join(html.unescape(n) for n in names) or 'NO CARD'}")
         if not names:
-            errors.append(f"dead pricing id {card_id} (renders no card): drop it from the iframe URL")
+            errors.append(f"dead pricing id {card_id} (renders no card): drop it from the shortcode")
 
 
 def check_layout(src, errors, warns):

@@ -192,13 +192,19 @@ def story_row_html(row, reversed_):
 
 
 def pricing_shortcode(src):
-    """Turn a pricing-cards URL (ids/popular/title query) into the [sbs_pricing_cards ...] shortcode that the
-    pricing plugin renders on the server. Accepts a ready-made shortcode too."""
+    """Turn a pricing-cards URL (category and/or ids, popular, title query) into the [sbs_pricing_cards ...] shortcode
+    that the pricing plugin renders on the server. Accepts a ready-made shortcode too. Prefer category= (every service
+    of one order-system category); ids= is for cards outside the page's own category."""
     import urllib.parse
     if src.lstrip().startswith('['):
         return src.strip()
     q = urllib.parse.parse_qs(urllib.parse.urlparse(html.unescape(src)).query)
-    parts = [f'ids="{q["ids"][0]}"']
+    parts = []
+    if q.get('category'):
+        parts.append(f'category="{q["category"][0]}"')
+    if q.get('ids'):
+        parts.append(f'ids="{q["ids"][0]}"')
+    assert parts, "pricing_shortcode needs a category or ids"
     if q.get('popular'):
         parts.append(f'popular="{q["popular"][0]}"')
     if q.get('title'):
