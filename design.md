@@ -933,6 +933,7 @@ Brought over from the live `/marketing/branding-and-graphic-design` page (Logo D
 - Costs: two `.cost-part` cards (a 4px blue and a 4px coral top edge) and the ownership line as a larger-type `.ownership` callout (peach border, coral left edge, key icon). No amounts anywhere. The related-services `.section-note` sits under it.
 - Closing banner: the standard peach CTA box (`.cta-banner-box`, eyebrow "Next Steps", blue H2, copy and the two buttons on the left, the "Helpful to have ready:" `.prep-card-right` card on the right; one column under 820px). A dark navy band with brand-colour glows was built first (the document asked for a dark band) and dropped on 2026-11-16 because it clashed with the live site's footer. The phone button is a plain `.btn-outline` (in `client-content`, it carries digits). The three checklist items are ours but come from the client's own text (the contact paragraph and the "My AI website is not working" answer).
 - Motion is hover lift only and is switched off under `prefers-reduced-motion`. The page has one script, the shared trust-strip count-up.
+- Header menu (2026-11-16): linked as "Built an AI Website? Now Get it Working" (the page name) in the Services mega-menu, both the desktop grid and the mobile accordion, under Maintain & Protect > Ongoing Support below Website Care. Maintain & Protect was the shortest column, so it now matches Grow and Market & Brand at 6 links (Build stays 8); the desktop and mobile Services link sets are still identical.
 
 ## 6. Image Standards & Asset Guidelines
 
