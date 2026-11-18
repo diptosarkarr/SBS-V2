@@ -76,6 +76,8 @@ Every page must follow `design.md` §7 (SEO Best Practices) from the first draft
 
 This project never generates images directly — every image is a **prompt handed to the user**, who generates it externally and places it.
 
+**Exception (client direction, 2026-11-18):** hero and website images are now real people photos (Pexels) or real screenshots of approved client sites, not generated wireframes. Follow `design.md` section 6 point 7 and 5.47, use `scripts/make_client_site_images.py` for client sites, and list every new file in `IMAGE-UPLOAD-LIST-2026-11.md`-style notes for the person uploading.
+
 - For every image the page needs, write an explicit generation prompt covering: subject/mockup content, aspect ratio (4:3 unless noted otherwise), the brand accent colors to echo (`#3A539B` navy-blue, `#ea4e5f` coral), and lighting/style (clean, bright, minimal, studio lighting).
 - **Every prompt must explicitly state: no third-party brand names, logos, or product names anywhere in the image. If a brand/site name must appear in the mockup, it must read "Sites By Sara" and nothing else.**
 - Give the exact filename to use, matching the pattern already in `images/` (e.g. `service-name-hero.jpg`, `service-name-detail.jpg`).

@@ -1122,6 +1122,285 @@
   }
 
   /* ============================================================
+     CLIENT SITE SAMPLES: browser frame, full-page screenshot that scrolls on hover
+     (same block on built-an-ai-website-now-get-it-working.html and static-sites.html)
+     ============================================================ */
+  .sample-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 340px), 1fr));
+    gap: 28px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .sample-card {
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-subtle);
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  }
+
+  .sample-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--brand-blue);
+    box-shadow: var(--shadow-floating);
+  }
+
+  .sample-frame {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    background: #F4F6FA;
+  }
+
+  .sample-chrome {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 14px;
+    background: #ECEFF4;
+    border-bottom: 1px solid #D9DDE5;
+  }
+
+  .sample-chrome i {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #C5CAD3;
+  }
+
+  .sample-url {
+    flex: 1;
+    min-width: 0;
+    margin-left: 10px;
+    padding: 3px 14px;
+    border-radius: 999px;
+    background: #FFFFFF;
+    color: var(--slate);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .sample-viewport {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+    container-type: size;
+    background: #FFFFFF;
+  }
+
+  .sample-scroll {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: translateY(0);
+    transition: transform 1.2s ease;
+  }
+
+  @supports (height: 1cqh) {
+    .sample-card:hover .sample-scroll,
+    .sample-card:focus-within .sample-scroll {
+      transform: translateY(calc(-100% + 100cqh));
+      transition: transform 11s cubic-bezier(0.45, 0.05, 0.55, 0.95);
+    }
+  }
+
+  .sample-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px 18px;
+    padding: 18px 22px 20px;
+  }
+
+  .sample-name {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+    color: var(--navy);
+  }
+
+  .sample-type {
+    margin: 2px 0 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--slate);
+  }
+
+  .sample-visit {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--brand-blue) !important;
+  }
+
+  .sample-visit svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  .sample-visit:hover,
+  .sample-visit:focus,
+  .sample-visit:active {
+    color: var(--navy) !important;
+    text-decoration: none;
+  }
+
+  .sample-visit:hover svg {
+    transform: translate(2px, -2px);
+  }
+
+  .sample-visit:focus-visible {
+    outline: 2px solid var(--brand-blue);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  @media (hover: none), (prefers-reduced-motion: reduce) {
+    .sample-card,
+    .sample-card:hover {
+      transform: none;
+      transition: none;
+    }
+
+    .sample-card:hover .sample-scroll,
+    .sample-card:focus-within .sample-scroll {
+      transform: none;
+      transition: none;
+    }
+
+    .sample-visit svg,
+    .sample-visit:hover svg {
+      transition: none;
+      transform: none;
+    }
+  }
+
+  /* ---- people photos: framed like the other image cards ---- */
+  .section-photo {
+    margin: 32px 0 0;
+    max-width: 520px;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-subtle);
+    overflow: hidden;
+    background: #FFFFFF;
+  }
+
+  .section-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ---- hero: photo with the checklist panel overlapping its lower edge ---- */
+  .hero-photo-stack {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+  }
+
+  .hero-photo {
+    margin: 0;
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-floating);
+    overflow: hidden;
+    background: #FFFFFF;
+  }
+
+  .hero-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-photo-stack .ready-panel {
+    width: 86%;
+    max-width: none;
+    margin: -88px 0 0 -26px;
+  }
+
+  /* ---- first proof card links to the Static HTML page; samples sit under the grid ---- */
+  .proof-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 14px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--brand-blue) !important;
+  }
+
+  .proof-link svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    transition: transform 0.2s ease;
+  }
+
+  .proof-link:hover,
+  .proof-link:focus,
+  .proof-link:active {
+    color: var(--navy) !important;
+    text-decoration: none;
+  }
+
+  .proof-link:hover svg {
+    transform: translateX(3px);
+  }
+
+  .proof-link:focus-visible {
+    outline: 2px solid var(--brand-blue);
+    outline-offset: 4px;
+    border-radius: 4px;
+  }
+
+  .samples-block {
+    margin-top: clamp(44px, 5vw, 64px);
+  }
+
+  .samples-block .proof-label {
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 600px) {
+    .hero-photo-stack .ready-panel {
+      width: 94%;
+      margin: -60px 0 0 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .proof-link svg,
+    .proof-link:hover svg {
+      transition: none;
+      transform: none;
+    }
+  }
+
+  /* ============================================================
      RESPONSIVE BREAKPOINTS
      ============================================================ */
   @media (max-width: 1024px) {
@@ -1255,6 +1534,8 @@
 
       <!-- Checklist panel -->
       <div class="hero-visual-wrap">
+        <div class="hero-photo-stack">
+          <figure class="hero-photo"><img src="/wp-content/uploads/2026/11/people-helping-at-laptop.webp" alt="A man and a woman looking at a laptop together at a table" width="600" height="450" fetchpriority="high" decoding="async" /></figure>
         <div class="ready-panel">
           <div class="ready-card" role="group" aria-labelledby="ready-title">
             <div class="ready-head">
@@ -1284,6 +1565,7 @@
           </li>
             </ul>
           </div>
+        </div>
         </div>
       </div>
 
@@ -1465,6 +1747,7 @@
           <div class="card-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
           <h3 class="proof-title">Live sites we have built</h3>
           <p class="proof-desc">We are happy to share links to sites we launched and still maintain, so you can see the work running today.</p>
+          <a class="proof-link" href="/static-html-sites/">See sites we have built<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></a>
         </article>
 
         <article class="proof-card">
@@ -1499,6 +1782,40 @@
 
     </div>
 
+    <div class="samples-block" id="sites-we-have-built">
+      <p class="proof-label">A few live sites we have built:</p>
+      <div class="sample-grid">
+      <article class="sample-card portfolio-card">
+        <a class="sample-frame" href="https://sirsbarbershop.com/" target="_blank" rel="noopener nofollow" tabindex="-1" aria-hidden="true">
+          <span class="sample-chrome" aria-hidden="true"><i></i><i></i><i></i><span class="sample-url">sirsbarbershop.com</span></span>
+          <span class="sample-viewport"><img class="sample-scroll" src="/wp-content/uploads/2026/11/site-preview-sirs-barbershop.webp" alt="Full-page preview of the Sirs Barbershop website" width="720" height="5686" loading="lazy" decoding="async" /></span>
+        </a>
+        <div class="sample-meta">
+          <div>
+            <h3 class="sample-name">Sirs Barbershop</h3>
+            <p class="sample-type">One-page HTML website</p>
+          </div>
+          <a class="sample-visit" href="https://sirsbarbershop.com/" target="_blank" rel="noopener nofollow" aria-label="Visit site: Sirs Barbershop (opens in a new tab)">Visit site<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+        </div>
+      </article>
+
+      <article class="sample-card portfolio-card">
+        <a class="sample-frame" href="https://ecomovingutah.com/" target="_blank" rel="noopener nofollow" tabindex="-1" aria-hidden="true">
+          <span class="sample-chrome" aria-hidden="true"><i></i><i></i><i></i><span class="sample-url">ecomovingutah.com</span></span>
+          <span class="sample-viewport"><img class="sample-scroll" src="/wp-content/uploads/2026/11/site-preview-eco-moving-utah.webp" alt="Full-page preview of the Eco Moving Utah website" width="720" height="5093" loading="lazy" decoding="async" /></span>
+        </a>
+        <div class="sample-meta">
+          <div>
+            <h3 class="sample-name">Eco Moving Utah</h3>
+            <p class="sample-type">One-page HTML website</p>
+          </div>
+          <a class="sample-visit" href="https://ecomovingutah.com/" target="_blank" rel="noopener nofollow" aria-label="Visit site: Eco Moving Utah (opens in a new tab)">Visit site<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 17 17 7"/><path d="M8 7h9v9"/></svg></a>
+        </div>
+      </article>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1511,6 +1828,7 @@
 
       <div class="smart-head">
         <h2 class="h2-title">Why Sites by Sara is a smart choice</h2>
+        <figure class="section-photo"><img src="/wp-content/uploads/2026/11/people-conference-room.webp" alt="A group of people seated around a conference table with laptops" width="600" height="450" loading="lazy" decoding="async" /></figure>
       </div>
 
       <div class="smart-text client-content">
