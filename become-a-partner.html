@@ -401,6 +401,29 @@
     background: #FFFFFF;
   }
 
+  .form-legal {
+    margin: 16px 0 0;
+    font-size: 0.8rem;
+    line-height: 1.6;
+    color: var(--slate);
+    text-align: center;
+  }
+
+  .form-legal a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
+
+  .form-legal a:hover,
+  .form-legal a:focus,
+  .form-legal a:focus-visible,
+  .form-legal a:active {
+    color: var(--brand-blue-hover) !important;
+  }
+
   /* ============================================================
      TRUST RIBBON
      ============================================================ */
@@ -757,6 +780,8 @@
           </iframe>
           <script src="https://profile.sitesbysara.com/js/form_embed.js"></script>
         </div>
+
+        <p class="form-legal">By submitting this form, you agree that Sites by Sara may contact you about your inquiry and may occasionally follow up with you. We never sell your personal data. See our <a href="/privacy-policy/">Privacy Policy</a> and <a href="/terms-of-service/">Terms &amp; Conditions</a>.</p>
 
       </div>
 

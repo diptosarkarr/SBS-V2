@@ -1,0 +1,511 @@
+<!-- page-sync: order-online.html -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- SEO: WebPage structured data -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Order Online",
+    "description": "Choose the websites, hosting, marketing and design services you need, share your timing and details, and we'll scope it out together. Start your order online.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sites by Sara"
+    }
+  }
+</script>
+
+<style>
+  /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+  :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
+    --brand-blue-subtle: #F6F8FD;
+
+    --brand-coral: #ea4e5f;
+    --brand-coral-hover: #d43d4e;
+    --brand-coral-tint: #FDEEEE;
+
+    --brand-peach: #FCEFE5;
+    --brand-peach-hover: #F8E3D4;
+    --brand-peach-tint: #FFF9F5;
+
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+    --navy: #1E2140;
+    --navy-dark: #13152C;
+    --slate: #5F6368;
+    --slate-light: #80868B;
+    --slate-subtle: #9AA0A6;
+
+    --border: #DCE2EE;
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
+
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
+    --bg-banner: #FCEFE5;
+    --bg-callout: #FFFBF7;
+
+    --green: #1E8E3E;
+    --green-tint: #E6F4EA;
+    --yellow: #FBBC04;
+    --yellow-tint: #FEF7E0;
+    --coral: #ea4e5f;
+    --coral-tint: #FDEEEE;
+
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-pill: 9999px;
+
+    --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+    --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+    --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+    --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+    --shadow-featured: 0 16px 40px -8px rgba(58, 83, 155, 0.24), 0 4px 14px rgba(58, 83, 155, 0.1);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font);
+    color: var(--navy);
+    background-color: var(--bg-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:focus-visible,
+  .btn-primary:active {
+    background: var(--brand-gradient-hover);
+    background-clip: padding-box;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+    color: #FFFFFF !important;
+  }
+
+  /* ============================================================
+     PAGE TITLE BANNER
+     ============================================================ */
+  .page-title-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-gradient);
+    padding: clamp(52px, 6vw, 76px) 24px;
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+  }
+
+  .page-title-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+    pointer-events: none;
+  }
+
+  .page-title-banner-mesh {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .page-title-banner-mesh::before,
+  .page-title-banner-mesh::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0.22;
+    pointer-events: none;
+  }
+
+  .page-title-banner-mesh::before {
+    width: 320px;
+    height: 320px;
+    background: #FFFFFF;
+    top: -120px;
+    left: 8%;
+  }
+
+  .page-title-banner-mesh::after {
+    width: 280px;
+    height: 280px;
+    background: var(--brand-coral);
+    bottom: -80px;
+    right: 10%;
+  }
+
+  .page-title-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-banner-h1 {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFFFFF;
+    letter-spacing: -0.025em;
+    margin: 0 0 10px;
+    text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+  }
+
+  /* ============================================================
+     ORDER ONLINE: the standard title banner, then one centred card in the middle of whatever height
+     is left, so the page fills the screen. The script at the end of the page sets .order-page's
+     min-height to the viewport minus whatever sits above it (the site header); the calc() is the
+     no-script fallback. Spare height is shared out between the card's groups.
+     ============================================================ */
+  .order-page {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 88px);
+  }
+
+  .order-page > .page-title-banner {
+    flex: none;
+  }
+
+  .order-section {
+    flex: 1;
+    display: flex;
+    padding: 12px 0;
+    background: var(--bg-light);
+  }
+
+  .order-section .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .order-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 14px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 660px;
+    margin: 0 auto;
+    padding: 20px clamp(16px, 4vw, 40px);
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+  }
+
+  .order-pill {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .order-title {
+    margin: 12px auto 6px;
+    max-width: 640px;
+    font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.05rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    text-wrap: balance;
+  }
+
+  .order-sub {
+    margin: 0 0 6px;
+    font-size: 0.93rem;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--brand-blue);
+  }
+
+  .order-lead {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--slate);
+  }
+
+  /* ---- the three steps of the order form ---- */
+  .order-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    list-style: none;
+    text-align: left;
+  }
+
+  .order-step {
+    padding: 14px 16px 16px;
+    background: var(--brand-blue-subtle);
+    border: 1px solid #DCE4F3;
+    border-radius: var(--radius-md);
+  }
+
+  .order-step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    margin-bottom: 8px;
+    border-radius: 50%;
+    background: var(--brand-gradient);
+    color: #FFFFFF;
+    font-size: 0.82rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .order-step-title {
+    margin: 0 0 4px;
+    font-size: 0.98rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+  }
+
+  .order-step-desc {
+    margin: 0;
+    font-size: 0.86rem;
+    line-height: 1.5;
+    color: var(--slate);
+  }
+
+  /* ---- start button ---- */
+  .order-cta {
+    justify-content: center;
+    margin: 0;
+  }
+
+  .order-cta .btn {
+    padding: 12px 36px;
+    font-size: 1rem;
+  }
+
+  .order-note {
+    margin: 8px 0 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--slate);
+  }
+
+  @media (max-width: 760px) {
+    .order-steps {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .order-step {
+      display: grid;
+      grid-template-columns: 28px minmax(0, 1fr);
+      column-gap: 12px;
+      padding: 12px 14px;
+    }
+
+    .order-step-num {
+      grid-row: 1 / span 2;
+      margin: 0;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .page-title-banner {
+      padding: 48px 18px;
+    }
+
+    .order-card {
+      max-height: none;
+      padding: 18px 14px;
+    }
+
+    .order-cta .btn {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn {
+      transition: none;
+    }
+  }
+</style>
+
+<div class="order-page" id="orderPage">
+
+<!-- ============================================================
+       PAGE TITLE BANNER
+       ============================================================ -->
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <h1 class="page-banner-h1">Order Online</h1>
+  </div>
+</section>
+
+<!-- ============================================================
+     ORDER ONLINE: three groups (intro, the order form's three steps, start button + note) stacked in one centred column.
+     The button hands over to the order form on the order subdomain.
+     ============================================================ -->
+<section class="order-section" id="order" aria-labelledby="order-title">
+  <div class="container">
+    <div class="order-card">
+
+      <div class="order-intro">
+        <span class="order-pill">Sites by Sara &middot; Order Online</span>
+
+        <h2 class="order-title" id="order-title">Tell us what you need, and we&rsquo;ll scope it out together.</h2>
+
+        <p class="order-sub">Websites, hosting, marketing, design and more, all in one place.</p>
+
+        <p class="order-lead">Pick the services you&rsquo;re interested in, as many as you like, share your timing, and tell us a little about you.</p>
+      </div>
+
+      <ol class="order-steps" aria-label="The three steps of the order form">
+          <li class="order-step">
+            <span class="order-step-num">1</span>
+            <h3 class="order-step-title">Services</h3>
+            <p class="order-step-desc">Select everything you're interested in. Choose as many as you like.</p>
+          </li>
+          <li class="order-step">
+            <span class="order-step-num">2</span>
+            <h3 class="order-step-title">Timing &amp; Review</h3>
+            <p class="order-step-desc">Share your timing and review what you picked.</p>
+          </li>
+          <li class="order-step">
+            <span class="order-step-num">3</span>
+            <h3 class="order-step-title">Your Info</h3>
+            <p class="order-step-desc">Tell us about you, and we'll scope it out together.</p>
+          </li>
+      </ol>
+
+      <div class="order-start">
+        <div class="btn-group order-cta">
+          <a href="https://order.sitesbysara.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Start Your Order (opens in a new tab)">Start Your Order &rarr;</a>
+        </div>
+        <p class="order-note">The order form opens in a new tab.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+  // Fill the screen: the page is as tall as the window minus whatever sits above it (the site header).
+  (function () {
+    var page = document.getElementById('orderPage');
+    if (!page) return;
+    function fit() {
+      var top = page.getBoundingClientRect().top + (window.pageYOffset || 0);
+      page.style.minHeight = Math.max(window.innerHeight - top, 0) + 'px';
+    }
+    fit();
+    window.addEventListener('resize', fit);
+    window.addEventListener('load', fit);
+  })();
+</script>

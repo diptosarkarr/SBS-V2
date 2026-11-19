@@ -1,0 +1,622 @@
+<!-- page-sync: business-assessment.html -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- SEO: WebPage structured data -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Web Presence Assessment",
+    "description": "A free, few-minute check on your website, hosting, SEO, marketing, branding, and systems, with clear next steps for your business. No sign-up required.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Sites by Sara"
+    }
+  }
+</script>
+
+<style>
+  /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+  :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
+    --brand-blue-subtle: #F6F8FD;
+
+    --brand-coral: #ea4e5f;
+    --brand-coral-hover: #d43d4e;
+    --brand-coral-tint: #FDEEEE;
+
+    --brand-peach: #FCEFE5;
+    --brand-peach-hover: #F8E3D4;
+    --brand-peach-tint: #FFF9F5;
+
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+    --navy: #1E2140;
+    --navy-dark: #13152C;
+    --slate: #5F6368;
+    --slate-light: #80868B;
+    --slate-subtle: #9AA0A6;
+
+    --border: #DCE2EE;
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
+
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
+    --bg-banner: #FCEFE5;
+    --bg-callout: #FFFBF7;
+
+    --green: #1E8E3E;
+    --green-tint: #E6F4EA;
+    --yellow: #FBBC04;
+    --yellow-tint: #FEF7E0;
+    --coral: #ea4e5f;
+    --coral-tint: #FDEEEE;
+
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-pill: 9999px;
+
+    --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+    --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+    --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+    --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+    --shadow-featured: 0 16px 40px -8px rgba(58, 83, 155, 0.24), 0 4px 14px rgba(58, 83, 155, 0.1);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font);
+    color: var(--navy);
+    background-color: var(--bg-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:focus-visible,
+  .btn-primary:active {
+    background: var(--brand-gradient-hover);
+    background-clip: padding-box;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+    color: #FFFFFF !important;
+  }
+
+  /* ============================================================
+     PAGE TITLE BANNER
+     ============================================================ */
+  .page-title-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-gradient);
+    padding: clamp(52px, 6vw, 76px) 24px;
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+  }
+
+  .page-title-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+    pointer-events: none;
+  }
+
+  .page-title-banner-mesh {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .page-title-banner-mesh::before,
+  .page-title-banner-mesh::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0.22;
+    pointer-events: none;
+  }
+
+  .page-title-banner-mesh::before {
+    width: 320px;
+    height: 320px;
+    background: #FFFFFF;
+    top: -120px;
+    left: 8%;
+  }
+
+  .page-title-banner-mesh::after {
+    width: 280px;
+    height: 280px;
+    background: var(--brand-coral);
+    bottom: -80px;
+    right: 10%;
+  }
+
+  .page-title-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-banner-h1 {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFFFFF;
+    letter-spacing: -0.025em;
+    margin: 0 0 10px;
+    text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+  }
+
+  /* ============================================================
+     WEB PRESENCE ASSESSMENT: the standard title banner, then one centred card in the middle of
+     whatever height is left, so the page fills the screen. The script at the end of the page sets
+     .assess-page's min-height to the viewport minus whatever sits above it (the site header);
+     the calc() is the no-script fallback. Spare height is shared out between the card's groups.
+     ============================================================ */
+  .assess-page {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 88px);
+  }
+
+  .assess-page > .page-title-banner {
+    flex: none;
+  }
+
+  .assess-section {
+    flex: 1;
+    display: flex;
+    padding: 12px 0;
+    background: var(--bg-light);
+  }
+
+  .assess-section .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* The card takes all the height that is left (up to a limit); its three groups share the spare space
+     evenly, and the gap below is the least space they ever keep between them. */
+  .assess-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 10px;
+    width: 100%;
+    max-width: 800px;
+    max-height: 860px;
+    margin: 0 auto;
+    padding: 14px clamp(16px, 4vw, 40px);
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+  }
+
+  .assess-pill {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .assess-title {
+    margin: 12px auto 6px;
+    max-width: 640px;
+    font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.05rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    text-wrap: balance;
+  }
+
+  .assess-title .assess-free {
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-decoration: underline;
+    text-decoration-color: rgba(212, 63, 141, 0.4);
+    text-decoration-thickness: 3px;
+    text-underline-offset: 5px;
+  }
+
+  .assess-sub {
+    margin: 0 0 6px;
+    font-size: 0.93rem;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--brand-blue);
+  }
+
+  .assess-lead {
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--slate);
+  }
+
+  /* ---- example report: "where to focus first" ---- */
+  .assess-panel {
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 10px clamp(14px, 3vw, 24px) 0;
+    background: var(--brand-blue-subtle);
+    border: 1px dashed #C6D1EA;
+    border-radius: var(--radius-md);
+    text-align: left;
+  }
+
+  .assess-panel-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 2px 14px;
+  }
+
+  .assess-panel-title,
+  .assess-panel-label {
+    margin: 0;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .assess-panel-title {
+    color: var(--slate);
+  }
+
+  .assess-panel-label {
+    color: var(--brand-blue);
+  }
+
+  .assess-rows {
+    list-style: none;
+    margin-top: 2px;
+  }
+
+  .assess-row {
+    padding: 5px 0 5px;
+    border-bottom: 1px solid #E1E7F3;
+  }
+
+  .assess-row:last-child {
+    border-bottom: none;
+  }
+
+  .assess-row-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4px 14px;
+    margin-bottom: 4px;
+  }
+
+  .assess-area {
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    color: var(--navy);
+  }
+
+  .assess-status {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    gap: 6px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .assess-status svg {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+  }
+
+  .assess-bar {
+    height: 6px;
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+    background: linear-gradient(90deg, #FBE2E2 0 33.33%, #FDF0CE 33.33% 66.66%, #DDF1DA 66.66% 100%);
+  }
+
+  .assess-fill {
+    display: block;
+    height: 100%;
+    border-radius: var(--radius-pill);
+  }
+
+  .assess-row.is-attention .assess-fill {
+    width: 33.33%;
+    background: #D8383E;
+  }
+
+  .assess-row.is-track .assess-fill {
+    width: 66.66%;
+    background: #F5A100;
+  }
+
+  .assess-row.is-strong .assess-fill {
+    width: 100%;
+    background: #1E9E4A;
+  }
+
+  .assess-next {
+    margin: 4px 0 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--slate);
+  }
+
+  /* ---- start button ---- */
+  .assess-cta {
+    justify-content: center;
+    margin: 0;
+  }
+
+  .assess-cta .btn {
+    padding: 11px 34px;
+    font-size: 1rem;
+  }
+
+  .assess-note {
+    margin: 7px 0 0;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--slate);
+  }
+
+  @media (max-width: 600px) {
+    .page-title-banner {
+      padding: 48px 18px;
+    }
+
+    .assess-card {
+      max-height: none;
+      padding: 18px 14px;
+    }
+
+    .assess-cta .btn {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .btn {
+      transition: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .assess-title .assess-free {
+      background: none;
+      -webkit-text-fill-color: currentColor;
+      color: CanvasText;
+    }
+  }
+</style>
+
+<div class="assess-page" id="assessPage">
+
+<!-- ============================================================
+       PAGE TITLE BANNER
+       ============================================================ -->
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <h1 class="page-banner-h1">Web Presence Assessment</h1>
+  </div>
+</section>
+
+<!-- ============================================================
+     ASSESSMENT: three groups (intro, example "where to focus first" panel, start button + note) stacked in one centred column.
+     The button hands over to the assessment itself on the business-assessment subdomain.
+     ============================================================ -->
+<section class="assess-section" id="assessment" aria-labelledby="assess-title">
+  <div class="container">
+    <div class="assess-card">
+
+      <div class="assess-intro">
+        <span class="assess-pill">Sites by Sara &middot; Web Presence Assessment</span>
+
+        <h2 class="assess-title" id="assess-title">Get a <span class="assess-free">Free</span>, clear picture of your business Web presence!</h2>
+
+        <p class="assess-sub">Built for businesses, nonprofits, and organizations of any size.</p>
+
+        <p class="assess-lead">Tell us what's working, what's not, and where you want to go. In just a few minutes, we'll help you identify where to focus and recommend the smartest next steps for your business.</p>
+      </div>
+
+      <div class="assess-panel">
+        <div class="assess-panel-head">
+          <h3 class="assess-panel-title">Where to focus first</h3>
+          <p class="assess-panel-label">Sample report &middot; Example data</p>
+        </div>
+        <ul class="assess-rows">
+          <li class="assess-row is-attention">
+            <div class="assess-row-head">
+              <span class="assess-area">Hosting &amp; Security</span>
+              <span class="assess-status"><svg viewBox="0 0 24 24" fill="none" stroke="#D8383E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Needs attention</span>
+            </div>
+            <div class="assess-bar" aria-hidden="true"><span class="assess-fill"></span></div>
+            <p class="assess-next">Next step: move your domain and hosting into an account you own, and turn on backups.</p>
+          </li>
+          <li class="assess-row is-attention">
+            <div class="assess-row-head">
+              <span class="assess-area">Marketing &amp; Ads</span>
+              <span class="assess-status"><svg viewBox="0 0 24 24" fill="none" stroke="#D8383E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>Needs attention</span>
+            </div>
+            <div class="assess-bar" aria-hidden="true"><span class="assess-fill"></span></div>
+            <p class="assess-next">Next step: pick one channel, set a monthly budget, and track the leads it brings in.</p>
+          </li>
+          <li class="assess-row is-track">
+            <div class="assess-row-head">
+              <span class="assess-area">Website &amp; Design</span>
+              <span class="assess-status"><svg viewBox="0 0 24 24" fill="none" stroke="#F5A100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="#F5A100"/></svg>On track</span>
+            </div>
+            <div class="assess-bar" aria-hidden="true"><span class="assess-fill"></span></div>
+          </li>
+          <li class="assess-row is-track">
+            <div class="assess-row-head">
+              <span class="assess-area">SEO &amp; Visibility</span>
+              <span class="assess-status"><svg viewBox="0 0 24 24" fill="none" stroke="#F5A100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="#F5A100"/></svg>On track</span>
+            </div>
+            <div class="assess-bar" aria-hidden="true"><span class="assess-fill"></span></div>
+          </li>
+          <li class="assess-row is-track">
+            <div class="assess-row-head">
+              <span class="assess-area">Systems &amp; Operations</span>
+              <span class="assess-status"><svg viewBox="0 0 24 24" fill="none" stroke="#F5A100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="#F5A100"/></svg>On track</span>
+            </div>
+            <div class="assess-bar" aria-hidden="true"><span class="assess-fill"></span></div>
+          </li>
+          <li class="assess-row is-strong">
+            <div class="assess-row-head">
+              <span class="assess-area">Content &amp; Branding</span>
+              <span class="assess-status"><svg viewBox="0 0 24 24" fill="none" stroke="#1E9E4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></svg>Strong</span>
+            </div>
+            <div class="assess-bar" aria-hidden="true"><span class="assess-fill"></span></div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="assess-start">
+        <div class="btn-group assess-cta">
+          <a href="https://business-assessment.sitesbysara.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Let&rsquo;s Do This (opens in a new tab)">Let&rsquo;s Do This &rarr;</a>
+        </div>
+        <p class="assess-note">Takes about 3&ndash;5 minutes. You can save your progress and finish later.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+  // Fill the screen: the page is as tall as the window minus whatever sits above it (the site header).
+  (function () {
+    var page = document.getElementById('assessPage');
+    if (!page) return;
+    function fit() {
+      var top = page.getBoundingClientRect().top + (window.pageYOffset || 0);
+      page.style.minHeight = Math.max(window.innerHeight - top, 0) + 'px';
+    }
+    fit();
+    window.addEventListener('resize', fit);
+    window.addEventListener('load', fit);
+  })();
+</script>
