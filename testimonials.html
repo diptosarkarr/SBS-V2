@@ -149,12 +149,14 @@
       font-size: 0.98rem;
       font-weight: 600;
       padding: 13px 28px;
-      border-radius: var(--radius-pill);
+      border-radius: 28px;
       cursor: pointer;
       transition: all 0.2s ease;
       border: 1.5px solid transparent;
       text-decoration: none;
-      white-space: nowrap;
+      white-space: normal;
+      max-width: 100%;
+      text-align: center;
     }
 
     .btn-primary {
@@ -638,7 +640,7 @@
 
     @media (max-width: 860px) {
       .testimonials-video-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 28px;
       }
 
@@ -654,7 +656,7 @@
       }
 
       .testimonials-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .testimonials-lightbox-panel {

@@ -174,12 +174,14 @@
     font-size: 0.98rem;
     font-weight: 600;
     padding: 13px 28px;
-    border-radius: var(--radius-pill);
+    border-radius: 28px;
     cursor: pointer;
     transition: all 0.2s ease;
     border: 1.5px solid transparent;
     text-decoration: none;
-    white-space: nowrap;
+    white-space: normal;
+    max-width: 100%;
+    text-align: center;
   }
 
   .btn-primary {
@@ -618,7 +620,7 @@
     }
 
     .contact-info-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 
@@ -628,7 +630,7 @@
     }
 
     .trust-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
 
     .consult-card {
@@ -658,6 +660,22 @@
 
     .consult-actions .btn {
       width: 100%;
+    }
+  }
+
+  /* very narrow screens: the number sits above its tile instead of beside it, so the text keeps the full width */
+  @media (max-width: 420px) {
+    .consult-step {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 8px;
+    }
+
+    .consult-step:not(:last-child)::before {
+      display: none;
+    }
+
+    .consult-step-body {
+      padding: 12px;
     }
   }
 </style>
@@ -698,7 +716,8 @@
                 range of services we offer, we invite you to visit our FAQ page or to call us directly.</p>
               <div class="btn-group consult-actions">
                 <a href="/faq/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Visit Our FAQ</a>
-                <a href="tel:+13853555351" class="btn btn-outline">Call (385) 355-5351</a>
+                <a href="/all-services/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">All
+                  Services</a>
               </div>
             </div>
           </li>

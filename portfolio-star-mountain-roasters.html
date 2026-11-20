@@ -141,12 +141,14 @@
     font-size: 0.98rem;
     font-weight: 600;
     padding: 13px 28px;
-    border-radius: var(--radius-pill);
+    border-radius: 28px;
     cursor: pointer;
     transition: all 0.2s ease;
     border: 1.5px solid transparent;
     text-decoration: none;
-    white-space: nowrap;
+    white-space: normal;
+    max-width: 100%;
+    text-align: center;
   }
 
   .btn-primary {
@@ -603,7 +605,7 @@
 
   @media (max-width: 900px) {
     .detail-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
 
     /* Single column: flatten the copy column and the gallery into one grid so the Homepage screenshot
@@ -658,11 +660,11 @@
     }
 
     .project-nav-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
 
     .cta-banner-box {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 

@@ -286,12 +286,14 @@
     font-size: 0.98rem;
     font-weight: 600;
     padding: 13px 28px;
-    border-radius: var(--radius-pill);
+    border-radius: 28px;
     cursor: pointer;
     transition: all 0.2s ease;
     border: 1.5px solid transparent;
     text-decoration: none;
-    white-space: nowrap;
+    white-space: normal;
+    max-width: 100%;
+    text-align: center;
   }
 
   .btn-primary {
@@ -493,7 +495,7 @@
 
   @media (max-width: 820px) {
     .site-trust-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 28px;
     }
   }
@@ -1412,12 +1414,12 @@
   @media (max-width: 820px) {
     .hero-grid,
     .smart-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 36px;
     }
 
     .cta-banner-box {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 40px;
     }
 
@@ -1426,7 +1428,7 @@
     }
 
     .steps-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       max-width: 560px;
     }
 
@@ -1441,7 +1443,7 @@
     }
 
     .cost-pair {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 
@@ -1452,7 +1454,7 @@
 
     .problem-grid,
     .proof-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
 
     .btn-group {

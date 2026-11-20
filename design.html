@@ -242,12 +242,14 @@
       font-size: 0.98rem;
       font-weight: 600;
       padding: 13px 28px;
-      border-radius: var(--radius-pill);
+      border-radius: 28px;
       cursor: pointer;
       transition: all 0.2s ease;
       border: 1.5px solid transparent;
       text-decoration: none;
-      white-space: nowrap;
+      white-space: normal;
+      max-width: 100%;
+      text-align: center;
     }
 
     .btn-primary {
@@ -449,7 +451,7 @@
 
   @media (max-width: 820px) {
     .site-trust-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
       gap: 28px;
     }
   }
@@ -805,7 +807,7 @@
       .hero-grid,
       .story-row,
       .cta-banner-box {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 40px;
       }
 
@@ -820,7 +822,7 @@
     }
 
     @media (max-width: 600px) {.scope-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .btn-group {
@@ -1149,7 +1151,7 @@
 
     @media (max-width: 600px) {
       .portfolio-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
 
       .portfolio-lightbox {
@@ -1260,7 +1262,7 @@
 
   @media (max-width: 640px) {
     .local-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 
@@ -1274,7 +1276,7 @@
   @media (max-width: 600px) {
     .pricing-outer-container .pc-grid,
     .pricing-accordion-body .pc-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 </style>

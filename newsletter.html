@@ -235,7 +235,7 @@
 
     @media (max-width: 900px) {
       .newsletter-hero-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         gap: 32px;
       }
 
@@ -551,7 +551,7 @@
 
     @media (max-width: 600px) {
       .newsletter-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
     }
 
@@ -592,12 +592,14 @@
       font-size: 0.98rem;
       font-weight: 600;
       padding: 13px 28px;
-      border-radius: var(--radius-pill);
+      border-radius: 28px;
       cursor: pointer;
       transition: all 0.2s ease;
       border: 1.5px solid transparent;
       text-decoration: none;
-      white-space: nowrap;
+      white-space: normal;
+      max-width: 100%;
+      text-align: center;
     }
 
     .btn-primary {
