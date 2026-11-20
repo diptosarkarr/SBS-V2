@@ -157,162 +157,246 @@
     text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
   }
 
-  .page-banner-sub {
-    font-size: clamp(1.05rem, 2vw, 1.3rem);
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.94);
-    letter-spacing: 0.01em;
-    margin: 0;
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:focus-visible,
+  .btn-primary:active {
+    background: var(--brand-gradient-hover);
+    background-clip: padding-box;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+    color: #FFFFFF !important;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--brand-blue);
+    border-color: var(--brand-blue);
+  }
+
+  .btn-outline:hover,
+  .btn-outline:focus,
+  .btn-outline:focus-visible,
+  .btn-outline:active {
+    background-color: var(--brand-peach);
+    border-color: var(--brand-blue);
+    color: var(--brand-blue) !important;
   }
 
   /* ============================================================
-     EYEBROW / SHARED TYPE
+     CONSULTATION HERO: the standard title banner, then one centred card in the middle of whatever
+     height is left, so the top of the page fills the screen. The script at the end of the hero sets
+     .consult-page's min-height to the viewport minus whatever sits above it (the site header); the
+     calc() is the no-script fallback. Spare height is shared out between the card's groups.
      ============================================================ */
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--slate);
-    margin-bottom: 14px;
+  .consult-page {
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 88px);
   }
 
-  .eyebrow-dot {
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background-color: var(--brand-coral);
-    flex-shrink: 0;
+  .consult-page>.page-title-banner {
+    flex: none;
   }
 
-  .section-header {
-    text-align: center;
-    max-width: 720px;
-    margin: 0 auto clamp(28px, 4vw, 40px);
+  .consult-hero {
+    flex: 1;
+    display: flex;
+    padding: 12px 0;
+    background: var(--bg-light);
   }
 
-  .section-header .eyebrow {
+  .consult-hero .container {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
+    width: 100%;
   }
 
-  .h2-title {
-    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
-    font-weight: 700;
+  .consult-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 16px;
+    width: 100%;
+    max-width: 880px;
+    max-height: 740px;
+    margin: 0 auto;
+    padding: 24px clamp(16px, 4vw, 44px);
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+  }
+
+  .consult-head {
+    text-align: center;
+  }
+
+  .consult-pill {
+    display: inline-block;
+    padding: 5px 14px;
+    border-radius: var(--radius-pill);
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  .consult-title {
+    max-width: 620px;
+    margin: 12px auto 0;
+    font-size: clamp(1.45rem, 1.05rem + 1.3vw, 1.9rem);
+    font-weight: 800;
     line-height: 1.2;
     letter-spacing: -0.025em;
     color: var(--navy);
-    margin-bottom: 16px;
+    text-wrap: balance;
   }
 
-  .lead-text {
-    font-size: clamp(1.02rem, 0.95rem + 0.25vw, 1.15rem);
-    font-weight: 400;
-    line-height: 1.65;
-    color: var(--slate);
+  /* ---- the two steps: a numbered path with a connecting line ---- */
+  .consult-steps {
+    list-style: none;
   }
 
-  .lead-text strong {
-    color: var(--navy);
-    font-weight: 600;
+  .consult-step {
+    position: relative;
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    column-gap: 18px;
   }
 
-  .lead-text a {
-    color: var(--brand-blue);
-    font-weight: 600;
-    border-bottom: 1.5px solid rgba(58, 83, 155, 0.35);
-    transition: color 0.2s ease, border-color 0.2s ease;
+  .consult-step+.consult-step {
+    margin-top: 16px;
   }
 
-  .lead-text a:hover,
-  .lead-text a:focus,
-  .lead-text a:focus-visible,
-  .lead-text a:active {
-    color: var(--brand-blue-hover) !important;
-    border-color: var(--brand-blue-hover);
+  .consult-step:not(:last-child)::before {
+    content: "";
+    position: absolute;
+    left: 19px;
+    top: 42px;
+    bottom: -14px;
+    width: 2px;
+    border-radius: 2px;
+    background: linear-gradient(180deg, var(--brand-blue), var(--brand-coral));
+    opacity: 0.4;
   }
 
-  /* ============================================================
-     BOOKING WIDGET (full width, at top)
-     ============================================================ */
-  .booking-section {
-    padding-top: var(--section-gap);
-    padding-bottom: calc(var(--section-gap) * 0.5);
-    background: #FFFFFF;
-  }
-
-  .booking-card {
-    background: var(--bg-white);
-    border: 1px solid var(--border-card);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-floating);
-    padding: clamp(20px, 3vw, 32px);
-  }
-
-  .booking-card-header {
+  .consult-step-num {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding-bottom: 18px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid var(--border-light);
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--brand-gradient);
+    color: #FFFFFF;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1;
+    box-shadow: 0 4px 12px rgba(2, 80, 197, 0.25);
   }
 
-  .booking-card-header svg {
-    width: 22px;
-    height: 22px;
-    color: var(--brand-coral);
+  .consult-step-body {
+    padding: 16px 20px 18px;
+    background: var(--brand-blue-subtle);
+    border: 1px solid #DCE4F3;
+    border-radius: var(--radius-md);
+  }
+
+  /* the step that books the call: white with a brand-gradient edge, so it reads as the main path */
+  .consult-step.is-main .consult-step-body {
+    border: 2px solid transparent;
+    background: linear-gradient(#FFFFFF, #FFFFFF) padding-box, var(--brand-gradient) border-box;
+    box-shadow: var(--shadow-floating);
+  }
+
+  .consult-step-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px 12px;
+    margin-bottom: 6px;
+  }
+
+  .consult-step-title {
+    font-size: 1.12rem;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: var(--navy);
+  }
+
+  .consult-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 11px;
+    border-radius: var(--radius-pill);
+    background: var(--brand-coral-tint);
+    color: #B3283A;
+    font-size: 0.78rem;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .consult-chip svg {
+    width: 14px;
+    height: 14px;
     flex-shrink: 0;
   }
 
-  .booking-card-title {
-    font-size: 1.15rem;
-    font-weight: 600;
-    color: var(--navy);
-  }
-
-  .booking-embed-wrapper {
-    width: 100%;
-    border-radius: var(--radius-sm);
-    overflow: hidden;
-    background: #FFFFFF;
-  }
-
-  .booking-embed-wrapper iframe {
-    display: block;
-    width: 100%;
-    border: 0;
-  }
-
-  .booking-disclaimer {
-    max-width: 860px;
-    margin: 24px auto 0;
-    font-size: 0.76rem;
+  .consult-step-text {
+    font-size: 0.96rem;
     line-height: 1.6;
-    color: var(--slate-light);
-    text-align: center;
+    color: var(--slate);
   }
 
-  .booking-disclaimer p+p {
-    margin-top: 10px;
+  .consult-actions {
+    margin: 14px 0 0;
+    gap: 10px 12px;
   }
 
-  .booking-disclaimer p a {
-    color: var(--brand-blue);
-    font-weight: 600;
-    text-decoration: underline;
-    text-underline-offset: 3px;
-    transition: color 0.2s ease;
-  }
-
-  .booking-disclaimer p a:hover,
-  .booking-disclaimer p a:focus,
-  .booking-disclaimer p a:focus-visible,
-  .booking-disclaimer p a:active {
-    color: var(--brand-blue-hover) !important;
+  .consult-actions .btn {
+    padding: 11px 24px;
+    font-size: 0.95rem;
   }
 
   /* ============================================================
@@ -547,64 +631,121 @@
       grid-template-columns: 1fr;
     }
 
-    .booking-embed-wrapper iframe {
-      height: 1050px !important;
+    .consult-card {
+      max-height: none;
+      padding: 18px 14px;
+    }
+
+    .consult-step {
+      grid-template-columns: 32px minmax(0, 1fr);
+      column-gap: 12px;
+    }
+
+    .consult-step-num {
+      width: 32px;
+      height: 32px;
+      font-size: 0.9rem;
+    }
+
+    .consult-step:not(:last-child)::before {
+      left: 15px;
+      top: 34px;
+    }
+
+    .consult-step-body {
+      padding: 14px;
+    }
+
+    .consult-actions .btn {
+      width: 100%;
     }
   }
 </style>
 
-<!-- ============================================================
+<div class="consult-page" id="consultPage">
+
+  <!-- ============================================================
        PAGE TITLE BANNER
        ============================================================ -->
-<section class="page-title-banner" aria-label="Page Title">
-  <div class="page-title-banner-mesh" aria-hidden="true"></div>
-  <div class="container page-title-inner">
-    <h1 class="page-banner-h1">Book a Free 15-Minute Consultation</h1>
-    <p class="page-banner-sub">A free, no-pressure 15-minute call to see if Sites by Sara is the right fit for
-      your business.</p>
-  </div>
-</section>
+  <section class="page-title-banner" aria-label="Page Title">
+    <div class="page-title-banner-mesh" aria-hidden="true"></div>
+    <div class="container page-title-inner">
+      <h1 class="page-banner-h1">Book a Free Consultation</h1>
+    </div>
+  </section>
 
-<!-- ============================================================
-       BOOKING WIDGET
+  <!-- ============================================================
+       HERO: step by step (quick questions first, then the pre-consultation questions that lead to the call)
        ============================================================ -->
-<section class="booking-section" aria-label="Schedule Your Consultation">
-  <div class="container">
-    <div class="booking-card">
-      <div class="booking-card-header">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-          stroke-linejoin="round">
-          <rect x="3" y="4" width="18" height="18" rx="2"></rect>
-          <line x1="16" y1="2" x2="16" y2="6"></line>
-          <line x1="8" y1="2" x2="8" y2="6"></line>
-          <line x1="3" y1="10" x2="21" y2="10"></line>
-        </svg>
-        <span class="booking-card-title">Pick a Time That Works for You</span>
-      </div>
+  <section class="consult-hero" id="consultation" aria-labelledby="consult-title">
+    <div class="container">
+      <div class="consult-card">
 
-      <!-- Google Calendar Appointment Scheduling begin -->
-      <div class="booking-embed-wrapper">
-        <iframe
-          src="https://calendar.google.com/calendar/appointments/AcZssZ15KVSuXzRe1_sWlxBqqBm_bnaJSMXLpdKo-Ow=?gv=true"
-          style="border: 0" width="100%" height="860" frameborder="0"
-          title="Book a Free Consultation with Sites by Sara">
-        </iframe>
-      </div>
-      <!-- end Google Calendar Appointment Scheduling -->
+        <div class="consult-head">
+          <span class="consult-pill">Sites by Sara &middot; Free Consultation</span>
+          <h2 class="consult-title" id="consult-title">Thank you for reaching out to Sites by Sara.</h2>
+        </div>
 
-      <div class="booking-disclaimer">
-        <p>By submitting your phone number, you are opting in to receive recurring appointments, reminders, and
-          update messages from Sites by Sara. Message and data rates may apply, and message frequency varies.
-          Mobile information will not be shared with third parties/affiliates for marketing or promotional
-          purposes.</p>
-        <p>Message frequency may vary, with an average of 1–2 messages per month. For assistance, text HELP or
-          INFO. To opt out at any time, text <strong>STOP</strong> or <strong>UNSUBSCRIBE</strong>. For more
-          information, see our <a href="/privacy-policy/">Privacy Policy</a>
-          and <a href="/terms-of-service/">Terms & Conditions</a>.</p>
+        <ol class="consult-steps">
+
+          <li class="consult-step">
+            <span class="consult-step-num">1</span>
+            <div class="consult-step-body">
+              <div class="consult-step-head">
+                <h3 class="consult-step-title">Quick questions?</h3>
+              </div>
+              <p class="consult-step-text">If you just have a couple of specific questions related to pricing or the
+                range of services we offer, we invite you to visit our FAQ page or to call us directly.</p>
+              <div class="btn-group consult-actions">
+                <a href="/faq/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Visit Our FAQ</a>
+                <a href="tel:+13853555351" class="btn btn-outline">Call (385) 355-5351</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="consult-step is-main">
+            <span class="consult-step-num">2</span>
+            <div class="consult-step-body">
+              <div class="consult-step-head">
+                <h3 class="consult-step-title">If you&rsquo;re ready to really do this &hellip;</h3>
+                <span class="consult-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>30 Min.</span>
+              </div>
+              <p class="consult-step-text">To ensure maximum alignment and optimize our time together, we invite all
+                prospective clients to complete a brief pre-consultation discovery assessment prior to scheduling a
+                complimentary 30-minute consultation call.</p>
+              <div class="btn-group consult-actions">
+                <a href="https://pre-consultation-assessment.sitesbysara.com/" target="_blank" rel="noopener noreferrer"
+                  class="btn btn-primary" aria-label="Start the Pre-Consultation Questions (opens in a new tab)">Start
+                  the Pre-Consultation Questions &rarr;</a>
+              </div>
+            </div>
+          </li>
+
+        </ol>
+
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+</div>
+<script>
+  // Fill the screen: the top of the page is as tall as the window minus whatever sits above it (the site header).
+  (function () {
+    var page = document.getElementById('consultPage');
+    if (!page) return;
+    function fit() {
+      var top = page.getBoundingClientRect().top + (window.pageYOffset || 0);
+      page.style.minHeight = Math.max(window.innerHeight - top, 0) + 'px';
+    }
+    fit();
+    window.addEventListener('resize', fit);
+    window.addEventListener('load', fit);
+  })();
+</script>
 
 <!-- ============================================================
        CONTACT INFO PILLS
@@ -749,7 +890,7 @@
           </svg>
         </div>
         <div>
-          <div class="trust-title">Free 15-Minute Consultation</div>
+          <div class="trust-title">Free 30-Minute Consultation</div>
           <div class="trust-sub">No pressure — just answers about your web presence needs.</div>
         </div>
       </div>

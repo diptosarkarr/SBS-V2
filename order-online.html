@@ -242,15 +242,17 @@
   }
 
   /* ============================================================
-     ORDER ONLINE: the standard title banner, then one centred card in the middle of whatever height
-     is left, so the page fills the screen. The script at the end of the page sets .order-page's
+     ORDER ONLINE: the standard title banner with one card overlapping its lower edge, sized so the
+     whole page sits in the first screen. The script at the end of the page sets .order-page's
      min-height to the viewport minus whatever sits above it (the site header); the calc() is the
-     no-script fallback. Spare height is shared out between the card's groups.
+     no-script fallback. Spare height is shared out around the card's groups.
      ============================================================ */
   .order-page {
+    --overlap: clamp(30px, 3.8vw, 52px);
     display: flex;
     flex-direction: column;
     min-height: calc(100vh - 88px);
+    background: var(--bg-light);
   }
 
   .order-page > .page-title-banner {
@@ -258,54 +260,43 @@
   }
 
   .order-section {
+    position: relative;
+    z-index: 2;
     flex: 1;
     display: flex;
-    padding: 12px 0;
-    background: var(--bg-light);
+    margin-top: calc(var(--overlap) * -1);
+    padding: 0 0 12px;
   }
 
   .order-section .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
   }
 
   .order-card {
-    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    gap: 14px;
+    flex: 1;
+    gap: 12px;
     width: 100%;
-    max-width: 800px;
-    max-height: 660px;
+    max-width: 960px;
+    max-height: 680px;
     margin: 0 auto;
-    padding: 20px clamp(16px, 4vw, 40px);
+    padding: clamp(18px, 3vh, 34px) clamp(18px, 4vw, 44px) clamp(16px, 2.8vh, 30px);
     background: #FFFFFF;
     border: 1px solid var(--border-card);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-card);
+    border-radius: 28px;
+    box-shadow: 0 22px 50px -14px rgba(30, 33, 64, 0.22), 0 4px 12px rgba(30, 33, 64, 0.06);
     text-align: center;
   }
 
-  .order-pill {
-    display: inline-block;
-    padding: 5px 14px;
-    border-radius: var(--radius-pill);
-    background: var(--brand-blue-tint);
-    color: var(--brand-blue);
-    font-size: 0.7rem;
-    font-weight: 800;
-    letter-spacing: 0.09em;
-    line-height: 1.5;
-    text-transform: uppercase;
-  }
-
   .order-title {
-    margin: 12px auto 6px;
-    max-width: 640px;
-    font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.05rem);
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: clamp(1.5rem, 1.05rem + 1.5vw, 2.05rem);
     font-weight: 800;
     line-height: 1.15;
     letter-spacing: -0.025em;
@@ -313,66 +304,108 @@
     text-wrap: balance;
   }
 
-  .order-sub {
-    margin: 0 0 6px;
-    font-size: 0.93rem;
-    font-weight: 700;
-    line-height: 1.45;
-    color: var(--brand-blue);
+  .order-title .order-accent {
+    background: var(--brand-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
   }
 
-  .order-lead {
-    max-width: 600px;
-    margin: 0 auto;
-    font-size: 0.95rem;
-    line-height: 1.6;
+  .order-sub {
+    margin: 8px auto 0;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.5;
     color: var(--slate);
   }
 
-  /* ---- the three steps of the order form ---- */
+  /* ---- the three steps of the order form, joined by arrows ---- */
   .order-steps {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px;
+    gap: 26px;
     list-style: none;
     text-align: left;
   }
 
   .order-step {
-    padding: 14px 16px 16px;
+    position: relative;
+    padding: clamp(14px, 2vh, 22px) 18px clamp(16px, 2.2vh, 24px);
     background: var(--brand-blue-subtle);
     border: 1px solid #DCE4F3;
-    border-radius: var(--radius-md);
+    border-radius: 20px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .order-step:hover {
+    transform: translateY(-3px);
+    border-color: #B9C8E8;
+    box-shadow: 0 10px 24px -8px rgba(58, 83, 155, 0.25);
+  }
+
+  .order-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    width: 14px;
+    height: 14px;
+    margin-top: -7px;
+    border-top: 3px solid #B9C8E8;
+    border-right: 3px solid #B9C8E8;
+    border-radius: 2px;
+    transform: rotate(45deg);
+  }
+
+  .order-step-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: clamp(8px, 1.2vh, 14px);
+  }
+
+  .order-step-icon {
+    display: flex;
+    flex: none;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: var(--brand-gradient);
+    box-shadow: 0 6px 14px rgba(2, 80, 197, 0.25);
+  }
+
+  .order-step-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: #FFFFFF;
   }
 
   .order-step-num {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 28px;
-    height: 28px;
-    margin-bottom: 8px;
-    border-radius: 50%;
-    background: var(--brand-gradient);
-    color: #FFFFFF;
-    font-size: 0.82rem;
+    display: block;
+    font-size: 0.68rem;
     font-weight: 800;
-    line-height: 1;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
+    text-transform: uppercase;
+    color: var(--brand-blue);
   }
 
   .order-step-title {
-    margin: 0 0 4px;
-    font-size: 0.98rem;
+    margin: 0;
+    font-size: 1.08rem;
     font-weight: 700;
-    line-height: 1.3;
-    letter-spacing: -0.01em;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
     color: var(--navy);
   }
 
   .order-step-desc {
     margin: 0;
-    font-size: 0.86rem;
-    line-height: 1.5;
+    font-size: 0.88rem;
+    line-height: 1.55;
     color: var(--slate);
   }
 
@@ -383,8 +416,8 @@
   }
 
   .order-cta .btn {
-    padding: 12px 36px;
-    font-size: 1rem;
+    padding: clamp(11px, 1.7vh, 17px) 44px;
+    font-size: 1.05rem;
   }
 
   .order-note {
@@ -394,21 +427,18 @@
     color: var(--slate);
   }
 
-  @media (max-width: 760px) {
+  @media (max-width: 820px) {
     .order-steps {
       grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
     }
 
-    .order-step {
-      display: grid;
-      grid-template-columns: 28px minmax(0, 1fr);
-      column-gap: 12px;
-      padding: 12px 14px;
+    .order-step:hover {
+      transform: none;
     }
 
-    .order-step-num {
-      grid-row: 1 / span 2;
-      margin: 0;
+    .order-step:not(:last-child)::after {
+      display: none;
     }
   }
 
@@ -419,7 +449,7 @@
 
     .order-card {
       max-height: none;
-      padding: 18px 14px;
+      padding: 20px 14px;
     }
 
     .order-cta .btn {
@@ -428,8 +458,21 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .btn {
+    .btn,
+    .order-step {
       transition: none;
+    }
+
+    .order-step:hover {
+      transform: none;
+    }
+  }
+
+  @media (forced-colors: active) {
+    .order-title .order-accent {
+      background: none;
+      -webkit-text-fill-color: currentColor;
+      color: CanvasText;
     }
   }
 </style>
@@ -447,7 +490,7 @@
 </section>
 
 <!-- ============================================================
-     ORDER ONLINE: three groups (intro, the order form's three steps, start button + note) stacked in one centred column.
+     ORDER ONLINE: one card overlapping the banner: headline, the order form's three steps, start button + note.
      The button hands over to the order form on the order subdomain.
      ============================================================ -->
 <section class="order-section" id="order" aria-labelledby="order-title">
@@ -455,30 +498,40 @@
     <div class="order-card">
 
       <div class="order-intro">
-        <span class="order-pill">Sites by Sara &middot; Order Online</span>
-
-        <h2 class="order-title" id="order-title">Tell us what you need, and we&rsquo;ll scope it out together.</h2>
-
+        <h2 class="order-title" id="order-title">Tell us what you need, and <span class="order-accent">we&rsquo;ll scope it out together.</span></h2>
         <p class="order-sub">Websites, hosting, marketing, design and more, all in one place.</p>
-
-        <p class="order-lead">Pick the services you&rsquo;re interested in, as many as you like, share your timing, and tell us a little about you.</p>
       </div>
 
       <ol class="order-steps" aria-label="The three steps of the order form">
           <li class="order-step">
-            <span class="order-step-num">1</span>
-            <h3 class="order-step-title">Services</h3>
-            <p class="order-step-desc">Select everything you're interested in. Choose as many as you like.</p>
+            <div class="order-step-head">
+              <span class="order-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><path d="m14 17.2 2 2 4-4.4"/></svg></span>
+              <div>
+                <span class="order-step-num">Step 1</span>
+                <h3 class="order-step-title">Services</h3>
+              </div>
+            </div>
+            <p class="order-step-desc">Select everything you&rsquo;re interested in. Choose as many as you like.</p>
           </li>
           <li class="order-step">
-            <span class="order-step-num">2</span>
-            <h3 class="order-step-title">Timing &amp; Review</h3>
+            <div class="order-step-head">
+              <span class="order-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 10h18M8 2.5v4M16 2.5v4"/><path d="m9 15.2 2.2 2.2 3.8-4"/></svg></span>
+              <div>
+                <span class="order-step-num">Step 2</span>
+                <h3 class="order-step-title">Timing &amp; Review</h3>
+              </div>
+            </div>
             <p class="order-step-desc">Share your timing and review what you picked.</p>
           </li>
           <li class="order-step">
-            <span class="order-step-num">3</span>
-            <h3 class="order-step-title">Your Info</h3>
-            <p class="order-step-desc">Tell us about you, and we'll scope it out together.</p>
+            <div class="order-step-head">
+              <span class="order-step-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.2 3.6-7 8-7s8 2.8 8 7"/></svg></span>
+              <div>
+                <span class="order-step-num">Step 3</span>
+                <h3 class="order-step-title">Your Info</h3>
+              </div>
+            </div>
+            <p class="order-step-desc">Tell us about you, and we&rsquo;ll scope it out together.</p>
           </li>
       </ol>
 
