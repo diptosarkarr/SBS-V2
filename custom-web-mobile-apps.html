@@ -1,0 +1,1248 @@
+<!-- page-sync: custom-web-mobile-apps.html -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- SEO: Service structured data (generic by design, see SERVICE-PAGE-GUIDELINES.md) -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Custom Web and Mobile App Development",
+    "provider": {
+      "@type": "Organization",
+      "name": "Sites by Sara"
+    },
+    "description": "Custom web and mobile app design and development, built around the way your business works."
+  }
+</script>
+<!-- SEO: FAQPage structured data, generated from the same list as the visible FAQ -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What's the difference between a web app and a mobile app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A web app runs directly in a browser with no install required. A mobile app is installed on a phone or tablet. We design and develop both, so you can choose the one that fits your project."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need a custom app, or would a website be enough?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "If you mainly need to share information, showcase your business, or capture leads, a website is usually simpler. A custom app makes sense when you need interactive tools, user accounts, or functionality a standard website can't provide."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does a custom app take to build?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on the scope and complexity of your app. We'll share an estimated timeline after your free consultation."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can the app connect to the tools we already use?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We list the third-party tools or services your app depends on while scoping, then connect them as part of the build."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will I get help after the app launches?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. We walk you through what was built, and we are available for ongoing support afterward."
+        }
+      }
+    ]
+  }
+</script>
+
+<style>
+  /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+  :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
+    --brand-blue-subtle: #F6F8FD;
+
+    --brand-coral: #ea4e5f;
+    --brand-coral-hover: #d43d4e;
+    --brand-coral-tint: #FDEEEE;
+
+    --brand-peach: #FCEFE5;
+    --brand-peach-hover: #F8E3D4;
+    --brand-peach-tint: #FFF9F5;
+
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+    --navy: #1E2140;
+    --navy-dark: #13152C;
+    --slate: #5F6368;
+    --slate-light: #80868B;
+    --slate-subtle: #9AA0A6;
+
+    --border: #DCE2EE;
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
+
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
+    --bg-banner: #FCEFE5;
+    --bg-callout: #FFFBF7;
+
+    --green: #1E8E3E;
+    --green-tint: #E6F4EA;
+    --yellow: #FBBC04;
+    --yellow-tint: #FEF7E0;
+    --coral: #ea4e5f;
+    --coral-tint: #FDEEEE;
+
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-pill: 9999px;
+
+    --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+    --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+    --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+    --shadow-floating: 0 14px 36px -4px rgba(30, 33, 64, 0.12), 0 2px 8px rgba(30, 33, 64, 0.04);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font);
+    color: var(--navy);
+    background-color: var(--bg-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .section-space {
+    padding: var(--section-gap) 0;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(36px, 5vw, 56px);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
+
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--coral);
+    display: inline-block;
+  }
+
+  .h2-title {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .lead-text {
+    font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
+    color: var(--slate);
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: 28px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    white-space: normal;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .btn-primary {
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:focus-visible,
+  .btn-primary:active {
+    background: var(--brand-gradient-hover);
+    background-clip: padding-box;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+    color: #FFFFFF !important;
+  }
+
+  .btn-outline {
+    background-color: transparent;
+    color: var(--brand-blue);
+    border-color: var(--brand-blue);
+  }
+
+  .btn-outline:hover,
+  .btn-outline:focus,
+  .btn-outline:focus-visible,
+  .btn-outline:active {
+    background-color: var(--brand-peach);
+    border-color: var(--brand-blue);
+    color: var(--brand-blue) !important;
+  }
+
+  /* ============================================================
+     PAGE TITLE BANNER
+     ============================================================ */
+  .page-title-banner {
+    position: relative;
+    overflow: hidden;
+    background: var(--brand-gradient);
+    padding: clamp(52px, 6vw, 76px) 24px;
+    text-align: center;
+    color: #FFFFFF;
+    box-shadow: 0 6px 28px rgba(2, 80, 197, 0.18);
+  }
+
+  .page-title-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.2) 0%, transparent 40%),
+      radial-gradient(circle at 86% 80%, rgba(212, 63, 141, 0.32) 0%, transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(0, 0, 0, 0.08) 100%);
+    pointer-events: none;
+  }
+
+  .page-title-banner-mesh {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .page-title-banner-mesh::before,
+  .page-title-banner-mesh::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(55px);
+    opacity: 0.22;
+    pointer-events: none;
+  }
+
+  .page-title-banner-mesh::before {
+    width: 320px;
+    height: 320px;
+    background: #FFFFFF;
+    top: -120px;
+    left: 8%;
+  }
+
+  .page-title-banner-mesh::after {
+    width: 280px;
+    height: 280px;
+    background: var(--brand-coral);
+    bottom: -80px;
+    right: 10%;
+  }
+
+  .page-title-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .page-banner-h1 {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #FFFFFF;
+    letter-spacing: -0.025em;
+    margin: 0 0 10px;
+    text-shadow: 0 2px 16px rgba(2, 40, 100, 0.3);
+  }
+
+  .page-banner-sub {
+    font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.94);
+    letter-spacing: 0.01em;
+    margin: 0;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.18);
+  }
+
+  /* ============================================================
+     HERO SECTION
+     ============================================================ */
+  .hero-section {
+    padding: var(--section-gap) 0;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: clamp(40px, 6vw, 80px);
+    align-items: center;
+  }
+
+  .hero-left {
+    max-width: 580px;
+  }
+
+  .hero-visual-wrap {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-image-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-floating);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    transition: transform 0.3s ease;
+    background: #FFFFFF;
+    aspect-ratio: 4 / 3;
+  }
+
+  .hero-image-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .hero-image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* ============================================================
+     TRUST STRIP: identical on every service page and on the homepage
+     ============================================================ */
+  .site-trust-strip {
+    padding: clamp(20px, 2.5vw, 24px) 0;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--bg-light);
+  }
+
+  .site-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    text-align: center;
+  }
+
+  .site-trust-number {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1.15;
+    margin-bottom: 4px;
+    letter-spacing: -0.02em;
+  }
+
+  .site-trust-label {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--slate);
+    line-height: 1.35;
+  }
+
+  @media (max-width: 820px) {
+    .site-trust-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 28px;
+    }
+  }
+
+  /* ============================================================
+     PRICING SECTION
+     ============================================================ */
+  .pricing-section {
+    padding: var(--section-gap) 0;
+    background: #FFFFFF;
+  }
+
+  .pricing-outer-container {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    padding: clamp(24px, 4vw, 44px);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  /* Pricing Factors Grid (What Affects Your Price) */
+  .scope-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .scope-card {
+    background: var(--bg-light);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.2s ease;
+  }
+
+  .scope-card:hover {
+    border-color: var(--brand-blue);
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .scope-num {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+  }
+
+  .scope-title {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 6px;
+  }
+
+  .scope-desc {
+    font-size: 0.82rem;
+    color: var(--slate);
+    line-height: 1.5;
+  }
+
+  /* ============================================================
+     DETAILED BREAKDOWN: OUR PROCESS (8-Step Scope)
+     ============================================================ */
+  .process-section {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  /* ============================================================
+     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     ============================================================ */
+  .story-features-section {
+    padding: var(--section-gap) 0;
+  }
+
+  .story-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 7vw, 100px);
+    align-items: center;
+    margin-bottom: clamp(70px, 9vw, 130px);
+  }
+
+  .story-row:last-child {
+    margin-bottom: 0;
+  }
+
+  .story-row.is-reversed .story-text-col {
+    order: 2;
+  }
+
+  .story-row.is-reversed .story-visual-col {
+    order: 1;
+  }
+
+  .story-text-col {
+    max-width: 480px;
+  }
+
+  .story-title {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 18px;
+  }
+
+  .story-desc {
+    font-size: 1.08rem;
+    color: var(--slate);
+    line-height: 1.65;
+    margin-bottom: 24px;
+  }
+
+  .story-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--brand-coral);
+    transition: gap 0.2s ease, color 0.2s ease;
+  }
+
+  .story-link:hover,
+  .story-link:focus,
+  .story-link:focus-visible,
+  .story-link:active {
+    gap: 10px;
+    color: var(--brand-coral-hover) !important;
+  }
+
+  .story-link svg {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+  }
+
+  .story-visual-col {
+    display: flex;
+    justify-content: center;
+  }
+
+  .story-image-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+    background: #FFFFFF;
+    max-width: 520px;
+    width: 100%;
+  }
+
+  .story-image-card:hover {
+    box-shadow: var(--shadow-floating);
+    transform: translateY(-3px);
+  }
+
+  .story-image-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  /* ============================================================
+     FAQ SECTION (Clean Modern Accordion)
+     ============================================================ */
+  .faq-section {
+    background: #FAFAFC;
+    padding: var(--section-gap) 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .faq-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .faq-item:hover {
+    border-color: #CBD5E1;
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+  }
+
+  details[open] .faq-icon {
+    transform: rotate(45deg);
+    background: var(--coral-tint);
+    color: var(--coral);
+  }
+
+  .faq-answer {
+    padding: 0 24px 22px;
+    font-size: 0.95rem;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+
+  .faq-answer strong {
+    color: var(--navy);
+  }
+
+  /* ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ */
+  .cta-banner-section {
+    padding: var(--section-gap) 0;
+  }
+
+  .cta-banner-box {
+    background: var(--bg-banner);
+    border-radius: var(--radius-xl);
+    padding: clamp(36px, 5vw, 60px);
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    align-items: center;
+  }
+
+  .cta-banner-left h2 {
+    font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem);
+    font-weight: 700;
+    color: var(--brand-blue);
+    line-height: 1.25;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .cta-banner-left p {
+    font-size: 1.05rem;
+    color: var(--slate);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+
+  .prep-card-right {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+    padding: 28px;
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .prep-card-title {
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 14px;
+  }
+
+  .prep-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--slate);
+  }
+
+  .prep-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .prep-list-num {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+  @media (max-width: 1024px) {
+
+    .scope-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 820px) {
+
+    .hero-grid,
+    .story-row,
+    .cta-banner-box {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 40px;
+    }
+
+    .story-row.is-reversed .story-text-col {
+      order: 1;
+    }
+
+    .story-row.is-reversed .story-visual-col {
+      order: 2;
+    }
+
+  }
+
+  @media (max-width: 600px) {
+    .scope-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .btn-group {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn {
+      width: 100%;
+    }
+  }
+
+  /* Short supporting line under a section's cards/grid; also used for related-service links */
+  .section-note {
+    text-align: center;
+    max-width: 720px;
+    margin: 28px auto 0;
+    font-size: 0.98rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  .section-note+.section-note {
+    margin-top: 12px;
+  }
+
+  .section-note a {
+    color: var(--brand-blue);
+    font-weight: 600;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+  }
+
+  .section-note a:hover,
+  .section-note a:focus,
+  .section-note a:focus-visible,
+  .section-note a:active {
+    color: var(--brand-blue-hover) !important;
+  }
+
+  /* Pricing cards: 2 columns on desktop, 1 on phones. The pricing plugin sets the same layout; this rule keeps it
+     whichever plugin version is installed (the order system's own stylesheet is 4 columns). */
+  .pricing-outer-container .pc-grid,
+  .pricing-accordion-body .pc-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 600px) {
+    .pricing-outer-container .pc-grid,
+    .pricing-accordion-body .pc-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+</style>
+
+<!-- ============================================================
+       PAGE TITLE BANNER
+       ============================================================ -->
+<section class="page-title-banner" aria-label="Page Title">
+  <div class="page-title-banner-mesh" aria-hidden="true"></div>
+  <div class="container page-title-inner">
+    <h1 class="page-banner-h1">Custom Web &amp; Mobile App Development</h1>
+    <p class="page-banner-sub">(Custom Web &amp; Mobile Apps Built Around Your Business)</p>
+  </div>
+</section>
+
+<!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+<section class="hero-section" id="overview">
+  <div class="container">
+    <div class="hero-grid">
+
+      <!-- Hero Copy -->
+      <div class="hero-left">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Custom Software Development
+        </div>
+
+        <h2 class="h2-title">When a website isn't enough, we build the software itself.</h2>
+
+        <p class="lead-text">
+          Some businesses need more than a website: a web app or mobile app built around a specific process, workflow,
+          or tool. We design and develop custom web and mobile apps around the way your business works.
+        </p>
+
+        <div class="btn-group">
+          <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+            Consultation</a>
+          <a href="#pricing" class="btn btn-outline">View Pricing &amp; Plans</a>
+        </div>
+      </div>
+
+      <!-- Hero Visual Mockup -->
+      <div class="hero-visual-wrap">
+        <div class="hero-image-card">
+          <img src="/wp-content/uploads/2026/11/people-two-developers.webp"
+            alt="Two people working at desks with code open on their monitors" width="600" height="450" />
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TRUST & CAPABILITY METRICS RIBBON
+     ============================================================ -->
+<section class="site-trust-strip" aria-label="Key Agency Facts">
+  <div class="container">
+    <div class="site-trust-grid">
+      <div>
+        <div class="site-trust-number" data-count-to="2007">2007</div>
+        <div class="site-trust-label">Serving Utah Businesses Since</div>
+      </div>
+      <div>
+        <div class="site-trust-number" data-count-to="300" data-count-suffix="+">300+</div>
+        <div class="site-trust-label">Customer Success Stories</div>
+      </div>
+      <div>
+        <div class="site-trust-number" data-count-to="57">57</div>
+        <div class="site-trust-label">Industry Recognitions &amp; Awards</div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  (function () {
+    var els = document.querySelectorAll('.site-trust-number[data-count-to]');
+    if (!els.length) return;
+    var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function animate(el) {
+      var target = parseInt(el.getAttribute('data-count-to'), 10);
+      var suffix = el.getAttribute('data-count-suffix') || '';
+      if (isNaN(target)) return;
+      if (reduced) { el.textContent = target + suffix; return; }
+      var start = null;
+      function step(ts) {
+        if (start === null) start = ts;
+        var progress = Math.min((ts - start) / 1400, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - progress, 3))) + suffix;
+        if (progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    var grid = els[0].closest('.site-trust-grid');
+    if (grid && !reduced && 'IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        if (entries.some(function (e) { return e.isIntersecting; })) {
+          els.forEach(animate);
+          observer.disconnect();
+        }
+      }, { threshold: 0.4 });
+      observer.observe(grid);
+    } else {
+      els.forEach(animate);
+    }
+  })();
+</script>
+
+<!-- ============================================================
+     PRICING SECTION
+     ============================================================ -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Pricing
+      </div>
+      <h2 class="h2-title">Get started with your custom app.</h2>
+      <p class="lead-text">See the option below, or book a free consultation to talk it through.</p>
+    </div>
+
+    <div class="pricing-outer-container">
+      [sbs_pricing_cards ids="73" title="Custom Web & Mobile Apps"]
+    </div>
+
+    <p class="section-note">Looking for more ways to grow your business? Explore
+      <a class="related-link" href="/custom-web-development/">WordPress Website</a> and
+      <a class="related-link" href="/cybersecurity-email-backup/">Cybersecurity &amp; Email Backup</a>.
+    </p>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     HOW IT WORKS (SCOPE GRID)
+     ============================================================ -->
+<section class="section-space process-section" aria-label="How it works">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        How It Works
+      </div>
+      <h2 class="h2-title">What goes into building your app.</h2>
+      <p class="lead-text">From your first goal to a live, working product.</p>
+    </div>
+
+    <div class="scope-grid">
+
+      <div class="scope-card">
+        <div class="scope-num">1</div>
+        <h3 class="scope-title">Discovery Call</h3>
+        <p class="scope-desc">We talk through your goals, your users, and what the app needs to do.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">2</div>
+        <h3 class="scope-title">Requirements &amp; Scope</h3>
+        <p class="scope-desc">Defining features, platforms, and integrations so the project is scoped clearly.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">3</div>
+        <h3 class="scope-title">UX &amp; UI Design</h3>
+        <p class="scope-desc">Designing the screens and flows your users will actually interact with.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">4</div>
+        <h3 class="scope-title">Development</h3>
+        <p class="scope-desc">Building the web app or mobile app to match the approved design and scope.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">5</div>
+        <h3 class="scope-title">Integrations</h3>
+        <p class="scope-desc">Connecting any third-party tools or services your app depends on.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">6</div>
+        <h3 class="scope-title">Testing &amp; QA</h3>
+        <p class="scope-desc">Testing functionality across devices before anything goes live.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">7</div>
+        <h3 class="scope-title">Launch</h3>
+        <p class="scope-desc">Deploying your web app, or publishing your mobile app, with your review.</p>
+      </div>
+
+      <div class="scope-card">
+        <div class="scope-num">8</div>
+        <h3 class="scope-title">Handoff &amp; Support</h3>
+        <p class="scope-desc">A walkthrough of what was built, plus availability for ongoing support.</p>
+      </div>
+
+    </div>
+
+    <p class="section-note">Every app is different, so we shape the process around your goals.</p>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     ALTERNATING STORYTELLING FEATURES (High Breathing Space)
+     ============================================================ -->
+<section class="story-features-section">
+  <div class="container">
+
+    <div class="story-row">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Browser-Based Tools
+        </div>
+        <h2 class="story-title">A web app your team can use from any browser.</h2>
+        <p class="story-desc">
+          No install required. A web app runs directly in the browser on desktop or mobile, built around the specific
+          process or tool your business needs, rather than a general-purpose website template.
+        </p>
+        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/11/people-developer-at-monitor.webp"
+            alt="A man working at a desktop monitor showing code" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+    <div class="story-row is-reversed">
+      <div class="story-text-col">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          On Their Phone
+        </div>
+        <h2 class="story-title">A mobile app that lives on your customers' phones.</h2>
+        <p class="story-desc">
+          A mobile app is installed directly on a phone or tablet, built to your specification for the way your
+          customers or team actually work, not a template.
+        </p>
+        <a href="#pricing" class="story-link">View pricing<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7" />
+          </svg></a>
+      </div>
+      <div class="story-visual-col">
+        <div class="story-image-card">
+          <img src="/wp-content/uploads/2026/11/people-woman-holding-phone-smiling.webp"
+            alt="A smiling woman holding up her phone" width="520" height="390" />
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     FAQ SECTION (Clean Accordion)
+     ============================================================ -->
+<section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Common Questions
+      </div>
+      <h2 class="h2-title">Frequently Asked Questions</h2>
+      <p class="lead-text">Quick answers about custom web and mobile apps.</p>
+    </div>
+
+    <div class="faq-wrap">
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>What's the difference between a web app and a mobile app?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          A web app runs directly in a browser with no install required. A mobile app is installed on a phone or tablet. We design and develop both, so you can choose the one that fits your project.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Do I need a custom app, or would a website be enough?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          If you mainly need to share information, showcase your business, or capture leads, a website is usually simpler. A custom app makes sense when you need interactive tools, user accounts, or functionality a standard website can't provide.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>How long does a custom app take to build?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          It depends on the scope and complexity of your app. We'll share an estimated timeline after your free consultation.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Can the app connect to the tools we already use?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. We list the third-party tools or services your app depends on while scoping, then connect them as part of the build.
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-question">
+          <span>Will I get help after the app launches?</span>
+          <span class="faq-icon">+</span>
+        </summary>
+        <div class="faq-answer">
+          Yes. We walk you through what was built, and we are available for ongoing support afterward.
+        </div>
+      </details>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     NEXT STEPS / CONSULTATION CHECKLIST BANNER
+     ============================================================ -->
+<section class="cta-banner-section" id="consultation">
+  <div class="container">
+    <div class="cta-banner-box">
+
+      <div class="cta-banner-left">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Next Steps
+        </div>
+        <h2>Ready to scope your custom app?</h2>
+        <p>
+          Book a free consultation and tell us what you're trying to build, and we'll help you choose the right platform
+          and next steps.
+        </p>
+        <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free
+          Consultation</a>
+      </div>
+
+      <div class="prep-card-right">
+        <h4 class="prep-card-title">Helpful to have ready:</h4>
+        <ul class="prep-list">
+          <li>
+            <span class="prep-list-num">1</span>
+            <span>What problem your app needs to solve</span>
+          </li>
+          <li>
+            <span class="prep-list-num">2</span>
+            <span>Whether you need a web app, mobile app, or both</span>
+          </li>
+          <li>
+            <span class="prep-list-num">3</span>
+            <span>Any tools or services it needs to connect to</span>
+          </li>
+          <li>
+            <span class="prep-list-num">4</span>
+            <span>Who will be using it, and how</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>

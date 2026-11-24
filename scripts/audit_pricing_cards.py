@@ -24,7 +24,8 @@ ORDER = "https://order.sitesbysara.com/"
 
 # Pages that keep ids on purpose (page -> why).
 KEEP_IDS = {
-    "custom-apps-cybersecurity.html": "its four cards sit in the shared dev_other category next to the WordPress to HTML items",
+    "custom-web-mobile-apps.html": "its card sits in the shared dev_other category next to the WordPress to HTML items",
+    "cybersecurity-email-backup.html": "its three cards sit in the shared dev_other category next to the WordPress to HTML items",
 }
 # Pages that split a category into labelled sub-sections (several shortcodes per page).
 SECTIONED = {"pricing.html"}

@@ -212,6 +212,6 @@ source,target,regex,code
 /paid-advertising/,/google-meta-ads/,0,301
 /google-analytics-search-console-setup/,/seo-plans-site-audit/,0,301
 /site-audit-priority-fixes/,/seo-plans-site-audit/,0,301
-/cybersecurity-packages/,/custom-web-mobile-apps/,0,301
+/cybersecurity-packages/,/cybersecurity-email-backup/,0,301
 /hourly-dev-blocks/,/website-care/,0,301
 /simple-squeeze-page-sites/,/static-html-sites/,0,301

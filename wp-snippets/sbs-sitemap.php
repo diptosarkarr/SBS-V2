@@ -37,7 +37,7 @@ function sbs_sitemap_page_groups() {
 	$groups = array(
 		'Main Pages'         => array( 'home', 'all-services', 'blogs', 'contact-us', 'book-a-free-consultation' ),
 		'Build'              => array( 'custom-web-development', 'woocommerce-stores', 'shopify-ecommerce-store', 'merchant-processing-add-on', 'wordpress-to-html-conversion', 'static-html-sites', 'custom-web-mobile-apps', 'amazon-listing-store-setup' ),
-		'Maintain & Protect' => array( 'wordpress-maintenance-hosting-bundle', 'simple-site-hosting-bundle', 'website-care', 'email-setup-migration-services-gws-ms365' ),
+		'Maintain & Protect' => array( 'wordpress-maintenance-hosting-bundle', 'simple-site-hosting-bundle', 'website-care', 'cybersecurity-email-backup', 'email-setup-migration-services-gws-ms365' ),
 		'Grow'               => array( 'seo-plans-site-audit', 'local-seo-google-business-profile', 'marketing-visibility-packages', 'google-meta-ads', 'walmart-ads-management' ),
 		'Market & Brand'     => array( 'design', 'copywriting', 'social-media-setup-and-management', 'newsletter-services', 'go-high-level-service', 'crm-build-setup-management' ),
 		'Our Work'           => array( 'our-portfolio' ), // the portfolio items themselves are added after these, see sbs_sitemap_pages_html()

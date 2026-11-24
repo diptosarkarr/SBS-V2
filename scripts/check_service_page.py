@@ -251,7 +251,7 @@ def check_layout(src, errors, warns):
                 cols["desktop"] = c.group(1).strip()
     if cols.get("desktop") != "repeat(4, 1fr)":
         errors.append(f"scope grid is {cols.get('desktop')} on desktop (expected repeat(4, 1fr)); {cards} cards would wrap unevenly")
-    if cols.get("@media (max-width: 600px)") != "1fr":
+    if cols.get("@media (max-width: 600px)") not in ("1fr", "minmax(0, 1fr)"):  # minmax form is the standard since design.md 5.52
         errors.append("scope grid is not a single column on phones (@media max-width 600px)")
 
 
