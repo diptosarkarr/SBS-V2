@@ -1,0 +1,1493 @@
+<!-- page-sync: black-friday.html -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- SEO: FAQPage structured data, generated from the same list as the visible FAQ -->
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "When does the Black Friday sale run?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Black Friday and Cyber Monday offers are available November 27 to 30, 2026. The sale ends Monday, November 30, and regular pricing returns after that."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long do I have to use what I buy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Orders paid in full are good for 365 days from the date of purchase, so you can buy now and use it within one year."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I give an offer as a gift?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Every offer is fully transferable, so you can give it to someone else."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How does the Know Your Numbers offer work?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Choose any 2 of the 3 setups (Google Analytics 4, Google Search Console and Google Tag Manager) for the price of 1. Want all 3? Buy 2 and get 1 free."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is there anything the offers do not include?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Advertising spend for Social Media Quick Boost is paid separately, directly to Meta. Get Found Locally needs an existing Google Business Profile. Every service ordered is also subject to completing our Master Service Agreement."
+        }
+      }
+    ]
+  }
+</script>
+
+<style>
+  /* ============================================================
+     DESIGN SYSTEM & TOKENS (Sites by Sara Design System)
+     ============================================================ */
+  :root {
+    /* Vertical padding of every full-width section (top and bottom): one value so the gap between sections is identical across the site. */
+    --section-gap: clamp(32px, 4vw, 50px);
+    --brand-blue: #3A539B;
+    --brand-blue-hover: #2F437D;
+    --brand-blue-tint: #EEF2FA;
+    --brand-blue-subtle: #F6F8FD;
+
+    --brand-coral: #ea4e5f;
+    --brand-coral-hover: #d43d4e;
+    --brand-coral-tint: #FDEEEE;
+
+    --brand-peach: #FCEFE5;
+
+    --brand-gradient: linear-gradient(135deg, #0250c5 0%, #d43f8d 100%);
+    --brand-gradient-hover: linear-gradient(135deg, #0243a4 0%, #c0337d 100%);
+
+    --navy: #1E2140;
+    --navy-dark: #13152C;
+    --slate: #5F6368;
+    --slate-light: #80868B;
+
+    --border: #DCE2EE;
+    --border-light: #ECEFF5;
+    --border-card: #DFE4EE;
+
+    --bg-white: #FFFFFF;
+    --bg-light: #F9FAFD;
+
+    --green: #1E8E3E;
+    --green-tint: #E6F4EA;
+    --yellow: #FBBC04;
+    --yellow-tint: #FEF7E0;
+    --coral: #ea4e5f;
+    --coral-tint: #FDEEEE;
+
+    /* Black Friday page only: a near-black built from --navy-dark, plus the glass lines used on it */
+    --bf-black: #0A0B16;
+    --bf-line: rgba(255, 255, 255, 0.14);
+    --bf-glass: rgba(255, 255, 255, 0.06);
+
+    --font: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-pill: 9999px;
+
+    --shadow-subtle: 0 1px 3px rgba(30, 33, 64, 0.06), 0 4px 10px rgba(30, 33, 64, 0.04);
+    --shadow-card: 0 1px 3px rgba(30, 33, 64, 0.08), 0 4px 14px rgba(30, 33, 64, 0.05);
+    --shadow-card-hover: 0 12px 28px -6px rgba(30, 33, 64, 0.12), 0 4px 12px rgba(30, 33, 64, 0.06);
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font);
+    color: var(--navy);
+    background-color: var(--bg-white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  strong,
+  b {
+    font-weight: 600;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img,
+  svg {
+    max-width: 100%;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(36px, 5vw, 56px);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 16px;
+  }
+
+  .eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--coral);
+    display: inline-block;
+  }
+
+  .h2-title {
+    font-size: clamp(1.85rem, 1.5rem + 1.2vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+
+  .h2-title,
+  .cta-banner-left h2,
+  .bf-h1 {
+    text-wrap: balance;
+  }
+
+  .lead-text {
+    font-size: clamp(1.05rem, 0.95rem + 0.3vw, 1.2rem);
+    color: var(--slate);
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  /* Buttons */
+  .btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+    margin: 24px 0;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font);
+    font-size: 0.98rem;
+    font-weight: 600;
+    padding: 13px 28px;
+    border-radius: 28px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1.5px solid transparent;
+    text-decoration: none;
+    white-space: normal;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .btn-primary {
+    background: var(--brand-gradient);
+    background-clip: padding-box;
+    color: #FFFFFF;
+    box-shadow: 0 4px 16px rgba(2, 80, 197, 0.28);
+  }
+
+  .btn-primary:hover,
+  .btn-primary:focus,
+  .btn-primary:focus-visible,
+  .btn-primary:active {
+    background: var(--brand-gradient-hover);
+    background-clip: padding-box;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 22px rgba(212, 63, 141, 0.35);
+    color: #FFFFFF !important;
+  }
+
+  .btn-outline-light {
+    background-color: transparent;
+    color: #FFFFFF;
+    border-color: rgba(255, 255, 255, 0.55);
+  }
+
+  .btn-outline-light:hover,
+  .btn-outline-light:focus,
+  .btn-outline-light:focus-visible,
+  .btn-outline-light:active {
+    background-color: rgba(255, 255, 255, 0.12);
+    border-color: #FFFFFF;
+    color: #FFFFFF !important;
+  }
+
+  /* ============================================================
+     SALE ENDED NOTICE (shown by the script once the sale is over)
+     ============================================================ */
+  .bf-ended-note {
+    background: var(--yellow-tint);
+    border-bottom: 1px solid var(--yellow);
+    color: var(--navy);
+    text-align: center;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .bf-ended-note[hidden] {
+    display: none;
+  }
+
+  .bf-ended-note a {
+    color: var(--brand-blue);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* ============================================================
+     HERO (near-black with brand glows)
+     ============================================================ */
+  .bf-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--bf-black);
+    color: #FFFFFF;
+    padding: clamp(56px, 8vw, 104px) 0 clamp(72px, 9vw, 120px);
+    border-radius: 0 0 clamp(28px, 4vw, 48px) clamp(28px, 4vw, 48px);
+  }
+
+  .bf-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    background:
+      radial-gradient(55% 75% at 90% 8%, rgba(2, 80, 197, 0.6) 0%, transparent 62%),
+      radial-gradient(45% 65% at 4% 100%, rgba(212, 63, 141, 0.42) 0%, transparent 62%);
+  }
+
+  .bf-hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1.4px);
+    background-size: 30px 30px;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 80%);
+    mask-image: linear-gradient(180deg, #000 0%, transparent 80%);
+  }
+
+  .bf-hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    gap: clamp(32px, 6vw, 72px);
+    align-items: center;
+  }
+
+  .bf-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 18px;
+    margin-bottom: 26px;
+    border: 1px solid var(--bf-line);
+    border-radius: var(--radius-pill);
+    background: var(--bf-glass);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .bf-pill-dot {
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--brand-coral);
+    animation: bf-pulse 2s ease-out infinite;
+  }
+
+  @keyframes bf-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(234, 78, 95, 0.6);
+    }
+
+    70%,
+    100% {
+      box-shadow: 0 0 0 10px rgba(234, 78, 95, 0);
+    }
+  }
+
+  .bf-h1 {
+    font-size: clamp(2.4rem, 1.5rem + 3.6vw, 4.4rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    color: #FFFFFF;
+    margin-bottom: 22px;
+  }
+
+  .bf-h1-accent {
+    display: inline-block;
+    background: linear-gradient(95deg, var(--yellow) 0%, var(--brand-coral) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .bf-hero-lead {
+    max-width: 540px;
+    font-size: clamp(1.05rem, 0.95rem + 0.4vw, 1.22rem);
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.84);
+  }
+
+  .bf-hero .btn-group {
+    margin: 30px 0 0;
+  }
+
+  /* Countdown to the end of the sale (the script reads data-end from #bfPage and fills the numbers) */
+  .bf-count {
+    margin-top: 30px;
+    visibility: hidden;
+  }
+
+  .bf-count.is-ready {
+    visibility: visible;
+  }
+
+  .bf-count-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .bf-count-label::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--brand-coral);
+    animation: bf-pulse 2s ease-out infinite;
+  }
+
+  .bf-count-grid {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .bf-count-cell {
+    position: relative;
+    overflow: hidden;
+    min-width: 78px;
+    padding: 14px 8px 11px;
+    text-align: center;
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.11) 0%, rgba(255, 255, 255, 0.04) 100%);
+    border: 1px solid var(--bf-line);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 14px 26px -14px rgba(0, 0, 0, 0.7);
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  /* flip-clock hinge across the middle of the number */
+  .bf-count-cell::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 33px;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .bf-count-num {
+    position: relative;
+    z-index: 1;
+    display: block;
+    font-size: 2.3rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+    color: #FFFFFF;
+  }
+
+  .bf-count-num.is-tick {
+    animation: bf-tick 0.35s ease;
+  }
+
+  @keyframes bf-tick {
+    from {
+      opacity: 0.25;
+      transform: translateY(-7px);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .bf-count-cell--sec .bf-count-num {
+    background: linear-gradient(180deg, var(--yellow) 0%, var(--brand-coral) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .bf-count-unit {
+    display: block;
+    margin-top: 7px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.62);
+  }
+
+  .bf-count-sep {
+    padding-top: 13px;
+    font-size: 1.7rem;
+    font-weight: 800;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  /* last 24 hours */
+  .bf-count.is-urgent .bf-count-cell {
+    border-color: rgba(234, 78, 95, 0.6);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 0 26px -6px rgba(234, 78, 95, 0.5);
+  }
+
+  .bf-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .bf-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .bf-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 16px;
+    border-radius: var(--radius-pill);
+    background: var(--bf-glass);
+    border: 1px solid var(--bf-line);
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.92);
+  }
+
+  .bf-chip::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--yellow);
+  }
+
+  /* Price tag graphic (decorative) */
+  .bf-tag-stage {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    padding-top: 70px;
+  }
+
+  .bf-ring {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .bf-ring--a {
+    width: min(100%, 440px);
+    aspect-ratio: 1;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .bf-ring--b {
+    width: min(78%, 330px);
+    aspect-ratio: 1;
+    border: 1px dashed rgba(251, 188, 4, 0.32);
+  }
+
+  .bf-tag {
+    position: relative;
+    width: min(100%, 290px);
+    padding: 58px 24px 30px;
+    text-align: center;
+    border-radius: 28px;
+    background: linear-gradient(160deg, #1C1F40 0%, var(--bf-black) 72%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 34px 70px -22px rgba(2, 80, 197, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+    transform: rotate(5deg);
+    transform-origin: 50% -90px;
+    animation: bf-sway 7s ease-in-out infinite;
+  }
+
+  .bf-tag::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    border-radius: 50%;
+    background: var(--bf-black);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .bf-tag::after {
+    content: "";
+    position: absolute;
+    bottom: calc(100% - 30px);
+    left: 50%;
+    width: 2px;
+    height: 110px;
+    margin-left: -1px;
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.5), transparent);
+  }
+
+  @keyframes bf-sway {
+
+    0%,
+    100% {
+      transform: rotate(5deg);
+    }
+
+    50% {
+      transform: rotate(1.5deg);
+    }
+  }
+
+  .bf-tag-kicker {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .bf-tag-num {
+    display: block;
+    margin: 4px 0 2px;
+    font-size: 6.4rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    background: linear-gradient(180deg, var(--yellow) 0%, var(--brand-coral) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .bf-tag-num small {
+    font-size: 0.5em;
+    letter-spacing: 0;
+  }
+
+  .bf-tag-off {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.4em;
+    padding-left: 0.4em;
+    color: #FFFFFF;
+  }
+
+  .bf-tag-rule {
+    display: block;
+    height: 1px;
+    margin: 22px 8px 18px;
+    background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0 6px, transparent 6px 12px);
+  }
+
+  .bf-tag-dates {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+
+  .bf-tag-year {
+    display: block;
+    margin-top: 2px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .bf-float {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: var(--radius-pill);
+    background: rgba(19, 21, 44, 0.85);
+    border: 1px solid var(--bf-line);
+    box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.6);
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    white-space: nowrap;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+
+  .bf-float::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--yellow);
+  }
+
+  .bf-float--one {
+    left: 0;
+    bottom: 54px;
+  }
+
+  .bf-float--two {
+    right: 0;
+    top: 118px;
+  }
+
+  .bf-float--two::before {
+    background: var(--brand-coral);
+  }
+
+  /* ============================================================
+     OFFERS (light surface; the cards are the order site's, shown by the pricing-cards shortcode)
+     ============================================================ */
+  .bf-offers {
+    padding: clamp(44px, 6vw, 72px) 0 var(--section-gap);
+    background: var(--bg-light);
+  }
+
+  .bf-offers .section-header {
+    margin-bottom: clamp(28px, 4vw, 44px);
+  }
+
+  .bf-pricing {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: clamp(24px, 4vw, 44px);
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Pricing cards: 2 columns on desktop, 1 on phones. The pricing plugin sets the same layout; this rule keeps it
+     whichever plugin version is installed (the order system's own stylesheet is 4 columns). */
+  .bf-pricing .pc-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 600px) {
+    .bf-pricing .pc-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  /* Short supporting line under the cards */
+  .section-note {
+    text-align: center;
+    max-width: 720px;
+    margin: 28px auto 0;
+    font-size: 0.98rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  /* After the sale the order-site cards and the note under them are hidden (the script adds .is-ended) */
+  .bf-page.is-ended .bf-pricing,
+  .bf-page.is-ended .bf-offers .section-note {
+    display: none;
+  }
+
+  /* ============================================================
+     HOW IT WORKS (dark band)
+     ============================================================ */
+  .bf-how {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--navy-dark);
+    color: #FFFFFF;
+    padding: clamp(44px, 6vw, 72px) 0;
+  }
+
+  .bf-how::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(50% 120% at 50% 0%, rgba(2, 80, 197, 0.35) 0%, transparent 70%);
+  }
+
+  .bf-how .eyebrow {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .bf-how .h2-title {
+    color: #FFFFFF;
+  }
+
+  .bf-how .lead-text {
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .bf-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    list-style: none;
+  }
+
+  .bf-step {
+    position: relative;
+    padding: 30px 26px 28px;
+    border-radius: var(--radius-lg);
+    background: var(--bf-glass);
+    border: 1px solid var(--bf-line);
+  }
+
+  .bf-step::before {
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 26px;
+    right: 26px;
+    height: 3px;
+    border-radius: 0 0 4px 4px;
+    background: linear-gradient(90deg, var(--yellow), var(--brand-coral));
+  }
+
+  .bf-step-num {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-bottom: 18px;
+    border-radius: 50%;
+    background: var(--brand-gradient);
+    font-size: 1.05rem;
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+
+  .bf-step-title {
+    margin-bottom: 8px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+  }
+
+  .bf-step-text {
+    font-size: 0.93rem;
+    line-height: 1.65;
+    color: rgba(255, 255, 255, 0.76);
+  }
+
+  /* ============================================================
+     FAQ SECTION (Clean Modern Accordion)
+     ============================================================ */
+  .faq-section {
+    background: #FFFFFF;
+    padding: clamp(44px, 6vw, 72px) 0 var(--section-gap);
+  }
+
+  .faq-wrap {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    background: #FFFFFF;
+    border: 1px solid var(--border-card);
+    border-radius: var(--radius-md);
+    margin-bottom: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .faq-item:hover {
+    border-color: #CBD5E1;
+    box-shadow: var(--shadow-subtle);
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--navy);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-icon {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--brand-blue-tint);
+    color: var(--brand-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 600;
+    flex-shrink: 0;
+    transition: transform 0.25s ease;
+  }
+
+  details[open] .faq-icon {
+    transform: rotate(45deg);
+    background: var(--coral-tint);
+    color: var(--coral);
+  }
+
+  .faq-answer {
+    padding: 0 24px 22px;
+    font-size: 0.95rem;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+
+  /* ============================================================
+     CONSULTATION BANNER (dark)
+     ============================================================ */
+  .cta-banner-section {
+    padding: 0 0 var(--section-gap);
+  }
+
+  .cta-banner-box {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 40px;
+    align-items: center;
+    padding: clamp(36px, 5vw, 60px);
+    border-radius: var(--radius-xl);
+    background: var(--bf-black);
+    color: #FFFFFF;
+  }
+
+  .cta-banner-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+      radial-gradient(60% 100% at 100% 0%, rgba(2, 80, 197, 0.55) 0%, transparent 65%),
+      radial-gradient(50% 90% at 0% 100%, rgba(212, 63, 141, 0.4) 0%, transparent 65%);
+  }
+
+  .cta-banner-left .eyebrow {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .cta-banner-left h2 {
+    margin-bottom: 16px;
+    font-size: clamp(1.8rem, 1.5rem + 1vw, 2.4rem);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+  }
+
+  .cta-banner-left p {
+    margin-bottom: 28px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .cta-banner-left .btn-group {
+    margin: 0;
+  }
+
+  .glance-card {
+    padding: 28px;
+    border-radius: var(--radius-lg);
+    background: var(--bf-glass);
+    border: 1px solid var(--bf-line);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+  }
+
+  .glance-title {
+    margin-bottom: 14px;
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .glance-list {
+    list-style: none;
+  }
+
+  .glance-list li {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 13px 0;
+    border-top: 1px solid var(--bf-line);
+    font-size: 0.92rem;
+    color: rgba(255, 255, 255, 0.78);
+  }
+
+  .glance-list li:first-child {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .glance-list li:last-child {
+    padding-bottom: 0;
+  }
+
+  .glance-list strong {
+    flex-shrink: 0;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    text-align: right;
+  }
+
+  .bf-terms {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px calc(var(--section-gap) + 8px);
+    text-align: center;
+    font-size: 0.82rem;
+    line-height: 1.65;
+    color: var(--slate-light);
+  }
+
+  .bf-terms p+p {
+    margin-top: 8px;
+  }
+
+  /* ============================================================
+     RESPONSIVE BREAKPOINTS
+     ============================================================ */
+  @media (max-width: 960px) {
+
+    .bf-hero-grid,
+    .cta-banner-box {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .bf-tag-stage {
+      min-height: 340px;
+    }
+
+    .bf-steps {
+      grid-template-columns: minmax(0, 1fr);
+      max-width: 560px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .btn-group {
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    .btn {
+      width: 100%;
+    }
+
+    .bf-count-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .bf-count-cell {
+      min-width: 0;
+    }
+
+    .bf-count-num {
+      font-size: 1.9rem;
+    }
+
+    .bf-count-cell::after {
+      top: 29px;
+    }
+
+    .bf-count-sep {
+      display: none;
+    }
+
+    /* the two floating chips repeat the hero chips and cover the tag on a phone */
+    .bf-float {
+      display: none;
+    }
+
+    .glance-list li {
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .glance-list strong {
+      text-align: left;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+
+    .bf-tag,
+    .bf-pill-dot,
+    .bf-count-label::before,
+    .bf-count-num.is-tick {
+      animation: none;
+    }
+
+    .bf-tag {
+      transform: rotate(4deg);
+    }
+
+    .btn {
+      transition: none;
+    }
+
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  @media (forced-colors: active) {
+
+    .bf-h1-accent,
+    .bf-tag-num,
+    .bf-count-cell--sec .bf-count-num {
+      background: none;
+      -webkit-text-fill-color: currentColor;
+      color: CanvasText;
+    }
+  }
+</style>
+
+<div class="bf-page" id="bfPage" data-end="2026-12-01T00:00:00-07:00">
+
+  <div class="bf-ended-note" id="bfEndedNote" role="status" hidden>
+    This sale has ended and regular pricing applies. <a href="/book-a-free-consultation/">Book a free consultation</a>
+  </div>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="bf-hero" aria-labelledby="bf-hero-heading">
+    <div class="container">
+      <div class="bf-hero-grid">
+
+        <div class="bf-hero-left">
+          <!-- <div class="bf-pill">
+            <span class="bf-pill-dot" aria-hidden="true"></span>
+            Black Friday &middot; Cyber Monday &middot; Nov 27&ndash;30, 2026
+          </div> -->
+
+          <h1 class="bf-h1" id="bf-hero-heading">Big Digital Wins. <span class="bf-h1-accent">Four Days Only.</span>
+          </h1>
+
+          <p class="bf-hero-lead">
+            Five high-impact upgrades at up to 50% off, with bonuses included. Sale ends Monday, Nov 30. Act now before
+            your rate disappears.
+          </p>
+
+          <div class="bf-count" id="bfCount" role="timer">
+            <p class="bf-count-label">Sale ends in</p>
+            <div class="bf-count-grid" aria-hidden="true">
+              <div class="bf-count-cell"><span class="bf-count-num" data-unit="d">00</span><span
+                  class="bf-count-unit">Days</span></div>
+              <span class="bf-count-sep">:</span>
+              <div class="bf-count-cell"><span class="bf-count-num" data-unit="h">00</span><span
+                  class="bf-count-unit">Hours</span></div>
+              <span class="bf-count-sep">:</span>
+              <div class="bf-count-cell"><span class="bf-count-num" data-unit="m">00</span><span
+                  class="bf-count-unit">Minutes</span></div>
+              <span class="bf-count-sep">:</span>
+              <div class="bf-count-cell bf-count-cell--sec"><span class="bf-count-num" data-unit="s">00</span><span
+                  class="bf-count-unit">Seconds</span></div>
+            </div>
+            <p class="bf-sr-only">The sale ends at the end of Monday, November 30, 2026, Mountain Time.</p>
+          </div>
+
+          <div class="btn-group">
+            <a href="#offers" class="btn btn-primary">See the Offers</a>
+            <a href="/book-a-free-consultation/" class="btn btn-outline-light">Book a Free Consultation</a>
+          </div>
+
+          <ul class="bf-chips" aria-label="Sale highlights">
+            <li class="bf-chip">Up to 50% off</li>
+            <li class="bf-chip">Bonuses included</li>
+            <li class="bf-chip">Ends Mon, Nov 30</li>
+          </ul>
+        </div>
+
+        <div class="bf-tag-stage" aria-hidden="true">
+          <span class="bf-ring bf-ring--a"></span>
+          <span class="bf-ring bf-ring--b"></span>
+          <div class="bf-tag">
+            <span class="bf-tag-kicker">Up to</span>
+            <span class="bf-tag-num">50<small>%</small></span>
+            <span class="bf-tag-off">OFF</span>
+            <span class="bf-tag-rule"></span>
+            <span class="bf-tag-dates">Nov 27&ndash;30</span>
+            <span class="bf-tag-year">2026</span>
+          </div>
+          <span class="bf-float bf-float--one">Bonuses included</span>
+          <span class="bf-float bf-float--two">5 upgrades</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       OFFERS: the cards come from the order site (category black_friday), like every service page.
+       Add, remove or reorder cards there, not here.
+       ============================================================ -->
+  <section class="bf-offers" id="offers" aria-labelledby="bf-offers-heading">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Black Friday &ndash; Cyber Monday
+        </div>
+        <h2 class="h2-title" id="bf-offers-heading">Lock in your rate before Monday, Nov 30.</h2>
+        <p class="lead-text">Sale starts now. Buy it now and use it within one year, or give it as a gift. Fully
+          transferable. Regular pricing returns after Monday, Nov 30.</p>
+      </div>
+
+      <div class="bf-pricing">
+        [sbs_pricing_cards category="black_friday" popular="46154" title="Black Friday - Cyber Monday"]
+      </div>
+
+      <p class="section-note">Know Your Numbers is buy one, get one: choose any 2 of the 3 setups for the price of 1, or
+        buy 2 and get the third free.</p>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       HOW IT WORKS
+       ============================================================ -->
+  <section class="bf-how" id="how-it-works" aria-labelledby="bf-how-heading">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          The Fine Print, Made Simple
+        </div>
+        <h2 class="h2-title" id="bf-how-heading">How the sale works</h2>
+        <p class="lead-text">Pick an upgrade, order it by Monday, and use it on your schedule.</p>
+      </div>
+
+      <ol class="bf-steps">
+        <li class="bf-step">
+          <div class="bf-step-num" aria-hidden="true">1</div>
+          <h3 class="bf-step-title">Choose your upgrade</h3>
+          <p class="bf-step-text">Pick any of the five offers. The sale prices are available Nov 27&ndash;30, 2026,
+            and regular pricing returns after Monday, Nov 30.</p>
+        </li>
+        <li class="bf-step">
+          <div class="bf-step-num" aria-hidden="true">2</div>
+          <h3 class="bf-step-title">Order and pay in full</h3>
+          <p class="bf-step-text">Every service ordered is subject to completing our Master Service Agreement and is
+            valid only for the exact service purchased.</p>
+        </li>
+        <li class="bf-step">
+          <div class="bf-step-num" aria-hidden="true">3</div>
+          <h3 class="bf-step-title">Use it within a year, or gift it</h3>
+          <p class="bf-step-text">Orders paid in full are good for 365 days from the date of purchase and are fully
+            transferable.</p>
+        </li>
+      </ol>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FAQ
+       ============================================================ -->
+  <section class="faq-section" id="faq" aria-label="Frequently Asked Questions">
+    <div class="container">
+
+      <div class="section-header">
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Common Questions
+        </div>
+        <h2 class="h2-title">Frequently Asked Questions</h2>
+        <p class="lead-text">Quick answers about the Black Friday and Cyber Monday offers.</p>
+      </div>
+
+      <div class="faq-wrap">
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>When does the Black Friday sale run?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            The Black Friday and Cyber Monday offers are available November 27 to 30, 2026. The sale ends Monday,
+            November 30, and regular pricing returns after that.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>How long do I have to use what I buy?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Orders paid in full are good for 365 days from the date of purchase, so you can buy now and use it within
+            one year.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Can I give an offer as a gift?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Yes. Every offer is fully transferable, so you can give it to someone else.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>How does the Know Your Numbers offer work?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Choose any 2 of the 3 setups (Google Analytics 4, Google Search Console and Google Tag Manager) for the
+            price of 1. Want all 3? Buy 2 and get 1 free.
+          </div>
+        </details>
+
+        <details class="faq-item">
+          <summary class="faq-question">
+            <span>Is there anything the offers do not include?</span>
+            <span class="faq-icon">+</span>
+          </summary>
+          <div class="faq-answer">
+            Advertising spend for Social Media Quick Boost is paid separately, directly to Meta. Get Found Locally needs
+            an existing Google Business Profile. Every service ordered is also subject to completing our Master Service
+            Agreement.
+          </div>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CONSULTATION BANNER
+       ============================================================ -->
+  <section class="cta-banner-section" id="consultation">
+    <div class="container">
+      <div class="cta-banner-box">
+
+        <div class="cta-banner-left">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Not Sure Which One Fits?
+          </div>
+          <h2>Talk it through before the sale ends.</h2>
+          <p>Book a free consultation and we'll point you to the right upgrade for your business before the offers end
+            on Monday, Nov 30.</p>
+          <div class="btn-group">
+            <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free Consultation</a>
+            <a href="tel:+13853555351" class="btn btn-outline-light">Call Us Today!</a>
+          </div>
+        </div>
+
+        <div class="glance-card">
+          <h3 class="glance-title">The sale at a glance</h3>
+          <ul class="glance-list">
+            <li><span>Sale dates</span><strong>Nov 27&ndash;30, 2026</strong></li>
+            <li><span>Offers</span><strong>5 upgrades, up to 50% off</strong></li>
+            <li><span>Time to use what you buy</span><strong>365 days</strong></li>
+            <li><span>Gifting</span><strong>Fully transferable</strong></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="bf-terms">
+    <p>Every service ordered is subject to completing our Master Service Agreement and is valid only for the exact
+      service purchased. Orders paid in full are good for 365 days from the date of purchase and are fully
+      transferable.</p>
+    <p>Black Friday &ndash; Cyber Monday offers available Nov 27&ndash;30, 2026.</p>
+  </div>
+
+</div>
+
+<script>
+  /* Countdown to data-end on #bfPage (midnight Mountain time after Mon, Nov 30). When it reaches zero, or if the page
+     is opened after that, show the "sale has ended" notice and hide the order-site cards. */
+  (function () {
+    var page = document.getElementById('bfPage');
+    if (!page) return;
+    var end = Date.parse(page.getAttribute('data-end'));
+    if (isNaN(end)) return;
+    var note = document.getElementById('bfEndedNote');
+    var count = document.getElementById('bfCount');
+    var cells = {};
+    if (count) {
+      Array.prototype.forEach.call(count.querySelectorAll('[data-unit]'), function (el) {
+        cells[el.getAttribute('data-unit')] = el;
+      });
+    }
+    var timer = null;
+    var first = true;
+
+    function pad(n) { return n < 10 ? '0' + n : String(n); }
+
+    function setCell(el, value) {
+      if (!el || el.textContent === value) return;
+      el.textContent = value;
+      if (first) return;
+      el.classList.remove('is-tick');
+      void el.offsetWidth; // restart the animation
+      el.classList.add('is-tick');
+    }
+
+    function finish() {
+      page.classList.add('is-ended');
+      if (note) note.hidden = false;
+      if (count) count.hidden = true;
+    }
+
+    function tick() {
+      var left = end - Date.now();
+      if (left <= 0) { finish(); return; }
+      var s = Math.floor(left / 1000);
+      var d = Math.floor(s / 86400); s -= d * 86400;
+      var h = Math.floor(s / 3600); s -= h * 3600;
+      var m = Math.floor(s / 60); s -= m * 60;
+      setCell(cells.d, pad(d));
+      setCell(cells.h, pad(h));
+      setCell(cells.m, pad(m));
+      setCell(cells.s, pad(s));
+      first = false;
+      if (count) {
+        count.classList.add('is-ready');
+        count.classList.toggle('is-urgent', left < 86400000);
+      }
+      timer = setTimeout(tick, 1000 - (Date.now() % 1000) + 5);
+    }
+
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) { clearTimeout(timer); tick(); }
+    });
+    tick();
+  })();
+</script>

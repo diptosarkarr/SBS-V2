@@ -317,7 +317,9 @@
   /* ---------------- mega dropdown (Services) ---------------- */
   .custom-dropdown-mega {
     position: fixed;
-    top: 70px;
+    /* 70px under the header; --custom-bar-offset is how far the header sits below the top of the window
+       while the announcement bar is on screen (set by the script at the bottom of this file, 0 otherwise) */
+    top: calc(70px + var(--custom-bar-offset, 0px));
     left: 50%;
     transform: translateX(-50%) translateY(-8px);
     width: min(1200px, calc(100% - 32px));
@@ -1405,7 +1407,217 @@
       animation: none;
     }
   }
+
+  /* ============================================================
+   ANNOUNCEMENT BAR (time-limited promo, scrolls away above the header)
+   When the promo is over, delete this CSS block, the .custom-announce markup
+   and its small script (all marked ANNOUNCEMENT BAR in this file).
+   ============================================================ */
+  .custom-announce,
+  .custom-announce * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .custom-announce {
+    --custom-announce-yellow: #FBBC04;
+    position: relative;
+    background: #0A0B16;
+    color: #FFFFFF;
+    font-family: var(--font);
+  }
+
+  .custom-announce::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: var(--brand-gradient);
+  }
+
+  .custom-announce-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    padding: 11px 56px 12px 24px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF !important;
+  }
+
+  .custom-announce-link:hover,
+  .custom-announce-link:focus,
+  .custom-announce-link:focus-visible,
+  .custom-announce-link:active {
+    color: #FFFFFF !important;
+    text-decoration: none;
+  }
+
+  .custom-announce-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--custom-announce-yellow);
+  }
+
+  .custom-announce-badge::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--brand-coral);
+    animation: custom-announce-pulse 2s ease-out infinite;
+  }
+
+  @keyframes custom-announce-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(234, 78, 95, 0.6);
+    }
+
+    70%,
+    100% {
+      box-shadow: 0 0 0 9px rgba(234, 78, 95, 0);
+    }
+  }
+
+  .custom-announce-text strong {
+    font-weight: 800;
+  }
+
+  .custom-announce-cta {
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.45);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.15s ease;
+  }
+
+  .custom-announce-link:hover .custom-announce-cta,
+  .custom-announce-link:focus-visible .custom-announce-cta {
+    text-decoration-color: var(--custom-announce-yellow);
+  }
+
+  .custom-announce-close {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: none;
+    border: 0;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: background-color 0.15s ease, color 0.15s ease;
+  }
+
+  .custom-announce-close:hover,
+  .custom-announce-close:focus,
+  .custom-announce-close:focus-visible,
+  .custom-announce-close:active {
+    background: rgba(255, 255, 255, 0.14);
+    color: #FFFFFF;
+  }
+
+  .custom-announce-short {
+    display: none;
+  }
+
+  @media (max-width: 640px) {
+
+    /* one short line on a phone: badge + "Up to 50% off, Nov 27-30 ->" */
+    .custom-announce-badge-extra,
+    .custom-announce-full,
+    .custom-announce-cta {
+      display: none;
+    }
+
+    .custom-announce-short {
+      display: inline;
+    }
+
+    .custom-announce-link {
+      gap: 2px 10px;
+      padding: 10px 44px 11px 14px;
+      font-size: 0.8rem;
+    }
+
+    .custom-announce-close {
+      right: 6px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .custom-announce-badge::before {
+      animation: none;
+    }
+  }
 </style>
+
+<!-- ============================================================
+     ANNOUNCEMENT BAR (Black Friday - Cyber Monday 2026)
+     Hides itself after data-end (midnight Mountain time, end of Mon Nov 30) and when dismissed for the visit.
+     Remove this block, its CSS above and the --custom-bar-offset script at the bottom once the promo is over.
+     ============================================================ -->
+<div class="custom-announce" id="customAnnounce" data-end="2026-12-01T00:00:00-07:00" role="region"
+  aria-label="Announcement">
+  <a class="custom-announce-link" href="/black-friday/">
+    <span class="custom-announce-badge">Black Friday<span class="custom-announce-badge-extra">&nbsp;&middot; Cyber
+        Monday</span></span>
+    <span class="custom-announce-text">
+      <span class="custom-announce-full">Up to 50% off, bonuses included. <strong>Nov 27&ndash;30 only.</strong></span>
+      <span class="custom-announce-short">Up to 50% off, <strong>Nov 27&ndash;30</strong> &rarr;</span>
+    </span>
+    <span class="custom-announce-cta">See the offers &rarr;</span>
+  </a>
+  <button type="button" class="custom-announce-close" id="customAnnounceClose" aria-label="Dismiss announcement">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="18" y1="6" x2="6" y2="18"></line>
+      <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg>
+  </button>
+</div>
+<script>
+  /* Announcement bar: remove it once the promo has ended or the visitor has dismissed it for this visit. */
+  (function () {
+    var KEY = 'sbs-announce-bf-2026';
+    var bar = document.getElementById('customAnnounce');
+    if (!bar) return;
+    var end = Date.parse(bar.getAttribute('data-end'));
+    var gone = !isNaN(end) && Date.now() >= end;
+    try { if (sessionStorage.getItem(KEY) === '1') gone = true; } catch (e) { }
+    function removeBar() {
+      if (bar.parentNode) bar.parentNode.removeChild(bar);
+      window.dispatchEvent(new CustomEvent('sbs-announce-change'));
+    }
+    if (gone) { removeBar(); return; }
+    var close = document.getElementById('customAnnounceClose');
+    if (close) {
+      close.addEventListener('click', function () {
+        try { sessionStorage.setItem(KEY, '1'); } catch (e) { }
+        removeBar();
+      });
+    }
+  })();
+</script>
 
 <!-- ============================================================
      SITE HEADER (Reusable Component) — single row: logo + nav + actions
@@ -2008,8 +2220,21 @@
       }
     });
 
+    /* ---------------- announcement bar offset ----------------
+       The Services mega menu is position: fixed, so while the announcement bar is on screen (header sitting
+       below it) the menu has to start lower by the same amount. 0 once the bar has scrolled away or is gone. */
+    function syncBarOffset() {
+      var top = Math.max(0, header.getBoundingClientRect().top);
+      document.documentElement.style.setProperty('--custom-bar-offset', top + 'px');
+    }
+    syncBarOffset();
+    window.addEventListener('load', syncBarOffset);
+    window.addEventListener('resize', syncBarOffset);
+    window.addEventListener('sbs-announce-change', syncBarOffset);
+
     window.addEventListener('scroll', function () {
       header.classList.toggle('custom-is-scrolled', window.scrollY > 4);
+      syncBarOffset();
     });
   })();
 </script>
