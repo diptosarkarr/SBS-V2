@@ -2142,6 +2142,16 @@
   }
 
   /* last 24 hours */
+  /* sale over: calm, dimmed zeros (phases: .is-before counts to the start, .is-live to the end, .is-over = ended) */
+  .home-bf-count.is-over .home-bf-count-label::before {
+    background: rgba(255, 255, 255, 0.35);
+    animation: none;
+  }
+
+  .home-bf-count.is-over .home-bf-count-cell {
+    opacity: 0.6;
+  }
+
   .home-bf-count.is-urgent .home-bf-count-cell {
     border-color: rgba(234, 78, 95, 0.6);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 0 26px -6px rgba(234, 78, 95, 0.5);
@@ -2402,20 +2412,16 @@
         aria-label="Featured">
 
         <!-- Slide 1: Black Friday - Cyber Monday promo (removed automatically after data-end) -->
-        <div class="home-hero-slide is-active" id="homeHeroBfSlide" data-end="2026-12-01T00:00:00-07:00" role="group"
+        <div class="home-hero-slide is-active" id="homeHeroBfSlide" data-start="2026-11-27T00:00:00-07:00" data-end="2026-11-30T23:59:59-07:00" role="group"
           aria-roledescription="slide" aria-label="1 of 2: Black Friday offers">
           <div class="home-bf-grid">
             <div class="home-bf-copy">
-              <div class="home-hero-eyebrow">
-                <span class="home-hero-eyebrow-dot"></span>
-                Black Friday &middot; Cyber Monday &middot; Nov 27&ndash;30
-              </div>
               <h2 class="home-bf-title">Big Digital Wins. <span class="home-bf-accent">Four Days Only.</span></h2>
               <p class="home-bf-sub">
-                Five high-impact upgrades at up to 50% off, with bonuses included. Sale ends Monday, Nov 30.
+                Five high-impact upgrades at up to 50% off, with bonuses included. Sale ends Monday, Nov 30th at 11:59&nbsp;PM&nbsp;MST.
               </p>
               <div class="home-bf-count" id="homeBfCount" role="timer">
-                <p class="home-bf-count-label">Sale ends in</p>
+                <p class="home-bf-count-label" id="homeBfCountLabel">Sale ends in</p>
                 <div class="home-bf-count-grid" aria-hidden="true">
                   <div class="home-bf-count-cell"><span class="home-bf-count-num" data-unit="d">00</span><span class="home-bf-count-unit">Days</span></div>
                   <span class="home-bf-count-sep">:</span>
@@ -2425,7 +2431,7 @@
                   <span class="home-bf-count-sep">:</span>
                   <div class="home-bf-count-cell home-bf-count-cell--sec"><span class="home-bf-count-num" data-unit="s">00</span><span class="home-bf-count-unit">Seconds</span></div>
                 </div>
-                <p class="home-bf-sr-only">The sale ends at the end of Monday, November 30, 2026, Mountain Time.</p>
+                <p class="home-bf-sr-only" id="homeBfCountSr">The sale ends Monday, November 30, 2026 at 11:59 PM Mountain Standard Time.</p>
               </div>
               <div class="home-btn-group">
                 <a href="/black-friday/" class="home-btn home-btn-primary">See the Black Friday Offers</a>
@@ -4644,19 +4650,32 @@
 </script>
 
 <script>
-  /* Countdown on the Black Friday hero slide: counts down to data-end on #homeHeroBfSlide
-     (midnight Mountain time after Mon, Nov 30). The slide itself is removed on load once that time has passed. */
+  /* Countdown on the Black Friday hero slide (data-start / data-end on #homeHeroBfSlide, Mountain Standard Time):
+       before data-start        "Sale starts in"  counts down to Fri, Nov 27, 12:00 AM
+       data-start to data-end   "Sale ends in"    counts down to Mon, Nov 30, 11:59 PM
+       after data-end           "Sale ended"      00 00 00 00 (only seen if the page is open at that moment: the slide is
+                                removed on load once data-end has passed). */
   (function () {
     var slide = document.getElementById('homeHeroBfSlide');
     var count = document.getElementById('homeBfCount');
     if (!slide || !count) return;
+    var start = Date.parse(slide.getAttribute('data-start'));
     var end = Date.parse(slide.getAttribute('data-end'));
     if (isNaN(end)) return;
+    if (isNaN(start)) start = 0; // no start date: the sale is already running
+    var label = document.getElementById('homeBfCountLabel');
+    var spoken = document.getElementById('homeBfCountSr');
+    var PHASES = {
+      before: { label: 'Sale starts in', say: 'The sale starts Friday, November 27, 2026 at 12:00 AM Mountain Standard Time.' },
+      live: { label: 'Sale ends in', say: 'The sale ends Monday, November 30, 2026 at 11:59 PM Mountain Standard Time.' },
+      over: { label: 'Sale ended', say: 'The sale has ended.' }
+    };
     var cells = {};
     Array.prototype.forEach.call(count.querySelectorAll('[data-unit]'), function (el) {
       cells[el.getAttribute('data-unit')] = el;
     });
     var timer = null;
+    var phase = '';
     var first = true;
 
     function pad(n) { return n < 10 ? '0' + n : String(n); }
@@ -4670,9 +4689,16 @@
       el.classList.add('is-tick');
     }
 
-    function tick() {
-      var left = end - Date.now();
-      if (left <= 0) { count.hidden = true; return; }
+    function setPhase(name) {
+      if (name === phase) return;
+      phase = name;
+      count.classList.remove('is-before', 'is-live', 'is-over');
+      count.classList.add('is-' + name);
+      if (label) label.textContent = PHASES[name].label;
+      if (spoken) spoken.textContent = PHASES[name].say;
+    }
+
+    function show(left) {
       var s = Math.floor(left / 1000);
       var d = Math.floor(s / 86400); s -= d * 86400;
       var h = Math.floor(s / 3600); s -= h * 3600;
@@ -4682,8 +4708,22 @@
       setCell(cells.m, pad(m));
       setCell(cells.s, pad(s));
       first = false;
+    }
+
+    function tick() {
+      var now = Date.now();
+      if (now >= end) {
+        setPhase('over');
+        show(0);
+        count.classList.add('is-ready');
+        count.classList.remove('is-urgent');
+        return;
+      }
+      var waiting = now < start;
+      setPhase(waiting ? 'before' : 'live');
+      show((waiting ? start : end) - now);
       count.classList.add('is-ready');
-      count.classList.toggle('is-urgent', left < 86400000);
+      count.classList.toggle('is-urgent', !waiting && end - now < 86400000);
       timer = setTimeout(tick, 1000 - (Date.now() % 1000) + 5);
     }
 

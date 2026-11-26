@@ -15,7 +15,7 @@
         "name": "When does the Black Friday sale run?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The Black Friday and Cyber Monday offers are available November 27 to 30, 2026. The sale ends Monday, November 30, and regular pricing returns after that."
+          "text": "The Black Friday and Cyber Monday offers run from Friday, November 27, 2026 at 12:00 AM through Monday, November 30, 2026 at 11:59 PM MST. Regular pricing returns after that."
         }
       },
       {
@@ -39,7 +39,7 @@
         "name": "How does the Know Your Numbers offer work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Choose any 2 of the 3 setups (Google Analytics 4, Google Search Console and Google Tag Manager) for the price of 1. Want all 3? Buy 2 and get 1 free."
+          "text": "Get 2 Google properties set up and configured for the price of 1, or go for all 3 Google properties for the price of 2. Either way, you're getting a great deal for these essential measurement and metrics trackers!"
         }
       },
       {
@@ -387,6 +387,12 @@
     color: rgba(255, 255, 255, 0.84);
   }
 
+  .bf-hero-lead .bf-hero-urgent {
+    font-style: italic;
+    font-weight: 600;
+    color: #FFFFFF;
+  }
+
   .bf-hero .btn-group {
     margin: 30px 0 0;
   }
@@ -508,6 +514,16 @@
     color: rgba(255, 255, 255, 0.3);
   }
 
+  /* sale over: calm, dimmed zeros (phases: .is-before counts to the start, .is-live to the end, .is-over = ended) */
+  .bf-count.is-over .bf-count-label::before {
+    background: rgba(255, 255, 255, 0.35);
+    animation: none;
+  }
+
+  .bf-count.is-over .bf-count-cell {
+    opacity: 0.6;
+  }
+
   /* last 24 hours */
   .bf-count.is-urgent .bf-count-cell {
     border-color: rgba(234, 78, 95, 0.6);
@@ -524,34 +540,6 @@
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
-  }
-
-  .bf-chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 28px;
-  }
-
-  .bf-chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 16px;
-    border-radius: var(--radius-pill);
-    background: var(--bf-glass);
-    border: 1px solid var(--bf-line);
-    font-size: 0.88rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.92);
-  }
-
-  .bf-chip::before {
-    content: "";
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--yellow);
   }
 
   /* Price tag graphic (decorative) */
@@ -723,14 +711,17 @@
     background: var(--yellow);
   }
 
+  /* The two chips are pinned to the price tag's own edges (they are children of .bf-tag, so they sway with it):
+     one hangs off the bottom edge under the date, the other sits on the top-right corner. Neither covers any text. */
   .bf-float--one {
-    left: 0;
-    bottom: 54px;
+    left: 50%;
+    bottom: -19px;
+    transform: translateX(-50%);
   }
 
   .bf-float--two {
-    right: 0;
-    top: 118px;
+    right: 8px;
+    top: -18px;
   }
 
   .bf-float--two::before {
@@ -771,19 +762,76 @@
     }
   }
 
-  /* Short supporting line under the cards */
-  .section-note {
-    text-align: center;
-    max-width: 720px;
-    margin: 28px auto 0;
-    font-size: 0.98rem;
-    color: var(--slate);
-    line-height: 1.6;
+  /* Black Friday cards only (the order site's own card markup, restyled from this page):
+     1. every Order Now button gets the brand gradient (the plugin only gives it to the Most Popular card);
+     2. card content stacks from the top instead of spreading out to fill the card height;
+     3. every card has its own background picture (below). */
+  .bf-pricing .pc-card {
+    justify-content: flex-start;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
   }
 
-  /* After the sale the order-site cards and the note under them are hidden (the script adds .is-ended) */
-  .bf-page.is-ended .bf-pricing,
-  .bf-page.is-ended .bf-offers .section-note {
+  /* Card pictures. Each one is matched to its card by the order-site service id in the card's Order Now link, so
+     moving the cards around on the order site does not mix them up. The files are uploaded to the media library
+     (WordPress month folder 2026/11 as written here; if they go somewhere else, change the path on these five lines):
+       card-1.webp  Site Essentials + SEO & AEO Bundle (46154)  SEO icons: sitemap, target, magnifier, charts
+       card-2.webp  Know Your Numbers (46155)                   analytics (Katie's "Analytics" picture)
+       card-3.webp  Social Media Quick Boost (46156)            likes
+       card-4.webp  Get Found Locally (46157)                   map pins and maps
+       card-5.webp  E-Commerce Glow Up (46158)                  price tags and carts
+     A browser without :has() just shows the plain white cards. The pictures sit behind the text, so the
+     "What's Included" label and list get a soft white halo (no layout change) to stay easy to read. */
+  .bf-pricing .pc-card .pc-inc-label,
+  .bf-pricing .pc-card .pc-inc-list {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px 8px rgba(255, 255, 255, 0.8);
+  }
+
+  .bf-pricing .pc-card:has(.pc-btn[href*="service=46154"]) {
+    background-image: url("/wp-content/uploads/2026/11/card-1.webp");
+  }
+
+  .bf-pricing .pc-card:has(.pc-btn[href*="service=46155"]) {
+    background-image: url("/wp-content/uploads/2026/11/card-2.webp");
+  }
+
+  .bf-pricing .pc-card:has(.pc-btn[href*="service=46156"]) {
+    background-image: url("/wp-content/uploads/2026/11/card-3.webp");
+  }
+
+  .bf-pricing .pc-card:has(.pc-btn[href*="service=46157"]) {
+    background-image: url("/wp-content/uploads/2026/11/card-4.webp");
+  }
+
+  .bf-pricing .pc-card:has(.pc-btn[href*="service=46158"]) {
+    background-image: url("/wp-content/uploads/2026/11/card-5.webp");
+  }
+
+  .bf-pricing .pc-card .pc-btn {
+    background: var(--brand-gradient);
+    color: #FFFFFF;
+    border: none;
+    box-shadow: 0 4px 14px rgba(2, 80, 197, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+  }
+
+  .bf-pricing .pc-card .pc-btn:hover,
+  .bf-pricing .pc-card .pc-btn:focus-visible {
+    color: #FFFFFF;
+    transform: translateY(-1px);
+    filter: brightness(1.07);
+    box-shadow: 0 8px 20px rgba(2, 80, 197, 0.34);
+  }
+
+  .bf-pricing .pc-card .pc-btn:focus-visible {
+    outline: 3px solid rgba(2, 80, 197, 0.35);
+    outline-offset: 3px;
+  }
+
+  /* After the sale the order-site cards are hidden (the script adds .is-ended) */
+  .bf-page.is-ended .bf-pricing {
     display: none;
   }
 
@@ -1053,20 +1101,6 @@
     text-align: right;
   }
 
-  .bf-terms {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 0 24px calc(var(--section-gap) + 8px);
-    text-align: center;
-    font-size: 0.82rem;
-    line-height: 1.65;
-    color: var(--slate-light);
-  }
-
-  .bf-terms p+p {
-    margin-top: 8px;
-  }
-
   /* ============================================================
      RESPONSIVE BREAKPOINTS
      ============================================================ */
@@ -1119,11 +1153,6 @@
       display: none;
     }
 
-    /* the two floating chips repeat the hero chips and cover the tag on a phone */
-    .bf-float {
-      display: none;
-    }
-
     .glance-list li {
       flex-direction: column;
       gap: 2px;
@@ -1168,7 +1197,7 @@
   }
 </style>
 
-<div class="bf-page" id="bfPage" data-end="2026-12-01T00:00:00-07:00">
+<div class="bf-page" id="bfPage" data-start="2026-11-27T00:00:00-07:00" data-end="2026-11-30T23:59:59-07:00">
 
   <div class="bf-ended-note" id="bfEndedNote" role="status" hidden>
     This sale has ended and regular pricing applies. <a href="/book-a-free-consultation/">Book a free consultation</a>
@@ -1191,12 +1220,12 @@
           </h1>
 
           <p class="bf-hero-lead">
-            Five high-impact upgrades at up to 50% off, with bonuses included. Sale ends Monday, Nov 30. Act now before
-            your rate disappears.
+            Five high-impact upgrades at up to 50% off, with bonuses included. Sale ends Monday, Nov 30th at 11:59&nbsp;PM&nbsp;MST.
+            <em class="bf-hero-urgent">Act now before your rate disappears!</em>
           </p>
 
           <div class="bf-count" id="bfCount" role="timer">
-            <p class="bf-count-label">Sale ends in</p>
+            <p class="bf-count-label" id="bfCountLabel">Sale ends in</p>
             <div class="bf-count-grid" aria-hidden="true">
               <div class="bf-count-cell"><span class="bf-count-num" data-unit="d">00</span><span
                   class="bf-count-unit">Days</span></div>
@@ -1210,7 +1239,7 @@
               <div class="bf-count-cell bf-count-cell--sec"><span class="bf-count-num" data-unit="s">00</span><span
                   class="bf-count-unit">Seconds</span></div>
             </div>
-            <p class="bf-sr-only">The sale ends at the end of Monday, November 30, 2026, Mountain Time.</p>
+            <p class="bf-sr-only" id="bfCountSr">The sale ends Monday, November 30, 2026 at 11:59 PM Mountain Standard Time.</p>
           </div>
 
           <div class="btn-group">
@@ -1218,11 +1247,6 @@
             <a href="/book-a-free-consultation/" class="btn btn-outline-light">Book a Free Consultation</a>
           </div>
 
-          <ul class="bf-chips" aria-label="Sale highlights">
-            <li class="bf-chip">Up to 50% off</li>
-            <li class="bf-chip">Bonuses included</li>
-            <li class="bf-chip">Ends Mon, Nov 30</li>
-          </ul>
         </div>
 
         <div class="bf-tag-stage" aria-hidden="true">
@@ -1235,9 +1259,9 @@
             <span class="bf-tag-rule"></span>
             <span class="bf-tag-dates">Nov 27&ndash;30</span>
             <span class="bf-tag-year">2026</span>
+            <span class="bf-float bf-float--one">Bonuses included</span>
+            <span class="bf-float bf-float--two">5 upgrades</span>
           </div>
-          <span class="bf-float bf-float--one">Bonuses included</span>
-          <span class="bf-float bf-float--two">5 upgrades</span>
         </div>
 
       </div>
@@ -1257,16 +1281,13 @@
           Black Friday &ndash; Cyber Monday
         </div>
         <h2 class="h2-title" id="bf-offers-heading">Lock in your rate before Monday, Nov 30.</h2>
-        <p class="lead-text">Sale starts now. Buy it now and use it within one year, or give it as a gift. Fully
-          transferable. Regular pricing returns after Monday, Nov 30.</p>
+        <p class="lead-text">Sale runs Friday, Nov 27th - Monday, Nov 30th. Buy it now and use it within one year, or
+          give it as a gift. Fully transferable. Regular pricing returns after Monday, Nov 30.</p>
       </div>
 
       <div class="bf-pricing">
         [sbs_pricing_cards category="black_friday" popular="46154" title="Black Friday - Cyber Monday"]
       </div>
-
-      <p class="section-note">Know Your Numbers is buy one, get one: choose any 2 of the 3 setups for the price of 1, or
-        buy 2 and get the third free.</p>
 
     </div>
   </section>
@@ -1333,8 +1354,8 @@
             <span class="faq-icon">+</span>
           </summary>
           <div class="faq-answer">
-            The Black Friday and Cyber Monday offers are available November 27 to 30, 2026. The sale ends Monday,
-            November 30, and regular pricing returns after that.
+            The Black Friday and Cyber Monday offers run from Friday, November 27, 2026 at 12:00 AM through Monday,
+            November 30, 2026 at 11:59 PM MST. Regular pricing returns after that.
           </div>
         </details>
 
@@ -1365,8 +1386,8 @@
             <span class="faq-icon">+</span>
           </summary>
           <div class="faq-answer">
-            Choose any 2 of the 3 setups (Google Analytics 4, Google Search Console and Google Tag Manager) for the
-            price of 1. Want all 3? Buy 2 and get 1 free.
+            Get 2 Google properties set up and configured for the price of 1, or go for all 3 Google properties for the
+            price of 2. Either way, you're getting a great deal for these essential measurement and metrics trackers!
           </div>
         </details>
 
@@ -1399,8 +1420,7 @@
             Not Sure Which One Fits?
           </div>
           <h2>Talk it through before the sale ends.</h2>
-          <p>Book a free consultation and we'll point you to the right upgrade for your business before the offers end
-            on Monday, Nov 30.</p>
+          <p>Give us a call or schedule a free consultation to discuss your project!</p>
           <div class="btn-group">
             <a href="/book-a-free-consultation/" class="btn btn-primary">Book a Free Consultation</a>
             <a href="tel:+13853555351" class="btn btn-outline-light">Call Us Today!</a>
@@ -1421,25 +1441,30 @@
     </div>
   </section>
 
-  <div class="bf-terms">
-    <p>Every service ordered is subject to completing our Master Service Agreement and is valid only for the exact
-      service purchased. Orders paid in full are good for 365 days from the date of purchase and are fully
-      transferable.</p>
-    <p>Black Friday &ndash; Cyber Monday offers available Nov 27&ndash;30, 2026.</p>
-  </div>
-
 </div>
 
 <script>
-  /* Countdown to data-end on #bfPage (midnight Mountain time after Mon, Nov 30). When it reaches zero, or if the page
-     is opened after that, show the "sale has ended" notice and hide the order-site cards. */
+  /* Countdown on #bfPage. All times are Mountain Standard Time (UTC-7 in November):
+       before data-start         "Sale starts in"  counts down to the start (Fri, Nov 27, 12:00 AM)
+       data-start to data-end    "Sale ends in"    counts down to the end   (Mon, Nov 30, 11:59 PM)
+       after data-end            "Sale ended"      shows 00 00 00 00, hides the order-site cards and shows a notice on top
+     To change the sale window, edit data-start and data-end on #bfPage only. */
   (function () {
     var page = document.getElementById('bfPage');
     if (!page) return;
+    var start = Date.parse(page.getAttribute('data-start'));
     var end = Date.parse(page.getAttribute('data-end'));
     if (isNaN(end)) return;
+    if (isNaN(start)) start = 0; // no start date: the sale is already running
     var note = document.getElementById('bfEndedNote');
     var count = document.getElementById('bfCount');
+    var label = document.getElementById('bfCountLabel');
+    var spoken = document.getElementById('bfCountSr');
+    var PHASES = {
+      before: { label: 'Sale starts in', say: 'The sale starts Friday, November 27, 2026 at 12:00 AM Mountain Standard Time.' },
+      live: { label: 'Sale ends in', say: 'The sale ends Monday, November 30, 2026 at 11:59 PM Mountain Standard Time.' },
+      over: { label: 'Sale ended', say: 'The sale has ended.' }
+    };
     var cells = {};
     if (count) {
       Array.prototype.forEach.call(count.querySelectorAll('[data-unit]'), function (el) {
@@ -1447,6 +1472,7 @@
       });
     }
     var timer = null;
+    var phase = '';
     var first = true;
 
     function pad(n) { return n < 10 ? '0' + n : String(n); }
@@ -1460,15 +1486,22 @@
       el.classList.add('is-tick');
     }
 
-    function finish() {
-      page.classList.add('is-ended');
-      if (note) note.hidden = false;
-      if (count) count.hidden = true;
+    function setPhase(name) {
+      if (name === phase) return;
+      phase = name;
+      if (count) {
+        count.classList.remove('is-before', 'is-live', 'is-over');
+        count.classList.add('is-' + name);
+      }
+      if (label) label.textContent = PHASES[name].label;
+      if (spoken) spoken.textContent = PHASES[name].say;
+      if (name === 'over') {
+        page.classList.add('is-ended');
+        if (note) note.hidden = false;
+      }
     }
 
-    function tick() {
-      var left = end - Date.now();
-      if (left <= 0) { finish(); return; }
+    function show(left) {
       var s = Math.floor(left / 1000);
       var d = Math.floor(s / 86400); s -= d * 86400;
       var h = Math.floor(s / 3600); s -= h * 3600;
@@ -1478,9 +1511,25 @@
       setCell(cells.m, pad(m));
       setCell(cells.s, pad(s));
       first = false;
+    }
+
+    function tick() {
+      var now = Date.now();
+      if (now >= end) {
+        setPhase('over');
+        show(0);
+        if (count) {
+          count.classList.add('is-ready');
+          count.classList.remove('is-urgent');
+        }
+        return;
+      }
+      var waiting = now < start;
+      setPhase(waiting ? 'before' : 'live');
+      show((waiting ? start : end) - now);
       if (count) {
         count.classList.add('is-ready');
-        count.classList.toggle('is-urgent', left < 86400000);
+        count.classList.toggle('is-urgent', !waiting && end - now < 86400000);
       }
       timer = setTimeout(tick, 1000 - (Date.now() % 1000) + 5);
     }

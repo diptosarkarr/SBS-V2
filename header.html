@@ -1542,8 +1542,8 @@
 
   @media (max-width: 640px) {
 
-    /* one short line on a phone: badge + "Up to 50% off, Nov 27-30 ->" */
-    .custom-announce-badge-extra,
+    /* short version on a phone: the full label "BLACK FRIDAY - CYBER MONDAY" stays, the text is shortened to
+       "Up to 50% off + $$$ bonuses! Nov 27-30 ->" (the label and the text wrap onto two centered lines when they do not fit) */
     .custom-announce-full,
     .custom-announce-cta {
       display: none;
@@ -1573,17 +1573,17 @@
 
 <!-- ============================================================
      ANNOUNCEMENT BAR (Black Friday - Cyber Monday 2026)
-     Hides itself after data-end (midnight Mountain time, end of Mon Nov 30) and when dismissed for the visit.
+     Hides itself after data-end (11:59 PM Mountain time on Mon Nov 30) and when dismissed for the visit.
      Remove this block, its CSS above and the --custom-bar-offset script at the bottom once the promo is over.
      ============================================================ -->
-<div class="custom-announce" id="customAnnounce" data-end="2026-12-01T00:00:00-07:00" role="region"
+<div class="custom-announce" id="customAnnounce" data-end="2026-11-30T23:59:59-07:00" role="region"
   aria-label="Announcement">
   <a class="custom-announce-link" href="/black-friday/">
-    <span class="custom-announce-badge">Black Friday<span class="custom-announce-badge-extra">&nbsp;&middot; Cyber
-        Monday</span></span>
+    <span class="custom-announce-badge"><span>Black Friday<span class="custom-announce-badge-extra"> - Cyber
+          Monday</span></span></span>
     <span class="custom-announce-text">
-      <span class="custom-announce-full">Up to 50% off, bonuses included. <strong>Nov 27&ndash;30 only.</strong></span>
-      <span class="custom-announce-short">Up to 50% off, <strong>Nov 27&ndash;30</strong> &rarr;</span>
+      <span class="custom-announce-full">Up to 50% off + $$$ bonuses! <strong>Nov 27&ndash;30 only.</strong></span>
+      <span class="custom-announce-short">Up to 50% off + $$$ bonuses! <strong>Nov 27&ndash;30</strong> &rarr;</span>
     </span>
     <span class="custom-announce-cta">See the offers &rarr;</span>
   </a>
